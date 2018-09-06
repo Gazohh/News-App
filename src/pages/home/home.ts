@@ -82,7 +82,7 @@ export class HomePage {
 
             loader.present().then(() => {
 
-                this.http.post('http://localhost/login/src/pages/register/login.php',data,options)
+                this.http.post('http://localhost/News-App/src/pages/register/login.php',data,options)
 
                     .subscribe(res => {
 
