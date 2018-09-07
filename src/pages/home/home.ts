@@ -108,7 +108,7 @@ export class HomePage {
                         });
 
                             alert.present();
-                            this.navCtrl.push(FeedPage);
+                            this.navCtrl.setRoot(FeedPage);
 
                         }else
 

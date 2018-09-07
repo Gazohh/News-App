@@ -5,6 +5,7 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 
 import {FavorietenPage} from "../pages/favorieten/favorieten";
 import {FeedPage} from "../pages/feed/feed";
+import {HomePage} from "../pages/home/home";
 
 
 @Component({
@@ -12,7 +13,7 @@ import {FeedPage} from "../pages/feed/feed";
 })
 export class MyApp {
     @ViewChild(Nav) nav: Nav;
-    rootPage: any = FeedPage;
+    rootPage: any = HomePage;
 
     pages: Array<{title: string, component: any}>;
 
