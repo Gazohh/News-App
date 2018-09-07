@@ -14,11 +14,11 @@ export class RssProvider {
     console.log('Hello RssProvider Provider');
   }
 
-  getRSS()
+  getRSS() 
   {
-    const RSS_URL: any = "http://www.rssmix.com/u/8297212/rss.xml";
+    const RSS_URL: any = "http://gazoh.net/rss.xml";
     const API: any = "wtxfwzfeaqeianrqzzzqfpirznx0hern2hpa2xsz";
-    const count: any = 20;
+    const count: any = 50;
     const API_URL: any = "https://api.rss2json.com/v1/api.json";
     const response = this.http.post(API_URL, {},{params: {'rss_url': RSS_URL, 'api_key': API, 'count': count}});
     return response;

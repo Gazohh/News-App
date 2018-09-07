@@ -182,15 +182,14 @@ var RssProvider = /** @class */ (function () {
         var API = "wtxfwzfeaqeianrqzzzqfpirznx0hern2hpa2xsz";
         var count = 20;
         var API_URL = "https://api.rss2json.com/v1/api.json";
-        var response = this.http.post(API_URL, {}, { params: { 'rss_url': RSS_URL, 'api_key': API, 'count': count } });
+        var response = this.http.post(API_URL, { 'rss_url': RSS_URL, 'api_key': API, 'count': count });
         return response;
     };
     RssProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
     ], RssProvider);
     return RssProvider;
-    var _a;
 }());
 
 //# sourceMappingURL=rss.js.map
