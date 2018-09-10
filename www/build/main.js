@@ -91,7 +91,7 @@ var RegisterPage = /** @class */ (function () {
     };
     RegisterPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-register',template:/*ion-inline-start:"C:\xampp\htdocs\News-App\src\pages\register\register.html"*/'<ion-grid>\n\n    <ion-row>\n\n        <ion-col col-sm-12 col-sm>\n\n            <ion-title  class="center">Registreer</ion-title>\n\n            <ion-item>\n\n                <ion-label floating>Username</ion-label>\n\n                <ion-input type="text" [(ngModel)]="username"></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n              <ion-label floating>E-mail</ion-label>\n\n              <ion-input type="email" [(ngModel)]="email"></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label floating>Password</ion-label>\n\n                <ion-input type="password" [(ngModel)]="password"></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label floating>Repeat password</ion-label>\n\n                <ion-input type="password" [(ngModel)]="repassword"></ion-input>\n\n            </ion-item>\n\n            <br>\n\n            <button class="text-center" ion-button (click)="Register()" color="secondary" full round>Aanmaken</button>\n\n          <br>\n\n            <button ion-button (click)="terug()" color="light" full round>Terug</button>\n\n        </ion-col>\n\n    </ion-row>\n\n</ion-grid>\n\n'/*ion-inline-end:"C:\xampp\htdocs\News-App\src\pages\register\register.html"*/,
+            selector: 'page-register',template:/*ion-inline-start:"C:\xampp\htdocs\News-App\src\pages\register\register.html"*/'<ion-content>\n\n    <ion-grid>\n\n        <ion-row>\n\n            <ion-col>\n\n                <ion-title class="center">Registreer</ion-title>\n\n                <ion-item>\n\n                    <ion-label floating>Username</ion-label>\n\n                    <ion-input type="text" [(ngModel)]="username"></ion-input>\n\n                </ion-item>\n\n                <ion-item>\n\n                    <ion-label floating>E-mail</ion-label>\n\n                    <ion-input type="email" [(ngModel)]="email"></ion-input>\n\n                </ion-item>\n\n                <ion-item>\n\n                    <ion-label floating>Password</ion-label>\n\n                    <ion-input type="password" [(ngModel)]="password"></ion-input>\n\n                </ion-item>\n\n                <ion-item>\n\n                    <ion-label floating>Repeat password</ion-label>\n\n                    <ion-input type="password" [(ngModel)]="repassword"></ion-input>\n\n                </ion-item>\n\n                <br>\n\n                <button class="text-center" ion-button (click)="Register()" color="secondary" full round>Aanmaken\n\n                </button>\n\n                <br>\n\n                <button ion-button (click)="terug()" color="light" full round>Terug</button>\n\n            </ion-col>\n\n        </ion-row>\n\n    </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\News-App\src\pages\register\register.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */]])
     ], RegisterPage);
@@ -178,18 +178,19 @@ var RssProvider = /** @class */ (function () {
         console.log('Hello RssProvider Provider');
     }
     RssProvider.prototype.getRSS = function () {
-        var RSS_URL = "http://www.rssmix.com/u/8297212/rss.xml";
+        var RSS_URL = "http://gazoh.net/rss.xml";
         var API = "wtxfwzfeaqeianrqzzzqfpirznx0hern2hpa2xsz";
-        var count = 20;
+        var count = 50;
         var API_URL = "https://api.rss2json.com/v1/api.json";
-        var response = this.http.post(API_URL, { 'rss_url': RSS_URL, 'api_key': API, 'count': count });
+        var response = this.http.post(API_URL, {}, { params: { 'rss_url': RSS_URL, 'api_key': API, 'count': count } });
         return response;
     };
     RssProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
     ], RssProvider);
     return RssProvider;
+    var _a;
 }());
 
 //# sourceMappingURL=rss.js.map
