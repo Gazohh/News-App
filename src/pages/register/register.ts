@@ -37,16 +37,14 @@ export class RegisterPage {
 
     Register() {
         if (this.username == null || this.password == null || this.email == null || this.repassword == null) {
-            let alert = this.alertCtrl.create(
-                {
-                    title: "",
+            let toast = this.toastCtrl.create({
+                message: 'Niet alle velden zijn volledig ingevuld!',
+                duration: 3000,
+                position: 'top'
+            });
 
-                    message: "Niet alle velden zijn ingevuld!",
 
-                    buttons: ['OK']
-                }
-            )
-            alert.present();
+            toast.present();
         }
         else {
             var headers = new HttpHeaders();
@@ -85,33 +83,25 @@ export class RegisterPage {
 
                         if (res == "Registration successfull") {
 
-                            let alert = this.alertCtrl.create({
-
-                                title: "Registreren geslaagd",
-
-                                subTitle: "U kunt nu gaan inloggen",
-
-                                buttons: ['OK']
-
+                            let toast = this.toastCtrl.create({
+                                message: 'Registreren geslaagd, U kunt nu gaan inloggen!',
+                                duration: 3000,
+                                position: 'top'
                             });
 
-                            alert.present();
+                            toast.present();
 
                             this.navCtrl.push(HomePage);
 
                         } else {
-
-                            let alert = this.alertCtrl.create({
-
-                                title: "Mislukt",
-
-                                subTitle: "Er is iets mis gegaan tijdens het registeren probeert u het opnieuw.",
-
-                                buttons: ['OK']
-
+                            
+                            let toast = this.toastCtrl.create({
+                                message: 'Er is iets mis gegaan tijdens het registeren probeert u het opnieuw.',
+                                duration: 3000,
+                                position: 'top'
                             });
 
-                            alert.present();
+                            toast.present();
 
                         }
                     });
