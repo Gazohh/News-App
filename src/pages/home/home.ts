@@ -46,13 +46,18 @@ export class HomePage {
 
         if(this.username == null || this.password  == null ){
 
-            let toast = this.toastCtrl.create({
-                message: 'Gebruikersnaam of Wachtwoord is niet ingevuld!',
-                duration: 3000,
-                position: 'top'
-            });
+            let alert = this.alertCtrl.create({
 
-            toast.present();
+                title:"",
+
+            message:"Gebruikersnaam of wachtwoord is niet ingevuld!",
+
+            buttons: ['OK']
+
+        });
+
+            alert.present();
+
         }
 
     else
