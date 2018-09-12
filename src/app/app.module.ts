@@ -4,12 +4,15 @@ import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {StatusBar} from '@ionic-native/status-bar';
 import {MyApp} from './app.component';
+
 import {HomePage} from '../pages/home/home';
 import {RegisterPage} from "../pages/register/register";
-import { HttpClientModule } from '@angular/common/http';
 import {FavorietenPage} from "../pages/favorieten/favorieten";
 import {FeedPage} from "../pages/feed/feed";
+
+import { HttpClientModule } from '@angular/common/http';
 import { RssProvider } from '../providers/rss/rss';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -22,13 +25,14 @@ import { RssProvider } from '../providers/rss/rss';
         HomePage,
         RegisterPage,
         FavorietenPage,
-        FeedPage
-
+        FeedPage,
     ],
     imports: [
         BrowserModule,
         IonicModule.forRoot(MyApp),
-        HttpClientModule
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
     ],
     bootstrap: [IonicApp],
     entryComponents: [
