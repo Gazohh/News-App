@@ -1,59 +1,30 @@
-<form novalidate [formGroup]="form" (ngSubmit)="addUser(form)">
-    <div class="form-group">
-      <label for="name">
-        Name:
-      </label>
-        <input
-          type="text"
-          formControlName="name"
-          class="form-control"
-            >
-    </div>
-    <div *ngIf="form.get('name').touched && form.get('name').invalid" class="alert alert-danger">
-      <div *ngIf="form.get('name').hasError('required')">
-        Naam moet ingevuld zijn.
-      </div>
-      <div *ngIf="form.get('name').hasError('pattern')">
-        Ongeldige naam.
-      </div>
-    </div>
-      <div class="form-group">
-        <label for="password">
-          Password:
-        </label>
-        <input
-        type="text"
-        formControlName="password"
-        class="form-control">
-      </div>
-      <div *ngIf="form.get('password').hasError('required') && form.get('password').touched" class="alert alert-danger">
-        Password is nog niet ingevuld.
-      </div>
-      <div *ngIf="form.get('password').hasError('minlength')">
-        Minder dan 5 letters gebruikt
-      </div>
-      <div class="form-group">
-        <label for="email">
-          Email:
-        </label>
-        <input
-        type="text"
-        class="form-control"
-        formControlName="email"
-        >
-      </div>
-      <div *ngIf="form.get('email').touched && form.get('email').invalid" class="alert alert-danger">
-        <div *ngIf="form.get('email').hasError('required')">
-          Email moet ingevuld zijn!
-        </div>
-        <div *ngIf="form.get('email').hasError('email')">
-          Ongeldige Email
-        </div>
-      </div>
-      <button type="submit" name="button"[disabled]="form.invalid" class="btn btn-succes">Register</button>
-    </form>
-    <ul class="list-group">
-      <li *ngFor="let user of userList" class="list-group-item">
-        {{user.name}}
-      </li> 
-    </ul>
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-title class="center">Registreer</ion-title>
+                <ion-item>
+                    <ion-label floating>Username</ion-label>
+                    <ion-input type="text" [(ngModel)]="username"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>E-mail</ion-label>
+                    <ion-input type="email" [(ngModel)]="email"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Password</ion-label>
+                    <ion-input type="password" [(ngModel)]="password"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Repeat password</ion-label>
+                    <ion-input type="password" [(ngModel)]="repassword"></ion-input>
+                </ion-item>
+                <br>
+                <button class="text-center" ion-button (click)="Register()" color="secondary" full round>Aanmaken
+                </button>
+                <br>
+                <button ion-button (click)="terug()" color="light" full round>Terug</button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

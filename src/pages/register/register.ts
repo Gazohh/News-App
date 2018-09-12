@@ -1,12 +1,9 @@
-import {Component, ViewChild, OnInit} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {IonicPage, NavController, NavParams, AlertController, LoadingController} from 'ionic-angular';
 import {HomePage} from '../home/home';
 import {HttpClient, HttpHeaders, HttpRequest} from "@angular/common/http";
 import {ToastController} from 'ionic-angular';
 import 'rxjs/add/operator/map';
-import { FormGroup, FormControl, Validators} from '@angular/forms';
-import { User } from '../user';
-
 
 
 @IonicPage()
@@ -16,13 +13,6 @@ import { User } from '../user';
 })
 
 
-<<<<<<< HEAD
-export class RegisterPage implements OnInit {
-
-      userList: User[]=[];
-
-  form: FormGroup;
-=======
 export class RegisterPage {
 
     // Variablen
@@ -122,17 +112,10 @@ export class RegisterPage {
                             });
 
                             alert.present();
->>>>>>> parent of c88b6e87... V2.2
 
-  addUser(form){
-    this.userList.push(this.form.value)
-  }
-  
-  ngOnInit() {
-      this.form = new FormGroup({
-        name: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-z ]+')/*, Validators.minLength(3)*/]),
-        password: new FormControl('', [Validators.required, Validators.minLength(5)]),
-        email: new FormControl('', [Validators.required, Validators.email])
-      })
-  }
+                        }
+                    });
+            });
+        }
+    }
 }
