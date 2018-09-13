@@ -25769,6 +25769,8 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   line-height: 1.4;
   color: #999999;
   float: left;
+  margin-left: 15px;
+  margin-top: 15px;
 }
 
 body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div.loginFoto > div {

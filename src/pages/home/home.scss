@@ -55,21 +55,25 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
 body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div.loginFoto > div > ion-title > div {
   color: white !important;
 }
-.txt1{
-    font-family: Poppins-Regular;
-    font-size: 13px;
-    line-height: 1.4;
-    color: #999999;
-    float: right;
-    padding-right: 10px ;
+
+.txt1 {
+  font-family: Poppins-Regular;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #999999;
+  float: right;
+  padding-right: 10px;
 }
-.txt2{
-    font-family: Poppins-Regular;
-    font-size: 13px;
-    line-height: 1.4;
-    color: #999999;
-    float: left;
-    
+
+.txt2 {
+  font-family: Poppins-Regular;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #999999;
+  float: left;
+  margin-left: 15px;
+  margin-top: 15px;
+
 }
 
 // foto axa
@@ -83,21 +87,21 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   border-radius: 10px;
 }
 
-.button1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 20px;
-    min-width: 160px;
-    height: 50px;
-    background-color: #57b846;
-    border-radius: 25px;
-    font-size: 16px;
-    color: #fff;
-    line-height: 1.2;
-    transition: all 0.4s;
-    margin-left: 15px;
-    margin-top: 30px;
+.button1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  min-width: 160px;
+  height: 50px;
+  background-color: #57b846;
+  border-radius: 25px;
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.2;
+  transition: all 0.4s;
+  margin-left: 15px;
+  margin-top: 30px;
 }
 
 // scroll content

@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 import {FeedPage} from "../feed/feed";
 import {FavorietenPage} from "../favorieten/favorieten";
 import {ToastController} from 'ionic-angular';
+import {Keyboard} from '@ionic-native/keyboard';
 
 
 @Component({
@@ -24,8 +25,15 @@ export class HomePage {
 
     data:string;
 
-    constructor(public navCtrl: NavController, private alertCtrl: AlertController, public loading: LoadingController, public http: HttpClient, private toastCtrl: ToastController) {
+    constructor(public navCtrl: NavController,
+    private alertCtrl: AlertController,
+                public loading: LoadingController,
+                public http: HttpClient,
+                private toastCtrl: ToastController,
+                private keyboard: Keyboard) {
 
+
+        keyboard.disableScroll(true);
     }
 
     // Console log die username en password terug geeft.
