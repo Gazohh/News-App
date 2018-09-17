@@ -1,16 +1,16 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\xampp\\htdocs\\News-App\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "D:\\xampp\\htdocs\\News-App\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
-                    "source": "C:\\xampp\\htdocs\\News-App\\platforms\\android\\app\\src\\main\\res\\values\\strings.xml",
+                    "source": "D:\\xampp\\htdocs\\News-App\\platforms\\android\\app\\src\\main\\res\\values\\strings.xml",
                     "from": {
                         "startLines": "4,2,3",
                         "startColumns": "4,4,4",
-                        "startOffsets": "161,57,101",
+                        "startOffsets": "157,55,98",
                         "endColumns": "63,42,58",
-                        "endOffsets": "220,95,155"
+                        "endOffsets": "216,93,152"
                     },
                     "to": {
                         "startLines": "2,3,4",
