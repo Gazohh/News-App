@@ -1,0 +1,33 @@
+<div>
+  <form [formGroup]='rForm' (ngSubmit)="addForm(rForm.value)">
+
+    <div class="form-container">
+      <div class="row">
+          <div class="large-6 columns">
+        <label>Name
+          <input type="text" formControlName="name" required minlength="3">
+          </label>
+          <div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">Naam is incorrect</div>
+
+
+          <label>Email
+              <input type="text" formControlName="email">
+              </label>
+              <div class="alert" *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched">Email is incorrect</div>
+
+          <label>Password
+            <input type="password" formControlName="password" required minlength="5">
+          </label>    
+          <div class="alert" *ngIf="!rForm.controls['password'].valid && rForm.controls['cnfpassword'].touched">wachtwoord moet meer dan 5 tekens bevatten.</div>
+          <label>Confirm Password
+              <input type="password" formControlName="cnfpassword">
+          </label>    
+          <div class="alert" *ngIf="!rForm.controls['cnfpassword'].valid && rForm.controls['cnfpassword'].touched">Password komt niet overeen</div>
+
+        <input type="submit" class="button expanded" value="Register" [disabled]="!rForm.valid">
+      </div>
+    </div>
+    </div>
+
+  </form>
+</div>
