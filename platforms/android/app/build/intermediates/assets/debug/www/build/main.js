@@ -6,11 +6,12 @@ webpackJsonp([2],{
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(80);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(160);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(12);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -26,6 +27,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var RegisterPage = /** @class */ (function () {
     // Construtor hiermee roep je alles aan
     function RegisterPage(navCtrl, navParams, alertCtrl, http, loading, toastCtrl) {
@@ -35,63 +37,25 @@ var RegisterPage = /** @class */ (function () {
         this.http = http;
         this.loading = loading;
         this.toastCtrl = toastCtrl;
+        this.userList = [];
     }
+    RegisterPage.prototype.addUser = function (form) {
+        this.userList.push(this.form.value);
+    };
+    RegisterPage.prototype.ngOnInit = function () {
+        this.form = new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["b" /* FormGroup */]({
+            username: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* Validators */].pattern('[a-zA-Z][a-zA-z ]+') /*, Validators.minLength(3)*/]),
+            password: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* Validators */].minLength(5)]),
+            email: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* Validators */].email])
+        });
+    };
     // Push terug naar home button
     RegisterPage.prototype.terug = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__home_home__["a" /* HomePage */]);
     };
-    RegisterPage.prototype.Register = function () {
-        var _this = this;
-        if (this.username == null || this.password == null || this.email == null || this.repassword == null) {
-            var toast = this.toastCtrl.create({
-                message: 'Niet alle velden zijn ingevuld!',
-                duration: 3000,
-                position: 'top'
-            });
-            toast.present();
-        }
-        else {
-            var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["c" /* HttpHeaders */]();
-            headers.append("Accept", 'application/json');
-            headers.append('Content-Type', 'application/json');
-            var options = { headers: headers };
-            var data = {
-                username: this.username,
-                password: this.password,
-                email: this.email
-            };
-            var loader_1 = this.loading.create({
-                content: 'Aan het registreren..',
-            });
-            loader_1.present().then(function () {
-                _this.http.post('http://gazoh.net/register.php', data, options)
-                    .map(function (res) { return res; })
-                    .subscribe(function (res) {
-                    loader_1.dismiss();
-                    if (res == "Registration successfull") {
-                        var alert_1 = _this.alertCtrl.create({
-                            title: "Registreren geslaagd",
-                            subTitle: "U kunt nu gaan inloggen",
-                            buttons: ['OK']
-                        });
-                        alert_1.present();
-                        _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__home_home__["a" /* HomePage */]);
-                    }
-                    else {
-                        var alert_2 = _this.alertCtrl.create({
-                            title: "Mislukt",
-                            subTitle: "Er is iets mis gegaan tijdens het registeren probeert u het opnieuw.",
-                            buttons: ['OK']
-                        });
-                        alert_2.present();
-                    }
-                });
-            });
-        }
-    };
     RegisterPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-register',template:/*ion-inline-start:"D:\xampp\htdocs\News-App\src\pages\register\register.html"*/'<ion-content>\n\n    <ion-grid>\n\n        <ion-row>\n\n            <ion-col class="col">\n\n                <div class="loginFoto">\n\n                    <div class="form-title"\n\n                         style="background-image: url(http://gazoh.net/images/axa-studios-media-agency-arnhem-maibanner.jpg)">\n\n                        <ion-title class="form-title1" style="color: #ffffff;">Registreer</ion-title>\n\n                    </div>\n\n                </div><div class="geheel2">\n\n                <ion-item>\n\n\n\n                    <ion-label floating>Username</ion-label>\n\n                    <ion-input type="text" [(ngModel)]="username"></ion-input>\n\n                     </ion-item>\n\n                <ion-item>\n\n                    <ion-label floating>E-mail</ion-label>\n\n                    <ion-input type="email" [(ngModel)]="email"></ion-input>\n\n                </ion-item>\n\n                <ion-item>\n\n                    <ion-label floating>Password</ion-label>\n\n                    <ion-input type="password" [(ngModel)]="password"></ion-input>\n\n                </ion-item>\n\n                <ion-item>\n\n                    <ion-label floating>Repeat password</ion-label>\n\n                    <ion-input type="password" [(ngModel)]="repassword"></ion-input>\n\n            </ion-item>\n\n                <br><div buttonClass style="width: 50%; margin-left: 20px;">\n\n                <button class="button3" ion-button (click)="Register()" color="secondary" full round>Aanmaken\n\n                </button>\n\n                <br>\n\n                </div><a (click)="terug()" class="txt3">\n\n                Heb je al een account? Meld je nu aan!\n\n            </a>\n\n           <br> </div> </ion-col>\n\n        </ion-row>\n\n    </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\xampp\htdocs\News-App\src\pages\register\register.html"*/,
+            selector: 'page-register',template:/*ion-inline-start:"D:\xampp\htdocs\News-App\src\pages\register\register.html"*/'<ion-content>\n\n    <ion-grid>\n\n        <ion-row>\n\n            <ion-col class="col">\n\n                <div class="loginFoto">\n\n                    <div class="form-title"\n\n                         style="background-image: url(http://gazoh.net/images/axa-studios-media-agency-arnhem-maibanner.jpg)">\n\n                        <ion-title class="form-title1" style="color: #ffffff;">Registreer</ion-title>\n\n                    </div>\n\n                </div>\n\n                <div class="geheel2">\n\n                    <form novalidate [formGroup]="form" (ngSubmit)="addUser(form)">\n\n                        <ion-item>\n\n                            <ion-label floating>Username</ion-label>\n\n                            <ion-input type="text" formControlName="username" required></ion-input>\n\n                        </ion-item>\n\n                        <div *ngIf="form.get(\'username\').touched && form.get(\'username\').invalid" class="alert alert-danger">\n\n                            <div *ngIf="form.get(\'username\').hasError(\'required\')">Naam moet ingevuld zijn.</div>\n\n                            <div *ngIf="form.get(\'username\').hasError(\'pattern\')">Ongeldige naam.</div>\n\n                            <div *ngIf="form.get(\'username\').hasError(\'minLength\')">Minder dan 5 letters gebruikt</div>\n\n                        </div>\n\n\n\n\n\n                        <ion-item>\n\n                            <ion-label floating>E-mail</ion-label>\n\n                            <ion-input type="text" formControlName="email" required></ion-input>\n\n                        </ion-item>\n\n                        <div *ngIf="form.get(\'email\').touched && form.get(\'email\').invalid" class="alert alert-danger">\n\n                            <div *ngIf="form.get(\'email\').hasError(\'required\')">Email is required</div>\n\n                            <div *ngIf="form.get(\'email\').hasError(\'email\')">Invalid Email!</div>\n\n                        </div>\n\n\n\n\n\n                        <ion-item>\n\n                            <ion-label floating>Password</ion-label>\n\n                            <ion-input type="text" formControlName="password" required></ion-input>\n\n                        </ion-item>\n\n                        <div *ngIf="form.get(\'password\').touched && form.get(\'password\').invalid" class="alert alert-danger">\n\n                            <div *ngIf="form.get(\'password\').hasError(\'minLength\')">Minder dan 5 letters gebruikt</div>\n\n                            <div *ngIf="form.get(\'password\').hasError(\'required\')">Password is required</div>\n\n                        </div>\n\n                    </form>\n\n\n\n\n\n                    <br>\n\n                        <button class="button3" ion-button (click)="Register()" color="secondary" full round>Aanmaken\n\n                        </button>\n\n                        <br>\n\n                    <a (click)="terug()" class="txt3">\n\n                        Heb je al een account? Meld je nu aan!\n\n                    </a>\n\n                    <br>\n\n                </div>\n\n            </ion-col>\n\n        </ion-row>\n\n    </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\xampp\htdocs\News-App\src\pages\register\register.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
@@ -222,7 +186,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(202);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(203);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(279);
@@ -232,12 +196,14 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_favorieten_favorieten__ = __webpack_require__(81);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_feed_feed__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_rss_rss__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_forms__ = __webpack_require__(12);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -273,7 +239,8 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/feed/feed.module#FeedPageModule', name: 'FeedPage', segment: 'feed', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] }
                     ]
-                })
+                }),
+                __WEBPACK_IMPORTED_MODULE_12__angular_forms__["f" /* ReactiveFormsModule */]
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
             entryComponents: [
@@ -305,7 +272,7 @@ var AppModule = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(203);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(202);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_favorieten_favorieten__ = __webpack_require__(81);
@@ -372,7 +339,7 @@ var MyApp = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FeedPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_rss_rss__ = __webpack_require__(159);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -435,7 +402,7 @@ var FeedPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__register_register__ = __webpack_require__(105);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(160);
@@ -560,7 +527,7 @@ var HomePage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FavorietenPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
