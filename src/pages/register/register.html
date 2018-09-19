@@ -33,23 +33,22 @@
 
                         <ion-item>
                             <ion-label floating>Password</ion-label>
-                            <ion-input type="text" formControlName="password" required></ion-input>
+                            <ion-input type="password" formControlName="password" required></ion-input>
                         </ion-item>
                         <div *ngIf="form.get('password').touched && form.get('password').invalid" class="alert alert-danger">
                             <div *ngIf="form.get('password').hasError('minLength')">Minder dan 5 letters gebruikt</div>
                             <div *ngIf="form.get('password').hasError('required')">Password is required</div>
                         </div>
                     </form>
-
-
-                    <br>
-                        <button class="button3" ion-button (click)="Register()" color="secondary" full round>Aanmaken
-                        </button>
-                        <br>
                     <a (click)="terug()" class="txt3">
                         Heb je al een account? Meld je nu aan!
                     </a>
+<br>
                     <br>
+                    <button class="button3" ion-button (click)="Register()" color="secondary" round>Registreren</button>
+                        <br>
+
+
                 </div>
             </ion-col>
         </ion-row>
