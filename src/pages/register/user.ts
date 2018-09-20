@@ -27,5 +27,3 @@ class User {
         this.username = email;
     }
 }
-
-let userInfo = new User();

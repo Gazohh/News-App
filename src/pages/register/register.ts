@@ -6,7 +6,6 @@ import {ToastController} from 'ionic-angular';
 import 'rxjs/add/operator/map';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 
-
 @IonicPage()
 @Component({
     selector: 'page-register',
@@ -16,14 +15,11 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
 
 export class RegisterPage {
 
-    userList: User[]=[];
+    username: string;
+    password: string;
+    email: string;
 
     form: FormGroup;
-
-    addUser(form){
-        this.userList.push(this.form.value)
-    }
-
 
     // Construtor hiermee roep je alles aan
     constructor(public navCtrl: NavController,
@@ -48,7 +44,7 @@ export class RegisterPage {
     }
 
     Register() {
-        if (userInfo.username == null || userInfo.password == null || userInfo.email == null) {
+        if (this.username == null || this.password == null || this.email == null) {
             let toast = this.toastCtrl.create({
                 message: 'Niet alle velden zijn ingevuld!',
                 duration: 3000,
@@ -68,11 +64,11 @@ export class RegisterPage {
 
             var data = {
 
-                username: userInfo.username,
+                username: this.username,
 
-                password: userInfo.password,
+                password: this.password,
 
-                email: userInfo.email
+                email: this.email
 
             };
 
