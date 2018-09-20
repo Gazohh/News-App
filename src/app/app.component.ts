@@ -17,7 +17,7 @@ import {SettingsProvider} from "../providers/settings/settings";
 })
 export class MyApp {
     @ViewChild(Nav) nav: Nav;
-    rootPage: any = FeedPage;
+    rootPage: any = HomePage;
 
     pages: Array<{ title: string, component: any }>;
 
