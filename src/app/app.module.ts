@@ -11,8 +11,6 @@ import {FavorietenPage} from "../pages/favorieten/favorieten";
 import {FeedPage} from "../pages/feed/feed";
 import {RssProvider} from '../providers/rss/rss';
 import { ReactiveFormsModule } from '@angular/forms';
-import {SettingsProvider} from "../providers/settings/settings";
-import {SettingsPage} from "../pages/settings/settings";
 
 
 @NgModule({
@@ -21,8 +19,7 @@ import {SettingsPage} from "../pages/settings/settings";
         HomePage,
         RegisterPage,
         FavorietenPage,
-        FeedPage,
-        SettingsPage
+        FeedPage
 
     ],
     imports: [
@@ -40,16 +37,14 @@ import {SettingsPage} from "../pages/settings/settings";
         HomePage,
         RegisterPage,
         FavorietenPage,
-        FeedPage,
-        SettingsPage
+        FeedPage
     ],
     providers: [
         StatusBar,
         SplashScreen,
         HttpClientModule,
         {provide: ErrorHandler, useClass: IonicErrorHandler},
-        RssProvider,
-        SettingsProvider
+        RssProvider
     ]
 
 })
