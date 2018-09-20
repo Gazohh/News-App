@@ -9,22 +9,42 @@
                     </div>
                 </div>
                 <div class="geheel2">
-                    <ion-item>
-                        <ion-label floating>Username</ion-label>
-                        <ion-input type="text" [(ngModel)]="username"></ion-input>
-                    </ion-item>
+                    <form novalidate [formGroup]="form" (ngSubmit)="addUser(form)">
+                        <div class="form-group">
+                            <ion-item>
+                                <ion-label floating>Username</ion-label>
+                                <ion-input type="text" formControlName="username" class="form-control"></ion-input>
+                            </ion-item>
+                        </div>
+                        <div *ngIf="form.get('username').touched && form.get('username').invalid" class="alert alert-danger">
+                            <div *ngIf="form.get('username').hasError('required')">Naam moet ingevuld zijn.</div>
+                            <div *ngIf="form.get('username').hasError('pattern')">Ongeldige naam.</div>
+                            <div *ngIf="form.get('username').hasError('minLength')">Minder dan 5 letters gebruikt</div>
+                        </div>
 
+                        <div class="form-group">
+                            <ion-item>
+                                <ion-label floating>E-mail</ion-label>
+                                <ion-input type="text" class="form-control" formControlName="email"></ion-input>
+                            </ion-item>
+                            <div *ngIf="form.get('email').touched && form.get('email').invalid" class="alert alert-danger">
+                                <div *ngIf="form.get('email').hasError('required')">Email is required</div>
+                                <div *ngIf="form.get('email').hasError('email')">Invalid Email!</div>
+                            </div>
+                        </div>
 
-                    <ion-item>
-                        <ion-label floating>E-mail</ion-label>
-                        <ion-input type="text" [(ngModel)]="email"></ion-input>
-                    </ion-item>
-
-
-                    <ion-item>
-                        <ion-label floating>Password</ion-label>
-                        <ion-input type="password" [(ngModel)]="password"></ion-input>
-                    </ion-item>
+                        <div class="form-group">
+                            <ion-item>
+                                <ion-label floating>Password</ion-label>
+                                <ion-input type="text" formControlName="password" class="form-control"></ion-input>
+                            </ion-item>
+                        </div>
+                        <div *ngIf="form.get('password').touched && form.get('password').invalid"
+                             class="alert alert-danger">
+                            <div *ngIf="form.get('password').hasError('minLength')">Minder dan 5 letters gebruikt</div>
+                            <div *ngIf="form.get('password').hasError('required')">Wachtwoord moet ingevuld zijn</div>
+                        </div>
+                    </form>
 
 
                     <br>

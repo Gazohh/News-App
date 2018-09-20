@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {IonicPage, NavController, NavParams, AlertController, LoadingController} from 'ionic-angular';
 import {HomePage} from '../home/home';
 import {HttpClient, HttpHeaders, HttpRequest} from "@angular/common/http";
@@ -15,12 +15,15 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
 })
 
 
-export class RegisterPage {
+export class RegisterPage implements OnInit {
 
-    username: string;
-    password: string;
-    email: string;
+    userList: User[]=[];
 
+    form: FormGroup;
+
+    addUser(form){
+        this.userList.push(this.form.value)
+    }
 
     // Construtor hiermee roep je alles aan
     constructor(public navCtrl: NavController,
@@ -28,8 +31,16 @@ export class RegisterPage {
                 public alertCtrl: AlertController,
                 private http: HttpClient,
                 public loading: LoadingController,
-                private toastCtrl: ToastController) {
+                private toastCtrl: ToastController) {}
+
+    ngOnInit() {
+        this.form = new FormGroup({
+            username: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-z ]+')/*, Validators.minLength(3)*/]),
+            password: new FormControl('', [Validators.required, Validators.minLength(5)]),
+            email: new FormControl('', [Validators.required, Validators.email])
+        })
     }
+
 
 
     // Push terug naar home button

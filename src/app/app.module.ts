@@ -10,6 +10,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {FavorietenPage} from "../pages/favorieten/favorieten";
 import {FeedPage} from "../pages/feed/feed";
 import {RssProvider} from '../providers/rss/rss';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {RssProvider} from '../providers/rss/rss';
         IonicModule.forRoot(MyApp, {
             scrollAssist: false,
             autoFocusAssist: false
-        })
+        }),
+        ReactiveFormsModule
     ],
     bootstrap: [IonicApp],
     entryComponents: [
