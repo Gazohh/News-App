@@ -9,43 +9,28 @@
                     </div>
                 </div>
                 <div class="geheel2">
-                    <form novalidate [formGroup]="form">
-                        <ion-item>
-                            <ion-label floating>Username</ion-label>
-                            <ion-input type="text" formControlName="username" required></ion-input>
-                        </ion-item>
-                        <div *ngIf="form.get('username').touched && form.get('username').invalid" class="alert alert-danger">
-                            <div *ngIf="form.get('username').hasError('required')">Naam moet ingevuld zijn.</div>
-                            <div *ngIf="form.get('username').hasError('pattern')">Ongeldige naam.</div>
-                            <div *ngIf="form.get('username').hasError('minLength')">Minder dan 5 letters gebruikt</div>
-                        </div>
+                    <ion-item>
+                        <ion-label floating>Username</ion-label>
+                        <ion-input type="text" [(ngModel)]="username"></ion-input>
+                    </ion-item>
 
 
-                        <ion-item>
-                            <ion-label floating>E-mail</ion-label>
-                            <ion-input type="text" formControlName="email" required></ion-input>
-                        </ion-item>
-                        <div *ngIf="form.get('email').touched && form.get('email').invalid" class="alert alert-danger">
-                            <div *ngIf="form.get('email').hasError('required')">Email is required</div>
-                            <div *ngIf="form.get('email').hasError('email')">Invalid Email!</div>
-                        </div>
+                    <ion-item>
+                        <ion-label floating>E-mail</ion-label>
+                        <ion-input type="text" [(ngModel)]="email"></ion-input>
+                    </ion-item>
 
 
-                        <ion-item>
-                            <ion-label floating>Password</ion-label>
-                            <ion-input type="text" formControlName="password" required></ion-input>
-                        </ion-item>
-                        <div *ngIf="form.get('password').touched && form.get('password').invalid" class="alert alert-danger">
-                            <div *ngIf="form.get('password').hasError('minLength')">Minder dan 5 letters gebruikt</div>
-                            <div *ngIf="form.get('password').hasError('required')">Password is required</div>
-                        </div>
-                    </form>
+                    <ion-item>
+                        <ion-label floating>Password</ion-label>
+                        <ion-input type="password" [(ngModel)]="password"></ion-input>
+                    </ion-item>
 
 
                     <br>
-                        <button class="button3" ion-button (click)="Register()" color="secondary" full round>Aanmaken
-                        </button>
-                        <br>
+                    <button class="button3" ion-button (click)="Register()" color="secondary" full round>Aanmaken
+                    </button>
+                    <br>
                     <a (click)="terug()" class="txt3">
                         Heb je al een account? Meld je nu aan!
                     </a>

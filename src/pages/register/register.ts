@@ -4,7 +4,9 @@ import {HomePage} from '../home/home';
 import {HttpClient, HttpHeaders, HttpRequest} from "@angular/common/http";
 import {ToastController} from 'ionic-angular';
 import 'rxjs/add/operator/map';
-import { FormGroup, FormControl, Validators} from '@angular/forms';
+import {User} from "./user";
+import {FormGroup, FormControl, Validators} from '@angular/forms';
+
 
 @IonicPage()
 @Component({
@@ -19,7 +21,6 @@ export class RegisterPage {
     password: string;
     email: string;
 
-    form: FormGroup;
 
     // Construtor hiermee roep je alles aan
     constructor(public navCtrl: NavController,
@@ -30,13 +31,6 @@ export class RegisterPage {
                 private toastCtrl: ToastController) {
     }
 
-    ngOnInit() {
-        this.form = new FormGroup({
-            username: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-z ]+')/*, Validators.minLength(3)*/]),
-            password: new FormControl('', [Validators.required, Validators.minLength(5)]),
-            email: new FormControl('', [Validators.required, Validators.email])
-        })
-    }
 
     // Push terug naar home button
     terug() {
@@ -44,83 +38,72 @@ export class RegisterPage {
     }
 
     Register() {
-        if (this.username == null || this.password == null || this.email == null) {
-            let toast = this.toastCtrl.create({
-                message: 'Niet alle velden zijn ingevuld!',
-                duration: 3000,
-                position: 'top'
-            });
+        var headers = new HttpHeaders();
 
-            toast.present();
-        }
-        else {
-            var headers = new HttpHeaders();
+        headers.append("Accept", 'application/json');
 
-            headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
 
-            headers.append('Content-Type', 'application/json');
+        var options = {headers: headers};
 
-            var options = {headers: headers};
+        var data = {
 
-            var data = {
+            username: this.username,
 
-                username: this.username,
+            password: this.password,
 
-                password: this.password,
+            email: this.email
 
-                email: this.email
+        };
 
-            };
+        let loader = this.loading.create({
 
-            let loader = this.loading.create({
+            content: 'Aan het registreren..',
 
-                content: 'Aan het registreren..',
+        });
 
-            });
+        loader.present().then(() => {
 
-            loader.present().then(() => {
+            this.http.post('http://gazoh.net/register.php', data, options)
 
-                this.http.post('http://gazoh.net/register.php', data, options)
+                .map(res => res)
 
-                    .map(res => res)
+                .subscribe(res => {
 
-                    .subscribe(res => {
+                    loader.dismiss();
 
-                        loader.dismiss();
+                    if (res == "Registration successfull") {
 
-                        if (res == "Registration successfull") {
+                        let alert = this.alertCtrl.create({
 
-                            let alert = this.alertCtrl.create({
+                            title: "Registreren geslaagd",
 
-                                title: "Registreren geslaagd",
+                            subTitle: "U kunt nu gaan inloggen",
 
-                                subTitle: "U kunt nu gaan inloggen",
+                            buttons: ['OK']
 
-                                buttons: ['OK']
+                        });
 
-                            });
+                        alert.present();
 
-                            alert.present();
+                        this.navCtrl.push(HomePage);
 
-                            this.navCtrl.push(HomePage);
+                    } else {
 
-                        } else {
+                        let alert = this.alertCtrl.create({
 
-                            let alert = this.alertCtrl.create({
+                            title: "Mislukt",
 
-                                title: "Mislukt",
+                            subTitle: "Er is iets mis gegaan tijdens het registeren probeert u het opnieuw.",
 
-                                subTitle: "Er is iets mis gegaan tijdens het registeren probeert u het opnieuw.",
+                            buttons: ['OK']
 
-                                buttons: ['OK']
+                        });
 
-                            });
+                        alert.present();
 
-                            alert.present();
-
-                        }
-                    });
-            });
-        }
+                    }
+                });
+        });
     }
 }
