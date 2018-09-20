@@ -16,6 +16,7 @@ foreach ($urlArray as $url) {
             'site'  => $url['name'],
             'title' => $node->getElementsByTagName('title')->item(0)->nodeValue,
             'desc'  => $node->getElementsByTagName('description')->item(0)->nodeValue,
+            'image'   => $node->getElementsByTagName('enclosure')->item(0)->getAttribute('url'),
             'link'  => $node->getElementsByTagName('link')->item(0)->nodeValue,
             'date'  => $node->getElementsByTagName('pubDate')->item(0)->nodeValue,
         );
@@ -35,11 +36,17 @@ for ($x = 0; $x < $limit; $x++) {
     $title = str_replace(' & ', ' &amp; ', $feed[$x]['title']);
     $link = $feed[$x]['link'];
     $description = $feed[$x]['desc'];
+    $image = $feed[$x]['image'];
     $date = date('l F d, Y', strtotime($feed[$x]['date']));
-
-    echo "<pre>";
-    var_dump($feed);
-    echo "</pre>";
 }
-file_put_contents("rss.json", json_encode($feed));
+file_put_contents("algemeen.json", json_encode($feed));
 echo '</ul>';
+
+$connect = mysqli_connect("localhost", "root", "", "ionicapp");
+$jsondata = file_get_contents("algemeen.json");
+$data = json_decode($jsondata, true);
+foreach($data as $row)
+{
+    $sql = "INSERT INTO article (site, title, description, image, link, datum) VALUES ('".$row["site"]."', '".$row["title"]."', '".$row["desc"]."', '".$row["image"]."', '".$row["link"]."', '".$row["date"]."')";
+    mysqli_query($connect, $sql);
+}
