@@ -9,11 +9,11 @@
                     </div>
                 </div>
                 <div class="geheel2">
-                    <form novalidate [formGroup]="form" (ngSubmit)="addUser(form)">
+                    <form novalidate [formGroup]="form">
                         <div class="form-group">
                             <ion-item>
                                 <ion-label floating>Username</ion-label>
-                                <ion-input type="text" formControlName="username" class="form-control"></ion-input>
+                                <ion-input type="text" formControlName="username" class="form-control" [(ngModel)]="username"></ion-input>
                             </ion-item>
                         </div>
                         <div *ngIf="form.get('username').touched && form.get('username').invalid" class="alert alert-danger">
@@ -25,7 +25,7 @@
                         <div class="form-group">
                             <ion-item>
                                 <ion-label floating>E-mail</ion-label>
-                                <ion-input type="text" class="form-control" formControlName="email"></ion-input>
+                                <ion-input type="text" class="form-control" formControlName="email" [(ngModel)]="email"></ion-input>
                             </ion-item>
                             <div *ngIf="form.get('email').touched && form.get('email').invalid" class="alert alert-danger">
                                 <div *ngIf="form.get('email').hasError('required')">Email is required</div>
@@ -36,7 +36,7 @@
                         <div class="form-group">
                             <ion-item>
                                 <ion-label floating>Password</ion-label>
-                                <ion-input type="text" formControlName="password" class="form-control"></ion-input>
+                                <ion-input type="password" formControlName="password" class="form-control" [(ngModel)]="password"></ion-input>
                             </ion-item>
                         </div>
                         <div *ngIf="form.get('password').touched && form.get('password').invalid"

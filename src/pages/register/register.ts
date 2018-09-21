@@ -4,7 +4,6 @@ import {HomePage} from '../home/home';
 import {HttpClient, HttpHeaders, HttpRequest} from "@angular/common/http";
 import {ToastController} from 'ionic-angular';
 import 'rxjs/add/operator/map';
-import {User} from "./user";
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 
 
@@ -17,13 +16,12 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
 
 export class RegisterPage implements OnInit {
 
-    userList: User[]=[];
+    username: string;
+    password: string;
+    email: string;
 
     form: FormGroup;
 
-    addUser(form){
-        this.userList.push(this.form.value)
-    }
 
     // Construtor hiermee roep je alles aan
     constructor(public navCtrl: NavController,
@@ -49,15 +47,17 @@ export class RegisterPage implements OnInit {
     }
 
     Register() {
-        var headers = new HttpHeaders();
+        const headers = new HttpHeaders();
 
         headers.append("Accept", 'application/json');
 
         headers.append('Content-Type', 'application/json');
 
-        var options = {headers: headers};
+        const options = {headers: headers};
 
-        var data = {
+
+
+        const data = {
 
             username: this.username,
 
@@ -66,7 +66,7 @@ export class RegisterPage implements OnInit {
             email: this.email
 
         };
-
+        console.log('data:', data);
         let loader = this.loading.create({
 
             content: 'Aan het registreren..',
