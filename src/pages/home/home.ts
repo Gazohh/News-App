@@ -18,6 +18,7 @@ export class HomePage {
 
     username:string;
     password:string;
+    rootPage: any = HomePage;
 
     FavorietenPage = FavorietenPage;
     FeedPage = FeedPage;
@@ -45,6 +46,7 @@ export class HomePage {
 
         console.log("Password: " + this.password);
     }
+
 
     // Push naar de register pagina
     goRegister() {
