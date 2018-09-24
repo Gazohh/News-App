@@ -11,15 +11,17 @@ import {FavorietenPage} from "../pages/favorieten/favorieten";
 import {FeedPage} from "../pages/feed/feed";
 import {RssProvider} from '../providers/rss/rss';
 import { ReactiveFormsModule } from '@angular/forms';
+import { IonicStorageModule } from '@ionic/storage';
+import {FavorietenPageModule} from "../pages/favorieten/favorieten.module";
+import {FeedPageModule} from "../pages/feed/feed.module";
+import {RegisterPageModule} from "../pages/register/register.module";
+
 
 
 @NgModule({
     declarations: [
         MyApp,
         HomePage,
-        RegisterPage,
-        FavorietenPage,
-        FeedPage
     ],
     imports: [
         BrowserModule,
@@ -28,7 +30,11 @@ import { ReactiveFormsModule } from '@angular/forms';
             scrollAssist: false,
             autoFocusAssist: false
         }),
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        IonicStorageModule.forRoot(),
+        FavorietenPageModule,
+        FeedPageModule,
+        RegisterPageModule
     ],
     bootstrap: [IonicApp],
     entryComponents: [
