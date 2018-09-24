@@ -15,48 +15,40 @@
                 <div class="geheel">
                     <form novalidate [formGroup]="form">
                         <div class="form-group">
-                            <ion-item>
+                            <ion-item [ngClass]="{ 'ng-touched' : form.get('username').touched }">>
                                 <ion-label floating>Username</ion-label>
-                                <ion-input type="text" formControlName="username" class="form-control"
-                                           [(ngModel)]="username"></ion-input>
+                                <ion-input type="text" formControlName="username" class="form-control" [(ngModel)]="username"></ion-input>
                             </ion-item>
                         </div>
-                        <div *ngIf="form.get('username').touched && form.get('username').invalid"
-                             class="alert alert-danger">
+                        <div *ngIf="form.get('username').touched && form.get('username').invalid" class="alert alert-danger" required>
                             <div *ngIf="form.get('username').hasError('required')">Naam moet ingevuld zijn.</div>
                             <div *ngIf="form.get('username').hasError('pattern')">Ongeldige naam.</div>
                             <div *ngIf="form.get('username').hasError('minLength')">Minder dan 5 letters gebruikt</div>
                         </div>
 
                         <div class="form-group">
-                            <ion-item>
-                                <ion-label floating>E-mail</ion-label>
-                                <ion-input type="text" class="form-control" formControlName="email"
-                                           [(ngModel)]="email"></ion-input>
+                            <ion-item [ngClass]="{ 'ng-touched' : form.get('email').touched }">
+                                <ion-label floating >E-mail</ion-label>
+                                <ion-input type="text"  formControlName="email" class="form-control" [(ngModel)]="email" ></ion-input>
                             </ion-item>
-                            <div *ngIf="form.get('email').touched && form.get('email').invalid"
-                                 class="alert alert-danger">
-                                <div *ngIf="form.get('email').hasError('required')">Email is required</div>
-                                <div *ngIf="form.get('email').hasError('email')">Invalid Email!</div>
-                            </div>
+                        </div>
+                        <div *ngIf="form.get('email').touched && form.get('email').invalid" class="alert alert-danger" required>
+                            <div *ngIf="form.get('email').hasError('required')">Email moet ingevuld zijn</div>
+                            <div *ngIf="form.get('email').hasError('pattern')">ongeldige Email!</div>
                         </div>
 
                         <div class="form-group">
-                            <ion-item>
+                            <ion-item [ngClass]="{ 'ng-touched' : form.get('password').touched }">
                                 <ion-label floating>Password</ion-label>
-                                <ion-input type="password" formControlName="password" class="form-control"
-                                           [(ngModel)]="password"></ion-input>
+                                <ion-input type="password" formControlName="password" class="form-control" [(ngModel)]="password"></ion-input>
                             </ion-item>
                         </div>
-                        <div *ngIf="form.get('password').touched && form.get('password').invalid"
-                             class="alert alert-danger">
-                            <div *ngIf="form.get('password').hasError('minLength')">Minder dan 5 letters gebruikt</div>
+                        <div class="alert alert-danger"  *ngIf="form.get('password').touched && form.get('password').invalid ">
                             <div *ngIf="form.get('password').hasError('required')">Wachtwoord moet ingevuld zijn</div>
+                            <div *ngIf="form.get('password').hasError('minLength')">Minder dan 5 letters gebruikt</div>
                         </div>
                     </form>
-
                     <br>
-
                     <button class="button3" ion-button (click)="Register()" color="secondary" round>Aanmaken
                     </button>
                     <br>
