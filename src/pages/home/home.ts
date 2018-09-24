@@ -109,7 +109,10 @@ export class HomePage {
                             let toast = this.toastCtrl.create({
                             message: "U bent ingelogd!",
                                 duration: 2500,
-                                position: "top"
+                                position: "top",
+                                showCloseButton: true,
+                                closeButtonText: "OK"
+
                         });
 
                             toast.present();

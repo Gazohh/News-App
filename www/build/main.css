@@ -25778,25 +25778,10 @@ fab-content-margin {
   background-color: #ebeeef;
 }
 
-body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div > div > ion-title > div {
-  color: white;
-}
-
-body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div > div > ion-title > div {
-  color: white;
-}
-
 .geheel {
   background-color: white;
-  height: 70%;
+  height: 65%;
   border-radius: 10px;
-}
-
-.geheel2 {
-  background-color: white;
-  border-radius: 10px;
-  height: 70%;
-  margin-bottom: 15%;
 }
 
 body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid {
@@ -25828,6 +25813,13 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   background-size: cover;
   background-position: center;
   padding: 70px 0px 74px 0px;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
+  text-transform: uppercase;
 }
 
 body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid {
@@ -25875,41 +25867,6 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   margin-top: 30px;
 }
 
-.button3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  padding: 0 20px;
-  min-width: 160px;
-  height: 50px;
-  background-color: #57b846;
-  border-radius: 25px;
-  font-size: 16px;
-  color: #fff;
-  line-height: 1.2;
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
-  margin-left: 20px;
-  margin-top: 30px;
-  width: 50%;
-}
-
-.txt3 {
-  font-size: 13px;
-  line-height: 1.4;
-  color: #999999;
-  padding-left: 15px;
-}
-
 .center {
   text-align: center;
 }
@@ -25922,39 +25879,6 @@ ion-grid {
   justify-content: center;
 }
 
-.form-title {
-  width: 100%;
-  position: relative;
-  z-index: 1;
-  display: -ms-flexbox;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  padding: 50px 0px 0px 0px !important;
-}
-
-.form-title1 {
-  color: #ffffff !important;
-  text-transform: uppercase;
-  line-height: 1.2;
-  text-align: center;
-}
-
 body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid {
   background: #ebeeef;
   padding: 10px;
@@ -25962,7 +25886,6 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
 
 body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div.loginFoto > div > ion-title > div {
   color: white !important;
-  padding-top: 2rem !important;
 }
 
 .txt1 {
@@ -25982,12 +25905,6 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   float: left;
   margin-left: 15px;
   margin-top: 15px;
-}
-
-.geheel {
-  background-color: white;
-  height: 70%;
-  border-radius: 10px;
 }
 
 .button1 {
@@ -26021,51 +25938,9 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   background-color: #ebeeef;
 }
 
-.geheel {
-  background-color: white;
-  height: 70%;
-  border-radius: 10px;
-}
-
-.geheel2 {
-  background-color: white;
-  border-radius: 10px;
-  height: 70%;
-  margin-bottom: 15%;
-}
-
 body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid {
   background: #ebeeef;
   padding: 10px;
-}
-
-.form-title {
-  width: 100%;
-  position: relative;
-  z-index: 1;
-  display: -ms-flexbox;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  padding: 70px 15px 74px 15px;
-  border-top-left-radius: 10px !important;
-  border-top-right-radius: 10px !important;
-  padding-bottom: 0;
 }
 
 body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid {
@@ -26074,6 +25949,72 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
 }
 
 body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div.loginFoto > div > div {
-  padding-top: 50px !important;
+  bottom: 0;
+  position: absolute;
+  z-index: 10;
   width: 100%;
+}
+
+#myMenu > div > ion-content > div.scroll-content > ion-list > button.disable-hover.button.button-md.button-outline.button-outline-md.button-full.button-full-md.button-outline-md-danger {
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: 10;
+  display: block;
+  width: 100%;
+}
+
+body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div.loginFoto > div > div {
+  bottom: 0;
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+}
+
+.button3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 20px;
+  min-width: 160px;
+  height: 50px;
+  background-color: #57b846;
+  border-radius: 25px;
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.2;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  width: 50%;
+  margin: auto;
+}
+
+.txt3 {
+  font-size: 13px;
+  line-height: 1.4;
+  color: #999999;
+  padding-left: 15px;
+}
+
+.registerButton {
+  margin: 0% !important;
+  background-color: #00000066 !important;
+  border-radius: 0 !important;
+  width: 50% !important;
+}
+
+.homeButton {
+  margin: 0% !important;
+  background-color: #00000066 !important;
+  border-radius: 0 !important;
+  width: 50% !important;
 }
