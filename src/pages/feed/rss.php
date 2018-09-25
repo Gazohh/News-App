@@ -1,5 +1,5 @@
 <?php
-setlocale(LC_ALL, 'nld_nld');
+setlocale(LC_ALL, array('nl_NL.UTF-8','nl_NL@euro','nl_NL','dutch'));
 $rss = new DOMDocument();
 $feed = array();
 $urlArray = array(
@@ -37,7 +37,7 @@ for ($x = 0; $x < $limit; $x++) {
     $link = $feed[$x]['link'];
     $description = $feed[$x]['desc'];
     $image = $feed[$x]['image'];
-    $date = date('l F d, Y', strtotime($feed[$x]['date']));
+    $date = strftime("%Y-%m-%d %H:%M:%S", strtotime($feed[$x]['date']));
 }
 file_put_contents("algemeen.json", json_encode($feed));
 echo '</ul>';

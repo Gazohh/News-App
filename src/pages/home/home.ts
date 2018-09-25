@@ -8,7 +8,6 @@ import {FavorietenPage} from "../favorieten/favorieten";
 import {ToastController} from 'ionic-angular';
 import {Keyboard} from '@ionic-native/keyboard';
 import { MenuController } from "ionic-angular";
-import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @Component({
     selector: 'page-home',
@@ -34,13 +33,7 @@ export class HomePage {
                 public http: HttpClient,
                 private toastCtrl: ToastController,
                 private keyboard: Keyboard,
-                public menuCtrl: MenuController,
-                private screenOrientation: ScreenOrientation) {
-
-        console.log(this.screenOrientation.type); // logs the current orientation, example: 'landscape'
-
-
-
+                public menuCtrl: MenuController) {
 
         this.menuCtrl.enable(false, 'myMenu');
         keyboard.disableScroll(true);
@@ -122,6 +115,7 @@ export class HomePage {
 
                         });
 
+                            localStorage.setItem("username", this.username);
                             toast.present();
                             this.navCtrl.setRoot(FeedPage);
 

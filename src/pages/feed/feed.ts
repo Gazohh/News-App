@@ -21,6 +21,7 @@ export class FeedPage {
     rssDataArray: any = [];
     public items:any;
     public data:any;
+    public numLimit:any;
 
     constructor(
         public navCtrl: NavController,
@@ -28,8 +29,9 @@ export class FeedPage {
         public rssProvider: RssProvider,
         public menuCtrl: MenuController,
         public http: HttpClient) {
-        //this.getData();
-        this.GetNews();
+        this.getData();
+        //this.GetNews()
+        this.numLimit = 60;
     }
 
     ionViewDidLoad() {
@@ -51,9 +53,9 @@ export class FeedPage {
         localStorage.setItem("News", JSON.stringify(this.items));
     }
 
-    /*getData()
+    getData()
     {
-        let url = "http://gazoh.net/algemeen.json";
+        let url = "http://api.jsonbin.io/b/5ba912599353c37b74340854";
         var headers = new HttpHeaders();
         headers.append('Access-Control-Allow-Origin' , '*');
 
@@ -66,5 +68,5 @@ export class FeedPage {
         data.subscribe(result => {
             this.items = result;
         });
-    }*/
+    }
 }

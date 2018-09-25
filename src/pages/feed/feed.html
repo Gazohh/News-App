@@ -12,34 +12,37 @@
 
   <ion-card *ngFor="let item of items">
 
-    <img [src]="item.image"/>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="img/marty-avatar.png">
+      </ion-avatar>
+      <h2>{{item.site}}</h2>
+      <p>{{item.date}}</p>
+    </ion-item>
+
+    <img [src]="item.image">
 
     <ion-card-content>
-      <ion-card-title>
-        {{item.title}}
-      </ion-card-title>
-      <p>
-        {{item.desc}}
-      </p>
-      <p>Bron : {{item.site}}</p>
+      <p>{{item.desc | slice:0:120}}...</p>
     </ion-card-content>
 
-    <ion-row no-padding>
+    <ion-row>
       <ion-col>
-        <button ion-button clear small color="danger" icon-start>
-          <ion-icon name='star'></ion-icon>
-          Favorite
+        <button ion-button icon-start clear small>
+          <ion-icon name="eye"></ion-icon>
+          <div>Meer lezen</div>
         </button>
       </ion-col>
-      <ion-col text-center>
-        <button ion-button clear small color="danger" icon-start>
-        
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="star-outline"></ion-icon>
+          <div>Favoriet</div>
         </button>
       </ion-col>
-      <ion-col text-right>
-        <button ion-button clear small color="danger" icon-start>
-          <ion-icon name='share-alt'></ion-icon>
-          Share
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="share-alt"></ion-icon>
+          <div>Deel</div>
         </button>
       </ion-col>
     </ion-row>
