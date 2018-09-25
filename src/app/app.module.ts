@@ -10,14 +10,14 @@ import {HttpClientModule} from '@angular/common/http';
 import {FavorietenPage} from "../pages/favorieten/favorieten";
 import {FeedPage} from "../pages/feed/feed";
 import {RssProvider} from '../providers/rss/rss';
-import { ReactiveFormsModule } from '@angular/forms';
-import { IonicStorageModule } from '@ionic/storage';
+import {ReactiveFormsModule} from '@angular/forms';
+import {IonicStorageModule} from '@ionic/storage';
 import {FavorietenPageModule} from "../pages/favorieten/favorieten.module";
 import {FeedPageModule} from "../pages/feed/feed.module";
 import {RegisterPageModule} from "../pages/register/register.module";
 import {SettingsPage} from "../pages/settings/settings";
-import { SettingsProvider } from '../providers/settings/settings';
-
+import {SettingsProvider} from '../providers/settings/settings';
+import {Network} from '@ionic-native/network';
 
 
 @NgModule({
@@ -55,7 +55,7 @@ import { SettingsProvider } from '../providers/settings/settings';
         {provide: ErrorHandler, useClass: IonicErrorHandler},
         RssProvider,
         SettingsProvider,
-    SettingsProvider
+        Network
     ]
 
 })

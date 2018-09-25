@@ -8,6 +8,9 @@ import {HomePage} from "../pages/home/home";
 import {Keyboard} from "@ionic-native/keyboard";
 import {SettingsPage} from "../pages/settings/settings";
 import {SettingsProvider} from "../providers/settings/settings";
+import { Network } from '@ionic-native/network';
+import {ToastController} from 'ionic-angular';
+
 
 
 @Component({
@@ -58,7 +61,7 @@ export class MyApp {
     uitloggen()
     {
         localStorage.clear();
-        this.rootPage = HomePage;
+        this.nav.push(HomePage);
     }
 }
 

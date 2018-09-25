@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {RssProvider} from "../../providers/rss/rss";
-import { MenuController } from "ionic-angular";
+import {MenuController} from "ionic-angular";
 import {Observable} from "rxjs";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import { SettingsPage} from "../settings/settings";
-import {SettingsProvider} from "../../providers/settings/settings";
-
+import {Network} from "@ionic-native/network";
+import {ToastController} from 'ionic-angular';
+import {HomePage} from "../home/home";
 /**
  * Generated class for the FeedPage page.
  *
@@ -16,31 +16,60 @@ import {SettingsProvider} from "../../providers/settings/settings";
 
 @IonicPage()
 @Component({
-  selector: 'page-feed',
-  templateUrl: 'feed.html',
+    selector: 'page-feed',
+    templateUrl: 'feed.html',
 })
 export class FeedPage {
 
     rssDataArray: any = [];
-    public items:any;
-    public data:any;
-    public numLimit:any;
+    public items: any;
+    public data: any;
+    public key: string = "items";
 
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
         public rssProvider: RssProvider,
         public menuCtrl: MenuController,
-        public http: HttpClient) {
-        this.getData();
+        public http: HttpClient,
+        public network: Network,
+        toastCtrl: ToastController) {
+        if(this.network.type!= "none")
+        {
+            this.getData();
+        }
+        else
+        {
+            this.loadData();
+            let toast = toastCtrl.create({
+                message : "Geen internet verbinding, opgeslagen artikelen worden ingeladen.",
+                duration: 2500,
+                position: "top",
+                showCloseButton: true,
+                closeButtonText: "OK"
+            });
+            toast.present();
+        }
+        let toastinlog = toastCtrl.create({
+            message : "Geen sessie gevonden, log opnieuw in.",
+            duration: 2500,
+            position: "top",
+            showCloseButton: true,
+            closeButtonText: "OK"
+        });
+        if(!localStorage.getItem("username"))
+        {
+            this.navCtrl.setRoot(HomePage);
+            toastinlog.present();
+        }
         //this.GetNews()
-        this.numLimit = 60;
+
     }
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad FeedPage');
         this.Get_RSS_Data();
-        this.menuCtrl.enable (true, 'myMenu');
+        this.menuCtrl.enable(true, 'myMenu');
     }
 
 
@@ -50,26 +79,37 @@ export class FeedPage {
         });
     }
 
-    GetNews()
-    {
+    GetNews() {
         this.http.get("http://gazoh.net/algemeen.json").map(result => this.items = result)
         localStorage.setItem("News", JSON.stringify(this.items));
     }
 
-    getData()
-    {
+    getData() {
         let url = "http://api.jsonbin.io/b/5ba912599353c37b74340854";
         var headers = new HttpHeaders();
-        headers.append('Access-Control-Allow-Origin' , '*');
+        headers.append('Access-Control-Allow-Origin', '*');
 
         headers.append("Accept", 'application/json');
 
-        headers.append('Content-Type', 'application/json' );
+        headers.append('Content-Type', 'application/json');
 
-        let options = { headers: headers };
+        let options = {headers: headers};
         let data: Observable<any> = this.http.get(url, options);
         data.subscribe(result => {
             this.items = result;
         });
+        localStorage.setItem(this.key, JSON.stringify(this.items));
     }
+
+    loadData() {
+        localStorage.getItem(this.key);
+            if (this.key != null && this.key != undefined) {
+                this.items = JSON.parse(this.key);
+            }
+        }
+
+        htmlToPlaintext(text) {
+        return text ? String(text).replace(/<[^>]+>/gm, '') : '';
+    }
+
 }

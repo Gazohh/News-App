@@ -1,25 +1,529 @@
 [
   {
+    "site": "De Telegraaf",
+    "title": "Zorgen om bemanning schip Terneuzen",
+    "desc": "De internationale transportfederatie ITF maakt zich zorgen over de bemanning van een Russisch vrachtschip dat al maanden in Terneuzen aan de ketting ligt. Gijs Mol (ITF) was maandag aan boord en stelde vast dat het verse voedsel als groente en fruit, op is.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/c5bdb7ce-c0d7-11e8-96c1-51a68ae76cda.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2600034\/zorgen-om-bemanning-schip-terneuzen",
+    "date": "Tue, 25 Sep 2018 17:29:20 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "'Je kinderen stuur je ook niet zonder jas naar de kou'",
+    "desc": "Staatssecretaris Visser moet in de Kamer uitleggen waarom militairen zelf hun kleding dienen aan te schaffen voor een oefening in Noorwegen. Kamerleden spreken er schande van.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/34bbcda6-c0d7-11e8-9fec-d9acd69c57fb.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/video\/2600001\/je-kinderen-stuur-je-ook-niet-zonder-jas-naar-de-kou",
+    "date": "Tue, 25 Sep 2018 17:22:00 +0200"
+  },
+  {
     "site": "NU.nl",
-    "title": "Kandidaat Hooggerechtshof VS wijkt niet na aantijgingen aanranding",
-    "desc": "Brett Kavanaugh piekert er niet over zijn kandidatuur voor het Amerikaanse hooggerechtshof in te trekken. De conservatieve gegadigde voor de functie, naar voren geschoven door president Donald Trump, ligt onder vuur door de beschuldiging van seksueel grensoverschrijdend gedrag in zijn studententijd.",
-    "image": "https:\/\/media.nu.nl\/m\/1fsxzluaewai_sqr256.jpg\/kandidaat-hooggerechtshof-vs-wijkt-niet-aantijgingen-aanranding.jpg",
-    "link": "https:\/\/www.nu.nl\/metoo\/5478434\/kandidaat-hooggerechtshof-vs-wijkt-niet-aantijgingen-aanranding.html",
-    "date": "Tue, 25 Sep 2018 12:16:23 +0200"
+    "title": "Van Vleuten prolongeert wereldtitel tijdrijden, volledig Nederlands podium",
+    "desc": "Annemiek van Vleuten heeft dinsdag haar wereldtitel op de tijdrit geprolongeerd. Anna van der Breggen en Ellen van Dijk zorgden voor een volledig Nederlands podium in Innsbruck.",
+    "image": "https:\/\/media.nu.nl\/m\/w8gx1qkaft42_sqr256.jpg\/van-vleuten-prolongeert-wereldtitel-tijdrijden-volledig-nederlands-podium.jpg",
+    "link": "https:\/\/www.nu.nl\/wielrennen\/5479781\/van-vleuten-prolongeert-wereldtitel-tijdrijden-volledig-nederlands-podium.html",
+    "date": "Tue, 25 Sep 2018 17:20:43 +0200"
+  },
+  {
+    "site": "NOS",
+    "title": "Kabinet: 15.000 euro voor Q-koortspati\u00ebnten niet bedoeld als schadevergoeding",
+    "desc": "<p>De maximaal 15.000 euro die Q-koortspati\u00ebnten en nabestaanden kunnen aanvragen bij de overheid is niet bedoeld als vervanging van een schadevergoeding, zegt minister Bruins voor Medische zorg.<\/p>\n<p>\"Je kunt in woorden zeggen dat het vreselijk is dat mensen aan de ziekte hebben geleden of nog lijden, en dat mensen zijn overleden\", zegt Bruins. \"Wat we hier hebben bedoeld is ook financieel een gebaar te maken naar de mensen die lijden.\"<\/p>\n<h2>Lachwekkend<\/h2>\n<p>Q-koortspati\u00ebnten reageerden gisteren furieus op de hoogte van het bedrag. \"Lachwekkend\" en \"een zakcentje\" noemden zij de tegemoetkoming. Bruins zegt dat hij dat wel begrijpt, maar dat het bedrag nooit is bedoeld om werkelijke inkomensschade of medische kosten te compenseren.<\/p>\n<p>\"Daarom zijn er ook nog schadevergoedingsprocedures gaande\", zegt Bruins. \"Dit is daarnaast, of er bovenop.\" Het kabinet gaat nu inventariseren hoeveel mensen gebruik willen maken van deze regeling, waar 15 miljoen euro voor is gereserveerd.<\/p>\n",
+    "image": "https:\/\/nos.nl\/data\/image\/2018\/09\/24\/502185\/320x320.jpg",
+    "link": "https:\/\/nos.nl\/l\/2252067",
+    "date": "Tue, 25 Sep 2018 17:14:52 +0200"
+  },
+  {
+    "site": "NU.nl",
+    "title": "Limburgse jeugdvereniging veroordeeld voor dood dronken jongen (15)",
+    "desc": "Jeugdvereniging 't Waeske in het Limburgse dorp Guttecoven is dinsdag veroordeeld voor de dood van een vijftienjarige jongen uit Born. De tiener had op 29 oktober 2016 alcohol gedronken op de vereniging en werd daarna doodgereden op de A2.",
+    "image": "https:\/\/media.nu.nl\/m\/1lcxavkazmos_sqr256.jpg\/limburgse-jeugdvereniging-veroordeeld-dood-dronken-jongen-15.jpg",
+    "link": "https:\/\/www.nu.nl\/binnenland\/5479526\/limburgse-jeugdvereniging-veroordeeld-dood-dronken-jongen-15.html",
+    "date": "Tue, 25 Sep 2018 17:13:45 +0200"
+  },
+  {
+    "site": "NU.nl",
+    "title": "Kabinet wil telefoonverbod op de fiets in juli 2019 laten ingaan",
+    "desc": "Het kabinet wil dat een telefoonverbod voor fietsers vanaf 1 juli 2019 ingaat. Vanaf dat moment zou het dan niet langer zijn toegestaan om tijdens het fietsen een telefoon te gebruiken.",
+    "image": "https:\/\/media.nu.nl\/m\/s7oxur3acikk_sqr256.jpg\/kabinet-wil-telefoonverbod-fiets-in-juli-2019-laten-ingaan.jpg",
+    "link": "https:\/\/www.nu.nl\/mobiel\/5479766\/kabinet-wil-telefoonverbod-fiets-in-juli-2019-laten-ingaan.html",
+    "date": "Tue, 25 Sep 2018 17:12:24 +0200"
+  },
+  {
+    "site": "NOS",
+    "title": "Tot drie jaar cel ge\u00ebist tegen verkopers 'gekloonde' Ziggo-modems",
+    "desc": "<p>Het Openbaar Ministerie eist celstraffen tot 3 jaar tegen drie mannen die honderden illegale modems verkochten van provider VodafoneZiggo. Met de apparatuur konden de kopers illegaal internetten en televisie kijken.<\/p>\n<p>Het drietal werd in november vorig jaar opgepakt. De hoofdverdachte is een man van 36 uit Rotterdam. Hij bewerkte de modems met behulp van speciale software en kopieerde daarbij gegevens van modems van andere, nietsvermoedende Ziggo-klanten. Tegen hem is drie jaar cel ge\u00ebist.<\/p>\n<h2>Apparatuur verduisterd<\/h2>\n<p>De gekloonde modems werden vervolgens verkocht voor zo'n 150 euro. De twee medeverdachten, die bij Ziggo werkten, leverden en installeerden de apparatuur bij de kopers. Zij liepen rond in werkkleding en gebruikten een bus van de provider. Ze verduisterden volgens het OM voor zo'n 70.000 euro aan apparatuur.<\/p>\n<p>Tegen deze twee mannen eiste het OM een celstraf van 18 maanden, waarvan zes voorwaardelijk, en een taakstraf van 240 uur en een voorwaardelijke gevangenisstraf van drie maanden.<\/p>\n<h2>Digitale aanvallen via modems<\/h2>\n<p>De officier van justitie neemt de zaak hoog op vanwege de risico's die de gekloonde modems met zich meebrengen. De apparatuur kan worden ingezet bij DDoS-aanvallen. \"Door het risico op achterdeurtjes in de software, komt de internetveiligheid in het gevaar\", zegt het OM.<\/p>\n<p>De politie in Rotterdam kwam de drie op het spoor dankzij een tip uit Canada. In dat land voerde een netwerk van cybercriminelen digitale aanvallen uit. Het netwerk stond in verbinding met de computer van een van de verdachten in Rotterdam.<\/p>\n",
+    "image": "https:\/\/nos.nl\/data\/image\/2017\/11\/16\/431642\/320x320.jpg",
+    "link": "https:\/\/nos.nl\/l\/2252063",
+    "date": "Tue, 25 Sep 2018 17:05:40 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "Online pedo veroordeeld voor verkrachting \u2019op afstand\u2019",
+    "desc": "Een 25-jarige man die meisjes via sociale media afperste en via chantage dwong tot seksuele handelingen, is in Brussel veroordeeld voor verkrachting. Hij heeft een voorwaardelijke celstraf gekregen van vijf jaar. Ook moet hij zich laten behandelen door een psychiater.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/0afc066e-c0d4-11e8-af56-af146835a497.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2599900\/online-pedo-veroordeeld-voor-verkrachting-op-afstand",
+    "date": "Tue, 25 Sep 2018 17:02:38 +0200"
+  },
+  {
+    "site": "NOS",
+    "title": "Ministerie Oostenrijk wil persvrijheid beperken voor 'negatieve media'",
+    "desc": "<p>De Oostenrijkse minister van Binnenlandse Zaken ligt onder vuur na het lekken van een mail die vanuit zijn ministerie naar de politietop is gestuurd. In de mail schreef een woordvoerder van minister Herbert Kickl dat bepaalde media wel heel negatief en eenzijdig berichten en daarom maar beter minder informatie konden krijgen.<\/p>\n<p>\"Falter en Der Standard en meer recent Kurier hebben zeer eenzijdig en negatief bericht over het ministerie en de politie\", staat in de mail aan de communicatiechefs van de politie. \"Ik stel daarom voor de communicatie met deze media te beperken tot het noodzakelijke, wettelijke bepaalde niveau.\"<\/p>\n<p>De kranten die genoemd worden in de mail zijn progressief liberale dagbladen. Kurier is een van de grootste kranten van het land. Falter is een journalistiek onderzoekstijdschrift dat elke week verschijnt.<\/p>\n<p>De mail lekte ook weer uit via Kurier en Der Standard. Maandagavond publiceerden deze kranten het interne bericht. Het ministerie verdedigde het advies die avond nog. \"Dit advies is gebaseerd op vele jaren ervaring van vele communicatiemedewerkers van Binnenlandse Zaken.\"<\/p>\n<p>Maar vandaag haastte de Oostenrijkse oppositie zich om de FP\u00d6-minister ter verantwoording te roepen in het parlement. De sociaal-democraten vinden dat er een \"gevaarlijke grens\" is overschreden en ook de Oostenrijkse Verslaggevers Zonder Grenzen spreken van een \"ongelooflijke en onacceptabele beperking van de persvrijheid\".<\/p>\n<h2>Kurz steunt pers<\/h2>\n<p>Op veel steun van coalitiegenoot en bondskanselier Sebastian Kurz van de \u00d6VP hoeft Kickl ook niet te rekenen. \"Elke beperking van persvrijheid is onacceptabel\", zegt Kurz in een reactie. \"Er kan geen sprake zijn van uitsluiting of een boycot van bepaalde media.\"<\/p>\n<p>Oostenrijkse media vragen zich af of Kickl nog aan kan blijven. De minister heeft sinds zijn aantreden in december al herhaaldelijk op de schopstoel gezeten. Zo kwam hij onder vuur na een schandaal met de inlichtingendienst en laat hij zich geregeld op controversi\u00eble wijze uit over het migratiebeleid.<\/p>\n",
+    "image": "https:\/\/nos.nl\/data\/image\/2018\/09\/25\/502353\/320x320.jpg",
+    "link": "https:\/\/nos.nl\/l\/2252062",
+    "date": "Tue, 25 Sep 2018 17:02:13 +0200"
+  },
+  {
+    "site": "NOS",
+    "title": "Het is nu afwachten of Instagram langzaam verandert in 'Facebook 2.0'",
+    "desc": "<p>Er is opnieuw onrust binnen Facebook. De oprichters van dochterbedrijf Instagram - Kevin Systrom en Mike Krieger - hebben vandaag aangekondigd dat ze vertrekken. Dat deden ze gezamenlijk, wat op zichzelf al een slecht teken is.<\/p>\n<p>Een reden voor hun vertrek gaven ze niet. In een gezamenlijke verklaring stonden zinsneden als \"dankbaar voor de afgelopen jaren\" en \"nieuwe avonturen\". Mark Zuckerberg en Sheryl Sandberg, die sinds jaar en dag moederschip Facebook bestieren, werden niet genoemd. Ze kregen alleen een eervolle vermelding in een Instagram-bericht van Krieger.<\/p>\n<p>Facebook kocht de foto- en videodienst in mei 2012 voor ongeveer 1 miljard dollar. De afgelopen jaren kregen Systrom en Krieger de ruimte om hun eigen koers te varen. En dat deden ze goed: het platform is hard gegroeid naar 1 miljard maandelijks actieve gebruikers (Facebook heeft er ruim 2,2 miljard).<\/p>\n<h2>Botsen met de baas<\/h2>\n<p>Het speculeren over de redenen van hun vertrek is in volle gang. Goed ingevoerde Amerikaanse media melden dat ze de laatste tijd steeds minder ruimte kregen om zelfstandig Instagram te besturen.<\/p>\n<p>Ook zouden ze hebben gebotst met hun baas Mark Zuckerberg. \"De laatste tijd waren ze gefrustreerd omdat dagelijkse bemoeienis van Zuckerberg toenam\", schrijft persbureau Bloomberg. \"Hij leunde steeds meer op Instagram om de toekomst van Facebook te bepalen.\"<\/p>\n<p>Instagram wordt steeds vaker gezien als h\u00e9t sociale netwerk waar je wil zijn, in plaats van Facebook. Dat platform heeft te maken gehad met een aaneenschakeling van schandalen, kan soms overkomen als een 'kermis' aan informatie en het probeert constant je aandacht te trekken. Mede daardoor stappen jonge gebruikers over van Facebook naar Instagram.<\/p>\n<p>Het lijkt erop dat Facebook zich klaarmaakt voor een toekomst waarin Instagram een belangrijkere rol speelt. De verwachting is dat de app in 2020 goed zal zijn voor een kwart van de inkomsten.<\/p>\n<p>Facebook heeft aangegeven meer geld te willen verdienen aan de foto- en videodienst. Dat vertaalt zich al snel naar meer advertenties.<\/p>\n<p>En dan kunnen er belangen gaan botsen. Je hebt het belang van de oprichters, die niet alleen zakelijk denken maar vanuit het product en de gebruiker. Hoe meer reclame je in de app stopt, hoe minder het lijkt op hoe het ooit is bedacht (in het begin kon je reclamevrij browsen in Instagram). Daar tegenover staat het zakelijke belang. Alles leuk en aardig - een miljard gebruikers - maar die moeten wel wat opleveren.<\/p>\n<p>Waar de oprichters mogelijk ook moeite mee hadden, is dat ze door een reorganisatie bij Facebook een nieuwe 'vicepresident product' kregen: Adam Mosseri. Hij behoort tot de inner circle van topman Zuckerberg.<\/p>\n<p>De vraag die voorlopig onbeantwoord blijft: wat betekent dit voor Instagram? De visionairs achter de app zijn weg. De kans bestaat dat Facebook meer elementen gaat toevoegen waarvan de oprichters wellicht zouden zeggen: past dat nou wel goed bij de app? Of de recente toevoeging van IGTV (Instagram TV) daar ook bijhoort. is gissen. Al is het wel een functie die tot nu toe lauw wordt ontvangen.<\/p>\n<p>Het lijkt dus niet gek om te denken dat je op Instagam meer reclame gaat zien. Bijvoorbeeld in Instagram Stories, wat dagelijks door 400 miljoen mensen wordt gebruikt. Of nog vaker in de tijdlijn. Want ten slotte wil Facebook blijven groeien in omzet, al is het maar om de aandeelhouders te vriend te houden.<\/p>\n",
+    "image": "https:\/\/nos.nl\/data\/image\/2018\/09\/25\/502352\/320x180.jpg",
+    "link": "https:\/\/nos.nl\/l\/2252061",
+    "date": "Tue, 25 Sep 2018 17:01:28 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "Blindengeleidepaardje in Europees Parlement",
+    "desc": "Het Europees Parlement in Brussel had dinsdag een blindengeleidepaard over de vloer. Het minipaardje Dinky kwam binnen op initiatief van de Belgische Europarlementari\u00ebr Hilde Vautmans.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/dd87475e-c0d1-11e8-91d0-018a2dfaf4ed.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2599795\/blindengeleidepaardje-in-europees-parlement",
+    "date": "Tue, 25 Sep 2018 16:46:42 +0200"
+  },
+  {
+    "site": "NU.nl",
+    "title": "Tweede Kamer woest over fouten Defensie bij inkoop winterkleding",
+    "desc": "De Tweede Kamer is woedend over de fouten van Defensie bij de inkoop van winterkleding voor militairen die volgende maand meedoen aan de NAVO-missie in Noorwegen. Door de fouten zijn de militairen gedwongen om zelf hun winterkleding aan te schaffen voor de missie waarbij de temperaturen tot -20 graden kunnen dalen.",
+    "image": "https:\/\/media.nu.nl\/m\/pddxsz4a0uny_sqr256.jpg\/tweede-kamer-woest-fouten-defensie-bij-inkoop-winterkleding.jpg",
+    "link": "https:\/\/www.nu.nl\/politiek\/5479508\/tweede-kamer-woest-fouten-defensie-bij-inkoop-winterkleding.html",
+    "date": "Tue, 25 Sep 2018 16:45:41 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "Dodelijk ongeval op A73 Nijmegen",
+    "desc": "Er heeft dinsdagmiddag een dodelijk ongeval plaatsgevonden op de A73 bij Nijmegen.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/9ad1a1da-c0d0-11e8-a191-a9e2e55d71a1.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2599695\/dodelijk-ongeval-op-a73-nijmegen",
+    "date": "Tue, 25 Sep 2018 16:36:38 +0200"
+  },
+  {
+    "site": "NOS",
+    "title": "Klimaatplannen te vaag voor doorrekening",
+    "desc": "<p>De plannen voor een Klimaatakkoord zijn nog te vaag om door te rekenen. In de zomer waarin de tuinen verdorden en landbouwgewassen verschrompelden vanwege de hitte, probeerden medewerkers van het Planbureau voor de Leefomgeving (PBL) en het Centraal Planbureau (CPB) de effecten van de voorstellen door te rekenen, maar dat bleek bij veel plannen nog niet mogelijk.<\/p>\n<p>PBL en CPB komen daarom vrijdag met een 'analyse', in plaats van de eerder aangekondigde doorrekening. \"PBL heeft geanalyseerd wat de effecten zijn van de voorstellen en waar mogelijk een inschatting gemaakt van de kosten\", zo staat in de uitnodiging voor de presentatie aanstaande vrijdag.<\/p>\n<p>Voor het akkoord is aan zes 'klimaattafels' onderhandeld. Dit is de ingewikkelde puzzel van het klimaatakkoord:<\/p>\n<p>Voor het einde van het jaar moet duidelijk worden hoe de komende twaalf jaar huizen energiezuiniger moeten worden. Ook moet Nederland in die periode over op elektrische auto's en moet de industrie zo veel mogelijk af van fossiele brandstoffen.<\/p>\n<p>Maar het zogenoemde Voorstel voor hoofdlijnen van een Klimaatakkoord dat op 10 juli werd gepresenteerd, is op veel punten dus nog te vaag. Zo is bijvoorbeeld nog niet duidelijk hoe elektrisch rijden gestimuleerd moet worden en hoe de industrie van kolen, olie en gas over moet op schone elektriciteit.<\/p>\n<h2>Halvering CO2 uitstoot wel haalbaar<\/h2>\n<p>Er is ook goed nieuws. Als alle plannen beter uitgewerkt worden, is het volgens de rekenmeesters van het kabinet in theorie wel mogelijk om de CO2-reductie in 2030 gehalveerd te hebben. De coalitiepartijen hebben in het regeerakkoord afgesproken dat de CO2-uitstoot in 2030 met 49 procent gedaald moet zijn ten opzichte van 1990.<\/p>\n<p>Het kabinet streeft ernaar om in Europees verband afspraken te maken om de doelstelling te verzwaren naar 55 procent.<\/p>\n<h2>Kabinet aan zet<\/h2>\n<p>De analyse van de planbureaus maakt duidelijk dat er keuzes gemaakt moeten worden over wijzigingen in de belasting op bijvoorbeeld energie en auto's. Ook steun aan de industrie moet worden bekeken.<\/p>\n<p>Al die zaken bleken buitengewoon gevoelig tijdens de Algemene Politieke Beschouwingen, waar met name CDA-leider Buma zijn zorgen uitte over een dreigende revolte tegen kostbare klimaatmaatregelen onder de bevolking. Het is achter de schermen binnen de coalitie een ingewikkelde discussie. Nog niet zeker is daarom of het kabinet komende vrijdag al met een reactie op de analyse komt.<\/p>\n<p>Tijdens een debat in de Tweede Kamer moeten de contouren duidelijk worden voor de afronding van het Klimaatakkoord, eind dit jaar. Om ervoor te zorgen dat die onderhandelingen niet eindeloos duren, gaat minister Wiebes van Economische Zaken na het Kamerdebat meer zelf mee-onderhandelen.<\/p>\n",
+    "image": "https:\/\/nos.nl\/data\/image\/2018\/07\/25\/489317\/320x320.jpg",
+    "link": "https:\/\/nos.nl\/l\/2252053",
+    "date": "Tue, 25 Sep 2018 16:31:17 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "PVV'er botst met minister Wiebes",
+    "desc": "PVV-kamerlid Kops plaatst vraagtekens bij de klimaatplannen van de VVD en richt zijn pijlen op minister Wiebes.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/5ff88436-c0d3-11e8-a191-a9e2e55d71a1.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/video\/2599528\/pvv-er-botst-met-minister-wiebes",
+    "date": "Tue, 25 Sep 2018 16:21:00 +0200"
+  },
+  {
+    "site": "NOS",
+    "title": "Niet meer appen op de fiets vanaf 1 juli volgend jaar",
+    "desc": "<p>Als het aan het kabinet ligt, is het vanaf 1 juli 2019 verboden om te bellen en appen op de fiets. De ministers Van Nieuwenhuizen en Grapperhaus hebben een voorstel klaar dat nu eerst wordt voorgelegd aan diverse adviesinstanties. Het verbod was al verschillende keren aangekondigd.<\/p>\n<p>Van Nieuwenhuizen wijst erop dat fietsers die met hun telefoon bezig zijn een groter risico lopen op een ongeluk.<\/p>\n<p>Het is nu al verboden om te appen voor automobilisten en veel andere verkeersgebruikers. Dat verbod wordt uitgebreid tot fietsers, trambestuurders en bestuurders van alle voertuigen voor gehandicapten.<\/p>\n<h2>Telefoongebruik enorm veranderd<\/h2>\n<p>Dat gebruik van een mobiele telefoon aanvankelijk niet was verboden voor fietsers, kwam door het idee dat ze vanwege hun geringe snelheid minder risico liepen.<\/p>\n<p>Maar inmiddels zijn \"aard (sociale media) en omvang (smartphones en databundels) van het telefoongebruik op de fiets enorm veranderd\", schrijft Van Nieuwenhuizen aan de Tweede Kamer. Ze benadrukt ook dat het op fietspaden veel drukker is geworden en dat door de opkomst van de elektrische fiets de verschillen in snelheid zijn toegenomen.<\/p>\n<h2>Maatschappelijke wens<\/h2>\n<p>Naast de uitbreiding van het verbod tot bestuurders van alle voertuigen wordt in de regels de term 'mobiele telefoon' uitgebreid tot 'mobiel elektrisch apparaat'. Al deze apparaten leiden tijdens deelname aan het verkeer af van de rijtaak en daarom vallen ze voortaan allemaal onder het verbod, schrijft de minister. Ze spreekt van \"een duidelijke en consistente norm\", die bovendien tegemoetkomt aan een \"dringende maatschappelijke wens.\"<\/p>\n<p>Van Nieuwenhuizen wijst erop dat volgens onderzoek fietsers zich over het algemeen wel bewust zijn van de risico's, maar dat toch de verleiding groot is om te bellen, te lezen of te schrijven. Volgens haar blijkt uit de cijfers nu niet dat veel fietsers ernstig gewond raken of overlijden door het gebruik van een telefoon. \"Maar elk door appen of bellen op de fiets veroorzaakt ongeval is er een te veel.\"<\/p>\n",
+    "image": "https:\/\/nos.nl\/data\/image\/2018\/09\/13\/499428\/320x320.jpg",
+    "link": "https:\/\/nos.nl\/l\/2252047",
+    "date": "Tue, 25 Sep 2018 16:02:46 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "Raft slaat om bij Terschelling: meerdere gewonden",
+    "desc": "Bij een incident met een raft in het water bij Terschelling zijn dinsdagmiddag meerdere personen gewond geraakt. Doordat de rubberboot omsloeg, kwamen de inzittenden in het water terecht.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/b1f2ec68-c0d3-11e8-8b1a-a1ef381bd6bc.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2599414\/raft-slaat-om-bij-terschelling-meerdere-gewonden",
+    "date": "Tue, 25 Sep 2018 16:02:36 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "Militair zelf achter kleding aan door \u2019inschattingsfout\u2019 temperatuur Noorwegen",
+    "desc": "Een \u2019inschattingsfout\u2019 van de temperatuur in Noorwegen heeft ertoe geleid dat militairen voor een oefening zelf achter hun extra winterkleding aan moeten. Dat verklaarde staatssecretaris Visser (Defensie) tijdens het vragenuur in de Tweede Kamer.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/cf48133e-c0cd-11e8-a569-6127c088fc77.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2599400\/militair-zelf-achter-kleding-aan-door-inschattingsfout-temperatuur-noorwegen",
+    "date": "Tue, 25 Sep 2018 15:59:57 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "Appen op de fiets per juli 2019 verboden",
+    "desc": "Het gebruik van de mobiele telefoon op de fiets wordt naar verwachting op 1 juli 2019 verboden. Dat blijkt uit een wetsvoorstel van minister Van Nieuwenhuizen (Infrastructuur).",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/b03ddc54-c0d1-11e8-b32f-8168497de723.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2599398\/appen-op-de-fiets-per-juli-2019-verboden",
+    "date": "Tue, 25 Sep 2018 15:59:18 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "Beschuldigers Bill Cosby aanwezig in rechtszaal",
+    "desc": "Verschillende vrouwen die Bill Cosby hebben beschuldigd van seksueel misbruik, zijn aanwezig bij de hoorzitting op de tweede dag van de rechtszaak, de dag waarop ook de uitspraak vermoedelijk wordt gedaan.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/d53f2dca-c0ca-11e8-935a-df0b205a5a58.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/entertainment\/2599313\/beschuldigers-bill-cosby-aanwezig-in-rechtszaal",
+    "date": "Tue, 25 Sep 2018 15:52:08 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "Cosby weer uitgejouwd bij rechtbank",
+    "desc": "Bill Cosby krijgt vandaag te horen of hij de gevangenis in moet, mogelijk 10 jaar. De komiek werd schuldig bevonden aan seksueel misbruik van Andrea Constand.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/a0066c72-c0ca-11e8-9fec-d9acd69c57fb.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/video\/2599309\/cosby-weer-uitgejouwd-bij-rechtbank",
+    "date": "Tue, 25 Sep 2018 15:51:00 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "Minister: misstanden \u2019wegkijkend\u2019 UWV zorgelijk",
+    "desc": "Minister Wouter Koolmees (Sociale Zaken) maakt zich zorgen over de werkcultuur bij uitkeringsinstantie UWV, die zou wegkijken bij fraude met WW-uitkeringen. Hij noemt de meldingen van werknemers hierover een zorgelijk signaal.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/48523a76-c0c8-11e8-8822-03bfd464f54c.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2599088\/minister-misstanden-wegkijkend-uwv-zorgelijk",
+    "date": "Tue, 25 Sep 2018 15:38:05 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "Overvaller geeft zich over wegens muggenplaag",
+    "desc": "Bijtende muggen dreven een overvaller in het Amerikaanse Wisconsin tot wanhoop. Daarom gaf hij zichzelf uiteindelijk maar over aan de politie.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/c4e95bea-c0c9-11e8-97cf-419daaf6bba4.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2599076\/overvaller-geeft-zich-over-wegens-muggenplaag",
+    "date": "Tue, 25 Sep 2018 15:36:59 +0200"
+  },
+  {
+    "site": "NOS",
+    "title": "Kamer boos: militairen moeten zelf kleding kopen voor oefening in Noorwegen ",
+    "desc": "<p>De Tweede Kamer is verbijsterd dat een groep van zo'n duizend militairen zelf extra isolerende onderkleding moet kopen voor een oefening in Noorwegen. Het ministerie van Defensie heeft de kleding niet op voorraad en staatssecretaris Visser zegt dat er sprake is van een \"uitzonderingssituatie\". \"Het is niet voor herhaling vatbaar\", zei de staatssecretaris in de Tweede Kamer.<\/p>\n<p>Zowel de coalitiepartijen VVD, CDA, D66 als de oppositiepartijen GroenLinks, SP, PvdA en SGP vielen over Visser heen. De oefening in oktober in het koude Noorwegen, genaamd Trident Juncture, staat al twee jaar gepland.<\/p>\n<p>In het kledingdepot kunnen de vertrekkende landmacht-militairen alleen het standaard winteruniform ophalen, omdat er geen extra isolerende kleding is ingekocht. Het gaat om extra warm ondergoed, een onderjas, overschoenen en handschoenen.<\/p>\n<h2>Bespottelijk<\/h2>\n<p>De militairen is daarom geadviseerd om zelf naar de winkel te gaan. Ze kunnen de bonnetjes declareren of een voorschot krijgen van zo'n 1000 euro. De Kamer is verbolgen dat Defensie niet in staat blijkt te zijn om te zorgen voor de basisvoorzieningen van hun personeel. \"Je kunt ze toch niet zelf naar Bever-sport sturen\", zei PvdA'er Kerstens. \"Het is bespottelijk, ik begrijp niet hoe dit bij u is opgekomen\", zegt GroenLinks-Kamerlid Diks.<\/p>\n<p>Ook de coalitie is niet mild. D66-Kamerlid Beljah noemt het bizar, de VVD spreekt van een slechte zaak en het CDA noemt het een bizarre gang van zaken dat de militairen zelf moeten zorgen dat hun tenen en vingers niet beschadigen, zoals op een oefening in het koude Litouwen is gebeurd.<\/p>\n<h2>Koudweerpakket<\/h2>\n<p>In Litouwen hebben militairen koudeletsel opgelopen, zegt staatssecretaris Visser en daarom besloot Defensie dat naar Noorwegen ook extra warme kleding mee moest. Het was al te laat om deze kleding centraal in te kopen, vandaar dat deze noodgreep is gedaan. \"Ik wens dit niet meer mee te maken\", aldus Visser. De SP noemt het super g\u00eanant dat de staatssecretaris doet alsof het probleem \"uit de lucht is komen vallen\".<\/p>\n<p>Visser zegt dat ze veel werk maakt van het verbeteren van de persoonlijke uitrusting van de Nederlandse militairen en zo is ook in de Defensienota beloofd. Ze zegt dat Defensie kampt met bezuinigingen van de afgelopen dertig jaar. \"We zijn lang verwaarloosd. We komen van ver.\"<\/p>\n<h2>Bevroren tenen<\/h2>\n<p>De Kamer vindt dat geen verklaring, omdat de aanschaf van de extra warme kleding niet zozeer een geldkwestie is. Het CDA is ook bang dat de militairen misschien wel verkeerde, te koude, kleding hebben gekocht. \"Wie controleert of ze geen bevroren tenen krijgen?\", aldus het CDA-Kamerlid Bruins Slot. De SP is ook verbijsterd dat Visser van dit probleem niet op de hoogte was. \"Ik las het vanmorgen ook in de Telegraaf.\"<\/p>\n<p>Ze gaat wel kijken of Defensie toch nog wat kan doen, maar beloven kan ze dat niet. <\/p>\n",
+    "image": "https:\/\/nos.nl\/data\/image\/2018\/09\/25\/502328\/320x320.jpg",
+    "link": "https:\/\/nos.nl\/l\/2252042",
+    "date": "Tue, 25 Sep 2018 15:28:02 +0200"
+  },
+  {
+    "site": "NOS",
+    "title": "DNB: Nederlandse banken doen te weinig tegen malversaties",
+    "desc": "<p>Nederlandse banken doen te weinig om witwaspraktijken zoals bij ING te voorkomen. Dat heeft De Nederlandse Bank (DNB) gerapporteerd aan minister Hoekstra van Financi\u00ebn naar aanleiding van de misstanden bij ING en de boete van 775 miljoen euro.<\/p>\n<p>Vooral van besturen en raden van commissarissen verwacht DNB de komende tijd een \"grote inspanning\". Zij moeten zich persoonlijk inzetten om witwassen, fraude en andere malversaties onder hun leiding te voorkomen. ING wordt extra in de gaten gehouden.<\/p>\n<p>DNB dringt ook aan op meer samenwerking tussen Europese banken omdat de meeste witwaspraktijken en andere financieel-economische criminaliteit de grens over gaan.<\/p>\n<p>Minister Hoekstra van Financi\u00ebn noemt het een zorgelijk signaal. \"Het betekent dat er veel gebeurd is, maar ook nog veel zal moeten gebeuren.\" Hoekstra zal banken blijven aanspreken op hun verantwoordelijkheid.<\/p>\n<p>\"Cultuur begint aan de top.\" Hij heeft bankdirecteuren laten weten weinig 'clementie' te hebben met dit type gedrag. \"Het gaat natuurlijk allemaal om het vertrouwen wat Nederlanders moeten kunnen hebben in de financi\u00eble sector.\" Dat vertrouwen moet volgens Hoekstra versterkt worden.<\/p>\n<p>DNB constateert dat bij meer banken de toezichtregels niet nageleefd worden. Uit onderzoek van DNB blijkt dat \"bij verschillende banken sprake is van het doen van onvoldoende klantenonderzoek en een gebrekkige transactiemonitoring.\"<\/p>\n<p>De poortwachtersfunctie van banken tegen fraude, witwassen en andere financieel-economische criminaliteit binnen de bankensector is daardoor te vaak onvoldoende op orde. De toezichthouder vindt de herstel- en verbeterplannen van ING adequaat, maar waarschuwt dat \"het een langdurig en intensief proces is om de de poortwachtersfunctie bij ING op adequaat niveau te brengen.\"<\/p>\n<p>DNB wijst er terloops ook op dat het toezicht in de afgelopen jaren is verscherpt en opgevoerd met twee keer zoveel mensen. Maar voor goed toezicht heeft DNB meer mensen nodig, gezien de omvang van de witwasproblematiek en terrorismefinanciering en technologische ontwikkelingen,zoals de opkomst van crypto's.<\/p>\n",
+    "image": "https:\/\/nos.nl\/data\/image\/2018\/09\/25\/502327\/320x320.jpg",
+    "link": "https:\/\/nos.nl\/l\/2252041",
+    "date": "Tue, 25 Sep 2018 15:27:13 +0200"
+  },
+  {
+    "site": "NOS",
+    "title": "Gemeenten moeten inventariseren of gevels brandveilig zijn",
+    "desc": "<p>Gemeenten moeten van minister Ollongren naar aanleiding van de brand vorig jaar in Londen een lijst maken van de meest risicovolle gebouwen. Bij de brand in de Grenfell Tower in de Britse hoofdstad kwamen vorig jaar juni 72 mensen om het leven. Uit onderzoek bleek dat er van alles mis was met de brandveiligheid; de brand verspreidde zich via de gevelplaten aan de buitenkant.<\/p>\n<p>Ollongren meldde de Kamer eerder dat ze eerst de resultaten van Engels onderzoek naar de brand wilde afwachten. Maar nu dat onderzoek langer op zich laat wachten, en ook in Nederland mensen zich zorgen maken, wil ze toch dat gemeenten de gebouwen inventariseren.<\/p>\n<h2>Geen aanwijzingen dat er op grote schaal dingen mis zijn<\/h2>\n<p>De minister antwoordt op Kamervragen dat er geen aanwijzingen zijn dat er in Nederland veel gebouwen zijn met gevels die niet aan de eisen van brandveiligheid voldoen. Maar het is wel mogelijk dat sommige gebouwen niet veilig genoeg zijn.<\/p>\n<p>Alle gemeenten moeten nu hun meest risicovolle gebouwen in kaart brengen. Ze moeten laten toetsen of de brandveiligheid van de gevels voldoet aan het Bouwbesluit. De gemeenten Rotterdam en Nijmegen zijn zelf al bezig met zo'n inventarisatie.<\/p>\n<h2>Eigenaar zelf verantwoordelijk<\/h2>\n<p>Ollongren benadrukt dat de eigenaar van een gebouw er zelf voor moet zorgen dat het bouwwerk voldoet aan de eisen. Ze vindt dat eigenaren soms niet genoeg urgentie voelen om tot onderzoek over te gaan.<\/p>\n<p>\"Dat in de bouwfase andere goedkopere materialen worden toegepast dan volgens de vergunning en dat de opdrachtgever hiervan geen weet heeft, is daarbij een belangrijk aandachtspunt.\" De minister bekijkt nog of de eisen moeten worden aangescherpt.<\/p>\n",
+    "image": "https:\/\/nos.nl\/data\/image\/2017\/11\/16\/431585\/320x320.jpg",
+    "link": "https:\/\/nos.nl\/l\/2252039",
+    "date": "Tue, 25 Sep 2018 15:26:12 +0200"
+  },
+  {
+    "site": "NOS",
+    "title": "Hoogleraar Ethiek lijsttrekker D66 voor Eerste Kamerverkiezingen",
+    "desc": "<p>Hoogleraar Ethiek van Biomedische Innovatie Annelien Bredenoord (39) is door de leden van D66 gekozen tot lijsttrekker voor de Eerste Kamerverkiezingen op 27 mei 2019. Ze zit sinds 2015 in de Eerste Kamer.<\/p>\n<p>\"Zij is de jongste en eerste vrouwelijke lijsttrekker van D66 in de Eerste Kamer\", zegt D66. Zij was de enige kandidaat en haalde 96,3 procent van de stemmen.<\/p>\n<p>Bredenoord is nu vicevoorzitter van de D66-fractie. Ze is sinds 2009 medisch-ethicus bij het UMC Utrecht en de Universiteit Utrecht. Op 5 september hield zij de zesde Elst Borstlezing over nieuwe voortplantingstechnologie en nieuwe gezinnen en de ethische vragen die dat oproept.<\/p>\n<p>D66 is de derde fractie in de Eerste Kamer na VVD en CDA met tien van de 75 zetels.<\/p>\n",
+    "image": "https:\/\/nos.nl\/data\/image\/2018\/09\/25\/502323\/320x320.jpg",
+    "link": "https:\/\/nos.nl\/l\/2252036",
+    "date": "Tue, 25 Sep 2018 15:22:31 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "\u2019Banken doen te weinig tegen witwassen\u2019",
+    "desc": "Financi\u00eble instellingen doen nog te weinig om te voorkomen dat er via hun organisatie geld wordt witgewassen of dat er terrorisme wordt gefinancierd. Dat schrijft De Nederlandsche Bank (DNB) naar aanleiding van het witwasschandaal bij ING.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/f9af3c8c-c0c9-11e8-85a3-0386ac13530d.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2598926\/banken-doen-te-weinig-tegen-witwassen",
+    "date": "Tue, 25 Sep 2018 15:18:33 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "Geen dertig, maar maximaal tien jaar voor Bill Cosby",
+    "desc": "Bill Cosby zou dertig jaar gevangenisstraf tegemoet kunnen zien, maar nu is dat nog maximaal tien jaar. De aanklagers en de verdediging zijn namelijk overeengekomen de drie zaken tot \u00e9\u00e9n samen te voegen.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/45acb364-c0d2-11e8-b32f-8168497de723.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/entertainment\/2598907\/geen-dertig-maar-maximaal-tien-jaar-voor-bill-cosby",
+    "date": "Tue, 25 Sep 2018 15:15:52 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "Drie maanden de bak in voor tik op vrouwenbillen",
+    "desc": "Een 30-jarige Fransman draait drie maanden de bak in omdat hij een vrouw (21) een tik op haar billen heeft gegeven. Sindskort kent Frankrijk een wet die dergelijk seksueel getint gedrag strafbaar stelt. Dit is de eerste veroordeling op basis van die nieuwe wet. De man kreeg ook een boete van 300 euro omdat hij schunnig commentaar leverde op haar borsten.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/14ceae8a-c0c5-11e8-b68c-a54eb230bd06.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2598894\/drie-maanden-de-bak-in-voor-tik-op-vrouwenbillen",
+    "date": "Tue, 25 Sep 2018 15:14:36 +0200"
+  },
+  {
+    "site": "NU.nl",
+    "title": "Vermeende topcrimineel 'Rico de Chileen' verdacht van meerdere liquidaties",
+    "desc": "Het Openbaar Ministerie (OM) onderzoekt de verdenking dat Richard R., alias 'Rico de Chileen', betrokken zou zijn bij meerdere liquidaties. Dat heeft het OM dinsdag bekendgemaakt in een inleidende zitting tegen de geboren Chileen met een Nederlands paspoort.",
+    "image": "https:\/\/media.nu.nl\/m\/703xdd6adtvo_sqr256.jpg\/vermeende-topcrimineel-rico-chileen-verdacht-van-meerdere-liquidaties.jpg",
+    "link": "https:\/\/www.nu.nl\/binnenland\/5478347\/vermeende-topcrimineel-rico-chileen-verdacht-van-meerdere-liquidaties.html",
+    "date": "Tue, 25 Sep 2018 15:05:15 +0200"
+  },
+  {
+    "site": "NOS",
+    "title": "Russisch schip maanden vast bij Terneuzen, kapitein weigert voedsel",
+    "desc": "<p>In de haven van Terneuzen ligt een Russisch vrachtschip al maanden aan de ketting. Schuldeisers hebben in mei beslag gelegd op het schip wegens wanbetaling door de Russische rederij. Omdat een levering van voedsel uitblijft, verslechtert de situatie aan boord iedere dag.<\/p>\n<p>Inspecteur Gijs Mol van de internationale transportfederatie ITF die gisteren nog aan boord is geweest noemt de levensomstandigheden ernstig.<\/p>\n<p>Hij vertelt dat er nauwelijks eten is voor de 21 bemanningsleden (20 mannen en een kokkin). \"Het verse voedsel is helemaal op. Er is geen groente en fruit meer. Er liggen nog een paar zakken rijst, wat aardappelen en uien.\" Ook begint de watervoorraad op te raken. \"Er is nog water voor een paar dagen, maar daar gaan ze het einde van de week niet mee halen.\" De bemanningsleden mogen vanwege hun contract maar korte tijd van boord en kunnen niet zomaar weg van het schip.<\/p>\n<h2>Niet in de haak<\/h2>\n<p>Leden van de marechaussee die afgelopen week een controle deden, merkten dat er aan boord \"iets niet in de haak was\", zegt een woordvoerder. De marechaussee beoordeelde de leefomstandigheden als onvoldoende en daarop werden de vakbond en de inspectie ingeschakeld.<\/p>\n<p>In Terneuzen is gisteren een hulpactie op touw gezet voor de bemanning. Er werd volop eten ingezameld. Daarnaast had een sponsor aangeboden dat de kokkin van boord zou kunnen om boodschappen te doen, zonder dat ze hoefde te betalen. Maar dat ging niet door, vertelt Mol. \"Zij was dolblij dat ze van boord mocht, maar toen de kapitein er lucht van kreeg, stak hij daar een stokje voor. Hij zei dat het proviand vandaag bezorgd zou worden, maar het zal mij benieuwen.\"<\/p>\n<p>Mol heeft de leverancier gesproken, die zegt dat er van de vorige levering nog een bedrag openstaat en dat hij pas daarna weer wil leveren. Wel heeft een bemanningslid dat gisteren in in Seamen's Club Varenscentrum in Terneuzen was een paar tassen met eten mee aan boord kunnen nemen. \"De twee volle boodschappentassen en een doos bananen die we gisteravond hebben gebracht, werden dankbaar aangenomen\", zegt Leontine Verhoef van het Varenscentrum tegen Omroep Zeeland.<\/p>\n<h2>Dankbaar aangenomen<\/h2>\n<p>Naar verluidt ontvangen de bemanningsleden hun salaris nog wel. \"Maar zelfs als ze betaald worden, is de vraag of ze aan wal geld te besteden hebben. Het grootste gedeelte van het salaris wordt gelijk overgemaakt naar de familie in Rusland\", zegt Mol.<\/p>\n<p>De Russen spreken nauwelijks Engels en het is moeilijk om met ze te communiceren, zeggen inspecteur Mol en Verhoef van het Varenscentrum. \"Het lijkt alsof de bemanning niet volledig beseft wat de situatie is. Daar zijn wij natuurlijk ook voorzichtig mee, want de spirit die ze nog hebben, willen we hun niet ontnemen.\"<\/p>\n<p>De Kuzma Minin is niet het enige schip van rederij Murmansk Shipping Company waar beslag op is gelegd. Volgens de inspectie zijn wereldwijd vergelijkbare situaties met schepen van de Russische rederij, die in zwaar financieel weer verkeert.<\/p>\n",
+    "image": "https:\/\/nos.nl\/data\/image\/2018\/09\/25\/502322\/320x320.jpg",
+    "link": "https:\/\/nos.nl\/l\/2252035",
+    "date": "Tue, 25 Sep 2018 15:05:13 +0200"
+  },
+  {
+    "site": "NOS",
+    "title": "Paus: misbruikschandalen jagen mensen de kerk uit",
+    "desc": "<p>De misbruikschandalen in de katholieke kerk schokken de gelovigen en jagen ze de kerk uit. Dat zei de paus vandaag op de laatste dag van zijn bezoek aan de Baltische staten. De kerk moet veranderen als ze toekomstige generaties wil behouden, zei hij.<\/p>\n<p>De uitspraken van de paus vallen samen met een nieuw rapport over tientallen jaren van seksueel misbruik en het verhullen daarvan in Duitsland.<\/p>\n<p>Tegen een grote groep jongeren in Estland zei de paus dat hij weet dat veel jonge mensen vinden dat de kerk hun niets te bieden heeft en hun problemen niet begrijpt. \"Ze zijn woedend over de seksuele en economische schandalen zonder duidelijke veroordeling. En over het feit dat we niet bereid zijn om de levens en gevoeligheden van jongeren echt te begrijpen.\"<\/p>\n<p>\"We moeten zelf worden bekeerd\", zei de paus. \"Om naast jullie te kunnen staan, moeten we ons realiseren dat we veel moeten veranderen.\"<\/p>\n<h2>Rapport<\/h2>\n<p>Met de uitspraken erkent de paus voor het eerst publiekelijk het falen van de aanpak van seksueel misbruik.<\/p>\n<p>Vandaag werd op de Duitse bisschoppenconferentie een rapport gepubliceerd dat aantoont dan bijna 3700 mensen in Duitsland door geestelijken zijn misbruikt tussen 1946 en 2014. Meer dan de helft was toen 13 jaar of jonger en bijna een derde van hen was misdienaar.<\/p>\n<p>Volgens het rapport is bewijs in deze zaken vernietigd of gemanipuleerd. Veel zaken zijn nooit voor het gerecht gebracht en misbruikers werden overgeplaatst, zonder dat hun verleden bekend werd gemaakt.<\/p>\n<p>Kardinaal Marx zei als het hoofd van de Rooms-Katholieke Kerk in Duitsland bij de presentatie van het rapport dat de zaken nu niet zijn afgehandeld, maar juist beginnen.<\/p>\n<p>\"Veel te lang is binnen de kerk gelogen over misbruik, is er weggekeken en in de doofpot gestopt. Voor al het falen en alle pijn, bied ik excuses aan\", zei Marx. \"Ik schaam me voor het vernietigen van vertrouwen en voor de misdaden die mensen door kerkelijke functionarissen zijn aangedaan.\"<\/p>\n",
+    "image": "https:\/\/nos.nl\/data\/image\/2018\/09\/25\/502321\/320x320.jpg",
+    "link": "https:\/\/nos.nl\/l\/2252034",
+    "date": "Tue, 25 Sep 2018 15:00:37 +0200"
+  },
+  {
+    "site": "NOS",
+    "title": "Actiegroep PO Front van leraren, vakbonden en werkgevers uit elkaar",
+    "desc": "<p>Leraren, vakbonden en werkgevers stoppen met de actiegroep PO Front. De partijen bundelden de krachten in de strijd voor meer investeringen in het basisonderwijs en een lagere werkdruk. Samen organiseerden ze een reeks stakingen en acties.<\/p>\n<p>Binnen PO Front vertegenwoordigden de onderwijsbonden en de actiegroep van basisschoolleraren PO in Actie de belangen van de leraren en de PO-Raad die van de schoolbesturen. De partijen werkten de afgelopen anderhalf jaar samen en gaan nu los van elkaar verder.<\/p>\n<p>\"Het was een unieke samenwerking, waarmee veel is bereikt\", zegt de PO-Raad in een verklaring. De overheid heeft de afgelopen maanden 270 miljoen euro beschikbaar gesteld voor betere salarissen en arbeidsvoorwaarden in het basisonderwijs en maakte 430 miljoen euro vrij voor het verlagen van de werkdruk op basisscholen.<\/p>\n<h2>Inzet blijft<\/h2>\n<p>Dat is bij elkaar ongeveer de helft van wat de actiegroep eiste: een extra bedrag van 1,4 miljard voor het basisonderwijs. De partijen blijven zich inzetten voor betere arbeidsvoorwaarden. \"Op het moment dat het nodig is, weten we elkaar snel weer te vinden\", zegt een woordvoerder van PO-Raad.<\/p>\n<p>De leraren van PO in Actie werken nu samen met agenten, zorgmedewerkers en defensiepersoneel om meer geld voor de publieke sector als geheel binnen te halen. Voor 2 oktober staat een manifestatie gepland in Den Haag.<\/p>\n<p>Naast het verbeteren van de lerarensalarissen en verminderen van de werkdruk gaat PO-Raad zich nu ook richten op een betere beloning voor leidinggevenden en ondersteuners. Die hebben niet geprofiteerd van de recente forse salarisverhoging, waardoor directeuren in sommige gevallen minder verdienen dan docenten.<\/p>\n",
+    "image": "https:\/\/nos.nl\/data\/image\/2018\/03\/14\/459179\/320x320.jpg",
+    "link": "https:\/\/nos.nl\/l\/2252031",
+    "date": "Tue, 25 Sep 2018 14:46:45 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "OM: Rico de Chileen gaf moordopdrachten",
+    "desc": "Hij wordt er officieel nog niet van verdacht, maar het Openbaar Ministerie in Amsterdam denkt genoeg aanwijzingen te kunnen vinden dat Richard R., alias Rico de Chileen, leiding gaf aan een criminele organisatie die moorden pleegde.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/8dac7274-c0d4-11e8-b68c-a54eb230bd06.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2598623\/om-rico-de-chileen-gaf-moordopdrachten",
+    "date": "Tue, 25 Sep 2018 14:45:44 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "Familie: \u2019verzekeraar helpt alleen als je dood bent\u2019",
+    "desc": "Een vrouw die levensgevaarlijk gewond raakte op vakantie in Slovakije mocht niet op kosten van de verzekering naar huis, maar toen ze ter plaatse overleed, wilde de verzekeraar wel betalen.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/0d765044-c0c4-11e8-ba41-09f748e6947e.png",
+    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2598619\/familie-verzekeraar-helpt-alleen-als-je-dood-bent",
+    "date": "Tue, 25 Sep 2018 14:45:16 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "Man vergist zich en poogt tijdens vlucht vliegtuigdeur te openen",
+    "desc": "Een Indiase passagier heeft flinke paniek veroorzaakt toen hij midden in een vlucht probeerde de vliegtuigdeur te openen. Naar verluidt vergiste de man zich en dacht hij dat het de toiletdeur was. Dat meldt AFP dinsdag.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/9ab1b81c-c0c0-11e8-8822-03bfd464f54c.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2598616\/man-vergist-zich-en-poogt-tijdens-vlucht-vliegtuigdeur-te-openen",
+    "date": "Tue, 25 Sep 2018 14:43:15 +0200"
+  },
+  {
+    "site": "NOS",
+    "title": "Negen honden die hun bazin aanvielen, in beslag genomen",
+    "desc": "<p>De politie heeft negen Staffordshire bultterri\u00ebrs in beslag genomen die gisteravond hun bazin aanvielen. De vrouw woonde met de honden in een rijtjeshuis in Tilburg.<\/p>\n<p>De honden begonnen gisteravond te vechten en beten om zich heen. Ook de vrouw werd meermalen gebeten. Ze raakte gewond aan haar handen en moest met de ambulance naar het ziekenhuis. Daar zijn de bijtwonden gehecht.<\/p>\n<p>Een buurvrouw en haar vriend schoten te hulp. De buurvrouw werd gebeten in haar knie; de vriend in een arm en in zijn buik. Vandaag vertelt zij aan Omroep Brabant dat het tweetal er met oppervlakkige wonden vanaf gekomen is.<\/p>\n<h2>Vooroordelen<\/h2>\n<p>Nadat de gewonde Tilburgse was afgevoerd, is de woning afgesloten. De honden hebben daar de nacht alleen doorgebracht.<\/p>\n<p>De eigenaresse had geprobeerd de honden te verkopen toen het nog puppy's waren, maar het lukte niet ze kwijt te raken. Vervolgens raakte de hondenliefhebster aan de dieren gehecht en wilde ze hen niet meer kwijt.<\/p>\n<p>De in beslag genomen bullterri\u00ebrs worden beoordeeld door een hondengedragstherapeut. De officier van justitie beslist op basis van dat rapport wat er met de beesten moet gebeuren.<\/p>\n",
+    "image": "https:\/\/nos.nl\/data\/image\/2018\/09\/25\/502315\/320x320.jpg",
+    "link": "https:\/\/nos.nl\/l\/2252028",
+    "date": "Tue, 25 Sep 2018 14:39:16 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "Excuses Duitse kardinaal voor misbruik: \u2019Het is in de doofpot gestopt\u2019",
+    "desc": "Het hoofd van de Rooms-Katholieke Kerk in Duitsland, kardinaal Marx, heeft excuses aangeboden voor alle vormen van seksueel misbruik binnen de kerk de afgelopen tientallen jaren. Hij deed dat tijdens de presentatie van een omvangrijke studie naar misbruik van kinderen en jongeren.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/cda5acb6-c0bf-11e8-9971-5dbe173d1f84.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2598570\/excuses-duitse-kardinaal-voor-misbruik-het-is-in-de-doofpot-gestopt",
+    "date": "Tue, 25 Sep 2018 14:37:31 +0200"
+  },
+  {
+    "site": "NU.nl",
+    "title": "Duitse kardinaal biedt excuses aan voor misbruik katholieke kerk",
+    "desc": "Het hoofd van de Rooms-Katholieke Kerk in Duitsland, kardinaal Marx, heeft excuses aangeboden voor alle vormen van seksueel misbruik binnen de kerk de afgelopen tientallen jaren.",
+    "image": "https:\/\/media.nu.nl\/m\/2czxklhaeqsa_sqr256.jpg\/duitse-kardinaal-biedt-excuses-misbruik-katholieke-kerk.jpg",
+    "link": "https:\/\/www.nu.nl\/buitenland\/5479502\/duitse-kardinaal-biedt-excuses-misbruik-katholieke-kerk.html",
+    "date": "Tue, 25 Sep 2018 14:36:46 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "Drie jaar cel ge\u00ebist voor klonen Ziggo-modems",
+    "desc": "Stiekem maakte hij kopie\u00ebn van modems. Die verkocht hij, waardoor zijn honderden klanten internet en televisie in huis kregen voor een spotprijs, eenmalig zo'n 100 euro handje contantje. Ze hadden daar geen Ziggo-abonnement voor nodig. Daarom zou de 37-jarige Remko van D. drie jaar de gevangenis in moeten, eiste het Openbaar Ministerie dinsdag bij de rechtbank in Rotterdam.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/f92726a8-c0c9-11e8-98d5-c79b9c8c2f11.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2598510\/drie-jaar-cel-geeist-voor-klonen-ziggo-modems",
+    "date": "Tue, 25 Sep 2018 14:30:07 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "Wereldwijde staalproductie loopt verder op",
+    "desc": "",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/af7d6e86-c0c9-11e8-8b86-a1c84b456984.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/financieel\/2598458\/wereldwijde-staalproductie-loopt-verder-op",
+    "date": "Tue, 25 Sep 2018 14:26:37 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "Vrachtwagenchauffeur schuldig aan dood meisje",
+    "desc": "Een 57-jarige vrachtwagenchauffeur uit Assendelft die in oktober 2016 een fataal ongeluk heeft veroorzaakt in Amsterdam, is door de rechtbank schuldig bevonden. Door de aanrijding kwam een veertienjarig meisje om het leven. De bestuurder heeft een taakstraf gekregen van 240 uur en is zijn rijbewijs een jaar kwijt.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/e31114b4-c0bf-11e8-8848-bb65515aae86.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2598366\/vrachtwagenchauffeur-schuldig-aan-dood-meisje",
+    "date": "Tue, 25 Sep 2018 14:20:12 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "Straf jongerensoos voor dood dronken jongen",
+    "desc": "Jongerensoos \u2019t Waeske in het Limburgse dorpje Guttencoven is volgens de rechtbank in Maastricht verantwoordelijk voor de dood van een vijftienjarige jongen uit Born. De jongen, Max \u00e0 Campo, werd in oktober 2016 na een bezoek aan de soos doodgereden op de A2. Volgens de rechtbank had de jongen zeker vijf halve liters bier op en was hij gedesori\u00ebnteerd.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/de34d468-c0c3-11e8-b162-cbf529928cf3.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2598354\/straf-jongerensoos-voor-dood-dronken-jongen",
+    "date": "Tue, 25 Sep 2018 14:16:44 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "Kinderpornoverzamelaar gepakt na stelen kinderfiets",
+    "desc": "Een 32-jarige man uit Emmen werd op de kermis in Wolvega gepakt voor het stelen van een kinderfiets. Op zijn telefoon trof de politie vervolgens kinderporno aan. De officier van justitie eist tbs.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/0e6f0b74-c0bc-11e8-98d5-c79b9c8c2f11.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2598300\/kinderpornoverzamelaar-gepakt-na-stelen-kinderfiets",
+    "date": "Tue, 25 Sep 2018 14:10:56 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "Gemeenten moeten lijst risicovolle gebouwen maken",
+    "desc": "Gemeenten moeten van minister Kajsa Ollongren (Binnenlandse Zaken) naar aanleiding van de brand in de Grenfell Tower in Londen een lijst maken van de meest risicovolle gebouwen. Ook moet onderzocht worden of de gevels van deze panden voldoen aan de bouwregels.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/bcbd6eb6-c0ba-11e8-b32f-8168497de723.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2598278\/gemeenten-moeten-lijst-risicovolle-gebouwen-maken",
+    "date": "Tue, 25 Sep 2018 14:01:21 +0200"
+  },
+  {
+    "site": "NOS",
+    "title": "Geldboete voor jongerenvereniging na dood dronken tiener",
+    "desc": "<p>Jongerenvereniging 't Waeske uit Guttecoven moet 7500 euro boete betalen vanwege de dood van een 15-jarige jongen uit Sittard-Geleen. Volgens de rechtbank is de jongerenvereniging verantwoordelijk voor zijn dood.<\/p>\n<p>De jongen bezocht twee jaar geleden met Halloween de jongerenvereniging, waar hij verschillende halve liters bier en wat shotjes dronk. Op weg naar huis was hij zo gedesori\u00ebnteerd dat hij op de A2 terechtkwam, daar werd aangereden en overleed. \"Dat dit zou kunnen gebeuren is iets waarmee de jongerenvereniging rekening had moeten houden. Het was voorzienbaar en is toerekenbaar\", aldus de rechter.<\/p>\n<p>\"De vereniging is ernstig tekortgeschoten in de zorg en aandacht die ze verschuldigd is aan de doorgaans jonge doelgroep\", zei de rechter. \"En niemand van het bestuur heeft zich erom bekommerd of hij veilig thuis zou komen.\"<\/p>\n<p>Volgens de rechter heeft niemand verhinderd of bemoeilijkt dat hij alcohol dronk: <\/p>\n<p>Volgens de rechter ging het ook niet om een incident. 't Waeske zou in de omgeving onder jongeren bekend staan als de plek waar je zonder problemen veel alcohol kon krijgen.<\/p>\n<p>De rechtbank legde 't Waeske ook een voorwaardelijke boete van 7500 euro op met een proeftijd van drie jaar, waarin de jongerenvereniging niet meer in de fout mag gaan. Voor overtreding van de Drank- en Horecawet krijgt de vereniging nog eens een voorwaardelijke boete van 1000 euro. Wordt deze wet de komende drie jaar overtreden, dan moet 't Waeske zes maanden dicht.<\/p>\n<p>De moeder van Max is opgelucht na de uitspraak van de rechter:<\/p>\n",
+    "image": "https:\/\/nos.nl\/data\/image\/2018\/09\/25\/502318\/320x320.jpg",
+    "link": "https:\/\/nos.nl\/l\/2252026",
+    "date": "Tue, 25 Sep 2018 13:59:29 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "Advies: moordbiecht tegen 'stille' telt ook",
+    "desc": "De bekentenissen die Wim S. tegen undercoveragenten heeft afgelegd over de moord op zijn partner Heidy Goudhart in Kaatsheuvel, zijn toelaatbaar als bewijs in zijn zaak. Dat stelt de advocaat-generaal in zijn advies aan de Hoge Raad, waar S. cassatie had aangespannen.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/69c78a22-c0b8-11e8-8c9d-2fca5d94ce3e.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2598181\/advies-moordbiecht-tegen-stille-telt-ook",
+    "date": "Tue, 25 Sep 2018 13:44:51 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "\u2019Heks van Kockengen\u2019 blijft vastzitten",
+    "desc": "De 59-jarige \u2019natuurgenezeres\u2019 Sara G. uit Kockengen moet in ieder geval tot de inhoudelijke behandeling van haar strafzaak in de cel blijven. De rechtbank in Utrecht bepaalde dat er nog voldoende ernstige bezwaren tegen de vrouw - ook wel de \u2019Heks van Kockengen\u2019 genoemd - zijn om haar vast te houden. De zaak staat half december gepland.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/aaf97810-c0b9-11e8-a191-a9e2e55d71a1.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2598148\/heks-van-kockengen-blijft-vastzitten",
+    "date": "Tue, 25 Sep 2018 13:40:24 +0200"
+  },
+  {
+    "site": "NOS",
+    "title": "Modehuis Michael Kors koopt concurrent Versace",
+    "desc": "<p>De Amerikaanse modegroep Michael Kors heeft het Italiaanse modehuis Versace gekocht. Kors heeft 1,7 miljard euro voor zijn concurrent betaald.<\/p>\n<p>Versace stond in de etalage en gisteren meldden Italiaanse media al dat Kors de koper is. Dat is nu bevestigd. Onder meer juweliersketen Tiffany en de eigenaar van de modemerken Calvin Klein en Tommy Hilfiger zouden ook in Versace ge\u00efnteresseerd zijn geweest.<\/p>\n<p>Het Italiaanse modehuis werd in 1978 opgericht door Gianni Versace. De couturier werd in 1997 vermoord en daarna nam zijn zus Donatella het bedrijf over. Zij blijft de creatieve leiding houden over het bedrijf na de overname door Michael Kors.<\/p>\n<h2>1,3 miljard voor Donatella, Allegra en Santo<\/h2>\n<p>De familie Versace (Donatella, haar dochter Allegra en haar broer Santo) verdient zo'n 1,3 miljard euro aan de verkoop. Daarnaast krijgen de Versaces voor zo'n 150 miljoen euro aandelen in Michael Kors.<\/p>\n<p>Versace was nog altijd een familiebedrijf: de drie erfgenamen van Gianni Versace hadden 80 procent van de aandelen in handen. De andere 20 procent was sinds 2014 in handen van investeringsmaatschappij Blackstone.<\/p>\n<h2>Jimmy Choo<\/h2>\n<p>Michael Kors wil een grotere speler worden in de modewereld. Het bedrijf nam daarom vorig jaar al het luxe Londense schoenen- en tassenmerk Jimmy Choo over voor ongeveer een miljard euro.<\/p>\n",
+    "image": "https:\/\/nos.nl\/data\/image\/2018\/09\/25\/502305\/320x320.jpg",
+    "link": "https:\/\/nos.nl\/l\/2252025",
+    "date": "Tue, 25 Sep 2018 13:38:51 +0200"
+  },
+  {
+    "site": "NU.nl",
+    "title": "Telefoon vermiste Arjen maakte contact met drie masten in Noorwegen",
+    "desc": "De mobiele telefoon van de Nederlander Arjen heeft tien dagen na zijn vermissing in Noorwegen contact gemaakt met drie telefoonmasten in het Scandinavische land. De 46-jarige man wordt al sinds 20 augustus vermist.",
+    "image": "https:\/\/media.nu.nl\/m\/vvaxydiaiper_sqr256.jpg\/telefoon-vermiste-arjen-maakte-contact-met-drie-masten-in-noorwegen.jpg",
+    "link": "https:\/\/www.nu.nl\/buitenland\/5479352\/telefoon-vermiste-arjen-maakte-contact-met-drie-masten-in-noorwegen.html",
+    "date": "Tue, 25 Sep 2018 13:33:13 +0200"
+  },
+  {
+    "site": "NU.nl",
+    "title": "Waarom ligt de Amerikaanse rechter Kavanaugh onder vuur?",
+    "desc": "Als het aan de Republikeinen ligt, wordt Brett Kavanaugh benoemd in het Amerikaanse Hooggerechtshof. De conservatieve rechter ligt echter onder vuur, onder meer vanwege vermeend seksueel wangedrag. Wat is er waar van deze beschuldigingen en waarom is zijn benoeming omstreden?",
+    "image": "https:\/\/media.nu.nl\/m\/otax75cajqru_sqr256.jpg\/waarom-ligt-amerikaanse-rechter-kavanaugh-vuur.jpg",
+    "link": "https:\/\/www.nu.nl\/buitenland\/5479220\/waarom-ligt-amerikaanse-rechter-kavanaugh-vuur.html",
+    "date": "Tue, 25 Sep 2018 13:24:10 +0200"
+  },
+  {
+    "site": "NU.nl",
+    "title": "Eigenaar zeilschip vervolgd voor dodelijk mastongeluk Harlingen",
+    "desc": "De eigenaar en schipper van het zeilschip de Amicitia wordt vervolgd voor dood door schuld. In augustus 2016 brak in de haven van Harlingen een mast af, waardoor drie Duitse passagiers om het leven kwamen.",
+    "image": "https:\/\/media.nu.nl\/m\/9wjx98kaxqd4_sqr256.jpg\/eigenaar-zeilschip-vervolgd-dodelijk-mastongeluk-harlingen.jpg",
+    "link": "https:\/\/www.nu.nl\/binnenland\/5479325\/eigenaar-zeilschip-vervolgd-dodelijk-mastongeluk-harlingen.html",
+    "date": "Tue, 25 Sep 2018 13:05:46 +0200"
+  },
+  {
+    "site": "NOS",
+    "title": "Hoofdredacteur NRC met piemeltje: Fokke & Sukke nemen krant over",
+    "desc": "<p>Ze zijn inmiddels minder gestileerd, gladder, mooier en preciezer. De grappen zijn milder geworden, want het klimaat is veranderd. Grappen met 'iets als wijf' hebben inmiddels een gaap-factor. Fokke &amp; Sukke, de bekende cartoonkanarie en -eend, bestaan 25 jaar. Om dat te vieren mochten bedenkers John Reid (ook bekend als de Rijdende Rechter), Jean-Marc van Tol en Bastiaan Geleijnse een deel van de redactie van de NRC overnemen.<\/p>\n<p>Dat heeft geresulteerd in een krant zonder foto's, maar wel met 52 tekeningen. Een hele opgave, bleek dat te zijn. \"We liepen gisteren om 09.45 uur de redactie op en om 23.00 uur gingen we pas weer naar buiten\", vertelt Bastiaan Geleijnse in het NOS Radio 1 Journaal. \"Dat was 13 uur ploegen. We zijn ontzettend moe, maar hebben heel blij het pand verlaten.\"<\/p>\n<p>In de video hieronder laten de tekenaars zien hoe ze te werk gaan, m\u00e9t cameraploeg erbij:<\/p>\n<p>De mannen hadden eerder al ongeveer de helft van de tekeningen voorbereid. \"Sommige tekeningen bij columns, katernen of advertenties hadden we al gemaakt. En natuurlijk het piemeltje van hoofdredacteur van Peter Vandermeersch.\"<\/p>\n<p>Want dat piemeltje, dat is een handelsmerk. Dat h\u00f3\u00f3rt er gewoon bij, vindt Geleijnse. \"Iedereen heeft een piemeltje gekregen, behalve columniste Ellen Deckwitz. Maar Claudia de Breij dan weer wel. Waar dat aan ligt weet ik niet. Dat is een artistieke keuze, moet je aan Jean-Marc vragen (de tekenaar,red.).\"<\/p>\n<p>Ooit waren Fokke &amp; Sukke bijna hun piemeltje kwijt. \"Iemand wilde ons in Amerika aan de man brengen en zei dat we de namen moesten veranderen en dat het piemeltje niet meer mocht. Die namen konden we ons wel voorstellen (die hadden we veranderd in Dick and Pecker) maar aan onze piemels komen, dat kan natuurlijk niet.\"<\/p>\n<p>Het drietal heeft gisteren niet alleen hard gewerkt, ook hard gelachen. \"Samen grappen verzinnen is een energieke activiteit. Op een gegeven moment zit je samen te lachen en dat is zalig. We zijn zo blij dat we dit samen kunnen doen\", zegt Geleijnse.<\/p>\n<p>En juist die fijne sfeer draagt bij aan het succes dat inmiddels al 25 jaar duurt, vindt hij. \"Dit blijft een vriendending. We doen dit al zo lang omdat we vrienden zijn. Er is een grote gunfactor en we kunnen elkaars zinnen inmiddels afmaken. Dan zegt Jean-Marc: 'Ja, we moeten nog iets met die...' en dan weet ik al wat hij gaat zeggen. Je bent 25 jaar elke dag samen, dan cre\u00eber je nogal een band.\"<\/p>\n<p>Bekijk hieronder een aantal pagina's:<\/p>\n<p>Gisteren zijn de mannen om 10.00 uur aangeschoven bij de redactionele vergadering. Op een normale dag vergaderen ze om 08.30 uur telefonisch. \"Dan praten we over het nieuws. We vergelijken het met drie mannen die in een bar staan. Die praten ook over wat ze opvalt, en proberen daarbij vaak een grap te maken. Dat is hetzelfde mechanisme als onze vergadering.\"<\/p>\n<p>Fokke &amp; Sukke bestaan eind november of begin december 25 jaar, wanneer precies weet Geleijnse niet. \"Maar vandaag vieren we het.\" Met een overvloed aan cartoons in de NRC, en op de achterkant Fokke &amp; Sukke een keer zonder piemeltje. \"Ja, ze hebben eens een broek aan! Daar kwam ik ook pas later achter.\"<\/p>\n",
+    "image": "https:\/\/nos.nl\/data\/image\/2018\/09\/25\/502314\/320x180.jpg",
+    "link": "https:\/\/nos.nl\/l\/2252022",
+    "date": "Tue, 25 Sep 2018 12:57:57 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "Staatssecretaris voelt zich kind in snoepwinkel",
+    "desc": "Draaimolens, achtbanen en klimtoestellen. In de RAI in Amsterdam worden de nieuwste attracties gepresenteerd. Staatssecretaris Mona Keijzer opende de beurs.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/297c6634-c0b0-11e8-9f36-21f335746c10.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/video\/2597879\/staatssecretaris-voelt-zich-kind-in-snoepwinkel",
+    "date": "Tue, 25 Sep 2018 12:54:00 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "Staatssecretaris op het matje om kleding landmacht",
+    "desc": "Staatssecretaris Visser (Defensie) moet dinsdag tijdens het vragenuur in de Tweede Kamer opheldering verschaffen over de winterkleding die personeel van de landmacht zelf moet kopen voor een NAVO-oefening in Noorwegen. De Kamer staat op z\u2019n achterste benen.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/5845567a-c0cd-11e8-b32f-8168497de723.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2597914\/staatssecretaris-op-het-matje-om-kleding-landmacht",
+    "date": "Tue, 25 Sep 2018 12:52:17 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "Onderzoekers: maak eiceldonatie makkelijker",
+    "desc": "De spelregels voor eiceldonatie moeten losser. Dat adviseren onderzoekers van het UMC Utrecht aan het kabinet. M\u00e9\u00e9r vrouwen zouden hun eicellen moeten kunnen afstaan, bepleiten ze. En homo\u2019s en lesbiennes zouden ze moeten kunnen ontvangen.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/d4e0e5ea-c0b0-11e8-98d5-c79b9c8c2f11.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2597901\/onderzoekers-maak-eiceldonatie-makkelijker",
+    "date": "Tue, 25 Sep 2018 12:50:00 +0200"
+  },
+  {
+    "site": "NOS",
+    "title": "CDA en D66 kritisch over plan voor snijden in rechtsbijstand",
+    "desc": "<p>Mensen met een laag inkomen kunnen in de toekomst niet meer vanzelfsprekend een beroep doen op een gesubsidieerde advocaat als zij bijvoorbeeld gaan scheiden, ontslagen worden of schulden hebben. Dat staat in conceptplannen van minister Dekker voor Rechtsbescherming, die de NOS in handen heeft. Uit de Tweede Kamer klinken kritische reacties. Ook de coalitiepartijen CDA en D66 vinden dat de plannen te ver gaan.<\/p>\n<p>In de verkenning over de hervorming van de rechtsbijstand staat dat zaken in het civiel en bestuursrecht minder snel bij de advocatuur terecht moeten komen. Nu hebben mensen die het niet kunnen betalen in alle rechtsgebieden recht op gesubsidieerde rechtshulp. Dat kost jaarlijks ruim 400 miljoen euro en dat is te duur, vindt de minister.<\/p>\n<h2>Uitelkaar.nl<\/h2>\n<p>NRC Next schreef vanochtend al dat de plannen nog niet definitief zijn, maar dat het concept wel duidelijk maakt in welke richting Dekker denkt. \"Bijstand door specialist\/advocaat zal alleen worden vergoed in zaken waarin de overheid haar verantwoordelijkheid moet nemen\", staat in het concept. Het gaat dan om zaken in het strafrecht en om asielzaken.<\/p>\n<p>Bij andere zaken moet beter gekeken worden of de hulp van een advocaat echt nodig is. Het idee is dat mensen veel meer zelf kunnen doen als ze verwezen worden naar juridische spreekuren en websites met online begeleiding als Uitelkaar.nl.<\/p>\n<p>Het ministerie van Justitie en Veiligheid wil nog niet reageren. Een woordvoerder laat weten dat er nog nog geen besluit is genomen en dat er nog meerdere varianten op tafel liggen.<\/p>\n<h2>'Onacceptabel'<\/h2>\n<p>De SP wil opheldering over het uitgelekte plan. \"De toegang tot het recht is het fundament van onze rechtsstaat, maar dreigt nu te worden uitgehold. Dat is verkeerd\", vindt Kamerlid Van Nispen. \"Het uitsluiten van rechtsgebieden is onacceptabel.\"<\/p>\n<p>Ook de regeringspartijen CDA en D66 zien niets in dit deel van het conceptplan. Zij willen Dekker aan het regeerakkoord houden. Daarin is afgesproken dat er \"geen rechtsgebieden worden uitgezonderd waarvoor rechtsbijstand kan worden aangevraagd\".<\/p>\n",
+    "image": "https:\/\/nos.nl\/data\/image\/2018\/09\/25\/502333\/320x320.jpg",
+    "link": "https:\/\/nos.nl\/l\/2252019",
+    "date": "Tue, 25 Sep 2018 12:49:59 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "Signaal mobieltje Kamphuis ging naar drie zendmasten",
+    "desc": "De Noorse politie heeft de zoektocht naar de vermiste Arjen Kamphuis dan wel gestaakt, toch blijft de mysterieuze zaak zowel Noorwegen als Nederland in zijn greep houden. In het tv-programma \u00c5sted Norge, een soort Opsporing Verzocht, komt meer informatie naar buiten over Kamphuis\u2019 telefoon, die op 30 augustus twintig minuten aan stond.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/28f8edc6-c0c0-11e8-b4f5-752434fdeb82.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2597882\/signaal-mobieltje-kamphuis-ging-naar-drie-zendmasten",
+    "date": "Tue, 25 Sep 2018 12:46:22 +0200"
+  },
+  {
+    "site": "NOS",
+    "title": "Nicolette van Dam bestelt eerste Kinderpostzegels van dit jaar",
+    "desc": "<p>Presentatrice en actrice Nicolette van Dam heeft de eerste Kinderpostzegels van dit jaar besteld. Ze kreeg in Amsterdam een bestellijst van een groep basisschoolleerlingen. Vanaf morgen gaan meer dan 160.000 kinderen in het hele land langs de deur.<\/p>\n<p>Het is de zeventigste keer dat de Kinderpostzegelactie wordt gehouden. Dit jaar staan figuren uit De Fabeltjeskrant op de zegels.<\/p>\n<p>Om de actie \"bij de tijd te houden\", zoals de Stichting Kinderpostzegel het verwoordt, kunnen er niet alleen postzegels worden besteld, maar ook onder meer tulpenbollen en een theepakket. En dat kan via een offline app die kinderen op hun telefoon kunnen zetten.<\/p>\n<h2>Eigen buurt<\/h2>\n<p>Met de opbrengst worden allerlei goede doelen voor kinderen gesteund. Scholen kunnen er nu ook voor kiezen om een deel van de opbrengst te besteden aan een goed doel in hun eigen buurt.<\/p>\n",
+    "image": "https:\/\/nos.nl\/data\/image\/2018\/09\/25\/502295\/320x320.jpg",
+    "link": "https:\/\/nos.nl\/l\/2252016",
+    "date": "Tue, 25 Sep 2018 12:41:54 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "Oproep: alleenstaande ouder en eenzaam?",
+    "desc": "Veel alleenstaande ouders komen niet aan zichzelf toe. Naast de zorg voor kind(eren), het werk en het huishouden blijft er weinig tijd over voor leuke dingen. Daarom is eenzaamheid onder alleenstaande ouders een groeiend probleem.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/e3335cc4-c0ae-11e8-8c9d-2fca5d94ce3e.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2597841\/oproep-alleenstaande-ouder-en-eenzaam",
+    "date": "Tue, 25 Sep 2018 12:36:32 +0200"
+  },
+  {
+    "site": "NOS",
+    "title": "OM vervolgt schipper voor dodelijk ongeluk met mast",
+    "desc": "<p>Het Openbaar Ministerie vervolgt een 53-jarige schipper voor dood door schuld. In augustus 2016 brak de mast van zijn schip af vlak bij de haven van Harlingen. Daarbij kwamen drie Duitse toeristen om het leven.<\/p>\n<p>De man is eigenaar van het zeilschip de Amicitia. Het OM stelt dat hij nalatig is geweest bij het onderhoud aan de mast. Uit onderzoek blijkt dat de mast is afgebroken door houtrot.<\/p>\n<h2>Historisch schip<\/h2>\n<p>De Amicitia, een historisch schip, kon worden gehuurd. Op het moment van het ongeluk waren behalve de schipper en zijn vrouw twaalf Duitse toeristen aan boord, allemaal familie van elkaar. Drie mannen kregen de mast op zich en overleefden dat niet.<\/p>\n<p>De behandeling van de zaak voor de rechtbank in Leeuwarden is half november.<\/p>\n<h2>Toezicht<\/h2>\n<p>De Onderzoeksraad voor Veiligheid onderzocht het ongeval en oordeelde vorig jaar dat het toezicht op de zogenoemde bruine vloot beter moet. Keuringsinstanties zouden zich niet altijd houden aan de wettelijke voorschriften voor de veiligheid op de historische schepen.<\/p>\n<p>\"Zowel de schipper, zijn onderhoudspersoneel als keuringsinstanties hebben niet gezien dat de mast in vier jaar tijd inwaterde en van binnenuit doorrotte\", schreef de raad over het ongeluk in Harlingen.<\/p>\n<p>De mast van de Amicitia was voor het laatst gekeurd in 2012. Het schip kreeg een certificaat voor zes jaar, terwijl dat wettelijk maar 2,5 jaar had mogen zijn.<\/p>\n",
+    "image": "https:\/\/nos.nl\/data\/image\/2018\/09\/25\/502293\/320x320.jpg",
+    "link": "https:\/\/nos.nl\/l\/2252015",
+    "date": "Tue, 25 Sep 2018 12:33:31 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "\u2018Grote schaamte bij defensie om kleding-gate\u2019",
+    "desc": "Het lijkt wel een slechte film: Nederlandse militairen die zelf hun kleding moeten kopen voor een NAVO-oefening in het koude Noorwegen. Toch is het zo en volgens verslaggever Olof van Joolen is dit niet het eerste probleem bij defensie.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/66f60b8e-c0ae-11e8-91e1-336612b0aa6e.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/video\/2597814\/grote-schaamte-bij-defensie-om-kleding-gate",
+    "date": "Tue, 25 Sep 2018 12:33:00 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "Zorgaanbieders kennen kwaliteitseisen niet",
+    "desc": "Het gros (95 procent) van de beginnende ondernemers in de ouderenzorg, thuiszorg, ggz en gehandicaptenzorg is niet op de hoogte van de kwaliteitseisen die worden gesteld van dit werk. Dat stelt de Inspectie Gezondheidszorg en Jeugd (IGJ) op basis van onderzoek.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/3cbfd0b6-c0ae-11e8-8b1a-a1ef381bd6bc.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2597801\/zorgaanbieders-kennen-kwaliteitseisen-niet",
+    "date": "Tue, 25 Sep 2018 12:32:01 +0200"
   },
   {
     "site": "De Telegraaf",
     "title": "Woede over winterkleedgeld Defensie",
     "desc": "Het verzoek van de Koninklijke Landmacht aan personeel dat deelneemt aan een winteroefening in Noorwegen zelf speciale kleding te kopen, is slecht gevallen.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/e0418caa-c0ab-11e8-9971-5dbe173d1f84.jpg",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/866e4d28-c0ae-11e8-97cf-419daaf6bba4.jpg",
     "link": "https:\/\/www.telegraaf.nl\/nieuws\/2597686\/woede-over-winterkleedgeld-defensie",
     "date": "Tue, 25 Sep 2018 12:15:06 +0200"
   },
   {
     "site": "De Telegraaf",
     "title": "OM vervolgt eigenaar zeilschip om mastongeluk",
-    "desc": "De eigenaar en schipper van het zeilschip de Amicitia wordt vervolgd voor dood door schuld. In 2016 brak in de haven van Harlingen een mast af waardoor drie passagiers om het leven kwamen. Het Openbaar Ministerie (OM) verwijt de 53-jarige man dat hij nalatig is geweest met het onderhoud.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/bdafec22-c0ab-11e8-8e09-43b3eb3737c4.jpg",
+    "desc": "De eigenaar en schipper van het zeilschip de Amicitia wordt vervolgd voor dood door schuld. In 2016 brak bij Harlingen een mast van de historische tweemaster af waardoor drie passagiers om het leven kwamen. Het Openbaar Ministerie (OM) verwijt de 53-jarige man dat hij nalatig is geweest met het onderhoud.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/1d88ed12-c0af-11e8-8a1a-1d299e7fad2b.jpg",
     "link": "https:\/\/www.telegraaf.nl\/nieuws\/2597672\/om-vervolgt-eigenaar-zeilschip-om-mastongeluk",
     "date": "Tue, 25 Sep 2018 12:13:42 +0200"
   },
@@ -32,14 +536,6 @@
     "date": "Tue, 25 Sep 2018 12:07:31 +0200"
   },
   {
-    "site": "NOS",
-    "title": "Inspectie: 95 procent nieuwe zorgaanbieders kent kwaliteitseisen niet",
-    "desc": "<p>Nieuwe zorgaanbieders zijn bijna nooit op de hoogte van de kwaliteitseisen die aan hun werk worden gesteld. Dat blijkt uit onderzoek van de Inspectie Gezondheidszorg en Jeugd. Vorig jaar werden 146 nieuwe of nog niet bekende organisaties bezocht, 95 procent kende de eisen niet.<\/p>\n<p>Het ging om ondernemers in de ouderenzorg, thuiszorg, geestelijke gezondheidszorg en gehandicaptenzorg. Zij zijn volgens de inspectie bevlogen, maar voldoen in veruit de meeste gevallen niet aan de voorwaarden voor veilige en goede zorg.<\/p>\n<p>De meeste aanbieders bij wie de kwaliteit onder de maat was, zijn actief in de thuiszorg. Vorige maand concludeerde ook de Consumentenbond al dat veel nieuwe thuiszorginstellingen bij controle niet aan de normen voldoen. <\/p>\n<p>De inspectie stelt dat veel aanbieders bij een tweede bezoek betere resultaten haalden. Van de organisaties die in eerste instantie onvoldoende scoorden, voldeed 66 procent na een nieuwe toets wel. <\/p>\n",
-    "image": "https:\/\/nos.nl\/data\/image\/2017\/11\/19\/432400\/320x320.jpg",
-    "link": "https:\/\/nos.nl\/l\/2252009",
-    "date": "Tue, 25 Sep 2018 12:03:21 +0200"
-  },
-  {
     "site": "De Telegraaf",
     "title": "Leersums bloemenpaar verdacht van stelen knip",
     "desc": "Inwoners van het Utrechtse Leersum zijn opgelucht en blij dat het bloemistenpaar John en Henny Achterberg weer thuis is. Het stel wordt verdacht van diefstal van een portemonnee en heeft wekenlang vast gezeten in een Turkse cel.",
@@ -50,26 +546,18 @@
   {
     "site": "De Telegraaf",
     "title": "\u2019Hof slaat plank volledig mis\u2019",
-    "desc": "Het Europese Hof oogst kritiek met haar besluit dat het Europese Parlement de onkostenvergoeding voor haar parlementari\u00ebrs niet openbaar hoeft te maken. Volgens de SP en D66 slaat de Europese volkomen de plank mis.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/f87bfa06-c0a8-11e8-903a-29c5ba620984.jpg",
+    "desc": "Het Europese Hof oogst kritiek met haar besluit dat het Europese Parlement de onkostenvergoeding voor haar parlementari\u00ebrs niet openbaar hoeft te maken. Volgens de SP en D66 slaat het Europese hof de plank volkomen mis.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/9c55fc08-c0ae-11e8-a456-132e99b6bf3b.jpg",
     "link": "https:\/\/www.telegraaf.nl\/nieuws\/2597617\/hof-slaat-plank-volledig-mis",
     "date": "Tue, 25 Sep 2018 11:54:19 +0200"
   },
   {
-    "site": "NOS",
-    "title": "Wereldleiders bijeen op VN-top: speeches, bilats en pull-asides",
-    "desc": "<p>In New York zitten de hotels vol met regeringsleiders, diplomaten en de rest van de bijna 200 delegaties. Ze zijn bij elkaar voor 73e sessie van de Algemene Vergadering van de Verenigde Naties. Het is \u00e9\u00e9n van de belangrijkste momenten van het jaar in de diplomatie, vergelijk met wat de Oscars zijn voor de filmindustrie.<\/p>\n<p>De ogen van de wereldpers zijn deze week vooral gericht op de grote vergaderzaal in het VN-gebouw. Daar worden de toespraken gehouden door de Amerikaanse president Trump, de Franse president Macron , premier Rutte en de andere staatshoofden en regeringsleiders.<\/p>\n<p>Zij hebben om de beurt 15 minuten spreektijd, waarin ze de voor hen belangrijke thema's aanstippen. Dat duurt de hele week. Trump staat voor vanmiddag (Nederlandse tijd) op het programma; Rutte spreekt woensdag. In de media gaat de meeste aandacht naar die toespraken, want die zijn het meest zichtbaar. Het echte werk wordt echter elders gedaan, tussen provisorisch opgetrokken scheidingswandjes.<\/p>\n<h2>Behind the scenes<\/h2>\n<p>Die wandjes in het VN-gebouw zijn speciaal voor ontmoetingen tussen twee bewindspersonen of diplomaten. Want nu ze toch allemaal in New York zijn, kunnen er ook veel bilaterale afspraken worden gemaakt. Onder diplomaten staan dat soort gesprekken bekend als bilat.<\/p>\n<p>In de hokjes kunnen zo'n vijftig bilaterale ontmoetingen tegelijk worden gehouden. Het zijn juist deze ontmoetingen die het meeste opleveren. In het hokje, waar een tafel en een aantal stoelen staan, komen bewindspersonen met medewerkers kort bij elkaar. Meestal duurt een meeting niet veel langer dan een kwartier, vertelt een ingewijde bij de VN. \"Als er goed is voorbereid, kun je na afloop actiepunten opstellen. En vanuit daar kun je meteen aan de slag.\"<\/p>\n<p>Niet alleen de hokjes, maar ook de wandelgangen vormen een belangrijk toneel voor de diplomaten. Kom je elkaar kort tegen dan schud je elkaar de hand in een zogenoemde pull aside. Dat soort ontmoetingen gebeuren soms toevallig, maar worden meestal door medewerkers georganiseerd.<\/p>\n<p>Los van het offici\u00eble VN-programma zijn er in New York nog allerlei zogeheten side events. Want, iedereen is er nu toch. Congressen, fora, evenementen, bijeenkomsten. Allemaal hebben ze een thema dat ze aan de orde willen stellen. Ook die evenementen vormen de achtergrond voor bilats en pull asides.<\/p>\n<h2>25 bilats per persoon<\/h2>\n<p>Ook vanuit Nederland is een grote kabinetsdelegatie afgereisd naar New York. Premier Rutte is aanwezig, samen met minister Blok van Buitenlandse Zaken, minister Kaag van Buitenlandse Handel en Ontwikkelingssamenwerking, minister Bijleveld van Defensie en staatssecretaris Blokhuis van Volksgezondheid, Welzijn en Sport.<\/p>\n<p>Ze blijven allemaal meerdere dagen en wonen verschillende side events bij. En volgens bronnen bij de VN hebben Blok en Kaag ieder wel zo'n 25 bilats.<\/p>\n<p>En hoewel het lijkt en klinkt alsof de vergadering per 5 oktober dan helemaal af is, is het tegendeel waar. Het is het startpunt voor de rest van het jaar. De agendapunten worden nu vastgesteld en daarna begint het echte werk pas: elkaar overtuigen en zaken gedaan krijgen.<\/p>\n",
-    "image": "https:\/\/nos.nl\/data\/image\/2018\/09\/25\/502288\/320x320.jpg",
-    "link": "https:\/\/nos.nl\/l\/2252007",
-    "date": "Tue, 25 Sep 2018 11:52:49 +0200"
-  },
-  {
-    "site": "NU.nl",
-    "title": "Gevonden lichaam in Muidertrekvaart is van 42-jarige vrouw uit Naarden",
-    "desc": "Het lichaam dat donderdag is gevonden in de Muidertrekvaart in Muiden is van een 42-jarige vrouw uit Naarden. De vrouw is door een misdrijf om het leven gekomen.",
-    "image": "https:\/\/media.nu.nl\/m\/hhpxnxwazqhd_sqr256.jpg\/gevonden-lichaam-in-muidertrekvaart-van-42-jarige-vrouw-naarden.jpg",
-    "link": "https:\/\/www.nu.nl\/binnenland\/5479169\/gevonden-lichaam-in-muidertrekvaart-van-42-jarige-vrouw-naarden.html",
-    "date": "Tue, 25 Sep 2018 11:50:02 +0200"
+    "site": "De Telegraaf",
+    "title": "Paniek! Schip ramt plezierboot",
+    "desc": "Het gaat goed mis op het Amsterdam-Rijnkanaal bij Breukelen als een containerschip langs een kruiser wil varen. Via Dumpert.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/72f5026e-c0bd-11e8-a191-a9e2e55d71a1.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/video\/2596808\/paniek-schip-ramt-plezierboot",
+    "date": "Tue, 25 Sep 2018 11:53:00 +0200"
   },
   {
     "site": "De Telegraaf",
@@ -89,30 +577,6 @@
   },
   {
     "site": "NU.nl",
-    "title": "Europarlementari\u00ebrs hoeven geen inzage te geven in onkosten",
-    "desc": "Het Europees Parlement stond in zijn recht door inzage in documenten over de onkosten van Europarlementari\u00ebrs te weigeren.",
-    "image": "https:\/\/media.nu.nl\/m\/221xqb3ao9ul_sqr256.jpg\/europarlementariers-hoeven-geen-inzage-geven-in-onkosten.jpg",
-    "link": "https:\/\/www.nu.nl\/politiek\/5478980\/europarlementariers-hoeven-geen-inzage-geven-in-onkosten.html",
-    "date": "Tue, 25 Sep 2018 11:43:21 +0200"
-  },
-  {
-    "site": "NOS",
-    "title": "Bill Cosby hoort, als eerste ster sinds #MeToo, vandaag zijn straf",
-    "desc": "<p>De kans is groot dat acteur en komiek Bill Cosby vandaag een gevangenisstraf opgelegd krijgt. Cosby staat terecht voor het drogeren en misbruiken van een vrouw in 2004. Een jury heeft hem al schuldig bevonden en vandaag volgt de uitspraak van de rechter. De aanklager eiste gisteren een gevangenisstraf van vijf tot tien jaar.<\/p>\n<p>De 81-jarige Cosby werd in 2015 aangeklaagd. Hij heeft altijd gezegd dat het contact plaatsvond met instemming van de vrouw, Andrea Constand. Sinds de vrouw in 2005 naar de politie stapte om aangifte tegen Cosby te doen zijn er meer dan 60 vrouwen opgestaan die hem van vergelijkbare vergrijpen hebben beschuldigd. Die zaken zijn niet tot een rechtszaak gekomen, omdat ze verjaard zijn. De zaak van Constand is een van de weinige zaken die wel door kon gaan.<\/p>\n<h2>Eerste berechting na #MeToo<\/h2>\n<p>Cosby werd in de jaren '80 wereldberoemd als dokter Cliff Huxtable in The Cosby Show. Hij is de eerste beroemdheid die berecht wordt in het #MeToo-tijdperk. Tijdens deze zaak hebben vijf vrouwen, waaronder voormalig topmodel Janice Dickinson, getuigd. Zij verklaarden allemaal misbruikt en gedrogeerd te zijn door Cosby.<\/p>\n<p>De zaak kwam uiteindelijk in 2017 voor, maar werd toen nietig verklaard omdat de jury niet tot een unaniem oordeel kon komen. Nu is de jury wel tot een uitspraak gekomen; in april werd Cosby schuldig bevonden. Sindsdien zat hij thuis met een enkelband. Volgens zijn advocaat moet Cosby geen gevangenisstraf krijgen omdat hij slecht ziet en op leeftijd is.<\/p>\n<p>Er werd in de laatste dagen van het proces bovendien bepleit dat Cosby gezien zijn leeftijd geen sexually violent predator is, waardoor de kans op herhaling klein is. Als de rechter hem wel zo bestempelt zou hij verplicht de rest van zijn leven in therapie moeten en mensen die in zijn buurt wonen hierover moeten informeren.<\/p>\n<p>Hoewel de opgelegde straf nog niet bekend is, heeft zijn advocaat al gezegd dat hij zeker in hoger beroep gaat. Op welke gronden dat gebeurt wil hij niet zeggen. Aan The New York Times wilde hij alleen kwijt dat er tijdens de rechtszaak enorm veel fouten gemaakt zijn. Hij wil dat Cosby na de uitspraak op borgtocht vrijkomt, zodat hij in hoger beroep kan gaan - een proces dat jaren kan duren.<\/p>\n",
-    "image": "https:\/\/nos.nl\/data\/image\/2018\/09\/25\/502283\/320x320.jpg",
-    "link": "https:\/\/nos.nl\/l\/2252006",
-    "date": "Tue, 25 Sep 2018 11:41:04 +0200"
-  },
-  {
-    "site": "NOS",
-    "title": "Amerikaan vijf dagen na brand in seniorencomplex levend gevonden",
-    "desc": "<p>Vijf dagen na een brand in een seniorencomplex in Washington D.C. is een 74-jarige man alsnog levend uit het gebouw gehaald.<\/p>\n<p>Tijdens de brand die vorige week woensdag in het Arthur Capper Senior Center woedde, dachten de autoriteiten dat alle inwoners van het seniorencomplex in veiligheid waren gebracht. Later bleek dat medewerkers van het complex de bewonerslijst niet goed hadden gecontroleerd.<\/p>\n<p>Zo kon het dat gisterochtend tijdens een inspectieronde van bouwinspecteurs nog een bewoner werd gevonden. De man zat sinds de brand opgesloten in zijn eigen appartement, en riep om hulp. Volgens de inspecteur die hem hoorde roepen, had de man gevoel voor humor. \"Toen ik zei dat we hem gingen ophalen, reageerde hij met: ik ga nergens naartoe.\"<\/p>\n<p>Dit zijn de beelden van de brand die de brandweer op Twitter plaatste:<\/p>\n<p>\"De man zat in zijn woonkamer, en is door de inspecteurs naar buiten geholpen\", vertelt de burgemeester van Washington D.C. tegen lokale media. \"Momenteel wordt hij in het ziekenhuis behandeld.\"<\/p>\n<p>Er wordt nog onderzocht of er meer mensen in het gebouw zitten. De ruim 100 andere inwoners zijn in hotels en bij familieleden ondergebracht. Tien bewoners raakten bij de brand gewond maar niemand is in levensgevaar. <\/p>\n",
-    "image": "https:\/\/nos.nl\/data\/image\/2018\/09\/25\/502282\/320x320.jpg",
-    "link": "https:\/\/nos.nl\/l\/2252005",
-    "date": "Tue, 25 Sep 2018 11:38:19 +0200"
-  },
-  {
-    "site": "NU.nl",
     "title": "Vrouw na drie dagen uit natuurgebied in Californi\u00eb gered",
     "desc": "Een vrouw werd maandag gered nadat ze dagen vastzat in een natuurgebied in de Amerikaanse staat Californi\u00eb. Ze was met haar auto van de weg geraakt en gewond onder aan een heuvel gestrand. Ze wist het noodnummer te bellen, maar kon niet vertellen waar ze zich precies bevond. Na drie dagen hoorden twee kajakkers de vrouw bij toeval om hulp roepen.",
     "image": "https:\/\/media.nu.nl\/m\/linx40gahe9t_sqr256.jpg\/vrouw-drie-dagen-natuurgebied-in-californie-gered.jpg",
@@ -122,16 +586,16 @@
   {
     "site": "De Telegraaf",
     "title": "Onderzoeker: stint onveilig, gebruik hem niet",
-    "desc": "De stint, het voertuig dat vorige week betrokken was bij het bakfietsdrama in Oss, bevat structurele ontwerpfouten en is daarom in de kern onveilig om kinderen mee te vervoeren. Die conclusie trekt onafhankelijk onderzoeker Peter Coppes uit Helmond. Zijn advies is om het vervoersmiddel voorlopig helemaal niet meer te gebruiken.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/8cb1270a-c0a4-11e8-91d0-018a2dfaf4ed.png",
+    "desc": "De stint, het voertuig dat vorige week betrokken was bij het ongeval op het spoor in Oss, bevat structurele ontwerpfouten en is daarom in de kern onveilig om kinderen mee te vervoeren. Die conclusie trekt onafhankelijk onderzoeker Peter Coppes uit Helmond. Zijn advies is om het vervoersmiddel voorlopig helemaal niet meer te gebruiken. De fabrikant van de stints wil het offici\u00eble onderzoek afwachten alvorens conclusies te trekken.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/37e677be-c0ba-11e8-b4f5-752434fdeb82.png",
     "link": "https:\/\/www.telegraaf.nl\/nieuws\/2597447\/onderzoeker-stint-onveilig-gebruik-hem-niet",
     "date": "Tue, 25 Sep 2018 11:12:28 +0200"
   },
   {
     "site": "De Telegraaf",
     "title": "School van overleden kindjes Oss plaatst emotionele rouwadvertentie",
-    "desc": "Het verdriet bij scholenkoepel SAAM, en basisschool De Korenaer in het bijzonder is groot nadat vier kinderen van deze school om het leven kwamen bij het bakfietsdrama in Oss. In een emotionele rouwadvertentie roept de school het verlies zo veel mogelijk samen te verwerken. \u201eLaten we samen zijn.\u201d",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/546f6984-c0a3-11e8-b68c-a54eb230bd06.jpg",
+    "desc": "Het verdriet bij scholenkoepel SAAM, en basisschool De Korenaer in het bijzonder, is groot nadat vier kinderen van deze school om het leven kwamen bij het bakfietsdrama in Oss. In een emotionele rouwadvertentie roept de school het verlies zo veel mogelijk samen te verwerken. \u201eLaten we samen zijn.\u201d",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/beb6d190-c0b4-11e8-8e09-43b3eb3737c4.jpg",
     "link": "https:\/\/www.telegraaf.nl\/nieuws\/2597441\/school-van-overleden-kindjes-oss-plaatst-emotionele-rouwadvertentie",
     "date": "Tue, 25 Sep 2018 11:11:44 +0200"
   },
@@ -144,28 +608,12 @@
     "date": "Tue, 25 Sep 2018 11:05:17 +0200"
   },
   {
-    "site": "NOS",
-    "title": "Voetbalclub Zwammerdam vraagt inwoners om meer baby's",
-    "desc": "<p>Inwoners van Zwammerdam moeten aan de bak om de vergrijzing tegen te gaan. Dat is de boodschap die de plaatselijke voetbalvereniging wil uitdragen met een ludieke rompertjesactie.<\/p>\n<p>VV Zwammerdam, 70 jaar geleden opgericht, wil dat de inwoners gaan zorgen voor meer baby's. De club heeft daarom alvast luierpakjes laten bedrukken voor toekomstige leden. Wij noemen het dorp tijdelijk Zwangerdam\", zegt Jaap Peters, voorzitter van de voetbalvereniging.<\/p>\n<p>De belangenvereniging van het dorp heeft er bij de gemeente Alphen aan den Rijn, waar Zwammerdam onder valt, op aangedrongen dat er 60 tot 100 nieuwe woningen moeten komen voor mensen van 18 tot 35 jaar om het dorp vitaal te houden.<\/p>\n<p>Maar de gemeente moet op haar beurt met de provincie Zuid-Holland overeenstemming zien te bereiken over nieuwbouw. Nieuwe huizen mogen namelijk niet ten koste gaan van het groene karakter van het dorp.<\/p>\n<h2>Nieuwe aanwas<\/h2>\n<p>Peters: \"Als we nu toch nog minstens vijf jaar moeten wachten op woningbouw, moeten we zelf maar wat doen in de tussentijd.\" Alvast nieuwe aanwas kweken, dus.<\/p>\n<p>Tien jaar geleden zaten er nog 260 kinderen op basisscholen in het dorp. Nu zijn dat er nog maar 102. \"Sinds 1984 zijn er geen nieuwbouwwijken meer neergezet en ook nauwelijks huizen gebouwd. En dat merk je 35 jaar later\", zegt Peters. Zwammerdam heeft volgens de eigen inwoners behoefte aan betaalbare koopwoningen voor starters en nieuwe huurhuizen.<\/p>\n<p>Dat er iets moet gebeuren om te voorkomen dat het dorp leegloopt, staat wel vast voor Peters. \"Er is hier ooit een tijd geweest dat er misschien wel vijftig winkels waren. Nu is dat er nog maar \u00e9\u00e9n, een bakker\", zegt hij tegen Omroep West.<\/p>\n<p>Het dorp telt volgens de laatst bekende cijfers 1910 inwoners; de afgelopen vijf jaar is er 1 persoon per jaar bij gekomen. Net niet de helft van de Zwammerdammers is boven de 45.<\/p>\n",
-    "image": "https:\/\/nos.nl\/data\/image\/2018\/09\/25\/502281\/320x320.jpg",
-    "link": "https:\/\/nos.nl\/l\/2252003",
-    "date": "Tue, 25 Sep 2018 10:54:00 +0200"
-  },
-  {
     "site": "De Telegraaf",
     "title": "AVROTROS vecht strijd met NPO dan maar bij rechter uit",
     "desc": "AVROTROS stapt alsnog naar de bestuursrechter omdat dj Annemieke Schollaardt nog steeds geen dagelijks programma heeft gekregen op NPO Radio 2.",
     "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/af3a3ab4-c09f-11e8-b68c-a54eb230bd06.jpg",
     "link": "https:\/\/www.telegraaf.nl\/entertainment\/2597288\/avrotros-vecht-strijd-met-npo-dan-maar-bij-rechter-uit",
     "date": "Tue, 25 Sep 2018 10:47:50 +0200"
-  },
-  {
-    "site": "NU.nl",
-    "title": "Militairen moeten zelf winterkleding regelen voor oefening in Noorwegen",
-    "desc": "Nederlandse militairen die volgende maand meedoen aan een NAVO-oefening in Noorwegen moeten hun eigen winterkleding regelen. Defensie had de kleding voor hen moeten kopen, maar slaagde daar niet op tijd in.",
-    "image": "https:\/\/media.nu.nl\/m\/96axloya35ax_sqr256.jpg\/militairen-moeten-zelf-winterkleding-regelen-oefening-in-noorwegen.jpg",
-    "link": "https:\/\/www.nu.nl\/binnenland\/5478839\/militairen-moeten-zelf-winterkleding-regelen-oefening-in-noorwegen.html",
-    "date": "Tue, 25 Sep 2018 10:45:08 +0200"
   },
   {
     "site": "De Telegraaf",
@@ -192,14 +640,6 @@
     "date": "Tue, 25 Sep 2018 10:15:04 +0200"
   },
   {
-    "site": "NOS",
-    "title": "Zweedse premier weggestemd door parlement, rechts nu aan zet",
-    "desc": "<p>De Zweedse premier Stefan L\u00f6fven heeft het vertrouwen van het parlement verloren. Een meerderheid stemde hem vanmorgen weg, wat betekent dat hij moet aftreden.<\/p>\n<p>\"Dit is eigenlijk stap \u00e9\u00e9n in de regeringsformatie\", zegt correspondent Rolien Cr\u00e9ton. \"L\u00f6fven had willen aanblijven als premier. Zijn partij heeft bij de verkiezingen begin september weliswaar verlies geleden, maar het is nog steeds de grootste partij.\"<\/p>\n<p>De vier rechtse partijen die de Alliantie vormen, hebben L\u00f6fven vanmorgen met de steun van de anti-immigratiepartij Zweden Democraten (SD) weggestemd. \"Daarmee verliezen de sociaal-democraten het initiatief om een regering te vormen\", zegt Cr\u00e9ton.<\/p>\n<p>Het is nu aan de voorzitter van het parlement om een nieuwe premierskandidaat aan te wijzen, die de onderhandelingen zal gaan voeren. Waarschijnlijk wordt dat de partijleider van de conservatieve partij, die de tweede partij van het land vormen. <\/p>\n<p>\"De vier partijen van het rechtse blok zullen nu gaan onderhandelen over een nieuwe regering\", zegt Cr\u00e9ton. \"Dat kan lang gaan duren omdat de Alliantie het liefst niet wil samenwerken met de SD.\"<\/p>\n<p>Cr\u00e9ton verwacht niet dat die anti-immigratiepartij meteen directe regeringsmacht zal krijgen. \"Zweden is daar gewoon niet klaar voor. Tot nu toe hebben de andere partijen vastgehouden aan een cordon sanitaire, ze hebben de SD gewoon geboycot.\"<\/p>\n<p>\"Ik kan me wel voorstellen dat de rechtse partijen de mogelijkheid openhouden voor een minderheidscoalitie met gedoogsteun van de anti-immigratiepartij.\"<\/p>\n",
-    "image": "https:\/\/nos.nl\/data\/image\/2018\/09\/25\/502279\/320x320.jpg",
-    "link": "https:\/\/nos.nl\/l\/2252000",
-    "date": "Tue, 25 Sep 2018 10:12:32 +0200"
-  },
-  {
     "site": "De Telegraaf",
     "title": "\u2019Inwoner Utrecht bepaalt agenda van raad\u2019",
     "desc": "D66 wil dat Utrechters eigen onderwerpen op de agenda van de gemeenteraad kunnen plaatsen. De \u2019Burgeragendering\u2019 zou een aanvulling moeten zijn op het burgerinitiatief, volgens indiener van het voorstel D66-raadslid Has Bakker. Het doel van dit initiatiefvoorstel is de betrokkenheid van inwoners bij de Utrechtse democratie te verbreden en te versterken.",
@@ -208,12 +648,12 @@
     "date": "Tue, 25 Sep 2018 10:03:03 +0200"
   },
   {
-    "site": "NOS",
-    "title": "Europarlement hoeft geen inzage te geven in vergoedingen",
-    "desc": "<p>Het Europees Parlement mag weigeren inzage te verlenen in de reiskosten, onkostenvergoedingen en andere bedragen die Europarlementari\u00ebrs naast hun salaris ontvangen. Dat heeft het Europees Hof van Justitie in Luxemburg bepaald.<\/p>\n<p>De uitspraak volgt in een rechtszaak die drie jaar geleden werd aangespannen door een groep van 29 journalisten uit de 28 EU-landen. Zij vinden dat burgers het recht hebben te weten hoe hun parlementsleden jaarlijks de 71 miljoen euro aan onkostenvergoedingen besteden, die ze naast hun salaris ontvangen. Namens Nederland nam de NOS deel aan de zaak.<\/p>\n<p>Het Parlement staat in zijn recht door te stellen dat de documenten met informatie over de vergoedingen ook persoonlijke gegevens bevatten, oordeelt het Europees Hof van Justitie. De journalisten hebben volgens het hof niet genoeg duidelijk kunnen maken waarom het vrijgeven van deze privacygevoelige informatie noodzakelijk is.<\/p>\n<h2>Geen verantwoording afleggen<\/h2>\n<p>Alle leden van het Europarlement krijgen, naast hun gewone inkomen, maandelijks een algemene onkostenvergoeding, reiskosten, dagvergoedingen en een bedrag voor personeel. Dat zijn tienduizenden euro's per persoon per jaar. Ze hoeven geen verantwoording af te leggen over de besteding van het geld, dat onder meer is bedoeld om kantoorruimte te huren in de thuislanden.<\/p>\n<p>Ook het Europarlement zelf heeft steeds geweigerd inzage te geven in de bestedingen. De journalisten dienden daarom in 2015 verzoeken in op basis van de Wet openbaarheid van bestuur.<\/p>\n<p>Toen het Parlement bleef weigeren, onder meer omdat het te veel werk zou zijn om de verzoeken te honoreren, stapte het team van journalisten naar de rechter en werd een procedure gestart bij het Europees Hof van Justitie. Tijdens het proces, dat drie jaar heeft geduurd, stelde het Europarlement dat het niet beschikte over de gevraagde documenten. Daarnaast zouden privacy-regels meer transparantie in de weg staan.<\/p>\n<h2>Ook weigering Nederlandse partijen<\/h2>\n<p>De groep journalisten deed in 2017 al onderzoek naar de besteding van de algemene onkostenvergoeding die Europarlementari\u00ebrs krijgen. Toen bleek dat veel leden geen opening van zaken wilden geven.<\/p>\n<p>Voor Nederland weigerden de leden van de VVD, SGP en PVV antwoord te geven op de vraag waaraan zij hun maandelijkse vergoeding van ruim 4300 euro besteden. De andere Nederlandse partijen toonden zich een stuk openhartiger en wilden wel uitleggen wat ze met het geld doen.<\/p>\n",
-    "image": "https:\/\/nos.nl\/data\/image\/2018\/01\/24\/446197\/320x320.jpg",
-    "link": "https:\/\/nos.nl\/l\/2251998",
-    "date": "Tue, 25 Sep 2018 09:59:54 +0200"
+    "site": "De Telegraaf",
+    "title": "Van Gaal drijft spot met zijn eigen Engels",
+    "desc": "CDA-leider Sybrand Buma hield bij Pauw een betoog over migratie, maar kreeg uit onverwachte hoek een paar kritische vragen.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/ad3f8f5a-c0b0-11e8-8544-9dce8daf24f9.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/video\/2597060\/van-gaal-drijft-spot-met-zijn-eigen-engels",
+    "date": "Tue, 25 Sep 2018 10:02:00 +0200"
   },
   {
     "site": "De Telegraaf",
@@ -224,28 +664,12 @@
     "date": "Tue, 25 Sep 2018 09:57:38 +0200"
   },
   {
-    "site": "NOS",
-    "title": "Migrantenschip Aquarius niet meer welkom in haven Marseille",
-    "desc": "<p>De Aquarius, het schip van Artsen Zonder Grenzen en SOS M\u00e9diterran\u00e9e dat migranten van de Middellandse Zee haalt, is niet meer welkom in de haven van Marseille. Dat heeft minister van Financi\u00ebn Bruno Le Maire gezegd op de Franse televisie.<\/p>\n<p>Het schip ligt met 58 mensen aan boord op zee. Panama trok zondag de registratie van de Aquarius in. Zolang het schip niet onder een nieuwe vlag vaart, kan het niet meer uitvaren als het nu ergens afmeert.<\/p>\n<p>Artsen Zonder Grenzen en SOS M\u00e9diterran\u00e9e denken dat de Italiaanse regering druk heeft uitgeoefend op Panama om de registratie in te trekken, maar de Italianen ontkennen dat. Itali\u00eb heeft eerder de Aquarius de toegang tot zijn havens geweigerd toen het schip met meer dan 600 migranten op zee voer.<\/p>\n<h2>Nee<\/h2>\n<p>Ook andere landen wilden hen niet opvangen, maar ze waren wel welkom in de Spaanse stad Valencia. Ook Malta liet het schip toe, nadat Duitsland, Frankrijk, Luxemburg, Portugal en Spanje hadden toegezegd dat ze samen de 141 opvarenden zouden opvangen.<\/p>\n<p>De Aquarius heeft eerder wel aangemeerd in Marseille. Maar minister Le Maire zegt dat het \"op dit moment nee is\" als het opnieuw toestemming vraagt om de haven van de Zuid-Franse stad binnen te varen.<\/p>\n",
-    "image": "https:\/\/nos.nl\/data\/image\/2018\/06\/17\/480141\/320x320.jpg",
-    "link": "https:\/\/nos.nl\/l\/2251997",
-    "date": "Tue, 25 Sep 2018 09:45:11 +0200"
-  },
-  {
     "site": "De Telegraaf",
     "title": "Pas op: overstekende baby!",
     "desc": "Een Amerikaan heeft een tien maanden oude baby gered die een drukke straat over kroop.",
     "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/1bab0c4e-c09d-11e8-89bf-65db96e3b09e.png",
     "link": "https:\/\/www.telegraaf.nl\/nieuws\/2596993\/pas-op-overstekende-baby",
     "date": "Tue, 25 Sep 2018 09:43:51 +0200"
-  },
-  {
-    "site": "NOS",
-    "title": "Boink: cr\u00e8ches worden duurder dan staatssecretaris zegt",
-    "desc": "<p>De kosten voor cr\u00e8ches dreigen volgend jaar met honderden euro's te stijgen door strengere regels voor de opvang van de kinderen. Het ministerie van Sociale Zaken denkt dat die kosten zullen worden gedekt door onder meer de stijgende toeslag voor kinderopvang. Maar belangenorganisatie Boink is bang dat de kosten veel hoger zullen uitpakken.<\/p>\n<p>Vanaf 1 januari mag een pedagogisch medewerker voor maximaal drie 0-jarigen tegelijk zorgen, in plaats van vier nu. Dat betekent dat kinderopvangorganisaties meer ruimte nodig hebben voor meer groepen. Ook moeten er extra medewerkers in dienst worden genomen.<\/p>\n<h2>Stijging<\/h2>\n<p>Boink, de belangenorganisatie voor ouders in de kinderopvang, heeft net als het Rijk onderzoek laten doen naar de stijging van die kosten. \"Uit ons onderzoek blijkt dat die kosten veel hoger liggen. Dat betekent dat het verschil zelf door de ouders moet worden betaald\", zegt voorzitter Gjalt Jellesma.<\/p>\n<p>\"Het is lastig te voorspellen hoeveel 0-jarigen volgend jaar ook echt naar de opvang zullen worden gebracht\", zegt Jellesma over het verschil in beide berekeningen. \"Bovendien geldt voor alle leeftijdscategorie\u00ebn een vaste prijs maar is de opvang heel anders. Voor 0-jarigen geldt dat maximum van drie per pedagogisch medewerker, voor 3-jarigen is dat bijvoorbeeld acht kinderen op \u00e9\u00e9n medewerker.\"<\/p>\n<h2>Niet voldoende<\/h2>\n<p>Er ontstaan vooral problemen bij kleine kinderdagverblijven, denkt Jellesma. \"Driekwart van de organisaties vraagt ongeveer wat de overheid vergoed, een kwart zit daarboven. Maar de verwachting is dat een deel van de kinderdagverblijven meer geld zal gaan vragen dan de prijs die wordt vergoed. Hoeveel dat is weet ik niet, maar met name de kleine kinderdagverblijven zullen de meeste moeite hebben bij het doen van de aanpassingen.\"<\/p>\n<p>Vanuit het rijk komt er wel 248 miljoen euro beschikbaar voor ouders. \"Maar dat betekent niet dat ouders uiteindelijk niet meer zullen moeten gaan betalen dan ze vergoed krijgen\", voorspelt Jellesma.<\/p>\n<p>Volgens Jellesma wordt het hoog tijd dat er door de overheid goed onderzoek wordt gedaan naar wat kinderopvang eigenlijk moet kosten. \"Dan zijn we de discussie daarover eindelijk kwijt.\" Ook vraagt hij de staatssecretaris om de kosten en de gevolgen daarvan goed te monitoren.<\/p>\n",
-    "image": "https:\/\/nos.nl\/data\/image\/2017\/02\/14\/353541\/m.jpg",
-    "link": "https:\/\/nos.nl\/l\/2251996",
-    "date": "Tue, 25 Sep 2018 09:43:37 +0200"
   },
   {
     "site": "De Telegraaf",
@@ -256,52 +680,12 @@
     "date": "Tue, 25 Sep 2018 09:29:59 +0200"
   },
   {
-    "site": "NOS",
-    "title": "Groenere leaseauto's door bijtellingsregels, maar luchtkwaliteit achteruit",
-    "desc": "<p>De bijtellingsregels die het kabinet had ingesteld om de verkoop van schonere auto's te stimuleren, hebben geleid tot een vergroening van het wagenpark en vermindering van de CO2-uitstoot. Daarentegen hadden de regels wel een keerzijde: lokaal ging de luchtkwaliteit er juist door de vele diesels op achteruit.<\/p>\n<p>Het Planbureau voor de Leefomgeving (PBL) becijferde dat de CO2-uitstoot van alle zakenauto's op de weg tussen 2011 tot en met 2016 zes procent lager was dan als de bijtellingsregels er niet waren geweest. Het broeikasgas CO2 is medeverantwoordelijk voor de opwarming van de aarde.<\/p>\n<h2>Meer diesels<\/h2>\n<p>Het bureau zegt dat het effect nog groter had kunnen zijn als de bijtellingsregels iets gewijzigd waren. Zo ontstond er een toename van het aantal dieselauto's, omdat bepaalde diesels ook onder het gunstige tarief van 14 procent bijtelling vielen. Een dieselmotor stoot meer stikstofoxide uit dan een benzinevariant. Daardoor steeg de uitstoot van stikstofoxiden met 6 procent, met negatieve gevolgen voor de luchtkwaliteit in Nederland.<\/p>\n<p>Volgens het PBL was het effectiever geweest als de belastingkorting niet procentueel was, maar absoluut. Kleine, lichte en zuinige auto's zouden daardoor relatief meer korting krijgen dan de duurdere en vaak minder zuinige modellen.<\/p>\n<p>Sinds 2017 zijn de bijtellingsregels veranderd en krijgen alleen zakelijke rijders met een volledig elektrische auto nog een lage bijtelling van 4 procent. De rest betaalt 22 procent bijtelling.<\/p>\n",
-    "image": "https:\/\/nos.nl\/data\/image\/2018\/09\/25\/502276\/320x180.jpg",
-    "link": "https:\/\/nos.nl\/l\/2251992",
-    "date": "Tue, 25 Sep 2018 09:17:58 +0200"
-  },
-  {
-    "site": "NU.nl",
-    "title": "'Wiebes geeft co\u00f6rdinator vrijbrief voor afhandelen schade aardbevingen'",
-    "desc": "De Nationaal Co\u00f6rdinator Groningen (NCG) krijgt van minister van Economische Zaken Eric Wiebes de taak om ervoor te zorgen dat de afhandeling van aardbevingsschade aan Groningse woningen goed en snel verloopt. Hiervoor krijgt hij een vrijbrief.",
-    "image": "https:\/\/media.nu.nl\/m\/qgbxsj3ajjuq_sqr256.jpg\/wiebes-geeft-coordinator-vrijbrief-afhandelen-schade-aardbevingen.jpg",
-    "link": "https:\/\/www.nu.nl\/binnenland\/5478581\/wiebes-geeft-coordinator-vrijbrief-afhandelen-schade-aardbevingen.html",
-    "date": "Tue, 25 Sep 2018 09:15:45 +0200"
-  },
-  {
     "site": "De Telegraaf",
     "title": "Labour staat open voor dumpen brexit",
     "desc": "De Britse oppositiepartij Labour is voor een nieuw referendum over de brexit, waarbij ook de mogelijkheid is te stemmen v\u00f3\u00f3r het lidmaatschap van de EU. Dit heeft Labour-woordvoerder Keir Starmer die de brexit in zijn portefeuille heeft, op het partijcongres in Liverpool gezegd.",
     "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/802559f0-c0a6-11e8-8a1a-1d299e7fad2b.jpg",
     "link": "https:\/\/www.telegraaf.nl\/nieuws\/2596901\/labour-staat-open-voor-dumpen-brexit",
     "date": "Tue, 25 Sep 2018 09:14:23 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Paniek! Vrachtschip ramt pleziervaarders",
-    "desc": "Het gaat goed mis op het Amsterdam-Rijnkanaal bij Breukelen als een containerschip langs een kruiser wil varen. Via Dumpert.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/53f1da60-c09d-11e8-8c9d-2fca5d94ce3e.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/video\/2596808\/paniek-vrachtschip-ramt-pleziervaarders",
-    "date": "Tue, 25 Sep 2018 08:53:00 +0200"
-  },
-  {
-    "site": "NOS",
-    "title": "Stuk Romeinse weg van 1900 jaar oud gevonden bij Katwijk",
-    "desc": "<p>Bij archeologische opgravingen langs de N206 in Katwijk is 125 meter Romeinse weg gevonden. De bijbehorende nederzetting heeft een grachtensysteem en een grafveld.<\/p>\n<p>Zuid-Holland noemt een stuk Romeins bouwmateriaal, waarop nog pleisterwerk en een schildering te zien zijn, een absolute topvondst. De vondsten vertellen meer over de bewoning van dit deel van de provincie 2000 jaar geleden. En over de noordelijke grensweg van het Romeinse rijk, de limes.<\/p>\n<p>Dat de Romeinse weg nog zo gaaf is, noemt de provincie een grote verrassing. De bermgreppels en de verticale houten palen - die dienden om de weg niet te laten verzakken - zijn na 1900 jaar nog aanwezig. Sommige van de eikenhouten palen zijn manshoog.<\/p>\n<p>Ook de lengte van de weg (125 meter) is bijzonder. De weg dateert vermoedelijk uit het jaar 125 na Christus. In de grachten naast de Romeinse weg liggen grote hoeveelheden aardewerk, fragmenten van leren schoeisel, munten, houten voorwerpen, schrijft Omroep West.<\/p>\n<p>Het archeologisch onderzoek langs de N206 duurt nog enkele weken. In 2019 worden alle resultaten van het onderzoek gepubliceerd. De RijnlandRoute is een nieuwe weg van Katwijk naar de A4 bij Leiden.<\/p>\n",
-    "image": "https:\/\/nos.nl\/data\/image\/2018\/09\/25\/502274\/320x320.jpg",
-    "link": "https:\/\/nos.nl\/l\/2251991",
-    "date": "Tue, 25 Sep 2018 08:47:50 +0200"
-  },
-  {
-    "site": "NU.nl",
-    "title": "DSW verhoogt zorgpremie met 4,50 euro naar 112 euro per maand",
-    "desc": "Zorgverzekeraar DSW verhoogt de zorgpremie met 4,50 euro naar 112 euro per maand. Dat is ruim 7 euro minder dan de voorspelling van het kabinet.",
-    "image": "https:\/\/media.nu.nl\/m\/aaaxukdagm09_sqr256.jpg\/dsw-verhoogt-zorgpremie-met-450-euro-112-euro-per-maand.jpg",
-    "link": "https:\/\/www.nu.nl\/zorgverzekering\/5478593\/dsw-verhoogt-zorgpremie-met-450-euro-112-euro-per-maand.html",
-    "date": "Tue, 25 Sep 2018 08:47:19 +0200"
   },
   {
     "site": "De Telegraaf",
@@ -320,60 +704,12 @@
     "date": "Tue, 25 Sep 2018 08:41:38 +0200"
   },
   {
-    "site": "NOS",
-    "title": "Streep door schieten grizzlyberen Yellowstone",
-    "desc": "<p>Grizzlyberen in en rond het Yellowstone National Park in de Verenigde Staten moeten weer beschermd worden. Ze komen weer op de lijst van beschermde dieren, heeft een Amerikaanse federale rechter bepaald.<\/p>\n<p>De beslissing is een tegenvaller voor jagers. Die waren juist van plan om voor het eerst na ruim veertig jaar weer op de beren te schieten.<\/p>\n<p>De U.S. Fish and Wildlife Service had de grizzlyberen in het Yellowstone National Park van de lijst van beschermde dieren geschrapt, omdat het aantal beren daar de afgelopen jaren voldoende is gegroeid. De regering-Trump vond een beschermde status niet meer nodig.<\/p>\n<p>Natuurbeschermers stapten daarop naar de rechter en eisten dat de grizzly's in Yellowstone weer dezelfde beschermde status krijgen als grizzlyberen in andere Amerikaanse parken. De rechter heeft hun nu gelijk gegeven.<\/p>\n<p>Zo'n veertig jaar geleden leefden er nog maar 136 grizzlyberen in Greater Yellowstone, nu zijn dat er ongeveer 800.<\/p>\n",
-    "image": "https:\/\/nos.nl\/data\/image\/2018\/09\/25\/502271\/320x320.jpg",
-    "link": "https:\/\/nos.nl\/l\/2251987",
-    "date": "Tue, 25 Sep 2018 08:32:21 +0200"
-  },
-  {
-    "site": "NU.nl",
-    "title": "Grizzlybeer weer beschermde diersoort in nationaal park VS",
-    "desc": "De grizzlybeer is weer een beschermde diersoort in het nationale park Yellowstone in de Verenigde Staten.",
-    "image": "https:\/\/media.nu.nl\/m\/4pyxbbrabj1r_sqr256.jpg\/grizzlybeer-weer-beschermde-diersoort-in-nationaal-park-vs.jpg",
-    "link": "https:\/\/www.nu.nl\/dieren\/5478653\/grizzlybeer-weer-beschermde-diersoort-in-nationaal-park-vs.html",
-    "date": "Tue, 25 Sep 2018 08:23:31 +0200"
-  },
-  {
     "site": "De Telegraaf",
     "title": "\u2019Basisinkomen van 1000 euro voor 800 sekswerkers\u2019",
     "desc": "Metje Blaak, voormalig sekswerker op de Amsterdamse Wallen, probeert de gemeente en burgemeester Femke Halsema te overtuigen dat er een basisinkomen moet komen voor elke prostituee in het wereldbekende gebied.",
     "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/fdca244e-c092-11e8-8b86-a1c84b456984.jpg",
     "link": "https:\/\/www.telegraaf.nl\/nieuws\/2596739\/basisinkomen-van-1000-euro-voor-800-sekswerkers",
     "date": "Tue, 25 Sep 2018 08:18:59 +0200"
-  },
-  {
-    "site": "NU.nl",
-    "title": "'Donald Trump is trend binnen de wereld van spotprenten'",
-    "desc": "In de ochtendpodcast <em>Dit wordt het nieuws<\/em> praten we je bij over het belangrijkste nieuws van nu en bespreken we het nieuws van de dag.",
-    "image": "https:\/\/media.nu.nl\/m\/y1kxcjsaynpj_sqr256.jpg\/donald-trump-trend-binnen-wereld-van-spotprenten.jpg",
-    "link": "https:\/\/www.nu.nl\/dit-wordt-het-nieuws\/5478656\/donald-trump-trend-binnen-wereld-van-spotprenten.html",
-    "date": "Tue, 25 Sep 2018 08:16:43 +0200"
-  },
-  {
-    "site": "NU.nl",
-    "title": "Archeologen ontdekken Romeinse weg en nederzetting in Katwijk",
-    "desc": "Archeologen hebben op de Ingenieur G. Tjalmaweg in de gemeente Katwijk zo'n 125 meter van een tweeduizend jaar geleden aangelegde Romeinse weg ontdekt.",
-    "image": "https:\/\/media.nu.nl\/m\/fogxnadaxs3y_sqr256.jpg\/archeologen-ontdekken-romeinse-weg-en-nederzetting-in-katwijk.jpg",
-    "link": "https:\/\/www.nu.nl\/binnenland\/5478686\/archeologen-ontdekken-romeinse-weg-en-nederzetting-in-katwijk.html",
-    "date": "Tue, 25 Sep 2018 08:13:53 +0200"
-  },
-  {
-    "site": "NOS",
-    "title": "'Drankje nu betrouwbaar alternatief voor injectie bij euthanasie'",
-    "desc": "<p>Een drankje is een goed alternatief voor de injectie bij euthanasie. Dat stellen twee artsen in het Nederlands Tijdschrift voor Geneeskunde. Voordeel van het drankje is dat pati\u00ebnten het zelf kunnen innemen. Dat is voor artsen die de euthanasie uitvoeren vaak minder belastend.<\/p>\n<p>Emeritus-hoogleraar toegepaste psychologie Pieter Jan Stallen en voormalig huisarts Michiel Marlet onderzochten ruim 200 voorbeelden van hulp bij zelfdoding met een drankje, schrijft Trouw. Daaruit blijkt dat het drinken van een drankje bij zes op de zeven mensen binnen een half uur tot de dood leidt, vrijwel zonder complicaties.<\/p>\n<h2>Betrouwbaar<\/h2>\n<p>Artsen kiezen nu vaak voor een injectie bij verzoeken om euthanasie. Deze methode staat bekend als snel en betrouwbaar, omdat pati\u00ebnten binnen tien minuten overlijden. Maar volgens de onderzoekers is het voor artsen moreel en psychisch minder belastend als de pati\u00ebnt zelf de dodelijke handeling uitvoert door het drankje op te drinken.<\/p>\n<p>Het drankje heeft in de euthanasierichtlijnen van apothekersorganisatie KNMP en artsenorganisatie KNMG uit 2012 'niet de voorkeur' omdat het verloop van het overlijden onvoorspelbaar is. Artsen hadden er slechte ervaringen mee, omdat pati\u00ebnten het drankje soms uitbraakten. Soms duurde het ook uren voor de dood intrad.<\/p>\n<p>Maar volgens de onderzoekers is dat veranderd. De dosering is veel hoger en ook wordt er voor de zekerheid een infuus aangebracht zodat artsen na een bepaalde periode alsnog een injectie kunnen geven. Daarnaast krijgen de pati\u00ebnten een anti-braakmiddel.<\/p>\n<h2>Verschil<\/h2>\n<p>De krant laat twee artsen aan het woord die regelmatig te maken hebben met euthanasie. En hoewel een euthanasie voor hen altijd heftig blijft, maakt een drankje wel wat verschil. \"Het is echt een ander gevoel als je als arts iemand iets inspuit en terwijl je daarmee bezig bent die persoon al ziet overlijden\", zegt Marjolijn Seebregts.<\/p>\n<p>\"Het is niet zo dat ik er achteraf minder mee zit als een pati\u00ebnt zelf iets drinkt\", zegt ze. \"Maar op het moment zelf helpt het. Iemand bevestigt op deze manier zijn eigen keuze.\"<\/p>\n",
-    "image": "https:\/\/nos.nl\/data\/image\/2018\/09\/25\/502267\/320x320.jpg",
-    "link": "https:\/\/nos.nl\/l\/2251984",
-    "date": "Tue, 25 Sep 2018 08:00:56 +0200"
-  },
-  {
-    "site": "NOS",
-    "title": "400 jaar oud scheepswrak in Portugal: 'Belangrijkste vondst ooit'",
-    "desc": "<p>De vondst van de eeuw wordt het genoemd, een 400 jaar oud scheepswrak dat begin deze maand werd gevonden voor de kust van Portugal. Het Portugese schip, dat volgeladen lag met Indiase kruiden, is waarschijnlijk gezonken toen het vanuit India op weg was naar Lissabon. \"Dit is als het gaat om historisch erfgoed de vondst van het decennium\", zegt directeur van het project Jorge Freire. \"En voor Portugal is dit de belangrijkste vondst ooit.\"<\/p>\n<p>Rondom het schip, dat op een diepte van 12 meter ligt, werden verscheidene kruiden, negen bronzen kanonnen, Chinees keramiek en schelpen die in die tijd werden gebruikt om te ruilen tegen slaven, gevonden.<\/p>\n<p>Het scheepswrak en de gevonden objecten zijn zeer goed bewaard gebleven, zegt Freire:<\/p>\n<p>Het schip is waarschijnlijk tussen 1575 en 1625 ten onder gegaan. Dat is in de periode dat de handel tussen Portugal en India op zijn hoogtepunt was.<\/p>\n<p>Het wrak werd gevonden in de buurt van Cascais, een kustplaats in de buurt van Lissabon. De baai rondom deze plek staat bekend om de vondsten van scheepswrakken, zegt minister van Cultuur Luis Mendes. \"Deze vondst bevestigt dat maar weer eens.\" In 1994 werd hier een ander Portugees schip gevonden.<\/p>\n",
-    "image": "https:\/\/nos.nl\/data\/image\/2018\/09\/25\/502264\/320x320.jpg",
-    "link": "https:\/\/nos.nl\/l\/2251983",
-    "date": "Tue, 25 Sep 2018 07:57:31 +0200"
   },
   {
     "site": "De Telegraaf",
@@ -392,14 +728,6 @@
     "date": "Tue, 25 Sep 2018 07:41:06 +0200"
   },
   {
-    "site": "NOS",
-    "title": "Oprichters Instagram nemen ontslag bij Facebook na 'interne botsingen'",
-    "desc": "<p>De oprichters van Instagram, Kevin Systrom en Mike Krieger, gaan moederbedrijf Facebook verlaten. Volgens Amerikaanse media botsten ze de laatste tijd intern over de koers van de populaire foto- en videodienst.<\/p>\n<p>De twee zouden het onder meer met Facebook-topman Mark Zuckerberg oneens zijn over de te hanteren strategie om te groeien. Intern zou al langer bekend zijn dat Systrom en Krieger niet meer op hun plek waren en hun vertrek aan het plannen waren.<\/p>\n<h2>'Tijd voor ons zelf'<\/h2>\n<p>In een gezamenlijke verklaring spreken Systrom - die de afgelopen jaren de topman was - en Krieger hun dankbaarheid uit voor de afgelopen jaren bij Instagram (als losstaand bedrijf) en voor de tijd onder de vleugels van moederbedrijf Facebook. \"We zijn van plan tijd voor ons zelf te nemen.\" In een bericht op Instagram bedankt Krieger ook topman Zuckerberg en zijn rechterhand, operationeel directeur Sheryl Sandberg.<\/p>\n<p>Zuckerberg zegt op zijn beurt in een verklaring dat \"Kevin en Mike buitengewone productleiders zijn en dat Instagram hun creatieve talenten symboliseert\". Ook zegt hij de afgelopen jaren veel van ze te hebben geleerd en wenst ze succes.<\/p>\n<p>De stap is pijnlijk voor moederbedrijf Facebook, dat in 2012 Instagram kocht voor een miljard dollar. Eerder dit jaar vertrok ook de oprichter van WhatsApp, een ander bedrijf dat door Facebook is ingelijfd. Die deed dat volgens Amerikaanse media ook omdat hij het niet eens was met de koers van het bedrijf, maar dat ging toen over de privacy van de gebruikers.<\/p>\n<p>De overname van Instagram wordt nu genoemd als een van de beste keuzes van Zuckerberg ooit. Facebooks imago is, onder meer door een aaneenschakeling aan schandalen, minder sterk dan een aantal jaar geleden en bij jongeren steeds minder populair. Instagram daarentegen groeit heel hard en heeft inmiddels meer dan een miljard gebruikers.<\/p>\n",
-    "image": "https:\/\/nos.nl\/data\/image\/2018\/06\/21\/481197\/320x320.jpg",
-    "link": "https:\/\/nos.nl\/l\/2251981",
-    "date": "Tue, 25 Sep 2018 07:31:26 +0200"
-  },
-  {
     "site": "De Telegraaf",
     "title": "Kosten kinderdagverblijven flink omhoog",
     "desc": "Ouders die hun kinderen op een kinderdagverblijf onderbrengen, dreigen volgend jaar honderden euro's meer te moeten betalen.",
@@ -408,28 +736,12 @@
     "date": "Tue, 25 Sep 2018 07:31:16 +0200"
   },
   {
-    "site": "NOS",
-    "title": "Rampgebied bosbrand Griekenland nog lang niet klaar voor winter",
-    "desc": "<p>Het is stil in Mati. De stilte wordt af en toe doorbroken door zaagmachines en een enkele tractor die omgezaagde bomen verplaatst. Hier en daar zijn inwoners begonnen met reparaties aan hun huizen. Maar twee maanden na de vernietigende bosbrand, die 99 slachtoffers eiste, zijn er maar weinig mensen die nog in het dorp wonen. De straten zijn opgeruimd, de elektriciteit is hersteld, maar er is nog geen straatverlichting. 's Avonds is het pikdonker in Mati.<\/p>\n<p>\"Daarom is het nu moeilijk om hier te wonen\" zegt student Nikos die met een nieuw tuinhek bezig is. Met zijn vader en andere familieleden zijn ze begonnen de benedenverdieping van hun huis schoon te maken. De bovenste verdieping is zwartgeblakerd, en zonder dak. \"De benedenverdieping is gespaard gebleven. Boven niet. Mijn tante woonde daar. Ze is omgekomen in de brand.\"<\/p>\n<p>Nikos en zijn familie hebben onderdak gekregen in een vakantiepark zoals meer mensen uit Mati en Neos Voutzas, het tweede dorp dat werd getroffen door de bosbrand van 23 juli. Twee maanden later overheersen rouw en verdriet nog steeds. Maar de inwoners worden ook geconfronteerd met een veelheid aan problemen.<\/p>\n<h2>Tijd en wederopbouw<\/h2>\n<p>Burgemeester Vangelis Bournous van Rafina, waar het getroffen dorp Neos Voutzas onder valt, is ook in het weekend aan het werk. Zijn telefoon blijft gaan, terwijl we in een auto van de gemeente rondrijden.<\/p>\n<p>\"We vechten tegen de tijd\", zegt hij. \"De winter komt eraan. Binnen een paar weken moet het gebied schoon zijn en moeten dammen tegen aardverschuivingen en overstromingen klaar zijn.\" Neos Voutzas ligt aan de voet van de berg Pendeli, waar het vuur ontstond en naar beneden kwam.<\/p>\n<p>Bournous kent de problematiek in het gebied goed. Hij woonde zelf in Mati. Dat huis is afgebrand, zijn familie kon op tijd het strand bereiken. \"Maar wij hadden gelukkig een alternatief, we wonen nu in mijn ouderlijk huis in Rafina.\"<\/p>\n<p>In Neos Voutzas zijn ongeveer 650 huizen onbewoonbaar omdat ze verwoest zijn of ernstig beschadigd. Met Mati erbij gaat het om ongeveer 2000 huizen die opnieuw gebouwd of hersteld moeten worden.<\/p>\n<p>\"Ongeveer 75% van de getroffenen heeft de eerste financi\u00eble steun van de overheid gekregen voor de eerste levensbehoeften, de rest heeft problemen met papieren. Dat is op te lossen. Het grote probleem is de wederopbouw en een financi\u00eble regeling daarvoor\", legt Bournous uit.<\/p>\n<p>Volgens de burgemeester dekken de huidige voorstellen maar een kwart van de kosten. \"We wachten op een nieuwe verbeterde regeling van de overheid. Want de mensen hebben geen geld. En er is huursubsidie nodig voor diegenen die geen onderdak meer hebben. Dat geldt voor de helft van de getroffenen in Neos Voutzas.\" Vangelis Bournous denkt dat nieuwbouw en herstel zeker twee jaar gaan duren.<\/p>\n<p>Luister hier naar de radioreportage van Conny Keessen:<\/p>\n<p>De inwoners zijn intussen bezorgd en gefrustreerd. In beide dorpen zijn bewonerscomit\u00e9s opgericht. In Mati bestaat een kerngroep van ingenieurs, advocaten en artsen die zich over de verschillende problemen buigen.<\/p>\n<p>Efi Boboni, wier huis in Mati ernstig beschadigd is, klaagt over de traagheid van de overheid. \"We kunnen onze huizen niet herstellen omdat nog niet duidelijk is hoeveel steun we krijgen, hoe de procedures zijn en wie het gaat doen. De winter komt, de huizen zijn open en zullen nog meer schade oplopen.\"<\/p>\n<p>Alexis Gaitanis maakt zich grote zorgen over de gezondheid van de inwoners. \"De meeste huizen in Mati zijn in de zestiger jaren gebouwd. Daar is asbest bij gebruikt. Dat is nu verbrand en in de grond terechtgekomen. Hetzelfde geldt voor zware metalen zoals lood. Er zijn hier in Mati ongeveer 400 auto's in de straten verbrand.\"<\/p>\n<h2>Onderzoeken en rechtszaken<\/h2>\n<p>Intussen loopt er ook een gerechtelijk onderzoek naar de oorzaak van de brand en naar de chaos daarna. Dat wordt uitgevoerd door de openbaar aanklager van Hooggerechtshof. <\/p>\n<p>Advocaat Antonis Fousas vertegenwoordigt familieleden van vijftien slachtoffers. \"We krijgen nog steeds veel telefoontjes van andere familieleden die zich bij de zaak willen aansluiten.\" In de aanklacht worden functionarissen bij de overheidsdienst burgerbescherming, de provincie, de politie en de brandweer genoemd als verantwoordelijk voor de dood van mensen en de verwoesting van bossen en huizen.<\/p>\n<p>\"Onze burgerbeschermingswet is een van de beste van Europa. Maar helaas worden wetten hier vaak niet uitgevoerd. Dat gebeurde ook in 2007 bij de bosbranden op de Peloponnesos. Daarbij vielen meer dan zestig doden.\" De advocaat vertegenwoordigde toen ook familieleden die de overheid aanklaagden. Dat leidde tot forse gevangenisstraffen voor overheidsfunctionarissen.<\/p>\n<p>Bekijk hier hoe de inwoners van Mati tijdens de branden de zee in vluchtten om aan de vlammen te ontkomen:<\/p>\n",
-    "image": "https:\/\/nos.nl\/data\/image\/2018\/09\/25\/502253\/320x320.jpg",
-    "link": "https:\/\/nos.nl\/l\/2251976",
-    "date": "Tue, 25 Sep 2018 07:18:06 +0200"
-  },
-  {
     "site": "De Telegraaf",
     "title": "\u2019Ontdekking van het decennium\u2019:eeuwenoud scheepswrak bij Portugal",
     "desc": "Voor de kust van Portugal hebben archeologen een scheepswrak gevonden dat daar al vierhonderd jaar ligt. Het schip is in de buurt van Lissabon gezonken toen het vermoedelijk terugkeerde uit India met specerijen.",
     "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/ba2dafaa-c081-11e8-b876-ade15b71496b.jpg",
     "link": "https:\/\/www.telegraaf.nl\/nieuws\/2596591\/ontdekking-van-het-decennium-eeuwenoud-scheepswrak-bij-portugal",
     "date": "Tue, 25 Sep 2018 07:07:53 +0200"
-  },
-  {
-    "site": "NOS",
-    "title": "Wekdienst 25\/9: Belangrijke stemming over brexit en 25 jaar Fokke en Sukke",
-    "desc": "<p>Goedemorgen! In Nieuwspoort in Den Haag wordt de Inktspotprijs 2018 uitgereikt en in Groot-Brittanni\u00eb stemt het Labour-congres over de vraag of er een nieuw brexit-referendum moet komen over de deal die met Europa gemaakt wordt.<\/p>\n<p>Overdag is het vandaag na een koude start wisselend bewolkt. Vooral in het noorden valt een bui en het wordt 14 of 15 graden.<\/p>\n<p>Ga je op pad? Hier vind je het overzicht van de files en werkzaamheden en de situatie op het spoor.<\/p>\n<h2>Wat kun je vandaag verwachten?<\/h2>\n<p> Fokke en Sukke bestaan 25 jaar. In het NRC daarom vandaag geen foto's, maar tekeningen. Uitspraak tegen de soos in Limburg die alcohol schonk aan een minderjarige, die vervolgens omkwam bij een verkeersongeluk. De Inktspotprijs voor de beste politieke cartoon wordt vandaag weer uitgereikt. In Groot-Brittanni\u00eb stemt het Labour-congres over de vraag of er een nieuw brexit-referendum moet komen. Dat zou gaan over de afspraken die de Britten met Europa maken over de uittreding. En logopedisten voeren actie in Den Haag voor hogere vergoedingen. <\/p>\n<h2>Wat heb je gemist?<\/h2>\n<p>Zorgverzekeraar DSW verhoogt de zorgpremie voor volgend jaar met 4,50 euro per maand. DSW is traditioneel de eerste zorgverzekeraar die met een bedrag voor het volgende jaar komt. Dat is dit jaar lager dan verwacht: in de Miljoenennota werd rekening gehouden met een stijging van ongeveer 10 euro per maand. De zorgverzekering kost volgend jaar 112 euro per maand voor zowel individueel als collectief verzekerden.<\/p>\n<p>De belangrijkste reden voor de verhoging van de premie zijn de oplopende kosten van de lonen en prijzen. De stijging van de premie is beduidend lager dan in de begroting van het ministerie van Volksgezondheid. Dat komt volgens DSW doordat het ministerie de zorgkosten voor een jaar altijd veel te hoog inschat en zich niet op de laatste cijfers baseert.<\/p>\n<h2>Ander nieuws uit de nacht:<\/h2>\n<p> Blok pleit in New York voor netwerk tegen mensenhandelaren: De minister van Buitenlandse Zaken wil tegoeden van mensenhandelaren sneller traceren en bevriezen. Ryanair-piloten uit Nederland staken vrijdag: Ze sluiten zich aan bij een tweede grote stakingsdag door piloten in verschillende Europese landen, en vinden dat hun cao beter moet worden. Russische oppositieleider Navalny krijgt direct na vrijlating nieuwe celstraf: Hij werd opnieuw vastgezet voor het organiseren van een illegale demonstratie. Hans Oosters nieuwe commissaris van de koning in Utrecht: Provinciale Staten hebben hem voorgedragen. Oosters is de opvolger van VVD'er Willibrord van Beek, die op 1 februari met pensioen gaat. <\/p>\n<h2>En dan nog even dit:<\/h2>\n<p>Dit jaar is er een wel heel jonge deelnemer aanwezig bij de algemene vergadering van de VN in New York. De Nieuw-Zeelandse premier Jacinda Ardern heeft haar baby meegenomen. Ardern beviel eind juni van dochter Neve Te Aroha en omdat het meisje borstvoeding krijgt moet ze dicht bij haar moeder in de buurt blijven. Daarom besloten Ardern en haar partner Clarke Gayford, die de baby verzorgt, om de nu drie maanden oude baby mee te nemen naar de vergadering in New York. <\/p>\n<p>Ardern (38) is de jongste premier die Nieuw-Zeeland ooit heeft gehad en de eerste die tijdens haar premierschap met zwangerschapsverlof ging. Ze wordt beschouwd als een symbool voor emancipatie. Wereldwijd is ze de tweede vrouw die een kind kreeg tijdens haar premierschap. In 1990 ging de Pakistaanse premier Benazir Bhutto haar voor.<\/p>\n<p>Fijne dag!<\/p>\n",
-    "image": "https:\/\/nos.nl\/data\/image\/2018\/09\/25\/502249\/320x320.jpg",
-    "link": "https:\/\/nos.nl\/l\/2251975",
-    "date": "Tue, 25 Sep 2018 06:59:37 +0200"
   },
   {
     "site": "De Telegraaf",
@@ -449,18 +761,10 @@
   },
   {
     "site": "De Telegraaf",
-    "title": "DSW-premie is een opluchting",
-    "desc": "De nieuwe zorgpremies zullen consumenten iets minder hoofdpijn bezorgen dan gedacht. De eerste premie die vandaag bekend wordt, komt op 112 euro per maand, aldus zorgverzekeraar DSW.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/0ae4af22-c04e-11e8-b68c-a54eb230bd06.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/financieel\/2596450\/dsw-premie-is-een-opluchting",
-    "date": "Tue, 25 Sep 2018 05:30:00 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Genocide via Facebook",
-    "desc": "Facebook faalt om het massale haatzaaien tegen Rohingya in Myanmar op haar netwerk de kop in te drukken. Volgens VN-onderzoekers heeft het platform een \u2019bepalende rol\u2019 gehad bij het oplaaien van het brute geweld tegen de moslimminderheid.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/66d4c45e-c038-11e8-8c9d-2fca5d94ce3e.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2596357\/genocide-via-facebook",
+    "title": "Rel rond Rosenstein",
+    "desc": "De Amerikaanse onderminister van Justitie Rod Rosenstein overwoog gisteren ontslag te nemen, zo melden verschillende Amerikaanse media. Op een dag vol drama, waar er volop geruchten gingen over het lot van Rosenstein, was de conclusie uiteindelijk dat Trump donderdag met Rosenstein gaat praten over diens politieke toekomst. Dat gesprek komt precies op de dag dat ook de hoorzitting is van Brett Kavanaugh, de man die door Trump is genomineerd als opperrechter.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/29a3f434-c037-11e8-85a3-0386ac13530d.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2596301\/rel-rond-rosenstein",
     "date": "Tue, 25 Sep 2018 05:30:00 +0200"
   },
   {
@@ -473,10 +777,18 @@
   },
   {
     "site": "De Telegraaf",
-    "title": "Muur tegen Duits everzwijn",
-    "desc": "Terwijl Belgi\u00eb is opgeschrikt door een uitbraak van Afrikaanse varkenspest onder wilde zwijnen, heeft Denemarken plannen om Duitse everzwijnen voorgoed de toegang te ontzeggen tot Deens grondgebied.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/ad8d21d0-c082-11e8-95f4-0f4c2b3f3377.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2596312\/muur-tegen-duits-everzwijn",
+    "title": "Martin Gaus gered door gulle gever",
+    "desc": "Martin Gaus (73) kan het wel van de daken schreeuwen. De dierenvriend, die al jaren ernstig ziek is vanwege nierproblemen, krijgt eindelijk een donornier.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/6ca05898-c07f-11e8-8c9d-2fca5d94ce3e.JPG",
+    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2596579\/martin-gaus-gered-door-gulle-gever",
+    "date": "Tue, 25 Sep 2018 05:30:00 +0200"
+  },
+  {
+    "site": "De Telegraaf",
+    "title": "DSW-premie is een opluchting",
+    "desc": "De nieuwe zorgpremies zullen consumenten iets minder hoofdpijn bezorgen dan gedacht. De eerste premie die vandaag bekend wordt, komt op 112 euro per maand, aldus zorgverzekeraar DSW.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/0ae4af22-c04e-11e8-b68c-a54eb230bd06.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/financieel\/2596450\/dsw-premie-is-een-opluchting",
     "date": "Tue, 25 Sep 2018 05:30:00 +0200"
   },
   {
@@ -497,10 +809,10 @@
   },
   {
     "site": "De Telegraaf",
-    "title": "Martin Gaus gered door gulle gever",
-    "desc": "Martin Gaus (73) kan het wel van de daken schreeuwen. De dierenvriend, die al jaren ernstig ziek is vanwege nierproblemen, krijgt eindelijk een donornier.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/6ca05898-c07f-11e8-8c9d-2fca5d94ce3e.JPG",
-    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2596579\/martin-gaus-gered-door-gulle-gever",
+    "title": "Muur tegen Duits everzwijn",
+    "desc": "Terwijl Belgi\u00eb is opgeschrikt door een uitbraak van Afrikaanse varkenspest onder wilde zwijnen, heeft Denemarken plannen om Duitse everzwijnen voorgoed de toegang te ontzeggen tot Deens grondgebied.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/ad8d21d0-c082-11e8-95f4-0f4c2b3f3377.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2596312\/muur-tegen-duits-everzwijn",
     "date": "Tue, 25 Sep 2018 05:30:00 +0200"
   },
   {
@@ -553,35 +865,11 @@
   },
   {
     "site": "De Telegraaf",
-    "title": "Rel rond Rosenstein",
-    "desc": "De Amerikaanse onderminister van Justitie Rod Rosenstein overwoog gisteren ontslag te nemen, zo melden verschillende Amerikaanse media. Op een dag vol drama, waar er volop geruchten gingen over het lot van Rosenstein, was de conclusie uiteindelijk dat Trump donderdag met Rosenstein gaat praten over diens politieke toekomst. Dat gesprek komt precies op de dag dat ook de hoorzitting is van Brett Kavanaugh, de man die door Trump is genomineerd als opperrechter.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/29a3f434-c037-11e8-85a3-0386ac13530d.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2596301\/rel-rond-rosenstein",
+    "title": "Genocide via Facebook",
+    "desc": "Facebook faalt om het massale haatzaaien tegen Rohingya in Myanmar op haar netwerk de kop in te drukken. Volgens VN-onderzoekers heeft het platform een \u2019bepalende rol\u2019 gehad bij het oplaaien van het brute geweld tegen de moslimminderheid.",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/66d4c45e-c038-11e8-8c9d-2fca5d94ce3e.jpg",
+    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2596357\/genocide-via-facebook",
     "date": "Tue, 25 Sep 2018 05:30:00 +0200"
-  },
-  {
-    "site": "NOS",
-    "title": "DSW verhoogt zorgpremie met 4,50 euro per maand, minder dan verwacht",
-    "desc": "<p>Zorgverzekeraar DSW verhoogt de zorgpremie voor volgend jaar met 4,50 euro per maand. Dat is lager dan verwacht: in de Miljoenennota werd rekening gehouden met een stijging van ongeveer 10 euro per maand.<\/p>\n<p>De zorgverzekering kost volgend jaar 112 euro per maand voor zowel individueel als collectief verzekerden. Vorig jaar verlaagde de zorgverzekeraar de premie nog met 50 cent per maand.<\/p>\n<p>De belangrijkste reden voor de verhoging van de premie zijn de oplopende kosten van de lonen en prijzen. \"Ook worden specialistische geneesmiddelen duurder en werkt de verhoging van het lage btw-tarief door\", zegt DSW-directeur Chris Oomen.<\/p>\n<h2>Lager dan verwacht<\/h2>\n<p>De stijging van de premie is beduidend lager dan in de begroting van het ministerie van Volksgezondheid. Dat komt volgens Oomen doordat het ministerie de zorgkosten voor een jaar altijd veel te hoog inschat en zich niet op de laatste cijfers baseert. \"Meer recente cijfers laten zien dat bepaalde zorgkosten minder snel stijgen dan verwacht.\"<\/p>\n<p>Het verplichte eigen risico voor alle Nederlanders is 385 euro. DSW compenseert dat net als vorig jaar met 10 euro, wat wordt betaald uit de premie. De verzekeraar wil daarmee duidelijk maken aan de politiek dat ze het eigen risico te hoog vindt.<\/p>\n<p>DSW bepaalde de afgelopen jaren vaak de trend voor andere zorgverzekeraars. Die maken hun premies in de komende weken bekend.<\/p>\n",
-    "image": "https:\/\/nos.nl\/data\/image\/2018\/09\/25\/502246\/320x320.jpg",
-    "link": "https:\/\/nos.nl\/l\/2251971",
-    "date": "Tue, 25 Sep 2018 04:27:24 +0200"
-  },
-  {
-    "site": "NOS",
-    "title": "Blok pleit in New York voor netwerk tegen\u00a0mensenhandelaren",
-    "desc": "<p>Nederland gaat een internationaal netwerk oprichten om tegoeden van mensenhandelaren sneller te traceren en te bevriezen. Het is onderdeel van een oproep aan andere landen om \"volledig en ondubbelzinnig\" aangenomen sancties tegen mensenhandelaren uit te voeren.<\/p>\n<p>\"Het is tijd dat de sancties echt tanden krijgen\", zegt minister van Buitenlandse Zaken Stef Blok in Met Het Oog Op Morgen op NPO Radio 1. Hij is in New York voor een mede door ons land georganiseerde ministeri\u00eble conferentie over de aanpak van mensenhandel. Blok sprak daar met collega-ministers van Niger en Libi\u00eb. Vertegenwoordigers van zo'n dertig Afrikaanse en Europese landen waren aanwezig.<\/p>\n<h2>Rekeningen bevriezen<\/h2>\n<p>Nederland is dit jaar lid van de VN-Veiligheidsraad en in juni werd een Nederlands voorstel aangenomen om mensensmokkelaars in Libi\u00eb op een sanctielijst te plaatsen. Op deze lijst staan nu zes personen. Het gaat om leiders van criminele netwerken die zich bezighouden met de handel in mensen.<\/p>\n<p>\"We willen dat er in de VN-Veiligheidsraad een afspraak komt dat alle landen rapporteren over de manier waarop ze dit soort sancties implementeren\", zegt Blok. Hij wil dat landen actief rekeningen van de mensen op de lijst bevriezen. Het nog op te richten internationale netwerk moet inzichtelijk maken hoe landen zich daarvoor inzetten.<\/p>\n<h2>Bewijs verzamelen<\/h2>\n<p>\"Ook zijn we bezig om bewijs te vergaren om nog meer mensen op de sanctielijst te krijgen\", zegt de minister. Daarnaast wil hij dat er sancties mogelijk worden tegen mensenhandelaren in andere landen. Concreet is daarvoor bijvoorbeeld Mali in beeld, \"ook een land op de route\". Woensdag vergadert de VN-Veiligheidsraad in New York.<\/p>\n<p>De afgelopen jaren maakten honderdduizenden Afrikanen de overtocht naar Europa, bijvoorbeeld via de Middellandse Zee. Criminele netwerken hebben de afgelopen jaren miljarden verdiend aan mensensmokkel en de uitbuiting van migranten, meldde het European Migrant Smuggling Centre in een rapport uit 2017.<\/p>\n",
-    "image": "https:\/\/nos.nl\/data\/image\/2018\/09\/25\/502241\/320x320.jpg",
-    "link": "https:\/\/nos.nl\/l\/2251970",
-    "date": "Tue, 25 Sep 2018 04:07:00 +0200"
-  },
-  {
-    "site": "NOS",
-    "title": "Meer passagiers op de nationale luchthavens, Maastricht groeit het hardst ",
-    "desc": "<p>Het vliegverkeer boven Nederland wordt steeds intensiever. In het tweede kwartaal vlogen ruim 21 miljoen mensen van en naar een van de vijf nationale luchthavens. Dat is een stijging van vier procent ten opzichte van een jaar eerder, meldt het Centraal Bureau voor de Statistiek.<\/p>\n<p>Verreweg de meeste passagiers vlogen via Schiphol, bijna 19 miljoen. Dat is een stijging van 3,3 procent, de laagste toename sinds het vierde kwartaal van 2013.<\/p>\n<p>Het aantal vluchten van en naar Schiphol daalde voor het eerst sinds 2013 licht, met bijna een procent. De luchthaven zit al sinds vorig jaar tegen de wettelijke bovengrens van 500.000 vluchten per jaar aan, waardoor groei nauwelijks nog mogelijk is.<\/p>\n<h2>Malaga en Alicante<\/h2>\n<p>Op de tweede luchthaven van het land, Eindhoven, stijgt het aantal passagiers al sinds 2009. Er vlogen in het tweede kwartaal van dit jaar 1,7 miljoen mensen van en naar de lichtstad, acht procent meer dan een jaar eerder. De Spaanse steden Malaga en Alicante zijn de populairste bestemmingen vanaf Eindhoven.<\/p>\n<p>De relatief kleine luchthaven Maastricht Aachen Airport noteerde de grootste stijging van maar liefst 49 procent tot 83.000 reizigers. Die spectaculaire stijging is te danken aan vliegmaatschappij Corendon, die het aantal bestemmingen uitbreidde. Desalniettemin is Maastricht met een marktaandeel van 0,4 procent van het totale aantal reizigers nog steeds een kleine speler.<\/p>\n<p>Via Rotterdam The Hague en Groningen Eelde vlogen respectievelijk 583.000 en 65.000 reizigers.<\/p>\n",
-    "image": "https:\/\/nos.nl\/data\/image\/2018\/09\/25\/502240\/320x320.jpg",
-    "link": "https:\/\/nos.nl\/l\/2251969",
-    "date": "Tue, 25 Sep 2018 02:41:49 +0200"
   },
   {
     "site": "De Telegraaf",
@@ -611,7 +899,7 @@
     "site": "De Telegraaf",
     "title": "Strafonderzoek naar IKON-moorden loopt al",
     "desc": "Er loopt al een strafrechtelijk onderzoek naar de moord op vier Nederlandse IKON-journalisten, in 1982 in El Salvador. Het Openbaar Ministerie heeft dat maandagavond bevestigd, na berichtgeving van Nieuwsuur. Over de stand van zaken van dat onderzoek, dat is gestart in 2013, kon de woordvoerder van het Landelijk Parket niets zeggen.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/0781a942-c040-11e8-a5fa-33c4174d097e.jpg",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/5854714a-c0b5-11e8-a59f-1f1c85b3427a.jpg",
     "link": "https:\/\/www.telegraaf.nl\/nieuws\/2596470\/strafonderzoek-naar-ikon-moorden-loopt-al",
     "date": "Mon, 24 Sep 2018 23:22:44 +0200"
   },
@@ -667,7 +955,7 @@
     "site": "De Telegraaf",
     "title": "Meghan speelt basketbalwedstrijd op megahakken",
     "desc": "Het is Team Harry tegen Team Meghan op de universiteit van Loughborough. De hertog en hertogin van Sussex spelen een potje basketbal voor het goede doel.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/faf12f88-c033-11e8-b876-ade15b71496b.jpg",
+    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/bc55f69e-c0d0-11e8-8b86-a1c84b456984.jpg",
     "link": "https:\/\/www.telegraaf.nl\/video\/2596222\/meghan-speelt-basketbalwedstrijd-op-megahakken",
     "date": "Mon, 24 Sep 2018 21:56:00 +0200"
   },
@@ -750,293 +1038,5 @@
     "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/f3cc31a8-c01a-11e8-b32f-8168497de723.jpg",
     "link": "https:\/\/www.telegraaf.nl\/video\/2595680\/politieke-chaos-met-iran-ligt-op-de-loer",
     "date": "Mon, 24 Sep 2018 18:57:00 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Ben Knapen nieuwe leider CDA-fractie Senaat",
-    "desc": "Senator Ben Knapen volgt Elco Brinkman op als leider van de CDA-fractie in de Senaat. Het 67-jarige Eerste Kamerlid wordt de lijsttrekker van de christendemocraten bij de komende Eerste Kamerverkiezingen.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/4473bcb2-c01a-11e8-b457-e1ace5edd337.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2595636\/ben-knapen-nieuwe-leider-cda-fractie-senaat",
-    "date": "Mon, 24 Sep 2018 18:52:36 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Wat te doen als alles instort?",
-    "desc": "Treinen, stilgevallen tussen stations, verlaten auto\u2019s die de wegen blokkeren. Tankstations en supermarkten zijn leeg, stedelingen lopen verdwaasd rond. Ze kunnen niet meer Facebooken en erger nog: geen geld meer opnemen of elektronisch betalen. De politie schiet op plunderaars. De ene generator na de andere komt tot stilstand als de dieseltank leeg is. Rellen dreigen tussen mensen met hun armen vol voedsel uit blik.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/5227086e-c01a-11e8-bc7c-05f4299635c9.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2595630\/wat-te-doen-als-alles-instort",
-    "date": "Mon, 24 Sep 2018 18:52:08 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Belgi\u00eb vraagt buurlanden om stroomcapaciteit",
-    "desc": "Belgi\u00eb vraagt de omringende landen of ze te hulp zouden kunnen schieten voor het geval er dit najaar een tekort aan elektriciteit is. Doordat in november maar \u00e9\u00e9n van de zeven Belgische kernreactoren actief is, zou het kunnen dat bepaalde gebieden voor korte periodes van het stroomnet moeten worden gehaald.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/23d9e72e-c01a-11e8-b4f5-752434fdeb82.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2595622\/belgie-vraagt-buurlanden-om-stroomcapaciteit",
-    "date": "Mon, 24 Sep 2018 18:51:46 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Rasta-Bob verliest 1,3 kilo na metamorfose",
-    "desc": "Medewerkers van Dierenopvangcentrum Vlaardingen hebben het verwaarloosde hondje Bob, die hevige reacties opriep in het hele land, geknipt en geschoren. Het dier verloor daarbij meer dan een kilo gewicht.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/f6a7c2ec-c01b-11e8-98d5-c79b9c8c2f11.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2595620\/rasta-bob-verliest-1-3-kilo-na-metamorfose",
-    "date": "Mon, 24 Sep 2018 18:51:05 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Celstraf ge\u00ebist tegen kerkpenningmeester",
-    "desc": "Tegen een 53-jarige man uit Leiden is 48 maanden celstraf ge\u00ebist. Hij was penningmeester van een kerk in Leiden en zou jarenlang geld hebben weggesluisd. In totaal zou 1,8 miljoen euro zijn verdwenen, tussen 2010 en 2014.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/b6d0bc34-c019-11e8-8c9d-2fca5d94ce3e.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2595608\/celstraf-geeist-tegen-kerkpenningmeester",
-    "date": "Mon, 24 Sep 2018 18:48:31 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Lekker boos worden op Thierry Baudet",
-    "desc": "De Democratische leider in de Amerikaanse senaat Chuck Schumer kon een aantal van zijn collega\u2019s wel schieten in de vroege ochtend van 28 juli 2017. Ze begonnen enthousiast te klappen nadat de Republikeinse senator John McCain tegen een voorstel van zijn partijgenoten had gestemd om het Obama-zorgsysteem af te schaffen. Met een ferm handgebaar maande Schumer zijn collega\u2019s tot kalmte; hier mocht geen feest gevierd worden.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/fa992f98-c017-11e8-8b1a-a1ef381bd6bc.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2595530\/lekker-boos-worden-op-thierry-baudet",
-    "date": "Mon, 24 Sep 2018 18:30:18 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Benauwende mores bezig aan comeback",
-    "desc": "Heeft het uit de kast halen van Bert en Ernie al voor maatschappelijke onrust gezorgd?",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/7fca74fe-c015-11e8-9f36-21f335746c10.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2595509\/benauwende-mores-bezig-aan-comeback",
-    "date": "Mon, 24 Sep 2018 18:15:23 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Stofstorm gezien op maan van Saturnus",
-    "desc": "Op Titan, een van de manen van Saturnus, zijn enorme stofstormen gezien. Die waren tot nu toe alleen maar waargenomen op de aarde en op Mars.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/35a87756-c013-11e8-8c9d-2fca5d94ce3e.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2595473\/stofstorm-gezien-op-maan-van-saturnus",
-    "date": "Mon, 24 Sep 2018 18:01:57 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Verdwijnt Rosenstein uit het Witte Huis na verhaal over Trump-taps?",
-    "desc": "De Amerikaanse onderminister van Justitie Rod Rosenstein stopt vermoedelijk vandaag. Hij zou maandagochtend naar het Witte Huis zijn gegaan in de verwachting te worden ontslagen door president Trump.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/1ab6fffc-c014-11e8-b32f-8168497de723.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2595467\/verdwijnt-rosenstein-uit-het-witte-huis-na-verhaal-over-trump-taps",
-    "date": "Mon, 24 Sep 2018 17:59:35 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Nieuwe rechter in zaak tabaksindustrie",
-    "desc": "Rechter Jan Wolter Wabeke trekt zich terug uit de zaak tegen de tabaksindustrie. De voorzittende rechter heeft daartoe een verzoek ingediend bij de verschoningskamer van het gerechtshof en die wees dat maandag toe. De advocaat van de klagers had om terugtrekking door deze raadsheer gevraagd, omdat hij naar hun mening vooringenomen was.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/65761922-c016-11e8-8be8-19c74193db93.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2595374\/nieuwe-rechter-in-zaak-tabaksindustrie",
-    "date": "Mon, 24 Sep 2018 17:42:50 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Voorzitter studentenbond LSVb weg na conflict",
-    "desc": "Voorzitter van de Landelijke Studentenvakbond (LSVb) Geertje Hulzebos is opgestapt na een conflict met de rest van het bestuur. Dat bevestigde vicevoorzitter Carline van Breugel maandag na berichtgeving van de Stentor. Zij neemt de taak van voorzitter waar.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/f78ee906-c016-11e8-8b86-a1c84b456984.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2595360\/voorzitter-studentenbond-ls-vb-weg-na-conflict",
-    "date": "Mon, 24 Sep 2018 17:41:00 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "\u2018Bill Cosby van huisvader naar hele enge buurman\u2019",
-    "desc": "Amerika is in de ban van Bill Cosby, die misschien wel tot zijn dood achter de tralies verdwijnt, zo vertelt onze correspondent Jan Postma.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/16d549d0-c031-11e8-9468-3da6903dfb80.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/video\/2595337\/bill-cosby-van-huisvader-naar-hele-enge-buurman",
-    "date": "Mon, 24 Sep 2018 17:35:00 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Justitie zwijgt over moord IKON-journalisten",
-    "desc": "Zowel het Openbaar Ministerie als het ministerie van Veiligheid en Justitie zwijgt over de moord op vier Nederlandse IKON-journalisten, in 1982 in El Salvador. Tv-programma Zembla achterhaalde de kolonel die opdracht zou hebben gegeven voor de moorden.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/ce819186-c010-11e8-8c9d-2fca5d94ce3e.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2592429\/justitie-zwijgt-over-moord-ikon-journalisten",
-    "date": "Mon, 24 Sep 2018 17:30:00 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Tbs en celstraf voor brute verkrachting in Enschede",
-    "desc": "Een 19-jarige in Ethiopi\u00eb geboren student uit Oldenzaal is veroordeeld tot drie jaar cel en tbs met dwangverpleging voor de gewelddadige verkrachting van een Duitse studente in Enschede begin april dit jaar. Tegen de man was tien jaar celstraf ge\u00ebist.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/8c044fd0-c009-11e8-88c6-db52af8432b3.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2595128\/tbs-en-celstraf-voor-brute-verkrachting-in-enschede",
-    "date": "Mon, 24 Sep 2018 16:52:52 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Verdachte schietpartij Amsterdam opgepakt",
-    "desc": "De politie heeft een 25-jarige verdachte aangehouden voor betrokkenheid bij een schietpartij aan het Maarsenhof in Amsterdam in januari. De man werd afgelopen woensdag opgepakt en is door de rechter-commissaris voor veertien dagen in bewaring gesteld, meldde het Openbaar Ministerie (OM) maandag.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/0345da8e-c008-11e8-b457-e1ace5edd337.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2595035\/verdachte-schietpartij-amsterdam-opgepakt",
-    "date": "Mon, 24 Sep 2018 16:41:43 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "'Recessiegevaar dreigt door Brexit'",
-    "desc": "Beurshandelaren houden het nieuws over de Brexit nauwgezet in de gaten. Net als de plannen van de Italiaanse regering. Corn\u00e9 van Zeijl te gast in de beursweek.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/c8495838-c01c-11e8-bf76-fba93b94a09e.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/video\/2594533\/recessiegevaar-dreigt-door-brexit",
-    "date": "Mon, 24 Sep 2018 16:40:00 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Q-koorts-pati\u00ebnten kunnen maximaal 15.000 euro vergoeding krijgen",
-    "desc": "Nederlanders die tussen januari 2007 en december 2011 Q-koorts opliepen kunnen vanaf 1 oktober een aanvraag indienen voor een vergoeding. Per aanvraag wordt maximaal 15.000 euro uitgekeerd, laat het ministerie van Volksgezondheid weten.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/de433612-c009-11e8-b32f-8168497de723.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2595021\/q-koorts-patienten-kunnen-maximaal-15-000-euro-vergoeding-krijgen",
-    "date": "Mon, 24 Sep 2018 16:39:54 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "21 jaar cel voor zwaar geweld tegen vriendin",
-    "desc": "Een 51-jarige man uit Steenbergen (Noord-Brabant) die zijn vriendin bedreigde, verkrachtte en in hals en gezicht stak, moet 21 jaar de cel in. De rechter bepaalde maandag dat de man zijn slachtoffer ook ruim 62.000 euro schadevergoeding moet betalen.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/cf168842-c009-11e8-b4f5-752434fdeb82.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2594948\/21-jaar-cel-voor-zwaar-geweld-tegen-vriendin",
-    "date": "Mon, 24 Sep 2018 16:32:46 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Merkel niet bij staatsbanket voor Erdogan",
-    "desc": "De Duitse bondskanselier Angela Merkel gaat niet naar het staatsbanket dat de Duitse president Steinmeier zijn Turkse ambtgenoot Erdogan aanbiedt. Erdogan dineert vrijdagavond tijdens zijn staatsbezoek aan Duitsland bij Steinmeier in het slot Bellevue, waar het Duitse staatshoofd woont.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/2b3d4804-c005-11e8-a435-e318b3c577be.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2594791\/merkel-niet-bij-staatsbanket-voor-erdogan",
-    "date": "Mon, 24 Sep 2018 16:21:24 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Kloof tussen drinkers en niet-drinkers",
-    "desc": "Er is in Nederland een groeiende kloof tussen mensen die veel alcohol nuttigen en mensen die niet of weinig alcohol drinken. Dat blijkt uit cijfers van de Wereldgezondheidsorganisatie (WHO) die de wereldwijde consumptie van alcoholhoudende drank per land onderzocht.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/dee1cd24-c007-11e8-af56-af146835a497.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2594747\/kloof-tussen-drinkers-en-niet-drinkers",
-    "date": "Mon, 24 Sep 2018 16:16:38 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Frustraties over onderzoek naar verdwenen Kamphuis",
-    "desc": "Familie en vrienden van Arjen Kamphuis zijn gefrustreerd over het onderzoek naar de met raadsels omgeven verdwijning van Arjen Kamphuis. Meer dan een maand na zijn vermissing is er nog altijd geen spoor van cyberspecialist Kamphuis. De achterblijvers vinden dat de Noorse politie veel te traag handelt.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/95e81844-c03e-11e8-b32f-8168497de723.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2594705\/frustraties-over-onderzoek-naar-verdwenen-kamphuis",
-    "date": "Mon, 24 Sep 2018 16:09:35 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "\u2018In dat soort wijken word je gewoon neergeschoten\u2019",
-    "desc": "Danny Ghosen heeft heftige dingen meegemaakt in ghetto\u2019s en achterstandwijken, voor zijn nieuwe reeks \u2018Danny in de buitenwijken\u2019. Uitzending: 26 september, 21.05u, NPO3.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/8ee9acf2-c001-11e8-91d0-018a2dfaf4ed.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/video\/2594600\/in-dat-soort-wijken-word-je-gewoon-neergeschoten",
-    "date": "Mon, 24 Sep 2018 15:53:00 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Labour steunt alleen \u2019perfecte\u2019 brexit",
-    "desc": "De Britse oppositiepartij Labour heeft beklemtoond dat ze tegen elke regeling over de brexit zal stemmen die niet aan alle eisen van de partij voldoet. Een woordvoerder van Labour zei dit maandag bij het Labour-congres in Liverpool, terwijl de Britse premier Theresa May haar plan voor de brexit probeert te redden.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/28bec35e-c001-11e8-8c9d-2fca5d94ce3e.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2594606\/labour-steunt-alleen-perfecte-brexit",
-    "date": "Mon, 24 Sep 2018 15:52:58 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Verdachte aanslagen Delft blijft vastzitten",
-    "desc": "De 41-jarige Michael B., die ervan wordt verdacht dat hij handgranaten heeft laten ontploffen bij twee coffeeshops in Delft, blijft vastzitten. Zijn medeverdachte Dean P. (23) is momenteel op vrije voeten en hij blijft dat. Dat besliste de rechtbank in Den Haag maandag tijdens de eerste niet-inhoudelijke zitting.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/d6663620-c003-11e8-a456-132e99b6bf3b.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2594555\/verdachte-aanslagen-delft-blijft-vastzitten",
-    "date": "Mon, 24 Sep 2018 15:46:08 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Eerste homohuwelijk in Britse koninklijke familie",
-    "desc": "Lord Ivar Mountbatten, een verre neef van de Britse koningin Elizabeth, is in het huwelijk getreden met zijn vriend James Coyle. Het is voor zover bekend het eerste homohuwelijk in de weidse koninklijke familie van Groot-Brittanni\u00eb, melden Britse media.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/f9d58bf0-bfff-11e8-91d0-018a2dfaf4ed.png",
-    "link": "https:\/\/www.telegraaf.nl\/entertainment\/2594545\/eerste-homohuwelijk-in-britse-koninklijke-familie",
-    "date": "Mon, 24 Sep 2018 15:44:36 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Bill Cosby aangekomen bij rechtbank",
-    "desc": "Bill Cosby is maandag aangekomen bij het gerechtsgebouw waar hij te horen krijgt welke straf hij krijgt voor het drogeren en misbruiken van voormalig basketbalster Andrea Constand. Dat melden Amerikaanse media.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/98c4b1aa-c00f-11e8-889d-a301da9362a3.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/entertainment\/2594505\/bill-cosby-aangekomen-bij-rechtbank",
-    "date": "Mon, 24 Sep 2018 15:35:23 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Frankrijk wil vignet voor vrachtwagens",
-    "desc": "De Franse regering wil een speciale tolheffing invoeren voor vrachtauto\u2019s die het land doorkruisen. De Franse minister van Milieu Fran\u00e7ois de Rugy heeft dit maandag gezegd. De regering denkt aan een sticker of vignet. Volgend jaar komt de regering met een uitgewerkt plan.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/1b6fb788-bffe-11e8-89bf-65db96e3b09e.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2594461\/frankrijk-wil-vignet-voor-vrachtwagens",
-    "date": "Mon, 24 Sep 2018 15:30:50 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Disciplinaire maatregelen tegen politiemensen",
-    "desc": "De politie heeft acht medewerkers disciplinaire maatregelen opgelegd, omdat zij voetbal- en concertkaarten aannamen van een eerder dit jaar ontslagen politiecommissaris uit Amsterdam. De maatregelen vormen de uitkomst van een disciplinair onderzoek dat zich in eerste instantie richtte op de betrokken politiecommissaris.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/398c9aa6-c017-11e8-8c9d-2fca5d94ce3e.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2594442\/disciplinaire-maatregelen-tegen-politiemensen",
-    "date": "Mon, 24 Sep 2018 15:27:52 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Duthler verwerpt aantijging",
-    "desc": "VVD-senator Anne-Wil Duthler verwerpt de aantijging in een artikel van Follow the Money dat zij de schijn van belangenverstrengeling heeft gewekt door als Kamerlid te stemmen over een wetsvoorstel waarvoor haar adviesbureau aanbevelingen had had gedaan.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/607c4d4a-c009-11e8-9703-6b6233e5d3ab.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2594421\/duthler-verwerpt-aantijging",
-    "date": "Mon, 24 Sep 2018 15:23:43 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Aan Martin Garrix\u2019 nieuwe clip zit een luchtje",
-    "desc": "Martin Garrix gaat een opmerkelijke samenwerking aan.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/088b9b4c-bffd-11e8-89bf-65db96e3b09e.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/entertainment\/2594411\/aan-martin-garrix-nieuwe-clip-zit-een-luchtje",
-    "date": "Mon, 24 Sep 2018 15:22:52 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "OK is nu ok\u00e9 in Scrabble",
-    "desc": "Het woord OK is nu toegestaan voor scrabble-spelers. Het is opgenomen in het offici\u00eble Amerikaans-Engelse Scrabble-woordenboek dat wordt gebruikt voor het bordspel. Ook 'ew', een uitroep van afschuw, mag voortaan worden gelegd.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/c9c4594c-c003-11e8-a456-132e99b6bf3b.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/vrij\/2594408\/ok-is-nu-oke-in-scrabble",
-    "date": "Mon, 24 Sep 2018 15:22:41 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Fietsendieven slaan megaslag",
-    "desc": "Mannen met bivakmutsen hebben afgelopen week 33 peperdure topfietsen gestolen uit fietsenwinkel Cycletrend in het Noord-Brabantse Nuenen. Tips? Bel 0800-6070 of anoniem 0800-7000.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/7e7b27dc-c020-11e8-8c9d-2fca5d94ce3e.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/video\/2594208\/fietsendieven-slaan-megaslag",
-    "date": "Mon, 24 Sep 2018 14:58:00 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Bruins: Eerste Kamer moet in gesprek met Duthler",
-    "desc": "Het is volgens minister Bruins (Medische Zorg) aan de Eerste Kamer om \u2019een goed gesprek\u2019 te voeren over VVD-senator Anne-Wil Duthler en de mogelijke vermenging van haar advieswerk met haar rol als volksvertegenwoordiger. Volgens Annemarie Jorritsma, VVD-fractievoorzitter in de senaat, is er niets aan de hand.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/ffbdd592-c025-11e8-a018-e58325f7c655.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/nieuws\/2594323\/bruins-eerste-kamer-moet-in-gesprek-met-duthler",
-    "date": "Mon, 24 Sep 2018 14:55:30 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Iran zet spooktankers in voor olie",
-    "desc": "Iran heeft een vloot met illegale spookschepen ingezet die buiten zijn vlag om olie proberen te exporteren. Het transport met schepen zonder nationaliteit gaat door in weerwil van de handelssancties die de Verenigde Staten hebben opgelegd.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/a1441e3c-c00b-11e8-b4f5-752434fdeb82.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/financieel\/2594246\/iran-zet-spooktankers-in-voor-olie",
-    "date": "Mon, 24 Sep 2018 14:48:14 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Tomorrow Never Dies-acteur (75) overlijdt aan Spaanse costa",
-    "desc": "De Amerikaanse acteur en zanger Al Matthews is afgelopen zaterdag dood gevonden in het resort La Zenia aan de Costa Blanca in Spanje.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/2cc34eb6-bff7-11e8-8e09-43b3eb3737c4.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/entertainment\/2594201\/tomorrow-never-dies-acteur-75-overlijdt-aan-spaanse-costa",
-    "date": "Mon, 24 Sep 2018 14:41:36 +0200"
-  },
-  {
-    "site": "De Telegraaf",
-    "title": "Krankzinnige vertoning op de A7 gefilmd",
-    "desc": "Het lijkt een trend te worden: automobilisten die geen zin hebben om in de file te staan en besluiten te gaan spookrijden. Dit keer was het raak op de A7 bij het Friese Bolsward.",
-    "image": "https:\/\/www.telegraaf.nl\/images\/1200x630\/filters:format(jpeg):quality(80)\/cdn-kiosk-api.telegraaf.nl\/85249064-c020-11e8-8b86-a1c84b456984.jpg",
-    "link": "https:\/\/www.telegraaf.nl\/video\/2594078\/krankzinnige-vertoning-op-de-a7-gefilmd",
-    "date": "Mon, 24 Sep 2018 14:32:00 +0200"
   }
 ]
