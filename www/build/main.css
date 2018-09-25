@@ -1,3 +1,28 @@
+.light-theme ion-content {
+  background-color: #ffff;
+}
+
+.light-theme .toolbar-background {
+  background-color: #ffff;
+}
+
+.dark-theme ion-content {
+  background-color: #000000;
+}
+
+.dark-theme .toolbar-title {
+  color: #ffffff;
+}
+
+.dark-theme p {
+  color: #fff;
+}
+
+.dark-theme .header .toolbar-background {
+  border-color: #ff0fff;
+  background-color: #000;
+}
+
 .ion-page {
   background-color: white;
 }
@@ -25713,16 +25738,29 @@ ion-navbar.toolbar {
 
 .registerButton {
   margin: 0% !important;
-  background-color: #00000066 !important;
+  background-color: rgba(0, 0, 0, 0.4) !important;
   border-radius: 0 !important;
   width: 50% !important;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .homeButton {
   margin: 0% !important;
-  background-color: #00000066 !important;
+  background-color: rgba(0, 0, 0, 0.4) !important;
   border-radius: 0 !important;
   width: 50% !important;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.uitloggen {
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: 10;
+  display: block;
+  width: 100%;
 }
 
 ion-grid {
@@ -25987,7 +26025,7 @@ body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scro
   padding: 0 20px;
   min-width: 160px;
   height: 50px;
-  background-color: #57b846;
+  background-color: #000000 !important;
   border-radius: 25px;
   font-size: 16px;
   color: #fff;

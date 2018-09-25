@@ -4,6 +4,9 @@ import {RssProvider} from "../../providers/rss/rss";
 import { MenuController } from "ionic-angular";
 import {Observable} from "rxjs";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import { SettingsPage} from "../settings/settings";
+import {SettingsProvider} from "../../providers/settings/settings";
+
 /**
  * Generated class for the FeedPage page.
  *

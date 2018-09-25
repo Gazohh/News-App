@@ -15,6 +15,8 @@ import { IonicStorageModule } from '@ionic/storage';
 import {FavorietenPageModule} from "../pages/favorieten/favorieten.module";
 import {FeedPageModule} from "../pages/feed/feed.module";
 import {RegisterPageModule} from "../pages/register/register.module";
+import {SettingsPage} from "../pages/settings/settings";
+import { SettingsProvider } from '../providers/settings/settings';
 
 
 
@@ -22,6 +24,7 @@ import {RegisterPageModule} from "../pages/register/register.module";
     declarations: [
         MyApp,
         HomePage,
+        SettingsPage
     ],
     imports: [
         BrowserModule,
@@ -42,14 +45,17 @@ import {RegisterPageModule} from "../pages/register/register.module";
         HomePage,
         RegisterPage,
         FavorietenPage,
-        FeedPage
+        FeedPage,
+        SettingsPage
     ],
     providers: [
         StatusBar,
         SplashScreen,
         HttpClientModule,
         {provide: ErrorHandler, useClass: IonicErrorHandler},
-        RssProvider
+        RssProvider,
+        SettingsProvider,
+    SettingsProvider
     ]
 
 })

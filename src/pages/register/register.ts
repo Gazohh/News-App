@@ -42,79 +42,95 @@ export class RegisterPage implements OnInit {
 
 
     // Push terug naar home button
+    validateAllFormFields(formGroup: FormGroup) {         //{1}
+        Object.keys(formGroup.controls).forEach(field => {  //{2}
+            const control = formGroup.get(field);             //{3}
+            if (control instanceof FormControl) {             //{4}
+                control.markAsTouched({onlySelf: true});
+            } else if (control instanceof FormGroup) {        //{5}
+                this.validateAllFormFields(control);            //{6}
+            }
+        });
+    }
+
+    onSubmit() {
+        if (this.username == null || this.password == null || this.email == null) {
+            this.validateAllFormFields(this.form); //{7}
+        } else {
+            const headers = new HttpHeaders();
+
+            headers.append("Accept", 'application/json');
+
+            headers.append('Content-Type', 'application/json');
+
+            const options = {headers: headers};
+
+
+            const data = {
+
+                username: this.username,
+
+                password: this.password,
+
+                email: this.email
+
+            };
+            console.log('data:', data);
+            let loader = this.loading.create({
+
+                content: 'Aan het registreren..',
+
+            });
+
+            loader.present().then(() => {
+
+                this.http.post('http://gazoh.net/register.php', data, options)
+
+                    .map(res => res)
+
+                    .subscribe(res => {
+
+                        loader.dismiss();
+
+                        if (res == "Registration successfull") {
+
+                            let alert = this.alertCtrl.create({
+
+                                title: "Registreren geslaagd",
+
+                                subTitle: "U kunt nu gaan inloggen",
+
+                                buttons: ['OK']
+
+                            });
+
+                            alert.present();
+
+                            this.navCtrl.push(HomePage);
+
+                        } else {
+
+                            let alert = this.alertCtrl.create({
+
+                                title: "Mislukt",
+
+                                subTitle: "Er is iets mis gegaan tijdens het registeren probeert u het opnieuw.",
+
+                                buttons: ['OK']
+
+                            });
+
+                            alert.present();
+
+                        }
+                    });
+            });
+        }
+    }
+
+// Push terug naar home button
     terug() {
         this.navCtrl.push(HomePage);
     }
 
-    Register() {
-        const headers = new HttpHeaders();
-
-        headers.append("Accept", 'application/json');
-
-        headers.append('Content-Type', 'application/json');
-
-        const options = {headers: headers};
-
-
-
-        const data = {
-
-            username: this.username,
-
-            password: this.password,
-
-            email: this.email
-
-        };
-        console.log('data:', data);
-        let loader = this.loading.create({
-
-            content: 'Aan het registreren..',
-
-        });
-
-        loader.present().then(() => {
-
-            this.http.post('http://gazoh.net/register.php', data, options)
-
-                .map(res => res)
-
-                .subscribe(res => {
-
-                    loader.dismiss();
-
-                    if (res == "Registration successfull") {
-
-                        let alert = this.alertCtrl.create({
-
-                            title: "Registreren geslaagd",
-
-                            subTitle: "U kunt nu gaan inloggen",
-
-                            buttons: ['OK']
-
-                        });
-
-                        alert.present();
-
-                        this.navCtrl.push(HomePage);
-
-                    } else {
-
-                        let alert = this.alertCtrl.create({
-
-                            title: "Mislukt",
-
-                            subTitle: "Er is iets mis gegaan tijdens het registeren probeert u het opnieuw.",
-
-                            buttons: ['OK']
-
-                        });
-
-                        alert.present();
-
-                    }
-                });
-        });
-    }
 }

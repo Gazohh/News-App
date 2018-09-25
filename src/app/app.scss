@@ -1,18 +1,28 @@
 // Register Button
 .registerButton {
   margin: 0% !important;
-  background-color: #00000066 !important;
+  background-color: rgba(0, 0, 0, 0.4) !important;
   border-radius: 0 !important;
   width: 50% !important;
+  box-shadow: none;
 }
 
 .homeButton {
   margin: 0% !important;
-  background-color: #00000066 !important;
+  background-color: rgba(0, 0, 0, 0.4) !important;
   border-radius: 0 !important;
   width: 50% !important;
+  box-shadow: none;
 }
 
+.uitloggen {
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: 10;
+  display: block;
+  width: 100%;
+}
 ion-grid {
   height: 100%;
   justify-content: center;
@@ -270,7 +280,7 @@ body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scro
   padding: 0 20px;
   min-width: 160px;
   height: 50px;
-  background-color: #b69b77de !important;
+  background-color: #000000 !important;
   border-radius: 25px;
   font-size: 16px;
   color: #fff;

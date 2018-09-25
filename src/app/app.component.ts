@@ -6,6 +6,8 @@ import {FavorietenPage} from "../pages/favorieten/favorieten";
 import {FeedPage} from "../pages/feed/feed";
 import {HomePage} from "../pages/home/home";
 import {Keyboard} from "@ionic-native/keyboard";
+import {SettingsPage} from "../pages/settings/settings";
+import {SettingsProvider} from "../providers/settings/settings";
 
 
 @Component({
@@ -18,8 +20,12 @@ export class MyApp {
     rootPage: any = HomePage;
 
     pages: Array<{ title: string, component: any }>;
-
-    constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+    selectedTheme: String;
+    constructor(platform: Platform,
+                statusBar: StatusBar,
+                splashScreen: SplashScreen,
+                private settings: SettingsProvider) {
+        this.settings.getActiveTheme().subscribe(val => this.selectedTheme = val);
         platform.ready().then(() => {
             // Okay, so the platform is ready and our plugins are available.
             // Here you can do any higher level native things you might need.
@@ -27,10 +33,11 @@ export class MyApp {
             splashScreen.hide();
         });
 
-        // used for an example of ngFor and navigation
+        // used for an example of ngFor and navigation (MENU)
         this.pages = [
             {title: 'Home', component: FeedPage},
-            {title: 'Favorieten', component: FavorietenPage}
+            {title: 'Favorieten', component: FavorietenPage},
+            {title: 'Settings', component: SettingsPage}
         ];
 
         if(!localStorage.getItem("username"))

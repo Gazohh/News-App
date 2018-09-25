@@ -35,6 +35,7 @@ export class HomePage {
                 private keyboard: Keyboard,
                 public menuCtrl: MenuController) {
 
+
         this.menuCtrl.enable(false, 'myMenu');
         keyboard.disableScroll(true);
     }
