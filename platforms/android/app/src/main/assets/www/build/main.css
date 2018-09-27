@@ -1,3 +1,28 @@
+.light-theme ion-content {
+  background-color: #ffff;
+}
+
+.light-theme .toolbar-background {
+  background-color: #ffff;
+}
+
+.dark-theme ion-content {
+  background-color: #000000;
+}
+
+.dark-theme .toolbar-title {
+  color: #ffffff;
+}
+
+.dark-theme p {
+  color: #fff;
+}
+
+.dark-theme .header .toolbar-background {
+  border-color: #ff0fff;
+  background-color: #000;
+}
+
 .ion-page {
   background-color: white;
 }
@@ -26000,7 +26025,7 @@ body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scro
   padding: 0 20px;
   min-width: 160px;
   height: 50px;
-  background-color: #c0a887 !important;
+  background-color: #000000 !important;
   border-radius: 25px;
   font-size: 16px;
   color: #fff;
@@ -26016,6 +26041,22 @@ body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scro
   line-height: 1.4;
   color: #999999;
   padding-left: 15px;
+}
+
+.itemdescription {
+  word-spacing: -1px !important;
+  text-align: center;
+  font-size: 25px !important;
+  line-height: 1.1em !important;
+}
+
+hr {
+  border: solid gray 0.1px;
+  background: gray !important;
+  display: block !important;
+  font-size: 2em !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .registerButton {

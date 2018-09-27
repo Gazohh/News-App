@@ -6,7 +6,6 @@ $urlArray = array(
     array( 'name' => 'NOS', 'url' => 'http://feeds.nos.nl/nosnieuwsalgemeen' ),
     array( 'name' => 'NU.nl', 'url' => 'https://www.nu.nl/rss/Algemeen' ),
     array( 'name' => 'De Telegraaf', 'url' => 'https://www.telegraaf.nl/nieuws/rss' ),
-    array( 'name' => 'De Stentor', 'url' => 'https://www.destentor.nl/home/rss.xml' )
 );
 
 foreach ($urlArray as $url) {

@@ -7,6 +7,9 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Network} from "@ionic-native/network";
 import {ToastController} from 'ionic-angular';
 import {HomePage} from "../home/home";
+import { LoadingController } from 'ionic-angular';
+
+
 /**
  * Generated class for the FeedPage page.
  *
@@ -22,18 +25,18 @@ import {HomePage} from "../home/home";
 export class FeedPage {
 
     rssDataArray: any = [];
-    public items: any;
+    public items: any = 0;
     public data: any;
     public key: string = "items";
 
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
-        public rssProvider: RssProvider,
         public menuCtrl: MenuController,
         public http: HttpClient,
         public network: Network,
-        toastCtrl: ToastController) {
+        toastCtrl: ToastController,
+        public loadingCtrl: LoadingController) {
         if(this.network.type!= "none")
         {
             this.getData();
@@ -63,29 +66,28 @@ export class FeedPage {
             toastinlog.present();
         }
         //this.GetNews()
+        this.presentLoadingCustom();
+    }
 
+    presentLoadingCustom() {
+
+        let loading = this.loadingCtrl.create({
+            spinner: 'hide',
+            content: `
+      <div class="custom-spinner-container"><img src="http://gazoh.net/images/spinner.svg"><br> <p>Laden...</p>
+      </div>`,
+            duration: 1200
+        });
+
+        loading.present();
     }
 
     ionViewDidLoad() {
-        console.log('ionViewDidLoad FeedPage');
-        this.Get_RSS_Data();
         this.menuCtrl.enable(true, 'myMenu');
     }
 
-
-    Get_RSS_Data() {
-        this.rssProvider.getRSS().subscribe(data => {
-            this.rssDataArray = data;
-        });
-    }
-
-    GetNews() {
-        this.http.get("http://gazoh.net/algemeen.json").map(result => this.items = result)
-        localStorage.setItem("News", JSON.stringify(this.items));
-    }
-
     getData() {
-        let url = "http://api.jsonbin.io/b/5ba912599353c37b74340854";
+        let url = "http://api.jsonbin.io/b/5bab4b98a97c597b3c591b93";
         var headers = new HttpHeaders();
         headers.append('Access-Control-Allow-Origin', '*');
 

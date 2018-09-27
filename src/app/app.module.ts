@@ -18,6 +18,8 @@ import {RegisterPageModule} from "../pages/register/register.module";
 import {SettingsPage} from "../pages/settings/settings";
 import {SettingsProvider} from '../providers/settings/settings';
 import {Network} from '@ionic-native/network';
+import { SocialSharing } from '@ionic-native/social-sharing';
+
 
 
 @NgModule({
@@ -55,7 +57,8 @@ import {Network} from '@ionic-native/network';
         {provide: ErrorHandler, useClass: IonicErrorHandler},
         RssProvider,
         SettingsProvider,
-        Network
+        Network,
+        SocialSharing
     ]
 
 })

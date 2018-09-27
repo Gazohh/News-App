@@ -49,20 +49,6 @@ module.exports = [
     ]
   },
   {
-    "id": "es6-promise-plugin.Promise",
-    "file": "plugins/es6-promise-plugin/www/promise.js",
-    "pluginId": "es6-promise-plugin",
-    "runs": true
-  },
-  {
-    "id": "cordova-plugin-screen-orientation.screenorientation",
-    "file": "plugins/cordova-plugin-screen-orientation/www/screenorientation.js",
-    "pluginId": "cordova-plugin-screen-orientation",
-    "clobbers": [
-      "cordova.plugins.screenorientation"
-    ]
-  },
-  {
     "id": "cordova-plugin-statusbar.statusbar",
     "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
     "pluginId": "cordova-plugin-statusbar",
@@ -86,6 +72,37 @@ module.exports = [
       "cordova.plugins.Keyboard"
     ],
     "runs": true
+  },
+  {
+    "id": "cordova-plugin-network-information.network",
+    "file": "plugins/cordova-plugin-network-information/www/network.js",
+    "pluginId": "cordova-plugin-network-information",
+    "clobbers": [
+      "navigator.connection",
+      "navigator.network.connection"
+    ]
+  },
+  {
+    "id": "cordova-plugin-network-information.Connection",
+    "file": "plugins/cordova-plugin-network-information/www/Connection.js",
+    "pluginId": "cordova-plugin-network-information",
+    "clobbers": [
+      "Connection"
+    ]
+  },
+  {
+    "id": "es6-promise-plugin.Promise",
+    "file": "plugins/es6-promise-plugin/www/promise.js",
+    "pluginId": "es6-promise-plugin",
+    "runs": true
+  },
+  {
+    "id": "cordova-plugin-x-socialsharing.SocialSharing",
+    "file": "plugins/cordova-plugin-x-socialsharing/www/SocialSharing.js",
+    "pluginId": "cordova-plugin-x-socialsharing",
+    "clobbers": [
+      "window.plugins.socialsharing"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -94,11 +111,12 @@ module.exports.metadata =
   "com.telerik.plugins.nativepagetransitions": "0.6.5",
   "cordova-plugin-camera": "4.0.3",
   "cordova-plugin-ionic-webview": "2.1.0",
-  "es6-promise-plugin": "4.2.2",
-  "cordova-plugin-screen-orientation": "3.0.1",
   "cordova-plugin-statusbar": "2.4.2",
   "cordova-plugin-splashscreen": "5.0.2",
-  "ionic-plugin-keyboard": "2.2.1"
+  "ionic-plugin-keyboard": "2.2.1",
+  "cordova-plugin-network-information": "2.0.1",
+  "es6-promise-plugin": "4.2.2",
+  "cordova-plugin-x-socialsharing": "5.4.1"
 };
 // BOTTOM OF METADATA
 });

@@ -9,7 +9,6 @@
 </ion-header>
 
 <ion-content class="cards-bg">
-
   <ion-card *ngFor="let item of items">
 
     <ion-item>
@@ -20,6 +19,8 @@
     <img [src]="item.image">
 
     <ion-card-content>
+      <p class="itemdescription"><strong>{{item.title}}</strong></p>
+      <hr style="background-color: gray">
       <p>{{htmlToPlaintext(item.desc) | slice:0:120}}...</p>
     </ion-card-content>
 

@@ -26043,6 +26043,22 @@ body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scro
   padding-left: 15px;
 }
 
+.itemdescription {
+  word-spacing: -1px !important;
+  text-align: center;
+  font-size: 25px !important;
+  line-height: 1.1em !important;
+}
+
+hr {
+  border: solid gray 0.1px;
+  background: gray !important;
+  display: block !important;
+  font-size: 2em !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
 .registerButton {
   margin: 0% !important;
   background-color: #00000066 !important;
