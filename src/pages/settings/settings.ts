@@ -1,13 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {SettingsProvider} from "../../providers/settings/settings";
-
-/**
- * Generated class for the SettingsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {Nav, Platform} from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -17,21 +11,32 @@ import {SettingsProvider} from "../../providers/settings/settings";
 export class SettingsPage {
     selectedTheme: string;
     setActiveTheme: string;
-    constructor(public navCtrl: NavController,
-                public navParams: NavParams,
-                private settings: SettingsProvider) {
+
+
+    constructor(private settings: SettingsProvider,platform: Platform) {
         this.settings.getActiveTheme().subscribe(val => this.selectedTheme = val);
+
     }
-    toggleAppTheme(){
+
+    toggleAppTheme() {
         if (this.selectedTheme == 'light-theme') {
+
             this.settings.setActiveTheme('dark-theme');
-        } else {
-            this.settings.setActiveTheme('light-theme');
+            localStorage.setItem("themeColor", this.selectedTheme);
+
         }
+        else if (this.selectedTheme == 'dark-theme') {
+
+            this.settings.setActiveTheme('light-theme');
+            localStorage.setItem("themeColor", this.selectedTheme);
+
+
+        }
+
     }
 
     ionViewDidLoad() {
-        console.log('ionViewDidLoad SettingsPage');
+
     }
 
 }

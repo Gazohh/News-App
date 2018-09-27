@@ -55,10 +55,10 @@ import { SocialSharing } from '@ionic-native/social-sharing';
         SplashScreen,
         HttpClientModule,
         {provide: ErrorHandler, useClass: IonicErrorHandler},
-        RssProvider,
         SettingsProvider,
         Network,
-        SocialSharing
+        SocialSharing,
+    SettingsProvider
     ]
 
 })

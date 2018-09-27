@@ -50,7 +50,23 @@ export class MyApp {
         else {
             this.rootPage = FeedPage;
         }
+
+        // Dark/Light Mode
+        if (localStorage.getItem("themeColor") == "dark-theme") {
+
+            this.settings.setActiveTheme("dark-theme");
+            console.log("Toggle Status: " + this.toggleStatus);
+
+        }
+        else if (localStorage.getItem("themeColor") == "light-theme") {
+
+            this.settings.setActiveTheme("light-theme");
+            console.log("Toggle Status: " + this.toggleStatus);
+
+
+        }
     }
+
 
     openPage(page) {
         // Reset the content nav to have just this page

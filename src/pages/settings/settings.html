@@ -1,23 +1,16 @@
-<!--
-  Generated template for the SettingsPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>Instellingen</ion-title>
-  </ion-navbar>
-
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Settings</ion-title>
+    </ion-navbar>
 </ion-header>
 
 
-<ion-content padding>
-  <ion-item>>
-    <ion-label>light and dark mode!</ion-label>
-    <ion-toggle (click)="toggleAppTheme()"></ion-toggle>
-  </ion-item>
-
-
+<ion-content>
+    <ion-item>>
+        <ion-label>Light/Dark</ion-label>
+        <ion-toggle [(ngModel)]="toggleStatus" [checked]="test" (ionChange)="toggleAppTheme()"></ion-toggle>
+    </ion-item>
 </ion-content>

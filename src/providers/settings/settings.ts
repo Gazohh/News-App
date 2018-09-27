@@ -1,13 +1,6 @@
-
 import { Injectable } from '@angular/core';
 import { BehaviorSubject} from "rxjs/Rx";
 
-/*
-  Generated class for the SettingsProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class SettingsProvider {
 
@@ -23,4 +16,5 @@ export class SettingsProvider {
     getActiveTheme() {
         return this.theme.asObservable();
     }
+
 }

@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
-import {RssProvider} from "../../providers/rss/rss";
 import {MenuController} from "ionic-angular";
 import {Observable} from "rxjs";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
