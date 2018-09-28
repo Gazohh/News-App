@@ -13151,6 +13151,51 @@ input.text-input:-webkit-autofill {
   margin: 5.5px 16px 5.5px 0;
 }
 
+.item-ios.item-input.item-input-has-focus .item-inner,
+.item-ios.item-input.input-has-focus .item-inner {
+  border-bottom-color: #488aff;
+}
+
+.list-ios .item-input.item-input-has-focus:last-child,
+.list-ios .item-input.input-has-focus:last-child {
+  border-bottom-color: #488aff;
+}
+
+.list-ios .item-input.item-input-has-focus:last-child .item-inner,
+.list-ios .item-input.input-has-focus:last-child .item-inner {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.item-ios.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+.item-ios.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+  border-bottom-color: #32db64;
+}
+
+.list-ios .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child,
+.list-ios .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child {
+  border-bottom-color: #32db64;
+}
+
+.list-ios .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child .item-inner,
+.list-ios .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child .item-inner {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.item-ios.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+  border-bottom-color: #f53d3d;
+}
+
+.list-ios .item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus):last-child {
+  border-bottom-color: #f53d3d;
+}
+
+.list-ios .item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus):last-child .item-inner {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
 .item-ios.item-label-stacked .text-input,
 .item-ios.item-label-floating .text-input {
   margin-left: 0;
@@ -26041,6 +26086,49 @@ body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scro
   line-height: 1.4;
   color: #999999;
   padding-left: 15px;
+}
+
+.item-ios.item-block .item-inner.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus):last-child {
+  border-bottom-color: #f53d3d;
+  -webkit-box-shadow: inset 0 -1px 0 0 #f53d3d;
+  box-shadow: inset 0 -1px 0 0 #f53d3d;
+}
+
+.item-ios.item-block .item-inner.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+  border-bottom-color: #f53d3d;
+  -webkit-box-shadow: inset 0 -1px 0 0 #f53d3d;
+  box-shadow: inset 0 -1px 0 0 #f53d3d;
+}
+
+.validatieText {
+  padding-left: 1.5rem !important;
+  padding-top: 0.5rem !important;
+}
+
+.card-background-page ion-card {
+  position: relative;
+  text-align: center;
+}
+
+.card-background-page .card-title {
+  position: absolute;
+  top: 36%;
+  font-size: 2.0em;
+  width: 100%;
+  font-weight: bold;
+  color: #fff;
+}
+
+.card-background-page .card-subtitle {
+  font-size: 1.0em;
+  position: absolute;
+  top: 52%;
+  width: 100%;
+  color: #fff;
+}
+
+.card-background-page .hr {
+  color: #000000;
 }
 
 .itemdescription {

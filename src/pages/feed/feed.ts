@@ -64,11 +64,11 @@ export class FeedPage {
             this.navCtrl.setRoot(HomePage);
             toastinlog.present();
         }
-        //this.GetNews()
-        this.presentLoadingCustom();
+       /* //this.GetNews()
+        this.presentLoadingCustom();*/
     }
 
-    presentLoadingCustom() {
+   /* presentLoadingCustom() {
 
         let loading = this.loadingCtrl.create({
             spinner: 'hide',
@@ -80,7 +80,7 @@ export class FeedPage {
 
         loading.present();
     }
-
+*/
     ionViewDidLoad() {
         this.menuCtrl.enable(true, 'myMenu');
     }

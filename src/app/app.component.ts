@@ -10,6 +10,7 @@ import {SettingsPage} from "../pages/settings/settings";
 import {SettingsProvider} from "../providers/settings/settings";
 import { Network } from '@ionic-native/network';
 import {ToastController} from 'ionic-angular';
+import {CategoryPage} from "../pages/category/category";
 
 
 
@@ -22,8 +23,12 @@ export class MyApp {
 
     rootPage: any = HomePage;
 
+    // Variablen
     pages: Array<{ title: string, component: any }>;
     selectedTheme: String;
+    toggleStatus: boolean;
+
+
     constructor(platform: Platform,
                 statusBar: StatusBar,
                 splashScreen: SplashScreen,
@@ -38,9 +43,9 @@ export class MyApp {
 
         // used for an example of ngFor and navigation (MENU)
         this.pages = [
-            {title: 'Home', component: FeedPage},
+            {title: 'Categorieën', component: CategoryPage},
             {title: 'Favorieten', component: FavorietenPage},
-            {title: 'Settings', component: SettingsPage}
+            {title: 'Settings', component: SettingsPage},
         ];
 
         if(!localStorage.getItem("username"))
@@ -48,7 +53,7 @@ export class MyApp {
             this.rootPage = HomePage
         }
         else {
-            this.rootPage = FeedPage;
+            this.rootPage = CategoryPage;
         }
 
         // Dark/Light Mode

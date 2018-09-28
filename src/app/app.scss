@@ -296,3 +296,22 @@ body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scro
   color: #999999;
   padding-left: 15px;
 }
+
+// IOS
+.item-ios.item-block .item-inner.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus):last-child {
+  border-bottom-color: #f53d3d;
+  -webkit-box-shadow: inset 0 -1px 0 0 #f53d3d;
+  box-shadow: inset 0 -1px 0 0 #f53d3d;
+}
+
+.item-ios.item-block .item-inner.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+  border-bottom-color: #f53d3d;
+  -webkit-box-shadow: inset 0 -1px 0 0 #f53d3d;
+  box-shadow: inset 0 -1px 0 0 #f53d3d;
+}
+
+.validatieText {
+  padding-left: 1.5rem !important;
+  padding-top: 0.5rem !important;
+}
+

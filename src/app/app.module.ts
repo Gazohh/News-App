@@ -9,7 +9,6 @@ import {RegisterPage} from "../pages/register/register";
 import {HttpClientModule} from '@angular/common/http';
 import {FavorietenPage} from "../pages/favorieten/favorieten";
 import {FeedPage} from "../pages/feed/feed";
-import {RssProvider} from '../providers/rss/rss';
 import {ReactiveFormsModule} from '@angular/forms';
 import {IonicStorageModule} from '@ionic/storage';
 import {FavorietenPageModule} from "../pages/favorieten/favorieten.module";
@@ -19,6 +18,9 @@ import {SettingsPage} from "../pages/settings/settings";
 import {SettingsProvider} from '../providers/settings/settings';
 import {Network} from '@ionic-native/network';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import {CategoryPage} from "../pages/category/category";
+import {SportPage} from "../pages/sport/sport";
+import {EconomiePage} from "../pages/economie/economie";
 
 
 
@@ -26,7 +28,10 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     declarations: [
         MyApp,
         HomePage,
-        SettingsPage
+        SettingsPage,
+        CategoryPage,
+        SportPage,
+        EconomiePage,
     ],
     imports: [
         BrowserModule,
@@ -48,7 +53,10 @@ import { SocialSharing } from '@ionic-native/social-sharing';
         RegisterPage,
         FavorietenPage,
         FeedPage,
-        SettingsPage
+        SettingsPage,
+        SportPage,
+        EconomiePage,
+        CategoryPage
     ],
     providers: [
         StatusBar,

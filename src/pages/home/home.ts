@@ -9,6 +9,7 @@ import {Keyboard} from '@ionic-native/keyboard';
 import { MenuController } from "ionic-angular";
 import { Network } from '@ionic-native/network';
 import {FeedPage} from "../feed/feed";
+import {CategoryPage} from "../category/category";
 
 @Component({
     selector: 'page-home',
@@ -119,7 +120,7 @@ export class HomePage {
 
                             localStorage.setItem("username", this.username);
                             toast.present();
-                            this.navCtrl.setRoot(FeedPage);
+                            this.navCtrl.setRoot(CategoryPage);
 
                         }else
 

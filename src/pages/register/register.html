@@ -21,9 +21,9 @@
                             </ion-item>
                         </div>
                         <div *ngIf="form.get('username').touched && form.get('username').invalid" class="alert alert-danger" required>
-                            <div *ngIf="form.get('username').hasError('required')">Naam moet ingevuld zijn.</div>
-                            <div *ngIf="form.get('username').hasError('pattern')">Ongeldige naam.</div>
-                            <div *ngIf="form.get('username').hasError('minLength')">Minder dan 5 letters gebruikt</div>
+                            <div class="validatieText" *ngIf="form.get('username').hasError('required')">Naam moet ingevuld zijn.</div>
+                            <div class="validatieText" *ngIf="form.get('username').hasError('pattern')">Ongeldige naam.</div>
+                            <div class="validatieText" *ngIf="form.get('username').hasError('minLength')">Minder dan 5 letters gebruikt</div>
                         </div>
 
                         <div class="form-group">
@@ -33,8 +33,8 @@
                             </ion-item>
                         </div>
                         <div *ngIf="form.get('email').touched && form.get('email').invalid" class="alert alert-danger" required>
-                            <div *ngIf="form.get('email').hasError('required')">Email moet ingevuld zijn</div>
-                            <div *ngIf="form.get('email').hasError('pattern')">ongeldige Email!</div>
+                            <div class="validatieText" *ngIf="form.get('email').hasError('required')">Email moet ingevuld zijn</div>
+                            <div class="validatieText" *ngIf="form.get('email').hasError('pattern')">ongeldige Email!</div>
                         </div>
 
                         <div class="form-group">
@@ -44,8 +44,8 @@
                             </ion-item>
                         </div>
                         <div class="alert alert-danger"  *ngIf="form.get('password').touched && form.get('password').invalid ">
-                            <div *ngIf="form.get('password').hasError('required')">Wachtwoord moet ingevuld zijn</div>
-                            <div *ngIf="form.get('password').hasError('minLength')">Minder dan 5 letters gebruikt</div>
+                            <div class="validatieText" *ngIf="form.get('password').hasError('required')">Wachtwoord moet ingevuld zijn</div>
+                            <div class="validatieText" *ngIf="form.get('password').hasError('minLength')">Minder dan 5 letters gebruikt</div>
                         </div>
                     </form>
                     <br>
