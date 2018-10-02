@@ -13,15 +13,15 @@
 
     <ion-item>
       <h2>{{item.site}}</h2>
-      <p>{{item.date}}</p>
+      <p>{{item.datum}}</p>
     </ion-item>
-
+    <img *ngIf="!item.image" src="http://gazoh.net/images/noimage.jpg">
     <img [src]="item.image">
 
     <ion-card-content>
       <p class="itemdescription"><strong>{{item.title}}</strong></p>
       <hr style="background-color: gray">
-      <p>{{htmlToPlaintext(item.desc) | slice:0:120}}...</p>
+      <p>{{htmlToPlaintext(item.description) | slice:0:120}}...</p>
     </ion-card-content>
 
     <ion-row>

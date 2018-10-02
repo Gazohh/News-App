@@ -35,10 +35,11 @@ export class FeedPage {
         public http: HttpClient,
         public network: Network,
         toastCtrl: ToastController,
-        public loadingCtrl: LoadingController) {
+        public loadingCtrl: LoadingController,) {
         if(this.network.type!= "none")
         {
-            this.getData();
+            //this.getData();
+            this.load();
         }
         else
         {
@@ -85,7 +86,7 @@ export class FeedPage {
         this.menuCtrl.enable(true, 'myMenu');
     }
 
-    getData() {
+    /*getData() {
         let url = "http://api.jsonbin.io/b/5bab4b98a97c597b3c591b93";
         var headers = new HttpHeaders();
         headers.append('Access-Control-Allow-Origin', '*');
@@ -100,7 +101,7 @@ export class FeedPage {
             this.items = result;
         });
         localStorage.setItem(this.key, JSON.stringify(this.items));
-    }
+    }*/
 
     loadData() {
         localStorage.getItem(this.key);
@@ -108,6 +109,20 @@ export class FeedPage {
                 this.items = JSON.parse(this.key);
             }
         }
+
+    load() : void
+    {
+        this.http
+            .get('http://gazoh.net/getdata.php')
+            .subscribe((data : any) =>
+                {
+                    this.items = data;
+                },
+                (error : any) =>
+                {
+                    console.dir(error);
+                });
+    }
 
         htmlToPlaintext(text) {
         return text ? String(text).replace(/<[^>]+>/gm, '') : '';

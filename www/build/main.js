@@ -109,7 +109,7 @@ var RegisterPage = /** @class */ (function () {
     };
     RegisterPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-register',template:/*ion-inline-start:"D:\xampp\htdocs\News-App\src\pages\register\register.html"*/'<ion-content>\n\n    <ion-grid>\n\n        <ion-row>\n\n            <ion-col col-12>\n\n                <div class="loginFoto">\n\n                    <div class="form-title"\n\n                         style="background-image: url(http://gazoh.net/images/axa-studios-media-agency-arnhem-maibanner.jpg)">\n\n                        <ion-title class="form-title1">Registreer</ion-title>\n\n                        <div class="row">\n\n                            <button ion-button class="homeButton" (click)="terug()">Home</button>\n\n                            <button ion-button class="registerButton" style="background-color: rgba(79, 0, 11, 0.78) !important">Registreer</button>\n\n                        </div>\n\n                    </div>\n\n                </div>\n\n                <div class="geheel">\n\n                    <form novalidate [formGroup]="form">\n\n                        <div class="form-group">\n\n                            <ion-item [ngClass]="{ \'ng-touched\' : form.get(\'username\').touched }">>\n\n                                <ion-label floating>Username</ion-label>\n\n                                <ion-input type="text" formControlName="username" class="form-control" [(ngModel)]="username"></ion-input>\n\n                            </ion-item>\n\n                        </div>\n\n                        <div *ngIf="form.get(\'username\').touched && form.get(\'username\').invalid" class="alert alert-danger" required>\n\n                            <div class="validatieText" *ngIf="form.get(\'username\').hasError(\'required\')">Naam moet ingevuld zijn.</div>\n\n                            <div class="validatieText" *ngIf="form.get(\'username\').hasError(\'pattern\')">Ongeldige naam.</div>\n\n                            <div class="validatieText" *ngIf="form.get(\'username\').hasError(\'minLength\')">Minder dan 5 letters gebruikt</div>\n\n                        </div>\n\n\n\n                        <div class="form-group">\n\n                            <ion-item [ngClass]="{ \'ng-touched\' : form.get(\'email\').touched }">\n\n                                <ion-label floating >E-mail</ion-label>\n\n                                <ion-input type="text"  formControlName="email" class="form-control" [(ngModel)]="email" ></ion-input>\n\n                            </ion-item>\n\n                        </div>\n\n                        <div *ngIf="form.get(\'email\').touched && form.get(\'email\').invalid" class="alert alert-danger" required>\n\n                            <div class="validatieText" *ngIf="form.get(\'email\').hasError(\'required\')">Email moet ingevuld zijn</div>\n\n                            <div class="validatieText" *ngIf="form.get(\'email\').hasError(\'pattern\')">ongeldige Email!</div>\n\n                        </div>\n\n\n\n                        <div class="form-group">\n\n                            <ion-item [ngClass]="{ \'ng-touched\' : form.get(\'password\').touched }">\n\n                                <ion-label floating>Password</ion-label>\n\n                                <ion-input type="password" formControlName="password" class="form-control" [(ngModel)]="password"></ion-input>\n\n                            </ion-item>\n\n                        </div>\n\n                        <div class="alert alert-danger"  *ngIf="form.get(\'password\').touched && form.get(\'password\').invalid ">\n\n                            <div class="validatieText" *ngIf="form.get(\'password\').hasError(\'required\')">Wachtwoord moet ingevuld zijn</div>\n\n                            <div class="validatieText" *ngIf="form.get(\'password\').hasError(\'minLength\')">Minder dan 5 letters gebruikt</div>\n\n                        </div>\n\n                    </form>\n\n                    <br>\n\n                    <button class="button3" ion-button (click)="onSubmit()" color="secondary" round>Aanmaken\n\n                    </button>\n\n                    <br>\n\n                    <br>\n\n                </div>\n\n            </ion-col>\n\n        </ion-row>\n\n    </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\xampp\htdocs\News-App\src\pages\register\register.html"*/,
+            selector: 'page-register',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\register\register.html"*/'<ion-content>\n\n    <ion-grid>\n\n        <ion-row>\n\n            <ion-col col-12>\n\n                <div class="loginFoto">\n\n                    <div class="form-title"\n\n                         style="background-image: url(http://gazoh.net/images/axa-studios-media-agency-arnhem-maibanner.jpg)">\n\n                        <ion-title class="form-title1">Registreer</ion-title>\n\n                        <div class="row">\n\n                            <button ion-button class="homeButton" (click)="terug()">Home</button>\n\n                            <button ion-button class="registerButton" style="background-color: rgba(79, 0, 11, 0.78) !important">Registreer</button>\n\n                        </div>\n\n                    </div>\n\n                </div>\n\n                <div class="geheel">\n\n                    <form novalidate [formGroup]="form">\n\n                        <div class="form-group">\n\n                            <ion-item [ngClass]="{ \'ng-touched\' : form.get(\'username\').touched }">>\n\n                                <ion-label floating>Username</ion-label>\n\n                                <ion-input type="text" formControlName="username" class="form-control" [(ngModel)]="username"></ion-input>\n\n                            </ion-item>\n\n                        </div>\n\n                        <div *ngIf="form.get(\'username\').touched && form.get(\'username\').invalid" class="alert alert-danger" required>\n\n                            <div class="validatieText" *ngIf="form.get(\'username\').hasError(\'required\')">Naam moet ingevuld zijn.</div>\n\n                            <div class="validatieText" *ngIf="form.get(\'username\').hasError(\'pattern\')">Ongeldige naam.</div>\n\n                            <div class="validatieText" *ngIf="form.get(\'username\').hasError(\'minLength\')">Minder dan 5 letters gebruikt</div>\n\n                        </div>\n\n\n\n                        <div class="form-group">\n\n                            <ion-item [ngClass]="{ \'ng-touched\' : form.get(\'email\').touched }">\n\n                                <ion-label floating >E-mail</ion-label>\n\n                                <ion-input type="text"  formControlName="email" class="form-control" [(ngModel)]="email" ></ion-input>\n\n                            </ion-item>\n\n                        </div>\n\n                        <div *ngIf="form.get(\'email\').touched && form.get(\'email\').invalid" class="alert alert-danger" required>\n\n                            <div class="validatieText" *ngIf="form.get(\'email\').hasError(\'required\')">Email moet ingevuld zijn</div>\n\n                            <div class="validatieText" *ngIf="form.get(\'email\').hasError(\'pattern\')">ongeldige Email!</div>\n\n                        </div>\n\n\n\n                        <div class="form-group">\n\n                            <ion-item [ngClass]="{ \'ng-touched\' : form.get(\'password\').touched }">\n\n                                <ion-label floating>Password</ion-label>\n\n                                <ion-input type="password" formControlName="password" class="form-control" [(ngModel)]="password"></ion-input>\n\n                            </ion-item>\n\n                        </div>\n\n                        <div class="alert alert-danger"  *ngIf="form.get(\'password\').touched && form.get(\'password\').invalid ">\n\n                            <div class="validatieText" *ngIf="form.get(\'password\').hasError(\'required\')">Wachtwoord moet ingevuld zijn</div>\n\n                            <div class="validatieText" *ngIf="form.get(\'password\').hasError(\'minLength\')">Minder dan 5 letters gebruikt</div>\n\n                        </div>\n\n                    </form>\n\n                    <br>\n\n                    <button class="button3" ion-button (click)="onSubmit()" color="secondary" round>Aanmaken\n\n                    </button>\n\n                    <br>\n\n                    <br>\n\n                </div>\n\n            </ion-col>\n\n        </ion-row>\n\n    </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\register\register.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
@@ -199,7 +199,7 @@ var SportPage = /** @class */ (function () {
     };
     SportPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-sport',template:/*ion-inline-start:"D:\xampp\htdocs\News-App\src\pages\sport\sport.html"*/'<!--\n\n  Generated template for the SportPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>sport</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <h1>Dit is de sport nieuws pagina!</h1>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\xampp\htdocs\News-App\src\pages\sport\sport.html"*/,
+            selector: 'page-sport',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\sport\sport.html"*/'<!--\n\n  Generated template for the SportPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>sport</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <h1>Dit is de sport nieuws pagina!</h1>\n\n</ion-content>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\sport\sport.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
     ], SportPage);
@@ -244,7 +244,7 @@ var EconomiePage = /** @class */ (function () {
     };
     EconomiePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-economie',template:/*ion-inline-start:"D:\xampp\htdocs\News-App\src\pages\economie\economie.html"*/'<!--\n\n  Generated template for the EconomiePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>economie</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <h1>Dit is de Economie nieuws pagina!</h1>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\xampp\htdocs\News-App\src\pages\economie\economie.html"*/,
+            selector: 'page-economie',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\economie\economie.html"*/'<!--\n\n  Generated template for the EconomiePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>economie</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <h1>Dit is de Economie nieuws pagina!</h1>\n\n</ion-content>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\economie\economie.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
     ], EconomiePage);
@@ -295,7 +295,7 @@ var SettingsPage = /** @class */ (function () {
     };
     SettingsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-settings',template:/*ion-inline-start:"D:\xampp\htdocs\News-App\src\pages\settings\settings.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title>Settings</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-item>\n\n      <ion-label>Bewerk Profiel</ion-label>\n\n  </ion-item>\n\n    <ion-item>\n\n        <ion-label>Over ons</ion-label>\n\n    </ion-item>\n\n    <ion-item>\n\n        <ion-label>Raporteer Probleem / Idee</ion-label>\n\n    </ion-item>\n\n\n\n    <ion-item>>\n\n        <ion-label>Light/Dark</ion-label>\n\n        <ion-toggle [(ngModel)]="toggleStatus" [checked]="test" (ionChange)="toggleAppTheme()"></ion-toggle>\n\n    </ion-item>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\xampp\htdocs\News-App\src\pages\settings\settings.html"*/,
+            selector: 'page-settings',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\settings\settings.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title>Settings</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-item>\n\n      <ion-label>Bewerk Profiel</ion-label>\n\n  </ion-item>\n\n    <ion-item>\n\n        <ion-label>Over ons</ion-label>\n\n    </ion-item>\n\n    <ion-item>\n\n        <ion-label>Raporteer Probleem / Idee</ion-label>\n\n    </ion-item>\n\n\n\n    <ion-item>>\n\n        <ion-label>Light/Dark</ion-label>\n\n        <ion-toggle [(ngModel)]="toggleStatus" [checked]="test" (ionChange)="toggleAppTheme()"></ion-toggle>\n\n    </ion-item>\n\n</ion-content>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\settings\settings.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__providers_settings_settings__["a" /* SettingsProvider */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["l" /* Platform */]])
     ], SettingsPage);
@@ -332,7 +332,7 @@ var map = {
 		3
 	],
 	"../pages/economie/economie.module": [
-		691,
+		693,
 		2
 	],
 	"../pages/feed/feed.module": [
@@ -342,11 +342,11 @@ var map = {
 		224
 	],
 	"../pages/settings/settings.module": [
-		692,
+		691,
 		1
 	],
 	"../pages/sport/sport.module": [
-		693,
+		692,
 		0
 	]
 };
@@ -535,11 +535,11 @@ var AppModule = /** @class */ (function () {
                 }, {
                     links: [
                         { loadChildren: '../pages/category/category.module#CategoryPageModule', name: 'CategoryPage', segment: 'category', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/economie/economie.module#EconomiePageModule', name: 'EconomiePage', segment: 'economie', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/feed/feed.module#FeedPageModule', name: 'FeedPage', segment: 'feed', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/sport/sport.module#SportPageModule', name: 'SportPage', segment: 'sport', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/sport/sport.module#SportPageModule', name: 'SportPage', segment: 'sport', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/economie/economie.module#EconomiePageModule', name: 'EconomiePage', segment: 'economie', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_11__angular_forms__["f" /* ReactiveFormsModule */],
@@ -661,16 +661,19 @@ var MyApp = /** @class */ (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */]),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */]) === "function" && _a || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"D:\xampp\htdocs\News-App\src\app\app.html"*/'<ion-menu id="myMenu" [content]="content" type="overlay">\n\n\n\n    <ion-content class="fakeMenu" menuToggle>\n\n       <ion-list>\n\n           <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n\n             {{p.title}}\n\n           </button>\n\n       </ion-list>\n\n\n\n    </ion-content>\n\n\n\n</ion-menu>\n\n\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" [class]="selectedTheme" #content swipeBackEnabled="false"></ion-nav>\n\n'/*ion-inline-end:"D:\xampp\htdocs\News-App\src\app\app.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\app\app.html"*/'<ion-menu id="myMenu" [content]="content" type="overlay">\n\n\n\n    <ion-content class="fakeMenu" menuToggle>\n\n       <ion-list>\n\n           <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n\n             {{p.title}}\n\n           </button>\n\n       </ion-list>\n\n\n\n    </ion-content>\n\n\n\n</ion-menu>\n\n\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" [class]="selectedTheme" #content swipeBackEnabled="false"></ion-nav>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\app\app.html"*/,
             providers: [__WEBPACK_IMPORTED_MODULE_6__ionic_native_keyboard__["a" /* Keyboard */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */]]
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_8__providers_settings_settings__["a" /* SettingsProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__providers_settings_settings__["a" /* SettingsProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]) === "function" && _f || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */],
+            __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
+            __WEBPACK_IMPORTED_MODULE_8__providers_settings_settings__["a" /* SettingsProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]])
     ], MyApp);
     return MyApp;
-    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=app.component.js.map
@@ -759,7 +762,8 @@ var FeedPage = /** @class */ (function () {
         this.items = 0;
         this.key = "items";
         if (this.network.type != "none") {
-            this.getData();
+            //this.getData();
+            this.load();
         }
         else {
             this.loadData();
@@ -802,32 +806,44 @@ var FeedPage = /** @class */ (function () {
     FeedPage.prototype.ionViewDidLoad = function () {
         this.menuCtrl.enable(true, 'myMenu');
     };
-    FeedPage.prototype.getData = function () {
-        var _this = this;
-        var url = "http://api.jsonbin.io/b/5bab4b98a97c597b3c591b93";
-        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
+    /*getData() {
+        let url = "http://api.jsonbin.io/b/5bab4b98a97c597b3c591b93";
+        var headers = new HttpHeaders();
         headers.append('Access-Control-Allow-Origin', '*');
+
         headers.append("Accept", 'application/json');
+
         headers.append('Content-Type', 'application/json');
-        var options = { headers: headers };
-        var data = this.http.get(url, options);
-        data.subscribe(function (result) {
-            _this.items = result;
+
+        let options = {headers: headers};
+        let data: Observable<any> = this.http.get(url, options);
+        data.subscribe(result => {
+            this.items = result;
         });
         localStorage.setItem(this.key, JSON.stringify(this.items));
-    };
+    }*/
     FeedPage.prototype.loadData = function () {
         localStorage.getItem(this.key);
         if (this.key != null && this.key != undefined) {
             this.items = JSON.parse(this.key);
         }
     };
+    FeedPage.prototype.load = function () {
+        var _this = this;
+        this.http
+            .get('http://gazoh.net/getdata.php')
+            .subscribe(function (data) {
+            _this.items = data;
+        }, function (error) {
+            console.dir(error);
+        });
+    };
     FeedPage.prototype.htmlToPlaintext = function (text) {
         return text ? String(text).replace(/<[^>]+>/gm, '') : '';
     };
     FeedPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-feed',template:/*ion-inline-start:"D:\xampp\htdocs\News-App\src\pages\feed\feed.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Home</ion-title>\n\n      \n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content class="cards-bg">\n\n  <ion-card *ngFor="let item of items">\n\n\n\n    <ion-item>\n\n      <h2>{{item.site}}</h2>\n\n      <p>{{item.date}}</p>\n\n    </ion-item>\n\n\n\n    <img [src]="item.image">\n\n\n\n    <ion-card-content>\n\n      <p class="itemdescription"><strong>{{item.title}}</strong></p>\n\n      <hr style="background-color: gray">\n\n      <p>{{htmlToPlaintext(item.desc) | slice:0:120}}...</p>\n\n    </ion-card-content>\n\n\n\n    <ion-row>\n\n      <ion-col>\n\n        <button ion-button icon-start clear small>\n\n          <ion-icon name="eye"></ion-icon>\n\n          <div>Meer lezen</div>\n\n        </button>\n\n      </ion-col>\n\n      <ion-col>\n\n        <button ion-button icon-start clear small>\n\n          <ion-icon name="star-outline"></ion-icon>\n\n          <div>Favoriet</div>\n\n        </button>\n\n      </ion-col>\n\n      <ion-col>\n\n        <button ion-button icon-start clear small>\n\n          <ion-icon name="share-alt"></ion-icon>\n\n          <div>Deel</div>\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n\n\n  </ion-card>\n\n\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\xampp\htdocs\News-App\src\pages\feed\feed.html"*/,
+            selector: 'page-feed',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\feed\feed.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Home</ion-title>\n\n      \n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content class="cards-bg">\n\n  <ion-card *ngFor="let item of items">\n\n\n\n    <ion-item>\n\n      <h2>{{item.site}}</h2>\n\n      <p>{{item.datum}}</p>\n\n    </ion-item>\n\n    <img *ngIf="!item.image" src="http://gazoh.net/images/noimage.jpg">\n\n    <img [src]="item.image">\n\n\n\n    <ion-card-content>\n\n      <p class="itemdescription"><strong>{{item.title}}</strong></p>\n\n      <hr style="background-color: gray">\n\n      <p>{{htmlToPlaintext(item.description) | slice:0:120}}...</p>\n\n    </ion-card-content>\n\n\n\n    <ion-row>\n\n      <ion-col>\n\n        <button ion-button icon-start clear small>\n\n          <ion-icon name="eye"></ion-icon>\n\n          <div>Meer lezen</div>\n\n        </button>\n\n      </ion-col>\n\n      <ion-col>\n\n        <button ion-button icon-start clear small>\n\n          <ion-icon name="star-outline"></ion-icon>\n\n          <div>Favoriet</div>\n\n        </button>\n\n      </ion-col>\n\n      <ion-col>\n\n        <button ion-button icon-start clear small>\n\n          <ion-icon name="share-alt"></ion-icon>\n\n          <div>Deel</div>\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n\n\n  </ion-card>\n\n\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\feed\feed.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
@@ -959,7 +975,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = HomePage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"D:\xampp\htdocs\News-App\src\pages\home\home.html"*/'<ion-content>\n\n    <ion-grid>\n\n        <ion-row>\n\n            <ion-col col-12>\n\n                <div class="loginFoto">\n\n                    <div class="form-title" style="background-image: url(https://i.imgur.com/UXwXuyD.png)">\n\n                        <ion-title class="form-title1">Log-in</ion-title>\n\n                        <div class="row">\n\n                            <button ion-button class="homeButton" style="background-color: rgba(79, 0, 11, 0.78) !important">Home</button>\n\n                            <button ion-button class="registerButton" (click)="goRegister()">Registreer</button>\n\n                        </div>\n\n                    </div>\n\n                </div>\n\n                <div class="geheel">\n\n                    <ion-item>\n\n                        <ion-label floating>Username</ion-label>\n\n                        <ion-input type="text" [(ngModel)]="username"></ion-input>\n\n                    </ion-item>\n\n                    <ion-item>\n\n                        <ion-label floating>Password</ion-label>\n\n                        <ion-input type="password" [(ngModel)]="password"></ion-input>\n\n                    </ion-item>\n\n                    <br>\n\n                    <a href="#" class="txt1">Forgot Password?</a>\n\n                    <br>\n\n\n\n                    <button class="button3" ion-button (click)="signIn()" color="secondary" round>Inloggen</button>\n\n\n\n                </div>\n\n            </ion-col>\n\n        </ion-row>\n\n    </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\xampp\htdocs\News-App\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\home\home.html"*/'<ion-content>\n\n    <ion-grid>\n\n        <ion-row>\n\n            <ion-col col-12>\n\n                <div class="loginFoto">\n\n                    <div class="form-title" style="background-image: url(https://i.imgur.com/UXwXuyD.png)">\n\n                        <ion-title class="form-title1">Log-in</ion-title>\n\n                        <div class="row">\n\n                            <button ion-button class="homeButton" style="background-color: rgba(79, 0, 11, 0.78) !important">Home</button>\n\n                            <button ion-button class="registerButton" (click)="goRegister()">Registreer</button>\n\n                        </div>\n\n                    </div>\n\n                </div>\n\n                <div class="geheel">\n\n                    <ion-item>\n\n                        <ion-label floating>Username</ion-label>\n\n                        <ion-input type="text" [(ngModel)]="username"></ion-input>\n\n                    </ion-item>\n\n                    <ion-item>\n\n                        <ion-label floating>Password</ion-label>\n\n                        <ion-input type="password" [(ngModel)]="password"></ion-input>\n\n                    </ion-item>\n\n                    <br>\n\n                    <a href="#" class="txt1">Forgot Password?</a>\n\n                    <br>\n\n\n\n                    <button class="button3" ion-button (click)="signIn()" color="secondary" round>Inloggen</button>\n\n\n\n                </div>\n\n            </ion-col>\n\n        </ion-row>\n\n    </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
@@ -1008,7 +1024,7 @@ var FavorietenPage = /** @class */ (function () {
     }
     FavorietenPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-favorieten',template:/*ion-inline-start:"D:\xampp\htdocs\News-App\src\pages\favorieten\favorieten.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title>Favorieten</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-list>\n\n        <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n\n            <ion-icon [name]="item.icon" item-start></ion-icon>\n\n            {{item.title}}\n\n            <div class="item-note" item-end>\n\n                {{item.note}}\n\n            </div>\n\n        </button>\n\n    </ion-list>\n\n    <div *ngIf="selectedItem" padding>\n\n        You navigated here from <b>{{selectedItem.title}}</b>\n\n    </div>\n\n</ion-content>\n\n\n\n'/*ion-inline-end:"D:\xampp\htdocs\News-App\src\pages\favorieten\favorieten.html"*/,
+            selector: 'page-favorieten',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\favorieten\favorieten.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title>Favorieten</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-list>\n\n        <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n\n            <ion-icon [name]="item.icon" item-start></ion-icon>\n\n            {{item.title}}\n\n            <div class="item-note" item-end>\n\n                {{item.note}}\n\n            </div>\n\n        </button>\n\n    </ion-list>\n\n    <div *ngIf="selectedItem" padding>\n\n        You navigated here from <b>{{selectedItem.title}}</b>\n\n    </div>\n\n</ion-content>\n\n\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\favorieten\favorieten.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
     ], FavorietenPage);
@@ -1073,7 +1089,7 @@ var CategoryPage = /** @class */ (function () {
     };
     CategoryPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-category',template:/*ion-inline-start:"D:\xampp\htdocs\News-App\src\pages\category\category.html"*/'<ion-header no-border-bottom>\n\n  <ion-navbar color="primary" class="home-nav">\n\n      <ion-title >Categorieën</ion-title>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content class="card-background-page" id="deleteCards">\n\n  <br>\n\n  <ion-card id="AlleCards" disabled>\n\n    <div (click)="goFeed()">\n\n      <img src="../../assets/imgs/Nieuws.jpg" height="200" width="400"/>\n\n      <div class="card-title">Algemeen</div>\n\n    </div>\n\n  </ion-card>\n\n  <ion-card>\n\n    <div (click)="goSport()">\n\n      <img src="../../assets/imgs/Sport.jpg" height="200" width="400"/>\n\n      <div class="card-title">Sport</div>\n\n    </div>\n\n  </ion-card>\n\n  <ion-card>\n\n    <div (click)="goEconomie()">\n\n      <img src="../../assets/imgs/economy.jpeg" height="200" width="400"/>\n\n      <div class="card-title">Economie</div>\n\n    </div>\n\n  </ion-card>\n\n  <ion-card>\n\n    <div (click)="goFeed()">\n\n      <img src="../../assets/imgs/misdaad.jpg" height="200" width="400"/>\n\n      <div class="card-title">Misdaad</div>\n\n    </div>\n\n  </ion-card>\n\n  <ion-card>\n\n    <div (click)="goFeed()">\n\n      <img src="../../assets/imgs/lifestyle.jpg" height="200" width="400"/>\n\n      <div class="card-title">Lifestyle</div>\n\n    </div>\n\n  </ion-card>\n\n  <ion-card>\n\n    <div (click)="goFeed()">\n\n      <img src="../../assets/imgs/car.jpg" height="200" width="400"/>\n\n      <div class="card-title">auto</div>\n\n    </div>\n\n  </ion-card>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\xampp\htdocs\News-App\src\pages\category\category.html"*/,
+            selector: 'page-category',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\category\category.html"*/'<ion-header no-border-bottom>\n\n  <ion-navbar color="primary" class="home-nav">\n\n      <ion-title >Categorieën</ion-title>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content class="card-background-page" id="deleteCards">\n\n  <br>\n\n  <ion-card id="AlleCards" disabled>\n\n    <div (click)="goFeed()">\n\n      <img src="../../assets/imgs/Nieuws.jpg" height="200" width="400"/>\n\n      <div class="card-title">Algemeen</div>\n\n    </div>\n\n  </ion-card>\n\n  <ion-card>\n\n    <div (click)="goSport()">\n\n      <img src="../../assets/imgs/Sport.jpg" height="200" width="400"/>\n\n      <div class="card-title">Sport</div>\n\n    </div>\n\n  </ion-card>\n\n  <ion-card>\n\n    <div (click)="goEconomie()">\n\n      <img src="../../assets/imgs/economy.jpeg" height="200" width="400"/>\n\n      <div class="card-title">Economie</div>\n\n    </div>\n\n  </ion-card>\n\n  <ion-card>\n\n    <div (click)="goFeed()">\n\n      <img src="../../assets/imgs/misdaad.jpg" height="200" width="400"/>\n\n      <div class="card-title">Misdaad</div>\n\n    </div>\n\n  </ion-card>\n\n  <ion-card>\n\n    <div (click)="goFeed()">\n\n      <img src="../../assets/imgs/lifestyle.jpg" height="200" width="400"/>\n\n      <div class="card-title">Lifestyle</div>\n\n    </div>\n\n  </ion-card>\n\n  <ion-card>\n\n    <div (click)="goFeed()">\n\n      <img src="../../assets/imgs/car.jpg" height="200" width="400"/>\n\n      <div class="card-title">auto</div>\n\n    </div>\n\n  </ion-card>\n\n</ion-content>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\category\category.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */]])
     ], CategoryPage);
