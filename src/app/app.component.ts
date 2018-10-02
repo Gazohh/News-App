@@ -11,6 +11,7 @@ import {SettingsProvider} from "../providers/settings/settings";
 import { Network } from '@ionic-native/network';
 import {ToastController} from 'ionic-angular';
 import {CategoryPage} from "../pages/category/category";
+import { ModalController, NavParams } from 'ionic-angular';
 
 
 
@@ -32,7 +33,8 @@ export class MyApp {
     constructor(platform: Platform,
                 statusBar: StatusBar,
                 splashScreen: SplashScreen,
-                private settings: SettingsProvider) {
+                private settings: SettingsProvider,
+              public modalCtrl: ModalController) {
         this.settings.getActiveTheme().subscribe(val => this.selectedTheme = val);
         platform.ready().then(() => {
             // Okay, so the platform is ready and our plugins are available.
@@ -43,6 +45,7 @@ export class MyApp {
 
         // used for an example of ngFor and navigation (MENU)
         this.pages = [
+            {title: '{Naam}' ,  component: SettingsPage },
             {title: 'Categorieën', component: CategoryPage},
             {title: 'Favorieten', component: FavorietenPage},
             {title: 'Settings', component: SettingsPage},
@@ -67,11 +70,8 @@ export class MyApp {
 
             this.settings.setActiveTheme("light-theme");
             console.log("Toggle Status: " + this.toggleStatus);
-
-
         }
     }
-
 
     openPage(page) {
         // Reset the content nav to have just this page
@@ -85,4 +85,3 @@ export class MyApp {
         this.nav.push(HomePage);
     }
 }
-

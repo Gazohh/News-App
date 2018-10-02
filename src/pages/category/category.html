@@ -1,55 +1,48 @@
-<ion-header>
-  <ion-navbar>
-    <button  ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Category</ion-title>
-
-  </ion-navbar>
+<ion-header no-border-bottom>
+  <ion-navbar color="primary" class="home-nav">
+      <ion-title >Categorieën</ion-title>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+    </ion-navbar>
 </ion-header>
-<ion-content class="card-background-page">
+
+<ion-content class="card-background-page" id="deleteCards">
   <br>
-  <ion-card>
+  <ion-card id="AlleCards" disabled>
     <div (click)="goFeed()">
       <img src="../../assets/imgs/Nieuws.jpg" height="200" width="400"/>
       <div class="card-title">Algemeen</div>
-      <div class="card-subtitle">25 listings</div>
     </div>
   </ion-card>
   <ion-card>
     <div (click)="goSport()">
       <img src="../../assets/imgs/Sport.jpg" height="200" width="400"/>
       <div class="card-title">Sport</div>
-      <div class="card-subtitle">14 listings</div>
     </div>
   </ion-card>
   <ion-card>
     <div (click)="goEconomie()">
       <img src="../../assets/imgs/economy.jpeg" height="200" width="400"/>
       <div class="card-title">Economie</div>
-      <div class="card-subtitle">28 Listings</div>
     </div>
   </ion-card>
   <ion-card>
     <div (click)="goFeed()">
       <img src="../../assets/imgs/misdaad.jpg" height="200" width="400"/>
       <div class="card-title">Misdaad</div>
-      <div class="card-subtitle">25 listings</div>
     </div>
   </ion-card>
   <ion-card>
     <div (click)="goFeed()">
       <img src="../../assets/imgs/lifestyle.jpg" height="200" width="400"/>
       <div class="card-title">Lifestyle</div>
-      <div class="card-subtitle">14 listings</div>
     </div>
   </ion-card>
   <ion-card>
     <div (click)="goFeed()">
       <img src="../../assets/imgs/car.jpg" height="200" width="400"/>
       <div class="card-title">auto</div>
-      <div class="card-subtitle">28 Listings</div>
     </div>
   </ion-card>
-
 </ion-content>
