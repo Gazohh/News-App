@@ -7,53 +7,36 @@
 }
 
 .dark-theme ion-content {
-  background-color: #000000;
+  background-color: #000000 !important;
 }
 
 .dark-theme .toolbar-title {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 .dark-theme p {
-  color: #fff;
+  color: #fff !important;
 }
 
 .dark-theme .header .toolbar-background {
-  border-color: #ff0fff;
-  background-color: #000;
+  border-color: #ff0fff !important;
+  background-color: #000 !important;
 }
 
-.ion-page {
-  background-color: white;
+.dark-theme ion-title {
+  background-color: #4f000b !important;
 }
 
-.ios .ion-page.show-page ~ .nav-decor {
-  background-color: white !important;
+.dark-theme ion-item {
+  background-color: #000 !important;
 }
 
-.grid {
-  padding: 5px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  background-color: #ebeeef;
+.dark-theme .label-md {
+  color: #FFFFFF !important;
 }
 
-body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div > div > ion-title > div {
-  color: white;
-}
-
-body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div > div > ion-title > div {
-  color: white;
+.dark-theme .uitloggen {
+  background-color: #4f000b !important;
 }
 
 .ion-ios-add:before {
@@ -4927,10 +4910,6 @@ textarea {
 }
 
 textarea::-webkit-input-placeholder {
-  padding-left: 2px;
-}
-
-textarea:-ms-input-placeholder {
   padding-left: 2px;
 }
 
@@ -25813,18 +25792,6 @@ body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scro
   color: white;
 }
 
-.uitloggen {
-  left: 0;
-  bottom: 0;
-  position: absolute;
-  z-index: 10;
-  display: block;
-  width: 100%;
-  text-transform: uppercase;
-  font-weight: 600;
-  margin-bottom: 0;
-}
-
 ion-grid {
   height: 100%;
   -webkit-box-pack: center;
@@ -25843,6 +25810,15 @@ body > ion-app > ng-component > ion-nav > page-register > ion-grid > ion-row > i
 
 fab-content-margin {
   margin-top: 4vh;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button:nth-child(1) {
+  display: block;
+  text-transform: capitalize;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button:nth-child(1) > div.item-inner > div > ion-label::first-letter {
+  text-transform: capitalize !important;
 }
 
 #terugbutton {
@@ -26171,7 +26147,7 @@ ion-title {
   color: #fff;
 }
 
-.settingsCard {
+.Card {
   border-radius: 1rem;
 }
 
@@ -26181,21 +26157,6 @@ ion-title {
 
 .toolbar-title-ios {
   color: white;
-}
-
-#myMenu > div > ion-content > div.scroll-content > ion-list > button:nth-child(1) {
-  text-align: center !important;
-  color: #fff !important;
-  font-size: 1.7rem;
-  font-weight: 600;
-  color: #000;
-  pointer-events: auto;
-}
-
-#myMenu > div > ion-content > div.scroll-content > ion-list > button:nth-child(1) {
-  background-color: #4f000b !important;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
 }
 
 #myMenu > div > ion-content > div.scroll-content > ion-list {
@@ -26210,6 +26171,70 @@ ion-title {
 
 .menu-inner {
   width: 100% !important;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item {
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button:nth-child(1) > div.item-inner > div > ion-label {
+  font-weight: 600;
+  margin-bottom: -1.4rem !important;
+  padding-left: 4.5rem !important;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button:nth-child(2) > div.item-inner > div > ion-label {
+  padding-left: 4.5rem !important;
+  font-size: 1.5rem;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button:nth-child(2) > div.item-inner > div {
+  height: 40% !important;
+  color: #7F7F7F !important;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button:nth-child(3) > div.item-inner > div {
+  font-size: 1.5rem !important;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button:nth-child(3) > div.item-inner > div > ion-label > ion-icon {
+  padding-right: 3rem !important;
+  color: #8B8B8B !important;
+  font-size: 2rem !important;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button:nth-child(4) > div.item-inner > div > ion-label {
+  font-size: 1.5rem !important;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button:nth-child(4) > div.item-inner > div > ion-label > ion-icon {
+  padding-right: 3rem !important;
+  color: #8B8B8B !important;
+  font-size: 2rem !important;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button:nth-child(5) > div.item-inner > div > ion-label {
+  font-size: 1.5rem !important;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button:nth-child(5) > div.item-inner > div > ion-label > ion-icon {
+  padding-right: 3rem !important;
+  color: #8B8B8B !important;
+  font-size: 2rem !important;
+}
+
+#contentAnimation {
+  -webkit-animation-duration: 950ms !important;
+  animation-duration: 950ms !important;
+}
+
+.uitloggen {
+  background-color: #4f000b !important;
+}
+
+#contentAnimation > div.scroll-content::before {
+  bottom: 0px !important;
 }
 
 .content-md {

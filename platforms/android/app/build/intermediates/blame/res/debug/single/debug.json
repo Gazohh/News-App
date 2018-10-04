@@ -8,12 +8,12 @@
         "source": "C:\\xampp\\htdocs\\News-App\\platforms\\android\\app\\src\\main\\res\\xml\\config.xml"
     },
     {
-        "merged": "C:\\xampp\\htdocs\\News-App\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-land-xhdpi_screen.png.flat",
-        "source": "C:\\xampp\\htdocs\\News-App\\platforms\\android\\app\\src\\main\\res\\drawable-land-xhdpi\\screen.png"
-    },
-    {
         "merged": "C:\\xampp\\htdocs\\News-App\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-port-mdpi_screen.png.flat",
         "source": "C:\\xampp\\htdocs\\News-App\\platforms\\android\\app\\src\\main\\res\\drawable-port-mdpi\\screen.png"
+    },
+    {
+        "merged": "C:\\xampp\\htdocs\\News-App\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-land-xhdpi_screen.png.flat",
+        "source": "C:\\xampp\\htdocs\\News-App\\platforms\\android\\app\\src\\main\\res\\drawable-land-xhdpi\\screen.png"
     },
     {
         "merged": "D:\\xampp\\htdocs\\News-App\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-land-hdpi_screen.png.flat",

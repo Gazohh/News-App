@@ -1,4 +1,4 @@
-#Tue Oct 02 13:24:38 CEST 2018
+#Thu Oct 04 12:41:44 CEST 2018
 base.0=D\:\\xampp\\htdocs\\News-App\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 renamed.0=classes.dex
 file.0=D\:\\xampp\\htdocs\\News-App\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0\\classes.dex

@@ -40,4 +40,5 @@ export class CategoryPage {
     });
     toast.present();
   }
+
 }

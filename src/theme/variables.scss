@@ -48,42 +48,6 @@ $colors: (
 // --------------------------------------------------
 // iOS only Sass variables can go here
 
-.ion-page // dit is voor iOS zodat de background niet zwart komt te zien door IONIC's transparency.
-{
-  background-color: white;
-}
-
-.ios .ion-page.show-page ~ .nav-decor // dit zorgt ervoor dat de nav content die nog op zwart zat op wit gezet wordt zodat we de juiste kleurcombinatie hebben.
-{
-  background-color: white !important;
-}
-.grid {
-  padding: 5px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  background-color: #ebeeef;
-}
-// Register TEXT
-body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div > div > ion-title > div
-{
-  color:white;
-}
-
-// Login Text
-body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div > div > ion-title > div {
-  color: white;
-}
-
 
   // App Material Design Variables
   // --------------------------------------------------

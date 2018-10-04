@@ -1,149 +1,150 @@
-import {Component, ViewChild, OnInit, AfterViewInit} from '@angular/core';
-import {NavController, AlertController, LoadingController} from 'ionic-angular';
-import {RegisterPage} from "../register/register";
-import {HttpClient, HttpHeaders, HttpRequest} from "@angular/common/http";
+import { Component, ViewChild, OnInit, AfterViewInit } from '@angular/core';
+import { NavController, AlertController, LoadingController } from 'ionic-angular';
+import { RegisterPage } from "../register/register";
+import { HttpClient, HttpHeaders, HttpRequest } from "@angular/common/http";
 import 'rxjs/add/operator/map';
-import {FavorietenPage} from "../favorieten/favorieten";
-import {ToastController} from 'ionic-angular';
-import {Keyboard} from '@ionic-native/keyboard';
+import { FavorietenPage } from "../favorieten/favorieten";
+import { ToastController } from 'ionic-angular';
+import { Keyboard } from '@ionic-native/keyboard';
 import { MenuController } from "ionic-angular";
 import { Network } from '@ionic-native/network';
-import {FeedPage} from "../feed/feed";
-import {CategoryPage} from "../category/category";
+import { FeedPage } from "../feed/feed";
+import { CategoryPage } from "../category/category";
+import { Events } from 'ionic-angular';
 
 @Component({
-    selector: 'page-home',
-    templateUrl: 'home.html'
+  selector: 'page-home',
+  templateUrl: 'home.html'
 })
 
 export class HomePage {
+  CategoryPage: any;
 
-    username:string;
-    password:string;
-    rootPage: any = HomePage;
+  username: string;
+  password: string;
+  rootPage: any = HomePage;
 
-    FavorietenPage = FavorietenPage;
-    FeedPage = FeedPage;
-
-
-    data:string;
-
-    constructor(
-                public navCtrl: NavController,
-                private alertCtrl: AlertController,
-                public loading: LoadingController,
-                public http: HttpClient,
-                private toastCtrl: ToastController,
-                private keyboard: Keyboard,
-                public menuCtrl: MenuController) {
+  FavorietenPage = FavorietenPage;
+  FeedPage = FeedPage;
 
 
-        this.menuCtrl.enable(false, 'myMenu');
-        keyboard.disableScroll(true);
+  data: string;
+
+  constructor(
+    public navCtrl: NavController,
+    private alertCtrl: AlertController,
+    public loading: LoadingController,
+    public http: HttpClient,
+    private toastCtrl: ToastController,
+    private keyboard: Keyboard,
+    public menuCtrl: MenuController,
+    public events: Events) {
+
+    this.menuCtrl.enable(false, 'myMenu');
+    keyboard.disableScroll(true);
+  }
+
+// Localstorage Username
+localStorageSetUsername(ja: boolean) {
+  if(ja == true) {
+    localStorage.setItem("username", this.username);
+  }
+}
+
+createUser(user) {
+  this.events.publish('user:created', user);
+}
+
+  // Push naar de register pagina
+  goRegister() {
+    this.navCtrl.push(RegisterPage);
+  }
+
+  signIn() {
+
+    //// check to confirm the username and password fields are filled
+
+    if (this.username == null || this.password == null) {
+
+      let toast = this.toastCtrl.create({
+        message: 'Niet alle velden zijn ingevuld!',
+        duration: 3000,
+        position: 'top'
+      });
+
+      toast.present();
     }
 
-    // Console log die username en password terug geeft.
-    login() {
+    else {
 
-        console.log("Username: " + this.username);
+      var headers = new HttpHeaders();
 
-        console.log("Password: " + this.password);
-    }
+      headers.append("Accept", 'application/json');
+
+      headers.append('Content-Type', 'application/json');
+
+      let options = { headers: headers };
+
+      let data = {
+
+        username: this.username,
+
+        password: this.password
+
+      };
+
+      let loader = this.loading.create({
+
+        content: 'Aan het inloggen...',
+
+      });
+
+      loader.present().then(() => {
+
+        this.http.post('http://www.gazoh.net/login.php', data, options)
+
+          .subscribe(res => {
+
+            console.log(res);
+
+            loader.dismiss();
+
+            if (res == "Succesfully logged in!") {
+
+              let toast = this.toastCtrl.create({
+                message: "U bent ingelogd!",
+                duration: 2500,
+                position: "top",
+                showCloseButton: true,
+                closeButtonText: "OK"
+              });
+              this.createUser(this.username);
+              this.localStorageSetUsername(true);
+              this.navCtrl.setRoot(CategoryPage);
+              toast.present();
+              console.log(localStorage.getItem("username"));
 
 
-    // Push naar de register pagina
-    goRegister() {
-        this.navCtrl.push(RegisterPage);
-    }
+            }
+            else {
 
-    signIn(){
+              let toast = this.toastCtrl.create({
 
-//// check to confirm the username and password fields are filled
+                message: "Uw gegevens zijn onjuist, probeer het nogmaals.",
+                showCloseButton: true,
+                closeButtonText: "OK",
+                position: "top"
 
-        if(this.username == null || this.password  == null ){
+              });
 
-            let toast = this.toastCtrl.create({
-                message: 'Niet alle velden zijn ingevuld!',
-                duration: 3000,
-                position: 'top'
-            });
+              toast.present();
 
-            toast.present();
-        }
+            }
 
-    else
+          });
 
-        {
-
-            var headers = new HttpHeaders();
-
-            headers.append("Accept", 'application/json');
-
-            headers.append('Content-Type', 'application/json' );
-
-            let options = { headers: headers };
-
-            let data = {
-
-                username: this.username,
-
-                password: this.password
-
-            };
-
-            let loader = this.loading.create({
-
-                content: 'Aan het inloggen...',
-
-        });
-
-            loader.present().then(() => {
-
-                this.http.post('http://www.gazoh.net/login.php' ,data,options)
-
-                    .subscribe(res => {
-
-                        console.log(res);
-
-                        loader.dismiss();
-
-                        if(res=="Succesfully logged in!"){
-
-                            let toast = this.toastCtrl.create({
-                            message: "U bent ingelogd!",
-                                duration: 2500,
-                                position: "top",
-                                showCloseButton: true,
-                                closeButtonText: "OK"
-
-                        });
-
-                            localStorage.setItem("username", this.username);
-                            toast.present();
-                            this.navCtrl.setRoot(CategoryPage);
-
-                        }else
-
-                        {
-
-                            let toast = this.toastCtrl.create({
-
-                            message:"Uw gegevens zijn onjuist, probeer het nogmaals.",
-                                showCloseButton: true,
-                                closeButtonText: "OK",
-                                position: "top"
-
-                        });
-
-                            toast.present();
-
-                        }
-
-                    });
-
-            });
-
-        }
+      });
 
     }
+  }
 }
