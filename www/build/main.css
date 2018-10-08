@@ -25761,7 +25761,7 @@ ion-navbar.toolbar {
 }
 
 .registerButton {
-  margin: 0% !important;
+  margin: 0 !important;
   background-color: rgba(0, 0, 0, 0.4) !important;
   border-radius: 0 !important;
   width: 50% !important;
@@ -25771,7 +25771,7 @@ ion-navbar.toolbar {
 }
 
 .homeButton {
-  margin: 0% !important;
+  margin: 0 !important;
   background-color: rgba(0, 0, 0, 0.4) !important;
   border-radius: 0 !important;
   width: 50% !important;
@@ -25888,7 +25888,7 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  padding: 70px 0px 74px 0px;
+  padding: 70px 0 74px;
   display: -ms-flexbox;
   display: -webkit-box;
   display: -webkit-flex;
@@ -26063,7 +26063,7 @@ body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scro
   padding: 0 20px;
   min-width: 160px;
   height: 50px;
-  background-color: #4f000b !important;
+  background-color: #24244b !important;
   border-radius: 25px;
   font-size: 16px;
   color: #fff;
@@ -26092,12 +26092,13 @@ body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scro
   text-transform: uppercase;
 }
 
-ion-buttons, .bar-button-menutoggle {
+.bar-button-menutoggle,
+ion-buttons {
   z-index: 99;
 }
 
-.bar-button-default-md,
 .bar-button-clear-md-default,
+.bar-button-default-md,
 .bar-button-md-default {
   color: #FFF !important;
   background-color: transparent;
@@ -26111,7 +26112,13 @@ ion-buttons, .bar-button-menutoggle {
   color: #FFF !important;
 }
 
-ion-header button, .back-button {
+body > ion-app > ng-component > ion-nav > page-category > ion-header > ion-navbar {
+  -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2) !important;
+}
+
+.back-button,
+ion-header button {
   position: absolute !important;
   z-index: 5;
 }
@@ -26143,7 +26150,9 @@ ion-title {
   padding-top: 0.5rem !important;
 }
 
-.bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default {
+.bar-button-clear-ios-default,
+.bar-button-default-ios,
+.bar-button-default.bar-button-ios-default {
   color: #fff;
 }
 
@@ -26152,7 +26161,7 @@ ion-title {
 }
 
 .toolbar-background {
-  background-color: #4f000b !important;
+  background-color: #141414 !important;
 }
 
 .toolbar-title-ios {
@@ -26225,8 +26234,8 @@ ion-title {
 }
 
 #contentAnimation {
-  -webkit-animation-duration: 950ms !important;
-  animation-duration: 950ms !important;
+  -webkit-animation-duration: 700ms !important;
+  animation-duration: 700ms !important;
 }
 
 .uitloggen {
@@ -26234,7 +26243,7 @@ ion-title {
 }
 
 #contentAnimation > div.scroll-content::before {
-  bottom: 0px !important;
+  bottom: 0 !important;
 }
 
 .content-md {
@@ -26261,14 +26270,28 @@ ion-app.ios {
   background-color: transparent !important;
 }
 
-.md ion-menu[type=overlay] .menu-inner {
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
+.card-title2 {
+  position: absolute !important;
+  font-size: 150% !important;
+  width: 100% !important;
+  font-weight: bold !important;
+  text-align: end !important;
+  top: 80% !important;
+  right: 5% !important;
+  color: #fff !important;
+  text-shadow: 0 0 7px #000000;
 }
 
-.ios ion-menu[type=overlay] .menu-inner {
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
+@-webkit-keyframes slideInDown {
+  0% {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+  to {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
 }
 
 .card-background-page ion-card {

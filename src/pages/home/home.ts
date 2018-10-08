@@ -44,16 +44,12 @@ export class HomePage {
     keyboard.disableScroll(true);
   }
 
-// Localstorage Username
-localStorageSetUsername(ja: boolean) {
-  if(ja == true) {
-    localStorage.setItem("username", this.username);
+  // Localstorage Username
+  localStorageSetUsername(ja: boolean) {
+    if (ja == true) {
+      localStorage.setItem("username", this.username);
+    }
   }
-}
-
-createUser(user) {
-  this.events.publish('user:created', user);
-}
 
   // Push naar de register pagina
   goRegister() {
@@ -118,12 +114,10 @@ createUser(user) {
                 showCloseButton: true,
                 closeButtonText: "OK"
               });
-              this.createUser(this.username);
               this.localStorageSetUsername(true);
+              console.log(localStorage.getItem("username"));
               this.navCtrl.setRoot(CategoryPage);
               toast.present();
-              console.log(localStorage.getItem("username"));
-
 
             }
             else {

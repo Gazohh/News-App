@@ -4,49 +4,32 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Home</ion-title>
-      
+
   </ion-navbar>
 </ion-header>
 
-<ion-content class="cards-bg">
+<ion-content>
   <ion-card *ngFor="let item of items">
-
-    <ion-item>
-      <h2>{{item.site}}</h2>
-      <p>{{item.datum}}</p>
-    </ion-item>
     <img *ngIf="!item.image" src="http://gazoh.net/images/noimage.jpg">
     <img [src]="item.image">
-
     <ion-card-content>
-      <p class="itemdescription"><strong>{{item.title}}</strong></p>
-      <hr style="background-color: gray">
+      <ion-card-title>
+        <strong>{{item.title}}</strong>
+      </ion-card-title>
       <p>{{htmlToPlaintext(item.description) | slice:0:120}}...</p>
     </ion-card-content>
 
-    <ion-row>
-      <ion-col>
-        <button ion-button icon-start clear small>
-          <ion-icon name="eye"></ion-icon>
-          <div>Meer lezen</div>
-        </button>
-      </ion-col>
-      <ion-col>
-        <button ion-button icon-start clear small>
-          <ion-icon name="star-outline"></ion-icon>
-          <div>Favoriet</div>
-        </button>
-      </ion-col>
-      <ion-col>
-        <button ion-button icon-start clear small>
-          <ion-icon name="share-alt"></ion-icon>
-          <div>Deel</div>
-        </button>
-      </ion-col>
-    </ion-row>
+
+<!-- Funtie nog schrijven voor if == nu.nl of andere website set badge kleur  -->
+    <ion-item>
+      <ion-icon name="contact" item-start></ion-icon>
+      <ion-badge item-end>{{item.site}}</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="time" item-start></ion-icon>
+      <ion-badge item-end>{{item.datum}}</ion-badge>
+    </ion-item>
+
 
   </ion-card>
-
-
-
 </ion-content>

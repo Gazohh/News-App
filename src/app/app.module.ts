@@ -22,6 +22,11 @@ import { CategoryPage } from "../pages/category/category";
 import { SportPage } from "../pages/sport/sport";
 import { EconomiePage } from "../pages/economie/economie";
 import { AnimatesDirective, AnimationService } from 'css-animator';
+import { AutoPage } from "../pages/auto/auto";
+import { MisdaadPage } from "../pages/misdaad/misdaad";
+import { TechPage } from "../pages/tech/tech";
+import { VermaakPage } from "../pages/vermaak/vermaak";
+
 
 
 
@@ -33,6 +38,9 @@ import { AnimatesDirective, AnimationService } from 'css-animator';
     CategoryPage,
     SportPage,
     EconomiePage,
+    AutoPage,
+    MisdaadPage,
+    TechPage,
     AnimatesDirective
   ],
   imports: [
@@ -40,7 +48,8 @@ import { AnimatesDirective, AnimationService } from 'css-animator';
     HttpClientModule,
     IonicModule.forRoot(MyApp, {
       scrollAssist: false,
-      autoFocusAssist: false
+      autoFocusAssist: false,
+      animate: false
     }),
     ReactiveFormsModule,
     IonicStorageModule.forRoot(),
@@ -52,13 +61,13 @@ import { AnimatesDirective, AnimationService } from 'css-animator';
   entryComponents: [
     MyApp,
     HomePage,
-    RegisterPage,
-    FavorietenPage,
-    FeedPage,
     SettingsPage,
+    CategoryPage,
     SportPage,
     EconomiePage,
-    CategoryPage
+    AutoPage,
+    MisdaadPage,
+    TechPage
   ],
   providers: [
     StatusBar,

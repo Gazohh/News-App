@@ -5,6 +5,10 @@ import { SportPage } from "../sport/sport";
 import { MenuController } from "ionic-angular";
 import { EconomiePage } from "../economie/economie";
 import { ToastController } from 'ionic-angular';
+import { AutoPage } from "../auto/auto";
+import { MisdaadPage } from "../misdaad/misdaad";
+import { TechPage } from "../tech/tech";
+import { VermaakPage } from "../vermaak/vermaak";
 import * as $ from 'jquery';
 
 @IonicPage()
@@ -28,6 +32,22 @@ export class CategoryPage {
 
   goEconomie() {
     this.navCtrl.setRoot(EconomiePage);
+  }
+
+  goMisdaad() {
+      this.navCtrl.setRoot(MisdaadPage);
+  }
+
+  goTech() {
+      this.navCtrl.setRoot(TechPage);
+  }
+
+  goAuto() {
+    this.navCtrl.setRoot(AutoPage);
+  }
+
+  goVermaak() {
+      this.navCtrl.setRoot(VermaakPage);
   }
 
   newMenu() {
