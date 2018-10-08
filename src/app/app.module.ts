@@ -26,6 +26,8 @@ import { AutoPage } from "../pages/auto/auto";
 import { MisdaadPage } from "../pages/misdaad/misdaad";
 import { TechPage } from "../pages/tech/tech";
 import { VermaakPage } from "../pages/vermaak/vermaak";
+import {NieuwsPage} from "../pages/nieuws/nieuws";
+import {NieuwsPageModule} from "../pages/nieuws/nieuws.module";
 
 
 
@@ -55,7 +57,8 @@ import { VermaakPage } from "../pages/vermaak/vermaak";
     IonicStorageModule.forRoot(),
     FavorietenPageModule,
     FeedPageModule,
-    RegisterPageModule
+    RegisterPageModule,
+      NieuwsPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -67,7 +70,8 @@ import { VermaakPage } from "../pages/vermaak/vermaak";
     EconomiePage,
     AutoPage,
     MisdaadPage,
-    TechPage
+    TechPage,
+      NieuwsPage
   ],
   providers: [
     StatusBar,

@@ -9,6 +9,7 @@ import { AutoPage } from "../auto/auto";
 import { MisdaadPage } from "../misdaad/misdaad";
 import { TechPage } from "../tech/tech";
 import { VermaakPage } from "../vermaak/vermaak";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import * as $ from 'jquery';
 
 @IonicPage()
@@ -18,9 +19,16 @@ import * as $ from 'jquery';
 })
 export class CategoryPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public toastCtrl: ToastController) {
+    aantalartikelen: any;
+
+    constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public toastCtrl: ToastController, public http: HttpClient) {
     this.menuCtrl.enable(true, 'myMenu');
   }
+
+    ionViewWillEnter()
+    {
+        this.getArtikelen();
+    }
 
   goFeed() {
     this.navCtrl.setRoot(FeedPage);
@@ -49,6 +57,20 @@ export class CategoryPage {
   goVermaak() {
       this.navCtrl.setRoot(VermaakPage);
   }
+
+    getArtikelen()
+    {
+        this.http
+            .get('http://gazoh.net/aantalalgemeen.php')
+            .subscribe((data : any) =>
+                {
+                    this.aantalartikelen = data;
+                },
+                (error : any) =>
+                {
+                    console.dir(error);
+                });
+    }
 
   newMenu() {
     const toast = this.toastCtrl.create({
