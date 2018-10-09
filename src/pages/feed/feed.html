@@ -9,7 +9,23 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let item of items">
+  <ion-card *ngFor="let item of items" (click)="viewEntry({ record: item })">
+    <!-- <ion-fab left>
+      <button ion-fab mini>
+        <ion-icon name="add"></ion-icon>
+      </button>
+      <ion-fab-list side="right">
+        <button ion-fab (click)="facebookShare()">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </button>
+        <button ion-fab (click)="whatsappShare ()">
+          <ion-icon name="logo-whatsapp"></ion-icon>
+        </button>
+        <button ion-fab (click)="twitterShare()">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </button>
+      </ion-fab-list>
+    </ion-fab> -->
     <img *ngIf="!item.image" src="http://gazoh.net/images/noimage.jpg">
     <img [src]="item.image">
     <ion-card-content>
@@ -19,17 +35,18 @@
       <p>{{htmlToPlaintext(item.description) | slice:0:120}}...</p>
     </ion-card-content>
 
-
-<!-- Funtie nog schrijven voor if == nu.nl of andere website set badge kleur  -->
     <ion-item>
       <ion-icon name="contact" item-start></ion-icon>
-      <ion-badge item-end>{{item.site}}</ion-badge>
+      <ion-badge item-end *ngIf="item.site == 'De Telegraaf'" class="ColorTelegraaf">{{item.site}}</ion-badge>
+      <ion-badge item-end *ngIf="item.site == 'NOS'" class="ColorNOS">{{item.site}}</ion-badge>
+      <ion-badge item-end *ngIf="item.site == 'NU.nl'" class="ColorNU">{{item.site}}</ion-badge>
     </ion-item>
     <ion-item>
       <ion-icon name="time" item-start></ion-icon>
-      <ion-badge item-end>{{item.datum}}</ion-badge>
+      <ion-badge item-end *ngIf="item.site == 'De Telegraaf'" class="ColorTelegraaf">{{item.datum}}</ion-badge>
+      <ion-badge item-end *ngIf="item.site == 'NOS'" class="ColorNOS">{{item.datum}}</ion-badge>
+      <ion-badge item-end *ngIf="item.site == 'NU.nl'" class="ColorNU">{{item.datum}}</ion-badge>
     </ion-item>
-
 
   </ion-card>
 </ion-content>

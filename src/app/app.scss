@@ -521,7 +521,6 @@ ion-app.ios {
 }
 ///////////////////////////////////////////////
 // Shadow van menu android
-
 // Card
 
 .card-title2 {
@@ -535,21 +534,34 @@ ion-app.ios {
   color: #fff !important;
   text-shadow: 0 0 7px #000000;
 }
-
-
 // Custom Transitions
 @-webkit-keyframes slideInDown {
   0% {
     -webkit-transform: translate3d(0, -100%, 0);
     transform: translate3d(0, -100%, 0);
-    visibility: visible
+    visibility: visible;
   }
 
   to {
     -webkit-transform: translateZ(0);
-    transform: translateZ(0)
+    transform: translateZ(0);
   }
 }
-
-
 // Cards Design FEED Page
+
+.ColorTelegraaf {
+  background-color: rgb(85,122,149) !important;
+}
+
+.ColorNU {
+  background-color: rgb(177,162,150) !important;
+}
+
+.ColorNOS {
+  background-color: rgb(93,92,97) !important;
+}
+
+.headerText {
+  font-weight: bold;
+  font-size: 2rem;
+}

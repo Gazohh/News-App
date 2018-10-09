@@ -1,19 +1,25 @@
 <ion-header>
   <meta charset="UTF-8">
   <ion-navbar>
-    <ion-title>{{this.title | slice:0:20}}..</ion-title>
+
   </ion-navbar>
 
 </ion-header>
+<ion-content>
+  <ion-card>
+    <img *ngIf="!this.image" src="http://gazoh.net/images/noimage.jpg">
+    <img src="{{this.image}}">
+    <ion-card-header class="headerText" text-wrap>
+   {{this.title}}
+ </ion-card-header>
 
+    <ion-card-content>
+      <p>Description: {{htmlToPlaintext(this.description)}}</p>
+      <p>Datum: {{this.datum}}</p>
+      <p>Bron: {{this.site}}</p>
+      <p>Link: {{this.link}}</p>
+      <p>Id: {{this.id}}</p>
 
-<ion-content padding>
-  <p>Titel: {{this.title}}</p>
-  <img *ngIf="!this.image" src="http://gazoh.net/images/noimage.jpg">
-  <img src="{{this.image}}">
-  <p>Description: {{htmlToPlaintext(this.description)}}</p>
-  <p>Datum: {{this.datum}}</p>
-  <p>Bron: {{this.site}}</p>
-  <p>Link: {{this.link}}</p>
-  <p>Id: {{this.id}}</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

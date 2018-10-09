@@ -6,8 +6,8 @@
   .toolbar-title{
     color: #ffffff !important;
   }
-  p {
-    color: #fff !important;
+  .DarkLabel {
+    color: #fff ;
   }
   .header .toolbar-background {
     border-color: #ff0fff !important;
@@ -15,10 +15,10 @@
   }
 
 ion-title{
-  background-color: #4f000b !important;
+  background-color: rgb(14,22,48) ;
 }
-ion-item{
-  background-color: #000 !important;
+.darkItem{
+  background-color: #000;
 }
 .label-md{
   color: #FFFFFF !important;

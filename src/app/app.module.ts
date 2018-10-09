@@ -17,7 +17,6 @@ import { RegisterPageModule } from "../pages/register/register.module";
 import { SettingsPage } from "../pages/settings/settings";
 import { SettingsProvider } from '../providers/settings/settings';
 import { Network } from '@ionic-native/network';
-import { SocialSharing } from '@ionic-native/social-sharing';
 import { CategoryPage } from "../pages/category/category";
 import { SportPage } from "../pages/sport/sport";
 import { EconomiePage } from "../pages/economie/economie";
@@ -28,6 +27,9 @@ import { TechPage } from "../pages/tech/tech";
 import { VermaakPage } from "../pages/vermaak/vermaak";
 import {NieuwsPage} from "../pages/nieuws/nieuws";
 import {NieuwsPageModule} from "../pages/nieuws/nieuws.module";
+import {CategoryPageModule} from "../pages/category/category.module";
+
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 
 
@@ -37,7 +39,6 @@ import {NieuwsPageModule} from "../pages/nieuws/nieuws.module";
     MyApp,
     HomePage,
     SettingsPage,
-    CategoryPage,
     SportPage,
     EconomiePage,
     AutoPage,
@@ -58,20 +59,20 @@ import {NieuwsPageModule} from "../pages/nieuws/nieuws.module";
     FavorietenPageModule,
     FeedPageModule,
     RegisterPageModule,
-      NieuwsPageModule
+    NieuwsPageModule,
+    CategoryPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
     SettingsPage,
-    CategoryPage,
     SportPage,
     EconomiePage,
     AutoPage,
     MisdaadPage,
     TechPage,
-      NieuwsPage
+    NieuwsPage
   ],
   providers: [
     StatusBar,
@@ -82,7 +83,8 @@ import {NieuwsPageModule} from "../pages/nieuws/nieuws.module";
     Network,
     SocialSharing,
     SettingsProvider,
-    AnimationService
+    AnimationService,
+    SocialSharing
   ]
 
 })

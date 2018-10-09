@@ -14,8 +14,8 @@
   color: #ffffff !important;
 }
 
-.dark-theme p {
-  color: #fff !important;
+.dark-theme .DarkLabel {
+  color: #fff;
 }
 
 .dark-theme .header .toolbar-background {
@@ -24,11 +24,11 @@
 }
 
 .dark-theme ion-title {
-  background-color: #4f000b !important;
+  background-color: #0e1630;
 }
 
-.dark-theme ion-item {
-  background-color: #000 !important;
+.dark-theme .darkItem {
+  background-color: #000;
 }
 
 .dark-theme .label-md {
@@ -26292,6 +26292,23 @@ ion-app.ios {
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
   }
+}
+
+.ColorTelegraaf {
+  background-color: #557a95 !important;
+}
+
+.ColorNU {
+  background-color: #b1a296 !important;
+}
+
+.ColorNOS {
+  background-color: #5d5c61 !important;
+}
+
+.headerText {
+  font-weight: bold;
+  font-size: 2rem;
 }
 
 .card-background-page ion-card {
