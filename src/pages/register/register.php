@@ -55,6 +55,10 @@ if ($con->query($sql) === TRUE) {
     $response=  "Registration successfull";
 
 }
+else if(mysqli_errno($con) == 1062)
+{
+$response= "already in use";
+}
 else
     {
     $response= "Error: " . $sql . "<br>" . $db->error;

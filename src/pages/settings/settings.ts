@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SettingsProvider } from "../../providers/settings/settings";
 import { Nav, Platform } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import {AdminPage} from "../admin/admin";
 
 @IonicPage()
 @Component({
@@ -35,6 +36,11 @@ export class SettingsPage {
       localStorage.setItem("themeColor", this.selectedTheme);
 
     }
+  }
+
+  openAdmin()
+  {
+    this.navCtrl.push(AdminPage);
   }
 
   uitloggen() {

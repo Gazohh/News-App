@@ -6,6 +6,7 @@
     <ion-title>Home</ion-title>
 
   </ion-navbar>
+  <ion-searchbar placeholder="Zoek.." (ionInput)="search($event)" [showCancelButton]="true" (ionCancel)="resetChanges()" (ionClear)="resetChanges()"></ion-searchbar>
 </ion-header>
 
 <ion-content>

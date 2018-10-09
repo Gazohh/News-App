@@ -75,7 +75,6 @@ export class RegisterPage implements OnInit {
                 email: this.email
 
             };
-            console.log('data:', data);
             let loader = this.loading.create({
 
                 content: 'Aan het registreren..',
@@ -107,8 +106,22 @@ export class RegisterPage implements OnInit {
                             alert.present();
 
                             this.navCtrl.push(HomePage);
+                        }
+                        else if(res == "already in use")
+                        {
+                            let alert = this.alertCtrl.create({
 
-                        } else {
+                                title: "Registreren mislukt",
+
+                                subTitle: "Er bestaat al een gebruiker met het zelfde email of gebruikersnaam!",
+
+                                buttons: ['OK']
+
+                            });
+
+                            alert.present();
+                        }
+                        else {
 
                             let alert = this.alertCtrl.create({
 
