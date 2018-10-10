@@ -1,15 +1,31 @@
-<ion-menu id="myMenu" [content]="content" type="overlay" [content]="content" [swipeEnabled]="false">
-    <ion-content id="contentAnimation" menuToggle class="animated slideInUp">
+<ion-menu id="myMenu" [content]="content" [swipeEnabled]="false">
+  <ion-content id="contentAnimation" menuToggle>
     <ion-list>
-        <ion-item>
-          <button detail-none ion-item menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-              <ion-icon slot="start" [name]="p.icon"></ion-icon>
-              {{p.title}}
-          </button>
-        </ion-item>
+      <ion-navbar>
+        <ion-grid class="gridMenu">
+          <ion-row>
+            <ion-col>
+              <img src="https://bankwatch.org/wp-content/uploads/2018/03/Portrait_Placeholder.png" class="custom-avatar" />
+              <h5 class="usernameMenu">Username</h5>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-navbar>
+      <ion-item>
+        <button detail-none ion-item menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+          <ion-icon slot="start" [name]="p.icon"></ion-icon>
+          <span class="menu-titles">
+          {{p.title}}
+        </span>
+        </button>
+      </ion-item>
+      <ion-footer>
+        <ion-toolbar>
+          <div class="versienummer"><b>©NewsAge</b> V3.4.4</div>
+        </ion-toolbar>
+      </ion-footer>
     </ion-list>
   </ion-content>
-
 </ion-menu>
 
 

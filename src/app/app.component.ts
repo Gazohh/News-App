@@ -22,7 +22,7 @@ import { Events } from 'ionic-angular';
   providers: [Keyboard, Nav]
 })
 export class MyApp {
-    @ViewChild(Nav) nav: Nav;
+  @ViewChild(Nav) nav: Nav;
 
   rootPage: any = HomePage;
 
@@ -51,31 +51,33 @@ export class MyApp {
     //   console.log('Welcome', user);
     // });
 
-      console.log(localStorage.getItem("username"));
+    console.log(localStorage.getItem("username"));
 
     this.pages = [
       {
-        title: localStorage.getItem("username"),
-        component: SettingsPage,
-        icon: ''
-      },
-      {
-        title: 'Cem@Gazoh.net',
-        component: SettingsPage,
-        icon: ''
-      },
-      {
-        title: 'Categorieën',
+        // title: localStorage.getItem("username"),
+        title: 'Home',
         component: CategoryPage,
-        icon: 'albums'
+        icon: 'home'
       },
       {
+        // title: localStorage.getItem("username"),
         title: 'Favorieten',
         component: FavorietenPage,
         icon: 'heart'
       },
       {
-        title: 'Settings',
+        title: 'Notificaties',
+        component: SettingsPage,
+        icon: 'notifications'
+      },
+      {
+        title: 'Tutorial',
+        component: SettingsPage,
+        icon: 'map'
+      },
+      {
+        title: 'Instellingen',
         component: SettingsPage,
         icon: 'settings'
       }

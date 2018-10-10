@@ -7,7 +7,7 @@
 }
 
 .dark-theme ion-content {
-  background-color: #000000 !important;
+  background-color: #303030 !important;
 }
 
 .dark-theme .toolbar-title {
@@ -16,6 +16,7 @@
 
 .dark-theme .DarkLabel {
   color: #fff;
+  border: none;
 }
 
 .dark-theme .header .toolbar-background {
@@ -23,12 +24,12 @@
   background-color: #000 !important;
 }
 
-.dark-theme ion-title {
-  background-color: #0e1630;
+.dark-theme .ionTitle {
+  background-color: #212121 !important;
 }
 
 .dark-theme .darkItem {
-  background-color: #000;
+  background-color: #303030;
 }
 
 .dark-theme .label-md {
@@ -36,7 +37,19 @@
 }
 
 .dark-theme .uitloggen {
-  background-color: #4f000b !important;
+  background-color: #212121 !important;
+}
+
+.dark-theme .item-ios.item-block .item-inner {
+  border: none;
+}
+
+.dark-theme .menu {
+  background-color: #303030;
+}
+
+.dark-theme .adminUsers {
+  background-color: transparent !important;
 }
 
 .ion-ios-add:before {
@@ -26304,6 +26317,40 @@ ion-app.ios {
 
 .ColorNOS {
   background-color: #5d5c61 !important;
+}
+
+.headerText {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item {
+  background-color: #424242 !important;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button:nth-child(1) {
+  background-color: #424242 !important;
+  color: #fff;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button:nth-child(2) {
+  background-color: #424242 !important;
+  color: #fff;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button:nth-child(3) {
+  background-color: #424242 !important;
+  color: #fff;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button:nth-child(4) {
+  background-color: #424242 !important;
+  color: #fff;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button:nth-child(5) {
+  background-color: #424242 !important;
+  color: #fff;
 }
 
 .card-background-page ion-card {

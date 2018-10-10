@@ -32,6 +32,7 @@ import {AdminPage} from "../pages/admin/admin";
 import {AdminPageModule} from "../pages/admin/admin.module";
 
 
+
 import {SocialSharing} from '@ionic-native/social-sharing';
 
 
@@ -52,9 +53,9 @@ import {SocialSharing} from '@ionic-native/social-sharing';
         BrowserModule,
         HttpClientModule,
         IonicModule.forRoot(MyApp, {
+            mode: "md",
             scrollAssist: false,
-            autoFocusAssist: false,
-            animate: false
+            autoFocusAssist: false
         }),
         ReactiveFormsModule,
         IonicStorageModule.forRoot(),

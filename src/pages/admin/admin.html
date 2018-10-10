@@ -50,7 +50,7 @@
         <ion-list inset *ngIf="checklist == 'gebruikers'">
             <ion-item-group>
                 <ion-row>
-                <ion-item *ngFor="let user of gebruikerslijst" ><strong>ID : </strong> {{user.id}} | <strong>{{user.username}}</strong> <button ion-button color="danger" item-right><ion-icon name="trash"></ion-icon></button></ion-item>
+                <ion-item class="adminUsers" *ngFor="let user of gebruikerslijst" ><strong>ID : </strong> {{user.id}} | <strong>{{user.username}}</strong> <button ion-button color="danger" item-right><ion-icon name="trash"></ion-icon></button></ion-item>
                 </ion-row>
             </ion-item-group>
         </ion-list>

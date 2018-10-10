@@ -61,7 +61,7 @@ export class CategoryPage {
     getArtikelen()
     {
         this.http
-            .get('http://gazoh.net/aantalalgemeen.php')
+            .get('http://gazoh.net/aantalvandaag.php')
             .subscribe((data : any) =>
                 {
                     this.aantalartikelen = data;

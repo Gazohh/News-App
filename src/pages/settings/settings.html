@@ -3,25 +3,25 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>Settings</ion-title>
+        <ion-title class="ionTitle">Settings</ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-item>
-      <ion-label>Bewerk Profiel</ion-label>
+  <ion-item class="darkItem">
+      <ion-label class="DarkLabel">Bewerk Profiel</ion-label>
   </ion-item>
-    <ion-item>
-        <ion-label>Over ons</ion-label>
+    <ion-item class="darkItem">
+        <ion-label class="DarkLabel">Over ons</ion-label>
     </ion-item>
-    <ion-item>
-        <ion-label>Raporteer Probleem / Idee</ion-label>
+    <ion-item class="darkItem">
+        <ion-label class="DarkLabel">Raporteer Probleem / Idee</ion-label>
     </ion-item>
-    <ion-item>>
-        <ion-label>Light/Dark</ion-label>
+    <ion-item class="darkItem">
+        <ion-label class="DarkLabel">Light/Dark</ion-label>
         <ion-toggle [(ngModel)]="toggleStatus" (ionChange)="toggleAppTheme()"></ion-toggle>
     </ion-item>
-    <ion-item (click)="openAdmin()">
+    <ion-item class="darkItem" (click)="openAdmin()">
         <ion-label>Admin panel</ion-label>
     </ion-item>
         <button class="uitloggen" ion-button full (click)="uitloggen()">Uitloggen</button>

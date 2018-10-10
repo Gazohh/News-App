@@ -1,14 +1,17 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
+    <button ion-button menuToggle *ngIf="!isSearchbaropened">
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
-
+    <ion-title *ngIf="!isSearchbaropened">Home</ion-title>
+    <ion-searchbar #searchbar *ngIf="isSearchbaropened" [showCancelButton]="true" (ionCancel)="isSearchbaropened=false" (ionInput)="search($event)"></ion-searchbar>
+    <ion-buttons end (click)="setFocus()">
+      <button ion-button icon-only (click)="isSearchbaropened=true">
+        <ion-icon name="search" *ngIf="!isSearchbaropened"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-  <ion-searchbar placeholder="Zoek.." (ionInput)="search($event)" [showCancelButton]="true" (ionCancel)="resetChanges()" (ionClear)="resetChanges()"></ion-searchbar>
 </ion-header>
-
 <ion-content>
   <ion-card *ngFor="let item of items" (click)="viewEntry({ record: item })">
     <!-- <ion-fab left>
@@ -48,6 +51,5 @@
       <ion-badge item-end *ngIf="item.site == 'NOS'" class="ColorNOS">{{item.datum}}</ion-badge>
       <ion-badge item-end *ngIf="item.site == 'NU.nl'" class="ColorNU">{{item.datum}}</ion-badge>
     </ion-item>
-
   </ion-card>
 </ion-content>

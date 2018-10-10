@@ -1,3 +1,16 @@
+// Fontawesome
+@import "www/assets/scss/fontawesome.scss";
+@import "www/assets/scss/solid.scss";
+@import "www/assets/scss/brands.scss";
+
+.user {
+  @extend %fa-icon;
+  @extend .fas;
+
+  &:before {
+    content: fa-content($fa-var-user);
+  }
+}
 // Register Button
 
 .registerButton {
@@ -258,18 +271,6 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   z-index: 10;
   width: 100%;
 }
-// Button placement van uitloggen in menu
-
-#myMenu > div > ion-content > div.scroll-content > ion-list > button.disable-hover.button.button-md.button-outline.button-outline-md.button-full.button-full-md.button-outline-md-danger {
-  left: 0;
-  bottom: 0;
-  position: absolute;
-  z-index: 10;
-  display: block;
-  width: 100%;
-}
-// REGISTER ------------------------------------------------
-// Row
 
 body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div.loginFoto > div > div {
   bottom: 0;
@@ -339,7 +340,6 @@ ion-buttons {
 .toolbar-title-md {
   text-align: center !important;
   padding: 0 12px;
-  font-size: 2rem;
   font-weight: 500;
   color: #FFF !important;
 }
@@ -402,125 +402,71 @@ ion-title {
 .toolbar-title-ios {
   color: white;
 }
-// Pages
-
-#myMenu > div > ion-content > div.scroll-content > ion-list {
-  left: 0 !important;
-  bottom: 0 !important;
-  position: absolute !important;
-  z-index: 10 !important;
-  display: block !important;
-  width: 100% !important;
-  margin-bottom: 0 !important;
+// Menu
+// Algemeen
+// Text van de menu {Home, Categorie, etc..}
+#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button > div.item-inner > div > ion-label {
+  text-align: left !important;
 }
 
-.menu-inner {
-  width: 100% !important;
-}
-// Menu text
-// Hele Menu
-
-#contentAnimation > div.scroll-content > ion-list > ion-item {
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-}
-// Username
-
-#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button:nth-child(1) > div.item-inner > div > ion-label {
-  font-weight: 600;
-  margin-bottom: -1.4rem !important;
-  padding-left: 4.5rem !important;
-}
-// Email Label
-
-#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button:nth-child(2) > div.item-inner > div > ion-label {
-  padding-left: 4.5rem !important;
-  font-size: 1.5rem;
-}
-// Email div
-
-#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button:nth-child(2) > div.item-inner > div {
-  height: 40% !important;
-  color: #7F7F7F !important;
-}
-// Categorieën Label
-
-#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button:nth-child(3) > div.item-inner > div {
-  font-size: 1.5rem !important;
-}
-// Categorieën Icon
-
-#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button:nth-child(3) > div.item-inner > div > ion-label > ion-icon {
-  padding-right: 3rem !important;
-  color: #8B8B8B !important;
-  font-size: 2rem !important;
-}
-// Favorieten Label
-
-#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button:nth-child(4) > div.item-inner > div > ion-label {
-  font-size: 1.5rem !important;
-}
-// Favorieten Icon
-
-#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button:nth-child(4) > div.item-inner > div > ion-label > ion-icon {
-  padding-right: 3rem !important;
-  color: #8B8B8B !important;
-  font-size: 2rem !important;
-}
-// Settings Label
-
-#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button:nth-child(5) > div.item-inner > div > ion-label {
-  font-size: 1.5rem !important;
-}
-// Settings Icon
-
-#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button:nth-child(5) > div.item-inner > div > ion-label > ion-icon {
-  padding-right: 3rem !important;
-  color: #8B8B8B !important;
-  font-size: 2rem !important;
-}
-// Animation Snelheid
-
-#contentAnimation {
-  animation-duration: 700ms !important;
+.menu-titles {
+  padding: 0 0 0 25px;
 }
 
-.uitloggen {
-  background-color: #4f000b !important;
+.hide-card {
+  -webkit-box-shadow: none!important;
 }
-// Ios
 
-#contentAnimation > div.scroll-content::before {
-  bottom: 0 !important;
+.custom-avatar {
+  height: 20vw;
+  width: 20vw;
+  border-radius: 50%;
+  display: inline-block;
+  margin: auto;
+  display: block;
 }
-// Android Background Menu
 
-.content-md {
+.gridMenu {
+  background-color: transparent !important;
+  height: 20vh !important;
+}
+
+.usernameMenu {
+  color: white;
+  text-align: center;
+  margin-top: 3%;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-navbar > div.toolbar-background.toolbar-background-md {
+  background-image:  url("../assets/imgs/backgroundMenu.jpg");
+  background-repeat: repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  height: 100%;
+  position: absolute;
   background-color: transparent !important;
 }
 
-.md .menu-inner {
-  background-color: transparent !important;
+// Icon van de menu
+#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button > div.item-inner > div > ion-label > ion-icon {
+  float: left !important;
 }
 
-ion-app.md {
-  background-color: transparent !important;
-}
-// Ios Background Menu
-
-.content-ios {
-  background-color: transparent !important;
+.list-md .item-block .item-inner {
+  border-bottom: 0;
 }
 
-.ios .menu-inner {
-  background-color: transparent !important;
+#contentAnimation > div.scroll-content > ion-list > ion-footer > ion-toolbar > div.toolbar-background.toolbar-background-md {
+  background-color: #fff !important;
+  color: #000!important;
 }
 
-ion-app.ios {
-  background-color: transparent !important;
+
+.versienummer {
+  margin: 0 0 0 25px;
 }
-///////////////////////////////////////////////
-// Shadow van menu android
+
 // Card
 
 .card-title2 {

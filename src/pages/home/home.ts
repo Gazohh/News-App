@@ -21,6 +21,7 @@ export class HomePage {
   CategoryPage: any;
 
   username: string;
+  email:string;
   password: string;
   rootPage: any = HomePage;
 
@@ -48,6 +49,7 @@ export class HomePage {
   localStorageSetUsername(ja: boolean) {
     if (ja == true) {
       localStorage.setItem("username", this.username);
+      localStorage.setItem("email", this.email);
     }
   }
 
@@ -60,7 +62,7 @@ export class HomePage {
 
     //// check to confirm the username and password fields are filled
 
-    if (this.username == null || this.password == null) {
+    if (this.email == null || this.password == null) {
 
       let toast = this.toastCtrl.create({
         message: 'Niet alle velden zijn ingevuld!',
@@ -83,7 +85,7 @@ export class HomePage {
 
       let data = {
 
-        username: this.username,
+        email: this.email,
 
         password: this.password
 
@@ -115,7 +117,7 @@ export class HomePage {
                 closeButtonText: "OK"
               });
               this.localStorageSetUsername(true);
-              console.log(localStorage.getItem("username"));
+              console.log(localStorage.getItem("email"));
               this.navCtrl.setRoot(CategoryPage);
               toast.present();
 
