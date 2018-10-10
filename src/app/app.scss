@@ -511,3 +511,24 @@ ion-title {
   font-weight: bold;
   font-size: 2rem;
 }
+
+// FEED images
+page-feed img {
+  text-align: center !important;
+  display: block !important;
+  margin: 0 auto !important;
+  vertical-align: middle !important;
+  overflow: hidden !important;
+  min-height: 200px!important;
+  max-height: 320px!important;
+
+}
+
+
+.ion-card-image-wrapper {
+  overflow: hidden !important;
+  background: url("../../assets/imgs/noimage.jpg");
+  height: 205px;
+  width: 390px;
+  align-content: center;
+}

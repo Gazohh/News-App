@@ -41,8 +41,12 @@
         </button>
       </ion-fab-list>
     </ion-fab> -->
-    <img *ngIf="!item.image" src="http://gazoh.net/images/noimage.jpg">
-    <img [src]="item.image">
+    <div class="ion-card-image-wrapper">
+          <img *ngIf="!item.image" src="http://gazoh.net/images/noimage.jpg">
+          <img [src]="item.image" *ngIf="item.site == 'NOS.nl'" class="transformFoto">
+          <img [src]="item.image" *ngIf="item.site == 'NU.nl'"  class="transformFoto">
+          <img [src]="item.image" *ngIf="item.site != 'NOS.nl' || item.site != 'NU.nl'">
+      </div>
     <ion-card-content>
       <ion-card-title>
         <strong>{{item.title}}</strong>

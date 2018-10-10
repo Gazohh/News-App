@@ -31190,6 +31190,12 @@ body > ion-app > ng-component > ion-nav > page-category > ion-header > ion-navba
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2) !important;
 }
 
+.back-button,
+ion-header button {
+  position: absolute !important;
+  z-index: 5;
+}
+
 ion-title {
   position: absolute;
   top: 0;
@@ -31332,6 +31338,26 @@ ion-title {
 .headerText {
   font-weight: bold;
   font-size: 2rem;
+}
+
+page-feed img {
+  text-align: center !important;
+  display: block !important;
+  margin: 0 auto !important;
+  vertical-align: middle !important;
+  overflow: hidden !important;
+  min-height: 200px !important;
+  max-height: 320px !important;
+}
+
+.ion-card-image-wrapper {
+  overflow: hidden !important;
+  background: url("../../assets/imgs/noimage.jpg");
+  height: 205px;
+  width: 390px;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
 }
 
 .card-background-page ion-card {
