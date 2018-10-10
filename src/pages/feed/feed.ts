@@ -25,133 +25,177 @@ import { Searchbar } from 'ionic-angular';
   templateUrl: 'feed.html',
 })
 export class FeedPage {
-  @ViewChild('searchbar') searchbar: Searchbar;
+    @ViewChild('searchbar') searchbar: Searchbar;
 
 
-  rssDataArray: any = [];
-  public items: any = 0;
-  public data: any;
-  public artikelen: any;
-  public key: string = "items";
-  public isSearchbaropened = false;
+    rssDataArray: any = [];
+    public items: any = 0;
+    public data: any;
+    public artikelen: any;
+    public key: string = "items";
+    public isSearchbaropened = false;
+    public datepicker: any;
+    public vandaag: any;
+    public gisteren: any;
+    public driedagengeleden: any;
 
-  constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    public menuCtrl: MenuController,
-    public http: HttpClient,
-    public network: Network,
-    private toastCtrl: ToastController,
-    public loadingCtrl: LoadingController,
-    private socialSharing: SocialSharing,
-    public platform: Platform) {
-    if (this.network.type != "none") {
-      //this.getData();
-      this.load();
+
+    constructor(
+        public navCtrl: NavController,
+        public navParams: NavParams,
+        public menuCtrl: MenuController,
+        public http: HttpClient,
+        public network: Network,
+        private toastCtrl: ToastController,
+        public loadingCtrl: LoadingController,
+        private socialSharing: SocialSharing,
+        public platform: Platform) {
+        if (this.network.type != "none") {
+            //this.getData();
+            this.datepicker = "vandaag";
+            if (this.datepicker == "vandaag") {
+                this.load();
+            }
+            else if (this.datepicker == "gisteren") {
+                this.loadYesterday();
+            }
+            else if (this.datepicker == "driedagengeleden") {
+                this.load3DaysAgo();
+            }
+        }
+        else {
+            this.loadData();
+            let toast = toastCtrl.create({
+                message: "Geen internet verbinding, opgeslagen artikelen worden ingeladen.",
+                duration: 2500,
+                position: "top",
+                showCloseButton: true,
+                closeButtonText: "OK"
+            });
+            toast.present();
+        }
+        let toastinlog = toastCtrl.create({
+            message: "Geen sessie gevonden, log opnieuw in.",
+            duration: 2500,
+            position: "top",
+            showCloseButton: true,
+            closeButtonText: "OK"
+        });
+        if (!localStorage.getItem("username")) {
+            this.navCtrl.setRoot(HomePage);
+            toastinlog.present();
+        }
+        /* //this.GetNews()
+         this.presentLoadingCustom();*/
     }
-    else {
-      this.loadData();
-      let toast = toastCtrl.create({
-        message: "Geen internet verbinding, opgeslagen artikelen worden ingeladen.",
-        duration: 2500,
-        position: "top",
-        showCloseButton: true,
-        closeButtonText: "OK"
-      });
-      toast.present();
-    }
-    let toastinlog = toastCtrl.create({
-      message: "Geen sessie gevonden, log opnieuw in.",
-      duration: 2500,
-      position: "top",
-      showCloseButton: true,
-      closeButtonText: "OK"
-    });
-    if (!localStorage.getItem("username")) {
-      this.navCtrl.setRoot(HomePage);
-      toastinlog.present();
-    }
-    /* //this.GetNews()
-     this.presentLoadingCustom();*/
-  }
 
-  /* presentLoadingCustom() {
+    presentLoadingCustom() {
 
-       let loading = this.loadingCtrl.create({
-           spinner: 'hide',
-           content: `
+        let loading = this.loadingCtrl.create({
+            spinner: 'hide',
+            content: `
      <div class="custom-spinner-container"><img src="http://gazoh.net/images/spinner.svg"><br> <p>Laden...</p>
      </div>`,
-           duration: 1200
-       });
-
-       loading.present();
-   }
-*/
-  ionViewDidLoad() {
-    this.menuCtrl.enable(true, 'myMenu');
-  }
-
-  /*getData() {
-      let url = "http://api.jsonbin.io/b/5bab4b98a97c597b3c591b93";
-      var headers = new HttpHeaders();
-      headers.append('Access-Control-Allow-Origin', '*');
-
-      headers.append("Accept", 'application/json');
-
-      headers.append('Content-Type', 'application/json');
-
-      let options = {headers: headers};
-      let data: Observable<any> = this.http.get(url, options);
-      data.subscribe(result => {
-          this.items = result;
-      });
-      localStorage.setItem(this.key, JSON.stringify(this.items));
-  }*/
-
-  loadData() {
-    localStorage.getItem(this.key);
-    if (this.key != null && this.key != undefined) {
-      this.items = JSON.parse(this.key);
-    }
-  }
-
-  load(): void {
-    this.http
-      .get('http://gazoh.net/getdata.php')
-      .subscribe((data: any) => {
-        this.items = data;
-        this.artikelen = data;
-      },
-        (error: any) => {
-          console.dir(error);
+            duration: 1200
         });
-  }
 
-  htmlToPlaintext(text) {
-    return text ? String(text).replace(/<[^>]+>/gm, '') : '';
-  }
+        loading.present();
+    }
 
-  // Redirect to NieuwsPage
-  viewEntry(param: any): void {
-    this.navCtrl.push('NieuwsPage', param);
-  }
+    ionViewDidLoad() {
+        this.menuCtrl.enable(true, 'myMenu');
+    }
 
-  search(event) {
-      let serVal = event.target.value;
-      if (serVal && serVal.trim() != '') {
-          this.items = this.items.filter((item) => {
-              return (item.title.toLowerCase().indexOf(serVal.toLowerCase()) > -1);
-          })
-      }
-  }
+    /*getData() {
+        let url = "http://api.jsonbin.io/b/5bab4b98a97c597b3c591b93";
+        var headers = new HttpHeaders();
+        headers.append('Access-Control-Allow-Origin', '*');
 
-  resetChanges() {
-      this.items = this.artikelen;
-  }
+        headers.append("Accept", 'application/json');
 
-  setFocus() {
-     this.searchbar.setFocus();
-   }
+        headers.append('Content-Type', 'application/json');
 
+        let options = {headers: headers};
+        let data: Observable<any> = this.http.get(url, options);
+        data.subscribe(result => {
+            this.items = result;
+        });
+        localStorage.setItem(this.key, JSON.stringify(this.items));
+    }*/
+
+    loadData() {
+        localStorage.getItem(this.key);
+        if (this.key != null && this.key != undefined) {
+            this.items = JSON.parse(this.key);
+        }
+    }
+
+    htmlToPlaintext(text) {
+        return text ? String(text).replace(/<[^>]+>/gm, '') : '';
+    }
+
+    // Redirect to NieuwsPage
+    viewEntry(param: any): void {
+        this.navCtrl.push('NieuwsPage', param);
+    }
+
+    search(event) {
+        let serVal = event.target.value;
+        if (serVal && serVal.trim() != '') {
+            this.items = this.items.filter((item) => {
+                return (item.title.toLowerCase().indexOf(serVal.toLowerCase()) > -1);
+            })
+        }
+    }
+
+    resetChanges() {
+        this.items = this.artikelen;
+    }
+
+    setFocus() {
+        this.searchbar.setFocus();
+    }
+
+    load() {
+        this.datepicker = "vandaag";
+        this.http
+            .get('http://gazoh.net/getdata.php')
+            .subscribe((data: any) => {
+                    this.items = data;
+                    this.artikelen = data;
+                },
+                (error: any) => {
+                    console.dir(error);
+                });
+        this.presentLoadingCustom();
+    }
+
+    loadYesterday() {
+        this.datepicker = "gisteren";
+        this.http
+            .get('http://gazoh.net/getyesterday.php')
+            .subscribe((data: any) => {
+                    this.items = data;
+                    this.artikelen = data;
+                },
+                (error: any) => {
+                    console.dir(error);
+                });
+        this.presentLoadingCustom();
+    }
+
+    load3DaysAgo() {
+        this.datepicker = "driedagengeleden";
+        this.http
+            .get('http://gazoh.net/get3daysago.php')
+            .subscribe((data: any) => {
+                    this.items = data;
+                    this.artikelen = data;
+                },
+                (error: any) => {
+                    console.dir(error);
+                });
+        this.presentLoadingCustom();
+
+    }
 }

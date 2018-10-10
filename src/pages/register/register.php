@@ -41,29 +41,37 @@ $data = file_get_contents("php://input");
 
     }
 
-$username = stripslashes($username);
+    $password = stripslashes($password);
 
-$password = stripslashes($password);
-
-$hashedpw = password_hash($password, PASSWORD_DEFAULT);
-
-$sql = "INSERT INTO users (username, password, email)
-VALUES ('$username', '$hashedpw', '$emailadd')";
-
-if ($con->query($sql) === TRUE) {
-
-    $response=  "Registration successfull";
-
-}
-else if(mysqli_errno($con) == 1062)
+if (!preg_match('/^(?=[a-z])(?=[A-Z])[a-zA-Z]$/', $password))
 {
-$response= "already in use";
+    $response = "password not strong";
 }
-else
-    {
-    $response= "Error: " . $sql . "<br>" . $db->error;
+else if(preg_match('/^(?=[a-z])(?=[A-Z])[a-zA-Z]$/', $password)){
+    $passwordstatus = true;
+}
+
+if($passwordstatus)
+{
+    $username = stripslashes($username);
+    $password = stripslashes($password);
+    $hashedpw = password_hash($password, PASSWORD_DEFAULT);
+    $sql = "INSERT INTO users (username, password, email)
+VALUES ('$username', '$hashedpw', '$emailadd')";
+    if ($con->query($sql) === TRUE) {
+
+        $response=  "Registration successfull";
+
     }
+    else if(mysqli_errno($con) == 1062)
+    {
+        $response= "already in use";
+    }
+    else
+    {
+        $response= "Error: " . $sql . "<br>" . $db->error;
+    }
+}
 
- echo json_encode( $response);
-
+echo json_encode( $response);
 ?>

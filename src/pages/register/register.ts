@@ -34,7 +34,7 @@ export class RegisterPage implements OnInit {
     ngOnInit() {
         this.form = new FormGroup({
             username: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-z ]+')/*, Validators.minLength(3)*/]),
-            password: new FormControl('', [Validators.required, Validators.minLength(5)]),
+            password: new FormControl('', [Validators.required, Validators.minLength(8), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$')]),
             email: new FormControl('', [Validators.required, Validators.email])
         })
     }
@@ -114,6 +114,20 @@ export class RegisterPage implements OnInit {
                                 title: "Registreren mislukt",
 
                                 subTitle: "Er bestaat al een gebruiker met het zelfde email of gebruikersnaam!",
+
+                                buttons: ['OK']
+
+                            });
+
+                            alert.present();
+                        }
+                        else if(res == "password not strong")
+                        {
+                            let alert = this.alertCtrl.create({
+
+                                title: "Registreren mislukt",
+
+                                subTitle: "Wachtwoord moet minimaal uit 8 tekens bestaan,\n die minstens een hoofdletter en een kleine letter en cijfer bevat",
 
                                 buttons: ['OK']
 

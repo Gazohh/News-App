@@ -11,6 +11,17 @@
       </button>
     </ion-buttons>
   </ion-navbar>
+  <ion-segment [(ngModel)]="datepicker" color="primary">
+    <ion-segment-button value="vandaag" (click)="load()">
+      Vandaag
+    </ion-segment-button>
+    <ion-segment-button value="gisteren" (click)="loadYesterday()">
+      Gisteren
+    </ion-segment-button>
+    <ion-segment-button value="driedagengeleden" (click)="load3DaysAgo()">
+      3 dagen geleden
+    </ion-segment-button>
+  </ion-segment>
 </ion-header>
 <ion-content>
   <ion-card *ngFor="let item of items" (click)="viewEntry({ record: item })">

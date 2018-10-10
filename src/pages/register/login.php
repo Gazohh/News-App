@@ -36,19 +36,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS')
 
         $username = $request->username;
 
+        $email = $request->email;
+
         $password = $request->password;
 
     }
 
       $username= mysqli_real_escape_string($con,$username);
 
+      $email= mysqli_real_escape_string($con, $email);
+
       $password = mysqli_real_escape_string($con,$password);
 
        $username = stripslashes($username);
 
+       $email = stripslashes($email);
+
       $password = stripslashes($password);
 
-    $sql = "SELECT * FROM users WHERE username = '$username'";
+    $sql = "SELECT * FROM users WHERE email = '$email'";
 
       $result = mysqli_query($con,$sql);
 
