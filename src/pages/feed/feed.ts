@@ -152,9 +152,9 @@ export class FeedPage {
         this.items = this.artikelen;
     }
 
-    setFocus() {
-        this.searchbar.setFocus();
-    }
+    // setFocus() {
+    //     this.searchbar.setFocus();
+    // }
 
     load() {
         this.datepicker = "vandaag";

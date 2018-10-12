@@ -1,11 +1,12 @@
 <ion-header>
   <ion-navbar>
+    <ion-searchbar #searchbar *ngIf="isSearchbaropened" [showCancelButton]="true" (ionCancel)="isSearchbaropened=false"
+     (ionInput)="search($event)" placeholder="Waar zijn we naar op zoek?" class="slideInRight"></ion-searchbar>
     <button ion-button menuToggle *ngIf="!isSearchbaropened">
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title *ngIf="!isSearchbaropened">Home</ion-title>
-    <ion-searchbar #searchbar *ngIf="isSearchbaropened" [showCancelButton]="true" (ionCancel)="isSearchbaropened=false" (ionInput)="search($event)"></ion-searchbar>
-    <ion-buttons end (click)="setFocus()">
+   <ion-buttons end>
       <button ion-button icon-only (click)="isSearchbaropened=true">
         <ion-icon name="search" *ngIf="!isSearchbaropened"></ion-icon>
       </button>

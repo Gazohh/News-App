@@ -31190,10 +31190,8 @@ body > ion-app > ng-component > ion-nav > page-category > ion-header > ion-navba
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2) !important;
 }
 
-.back-button,
-ion-header button {
-  position: absolute !important;
-  z-index: 5;
+body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
+  overflow: inherit !important;
 }
 
 ion-title {
@@ -31354,10 +31352,71 @@ page-feed img {
   overflow: hidden !important;
   background: url("../../assets/imgs/noimage.jpg");
   height: 205px;
-  width: 390px;
   -webkit-align-content: center;
   -ms-flex-line-pack: center;
   align-content: center;
+}
+
+@-webkit-keyframes slideInRight {
+  0% {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+  to {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+  to {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+
+.slideInRight {
+  -webkit-animation-name: slideInRight;
+  animation-name: slideInRight;
+  -webkit-animation-duration: 300ms !important;
+  animation-duration: 300ms !important;
+}
+
+@-webkit-keyframes slideInLeft {
+  0% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+  to {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+  to {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+
+.slideInLeft {
+  -webkit-animation-name: slideInLeft;
+  animation-name: slideInLefts;
+  -webkit-animation-duration: 300ms;
+  animation-duration: 300ms;
 }
 
 .card-background-page ion-card {

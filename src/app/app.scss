@@ -11,6 +11,7 @@
     content: fa-content($fa-var-user);
   }
 }
+
 // Register Button
 
 .registerButton {
@@ -345,16 +346,18 @@ ion-buttons {
 }
 // Navbar
 
+// box-shadow
 body > ion-app > ng-component > ion-nav > page-category > ion-header > ion-navbar {
   -webkit-box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2) !important;
   box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2) !important;
 }
 
-.back-button,
-ion-header button {
-  position: absolute !important;
-  z-index: 5;
+// navbar voor de animatie
+body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
+  overflow: inherit !important;
 }
+
+//
 
 ion-title {
   position: absolute;
@@ -405,6 +408,7 @@ ion-title {
 // Menu
 // Algemeen
 // Text van de menu {Home, Categorie, etc..}
+
 #contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button > div.item-inner > div > ion-label {
   text-align: left !important;
 }
@@ -438,7 +442,7 @@ ion-title {
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-navbar > div.toolbar-background.toolbar-background-md {
-  background-image:  url("../assets/imgs/backgroundMenu.jpg");
+  background-image: url("../assets/imgs/backgroundMenu.jpg");
   background-repeat: repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -447,8 +451,8 @@ ion-title {
   position: absolute;
   background-color: transparent !important;
 }
-
 // Icon van de menu
+
 #contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button > div.item-inner > div > ion-label > ion-icon {
   float: left !important;
 }
@@ -462,11 +466,9 @@ ion-title {
   color: #000!important;
 }
 
-
 .versienummer {
   margin: 0 0 0 25px;
 }
-
 // Card
 
 .card-title2 {
@@ -511,8 +513,8 @@ ion-title {
   font-weight: bold;
   font-size: 2rem;
 }
-
 // FEED images
+
 page-feed img {
   text-align: center !important;
   display: block !important;
@@ -521,14 +523,80 @@ page-feed img {
   overflow: hidden !important;
   min-height: 200px!important;
   max-height: 320px!important;
-
 }
-
 
 .ion-card-image-wrapper {
   overflow: hidden !important;
   background: url("../../assets/imgs/noimage.jpg");
   height: 205px;
-  width: 390px;
   align-content: center;
+}
+
+//Transitions
+
+// slideInRight
+@-webkit-keyframes slideInRight {
+  0% {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+    visibility: visible
+  }
+
+  to {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0)
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+    visibility: visible
+  }
+
+  to {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0)
+  }
+}
+
+.slideInRight {
+  -webkit-animation-name: slideInRight;
+  animation-name: slideInRight;
+  animation-duration: 300ms !important;
+}
+
+//slideInLeft
+
+@-webkit-keyframes slideInLeft {
+  0% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible
+  }
+
+  to {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0)
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible
+  }
+
+  to {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0)
+  }
+}
+
+.slideInLeft {
+  -webkit-animation-name: slideInLeft;
+  animation-name: slideInLefts;
+  animation-duration: 300ms;
 }
