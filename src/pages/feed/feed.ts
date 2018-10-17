@@ -40,6 +40,7 @@ export class FeedPage {
     public driedagengeleden: any;
 
 
+
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
@@ -81,7 +82,7 @@ export class FeedPage {
             showCloseButton: true,
             closeButtonText: "OK"
         });
-        if (!localStorage.getItem("username")) {
+        if (!localStorage.getItem("email")) {
             this.navCtrl.setRoot(HomePage);
             toastinlog.present();
         }
@@ -196,6 +197,5 @@ export class FeedPage {
                     console.dir(error);
                 });
         this.presentLoadingCustom();
-
     }
 }

@@ -14,7 +14,9 @@ import { CategoryPage } from "../pages/category/category";
 import { ModalController, NavParams } from 'ionic-angular';
 import { MenuController } from 'ionic-angular';
 import { Events } from 'ionic-angular';
-
+import { timer } from 'rxjs/observable/timer';
+import { SourcesPage } from "../pages/sources/sources";
+import { TutorialPage } from "../pages/tutorial/tutorial";
 
 
 @Component({
@@ -33,7 +35,7 @@ export class MyApp {
 
   constructor(platform: Platform,
     statusBar: StatusBar,
-    splashScreen: SplashScreen,
+    private splashScreen: SplashScreen,
     private settings: SettingsProvider,
     public modalCtrl: ModalController,
     public menuCtrl: MenuController,
@@ -43,7 +45,8 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleLightContent();
-      splashScreen.hide();
+      // splashScreen.hide();
+
     });
 
 
@@ -55,13 +58,19 @@ export class MyApp {
 
     this.pages = [
       {
-        // title: localStorage.getItem("username"),
+
         title: 'Home',
         component: CategoryPage,
         icon: 'home'
       },
       {
-        // title: localStorage.getItem("username"),
+
+        title: 'Sources',
+        component: SourcesPage,
+        icon: 'star'
+      },
+      {
+
         title: 'Favorieten',
         component: FavorietenPage,
         icon: 'heart'
@@ -73,7 +82,7 @@ export class MyApp {
       },
       {
         title: 'Tutorial',
-        component: SettingsPage,
+        component: TutorialPage,
         icon: 'map'
       },
       {
@@ -83,15 +92,22 @@ export class MyApp {
       }
     ];
 
+    //
+    // Local Storage
+    //
 
-    if (!localStorage.getItem("username")) {
-      this.rootPage = HomePage
+
+    if (!localStorage.getItem("email")) {
+      this.rootPage = HomePage;
     }
     else {
       this.rootPage = CategoryPage;
     }
 
+    //
     // Dark/Light Mode
+    //
+
     if (localStorage.getItem("themeColor") == "dark-theme") {
 
       this.settings.setActiveTheme("dark-theme");

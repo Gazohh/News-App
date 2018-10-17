@@ -11,8 +11,18 @@
     content: fa-content($fa-var-user);
   }
 }
+//
+// Slider
+//
 
-// Register Button
+.swiper-slide {
+  overflow-y: scroll;
+  display: block;
+}
+///
+//
+// Register Button (RegisterPage)
+//
 
 .registerButton {
   margin: 0 !important;
@@ -22,6 +32,16 @@
   box-shadow: none;
   text-transform: uppercase;
 }
+//
+// Register Text
+//
+
+body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div > div > ion-title > div {
+  color: white;
+}
+//
+// Home Button (HomePage)
+//
 
 .homeButton {
   margin: 0 !important;
@@ -31,20 +51,16 @@
   box-shadow: none;
   text-transform: uppercase;
 }
-
-.button-ios {
-  font-size: 1.4rem !important;
-}
-// Register TEXT
-
-body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div > div > ion-title > div {
-  color: white;
-}
+//
 // Login Text
+//
 
 body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div > div > ion-title > div {
   color: white;
 }
+//
+// HTML *
+//
 
 ion-grid {
   height: 100%;
@@ -208,11 +224,9 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   background: #ebeeef;
   padding: 10px;
 }
-// Login text
-
-body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div.loginFoto > div > ion-title > div {
-  color: white !important;
-}
+//
+// lOGIN PAGE
+//
 
 .txt1 {
   font-family: Poppins-Regular;
@@ -249,7 +263,9 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   margin-left: 15px;
   margin-top: 30px;
 }
-// scroll content
+//
+// scroll-content
+//
 
 body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content {
   background-color: #ebeeef;
@@ -264,7 +280,9 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   background: #ebeeef;
   padding: 10px;
 }
-// Row van buttons
+//
+// Row Buttons
+//
 
 body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div.loginFoto > div > div {
   bottom: 0;
@@ -314,7 +332,9 @@ body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scro
   color: #999999;
   padding-left: 15px;
 }
-// Android
+//
+// Android (MD)
+//
 
 .bar-button-md {
   margin: 0 0.2rem;
@@ -344,20 +364,22 @@ ion-buttons {
   font-weight: 500;
   color: #FFF !important;
 }
+//
 // Navbar
-
+//
 // box-shadow
+
 body > ion-app > ng-component > ion-nav > page-category > ion-header > ion-navbar {
   -webkit-box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2) !important;
   box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2) !important;
 }
+//
+// Navbar Animatie
+//
 
-// navbar voor de animatie
 body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   overflow: inherit !important;
 }
-
-//
 
 ion-title {
   position: absolute;
@@ -391,12 +413,13 @@ ion-title {
 .bar-button-default.bar-button-ios-default {
   color: #fff;
 }
+//
 // Cards
+//
 
 .Card {
   border-radius: 1rem;
 }
-//Header
 
 .toolbar-background {
   background-color: rgb(20, 20, 20) !important;
@@ -405,9 +428,9 @@ ion-title {
 .toolbar-title-ios {
   color: white;
 }
+//
 // Menu
-// Algemeen
-// Text van de menu {Home, Categorie, etc..}
+// Text van menu
 
 #contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button > div.item-inner > div > ion-label {
   text-align: left !important;
@@ -451,7 +474,6 @@ ion-title {
   position: absolute;
   background-color: transparent !important;
 }
-// Icon van de menu
 
 #contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button > div.item-inner > div > ion-label > ion-icon {
   float: left !important;
@@ -469,49 +491,50 @@ ion-title {
 .versienummer {
   margin: 0 0 0 25px;
 }
-// Card
+//
+// Card Category
+//
 
 .card-title2 {
-  position: absolute !important;
   font-size: 150% !important;
-  width: 100% !important;
   font-weight: bold!important;
-  text-align: end !important;
-  top: 80% !important;
-  right: 5% !important;
   color: #fff !important;
   text-shadow: 0 0 7px #000000;
 }
-// Custom Transitions
-@-webkit-keyframes slideInDown {
-  0% {
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
-    visibility: visible;
-  }
 
-  to {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-  }
+.card-background-page .card-subtitle {
+  top: 63% !important;
+  text-shadow: 0 0 7px #000000;
 }
-// Cards Design FEED Page
+//
+// FeedPage Card Design
+//
 
 .ColorTelegraaf {
-  background-color: rgb(85,122,149) !important;
+  background-color: rgb(39, 80, 154) !important;
 }
 
 .ColorNU {
-  background-color: rgb(177,162,150) !important;
+  background-color: rgb(2, 0, 81) !important;
 }
 
 .ColorNOS {
-  background-color: rgb(93,92,97) !important;
+  background-color: rgb(208, 37, 39) !important;
 }
 
 .headerText {
   font-weight: bold;
   font-size: 2rem;
+}
+
+body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > ion-card {
+  margin: 0;
+  width: 100%;
+  border-radius: 2px;
+  font-size: 1.4rem;
+  background: #fff;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 // FEED images
 
@@ -521,8 +544,8 @@ page-feed img {
   margin: 0 auto !important;
   vertical-align: middle !important;
   overflow: hidden !important;
-  min-height: 200px!important;
-  max-height: 320px!important;
+  min-height: 204px !important;
+  max-height: 284px !important;
 }
 
 .ion-card-image-wrapper {
@@ -531,33 +554,88 @@ page-feed img {
   height: 205px;
   align-content: center;
 }
+// NieuwsPage
 
-//Transitions
+body > ion-app > ng-component > ion-nav > page-nieuws > ion-header > ion-navbar > div.toolbar-content.toolbar-content-md {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block;
+  overflow: hidden;
+}
 
+.nieuwsNavTitle {
+  color: white;
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+.nieuwsCard {
+  margin: 0;
+  border-radius: 2px;
+  width: 100%;
+  font-size: 1.4rem;
+  background: #fff;
+  box-shadow: none;
+}
+
+.nieuwsDatum {
+  color: #8f8e8e !important;
+}
+//
+// Sources
+//
+
+.buttonIcon {
+  padding-right: 8px;
+}
+//
+// Appbrowser button
+//
+
+body > ion-app > ng-component > ion-nav > page-nieuws > ion-content > div.scroll-content > ion-card > ion-card-content > button {
+  top: 10px !important;
+}
+//
+// SourcesPage
+//
+
+.TitelSources {
+  float: left;
+  font-weight: bold !important;
+  color: #9f9f9f;
+}
+// Titel Sources List MD  lABEL
+body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scroll-content > ion-slides > div > div.swiper-wrapper > ion-slide.swiper-slide.swiper-slide-active > div > ion-list > ion-item:nth-child(1) > div.item-inner > div > ion-label {
+  marin-bottom: 0px;
+}
+
+
+
+// Transitions
+//
 // slideInRight
 @-webkit-keyframes slideInRight {
   0% {
     -webkit-transform: translate3d(100%, 0, 0);
     transform: translate3d(100%, 0, 0);
-    visibility: visible
+    visibility: visible;
   }
 
   to {
     -webkit-transform: translateZ(0);
-    transform: translateZ(0)
+    transform: translateZ(0);
   }
 }
-
 @keyframes slideInRight {
   0% {
     -webkit-transform: translate3d(100%, 0, 0);
     transform: translate3d(100%, 0, 0);
-    visibility: visible
+    visibility: visible;
   }
 
   to {
     -webkit-transform: translateZ(0);
-    transform: translateZ(0)
+    transform: translateZ(0);
   }
 }
 
@@ -566,32 +644,29 @@ page-feed img {
   animation-name: slideInRight;
   animation-duration: 300ms !important;
 }
-
 //slideInLeft
-
 @-webkit-keyframes slideInLeft {
   0% {
     -webkit-transform: translate3d(-100%, 0, 0);
     transform: translate3d(-100%, 0, 0);
-    visibility: visible
+    visibility: visible;
   }
 
   to {
     -webkit-transform: translateZ(0);
-    transform: translateZ(0)
+    transform: translateZ(0);
   }
 }
-
 @keyframes slideInLeft {
   0% {
     -webkit-transform: translate3d(-100%, 0, 0);
     transform: translate3d(-100%, 0, 0);
-    visibility: visible
+    visibility: visible;
   }
 
   to {
     -webkit-transform: translateZ(0);
-    transform: translateZ(0)
+    transform: translateZ(0);
   }
 }
 

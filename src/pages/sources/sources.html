@@ -1,0 +1,190 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Sources</ion-title>
+  </ion-navbar>
+  <ion-segment color="dark" [(ngModel)]="page">
+    <ion-segment-button value="0" (click)="selectedTab(0)">
+      Subscribed
+    </ion-segment-button>
+    <ion-segment-button value="1" (click)="selectedTab(1)">
+      Suggesties
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+<ion-content>
+  <ion-slides #slider (ionSlideWillChange)="moveButton($event)" >
+    <!--  -->
+    <!-- Alle Sources die zijn geimport -->
+    <!--  -->
+    <ion-slide>
+      <ion-list>
+        <ion-item>
+          <ion-avatar class="avatar" item-start>
+            <img src="../assets/svg/NOS_logo.svg">
+          </ion-avatar>
+          <div><b>NOS</b></div>
+          <div>Nieuwsfeed</div>
+          <button ion-button outline item-end color="danger">
+            <ion-icon name="close" class="buttonIcon"></ion-icon>Verwijderen
+          </button>
+        </ion-item>
+
+        <ion-item>
+          <ion-avatar class="avatar" item-start>
+            <img src="../assets/svg/telegraaf.svg">
+          </ion-avatar>
+          <div><b>De Telegraaf</b></div>
+          <div>Nieuwsfeed</div>
+          <button ion-button outline item-end color="danger">
+            <ion-icon name="close" class="buttonIcon"></ion-icon>Verwijderen
+          </button>
+        </ion-item>
+
+        <ion-item>
+          <ion-avatar class="avatar" item-start>
+            <img src="../assets/svg/nu.nl.svg">
+          </ion-avatar>
+          <div><b>NU.NL</b></div>
+          <div>Nieuwsfeed</div>
+          <button ion-button outline item-end color="danger">
+            <ion-icon name="close" class="buttonIcon"></ion-icon>Verwijderen
+          </button>
+        </ion-item>
+
+      </ion-list>
+    </ion-slide>
+    <ion-slide>
+      <ion-list>
+        <!--  -->
+        <!-- Alle Sources die je kunt importen -->
+        <!--  -->
+        <ion-item>
+              <h4 class="TitelSources">Nieuwsfeed</h4>
+        </ion-item>
+        <ion-item>
+          <ion-avatar class="avatar" item-start>
+            <img src="../assets/svg/Volkskrant.svg">
+          </ion-avatar>
+          <div><b>De Volkskrant</b></div>
+          <div>Nieuwsfeed</div>
+          <button ion-button outline item-end color="green">
+            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
+          </button>
+        </ion-item>
+
+        <ion-item>
+          <ion-avatar class="avatar" item-start>
+            <img src="../assets/svg/AD.svg">
+          </ion-avatar>
+          <div><b>Algemeen Dagblad</b></div>
+          <div>Nieuwsfeed</div>
+          <button ion-button outline item-end color="green">
+            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
+          </button>
+        </ion-item>
+
+
+        <ion-item>
+          <ion-avatar class="avatar" item-start>
+            <img src="../assets/svg/RTL_Nederland.svg">
+          </ion-avatar>
+          <div><b>RTL Nieuws</b></div>
+          <div>Nieuwsfeed</div>
+          <button ion-button outline item-end color="green">
+            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
+          </button>
+        </ion-item>
+
+        <ion-item>
+          <ion-avatar class="avatar" item-start>
+            <img src="../assets/svg/De_Gelderlander.svg">
+          </ion-avatar>
+          <div><b>De Gelderlander</b></div>
+          <div>Nieuwsfeed</div>
+          <button ion-button outline item-end color="green">
+            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
+          </button>
+        </ion-item>
+
+        <ion-item>
+              <h4 class="TitelSources">Tech</h4>
+        </ion-item>
+
+        <ion-item>
+          <ion-avatar class="avatar" item-start>
+            <img src="../assets/svg/Tweakers.svg">
+          </ion-avatar>
+          <div><b>Tweakers</b></div>
+          <div>Tech</div>
+          <button ion-button outline item-end color="green">
+            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
+          </button>
+        </ion-item>
+
+        <ion-item>
+              <h4 class="TitelSources">Sport</h4>
+        </ion-item>
+
+        <ion-item>
+          <ion-avatar class="avatar" item-start>
+            <img src="../assets/svg/Fifa.svg">
+          </ion-avatar>
+          <div><b>Fifa</b></div>
+          <div>Sport</div>
+          <button ion-button outline item-end color="green">
+            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
+          </button>
+        </ion-item>
+
+        <ion-item>
+          <ion-avatar class="avatar" item-start>
+            <img src="../assets/svg/FoxSports.svg">
+          </ion-avatar>
+          <div><b>Fox Sports Go</b></div>
+          <div>Sport</div>
+          <button ion-button outline item-end color="green">
+            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
+          </button>
+        </ion-item>
+
+        <ion-item>
+          <ion-avatar class="avatar" item-start>
+            <img src="../assets/svg/NuSport.svg">
+          </ion-avatar>
+          <div><b>Nu Sport</b></div>
+          <div>Sport</div>
+          <button ion-button outline item-end color="green">
+            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
+          </button>
+        </ion-item>
+
+        <ion-item>
+          <ion-avatar class="avatar" item-start>
+            <img src="../assets/svg/rtlz.svg">
+          </ion-avatar>
+          <div><b>RTL Z </b></div>
+          <div>Sport</div>
+          <button ion-button outline item-end color="green">
+            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
+          </button>
+        </ion-item>
+
+        <ion-item>
+          <ion-avatar class="avatar" item-start>
+            <img src="../assets/svg/Voetbalzone.svg">
+          </ion-avatar>
+          <div><b>Voetbalzone</b></div>
+          <div>Sport</div>
+          <button ion-button outline item-end color="green">
+            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
+          </button>
+        </ion-item>
+
+
+      </ion-list>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

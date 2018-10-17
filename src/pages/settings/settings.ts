@@ -44,7 +44,7 @@ export class SettingsPage {
   }
 
   uitloggen() {
-    localStorage.clear();
+    localStorage.removeItem("email");
     this.navCtrl.push(HomePage);
   }
 

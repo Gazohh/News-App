@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 
 /**
  * Generated class for the NieuwsPage page.
@@ -15,32 +16,30 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class NieuwsPage {
 
-    title: string;
-    description: string;
-    link: string;
-    image: string;
-    datum: string;
-    site: string;
-    id: string;
+  title: string;
+  description: string;
+  link: string;
+  image: string;
+  datum: string;
+  site: string;
+  id: string;
+  url: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-      if(this.navParams.get("record"))
-      {
-          this.selectEntry(this.navParams.get("record"));
-          console.log(this.navParams.get("record"));
-      }
-      else
-      {
-          this.navCtrl.setRoot("CategoryPage");
-      }
+  constructor(public navCtrl: NavController, public navParams: NavParams, private iab: InAppBrowser) {
+    if (this.navParams.get("record")) {
+      this.selectEntry(this.navParams.get("record"));
+      console.log(this.navParams.get("record"));
+    }
+    else {
+      this.navCtrl.setRoot("CategoryPage");
+    }
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NieuwsPage');
   }
 
-  selectEntry(item: any) : void
-  {
+  selectEntry(item: any): void {
     this.title = item.title;
     this.image = item.image;
     this.description = item.description;
@@ -50,8 +49,13 @@ export class NieuwsPage {
     this.id = item.id;
   }
 
-    htmlToPlaintext(text) {
-        return text ? String(text).replace(/<[^>]+>/gm, '') : '';
-    }
+  htmlToPlaintext(text) {
+    return text ? String(text).replace(/<[^>]+>/gm, '') : '';
+  }
 
+  openPagina(url: any) {
+
+    const browser = this.iab.create(url);
+    browser.show();
+  }
 }

@@ -23,6 +23,7 @@ export class CategoryPage {
 
     constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public toastCtrl: ToastController, public http: HttpClient) {
     this.menuCtrl.enable(true, 'myMenu');
+  
   }
 
     ionViewWillEnter()
