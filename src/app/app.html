@@ -1,4 +1,4 @@
-<ion-menu id="myMenu" [content]="content" [swipeEnabled]="false">
+<ion-menu [class]="selectedTheme" id="myMenu" [content]="content" [swipeEnabled]="false">
   <ion-content id="contentAnimation" menuToggle>
     <ion-list>
       <ion-navbar>
@@ -6,21 +6,21 @@
           <ion-row>
             <ion-col>
               <img src="https://bankwatch.org/wp-content/uploads/2018/03/Portrait_Placeholder.png" class="custom-avatar" />
-              <h5 class="usernameMenu">Username</h5>
+              <h5 ngClass="usernameMenu" >Username</h5>
             </ion-col>
           </ion-row>
         </ion-grid>
       </ion-navbar>
-      <ion-item>
-        <button detail-none ion-item menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+      <ion-item class="menuBuitenkant" >
+        <button class="menuScherm" detail-none ion-item menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" >
           <ion-icon slot="start" [name]="p.icon"></ion-icon>
-          <span class="menu-titles">
+          <span class="menu-titles" >
           {{p.title}}
         </span>
         </button>
       </ion-item>
-      <ion-footer>
-        <ion-toolbar>
+      <ion-footer class="footerMenu">
+        <ion-toolbar >
           <div class="versienummer"><b>©NewsAge</b> V3.4.8</div>
         </ion-toolbar>
       </ion-footer>

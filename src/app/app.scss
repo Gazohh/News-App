@@ -2,6 +2,7 @@
 @import "www/assets/scss/fontawesome.scss";
 @import "www/assets/scss/solid.scss";
 @import "www/assets/scss/brands.scss";
+@import "www/assets/scss/theme.dark1.scss";
 
 .user {
   @extend %fa-icon;
@@ -19,6 +20,7 @@
   overflow-y: scroll;
   display: block;
 }
+
 ///
 //
 // Register Button (RegisterPage)
@@ -32,6 +34,7 @@
   box-shadow: none;
   text-transform: uppercase;
 }
+
 //
 // Register Text
 //
@@ -39,6 +42,7 @@
 body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div > div > ion-title > div {
   color: white;
 }
+
 //
 // Home Button (HomePage)
 //
@@ -51,6 +55,7 @@ body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scro
   box-shadow: none;
   text-transform: uppercase;
 }
+
 //
 // Login Text
 //
@@ -58,6 +63,7 @@ body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scro
 body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div > div > ion-title > div {
   color: white;
 }
+
 //
 // HTML *
 //
@@ -218,8 +224,8 @@ ion-grid {
   height: 100%;
   justify-content: center;
 }
-// Background color
 
+// Background color
 body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid {
   background: #ebeeef;
   padding: 10px;
@@ -263,6 +269,7 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   margin-left: 15px;
   margin-top: 30px;
 }
+
 //
 // scroll-content
 //
@@ -280,6 +287,7 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   background: #ebeeef;
   padding: 10px;
 }
+
 //
 // Row Buttons
 //
@@ -332,6 +340,7 @@ body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scro
   color: #999999;
   padding-left: 15px;
 }
+
 //
 // Android (MD)
 //
@@ -364,11 +373,12 @@ ion-buttons {
   font-weight: 500;
   color: #FFF !important;
 }
+
 //
 // Navbar
 //
-// box-shadow
 
+// box-shadow
 body > ion-app > ng-component > ion-nav > page-category > ion-header > ion-navbar {
   -webkit-box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2) !important;
   box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2) !important;
@@ -413,6 +423,7 @@ ion-title {
 .bar-button-default.bar-button-ios-default {
   color: #fff;
 }
+
 //
 // Cards
 //
@@ -491,6 +502,7 @@ ion-title {
 .versienummer {
   margin: 0 0 0 25px;
 }
+
 //
 // Card Category
 //
@@ -506,10 +518,10 @@ ion-title {
   top: 63% !important;
   text-shadow: 0 0 7px #000000;
 }
+
 //
 // FeedPage Card Design
 //
-
 .ColorTelegraaf {
   background-color: rgb(39, 80, 154) !important;
 }
@@ -527,7 +539,9 @@ ion-title {
   font-size: 2rem;
 }
 
-body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > ion-card {
+body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > ion-card {
+  position: relative;
+  left: calc(-50vw + 50%);
   margin: 0;
   width: 100%;
   border-radius: 2px;
@@ -536,8 +550,8 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
-// FEED images
 
+// FEED images
 page-feed img {
   text-align: center !important;
   display: block !important;
@@ -554,8 +568,8 @@ page-feed img {
   height: 205px;
   align-content: center;
 }
-// NieuwsPage
 
+// NieuwsPage
 body > ion-app > ng-component > ion-nav > page-nieuws > ion-header > ion-navbar > div.toolbar-content.toolbar-content-md {
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -581,6 +595,7 @@ body > ion-app > ng-component > ion-nav > page-nieuws > ion-header > ion-navbar 
 .nieuwsDatum {
   color: #8f8e8e !important;
 }
+
 //
 // Sources
 //
@@ -588,6 +603,7 @@ body > ion-app > ng-component > ion-nav > page-nieuws > ion-header > ion-navbar 
 .buttonIcon {
   padding-right: 8px;
 }
+
 //
 // Appbrowser button
 //
@@ -595,6 +611,7 @@ body > ion-app > ng-component > ion-nav > page-nieuws > ion-header > ion-navbar 
 body > ion-app > ng-component > ion-nav > page-nieuws > ion-content > div.scroll-content > ion-card > ion-card-content > button {
   top: 10px !important;
 }
+
 //
 // SourcesPage
 //
@@ -604,12 +621,11 @@ body > ion-app > ng-component > ion-nav > page-nieuws > ion-content > div.scroll
   font-weight: bold !important;
   color: #9f9f9f;
 }
+
 // Titel Sources List MD  lABEL
 body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scroll-content > ion-slides > div > div.swiper-wrapper > ion-slide.swiper-slide.swiper-slide-active > div > ion-list > ion-item:nth-child(1) > div.item-inner > div > ion-label {
   marin-bottom: 0px;
 }
-
-
 
 // Transitions
 //

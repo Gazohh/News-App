@@ -52,6 +52,28 @@
   background-color: transparent !important;
 }
 
+.dark-theme .menuBuitenkant {
+  background-color: #424242;
+  color: #fff;
+}
+
+.dark-theme .menuScherm {
+  background-color: #424242 !important;
+  color: #fff;
+}
+
+.dark-theme #contentAnimation > div.scroll-content {
+  background-color: #424242;
+}
+
+.dark-theme #contentAnimation > div.scroll-content > ion-list > ion-footer > ion-toolbar > div.toolbar-background.toolbar-background-md {
+  background: #424242 !important;
+}
+
+.dark-theme .footerMenu {
+  color: #FFF;
+}
+
 .ion-ios-add:before {
   content: "\f102";
 }
@@ -33133,6 +33155,74 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Brands';
 }
 
+.dark-theme ion-content {
+  background-color: #303030 !important;
+}
+
+.dark-theme .toolbar-title {
+  color: #ffffff !important;
+}
+
+.dark-theme .DarkLabel {
+  color: #fff;
+  border: none;
+}
+
+.dark-theme .header .toolbar-background {
+  border-color: #ff0fff !important;
+  background-color: #000 !important;
+}
+
+.dark-theme .ionTitle {
+  background-color: #212121 !important;
+}
+
+.dark-theme .darkItem {
+  background-color: #303030;
+}
+
+.dark-theme .label-md {
+  color: #FFFFFF !important;
+}
+
+.dark-theme .uitloggen {
+  background-color: #212121 !important;
+}
+
+.dark-theme .item-ios.item-block .item-inner {
+  border: none;
+}
+
+.dark-theme .menu {
+  background-color: #303030;
+}
+
+.dark-theme .adminUsers {
+  background-color: transparent !important;
+}
+
+.dark-theme .menuBuitenkant {
+  background-color: #424242;
+  color: #fff;
+}
+
+.dark-theme .menuScherm {
+  background-color: #424242 !important;
+  color: #fff;
+}
+
+.dark-theme #contentAnimation > div.scroll-content {
+  background-color: #424242;
+}
+
+.dark-theme #contentAnimation > div.scroll-content > ion-list > ion-footer > ion-toolbar > div.toolbar-background.toolbar-background-md {
+  background: #424242 !important;
+}
+
+.dark-theme .footerMenu {
+  color: #FFF;
+}
+
 .user:before {
   content: "\f007";
 }
@@ -33617,7 +33707,9 @@ ion-title {
   font-size: 2rem;
 }
 
-body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > ion-card {
+body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > ion-card {
+  position: relative;
+  left: calc(-50vw + 50%);
   margin: 0;
   width: 100%;
   border-radius: 2px;

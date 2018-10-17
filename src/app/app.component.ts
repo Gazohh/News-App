@@ -108,15 +108,16 @@ export class MyApp {
     // Dark/Light Mode
     //
 
-    if (localStorage.getItem("themeColor") == "dark-theme") {
+    // Dark/Light Mode
+    if (localStorage.getItem("themeColor") == "light-theme") {
 
-      this.settings.setActiveTheme("dark-theme");
+      this.settings.setActiveTheme("light-theme");
       console.log("Toggle Status: " + this.toggleStatus);
 
     }
-    else if (localStorage.getItem("themeColor") == "light-theme") {
+    else if (localStorage.getItem("themeColor") == "dark-theme") {
 
-      this.settings.setActiveTheme("light-theme");
+      this.settings.setActiveTheme("dark-theme");
       console.log("Toggle Status: " + this.toggleStatus);
     }
   }

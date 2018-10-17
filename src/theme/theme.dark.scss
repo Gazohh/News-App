@@ -15,19 +15,19 @@
     background-color: #000 !important;
   }
 
-.ionTitle{
-  background-color: #212121 !important;
-}
-.darkItem{
-  background-color: #303030;
+  .ionTitle{
+    background-color: #212121 !important;
+  }
+  .darkItem{
+    background-color: #303030;
 
-}
-.label-md{
-  color: #FFFFFF !important;
-}
-.uitloggen{
-  background-color: #212121 !important;
-}
+  }
+  .label-md{
+    color: #FFFFFF !important;
+  }
+  .uitloggen{
+    background-color: #212121 !important;
+  }
 
   .item-ios.item-block .item-inner {
     border: none;
@@ -36,9 +36,29 @@
     background-color: #303030;
   }
 
-// Menu
+  // Menu
 
-.adminUsers {
- background-color: transparent !important;
-}
+  .adminUsers {
+    background-color: transparent !important;
+  }
+
+
+  .menuBuitenkant{
+    background-color: #424242;
+    color: #fff;
+  }
+  .menuScherm{
+    background-color: #424242 !important;
+    color: #fff;
+  }#contentAnimation > div.scroll-content{
+     background-color: #424242;
+   }
+  #contentAnimation > div.scroll-content > ion-list > ion-footer > ion-toolbar > div.toolbar-background.toolbar-background-md {
+    background: #424242 !important;
+  }
+  .footerMenu{
+    color: #FFF;
+  }
+
+
 }
