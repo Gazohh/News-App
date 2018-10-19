@@ -4,6 +4,7 @@ import { SettingsProvider } from "../../providers/settings/settings";
 import { Nav, Platform } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import {AdminPage} from "../admin/admin";
+import { CategoryPage } from "../category/category";
 
 @IonicPage()
 @Component({
@@ -45,7 +46,8 @@ export class SettingsPage {
 
   uitloggen() {
     localStorage.removeItem("email");
-    this.navCtrl.push(HomePage);
+    this.navCtrl.setRoot(HomePage);
+
   }
 
 }

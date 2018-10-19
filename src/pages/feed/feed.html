@@ -5,7 +5,7 @@
     </button>
     <ion-title *ngIf="!isSearchbaropened">Home</ion-title>
     <ion-searchbar #searchbar *ngIf="isSearchbaropened" [showCancelButton]="true" (ionCancel)="isSearchbaropened=false" (ionInput)="search($event)"></ion-searchbar>
-    <ion-buttons end (click)="setFocus()">
+    <ion-buttons end>
       <button ion-button icon-only (click)="isSearchbaropened=true">
         <ion-icon name="search" *ngIf="!isSearchbaropened"></ion-icon>
       </button>
@@ -26,7 +26,7 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col *ngFor="let item of items" (click)="viewEntry({ record: item })" col-lg-4 col-xl-4>
+      <ion-col *ngFor="let item of items" (click)="viewEntry({ record: item })" col-md-6 col-sm-6 col-lg-6 col-xl-6>
         <ion-card>
           <div class="ion-card-image-wrapper">
             <img *ngIf="!item.image" src="http://gazoh.net/images/noimage.jpg">

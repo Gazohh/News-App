@@ -1,6 +1,6 @@
 webpackJsonp([0],{
 
-/***/ 713:
+/***/ 709:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22,7 +22,7 @@ var VermaakPageModule = /** @class */ (function () {
     function VermaakPageModule() {
     }
     VermaakPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_2__vermaak__["a" /* VermaakPage */],
             ],

@@ -10,8 +10,6 @@ import { MisdaadPage } from "../misdaad/misdaad";
 import { TechPage } from "../tech/tech";
 import { VermaakPage } from "../vermaak/vermaak";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import * as $ from 'jquery';
-
 @IonicPage()
 @Component({
   selector: 'page-category',
@@ -23,7 +21,7 @@ export class CategoryPage {
 
     constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public toastCtrl: ToastController, public http: HttpClient) {
     this.menuCtrl.enable(true, 'myMenu');
-  
+
   }
 
     ionViewWillEnter()
@@ -83,5 +81,6 @@ export class CategoryPage {
     });
     toast.present();
   }
+
 
 }

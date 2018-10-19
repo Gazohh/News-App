@@ -49,7 +49,6 @@ export class FeedPage {
         public network: Network,
         private toastCtrl: ToastController,
         public loadingCtrl: LoadingController,
-        private socialSharing: SocialSharing,
         public platform: Platform) {
         if (this.network.type != "none") {
             //this.getData();
@@ -107,23 +106,6 @@ export class FeedPage {
         this.menuCtrl.enable(true, 'myMenu');
     }
 
-    /*getData() {
-        let url = "http://api.jsonbin.io/b/5bab4b98a97c597b3c591b93";
-        var headers = new HttpHeaders();
-        headers.append('Access-Control-Allow-Origin', '*');
-
-        headers.append("Accept", 'application/json');
-
-        headers.append('Content-Type', 'application/json');
-
-        let options = {headers: headers};
-        let data: Observable<any> = this.http.get(url, options);
-        data.subscribe(result => {
-            this.items = result;
-        });
-        localStorage.setItem(this.key, JSON.stringify(this.items));
-    }*/
-
     loadData() {
         localStorage.getItem(this.key);
         if (this.key != null && this.key != undefined) {
@@ -152,10 +134,6 @@ export class FeedPage {
     resetChanges() {
         this.items = this.artikelen;
     }
-
-    // setFocus() {
-    //     this.searchbar.setFocus();
-    // }
 
     load() {
         this.datepicker = "vandaag";
@@ -198,4 +176,6 @@ export class FeedPage {
                 });
         this.presentLoadingCustom();
     }
+
+
 }

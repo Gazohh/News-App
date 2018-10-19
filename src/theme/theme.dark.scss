@@ -1,64 +1,158 @@
-.dark-theme{
-  ion-content{
+.dark-theme {
+  .grid {
+    background-color: #303030;
+  }
+
+  ion-content {
     background-color: #303030 !important;
   }
 
-  .toolbar-title{
+  .toolbar-title {
     color: #ffffff !important;
   }
+
   .DarkLabel {
-    color: #fff ;
+    color: #fff;
     border: none;
   }
+
   .header .toolbar-background {
     border-color: #ff0fff !important;
     background-color: #000 !important;
   }
 
-  .ionTitle{
+  .ionTitle {
     background-color: #212121 !important;
   }
-  .darkItem{
-    background-color: #303030;
 
+  .darkItem {
+    background-color: #303030;
   }
-  .label-md{
+
+  .label-md {
     color: #FFFFFF !important;
   }
-  .uitloggen{
+
+  .uitloggen {
     background-color: #212121 !important;
   }
 
   .item-ios.item-block .item-inner {
     border: none;
   }
-  .menu{
+
+  .menu {
     background-color: #303030;
   }
-
   // Menu
-
   .adminUsers {
     background-color: transparent !important;
   }
 
-
-  .menuBuitenkant{
+  .menuBuitenkant {
     background-color: #424242;
     color: #fff;
   }
-  .menuScherm{
+
+  .menuScherm {
     background-color: #424242 !important;
     color: #fff;
-  }#contentAnimation > div.scroll-content{
-     background-color: #424242;
-   }
+  }
+
+  #contentAnimation > div.scroll-content {
+    background-color: #424242;
+  }
+
   #contentAnimation > div.scroll-content > ion-list > ion-footer > ion-toolbar > div.toolbar-background.toolbar-background-md {
     background: #424242 !important;
   }
-  .footerMenu{
+
+  .footerMenu {
     color: #FFF;
   }
 
+  .segment-md-dark .segment-button {
+    color: #FFF;
+  }
 
+  .segment-md-dark .segment-button.activated,
+  .segment-md-dark .segment-button.segment-activated {
+    color: #FFF;
+  }
+
+  .sourceTekst {
+    background-color: #242424;
+  }
+
+  .sourceItem {
+    background-color: #242424;
+  }
+
+  .sourceTitel {
+    background-color: #222222;
+    color: #fff;
+  }
+
+  .TitelSources {
+    color: #fff;
+  }
+
+  p {
+    color: #fff;
+  }
+
+  h2 {
+    color: #FFF;
+  }
+
+  b {
+    color: #FFF;
+  }
+
+  .card-content-md {
+    background-color: #242424;
+    color: #FFF;
+  }
+
+  .card-md p {
+    color: #FFFFFF;
+  }
+  //titel van card feed
+  b,
+  strong {
+    color: #FFF;
+  }
+  //div badges en title van de krant(telegraaf etc.)
+  .item-md {
+    background-color: #242424;
+    color: #FFF;
+  }
+
+  .headerText {
+    background-color: #242424;
+    color: #FFF;
+  }
+
+  .segment-md-dark .segment-button.segment-activated {
+    border-color: #fff;
+  }
+
+  .segmentClass {
+    background-color: #242424;
+  }
+
+  .card-md {
+    background: transparent;
+  }
+
+  // Button voor de sources
+.ImportClassesButton {
+    background-color: #328a45;
+    color: #fff;
+  }
+
+  .DeleteClassesButton {
+      color: #fff;
+      background-color: #e93a3a;
+  }
 }

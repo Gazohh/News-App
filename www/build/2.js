@@ -1,6 +1,6 @@
 webpackJsonp([2],{
 
-/***/ 715:
+/***/ 707:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22,7 +22,7 @@ var SportPageModule = /** @class */ (function () {
     function SportPageModule() {
     }
     SportPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_2__sport__["a" /* SportPage */],
             ],

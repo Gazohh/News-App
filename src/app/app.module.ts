@@ -20,7 +20,6 @@ import { Network } from '@ionic-native/network';
 import { CategoryPage } from "../pages/category/category";
 import { SportPage } from "../pages/sport/sport";
 import { EconomiePage } from "../pages/economie/economie";
-import { AnimatesDirective, AnimationService } from 'css-animator';
 import { AutoPage } from "../pages/auto/auto";
 import { MisdaadPage } from "../pages/misdaad/misdaad";
 import { TechPage } from "../pages/tech/tech";
@@ -34,7 +33,6 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { SourcesPage } from "../pages/sources/sources";
 import { TutorialPageModule } from "../pages/tutorial/tutorial.module";
 
-import { SocialSharing } from '@ionic-native/social-sharing';
 
 
 @NgModule({
@@ -47,7 +45,6 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     AutoPage,
     MisdaadPage,
     TechPage,
-    AnimatesDirective,
     AdminPage,
     SourcesPage
   ],
@@ -89,10 +86,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     SettingsProvider,
     Network,
-    SocialSharing,
     SettingsProvider,
-    AnimationService,
-    SocialSharing,
     InAppBrowser
   ]
 

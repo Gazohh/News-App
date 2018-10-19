@@ -34,7 +34,7 @@
   "cordova-plugin-ionic-webview": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-ionic-webview@https://github.com/ionic-team/cordova-plugin-ionic-webview.git#wip-set-web-root"
+      "id": "cordova-plugin-ionic-webview@^2.1.4"
     },
     "is_top_level": true,
     "variables": {}

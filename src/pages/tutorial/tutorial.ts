@@ -38,12 +38,9 @@ export class TutorialPage {
     ];
 
     tutorialDone() {
-      // localStorage Tutorial
-      localStorage.setItem("tutorial", "false");
-
-      if(localStorage.getItem("tutorial") == "false") {
+          // localStorage Tutorial
+          localStorage.setItem("tutorial", "false");
           this.navCtrl.setRoot(CategoryPage);
-      }
-    }
+        }
 
   }
