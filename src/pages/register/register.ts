@@ -55,91 +55,91 @@ export class RegisterPage implements OnInit {
 
     onSubmit() {
         if (this.form.invalid) {
-             this.validateAllFormFields(this.form); //{7}
-       } else{
-              const headers = new HttpHeaders();
+            this.validateAllFormFields(this.form); //{7}
+        } else{
+            const headers = new HttpHeaders();
 
-              headers.append("Accept", 'application/json');
+            headers.append("Accept", 'application/json');
 
-              headers.append('Content-Type', 'application/json');
+            headers.append('Content-Type', 'application/json');
 
-              const options = {headers: headers};
+            const options = {headers: headers};
 
 
-              const data = {
+            const data = {
 
-                  username: this.username,
+                username: this.username,
 
-                  password: this.password,
+                password: this.password,
 
-                  email: this.email
+                email: this.email
 
-              };
-              let loader = this.loading.create({
+            };
+            let loader = this.loading.create({
 
-                  content: 'Aan het registreren..',
+                content: 'Aan het registreren..',
 
-              });
+            });
 
-              loader.present().then(() => {
+            loader.present().then(() => {
 
-                  this.http.post('http://gazoh.net/register.php', data, options)
+                this.http.post('http://gazoh.net/register.php', data, options)
 
-                      .map(res => res)
+                    .map(res => res)
 
-                      .subscribe(res => {
+                    .subscribe(res => {
 
-                          loader.dismiss();
+                        loader.dismiss();
 
-                          if (res == "Registration successfull") {
+                        if (res == "Registration successfull") {
 
-                              let alert = this.alertCtrl.create({
+                            let alert = this.alertCtrl.create({
 
-                                  title: "Registreren geslaagd",
+                                title: "Registreren geslaagd",
 
-                                  subTitle: "U kunt nu gaan inloggen",
+                                subTitle: "U kunt nu gaan inloggen",
 
-                                  buttons: ['OK']
+                                buttons: ['OK']
 
-                              });
+                            });
 
-                              alert.present();
+                            alert.present();
 
-                              this.navCtrl.push(HomePage);
-                          }
-                          else if(res == "already in use")
-                          {
-                              let alert = this.alertCtrl.create({
+                            this.navCtrl.push(HomePage);
+                        }
+                        else if(res == "already in use")
+                        {
+                            let alert = this.alertCtrl.create({
 
-                                  title: "Registreren mislukt",
+                                title: "Registreren mislukt",
 
-                                  subTitle: "Er bestaat al een gebruiker met het zelfde email of gebruikersnaam!",
+                                subTitle: "Er bestaat al een gebruiker met het zelfde email of gebruikersnaam!",
 
-                                  buttons: ['OK']
+                                buttons: ['OK']
 
-                              });
+                            });
 
-                              alert.present();
-                          }
-                          else {
+                            alert.present();
+                        }
+                        else {
 
-                              let alert = this.alertCtrl.create({
+                            let alert = this.alertCtrl.create({
 
-                                  title: "Mislukt",
+                                title: "Mislukt",
 
-                                  subTitle: "Er is iets mis gegaan tijdens het registeren probeert u het opnieuw.",
+                                subTitle: "Er is iets mis gegaan tijdens het registeren probeert u het opnieuw.",
 
-                                  buttons: ['OK']
+                                buttons: ['OK']
 
-                              });
+                            });
 
-                              alert.present();
+                            alert.present();
 
-                          }
-                      });
-              });
-          }
-      }
+                        }
+                    });
+            });
+        }
+    }
 
 // Push terug naar home button
     terug() {

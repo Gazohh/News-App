@@ -26,9 +26,6 @@ import { Searchbar } from 'ionic-angular';
 })
 export class FeedPage {
     @ViewChild('searchbar') searchbar: Searchbar;
-
-
-    rssDataArray: any = [];
     public items: any = 0;
     public data: any;
     public artikelen: any;
@@ -40,7 +37,6 @@ export class FeedPage {
     public driedagengeleden: any;
 
 
-
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
@@ -49,6 +45,7 @@ export class FeedPage {
         public network: Network,
         private toastCtrl: ToastController,
         public loadingCtrl: LoadingController,
+        private socialSharing: SocialSharing,
         public platform: Platform) {
         if (this.network.type != "none") {
             //this.getData();
@@ -81,7 +78,7 @@ export class FeedPage {
             showCloseButton: true,
             closeButtonText: "OK"
         });
-        if (!localStorage.getItem("email")) {
+        if (!localStorage.getItem("username")) {
             this.navCtrl.setRoot(HomePage);
             toastinlog.present();
         }
@@ -105,6 +102,23 @@ export class FeedPage {
     ionViewDidLoad() {
         this.menuCtrl.enable(true, 'myMenu');
     }
+
+    /*getData() {
+        let url = "http://api.jsonbin.io/b/5bab4b98a97c597b3c591b93";
+        var headers = new HttpHeaders();
+        headers.append('Access-Control-Allow-Origin', '*');
+
+        headers.append("Accept", 'application/json');
+
+        headers.append('Content-Type', 'application/json');
+
+        let options = {headers: headers};
+        let data: Observable<any> = this.http.get(url, options);
+        data.subscribe(result => {
+            this.items = result;
+        });
+        localStorage.setItem(this.key, JSON.stringify(this.items));
+    }*/
 
     loadData() {
         localStorage.getItem(this.key);
@@ -133,7 +147,12 @@ export class FeedPage {
 
     resetChanges() {
         this.items = this.artikelen;
+        this.isSearchbaropened = false;
     }
+
+    // setFocus() {
+    //     this.searchbar.setFocus();
+    // }
 
     load() {
         this.datepicker = "vandaag";
@@ -175,7 +194,60 @@ export class FeedPage {
                     console.dir(error);
                 });
         this.presentLoadingCustom();
+
     }
 
+    doRefresh(refresher) {
+        if (this.datepicker == "vandaag") {
+            this.http
+                .get('http://gazoh.net/getdata.php')
+                .subscribe((data: any) => {
+                        this.items = data;
+                        this.artikelen = data;
+                    },
+                    (error: any) => {
+                        console.dir(error);
+                    });
+        }
+        else if (this.datepicker == "gisteren") {
+            this.http
+                .get('http://gazoh.net/getyesterday.php')
+                .subscribe((data: any) => {
+                        this.items = data;
+                        this.artikelen = data;
+                    },
+                    (error: any) => {
+                        console.dir(error);
+                    });
+        }
+        else if (this.datepicker == "driedagengeleden") {
+            this.http
+                .get('http://gazoh.net/get3daysago.php')
+                .subscribe((data: any) => {
+                        this.items = data;
+                        this.artikelen = data;
+                    },
+                    (error: any) => {
+                        console.dir(error);
+                    });
+        }
 
+        setTimeout(() => {
+            console.log('Async operation has ended');
+            refresher.complete();
+        }, 2000);
+    }
+
+    doInfinite(infiniteScroll) {
+        this.http
+            .get('http://gazoh.net/getdata.php')
+            .subscribe((data: any) => {
+                    this.items = this.items.push(data);
+                    infiniteScroll.complete();
+                },
+                (error: any) => {
+                    console.dir(error);
+                });
+        console.log('Begin async operation');
+    }
 }

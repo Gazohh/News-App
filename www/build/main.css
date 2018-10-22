@@ -33945,6 +33945,19 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
   animation-duration: 300ms;
 }
 
+page-admin .nieuwsNavTitle {
+  color: white;
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+page-admin body > ion-app > ng-component > ion-nav > page-admin > ion-header > ion-navbar > div.toolbar-content.toolbar-content-md {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block;
+  overflow: hidden;
+}
+
 .card-background-page ion-card {
   position: relative;
   text-align: center;
