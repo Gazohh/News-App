@@ -33342,7 +33342,7 @@ body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scro
 
 .homeButton {
   margin: 0 !important;
-  background-color: rgba(0, 0, 0, 0.4) !important;
+  background-color: #24244b !important;
   border-radius: 0 !important;
   width: 50% !important;
   -webkit-box-shadow: none;
@@ -33352,6 +33352,14 @@ body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scro
 
 body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div > div > ion-title > div {
   color: white;
+}
+
+.Title {
+  color: #fff;
+  text-align: center !important;
+  padding: 0 12px;
+  font-weight: 500;
+  color: #FFF !important;
 }
 
 ion-grid {
@@ -33427,39 +33435,6 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   padding: 10px;
 }
 
-.form-title {
-  width: 100%;
-  position: relative;
-  z-index: 1;
-  display: -ms-flexbox;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  padding: 70px 0 74px;
-  display: -ms-flexbox;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  border-top-left-radius: 10px !important;
-  border-top-right-radius: 10px !important;
-  text-transform: uppercase;
-}
-
 body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid {
   background: #ebeeef;
   padding: 10px;
@@ -33522,13 +33497,66 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   padding: 10px;
 }
 
+body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content {
+  background-color: #fff !important;
+}
+
+.form-title {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 70px 0 74px;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
+  text-transform: uppercase;
+}
+
+.clouds {
+  height: 100%;
+  width: 100%;
+}
+
+.logo {
+  background-repeat: no-repeat;
+  background-size: cover;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
 .txt1 {
   font-family: Poppins-Regular;
   font-size: 13px;
   line-height: 1.4;
   color: #999999;
-  float: right;
-  padding-right: 10px;
+  float: left;
+  margin-left: 2rem;
 }
 
 .txt2 {
@@ -33568,6 +33596,12 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   margin-top: 30px;
 }
 
+.background {
+  background-image: url("../assets/imgs/login.png");
+  width: 400px;
+  height: 400px;
+}
+
 body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content {
   background-color: #ebeeef;
 }
@@ -33583,13 +33617,6 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
 }
 
 body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div.loginFoto > div > div {
-  bottom: 0;
-  position: absolute;
-  z-index: 10;
-  width: 100%;
-}
-
-body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div.loginFoto > div > div {
   bottom: 0;
   position: absolute;
   z-index: 10;
@@ -33669,14 +33696,8 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   overflow: inherit !important;
 }
 
-ion-title {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 0 90px 1px;
-  width: 100%;
-  height: 100%;
-  text-align: center;
+.fakeCenter {
+  visibility: hidden !important;
 }
 
 .item-ios.item-block .item-inner.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus):last-child {
@@ -33727,12 +33748,15 @@ ion-title {
 }
 
 .custom-avatar {
-  height: 20vw;
-  width: 20vw;
+  height: 60%;
   border-radius: 50%;
   display: inline-block;
   margin: auto;
   display: block;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-navbar {
+  padding-top: 2.5rem;
 }
 
 .gridMenu {
@@ -33744,6 +33768,13 @@ ion-title {
   color: white;
   text-align: center;
   margin-top: 3%;
+}
+
+.usernameProfiel {
+  font-size: small;
+  text-align: center;
+  margin-top: 3%;
+  color: #488aff;
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-navbar > div.toolbar-background.toolbar-background-md {
@@ -33777,6 +33808,13 @@ ion-title {
   font-weight: bold !important;
   color: #fff !important;
   text-shadow: 0 0 7px #000000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 90px 1px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
 }
 
 .card-background-page .card-subtitle {
@@ -33881,6 +33919,20 @@ body > ion-app > ng-component > ion-nav > page-nieuws > ion-content > div.scroll
 
 body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scroll-content > ion-slides > div > div.swiper-wrapper > ion-slide.swiper-slide.swiper-slide-active > div > ion-list > ion-item:nth-child(1) > div.item-inner > div > ion-label {
   marin-bottom: 0;
+}
+
+.AvatarProfiel {
+  padding-top: 1rem;
+}
+
+.wachtwoordWijzigen {
+  color: #488aff;
+  padding-left: 5% !important;
+}
+
+body > ion-app > ng-component > ion-nav > page-profiel > ion-header > ion-navbar > div.toolbar-content.toolbar-content-md > ion-title > div {
+  padding-left: 0;
+  padding-right: 48px;
 }
 
 @-webkit-keyframes slideInRight {

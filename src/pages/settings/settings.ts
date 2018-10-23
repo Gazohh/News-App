@@ -5,6 +5,8 @@ import { Nav, Platform } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import {AdminPage} from "../admin/admin";
 import { CategoryPage } from "../category/category";
+import { AlertController } from 'ionic-angular';
+import { ProfielPage } from "../Profiel/Profiel";
 
 @IonicPage()
 @Component({
@@ -19,7 +21,7 @@ export class SettingsPage {
   setActiveTheme: string;
 
 
-  constructor(private settings: SettingsProvider, platform: Platform, public navCtrl: NavController) {
+  constructor(private settings: SettingsProvider, platform: Platform, public navCtrl: NavController, private alertCtrl: AlertController) {
     this.settings.getActiveTheme().subscribe(val => this.selectedTheme = val);
 
   }
@@ -47,7 +49,43 @@ export class SettingsPage {
   uitloggen() {
     localStorage.removeItem("email");
     this.navCtrl.setRoot(HomePage);
-
   }
+
+  RaporteerProbleem() {
+    const prompt = this.alertCtrl.create({
+       title: 'Raporteer een probleem',
+       inputs: [
+         {
+           name: 'Typ je bericht hier..',
+           placeholder: 'Typ je bericht hier..'
+         },
+       ],
+       buttons: [
+         {
+           text: 'Cancel',
+           handler: data => {
+             console.log('Cancel clicked');
+           }
+         },
+         {
+           text: 'Opsturen',
+           handler: data => {
+             console.log('Saved clicked');
+           }
+         }
+       ]
+     });
+     prompt.present();
+   }
+
+bewerkProfiel() {
+  this.navCtrl.push(ProfielPage);
+}
+
+
+
+
+
+
 
 }

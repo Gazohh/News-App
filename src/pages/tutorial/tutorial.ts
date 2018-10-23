@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CategoryPage } from "../category/category";
+import { Platform } from 'ionic-angular';
 /**
  * Generated class for the TutorialPage page.
  *
@@ -15,7 +16,7 @@ import { CategoryPage } from "../category/category";
 })
 export class TutorialPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform) {
   }
 
   slides = [
@@ -37,10 +38,6 @@ export class TutorialPage {
       }
     ];
 
-    tutorialDone() {
-          // localStorage Tutorial
-          localStorage.setItem("tutorial", "false");
-          this.navCtrl.setRoot(CategoryPage);
-        }
+
 
   }

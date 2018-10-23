@@ -94,18 +94,7 @@ export class HomePage {
               // Localstorage Email
               localStorage.setItem("email", this.email);
               // localStorage Tutorial
-
-              localStorage.setItem("tutorial", "true");
-
-              if (localStorage.getItem("tutorial") === "true") {
-                this.navCtrl.setRoot(TutorialPage);
-              }
-
-              if (localStorage.getItem("tutorial") === "false") {
                   this.navCtrl.setRoot(CategoryPage);
-                  localStorage.setItem("tutorial", "false");
-                }
-
 
 
               toast.present();

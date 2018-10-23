@@ -1,18 +1,21 @@
-<ion-header>
+<ion-header no-border-bottom>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
+    <button ion-button menuToggle right class="fakeCenter">
+        <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Sources</ion-title>
-  </ion-navbar>
-  <ion-segment color="dark" [(ngModel)]="page">
-    <ion-segment-button value="0" (click)="selectedTab(0)">
-      Subscribed
-    </ion-segment-button>
-    <ion-segment-button value="1" (click)="selectedTab(1)">
-      Suggesties
-    </ion-segment-button>
-  </ion-segment>
+      <ion-title>Sources</ion-title>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+    </ion-navbar>
+      <ion-segment color="dark" [(ngModel)]="page">
+        <ion-segment-button value="0" (click)="selectedTab(0)">
+          Subscribed
+        </ion-segment-button>
+        <ion-segment-button value="1" (click)="selectedTab(1)">
+          Suggesties
+        </ion-segment-button>
+      </ion-segment>
 </ion-header>
 <ion-content>
   <ion-slides #slider (ionSlideWillChange)="moveButton($event)" >

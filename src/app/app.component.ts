@@ -17,7 +17,6 @@ import { Events } from 'ionic-angular';
 import { timer } from 'rxjs/observable/timer';
 import { SourcesPage } from "../pages/sources/sources";
 import { TutorialPage } from "../pages/tutorial/tutorial";
-import { AlertController } from 'ionic-angular';
 
 
 @Component({
@@ -33,37 +32,20 @@ export class MyApp {
   pages: Array<{ title: any, component: any, icon: string; }>;
   selectedTheme: String;
   toggleStatus: boolean;
-    showedAlert: boolean;
-    confirmAlert: any;
 
-  constructor(private platform: Platform,
+  constructor(platform: Platform,
     statusBar: StatusBar,
     private splashScreen: SplashScreen,
     private settings: SettingsProvider,
     public modalCtrl: ModalController,
     public menuCtrl: MenuController,
-    public events: Events,
-  public alertCtrl: AlertController) {
+    public events: Events) {
     this.settings.getActiveTheme().subscribe(val => this.selectedTheme = val);
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleLightContent();
       // splashScreen.hide();
-        this.showedAlert = false;
-
-        this.platform.registerBackButtonAction(() => {
-            if (this.nav.length() == 1) {
-                if (!this.showedAlert) {
-                    this.confirmExitApp();
-                } else {
-                    this.showedAlert = false;
-                    this.confirmAlert.dismiss();
-                }
-            }
-
-            this.nav.pop();
-        });
 
     });
 
@@ -145,30 +127,5 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
-
-    confirmExitApp() {
-        this.showedAlert = true;
-        this.confirmAlert = this.alertCtrl.create({
-            title: "Sluiten",
-            message: "Wilt u de NewsAge app verlaten ?",
-            buttons: [
-                {
-                    text: 'Annuleer',
-                    handler: () => {
-                        this.showedAlert = false;
-                        return;
-                    }
-                },
-                {
-                    text: 'Verlaat',
-                    handler: () => {
-                        this.platform.exitApp();
-                    }
-                }
-            ]
-        });
-        this.confirmAlert.present();
-    }
-
 
 }

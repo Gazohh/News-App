@@ -1,14 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { Component, ErrorHandler, NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { RegisterPage } from "../pages/register/register";
 import { HttpClientModule } from '@angular/common/http';
-import { FavorietenPage } from "../pages/favorieten/favorieten";
-import { FeedPage } from "../pages/feed/feed";
 import { ReactiveFormsModule } from '@angular/forms';
 import { IonicStorageModule } from '@ionic/storage';
 import { FavorietenPageModule } from "../pages/favorieten/favorieten.module";
@@ -17,21 +14,19 @@ import { RegisterPageModule } from "../pages/register/register.module";
 import { SettingsPage } from "../pages/settings/settings";
 import { SettingsProvider } from '../providers/settings/settings';
 import { Network } from '@ionic-native/network';
-import { CategoryPage } from "../pages/category/category";
 import { SportPage } from "../pages/sport/sport";
 import { EconomiePage } from "../pages/economie/economie";
 import { AutoPage } from "../pages/auto/auto";
 import { MisdaadPage } from "../pages/misdaad/misdaad";
 import { TechPage } from "../pages/tech/tech";
-import { VermaakPage } from "../pages/vermaak/vermaak";
-import { NieuwsPage } from "../pages/nieuws/nieuws";
 import { NieuwsPageModule } from "../pages/nieuws/nieuws.module";
 import { CategoryPageModule } from "../pages/category/category.module";
 import { AdminPage } from "../pages/admin/admin";
-import { AdminPageModule } from "../pages/admin/admin.module";
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { SourcesPage } from "../pages/sources/sources";
 import { TutorialPageModule } from "../pages/tutorial/tutorial.module";
+import { ProfielPage } from "../pages/Profiel/Profiel";
+
 
 
 
@@ -46,7 +41,8 @@ import { TutorialPageModule } from "../pages/tutorial/tutorial.module";
     MisdaadPage,
     TechPage,
     AdminPage,
-    SourcesPage
+    SourcesPage,
+    ProfielPage
   ],
   imports: [
     BrowserModule,
@@ -75,9 +71,9 @@ import { TutorialPageModule } from "../pages/tutorial/tutorial.module";
     AutoPage,
     MisdaadPage,
     TechPage,
-    NieuwsPage,
     AdminPage,
-    SourcesPage
+    SourcesPage,
+    ProfielPage
   ],
   providers: [
     StatusBar,
