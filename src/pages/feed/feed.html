@@ -4,7 +4,8 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title *ngIf="!isSearchbaropened">Home</ion-title>
-    <ion-searchbar #searchbar *ngIf="isSearchbaropened" [showCancelButton]="true" (ionCancel)="isSearchbaropened=false" (ionInput)="search($event)"></ion-searchbar>
+    <ion-searchbar #searchbar *ngIf="isSearchbaropened" [showCancelButton]="true" (ionCancel)="resetChanges()"
+                   (ionInput)="search($event)" placeholder="Waar zijn we naar op zoek?" class="slideInRight"></ion-searchbar>
     <ion-buttons end>
       <button ion-button icon-only (click)="isSearchbaropened=true">
         <ion-icon name="search" *ngIf="!isSearchbaropened"></ion-icon>
@@ -24,38 +25,44 @@
   </ion-segment>
 </ion-header>
 <ion-content>
-  <ion-grid>
-    <ion-row>
-      <ion-col *ngFor="let item of items" (click)="viewEntry({ record: item })" col-md-6 col-sm-6 col-lg-6 col-xl-6>
-        <ion-card>
-          <div class="ion-card-image-wrapper">
-            <img *ngIf="!item.image" src="http://gazoh.net/images/noimage.jpg">
-            <img [src]="item.image" *ngIf="item.site == 'NOS.nl'" class="transformFoto">
-            <img [src]="item.image" *ngIf="item.site == 'NU.nl'" class="transformFoto">
-            <img [src]="item.image" *ngIf="item.site != 'NOS.nl' || item.site != 'NU.nl'">
-          </div>
-          <ion-card-content class="fixLine">
-            <ion-card-title>
-              <strong>{{item.title}}</strong>
-            </ion-card-title>
-            <p>{{htmlToPlaintext(item.description) | slice:0:120}}...</p>
-          </ion-card-content>
-          <ion-item>
-            <ion-icon name="contact" item-start></ion-icon>
-            <ion-badge item-end *ngIf="item.site == 'De Telegraaf'" class="ColorTelegraaf">{{item.site}}
-            </ion-badge>
-            <ion-badge item-end *ngIf="item.site == 'NOS'" class="ColorNOS">{{item.site}}</ion-badge>
-            <ion-badge item-end *ngIf="item.site == 'NU.nl'" class="ColorNU">{{item.site}}</ion-badge>
-          </ion-item>
-          <ion-item>
-            <ion-icon name="time" item-start></ion-icon>
-            <ion-badge item-end *ngIf="item.site == 'De Telegraaf'" class="ColorTelegraaf">{{item.datum}}
-            </ion-badge>
-            <ion-badge item-end *ngIf="item.site == 'NOS'" class="ColorNOS">{{item.datum}}</ion-badge>
-            <ion-badge item-end *ngIf="item.site == 'NU.nl'" class="ColorNU">{{item.datum}}</ion-badge>
-          </ion-item>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <div *ngIf="!this.items">
+    <p>Er zijn geen artikelen gevonden op basis van zoek termen!</p>
+    <button ion-button color="light" (click)="resetChanges()">Klik hier om terug te gaan</button>
+  </div>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div *ngFor="let item of items" (click)="viewEntry({ record: item })">
+    <ion-card *ngIf="item.verborgen != '1'">
+      <div class="ion-card-image-wrapper">
+        <img *ngIf="!item.image" src="http://gazoh.net/images/noimage.jpg">
+        <img [src]="item.image" *ngIf="item.site == 'NOS.nl'" class="transformFoto">
+        <img [src]="item.image" *ngIf="item.site == 'NU.nl'"  class="transformFoto">
+        <img [src]="item.image" *ngIf="item.site != 'NOS.nl' || item.site != 'NU.nl'">
+      </div>
+      <ion-card-content>
+        <ion-card-title>
+          <strong>{{item.title}}</strong>
+        </ion-card-title>
+        <p>{{htmlToPlaintext(item.description) | slice:0:120}}...</p>
+      </ion-card-content>
+
+      <ion-item>
+        <ion-icon name="contact" item-start></ion-icon>
+        <ion-badge item-end *ngIf="item.site == 'De Telegraaf'" class="ColorTelegraaf">{{item.site}}</ion-badge>
+        <ion-badge item-end *ngIf="item.site == 'NOS'" class="ColorNOS">{{item.site}}</ion-badge>
+        <ion-badge item-end *ngIf="item.site == 'NU.nl'" class="ColorNU">{{item.site}}</ion-badge>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="time" item-start></ion-icon>
+        <ion-badge item-end *ngIf="item.site == 'De Telegraaf'" class="ColorTelegraaf">{{item.datum}}</ion-badge>
+        <ion-badge item-end *ngIf="item.site == 'NOS'" class="ColorNOS">{{item.datum}}</ion-badge>
+        <ion-badge item-end *ngIf="item.site == 'NU.nl'" class="ColorNU">{{item.datum}}</ion-badge>
+      </ion-item>
+      <button (click)="setHideArticle(item.id)">Hide</button>
+    </ion-card>
+  </div>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

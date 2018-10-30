@@ -1,12 +1,14 @@
-import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
-import { MenuController } from "ionic-angular";
-import { HttpClient } from "@angular/common/http";
-import { Network } from "@ionic-native/network";
-import { ToastController } from 'ionic-angular';
-import { HomePage } from "../home/home";
-import { LoadingController } from 'ionic-angular';
-import { Searchbar } from 'ionic-angular';
+import {Component, ViewChild} from '@angular/core';
+import {IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
+import {MenuController} from "ionic-angular";
+import {Observable} from "rxjs";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Network} from "@ionic-native/network";
+import {ToastController} from 'ionic-angular';
+import {HomePage} from "../home/home";
+import {NieuwsPage} from "../nieuws/nieuws";
+import {LoadingController} from 'ionic-angular';
+import {Searchbar} from 'ionic-angular';
 
 
 /**
@@ -18,14 +20,11 @@ import { Searchbar } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-feed',
-  templateUrl: 'feed.html',
+    selector: 'page-feed',
+    templateUrl: 'feed.html',
 })
 export class FeedPage {
     @ViewChild('searchbar') searchbar: Searchbar;
-
-
-    rssDataArray: any = [];
     public items: any = 0;
     public data: any;
     public artikelen: any;
@@ -35,7 +34,7 @@ export class FeedPage {
     public vandaag: any;
     public gisteren: any;
     public driedagengeleden: any;
-
+    public itemempty: boolean;
 
 
     constructor(
@@ -71,7 +70,6 @@ export class FeedPage {
             });
             toast.present();
         }
-        
         let toastinlog = toastCtrl.create({
             message: "Geen sessie gevonden, log opnieuw in.",
             duration: 2500,
@@ -79,7 +77,7 @@ export class FeedPage {
             showCloseButton: true,
             closeButtonText: "OK"
         });
-        if (!localStorage.getItem("email")) {
+        if (!localStorage.getItem("sessionToken")) {
             this.navCtrl.setRoot(HomePage);
             toastinlog.present();
         }
@@ -103,6 +101,23 @@ export class FeedPage {
     ionViewDidLoad() {
         this.menuCtrl.enable(true, 'myMenu');
     }
+
+    /*getData() {
+        let url = "http://api.jsonbin.io/b/5bab4b98a97c597b3c591b93";
+        var headers = new HttpHeaders();
+        headers.append('Access-Control-Allow-Origin', '*');
+
+        headers.append("Accept", 'application/json');
+
+        headers.append('Content-Type', 'application/json');
+
+        let options = {headers: headers};
+        let data: Observable<any> = this.http.get(url, options);
+        data.subscribe(result => {
+            this.items = result;
+        });
+        localStorage.setItem(this.key, JSON.stringify(this.items));
+    }*/
 
     loadData() {
         localStorage.getItem(this.key);
@@ -130,8 +145,20 @@ export class FeedPage {
     }
 
     resetChanges() {
-        this.items = this.artikelen;
+        this.http
+            .get('http://gazoh.net/getdata.php')
+            .subscribe((data: any) => {
+                    this.items = data;
+                },
+                (error: any) => {
+                    console.dir(error);
+                });
+        this.isSearchbaropened = false;
     }
+
+    // setFocus() {
+    //     this.searchbar.setFocus();
+    // }
 
     load() {
         this.datepicker = "vandaag";
@@ -173,7 +200,80 @@ export class FeedPage {
                     console.dir(error);
                 });
         this.presentLoadingCustom();
+
     }
 
+    doRefresh(refresher) {
+        if (this.datepicker == "vandaag") {
+            this.http
+                .get('http://gazoh.net/getdata.php')
+                .subscribe((data: any) => {
+                        this.items = data;
+                        this.artikelen = data;
+                    },
+                    (error: any) => {
+                        console.dir(error);
+                    });
+        }
+        else if (this.datepicker == "gisteren") {
+            this.http
+                .get('http://gazoh.net/getyesterday.php')
+                .subscribe((data: any) => {
+                        this.items = data;
+                        this.artikelen = data;
+                    },
+                    (error: any) => {
+                        console.dir(error);
+                    });
+        }
+        else if (this.datepicker == "driedagengeleden") {
+            this.http
+                .get('http://gazoh.net/get3daysago.php')
+                .subscribe((data: any) => {
+                        this.items = data;
+                        this.artikelen = data;
+                    },
+                    (error: any) => {
+                        console.dir(error);
+                    });
+        }
 
+        setTimeout(() => {
+            console.log('Async operation has ended');
+            refresher.complete();
+        }, 2000);
+    }
+
+    doInfinite(infiniteScroll) {
+        this.http
+            .get('http://gazoh.net/getdata.php')
+            .subscribe((data: any) => {
+                    this.items = this.items.push(data);
+                    infiniteScroll.complete();
+                },
+                (error: any) => {
+                    console.dir(error);
+                });
+        console.log('Begin async operation');
+    }
+
+    setHideArticle(postId)
+    {
+        console.log("Hide " + postId);
+        var headers = new HttpHeaders();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        let options = { headers: headers };
+        this.http.post('http://gazoh.net/hidearticle.php', postId, options).subscribe(res => {
+            if(res == "hidden")
+            {let toast = this.toastCtrl.create({
+                message: "Artikel " + postId + " verborgen",
+                duration: 2500,
+                position: "top",
+                showCloseButton: true,
+                closeButtonText: "OK"
+            });
+                toast.present();}
+        });
+    }
 }

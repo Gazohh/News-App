@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 
 /**
@@ -55,7 +55,7 @@ export class AdminPage {
   {
     this.checklist = "artikelen";
       this.http
-          .get('http://gazoh.net/getdata.php')
+          .get('http://gazoh.net/getverborgen.php')
           .subscribe((data : any) =>
               {
                   this.artikelenlijst = data;
@@ -68,6 +68,10 @@ export class AdminPage {
 
     htmlToPlaintext(text) {
         return text ? String(text).replace(/<[^>]+>/gm, '') : '';
+    }
+
+    viewEntry(param: any): void {
+        this.navCtrl.push('NieuwsPage', param);
     }
 
 }
