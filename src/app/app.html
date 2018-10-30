@@ -1,24 +1,38 @@
+<ion-grid style="height: 100%" class="gridPadding">
+  <ion-row justify-content-center align-items-center style="height: 100%" *ngIf="showSplash" class="splash">
+    <div class="spinner">
+      <div class="NewsAgeLogo">
+        <img class="NewsAge" src="../assets/imgs/NewsAgeLogo.png">
+      </div>
+      <div class="loader">
+        <img src="../assets/svg/spinner/tail-spin.svg">
+      </div>
+    </div>
+  </ion-row>
+</ion-grid>
+
+
 <ion-menu [class]="selectedTheme" id="myMenu" [content]="content" [swipeEnabled]="false">
   <ion-content id="contentAnimation" menuToggle>
     <ion-list>
       <ion-navbar>
         <ion-grid class="gridMenu">
-            <ion-col col-12>
-              <img src="https://bankwatch.org/wp-content/uploads/2018/03/Portrait_Placeholder.png" class="custom-avatar" />
-              <h5 ngClass="usernameMenu">Username</h5>
-            </ion-col>
+          <ion-col col-12>
+            <img src="https://bankwatch.org/wp-content/uploads/2018/03/Portrait_Placeholder.png" class="custom-avatar" />
+            <h5 ngClass="usernameMenu">Username</h5>
+          </ion-col>
         </ion-grid>
       </ion-navbar>
-      <ion-item class="menuBuitenkant" >
-        <button class="menuScherm" detail-none ion-item menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" >
+      <ion-item class="menuBuitenkant">
+        <button class="menuScherm" detail-none ion-item menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
           <ion-icon slot="start" [name]="p.icon"></ion-icon>
-          <span class="menu-titles" >
-          {{p.title}}
-        </span>
+          <span class="menu-titles">
+            {{p.title}}
+          </span>
         </button>
       </ion-item>
       <ion-footer class="footerMenu">
-        <ion-toolbar >
+        <ion-toolbar>
           <div class="versienummer"><b>©NewsAge</b> V3.4.8</div>
         </ion-toolbar>
       </ion-footer>

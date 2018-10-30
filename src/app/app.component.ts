@@ -1,22 +1,19 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
 import { FavorietenPage } from "../pages/favorieten/favorieten";
-import { FeedPage } from "../pages/feed/feed";
 import { HomePage } from "../pages/home/home";
 import { Keyboard } from "@ionic-native/keyboard";
 import { SettingsPage } from "../pages/settings/settings";
 import { SettingsProvider } from "../providers/settings/settings";
-import { Network } from '@ionic-native/network';
-import { ToastController } from 'ionic-angular';
 import { CategoryPage } from "../pages/category/category";
-import { ModalController, NavParams } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
 import { MenuController } from 'ionic-angular';
 import { Events } from 'ionic-angular';
-import { timer } from 'rxjs/observable/timer';
 import { SourcesPage } from "../pages/sources/sources";
+import { SplashScreen } from '@ionic-native/splash-screen';
 import { TutorialPage } from "../pages/tutorial/tutorial";
+import { timer } from "rxjs/observable/timer";
 
 
 @Component({
@@ -33,9 +30,12 @@ export class MyApp {
   selectedTheme: String;
   toggleStatus: boolean;
 
-  constructor(platform: Platform,
-    statusBar: StatusBar,
+  showSplash = true;
+
+  constructor(
+    platform: Platform,
     private splashScreen: SplashScreen,
+    statusBar: StatusBar,
     private settings: SettingsProvider,
     public modalCtrl: ModalController,
     public menuCtrl: MenuController,
@@ -44,88 +44,87 @@ export class MyApp {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      statusBar.styleLightContent();
-      // splashScreen.hide();
+      statusBar.backgroundColorByHexString('#29708c');
+      this.splashScreen.hide();
 
+      timer(3000).subscribe(() => this.showSplash = false);
     });
 
 
-    // events.subscribe('user:created', (user) => {
-    //   console.log('Welcome', user);
-    // });
+  // events.subscribe('user:created', (user) => {
+  //   console.log('Welcome', user);
+  // });
 
-    console.log(localStorage.getItem("username"));
+  console.log(localStorage.getItem("username"));
 
-    this.pages = [
-      {
+this.pages = [
+  {
 
-        title: 'Home',
-        component: CategoryPage,
-        icon: 'home'
-      },
-      {
+    title: 'Home',
+    component: CategoryPage,
+    icon: 'home'
+  },
+  {
 
-        title: 'Sources',
-        component: SourcesPage,
-        icon: 'star'
-      },
-      {
+    title: 'Sources',
+    component: SourcesPage,
+    icon: 'star'
+  },
+  {
 
-        title: 'Favorieten',
-        component: FavorietenPage,
-        icon: 'heart'
-      },
-      {
-        title: 'Notificaties',
-        component: SettingsPage,
-        icon: 'notifications'
-      },
-      {
-        title: 'Tutorial',
-        component: TutorialPage,
-        icon: 'map'
-      },
-      {
-        title: 'Instellingen',
-        component: SettingsPage,
-        icon: 'settings'
-      }
-    ];
+    title: 'Favorieten',
+    component: FavorietenPage,
+    icon: 'heart'
+  },
+  {
+    title: 'Notificaties',
+    component: SettingsPage,
+    icon: 'notifications'
+  },
+  {
+    title: 'Tutorial',
+    component: TutorialPage,
+    icon: 'map'
+  },
+  {
+    title: 'Instellingen',
+    component: SettingsPage,
+    icon: 'settings'
+  }
+];
 
-    //
-    // Local Storage
-    //
+//
+// Local Storage
+//
 
+// Geen localstorage dan redirect terug naar login pagina
+if (!localStorage.getItem("email")) {
+  this.rootPage = HomePage;
+}
+else {
+  this.rootPage = CategoryPage;
+}
 
-    if (!localStorage.getItem("email")) {
-      this.rootPage = HomePage;
-    }
-    else {
-      this.rootPage = CategoryPage;
-    }
+//
+// Dark/Light Mode
+//
+if (localStorage.getItem("themeColor") == "light-theme") {
 
-    //
-    // Dark/Light Mode
-    //
+  this.settings.setActiveTheme("light-theme");
+  console.log("Toggle Status: " + this.toggleStatus);
 
-    // Dark/Light Mode
-    if (localStorage.getItem("themeColor") == "light-theme") {
+}
+else if (localStorage.getItem("themeColor") == "dark-theme") {
 
-      this.settings.setActiveTheme("light-theme");
-      console.log("Toggle Status: " + this.toggleStatus);
-
-    }
-    else if (localStorage.getItem("themeColor") == "dark-theme") {
-
-      this.settings.setActiveTheme("dark-theme");
-      console.log("Toggle Status: " + this.toggleStatus);
-    }
+  this.settings.setActiveTheme("dark-theme");
+  console.log("Toggle Status: " + this.toggleStatus);
+}
   }
 
-  openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
-  }
+openPage(page) {
+  // Reset the content nav to have just this page
+  // we wouldn't want the back button to show in this scenario
+  this.nav.setRoot(page.component);
+}
 
 }

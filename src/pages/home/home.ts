@@ -1,17 +1,16 @@
-import { Component, ViewChild, OnInit, AfterViewInit } from '@angular/core';
-import { NavController, AlertController, LoadingController } from 'ionic-angular';
+import { Component } from '@angular/core';
+import { NavController, LoadingController } from 'ionic-angular';
 import { RegisterPage } from "../register/register";
-import { HttpClient, HttpHeaders, HttpRequest } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import 'rxjs/add/operator/map';
-import { FavorietenPage } from "../favorieten/favorieten";
+import { CategoryPage } from "../category/category";
 import { ToastController } from 'ionic-angular';
 import { Keyboard } from '@ionic-native/keyboard';
 import { MenuController } from "ionic-angular";
-import { Network } from '@ionic-native/network';
 import { FeedPage } from "../feed/feed";
-import { CategoryPage } from "../category/category";
 import { Events } from 'ionic-angular';
-import { TutorialPage } from "../tutorial/tutorial";
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { Platform } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -26,7 +25,6 @@ export class HomePage {
   password: string;
   rootPage: any = HomePage;
 
-  FavorietenPage = FavorietenPage;
   FeedPage = FeedPage;
 
 
@@ -34,13 +32,21 @@ export class HomePage {
 
   constructor(
     public navCtrl: NavController,
-    private alertCtrl: AlertController,
     public loading: LoadingController,
     public http: HttpClient,
     private toastCtrl: ToastController,
-    private keyboard: Keyboard,
     public menuCtrl: MenuController,
-    public events: Events) {
+    public events: Events,
+    private screenOrientation: ScreenOrientation,
+    public platform: Platform,
+    private keyboard: Keyboard) {
+
+
+    if (this.platform.is('cordova')) {
+      this.platform.ready().then(() => {
+        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+      })
+    }
 
     this.menuCtrl.enable(false, 'myMenu');
     keyboard.disableScroll(true);
@@ -93,8 +99,7 @@ export class HomePage {
               });
               // Localstorage Email
               localStorage.setItem("email", this.email);
-              // localStorage Tutorial
-                  this.navCtrl.setRoot(CategoryPage);
+              this.navCtrl.setRoot(CategoryPage);
 
 
               toast.present();
@@ -106,7 +111,7 @@ export class HomePage {
                 closeButtonText: "OK",
                 position: "top"
               });
-                toast.present();
+              toast.present();
             }
           });
       });

@@ -1,12 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { SettingsProvider } from "../../providers/settings/settings";
 import { Nav, Platform } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import {AdminPage} from "../admin/admin";
-import { CategoryPage } from "../category/category";
 import { AlertController } from 'ionic-angular';
-import { ProfielPage } from "../Profiel/Profiel";
+import { ProfielPage } from "../profiel/profiel";
 
 @IonicPage()
 @Component({

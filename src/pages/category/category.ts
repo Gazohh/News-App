@@ -9,7 +9,7 @@ import { AutoPage } from "../auto/auto";
 import { MisdaadPage } from "../misdaad/misdaad";
 import { TechPage } from "../tech/tech";
 import { VermaakPage } from "../vermaak/vermaak";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 @IonicPage()
 @Component({
   selector: 'page-category',

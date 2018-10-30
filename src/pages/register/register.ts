@@ -1,8 +1,7 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {IonicPage, NavController, NavParams, AlertController, LoadingController} from 'ionic-angular';
 import {HomePage} from '../home/home';
-import {HttpClient, HttpHeaders, HttpRequest} from "@angular/common/http";
-import {ToastController} from 'ionic-angular';
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import 'rxjs/add/operator/map';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 
@@ -28,8 +27,7 @@ export class RegisterPage implements OnInit {
                 public navParams: NavParams,
                 public alertCtrl: AlertController,
                 private http: HttpClient,
-                public loading: LoadingController,
-                private toastCtrl: ToastController) {}
+                public loading: LoadingController) {}
 
     ngOnInit() {
         this.form = new FormGroup({

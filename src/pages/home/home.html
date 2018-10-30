@@ -1,33 +1,28 @@
 <ion-content>
-    <ion-grid>
-        <ion-row>
-            <ion-col col-12>
-                <div class="loginFoto">
-                    <div class="form-title" style="background-image: url(../../assets/imgs/UXwXuyD.png)">
-                        <ion-title class="form-title1">Log-in</ion-title>
-                        <div class="row">
-                            <button ion-button class="homeButton" style="background-color: rgba(79, 0, 11, 0.78) !important">Home</button>
-                            <button ion-button class="registerButton" (click)="goRegister()">Registreer</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="geheel">
-                    <ion-item>
-                        <ion-label floating>Email</ion-label>
-                        <ion-input type="email" [(ngModel)]="email"></ion-input>
-                    </ion-item>
-                    <ion-item>
-                        <ion-label floating>Wachtwoord</ion-label>
-                        <ion-input type="password" [(ngModel)]="password"></ion-input>
-                    </ion-item>
-                    <br>
-                    <a href="#" class="txt1">Wachtwoord vergeten ?</a>
-                    <br>
+  <ion-grid style="height: 100%" class="gridPadding">
+    <ion-row justify-content-center align-items-center style="height: 100%">
 
-                    <button class="button3" ion-button (click)="signIn()" color="secondary" round>Inloggen</button>
-
-                </div>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
+      <ion-col col-12>
+        <div class="ValidatieText">
+          <h2 class="WelkomText">Welkom</h2>
+          <p class="gavederText">Log-in om veder te gaan</p>
+        </div>
+        <div class="ValidatieLogin">
+          <ion-item>
+            <ion-label color="primary" floating>Email</ion-label>
+            <ion-input type="email" [(ngModel)]="email"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label color="primary" floating>Wachtwoord</ion-label>
+            <ion-input type="password" [(ngModel)]="password"></ion-input>
+          </ion-item>
+          <br>
+          <div class="Validatie2Login">
+            <button ion-button class="loginButton" (click)="signIn()">Log-in</button>
+            <p class="nogGeenAccount" (click)="goRegister()">Nog geen account? <b>Registreer</b></p>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

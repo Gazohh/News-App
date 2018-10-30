@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { CategoryPage } from "../category/category";
 import { Platform } from 'ionic-angular';
 /**
  * Generated class for the TutorialPage page.

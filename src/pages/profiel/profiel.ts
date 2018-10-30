@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
-import { SettingsPage } from "../settings/settings";
 
 /**
  * Generated class for the ProfielPage page.
@@ -55,8 +54,6 @@ export class ProfielPage {
      prompt.present();
    }
 
-   goBack() {
-     this.navCtrl.push(SettingsPage);
-   }
+   
 
 }

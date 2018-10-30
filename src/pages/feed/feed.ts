@@ -1,14 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { MenuController } from "ionic-angular";
-import { Observable } from "rxjs";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Network } from "@ionic-native/network";
 import { ToastController } from 'ionic-angular';
 import { HomePage } from "../home/home";
-import { NieuwsPage } from "../nieuws/nieuws";
 import { LoadingController } from 'ionic-angular';
-import { SocialSharing } from '@ionic-native/social-sharing';
 import { Searchbar } from 'ionic-angular';
 
 
@@ -74,6 +71,7 @@ export class FeedPage {
             });
             toast.present();
         }
+        
         let toastinlog = toastCtrl.create({
             message: "Geen sessie gevonden, log opnieuw in.",
             duration: 2500,

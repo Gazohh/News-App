@@ -23,9 +23,5 @@ INJECTED from C:\Users\Gazoh-PC\Documents\GitHub\News-App\platforms\android\Cord
 		INJECTED from C:\Users\Gazoh-PC\Documents\GitHub\News-App\platforms\android\CordovaLib\AndroidManifest.xml
 uses-sdk
 ADDED from C:\Users\Gazoh-PC\Documents\GitHub\News-App\platforms\android\CordovaLib\AndroidManifest.xml:22:5-44
-INJECTED from C:\Users\Gazoh-PC\Documents\GitHub\News-App\platforms\android\CordovaLib\AndroidManifest.xml:22:5-44
-INJECTED from C:\Users\Gazoh-PC\Documents\GitHub\News-App\platforms\android\CordovaLib\AndroidManifest.xml:22:5-44
 	android:minSdkVersion
 		ADDED from C:\Users\Gazoh-PC\Documents\GitHub\News-App\platforms\android\CordovaLib\AndroidManifest.xml:22:15-41
-		INJECTED from C:\Users\Gazoh-PC\Documents\GitHub\News-App\platforms\android\CordovaLib\AndroidManifest.xml
-		INJECTED from C:\Users\Gazoh-PC\Documents\GitHub\News-App\platforms\android\CordovaLib\AndroidManifest.xml
