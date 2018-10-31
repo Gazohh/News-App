@@ -19,6 +19,9 @@ import { SourcesPage } from "../pages/sources/sources";
 import { ProfielPage } from "../pages/profiel/profiel";
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { HeaderColor } from '@ionic-native/header-color';
+import { File } from '@ionic-native/file';
+import { FileTransfer } from '@ionic-native/file-transfer';
+import { Camera } from '@ionic-native/camera';
 
 //
 // Modules
@@ -89,7 +92,10 @@ import { TutorialPageModule } from "../pages/tutorial/tutorial.module";
     SettingsProvider,
     InAppBrowser,
     ScreenOrientation,
-    HeaderColor
+    HeaderColor,
+    Camera,
+    File,
+    FileTransfer
   ]
 
 })

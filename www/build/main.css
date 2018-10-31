@@ -10,12 +10,16 @@
   background-color: #fff;
 }
 
+.dark-theme .darkThemeLogin {
+  background-color: #2f2f2f !important;
+}
+
 .dark-theme .grid {
   background-color: #303030;
 }
 
 .dark-theme ion-content {
-  background-color: #303030 !important;
+  background-color: #212121 !important;
 }
 
 .dark-theme .toolbar-title {
@@ -27,17 +31,16 @@
   border: none;
 }
 
+.dark-theme .dark-theme .darkItem {
+  background-color: #212121 !important;
+}
+
 .dark-theme .header .toolbar-background {
-  border-color: #ff0fff !important;
-  background-color: #000 !important;
+  background-color: #29708c !important;
 }
 
 .dark-theme .ionTitle {
   background-color: #212121 !important;
-}
-
-.dark-theme .darkItem {
-  background-color: #303030;
 }
 
 .dark-theme .label-md {
@@ -53,7 +56,7 @@
 }
 
 .dark-theme .menu {
-  background-color: #303030;
+  background-color: #212121;
 }
 
 .dark-theme .adminUsers {
@@ -61,25 +64,25 @@
 }
 
 .dark-theme .menuBuitenkant {
-  background-color: #424242;
+  background-color: #212121;
   color: #fff;
 }
 
 .dark-theme .menuScherm {
-  background-color: #424242 !important;
+  background-color: #212121 !important;
+  color: #fff;
+}
+
+.dark-theme #contentAnimation > div.scroll-content > ion-list > ion-footer > ion-toolbar > div.toolbar-background.toolbar-background-md {
+  background-color: #2f2f2f !important;
+}
+
+.dark-theme .versienummer {
   color: #fff;
 }
 
 .dark-theme #contentAnimation > div.scroll-content {
-  background-color: #424242;
-}
-
-.dark-theme #contentAnimation > div.scroll-content > ion-list > ion-footer > ion-toolbar > div.toolbar-background.toolbar-background-md {
-  background: #424242 !important;
-}
-
-.dark-theme .footerMenu {
-  color: #FFF;
+  background-color: #212121 !important;
 }
 
 .dark-theme .segment-md-dark .segment-button {
@@ -121,8 +124,12 @@
 }
 
 .dark-theme .card-content-md {
-  background-color: #242424;
+  background-color: #2f2f2f !important;
   color: #FFF;
+}
+
+.dark-theme .BadgesFeed {
+  background: #2f2f2f !important;
 }
 
 .dark-theme .card-md p {
@@ -135,12 +142,12 @@
 }
 
 .dark-theme .item-md {
-  background-color: #242424;
+  background-color: #212121 !important;
   color: #FFF;
 }
 
 .dark-theme .headerText {
-  background-color: #242424;
+  background-color: #2f2f2f !important;
   color: #FFF;
 }
 
@@ -164,6 +171,24 @@
 .dark-theme .DeleteClassesButton {
   color: #fff;
   background-color: #e93a3a;
+}
+
+.dark-theme .bar-button-clear-md-default,
+.dark-theme .bar-button-default-md,
+.dark-theme .bar-button-md-default {
+  background-color: #29708c;
+  color: white;
+}
+
+.dark-theme .iconInstellingen {
+  margin-right: 2rem !important;
+}
+
+.dark-theme .wachtwoordWijzigen {
+  color: #3ca7d1 !important;
+  padding-left: 5% !important;
+  margin-top: 25px;
+  font-size: smaller;
 }
 
 .ion-ios-add:before {
@@ -38627,8 +38652,16 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Brands';
 }
 
+.dark-theme .darkThemeLogin {
+  background-color: #2f2f2f !important;
+}
+
+.dark-theme .grid {
+  background-color: #303030;
+}
+
 .dark-theme ion-content {
-  background-color: #303030 !important;
+  background-color: #212121 !important;
 }
 
 .dark-theme .toolbar-title {
@@ -38640,17 +38673,16 @@ readers do not read off random characters that represent icons */
   border: none;
 }
 
+.dark-theme .dark-theme .darkItem {
+  background-color: #212121 !important;
+}
+
 .dark-theme .header .toolbar-background {
-  border-color: #ff0fff !important;
-  background-color: #000 !important;
+  background-color: #29708c !important;
 }
 
 .dark-theme .ionTitle {
   background-color: #212121 !important;
-}
-
-.dark-theme .darkItem {
-  background-color: #303030;
 }
 
 .dark-theme .label-md {
@@ -38666,7 +38698,7 @@ readers do not read off random characters that represent icons */
 }
 
 .dark-theme .menu {
-  background-color: #303030;
+  background-color: #212121;
 }
 
 .dark-theme .adminUsers {
@@ -38674,25 +38706,131 @@ readers do not read off random characters that represent icons */
 }
 
 .dark-theme .menuBuitenkant {
-  background-color: #424242;
+  background-color: #212121;
   color: #fff;
 }
 
 .dark-theme .menuScherm {
-  background-color: #424242 !important;
+  background-color: #212121 !important;
+  color: #fff;
+}
+
+.dark-theme #contentAnimation > div.scroll-content > ion-list > ion-footer > ion-toolbar > div.toolbar-background.toolbar-background-md {
+  background-color: #2f2f2f !important;
+}
+
+.dark-theme .versienummer {
   color: #fff;
 }
 
 .dark-theme #contentAnimation > div.scroll-content {
-  background-color: #424242;
+  background-color: #212121 !important;
 }
 
-.dark-theme #contentAnimation > div.scroll-content > ion-list > ion-footer > ion-toolbar > div.toolbar-background.toolbar-background-md {
-  background: #424242 !important;
-}
-
-.dark-theme .footerMenu {
+.dark-theme .segment-md-dark .segment-button {
   color: #FFF;
+}
+
+.dark-theme .segment-md-dark .segment-button.activated,
+.dark-theme .segment-md-dark .segment-button.segment-activated {
+  color: #FFF;
+}
+
+.dark-theme .sourceTekst {
+  background-color: #242424;
+}
+
+.dark-theme .sourceItem {
+  background-color: #242424;
+}
+
+.dark-theme .sourceTitel {
+  background-color: #222222;
+  color: #fff;
+}
+
+.dark-theme .TitelSources {
+  color: #fff;
+}
+
+.dark-theme p {
+  color: #fff;
+}
+
+.dark-theme h2 {
+  color: #FFF;
+}
+
+.dark-theme b {
+  color: #FFF;
+}
+
+.dark-theme .card-content-md {
+  background-color: #2f2f2f !important;
+  color: #FFF;
+}
+
+.dark-theme .BadgesFeed {
+  background: #2f2f2f !important;
+}
+
+.dark-theme .card-md p {
+  color: #FFFFFF;
+}
+
+.dark-theme b,
+.dark-theme strong {
+  color: #FFF;
+}
+
+.dark-theme .item-md {
+  background-color: #212121 !important;
+  color: #FFF;
+}
+
+.dark-theme .headerText {
+  background-color: #2f2f2f !important;
+  color: #FFF;
+}
+
+.dark-theme .segment-md-dark .segment-button.segment-activated {
+  border-color: #fff;
+}
+
+.dark-theme .segmentClass {
+  background-color: #242424;
+}
+
+.dark-theme .card-md {
+  background: transparent;
+}
+
+.dark-theme .ImportClassesButton {
+  background-color: #328a45;
+  color: #fff;
+}
+
+.dark-theme .DeleteClassesButton {
+  color: #fff;
+  background-color: #e93a3a;
+}
+
+.dark-theme .bar-button-clear-md-default,
+.dark-theme .bar-button-default-md,
+.dark-theme .bar-button-md-default {
+  background-color: #29708c;
+  color: white;
+}
+
+.dark-theme .iconInstellingen {
+  margin-right: 2rem !important;
+}
+
+.dark-theme .wachtwoordWijzigen {
+  color: #3ca7d1 !important;
+  padding-left: 5% !important;
+  margin-top: 25px;
+  font-size: smaller;
 }
 
 .user:before {
@@ -38704,6 +38842,14 @@ ion-slide.swiper-slide {
   -webkit-align-items: flex-start;
   -ms-flex-align: start;
   align-items: flex-start;
+}
+
+.header .toolbar-background {
+  background-color: #29708c !important;
+}
+
+.iconInstellingen {
+  margin-right: 2rem !important;
 }
 
 .splash {
@@ -38797,6 +38943,10 @@ body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scro
   -webkit-box-shadow: none;
   box-shadow: none;
   text-transform: uppercase;
+}
+
+body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > div.toolbar-content.toolbar-content-md > ion-title > div {
+  padding-right: 4vh;
 }
 
 .welkomText {
@@ -39238,11 +39388,6 @@ ion-buttons {
   color: #FFF !important;
 }
 
-body > ion-app > ng-component > ion-nav > page-category > ion-header > ion-navbar {
-  -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2) !important;
-  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2) !important;
-}
-
 body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   overflow: inherit !important;
 }
@@ -39298,16 +39443,18 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   -webkit-box-shadow: none !important;
 }
 
-.custom-avatar {
-  height: 60%;
+.avatar-menu {
+  height: 90px;
+  width: 90px;
   border-radius: 50%;
   display: inline-block;
   margin: auto;
   display: block;
+  background-color: #212121;
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-navbar {
-  padding-top: 2.5rem;
+  padding-top: 1.5rem;
 }
 
 .gridMenu {
@@ -39324,8 +39471,8 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 .usernameProfiel {
   font-size: small;
   text-align: center;
-  margin-top: 3%;
-  color: #488aff;
+  color: #3ca7d1;
+  margin-top: 10px;
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-navbar > div.toolbar-background.toolbar-background-md {
@@ -39371,6 +39518,10 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 .card-background-page .card-subtitle {
   top: 63% !important;
   text-shadow: 0 0 7px #000000;
+}
+
+body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > div > ion-card > ion-item.hideButton.item.item-block.item-md > div.item-inner > div > ion-label {
+  margin: 0;
 }
 
 .ColorTelegraaf {
@@ -39472,13 +39623,26 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
   marin-bottom: 0;
 }
 
+.avatar-profiel {
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+  display: inline-block;
+  top: 0;
+  bottom: 0;
+  margin: 0 auto;
+  display: block;
+}
+
 .AvatarProfiel {
   padding-top: 1rem;
 }
 
 .wachtwoordWijzigen {
-  color: #488aff;
-  padding-left: 5% !important;
+  color: #3ca7d1 !important;
+  padding-left: 1.7rem !important;
+  margin-top: 18px;
+  font-size: smaller;
 }
 
 body > ion-app > ng-component > ion-nav > page-profiel > ion-header > ion-navbar > div.toolbar-content.toolbar-content-md > ion-title > div {

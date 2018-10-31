@@ -47,8 +47,10 @@ export class MyApp {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      statusBar.backgroundColorByHexString('#29708c');
       this.splashScreen.hide();
+
+          statusBar.backgroundColorByHexString('#225C73');
+
 
         this.platform.registerBackButtonAction(() => {
             if (this.nav.length() == 1) {
@@ -62,9 +64,6 @@ export class MyApp {
 
             this.nav.pop();
         });
-
-      timer(3000).subscribe(() => this.showSplash = false);
-
     });
 
 
@@ -137,6 +136,11 @@ else if (localStorage.getItem("themeColor") == "dark-theme") {
   console.log("Toggle Status: " + this.toggleStatus);
 }
   }
+
+ngOnInit() {
+  setTimeout(() => this.showSplash = false, 3500);
+}
+
 
 openPage(page) {
   // Reset the content nav to have just this page

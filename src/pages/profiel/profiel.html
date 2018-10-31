@@ -5,23 +5,26 @@
 </ion-header>
 
 <ion-content>
-    <ion-grid class="gridMenu">
-      <ion-col col-12>
-        <img src="https://bankwatch.org/wp-content/uploads/2018/03/Portrait_Placeholder.png" class="custom-avatar" />
-        <h5 class="usernameProfiel">Foto Wijzigen</h5>
-      </ion-col>
-    </ion-grid>
+  <ion-grid class="gridMenu">
+    <ion-col col-12>
 
-    <ion-item>
-     <ion-label color="dark" stacked>Gebruikersnaam</ion-label>
-     <ion-input type="text" placeholder=""></ion-input>
-   </ion-item>
-   <ion-item>
+      <div class="alignCenter">
+        <img *ngIf="!myphoto" src="../assets/imgs/Portrait_Placeholder.png" class="avatar-profiel" (click)="presentActionSheet()" />
+        <img *ngIf="myphoto " src="{{ myphoto }}" class="avatar-profiel" (click)="presentActionSheet()" />
+      </div>
+      <h5 class="usernameProfiel" (click)="presentActionSheet()">Foto Wijzigen</h5>
+    </ion-col>
+  </ion-grid>
+
+  <ion-item>
+    <ion-label color="dark" stacked>Gebruikersnaam</ion-label>
+    <ion-input type="text" placeholder=""></ion-input>
+  </ion-item>
+  <ion-item>
     <ion-label color="dark" stacked>Email</ion-label>
     <ion-input type="email" placeholder=""></ion-input>
   </ion-item>
-  <ion-item>
-     <ion-label class="wachtwoordWijzigen"color="dark" stacked (click)="wijzigWachtwoord()">Wijzig wachtwoord</ion-label>
- </ion-item>
+
+  <h6 class="wachtwoordWijzigen" (click)="wijzigWachtwoord()">Wijzig Wachtwoord</h6>
 
 </ion-content>

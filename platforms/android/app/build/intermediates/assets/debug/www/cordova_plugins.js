@@ -316,6 +316,22 @@ module.exports = [
     "clobbers": [
       "cordova.plugins.headerColor"
     ]
+  },
+  {
+    "id": "cordova-plugin-file-transfer.FileTransferError",
+    "file": "plugins/cordova-plugin-file-transfer/www/FileTransferError.js",
+    "pluginId": "cordova-plugin-file-transfer",
+    "clobbers": [
+      "window.FileTransferError"
+    ]
+  },
+  {
+    "id": "cordova-plugin-file-transfer.FileTransfer",
+    "file": "plugins/cordova-plugin-file-transfer/www/FileTransfer.js",
+    "pluginId": "cordova-plugin-file-transfer",
+    "clobbers": [
+      "window.FileTransfer"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -336,7 +352,8 @@ module.exports.metadata =
   "cordova-plugin-x-socialsharing": "5.4.1",
   "info.protonet.imageresizer": "0.1.1",
   "cordova-plugin-screen-orientation": "3.0.1",
-  "cordova-plugin-headercolor": "1.0"
+  "cordova-plugin-headercolor": "1.0",
+  "cordova-plugin-file-transfer": "1.7.1"
 };
 // BOTTOM OF METADATA
 });

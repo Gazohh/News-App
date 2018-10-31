@@ -63,6 +63,10 @@
             {
               "xml": "<feature name=\"HeaderColor\"><param name=\"android-package\" value=\"tomloprod.HeaderColor\" /><param name=\"onload\" value=\"true\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"FileTransfer\"><param name=\"android-package\" value=\"org.apache.cordova.filetransfer.FileTransfer\" /></feature>",
+              "count": 1
             }
           ]
         }
@@ -72,7 +76,7 @@
           "/*": [
             {
               "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
-              "count": 4
+              "count": 5
             },
             {
               "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
@@ -170,6 +174,9 @@
       "PACKAGE_NAME": "io.ionic.starter"
     },
     "cordova-plugin-headercolor": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-file-transfer": {
       "PACKAGE_NAME": "io.ionic.starter"
     }
   },
@@ -491,6 +498,22 @@
       "clobbers": [
         "cordova.plugins.headerColor"
       ]
+    },
+    {
+      "id": "cordova-plugin-file-transfer.FileTransferError",
+      "file": "plugins/cordova-plugin-file-transfer/www/FileTransferError.js",
+      "pluginId": "cordova-plugin-file-transfer",
+      "clobbers": [
+        "window.FileTransferError"
+      ]
+    },
+    {
+      "id": "cordova-plugin-file-transfer.FileTransfer",
+      "file": "plugins/cordova-plugin-file-transfer/www/FileTransfer.js",
+      "pluginId": "cordova-plugin-file-transfer",
+      "clobbers": [
+        "window.FileTransfer"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -509,6 +532,7 @@
     "cordova-plugin-x-socialsharing": "5.4.1",
     "info.protonet.imageresizer": "0.1.1",
     "cordova-plugin-screen-orientation": "3.0.1",
-    "cordova-plugin-headercolor": "1.0"
+    "cordova-plugin-headercolor": "1.0",
+    "cordova-plugin-file-transfer": "1.7.1"
   }
 }

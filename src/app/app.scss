@@ -16,6 +16,18 @@
 ion-slide.swiper-slide {
   align-items: flex-start;
 }
+
+.header .toolbar-background {
+  background-color: #29708c !important;
+}
+//
+// SettingsPage
+//
+// Icon margin
+
+.iconInstellingen {
+  margin-right: 2rem !important;
+}
 //
 // Splash screen
 //
@@ -85,6 +97,17 @@ body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scro
   box-shadow: none;
   text-transform: uppercase;
 }
+
+//
+// Home
+//
+body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > div.toolbar-content.toolbar-content-md > ion-title > div {
+  padding-right: 4vh;
+}
+
+
+
+
 //
 // login
 //
@@ -531,12 +554,9 @@ ion-buttons {
 //
 // Navbar
 //
-// box-shadow
 
-body > ion-app > ng-component > ion-nav > page-category > ion-header > ion-navbar {
-  -webkit-box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2) !important;
-  box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2) !important;
-}
+
+
 //
 // Navbar Animatie
 //
@@ -611,17 +631,20 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   -webkit-box-shadow: none!important;
 }
 
-.custom-avatar {
-  height: 60%;
+.avatar-menu {
+  height: 90px;
+  width: 90px;
   border-radius: 50%;
   display: inline-block;
   margin: auto;
   display: block;
+  background-color: #212121;
 }
+
 // toolbar menu
 
 #contentAnimation > div.scroll-content > ion-list > ion-navbar {
-  padding-top: 2.5rem;
+  padding-top: 1.5rem;
 }
 
 .gridMenu {
@@ -638,8 +661,8 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 .usernameProfiel {
   font-size: small;
   text-align: center;
-  margin-top: 3%;
-  color: #488aff;
+  color: #3ca7d1;
+  margin-top: 10px;
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-navbar > div.toolbar-background.toolbar-background-md {
@@ -693,6 +716,12 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 }
 //
 // FeedPage Card Design
+//
+
+body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > div > ion-card > ion-item.hideButton.item.item-block.item-md > div.item-inner > div > ion-label {
+  margin: 0;
+}
+//
 //
 
 .ColorTelegraaf {
@@ -809,14 +838,28 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
 // ProfilePage
 //
 
+.avatar-profiel {
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+  display: inline-block;
+  top: 0;
+  bottom: 0;
+  margin: 0 auto;
+  display: block;
+}
+
 .AvatarProfiel {
   padding-top: 1rem;
 }
 
 .wachtwoordWijzigen {
-  color: #488aff;
-  padding-left: 5% !important;
+  color: #3ca7d1 !important;
+  padding-left: 1.7rem !important;
+  margin-top: 18px;
+  font-size: smaller;
 }
+
 // headerText
 
 body > ion-app > ng-component > ion-nav > page-profiel > ion-header > ion-navbar > div.toolbar-content.toolbar-content-md > ion-title > div {

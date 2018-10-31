@@ -18,13 +18,13 @@
       <ion-navbar>
         <ion-grid class="gridMenu">
           <ion-col col-12>
-            <img src="https://bankwatch.org/wp-content/uploads/2018/03/Portrait_Placeholder.png" class="custom-avatar" />
+            <img src="../assets/imgs/Portrait_Placeholder.png" class="avatar-menu" />
             <h5 ngClass="usernameMenu">Username</h5>
           </ion-col>
         </ion-grid>
       </ion-navbar>
-      <ion-item class="menuBuitenkant">
-        <button class="menuScherm" detail-none ion-item menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+      <ion-item>
+        <button detail-none ion-item menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
           <ion-icon slot="start" [name]="p.icon"></ion-icon>
           <span class="menu-titles">
             {{p.title}}
@@ -32,8 +32,8 @@
         </button>
       </ion-item>
       <ion-footer class="footerMenu">
-        <ion-toolbar>
-          <div class="versienummer"><b>©NewsAge</b> V3.4.8</div>
+        <ion-toolbar class="toolbarFooter">
+          <div class="versienummer"><b>©NewsAge</b> V5.0.4</div>
         </ion-toolbar>
       </ion-footer>
     </ion-list>
