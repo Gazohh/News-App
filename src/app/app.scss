@@ -97,17 +97,13 @@ body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scro
   box-shadow: none;
   text-transform: uppercase;
 }
-
 //
 // Home
 //
+
 body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > div.toolbar-content.toolbar-content-md > ion-title > div {
   padding-right: 4vh;
 }
-
-
-
-
 //
 // login
 //
@@ -178,7 +174,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > 
 
 .alignCenter {
   display: block;
-  margin: 0 auto;
+  margin: 10px;
 }
 
 .colPadding {
@@ -554,9 +550,6 @@ ion-buttons {
 //
 // Navbar
 //
-
-
-
 //
 // Navbar Animatie
 //
@@ -604,6 +597,12 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 // Cards
 //
 
+.fullWidthCard {
+  margin: 0;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
 .Card {
   border-radius: 1rem;
 }
@@ -619,6 +618,11 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 // Menu
 // Text van menu
 
+// IOS menu random 20px
+#contentAnimation > div.scroll-content {
+padding: 0px;
+}
+
 #contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button > div.item-inner > div > ion-label {
   text-align: left !important;
 }
@@ -632,24 +636,22 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 }
 
 .avatar-menu {
-  height: 90px;
-  width: 90px;
+  height: 85%;
   border-radius: 50%;
   display: inline-block;
-  margin: auto;
   display: block;
   background-color: #212121;
+  margin: 0 auto;
 }
 
-// toolbar menu
-
-#contentAnimation > div.scroll-content > ion-list > ion-navbar {
-  padding-top: 1.5rem;
+.menuCol {
+  margin: 0 auto;
 }
 
 .gridMenu {
   background-color: transparent !important;
   height: 20vh !important;
+  padding-top: 0;
 }
 
 .usernameMenu {
@@ -663,6 +665,10 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   text-align: center;
   color: #3ca7d1;
   margin-top: 10px;
+}
+
+.menuNavBar {
+  padding-bottom: 1rem;
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-navbar > div.toolbar-background.toolbar-background-md {
@@ -721,6 +727,33 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > div > ion-card > ion-item.hideButton.item.item-block.item-md > div.item-inner > div > ion-label {
   margin: 0;
 }
+
+.titleFeed {
+  display: block;
+  font-size: 2.1rem;
+  line-height: 1.1;
+  color: #222;
+  margin: 2px 0;
+  padding: 8px 0;
+}
+
+.editTitleFeed {
+  margin-right: 48px !important;
+  display: block;
+  font-size: 2.1rem;
+  line-height: 1.1;
+  color: #222;
+  margin: 2px 0;
+  padding: 8px 0;
+}
+
+.descriptionFeed {
+  margin: 0 0 2px;
+}
+
+.editDescriptionFeed {
+  margin-right: 30px !important;
+}
 //
 //
 
@@ -769,14 +802,14 @@ page-feed img {
   margin: 0 auto !important;
   vertical-align: middle !important;
   overflow: hidden !important;
-  min-height: 204px !important;
-  max-height: 284px !important;
+  // min-height: 204px !important;
+  // max-height: 284px !important;
 }
 
 .ion-card-image-wrapper {
   overflow: hidden !important;
   background: url("../../assets/imgs/noimage.jpg");
-  height: 205px;
+  height: 150px;
   align-content: center;
 }
 // NieuwsPage
@@ -839,14 +872,14 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
 //
 
 .avatar-profiel {
-  height: 90px;
-  width: 90px;
   border-radius: 50%;
-  display: inline-block;
   top: 0;
   bottom: 0;
   margin: 0 auto;
   display: block;
+  height: 100%;
+  display: block;
+  width: 90px;
 }
 
 .AvatarProfiel {
@@ -859,7 +892,6 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
   margin-top: 18px;
   font-size: smaller;
 }
-
 // headerText
 
 body > ion-app > ng-component > ion-nav > page-profiel > ion-header > ion-navbar > div.toolbar-content.toolbar-content-md > ion-title > div {

@@ -1,5 +1,7 @@
+<!-- SplashScreen -->
 <ion-grid style="height: 100%" class="gridPadding">
   <ion-row justify-content-center align-items-center style="height: 100%" *ngIf="showSplash" class="splash">
+
     <div class="spinner">
       <div class="NewsAgeLogo">
         <img class="NewsAge" src="../assets/imgs/NewsAgeLogo.png">
@@ -8,16 +10,18 @@
         <img src="../assets/svg/spinner/tail-spin.svg">
       </div>
     </div>
+
   </ion-row>
 </ion-grid>
+<!--  -->
 
-
+<!-- Menu -->
 <ion-menu [class]="selectedTheme" id="myMenu" [content]="content" [swipeEnabled]="false">
   <ion-content id="contentAnimation" menuToggle>
     <ion-list>
-      <ion-navbar>
+      <ion-navbar class="menuNavBar">
         <ion-grid class="gridMenu">
-          <ion-col col-12>
+          <ion-col col-9 class="menuCol">
             <img src="../assets/imgs/Portrait_Placeholder.png" class="avatar-menu" />
             <h5 ngClass="usernameMenu">Username</h5>
           </ion-col>

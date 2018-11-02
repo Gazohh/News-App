@@ -39015,7 +39015,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > 
 
 .alignCenter {
   display: block;
-  margin: 0 auto;
+  margin: 10px;
 }
 
 .colPadding {
@@ -39419,6 +39419,12 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   color: #fff;
 }
 
+.fullWidthCard {
+  margin: 0;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
 .Card {
   border-radius: 1rem;
 }
@@ -39429,6 +39435,10 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 
 .toolbar-title-ios {
   color: white;
+}
+
+#contentAnimation > div.scroll-content {
+  padding: 0px;
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button > div.item-inner > div > ion-label {
@@ -39444,22 +39454,22 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 }
 
 .avatar-menu {
-  height: 90px;
-  width: 90px;
+  height: 85%;
   border-radius: 50%;
   display: inline-block;
-  margin: auto;
   display: block;
   background-color: #212121;
+  margin: 0 auto;
 }
 
-#contentAnimation > div.scroll-content > ion-list > ion-navbar {
-  padding-top: 1.5rem;
+.menuCol {
+  margin: 0 auto;
 }
 
 .gridMenu {
   background-color: transparent !important;
   height: 20vh !important;
+  padding-top: 0;
 }
 
 .usernameMenu {
@@ -39473,6 +39483,10 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   text-align: center;
   color: #3ca7d1;
   margin-top: 10px;
+}
+
+.menuNavBar {
+  padding-bottom: 1rem;
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-navbar > div.toolbar-background.toolbar-background-md {
@@ -39524,6 +39538,33 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
   margin: 0;
 }
 
+.titleFeed {
+  display: block;
+  font-size: 2.1rem;
+  line-height: 1.1;
+  color: #222;
+  margin: 2px 0;
+  padding: 8px 0;
+}
+
+.editTitleFeed {
+  margin-right: 48px !important;
+  display: block;
+  font-size: 2.1rem;
+  line-height: 1.1;
+  color: #222;
+  margin: 2px 0;
+  padding: 8px 0;
+}
+
+.descriptionFeed {
+  margin: 0 0 2px;
+}
+
+.editDescriptionFeed {
+  margin-right: 30px !important;
+}
+
 .ColorTelegraaf {
   background-color: #27509a !important;
 }
@@ -39565,14 +39606,12 @@ page-feed img {
   margin: 0 auto !important;
   vertical-align: middle !important;
   overflow: hidden !important;
-  min-height: 204px !important;
-  max-height: 284px !important;
 }
 
 .ion-card-image-wrapper {
   overflow: hidden !important;
   background: url("../../assets/imgs/noimage.jpg");
-  height: 205px;
+  height: 150px;
   -webkit-align-content: center;
   -ms-flex-line-pack: center;
   align-content: center;
@@ -39624,14 +39663,14 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
 }
 
 .avatar-profiel {
-  height: 90px;
-  width: 90px;
   border-radius: 50%;
-  display: inline-block;
   top: 0;
   bottom: 0;
   margin: 0 auto;
   display: block;
+  height: 100%;
+  display: block;
+  width: 90px;
 }
 
 .AvatarProfiel {

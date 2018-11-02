@@ -35,6 +35,7 @@ export class FeedPage {
     public gisteren: any;
     public driedagengeleden: any;
     public itemempty: boolean;
+    public rol:any;
 
 
     constructor(
@@ -77,9 +78,17 @@ export class FeedPage {
             showCloseButton: true,
             closeButtonText: "OK"
         });
+
+        // Sessie Token
         if (!localStorage.getItem("sessionToken")) {
             this.navCtrl.setRoot(HomePage);
             toastinlog.present();
+        }
+
+        // User role
+        if(localStorage.getItem("userRole"))
+        {
+          this.rol = localStorage.getItem("userRole");
         }
         /* //this.GetNews()
          this.presentLoadingCustom();*/
