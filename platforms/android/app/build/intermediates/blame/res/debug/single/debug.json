@@ -20,12 +20,12 @@
         "source": "C:\\xampp\\htdocs\\News-App\\platforms\\android\\app\\src\\main\\res\\drawable-mdpi\\ic_action_remove.png"
     },
     {
-        "merged": "C:\\Users\\Gazoh-PC\\Documents\\GitHub\\News-App\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-port-ldpi_screen.png.flat",
-        "source": "C:\\Users\\Gazoh-PC\\Documents\\GitHub\\News-App\\platforms\\android\\app\\src\\main\\res\\drawable-port-ldpi\\screen.png"
-    },
-    {
         "merged": "C:\\xampp\\htdocs\\News-App\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_icon.png.flat",
         "source": "C:\\xampp\\htdocs\\News-App\\platforms\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\icon.png"
+    },
+    {
+        "merged": "C:\\Users\\Gazoh-PC\\Documents\\GitHub\\News-App\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-port-ldpi_screen.png.flat",
+        "source": "C:\\Users\\Gazoh-PC\\Documents\\GitHub\\News-App\\platforms\\android\\app\\src\\main\\res\\drawable-port-ldpi\\screen.png"
     },
     {
         "merged": "C:\\xampp\\htdocs\\News-App\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-port-hdpi_screen.png.flat",
@@ -36,12 +36,12 @@
         "source": "C:\\xampp\\htdocs\\News-App\\platforms\\android\\app\\src\\main\\res\\drawable-port-xxhdpi\\screen.png"
     },
     {
-        "merged": "C:\\Users\\Gazoh-PC\\Documents\\GitHub\\News-App\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-land-ldpi_screen.png.flat",
-        "source": "C:\\Users\\Gazoh-PC\\Documents\\GitHub\\News-App\\platforms\\android\\app\\src\\main\\res\\drawable-land-ldpi\\screen.png"
-    },
-    {
         "merged": "C:\\Users\\Gazoh-PC\\Documents\\GitHub\\News-App\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-land-mdpi_screen.png.flat",
         "source": "C:\\Users\\Gazoh-PC\\Documents\\GitHub\\News-App\\platforms\\android\\app\\src\\main\\res\\drawable-land-mdpi\\screen.png"
+    },
+    {
+        "merged": "C:\\Users\\Gazoh-PC\\Documents\\GitHub\\News-App\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-land-ldpi_screen.png.flat",
+        "source": "C:\\Users\\Gazoh-PC\\Documents\\GitHub\\News-App\\platforms\\android\\app\\src\\main\\res\\drawable-land-ldpi\\screen.png"
     },
     {
         "merged": "C:\\xampp\\htdocs\\News-App\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_icon.png.flat",
