@@ -18,22 +18,22 @@ import { AlertController } from 'ionic-angular';
 
 
 @Component({
-  templateUrl: 'app.html',
-  providers: [Keyboard, Nav]
+    templateUrl: 'app.html',
+    providers: [Keyboard, Nav]
 })
 export class MyApp {
-  @ViewChild(Nav) nav: Nav;
+    @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+    rootPage: any = HomePage;
 
-  // Variablen
-  pages: Array<{ title: any, component: any, icon: string; }>;
-  selectedTheme: String;
-  toggleStatus: boolean;
+    // Variablen
+    pages: Array<{ title: any, component: any, icon: string; }>;
+    selectedTheme: String;
+    toggleStatus: boolean;
     showedAlert: boolean;
     confirmAlert: any;
 
-  showSplash = true;
+    showSplash = true;
 
     constructor(private platform: Platform,
                 statusBar: StatusBar,
@@ -43,110 +43,110 @@ export class MyApp {
                 public menuCtrl: MenuController,
                 public events: Events,
                 public alertCtrl: AlertController) {
-    this.settings.getActiveTheme().subscribe(val => this.selectedTheme = val);
-    platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      this.splashScreen.hide();
+        this.settings.getActiveTheme().subscribe(val => this.selectedTheme = val);
+        platform.ready().then(() => {
+            // Okay, so the platform is ready and our plugins are available.
+            // Here you can do any higher level native things you might need.
+            this.splashScreen.hide();
 
-          statusBar.backgroundColorByHexString('#225C73');
+            statusBar.backgroundColorByHexString('#225C73');
 
 
-        this.platform.registerBackButtonAction(() => {
-            if (this.nav.length() == 1) {
-                if (!this.showedAlert) {
-                    this.confirmExitApp();
-                } else {
-                    this.showedAlert = false;
-                    this.confirmAlert.dismiss();
+            this.platform.registerBackButtonAction(() => {
+                if (this.nav.length() == 1) {
+                    if (!this.showedAlert) {
+                        this.confirmExitApp();
+                    } else {
+                        this.showedAlert = false;
+                        this.confirmAlert.dismiss();
+                    }
                 }
-            }
 
-            this.nav.pop();
+                this.nav.pop();
+            });
         });
-    });
 
 
-  // events.subscribe('user:created', (user) => {
-  //   console.log('Welcome', user);
-  // });
+        // events.subscribe('user:created', (user) => {
+        //   console.log('Welcome', user);
+        // });
 
-  console.log(localStorage.getItem("username"));
+        console.log(localStorage.getItem("username"));
 
-this.pages = [
-  {
+        this.pages = [
+            {
 
-    title: 'Home',
-    component: CategoryPage,
-    icon: 'home'
-  },
-  {
+                title: 'Home',
+                component: CategoryPage,
+                icon: 'home'
+            },
+            {
 
-    title: 'Sources',
-    component: SourcesPage,
-    icon: 'star'
-  },
-  {
+                title: 'Sources',
+                component: SourcesPage,
+                icon: 'star'
+            },
+            {
 
-    title: 'Favorieten',
-    component: FavorietenPage,
-    icon: 'heart'
-  },
-  {
-    title: 'Notificaties',
-    component: SettingsPage,
-    icon: 'notifications'
-  },
-  {
-    title: 'Tutorial',
-    component: TutorialPage,
-    icon: 'map'
-  },
-  {
-    title: 'Instellingen',
-    component: SettingsPage,
-    icon: 'settings'
-  }
-];
+                title: 'Favorieten',
+                component: FavorietenPage,
+                icon: 'heart'
+            },
+            {
+                title: 'Notificaties',
+                component: SettingsPage,
+                icon: 'notifications'
+            },
+            {
+                title: 'Tutorial',
+                component: TutorialPage,
+                icon: 'map'
+            },
+            {
+                title: 'Instellingen',
+                component: SettingsPage,
+                icon: 'settings'
+            }
+        ];
 
 //
 // Local Storage
 //
 
 // Geen localstorage dan redirect terug naar login pagina
-if (!localStorage.getItem("email")) {
-  this.rootPage = HomePage;
-}
-else {
-  this.rootPage = CategoryPage;
-}
+        if (!localStorage.getItem("email")) {
+            this.rootPage = HomePage;
+        }
+        else {
+            this.rootPage = CategoryPage;
+        }
 
 //
 // Dark/Light Mode
 //
-if (localStorage.getItem("themeColor") == "light-theme") {
+        if (localStorage.getItem("themeColor") == "light-theme") {
 
-  this.settings.setActiveTheme("light-theme");
-  console.log("Toggle Status: " + this.toggleStatus);
+            this.settings.setActiveTheme("light-theme");
+            console.log("Toggle Status: " + this.toggleStatus);
 
-}
-else if (localStorage.getItem("themeColor") == "dark-theme") {
+        }
+        else if (localStorage.getItem("themeColor") == "dark-theme") {
 
-  this.settings.setActiveTheme("dark-theme");
-  console.log("Toggle Status: " + this.toggleStatus);
-}
-  }
+            this.settings.setActiveTheme("dark-theme");
+            console.log("Toggle Status: " + this.toggleStatus);
+        }
+    }
 
-ngOnInit() {
-  setTimeout(() => this.showSplash = false, 3500);
-}
+    ngOnInit() {
+        setTimeout(() => this.showSplash = false, 3500);
+    }
 
 
-openPage(page) {
-  // Reset the content nav to have just this page
-  // we wouldn't want the back button to show in this scenario
-  this.nav.setRoot(page.component);
-}
+    openPage(page) {
+        // Reset the content nav to have just this page
+        // we wouldn't want the back button to show in this scenario
+        this.nav.setRoot(page.component);
+    }
 
     confirmExitApp() {
         this.showedAlert = true;

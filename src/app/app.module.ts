@@ -44,17 +44,17 @@ import {TutorialPageModule} from "../pages/tutorial/tutorial.module";
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    SettingsPage,
-    SportPage,
-    EconomiePage,
-    AutoPage,
-    MisdaadPage,
-    TechPage,
-    AdminPage,
-    SourcesPage,
-    ProfielPage,
-    AboutPage
+    HomePage
+    // SettingsPage,
+    // SportPage,
+    // EconomiePage,
+    // AutoPage,
+    // MisdaadPage,
+    // TechPage,
+    // AdminPage,
+    // SourcesPage,
+    // ProfielPage,
+    // AboutPage
   ],
   imports: [
     BrowserModule,
