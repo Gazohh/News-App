@@ -9,6 +9,7 @@ import {HomePage} from "../home/home";
 import {NieuwsPage} from "../nieuws/nieuws";
 import {LoadingController} from 'ionic-angular';
 import {Searchbar} from 'ionic-angular';
+import { CategoryPage } from "../category/category";
 
 
 /**
@@ -285,4 +286,5 @@ export class FeedPage {
                 toast.present();}
         });
     }
+
 }

@@ -1,4 +1,4 @@
-// Fontawesome
+// Imports Fontawesome
 @import "www/assets/scss/fontawesome.scss";
 @import "www/assets/scss/solid.scss";
 @import "www/assets/scss/brands.scss";
@@ -20,18 +20,14 @@ ion-slide.swiper-slide {
 .header .toolbar-background {
   background-color: #29708c !important;
 }
-//
-// SettingsPage
-//
-// Icon margin
-
+// ------------------------------------
+// Settings Pagina
+// Iconen margin
 .iconInstellingen {
   margin-right: 2rem !important;
 }
-//
+// ------------------------------------
 // Splash screen
-//
-
 .splash {
   position: absolute;
   width: 100%;
@@ -67,77 +63,8 @@ ion-slide.swiper-slide {
   display: flex;
   align-items: center;
 }
-// Register Button (RegisterPage)
-//
-
-.registerButton {
-  margin: 0 !important;
-  background-color: rgba(0, 0, 0, 0.4) !important;
-  border-radius: 0 !important;
-  width: 50% !important;
-  box-shadow: none;
-  text-transform: uppercase;
-}
-//
-// Register Text
-//
-
-body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div > div > ion-title > div {
-  color: white;
-}
-//
-// Home Button (HomePage)
-//
-
-.homeButton {
-  margin: 0 !important;
-  background-color: rgb(36, 36, 75) !important;
-  border-radius: 0 !important;
-  width: 50% !important;
-  box-shadow: none;
-  text-transform: uppercase;
-}
-//
-// Home
-//
-
-body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > div.toolbar-content.toolbar-content-md > ion-title > div {
-  padding-right: 4vh;
-}
-//
-// login
-//
-
-.welkomText {
-  padding: 3vh;
-  margin-bottom: 0;
-  padding-bottom: 0;
-  font-weight: 800;
-}
-
-.loginText {
-  padding-left: 3vh;
-  margin-top: 5px;
-}
-
-.gridPadding {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-.loginButton {
-  display: block;
-  width: 107%;
-  margin: 0 auto;
-  border-radius: 1vh;
-}
-
-.nogGeenAccount {
-  font-size: 80%;
-  font-weight: 300;
-  float: right;
-}
-
+// ------------------------------------
+// Registreer Pagina
 .ValidatieLogin {
   display: block;
   width: 70%;
@@ -170,6 +97,163 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > 
   margin: 0 auto;
   border-radius: 1vh;
   margin-right: 16%;
+}
+// Register Button (RegisterPage)
+
+.registerButton {
+  margin: 0 !important;
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  border-radius: 0 !important;
+  width: 50% !important;
+  box-shadow: none;
+  text-transform: uppercase;
+}
+// Register Text
+
+body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div > div > ion-title > div {
+  color: white;
+}
+// ------------------------------------
+// HomePage
+// Background color login
+body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content {
+  background-color: #fff !important;
+}
+
+.form-title {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 70px 0 74px;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
+  text-transform: uppercase;
+}
+
+.clouds {
+  height: 100%;
+  width: 100%;
+}
+
+.logo {
+  background-repeat: no-repeat;
+  background-size: cover;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.txt1 {
+  font-family: Poppins-Regular;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #999999;
+  float: left;
+  margin-left: 2rem;
+}
+
+.txt2 {
+  font-family: Poppins-Regular;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #999999;
+  float: left;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+.button1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  min-width: 160px;
+  height: 50px;
+  background-color: #57b846;
+  border-radius: 25px;
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.2;
+  transition: all 0.4s;
+  margin-left: 15px;
+  margin-top: 30px;
+}
+
+.background {
+  background-image: url("../assets/imgs/login.png");
+  width: 400px;
+  height: 400px;
+}
+// Home Button (HomePage) - Login pagina
+
+.homeButton {
+  margin: 0 !important;
+  background-color: rgb(36, 36, 75) !important;
+  border-radius: 0 !important;
+  width: 50% !important;
+  box-shadow: none;
+  text-transform: uppercase;
+}
+
+body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > div.toolbar-content.toolbar-content-md > ion-title > div {
+  padding-right: 4vh;
+}
+// Welkom text
+
+.welkomText {
+  padding: 3vh;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  font-weight: 800;
+}
+
+.loginText {
+  padding-left: 3vh;
+  margin-top: 5px;
+}
+
+.gridPadding {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.loginButton {
+  display: block;
+  width: 107%;
+  margin: 0 auto;
+  border-radius: 1vh;
+}
+
+.nogGeenAccount {
+  font-size: 80%;
+  font-weight: 300;
+  float: right;
 }
 
 .alignCenter {
@@ -213,9 +297,12 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > 
 .inloggenText {
   color: #000 !important;
 }
-//
+// ------------------------------------
 // HTML *
-//
+.centerTitle {
+  padding-left: 0;
+  padding-right: 48px;
+}
 
 .Title {
   color: #fff;
@@ -354,109 +441,8 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   background: #ebeeef;
   padding: 10px;
 }
-//
-// lOGIN PAGE
-//
-// Background color login
-
-body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content {
-  background-color: #fff !important;
-}
-
-.form-title {
-  width: 100%;
-  position: relative;
-  z-index: 1;
-  display: -ms-flexbox;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  padding: 70px 0 74px;
-  display: -ms-flexbox;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  border-top-left-radius: 10px !important;
-  border-top-right-radius: 10px !important;
-  text-transform: uppercase;
-}
-
-.clouds {
-  height: 100%;
-  width: 100%;
-}
-
-.logo {
-  background-repeat: no-repeat;
-  background-size: cover;
-  -ms-background-size: cover;
-  -o-background-size: cover;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  height: 100%;
-  width: 100%;
-}
-
-.txt1 {
-  font-family: Poppins-Regular;
-  font-size: 13px;
-  line-height: 1.4;
-  color: #999999;
-  float: left;
-  margin-left: 2rem;
-}
-
-.txt2 {
-  font-family: Poppins-Regular;
-  font-size: 13px;
-  line-height: 1.4;
-  color: #999999;
-  float: left;
-  margin-left: 15px;
-  margin-top: 15px;
-}
-
-.button1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 20px;
-  min-width: 160px;
-  height: 50px;
-  background-color: #57b846;
-  border-radius: 25px;
-  font-size: 16px;
-  color: #fff;
-  line-height: 1.2;
-  transition: all 0.4s;
-  margin-left: 15px;
-  margin-top: 30px;
-}
-
-.background {
-  background-image: url("../assets/imgs/login.png");
-  width: 400px;
-  height: 400px;
-}
-//
+// ------------------------------------
 // scroll-content
-//
-
 body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content {
   background-color: #ebeeef;
 }
@@ -470,9 +456,8 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   background: #ebeeef;
   padding: 10px;
 }
-//
+// ------------------------------------
 // Row Buttons
-//
 
 body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div.loginFoto > div > div {
   bottom: 0;
@@ -515,10 +500,8 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   color: #999999;
   padding-left: 15px;
 }
-//
+// ------------------------------------
 // Android (MD)
-//
-
 .bar-button-md {
   margin: 0 0.2rem;
   padding: 0 5px;
@@ -547,25 +530,12 @@ ion-buttons {
   font-weight: 500;
   color: #FFF !important;
 }
-//
+// ------------------------------------
 // Navbar
-//
-//
-// Navbar Animatie
-//
 
 body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   overflow: inherit !important;
 }
-// ion-title {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   padding: 0 90px 1px;
-//   width: 100%;
-//   height: 100%;
-//   text-align: center;
-// }
 
 .fakeCenter {
   visibility: hidden !important;
@@ -593,9 +563,8 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 .bar-button-default.bar-button-ios-default {
   color: #fff;
 }
-//
+// ------------------------------------
 // Cards
-//
 
 .fullWidthCard {
   margin: 0;
@@ -614,13 +583,12 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 .toolbar-title-ios {
   color: white;
 }
-//
+// ------------------------------------
 // Menu
-// Text van menu
-
 // IOS menu random 20px
+
 #contentAnimation > div.scroll-content {
-padding: 0px;
+  padding: 0;
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button > div.item-inner > div > ion-label {
@@ -636,7 +604,7 @@ padding: 0px;
 }
 
 .avatar-menu {
-  height: 85%;
+  height: 80%;
   border-radius: 50%;
   display: inline-block;
   display: block;
@@ -650,7 +618,7 @@ padding: 0px;
 
 .gridMenu {
   background-color: transparent !important;
-  height: 20vh !important;
+  height: 150px !important;
   padding-top: 0;
 }
 
@@ -698,10 +666,8 @@ padding: 0px;
 .versienummer {
   margin: 0 0 0 25px;
 }
-//
+// ------------------------------------
 // Card Category
-//
-
 .card-title2 {
   font-size: 150% !important;
   font-weight: bold!important;
@@ -720,63 +686,8 @@ padding: 0px;
   top: 63% !important;
   text-shadow: 0 0 7px #000000;
 }
-//
+
 // FeedPage Card Design
-//
-
-body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > div > ion-card > ion-item.hideButton.item.item-block.item-md > div.item-inner > div > ion-label {
-  margin: 0;
-}
-
-.titleFeed {
-  display: block;
-  font-size: 2.1rem;
-  line-height: 1.1;
-  color: #222;
-  margin: 2px 0;
-  padding: 8px 0;
-}
-
-.editTitleFeed {
-  margin-right: 48px !important;
-  display: block;
-  font-size: 2.1rem;
-  line-height: 1.1;
-  color: #222;
-  margin: 2px 0;
-  padding: 8px 0;
-}
-
-.descriptionFeed {
-  margin: 0 0 2px;
-}
-
-.editDescriptionFeed {
-  margin-right: 30px !important;
-}
-//
-//
-
-.ColorTelegraaf {
-  background-color: rgb(39, 80, 154) !important;
-}
-
-.ColorNU {
-  background-color: rgb(2, 0, 81) !important;
-}
-
-.ColorNOS {
-  background-color: rgb(208, 37, 39) !important;
-}
-
-.headerText {
-  font-weight: bold;
-  font-size: 2rem;
-}
-//
-// FeedCards
-//
-
 .feedCard {
   margin: 0;
   border-radius: 2px;
@@ -794,8 +705,8 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 .feedCol {
   margin-bottom: 1.5rem;
 }
-// FEED images
 
+// FEED images
 page-feed img {
   text-align: center !important;
   display: block !important;
@@ -811,6 +722,85 @@ page-feed img {
   background: url("../../assets/imgs/noimage.jpg");
   height: 150px;
   align-content: center;
+}
+
+.LikeIcon {
+
+}
+
+.CommentIcon {
+
+}
+
+.ShareIcon {
+
+}
+
+.iconRow {
+  margin: 0 auto;
+}
+
+.ColorTelegraaf {
+  background-color: rgb(39, 80, 154) !important;
+}
+
+.ColorTelegraaf2 {
+  background-color: rgb(39, 80, 154) !important;
+  margin-right: 2.0vh !important;
+}
+
+.ColorNU {
+  background-color: rgb(2, 0, 81) !important;
+}
+
+.ColorNU2 {
+  background-color: rgb(2, 0, 81) !important;
+  margin-right: 2.0vh !important;
+}
+
+.ColorNOS {
+  background-color: rgb(208, 37, 39) !important;
+}
+
+.ColorNOS2 {
+  background-color: rgb(208, 37, 39) !important;
+  margin-right: 2.0vh !important;
+}
+
+body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > div > ion-card > ion-item.hideButton.item.item-block.item-md > div.item-inner > div > ion-label {
+  margin: 0;
+}
+
+.titleFeed {
+  display: block;
+  font-size: 2.1rem;
+  line-height: 1.1;
+  color: #222;
+  margin: 2px 0;
+  padding: 8px 0;
+}
+
+.editTitleFeed {
+  margin-right: 49px !important;
+  display: block;
+  font-size: 2.1rem;
+  line-height: 1.1;
+  color: #222;
+  margin: 2px 0;
+  padding: 8px 0;
+}
+
+.descriptionFeed {
+  margin: 0 0 2px;
+}
+
+.editDescriptionFeed {
+  margin-right: 30px !important;
+}
+
+.headerText {
+  font-weight: bold;
+  font-size: 2rem;
 }
 // NieuwsPage
 

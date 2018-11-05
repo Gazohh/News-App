@@ -6,6 +6,7 @@ import { HomePage } from '../home/home';
 import {AdminPage} from "../admin/admin";
 import { AlertController } from 'ionic-angular';
 import { ProfielPage } from "../profiel/profiel";
+import { AboutPage } from "../about/about";
 
 @IonicPage()
 @Component({
@@ -79,6 +80,10 @@ export class SettingsPage {
 
 bewerkProfiel() {
   this.navCtrl.push(ProfielPage);
+}
+
+overOns() {
+    this.navCtrl.push(AboutPage);
 }
 
 

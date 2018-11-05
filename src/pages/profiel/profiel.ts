@@ -55,7 +55,7 @@ myphoto:any;
     }
     takePhoto(){
         const options: CameraOptions = {
-            quality: 70,
+            quality: 100,
             allowEdit:true,
             targetWidth:300,
             targetHeight:300,

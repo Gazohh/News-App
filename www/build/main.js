@@ -1,4 +1,4 @@
-webpackJsonp([10],{
+webpackJsonp([11],{
 
 /***/ 120:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -8,10 +8,10 @@ webpackJsonp([10],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__feed_feed__ = __webpack_require__(121);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sport_sport__ = __webpack_require__(161);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__economie_economie__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sport_sport__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__economie_economie__ = __webpack_require__(160);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__auto_auto__ = __webpack_require__(158);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__misdaad_misdaad__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__misdaad_misdaad__ = __webpack_require__(161);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__tech_tech__ = __webpack_require__(162);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__vermaak_vermaak__ = __webpack_require__(371);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_common_http__ = __webpack_require__(46);
@@ -367,7 +367,7 @@ var FeedPage = /** @class */ (function () {
     ], FeedPage.prototype, "searchbar", void 0);
     FeedPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-feed',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Documents\GitHub\News-App\src\pages\feed\feed.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle *ngIf="!isSearchbaropened">\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title *ngIf="!isSearchbaropened">Home</ion-title>\n    <ion-searchbar #searchbar *ngIf="isSearchbaropened" [showCancelButton]="true" (ionCancel)="resetChanges()" (ionInput)="search($event)" placeholder="Waar zijn we naar op zoek?" class="slideInRight"></ion-searchbar>\n    <ion-buttons end>\n      <button ion-button icon-only (click)="isSearchbaropened=true">\n        <ion-icon name="search" *ngIf="!isSearchbaropened"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n  <ion-segment [(ngModel)]="datepicker" color="lightAppKleur">\n    <ion-segment-button value="vandaag" (click)="load()">\n      Vandaag\n    </ion-segment-button>\n    <ion-segment-button value="gisteren" (click)="loadYesterday()">\n      Gisteren\n    </ion-segment-button>\n    <ion-segment-button value="driedagengeleden" (click)="load3DaysAgo()">\n      3 dagen geleden\n    </ion-segment-button>\n  </ion-segment>\n</ion-header>\n<ion-content>\n  <ion-refresher (ionRefresh)="doRefresh($event)">\n    <ion-refresher-content></ion-refresher-content>\n  </ion-refresher>\n  <ion-grid>\n    <ion-row>\n      <ion-col *ngFor="let item of items" (click)="viewEntry({ record: item })" col-md-6 col-sm-6 col-lg-6 col-xl-6>\n        <ion-card>\n              <div class="ion-card-image-wrapper">\n                <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">\n                <img [src]="item.image" *ngIf="item.site == \'NOS.nl\'">\n                <img [src]="item.image" *ngIf="item.site != \'NOS.nl\' || item.site != \'NU.nl\'">\n              </div>\n          <ion-card-content>\n            <div *ngIf="rol == 1">\n              <ion-fab right *ngIf="item.site == \'De Telegraaf\'">\n                <button ion-fab mini (click)="setHideArticle(item.id)" class="ColorTelegraaf">\n                  <ion-icon name="eye-off"></ion-icon>\n                </button>\n              </ion-fab>\n              <ion-fab right *ngIf="item.site == \'NOS\'">\n                <button ion-fab mini (click)="setHideArticle(item.id)" class="ColorNOS">\n                  <ion-icon name="eye-off"></ion-icon>\n                </button>\n              </ion-fab>\n              <ion-fab right *ngIf="item.site == \'NU.nl\'">\n                <button ion-fab mini (click)="setHideArticle(item.id)" class="ColorNU">\n                  <ion-icon name="eye-off"></ion-icon>\n                </button>\n              </ion-fab>\n            </div>\n            <div id="title">\n              <ion-card-title class="TitleFeed" *ngIf="rol != 1">\n                <strong>{{item.title}}</strong>\n              </ion-card-title>\n              <ion-card-title class="editTitleFeed" *ngIf="rol == 1">\n                <strong>{{item.title}}</strong>\n              </ion-card-title>\n            </div>\n            <div id="description">\n              <p *ngIf="rol != 1" class="descriptionFeed">{{htmlToPlaintext(item.description) | slice:0:120}}...</p>\n              <p *ngIf="rol == 1" class="editDescriptionFeed">{{htmlToPlaintext(item.description) | slice:0:120}}...</p>\n            </div>\n          </ion-card-content>\n          <ion-item>\n            <ion-icon name="contact" item-start></ion-icon>\n            <ion-badge item-end *ngIf="item.site == \'De Telegraaf\'" class="ColorTelegraaf">{{item.site}}\n            </ion-badge>\n            <ion-badge item-end *ngIf="item.site == \'NOS\'" class="ColorNOS">{{item.site}}</ion-badge>\n            <ion-badge item-end *ngIf="item.site == \'NU.nl\'" class="ColorNU">{{item.site}}</ion-badge>\n          </ion-item>\n          <ion-item>\n            <ion-icon name="time" item-start></ion-icon>\n            <ion-badge item-end *ngIf="item.site == \'De Telegraaf\'" class="ColorTelegraaf">{{item.datum}}\n            </ion-badge>\n            <ion-badge item-end *ngIf="item.site == \'NOS\'" class="ColorNOS">{{item.datum}}</ion-badge>\n            <ion-badge item-end *ngIf="item.site == \'NU.nl\'" class="ColorNU">{{item.datum}}</ion-badge>\n          </ion-item>\n        </ion-card>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n    <ion-infinite-scroll-content></ion-infinite-scroll-content>\n  </ion-infinite-scroll>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Documents\GitHub\News-App\src\pages\feed\feed.html"*/,
+            selector: 'page-feed',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Documents\GitHub\News-App\src\pages\feed\feed.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle *ngIf="!isSearchbaropened">\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title *ngIf="!isSearchbaropened">Home</ion-title>\n    <ion-searchbar #searchbar *ngIf="isSearchbaropened" [showCancelButton]="true" (ionCancel)="resetChanges()" (ionInput)="search($event)" placeholder="Waar zijn we naar op zoek?" class="slideInRight"></ion-searchbar>\n    <ion-buttons end>\n      <button ion-button icon-only (click)="isSearchbaropened=true">\n        <ion-icon name="search" *ngIf="!isSearchbaropened"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n  <ion-segment [(ngModel)]="datepicker" color="lightAppKleur">\n    <ion-segment-button value="vandaag" (click)="load()">\n      Vandaag\n    </ion-segment-button>\n    <ion-segment-button value="gisteren" (click)="loadYesterday()">\n      Gisteren\n    </ion-segment-button>\n    <ion-segment-button value="driedagengeleden" (click)="load3DaysAgo()">\n      3 dagen geleden\n    </ion-segment-button>\n  </ion-segment>\n</ion-header>\n<ion-content>\n  <ion-refresher (ionRefresh)="doRefresh($event)">\n    <ion-refresher-content></ion-refresher-content>\n  </ion-refresher>\n  <ion-grid>\n    <ion-row>\n      <ion-col *ngFor="let item of items" col-md-6 col-sm-6 col-lg-6 col-xl-6>\n        <ion-card>\n          <div class="ion-card-image-wrapper" (click)="viewEntry({ record: item })">\n            <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">\n            <img [src]="item.image" *ngIf="item.site == \'NOS.nl\'">\n            <img [src]="item.image" *ngIf="item.site != \'NOS.nl\' || item.site != \'NU.nl\'">\n          </div>\n          <ion-card-content>\n            <div *ngIf="rol == 1">\n              <ion-fab right *ngIf="item.site == \'De Telegraaf\'">\n                <button ion-fab mini (click)="setHideArticle(item.id)" class="ColorTelegraaf2">\n                  <ion-icon name="eye-off"></ion-icon>\n                </button>\n              </ion-fab>\n              <ion-fab right *ngIf="item.site == \'NOS\'">\n                <button ion-fab mini (click)="setHideArticle(item.id)" class="ColorNOS2">\n                  <ion-icon name="eye-off"></ion-icon>\n                </button>\n              </ion-fab>\n              <ion-fab right *ngIf="item.site == \'NU.nl\'">\n                <button ion-fab mini (click)="setHideArticle(item.id)" class="ColorNU2">\n                  <ion-icon name="eye-off"></ion-icon>\n                </button>\n              </ion-fab>\n            </div>\n            <div id="title" (click)="viewEntry({ record: item })">\n              <ion-card-title class="TitleFeed" *ngIf="rol != 1">\n                <strong>{{item.title}}</strong>\n              </ion-card-title>\n              <ion-card-title class="editTitleFeed" *ngIf="rol == 1">\n                <strong>{{item.title}}</strong>\n              </ion-card-title>\n            </div>\n            <div id="description" (click)="viewEntry({ record: item })">\n              <p *ngIf="rol != 1" class="descriptionFeed">{{htmlToPlaintext(item.description) | slice:0:120}}...</p>\n              <p *ngIf="rol == 1" class="editDescriptionFeed">{{htmlToPlaintext(item.description) | slice:0:120}}...</p>\n            </div>\n          </ion-card-content>\n          <ion-item (click)="viewEntry({ record: item })">\n            <ion-icon name="contact" item-start></ion-icon>\n            <ion-badge item-end *ngIf="item.site == \'De Telegraaf\'" class="ColorTelegraaf">{{item.site}}\n            </ion-badge>\n            <ion-badge item-end *ngIf="item.site == \'NOS\'" class="ColorNOS">{{item.site}}</ion-badge>\n            <ion-badge item-end *ngIf="item.site == \'NU.nl\'" class="ColorNU">{{item.site}}</ion-badge>\n          </ion-item>\n          <ion-item (click)="viewEntry({ record: item })">\n            <ion-icon name="time" item-start></ion-icon>\n            <ion-badge item-end *ngIf="item.site == \'De Telegraaf\'" class="ColorTelegraaf">{{item.datum}}\n            </ion-badge>\n            <ion-badge item-end *ngIf="item.site == \'NOS\'" class="ColorNOS">{{item.datum}}</ion-badge>\n            <ion-badge item-end *ngIf="item.site == \'NU.nl\'" class="ColorNU">{{item.datum}}</ion-badge>\n          </ion-item>\n          <div id="socialLikeComments" class="socialLikeComments">\n            <ion-segment color="lightAppKleur">\n              <ion-segment-button value="likes" (click)="kaas()">\n                <ion-icon name="heart"></ion-icon>\n              </ion-segment-button>\n              <ion-segment-button  value="comment">\n                <ion-icon name="text"></ion-icon>\n              </ion-segment-button>\n              <ion-segment-button  value="share">\n                <ion-icon name="share"></ion-icon>\n              </ion-segment-button>\n            </ion-segment>\n          </div>\n        </ion-card>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n    <ion-infinite-scroll-content></ion-infinite-scroll-content>\n  </ion-infinite-scroll>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Documents\GitHub\News-App\src\pages\feed\feed.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */],
@@ -494,7 +494,7 @@ var AdminPage = /** @class */ (function () {
     };
     AdminPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-admin',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Documents\GitHub\News-App\src\pages\admin\admin.html"*/'<!--\n\n  Generated template for the AdminPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar class="nieuwsNavTitle">\n\n   Admin\n\n  </ion-navbar>\n\n  <ion-segment [(ngModel)]="checklist" color="primary">\n\n    <ion-segment-button value="artikelen" (click)="selectArtikelen()">\n\n      Verborgen\n\n    </ion-segment-button>\n\n    <ion-segment-button value="gebruikers" (click)="selectGebruikers()">\n\n      Gebruikers\n\n    </ion-segment-button>\n\n  </ion-segment>\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n    <div *ngIf="checklist == \'artikelen\'">\n\n        <ion-searchbar placeholder="Zoek.." (ionInput)="searchArtikel($event)" [showCancelButton]="true" (ionCancel)="resetArtikelen()" (ionClear)="resetChanges()"></ion-searchbar>\n\n    <ion-card *ngFor="let item of artikelenlijst" (click)="viewEntry({ record: item })">\n\n        <img *ngIf="!item.image" src="http://gazoh.net/images/noimage.jpg">\n\n        <img [src]="item.image">\n\n        <ion-card-content>\n\n            <ion-card-title>\n\n                <strong>{{item.title}}</strong>\n\n            </ion-card-title>\n\n            <p>{{htmlToPlaintext(item.description) | slice:0:120}}...</p>\n\n        </ion-card-content>\n\n\n\n        <!-- Funtie nog schrijven voor if == nu.nl of andere website set badge kleur  -->\n\n        <ion-item>\n\n            <ion-icon name="contact" item-start></ion-icon>\n\n            <ion-badge item-end>{{item.site}}</ion-badge>\n\n        </ion-item>\n\n        <ion-item>\n\n            <ion-icon name="time" item-start></ion-icon>\n\n            <ion-badge item-end>{{item.datum}}</ion-badge>\n\n        </ion-item>\n\n    </ion-card>\n\n    </div>\n\n\n\n        <ion-list inset *ngIf="checklist == \'gebruikers\'">\n\n            <ion-item-group>\n\n                <ion-row>\n\n                <ion-item class="adminUsers" *ngFor="let user of gebruikerslijst" ><strong>ID : </strong> {{user.id}} | <strong>{{user.email}} |</strong> <button ion-button color="secondary" item-right><ion-icon name="create"></ion-icon></button><button ion-button color="danger" item-right><ion-icon name="trash"></ion-icon></button></ion-item>\n\n                </ion-row>\n\n            </ion-item-group>\n\n        </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Documents\GitHub\News-App\src\pages\admin\admin.html"*/,
+            selector: 'page-admin',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Documents\GitHub\News-App\src\pages\admin\admin.html"*/'<ion-header no-border-bottom>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle right class="fakeCenter">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n      <ion-title text-center class="centerTitle">Admin</ion-title>\n\n  </ion-navbar>\n\n  <ion-segment [(ngModel)]="checklist" color="primary">\n\n    <ion-segment-button value="artikelen" (click)="selectArtikelen()">\n\n      Verborgen\n\n    </ion-segment-button>\n\n    <ion-segment-button value="gebruikers" (click)="selectGebruikers()">\n\n      Gebruikers\n\n    </ion-segment-button>\n\n  </ion-segment>\n\n</ion-header>\n\n<ion-content padding>\n\n    <div *ngIf="checklist == \'artikelen\'">\n\n        <ion-searchbar placeholder="Zoek.." (ionInput)="searchArtikel($event)" [showCancelButton]="true" (ionCancel)="resetArtikelen()" (ionClear)="resetChanges()"></ion-searchbar>\n\n    <ion-card *ngFor="let item of artikelenlijst" (click)="viewEntry({ record: item })">\n\n        <img *ngIf="!item.image" src="http://gazoh.net/images/noimage.jpg">\n\n        <img [src]="item.image">\n\n        <ion-card-content>\n\n            <ion-card-title>\n\n                <strong>{{item.title}}</strong>\n\n            </ion-card-title>\n\n            <p>{{htmlToPlaintext(item.description) | slice:0:120}}...</p>\n\n        </ion-card-content>\n\n\n\n        <!-- Funtie nog schrijven voor if == nu.nl of andere website set badge kleur  -->\n\n        <ion-item>\n\n            <ion-icon name="contact" item-start></ion-icon>\n\n            <ion-badge item-end>{{item.site}}</ion-badge>\n\n        </ion-item>\n\n        <ion-item>\n\n            <ion-icon name="time" item-start></ion-icon>\n\n            <ion-badge item-end>{{item.datum}}</ion-badge>\n\n        </ion-item>\n\n    </ion-card>\n\n    </div>\n\n\n\n        <ion-list inset *ngIf="checklist == \'gebruikers\'">\n\n            <ion-item-group>\n\n                <ion-row>\n\n                <ion-item class="adminUsers" *ngFor="let user of gebruikerslijst" ><strong>ID : </strong> {{user.id}} | <strong>{{user.email}} |</strong> <button ion-button color="secondary" item-right><ion-icon name="create"></ion-icon></button><button ion-button color="danger" item-right><ion-icon name="trash"></ion-icon></button></ion-item>\n\n                </ion-row>\n\n            </ion-item-group>\n\n        </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Documents\GitHub\News-App\src\pages\admin\admin.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
     ], AdminPage);
@@ -554,6 +554,51 @@ var AutoPage = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SportPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the SportPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var SportPage = /** @class */ (function () {
+    function SportPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    SportPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad SportPage');
+    };
+    SportPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-sport',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Documents\GitHub\News-App\src\pages\sport\sport.html"*/'<ion-header no-border-bottom>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle right class="fakeCenter">\n\n        <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n      <ion-title>Sport</ion-title>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n    </ion-navbar>\n\n</ion-header>\n\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Documents\GitHub\News-App\src\pages\sport\sport.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]])
+    ], SportPage);
+    return SportPage;
+}());
+
+//# sourceMappingURL=sport.js.map
+
+/***/ }),
+
+/***/ 160:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EconomiePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
@@ -595,7 +640,7 @@ var EconomiePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 160:
+/***/ 161:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -637,51 +682,6 @@ var MisdaadPage = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=misdaad.js.map
-
-/***/ }),
-
-/***/ 161:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SportPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Generated class for the SportPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var SportPage = /** @class */ (function () {
-    function SportPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    SportPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad SportPage');
-    };
-    SportPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-sport',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Documents\GitHub\News-App\src\pages\sport\sport.html"*/'<ion-header no-border-bottom>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle right class="fakeCenter">\n\n        <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n      <ion-title>Sport</ion-title>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n    </ion-navbar>\n\n</ion-header>\n\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Documents\GitHub\News-App\src\pages\sport\sport.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]])
-    ], SportPage);
-    return SportPage;
-}());
-
-//# sourceMappingURL=sport.js.map
 
 /***/ }),
 
@@ -738,9 +738,9 @@ var TechPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__settings_settings__ = __webpack_require__(88);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__ = __webpack_require__(324);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_transfer__ = __webpack_require__(325);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_file__ = __webpack_require__(326);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__ = __webpack_require__(323);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_transfer__ = __webpack_require__(324);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_file__ = __webpack_require__(325);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -800,7 +800,7 @@ var ProfielPage = /** @class */ (function () {
     ProfielPage.prototype.takePhoto = function () {
         var _this = this;
         var options = {
-            quality: 70,
+            quality: 100,
             allowEdit: true,
             targetWidth: 300,
             targetHeight: 300,
@@ -923,7 +923,7 @@ var ProfielPage = /** @class */ (function () {
     };
     ProfielPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-profiel',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Documents\GitHub\News-App\src\pages\profiel\profiel.html"*/'<ion-header no-border-bottom>\n  <ion-navbar>\n    <ion-title text-center>Profiel</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content>\n  <!-- <ion-grid class="gridMenu">\n    <ion-col col-12 class="menuCol">\n      <div class="alignCenter">\n        <img *ngIf="!myphoto" src="../assets/imgs/Portrait_Placeholder.png" class="avatar-profiel" (click)="presentActionSheet()" />\n        <img *ngIf="myphoto " src="{{ myphoto }}" class="avatar-profiel" (click)="presentActionSheet()" />\n          <h5 class="usernameProfiel" (click)="presentActionSheet()">Foto Wijzigen</h5>\n      </div>\n    </ion-col>\n  </ion-grid> -->\n  <ion-list>\n    <ion-grid class="gridMenu">\n      <ion-col col-12 class="menuCol">\n        <div class="alignCenter">\n          <img *ngIf="!myphoto" src="../assets/imgs/Portrait_Placeholder.png" class="avatar-profiel" (click)="presentActionSheet()" />\n          <img *ngIf="myphoto " src="{{ myphoto }}" class="avatar-profiel" (click)="presentActionSheet()" />\n            <h5 class="usernameProfiel" (click)="presentActionSheet()">Foto Wijzigen</h5>\n        </div>\n\n\n\n        <ion-item>\n          <ion-label color="dark" stacked>Gebruikersnaam</ion-label>\n          <ion-input type="text" placeholder=""></ion-input>\n        </ion-item>\n        <ion-item>\n          <ion-label color="dark" stacked>Email</ion-label>\n          <ion-input type="email" placeholder=""></ion-input>\n        </ion-item>\n\n        <h6 class="wachtwoordWijzigen" (click)="wijzigWachtwoord()">Wijzig Wachtwoord</h6>\n\n      </ion-col>\n    </ion-grid>\n    </ion-list>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Documents\GitHub\News-App\src\pages\profiel\profiel.html"*/,
+            selector: 'page-profiel',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Documents\GitHub\News-App\src\pages\profiel\profiel.html"*/'<ion-header no-border-bottom>\n  <ion-navbar>\n    <ion-title text-center>Profiel</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content>\n  <ion-list>\n    <ion-grid class="gridMenu">\n      <ion-col col-12 class="menuCol">\n        <div class="alignCenter">\n          <img *ngIf="!myphoto" src="../assets/imgs/Portrait_Placeholder.png" class="avatar-profiel" (click)="presentActionSheet()" />\n          <img *ngIf="myphoto " src="{{ myphoto }}" class="avatar-profiel" (click)="presentActionSheet()" />\n            <h5 class="usernameProfiel" (click)="presentActionSheet()">Foto Wijzigen</h5>\n        </div>\n\n\n\n        <ion-item>\n          <ion-label color="dark" stacked>Gebruikersnaam</ion-label>\n          <ion-input type="text" placeholder=""></ion-input>\n        </ion-item>\n        <ion-item>\n          <ion-label color="dark" stacked>Email</ion-label>\n          <ion-input type="email" placeholder=""></ion-input>\n        </ion-item>\n\n        <h6 class="wachtwoordWijzigen" (click)="wijzigWachtwoord()">Wijzig Wachtwoord</h6>\n\n      </ion-col>\n    </ion-grid>\n    </ion-list>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Documents\GitHub\News-App\src\pages\profiel\profiel.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0_ionic_angular__["l" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["m" /* NavParams */],
@@ -1015,60 +1015,64 @@ webpackEmptyAsyncContext.id = 175;
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"../pages/admin/admin.module": [
+	"../pages/about/about.module": [
 		707,
-		9
+		0
+	],
+	"../pages/admin/admin.module": [
+		708,
+		10
 	],
 	"../pages/auto/auto.module": [
-		708,
-		8
+		709,
+		9
 	],
 	"../pages/category/category.module": [
 		222
 	],
 	"../pages/economie/economie.module": [
-		709,
-		7
+		710,
+		8
 	],
 	"../pages/feed/feed.module": [
 		230
 	],
 	"../pages/misdaad/misdaad.module": [
-		710,
-		6
+		711,
+		7
 	],
 	"../pages/nieuws/nieuws.module": [
 		231
 	],
 	"../pages/profiel/profiel.module": [
 		712,
-		5
+		6
 	],
 	"../pages/register/register.module": [
-		233
+		326
 	],
 	"../pages/settings/settings.module": [
+		713,
+		5
+	],
+	"../pages/sources/sources.module": [
 		714,
 		4
 	],
-	"../pages/sources/sources.module": [
-		716,
+	"../pages/sport/sport.module": [
+		715,
 		3
 	],
-	"../pages/sport/sport.module": [
-		711,
-		2
-	],
 	"../pages/tech/tech.module": [
-		713,
-		1
+		716,
+		2
 	],
 	"../pages/tutorial/tutorial.module": [
 		327
 	],
 	"../pages/vermaak/vermaak.module": [
-		715,
-		0
+		717,
+		1
 	]
 };
 function webpackAsyncContext(req) {
@@ -1330,7 +1334,7 @@ var NieuwsPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 233:
+/***/ 326:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1584,28 +1588,29 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_in_app_browser__ = __webpack_require__(232);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_screen_orientation__ = __webpack_require__(229);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_header_color__ = __webpack_require__(701);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_file__ = __webpack_require__(326);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_file_transfer__ = __webpack_require__(325);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_camera__ = __webpack_require__(324);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_file__ = __webpack_require__(325);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_file_transfer__ = __webpack_require__(324);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_camera__ = __webpack_require__(323);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_home_home__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_settings_settings__ = __webpack_require__(88);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_sources_sources__ = __webpack_require__(164);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_profiel_profiel__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_sport_sport__ = __webpack_require__(161);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_economie_economie__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_sport_sport__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_economie_economie__ = __webpack_require__(160);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_auto_auto__ = __webpack_require__(158);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_misdaad_misdaad__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_misdaad_misdaad__ = __webpack_require__(161);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_tech_tech__ = __webpack_require__(162);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_admin_admin__ = __webpack_require__(157);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_nieuws_nieuws_module__ = __webpack_require__(231);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_category_category_module__ = __webpack_require__(222);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__angular_common_http__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__angular_forms__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__ionic_storage__ = __webpack_require__(702);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_favorieten_favorieten_module__ = __webpack_require__(706);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_feed_feed_module__ = __webpack_require__(230);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_register_register_module__ = __webpack_require__(233);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_tutorial_tutorial_module__ = __webpack_require__(327);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_about_about__ = __webpack_require__(718);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_nieuws_nieuws_module__ = __webpack_require__(231);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_category_category_module__ = __webpack_require__(222);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__angular_common_http__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__angular_forms__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__ionic_storage__ = __webpack_require__(702);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_favorieten_favorieten_module__ = __webpack_require__(706);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_feed_feed_module__ = __webpack_require__(230);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_register_register_module__ = __webpack_require__(326);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__pages_tutorial_tutorial_module__ = __webpack_require__(327);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1629,6 +1634,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 //
 // Pages
 //
+
 
 
 
@@ -1667,42 +1673,44 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_22__pages_tech_tech__["a" /* TechPage */],
                 __WEBPACK_IMPORTED_MODULE_23__pages_admin_admin__["a" /* AdminPage */],
                 __WEBPACK_IMPORTED_MODULE_16__pages_sources_sources__["a" /* SourcesPage */],
-                __WEBPACK_IMPORTED_MODULE_17__pages_profiel_profiel__["a" /* ProfielPage */]
+                __WEBPACK_IMPORTED_MODULE_17__pages_profiel_profiel__["a" /* ProfielPage */],
+                __WEBPACK_IMPORTED_MODULE_24__pages_about_about__["a" /* AboutPage */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_26__angular_common_http__["b" /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_27__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */], {
                     mode: "md",
                     scrollAssist: false,
                     autoFocusAssist: false
                 }, {
                     links: [
+                        { loadChildren: '../pages/about/about.module#AboutPageModule', name: 'AboutPage', segment: 'about', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/admin/admin.module#AdminPageModule', name: 'AdminPage', segment: 'admin', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/auto/auto.module#AutoPageModule', name: 'AutoPage', segment: 'auto', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/economie/economie.module#EconomiePageModule', name: 'EconomiePage', segment: 'economie', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/misdaad/misdaad.module#MisdaadPageModule', name: 'MisdaadPage', segment: 'misdaad', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/category/category.module#CategoryPageModule', name: 'CategoryPage', segment: 'category', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/economie/economie.module#EconomiePageModule', name: 'EconomiePage', segment: 'economie', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/feed/feed.module#FeedPageModule', name: 'FeedPage', segment: 'feed', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/misdaad/misdaad.module#MisdaadPageModule', name: 'MisdaadPage', segment: 'misdaad', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/nieuws/nieuws.module#NieuwsPageModule', name: 'NieuwsPage', segment: 'nieuws', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/sport/sport.module#SportPageModule', name: 'SportPage', segment: 'sport', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/profiel/profiel.module#ProfielPageModule', name: 'ProfielPage', segment: 'profiel', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/tech/tech.module#TechPageModule', name: 'TechPage', segment: 'tech', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/vermaak/vermaak.module#VermaakPageModule', name: 'VermaakPage', segment: 'vermaak', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/sources/sources.module#SourcesPageModule', name: 'SourcesPage', segment: 'sources', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/tutorial/tutorial.module#TutorialPageModule', name: 'TutorialPage', segment: 'tutorial', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/sport/sport.module#SportPageModule', name: 'SportPage', segment: 'sport', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/tech/tech.module#TechPageModule', name: 'TechPage', segment: 'tech', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/tutorial/tutorial.module#TutorialPageModule', name: 'TutorialPage', segment: 'tutorial', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/vermaak/vermaak.module#VermaakPageModule', name: 'VermaakPage', segment: 'vermaak', priority: 'low', defaultHistory: [] }
                     ]
                 }),
-                __WEBPACK_IMPORTED_MODULE_27__angular_forms__["f" /* ReactiveFormsModule */],
-                __WEBPACK_IMPORTED_MODULE_28__ionic_storage__["a" /* IonicStorageModule */].forRoot(),
-                __WEBPACK_IMPORTED_MODULE_29__pages_favorieten_favorieten_module__["a" /* FavorietenPageModule */],
-                __WEBPACK_IMPORTED_MODULE_30__pages_feed_feed_module__["FeedPageModule"],
-                __WEBPACK_IMPORTED_MODULE_31__pages_register_register_module__["RegisterPageModule"],
-                __WEBPACK_IMPORTED_MODULE_24__pages_nieuws_nieuws_module__["NieuwsPageModule"],
-                __WEBPACK_IMPORTED_MODULE_25__pages_category_category_module__["CategoryPageModule"],
-                __WEBPACK_IMPORTED_MODULE_32__pages_tutorial_tutorial_module__["TutorialPageModule"]
+                __WEBPACK_IMPORTED_MODULE_28__angular_forms__["f" /* ReactiveFormsModule */],
+                __WEBPACK_IMPORTED_MODULE_29__ionic_storage__["a" /* IonicStorageModule */].forRoot(),
+                __WEBPACK_IMPORTED_MODULE_30__pages_favorieten_favorieten_module__["a" /* FavorietenPageModule */],
+                __WEBPACK_IMPORTED_MODULE_31__pages_feed_feed_module__["FeedPageModule"],
+                __WEBPACK_IMPORTED_MODULE_32__pages_register_register_module__["RegisterPageModule"],
+                __WEBPACK_IMPORTED_MODULE_25__pages_nieuws_nieuws_module__["NieuwsPageModule"],
+                __WEBPACK_IMPORTED_MODULE_26__pages_category_category_module__["CategoryPageModule"],
+                __WEBPACK_IMPORTED_MODULE_33__pages_tutorial_tutorial_module__["TutorialPageModule"]
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicApp */]],
             entryComponents: [
@@ -1716,12 +1724,13 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_22__pages_tech_tech__["a" /* TechPage */],
                 __WEBPACK_IMPORTED_MODULE_23__pages_admin_admin__["a" /* AdminPage */],
                 __WEBPACK_IMPORTED_MODULE_16__pages_sources_sources__["a" /* SourcesPage */],
-                __WEBPACK_IMPORTED_MODULE_17__pages_profiel_profiel__["a" /* ProfielPage */]
+                __WEBPACK_IMPORTED_MODULE_17__pages_profiel_profiel__["a" /* ProfielPage */],
+                __WEBPACK_IMPORTED_MODULE_24__pages_about_about__["a" /* AboutPage */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */],
                 __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
-                __WEBPACK_IMPORTED_MODULE_26__angular_common_http__["b" /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_27__angular_common_http__["b" /* HttpClientModule */],
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicErrorHandler */] },
                 __WEBPACK_IMPORTED_MODULE_6__providers_settings_settings__["a" /* SettingsProvider */],
                 __WEBPACK_IMPORTED_MODULE_7__ionic_native_network__["a" /* Network */],
@@ -1797,19 +1806,16 @@ var NieuwsPage = /** @class */ (function () {
         return text ? String(text).replace(/<[^>]+>/gm, '') : '';
     };
     NieuwsPage.prototype.openPagina = function (url) {
-        var target = "_self";
-        var options = "hidden=no,toolbar=no,location=no,presentationstyle=fullscreen,clearcache=yes,clearsessioncache=yes";
-        var browser = this.iab.create(url, target, options);
+        var browser = this.iab.create(url);
         browser.show();
     };
     NieuwsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-nieuws',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Documents\GitHub\News-App\src\pages\nieuws\nieuws.html"*/'<ion-header>\n  <meta charset="UTF-8">\n  <ion-navbar class="nieuwsNavTitle">{{this.title}}</ion-navbar>\n</ion-header>\n<ion-content>\n  <ion-card class="nieuwsCard">\n    <img *ngIf="!this.image" src="../assets/imgs/noimage.jpg">\n    <img src="{{this.image}}">\n    <ion-card-header class="headerText" text-wrap>\n      {{this.title}}\n      <p class="nieuwsDatum">{{this.datum}}</p>\n    </ion-card-header>\n\n    <ion-card-content>\n\n      <p>{{htmlToPlaintext(this.description)}}</p>\n\n\n      <button (click)="openPagina(this.link)" ion-button round *ngIf="this.site == \'De Telegraaf\'" class="ColorTelegraaf">{{this.site}}</button>\n      <button (click)="openPagina(this.link)" ion-button round *ngIf="this.site == \'NOS\'" class="ColorNOS">{{this.site}}</button>\n      <button (click)="openPagina(this.link)" ion-button round *ngIf="this.site == \'NU.nl\'" class="ColorNU">{{this.site}}</button>\n    </ion-card-content>\n  </ion-card>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Documents\GitHub\News-App\src\pages\nieuws\nieuws.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__["a" /* InAppBrowser */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__["a" /* InAppBrowser */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__["a" /* InAppBrowser */]])
     ], NieuwsPage);
     return NieuwsPage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=nieuws.js.map
@@ -2141,7 +2147,7 @@ var MyApp = /** @class */ (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\Gazoh-PC\Documents\GitHub\News-App\src\app\app.html"*/'<!-- SplashScreen -->\n<ion-grid style="height: 100%" class="gridPadding">\n  <ion-row justify-content-center align-items-center style="height: 100%" *ngIf="showSplash" class="splash">\n\n    <div class="spinner">\n      <div class="NewsAgeLogo">\n        <img class="NewsAge" src="../assets/imgs/NewsAgeLogo.png">\n      </div>\n      <div class="loader">\n        <img src="../assets/svg/spinner/tail-spin.svg">\n      </div>\n    </div>\n\n  </ion-row>\n</ion-grid>\n<!--  -->\n\n<!-- Menu -->\n<ion-menu [class]="selectedTheme" id="myMenu" [content]="content" [swipeEnabled]="false">\n  <ion-content id="contentAnimation" menuToggle>\n    <ion-list>\n      <ion-navbar class="menuNavBar">\n        <ion-grid class="gridMenu">\n          <ion-col col-9 class="menuCol">\n            <img src="../assets/imgs/Portrait_Placeholder.png" class="avatar-menu" />\n            <h5 ngClass="usernameMenu">Username</h5>\n          </ion-col>\n        </ion-grid>\n      </ion-navbar>\n      <ion-item>\n        <button detail-none ion-item menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n          <ion-icon slot="start" [name]="p.icon"></ion-icon>\n          <span class="menu-titles">\n            {{p.title}}\n          </span>\n        </button>\n      </ion-item>\n      <ion-footer class="footerMenu">\n        <ion-toolbar class="toolbarFooter">\n          <div class="versienummer"><b>©NewsAge</b> V5.0.4</div>\n        </ion-toolbar>\n      </ion-footer>\n    </ion-list>\n  </ion-content>\n</ion-menu>\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" [class]="selectedTheme" #content swipeBackEnabled="false"></ion-nav>\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Documents\GitHub\News-App\src\app\app.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\Gazoh-PC\Documents\GitHub\News-App\src\app\app.html"*/'<!-- SplashScreen -->\n<ion-grid style="height: 100%" class="gridPadding">\n  <ion-row justify-content-center align-items-center style="height: 100%" *ngIf="showSplash" class="splash">\n    <div class="spinner">\n      <div class="NewsAgeLogo">\n        <img class="NewsAge" src="../assets/imgs/NewsAgeLogo.png">\n      </div>\n      <div class="loader">\n        <img src="../assets/svg/spinner/tail-spin.svg">\n      </div>\n    </div>\n  </ion-row>\n</ion-grid>\n<!--  -->\n<!-- Menu -->\n<ion-menu [class]="selectedTheme" id="myMenu" [content]="content" [swipeEnabled]="false">\n  <ion-content id="contentAnimation" menuToggle>\n    <ion-list>\n      <ion-navbar class="menuNavBar">\n        <ion-grid class="gridMenu">\n          <ion-col col-9 class="menuCol">\n            <img src="../assets/imgs/Portrait_Placeholder.png" class="avatar-menu" />\n            <h5 ngClass="usernameMenu">Username</h5>\n          </ion-col>\n        </ion-grid>\n      </ion-navbar>\n      <ion-item>\n        <button detail-none ion-item menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n          <ion-icon slot="start" [name]="p.icon"></ion-icon>\n          <span class="menu-titles">\n            {{p.title}}\n          </span>\n        </button>\n      </ion-item>\n      <ion-footer class="footerMenu">\n        <ion-toolbar class="toolbarFooter">\n          <div class="versienummer"><b>©NewsAge</b> V5.0.6</div>\n        </ion-toolbar>\n      </ion-footer>\n    </ion-list>\n  </ion-content>\n</ion-menu>\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" [class]="selectedTheme" #content swipeBackEnabled="false"></ion-nav>\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Documents\GitHub\News-App\src\app\app.html"*/,
             providers: [__WEBPACK_IMPORTED_MODULE_5__ionic_native_keyboard__["a" /* Keyboard */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Nav */]]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */],
@@ -2197,6 +2203,52 @@ var FavorietenPageModule = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 718:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AboutPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the AboutPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var AboutPage = /** @class */ (function () {
+    function AboutPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.themeStatus = localStorage.getItem("themeColor");
+    }
+    AboutPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad AboutPage');
+    };
+    AboutPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-about',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Documents\GitHub\News-App\src\pages\about\about.html"*/'<ion-header no-border-bottom>\n  <ion-navbar>\n    <button ion-button menuToggle right class="fakeCenter">\n      <ion-icon name="menu"></ion-icon>\n    </button>\n      <ion-title text-center class="centerTitle">Over Ons</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n    <h2>Welkom!</h2>\n    <p>Hallo! Welkom op NewsAge! ten eerste willen wij, namens het team, u bedanken voor het gebruiken van NewsAge!</p>\n    <h4>Wat is "NewsAge"</h4>\n    <p>NewsAge is de perfecte app om alle nieuws in een oogopslag te lezen.\n        NewsAge maakt het gemakkelijk voor de gebruiker(jij) door alle nieuws te verzamelen van verschillende bronnen en\n        die in een feed te verwerken zodat alles netjes en geordend is ;).</p>\n    <h4>Waarom NewsAge?</h4>\n    <p>NewsAge is heel gemakkelijk te gebruiken, u kunt bijvoorbeeld met 1 klik een dagblad volgen of niet volgen. U\n        kunt ook ervoor kiezen om bijvoorbeeld een artikel te verbergen, dit zorgt ervoor dat u de artikel niet\n        ziet.</p>\n    <img *ngIf="themeStatus == \'light-theme\'" class="imgAbout" style="float: right; " src="../../assets/imgs/NewsAgeLogoBlack.png"\n         width="150"/>\n    <img *ngIf="themeStatus == \'dark-theme\'" class="imgAbout" style="float: right; " src="../../assets/imgs/NewsAgeLogo.png"\n         width="150"/>\n    <ion-footer class="footerMenu">\n        <ion-toolbar class="toolbarFooter">\n            <div class="versienummer"><b>©NewsAge</b> V5.0.4</div>\n        </ion-toolbar>\n    </ion-footer>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Documents\GitHub\News-App\src\pages\about\about.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]])
+    ], AboutPage);
+    return AboutPage;
+}());
+
+//# sourceMappingURL=about.js.map
+
+/***/ }),
+
 /***/ 88:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2208,6 +2260,7 @@ var FavorietenPageModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__admin_admin__ = __webpack_require__(157);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__profiel_profiel__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__about_about__ = __webpack_require__(718);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2217,6 +2270,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -2279,18 +2333,22 @@ var SettingsPage = /** @class */ (function () {
     SettingsPage.prototype.bewerkProfiel = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__profiel_profiel__["a" /* ProfielPage */]);
     };
+    SettingsPage.prototype.overOns = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__about_about__["a" /* AboutPage */]);
+    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Nav */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Nav */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Nav */]) === "function" && _a || Object)
     ], SettingsPage.prototype, "nav", void 0);
     SettingsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-settings',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Documents\GitHub\News-App\src\pages\settings\settings.html"*/'<ion-header no-border-bottom>\n  <ion-navbar>\n    <button ion-button menuToggle right class="fakeCenter">\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Instellingen</ion-title>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-item class="" (click)="bewerkProfiel()">\n    <ion-label class="DarkLabel">\n      <ion-icon name="person" class="iconInstellingen"></ion-icon>\n      Bewerk Profiel\n    </ion-label>\n  </ion-item>\n  <ion-item class="" (click)="RaporteerProbleem()">\n    <ion-label class="DarkLabel">\n      <ion-icon name="document" class="iconInstellingen"></ion-icon>\n      Raporteer probleem\n    </ion-label>\n  </ion-item>\n  <ion-item class="">\n    <ion-label class="DarkLabel">\n      <ion-icon name="eye" class="iconInstellingen"></ion-icon>\n      Over ons\n    </ion-label>\n  </ion-item>\n  <ion-item class="">\n    <ion-label class="DarkLabel">\n      <ion-icon name="moon" class="iconInstellingen"></ion-icon>\n      Light/Dark\n    </ion-label>\n    <ion-toggle [(ngModel)]="toggleStatus" (ionChange)="toggleAppTheme()"></ion-toggle>\n  </ion-item>\n  <ion-item class="" (click)="openAdmin()">\n    <ion-label>\n      <ion-icon name="settings" class="iconInstellingen"></ion-icon>\n      Admin panel\n    </ion-label>\n  </ion-item>\n  <ion-item class="" (click)="uitloggen()">\n    <ion-label>\n      <ion-icon name="log-out" class="iconInstellingen"></ion-icon>\n      Uitloggen\n    </ion-label>\n  </ion-item>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Documents\GitHub\News-App\src\pages\settings\settings.html"*/,
+            selector: 'page-settings',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Documents\GitHub\News-App\src\pages\settings\settings.html"*/'<ion-header no-border-bottom>\n  <ion-navbar>\n    <button ion-button menuToggle right class="fakeCenter">\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Instellingen</ion-title>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-item class="" (click)="bewerkProfiel()">\n    <ion-label class="DarkLabel">\n      <ion-icon name="person" class="iconInstellingen"></ion-icon>\n      Bewerk Profiel\n    </ion-label>\n  </ion-item>\n  <ion-item class="" (click)="RaporteerProbleem()">\n    <ion-label class="DarkLabel">\n      <ion-icon name="document" class="iconInstellingen"></ion-icon>\n      Raporteer probleem\n    </ion-label>\n  </ion-item>\n  <ion-item class="" (click)="overOns()">\n    <ion-label class="DarkLabel">\n      <ion-icon name="eye" class="iconInstellingen"></ion-icon>\n      Over ons\n    </ion-label>\n  </ion-item>\n  <ion-item class="">\n    <ion-label class="DarkLabel">\n      <ion-icon name="moon" class="iconInstellingen"></ion-icon>\n      Light/Dark\n    </ion-label>\n    <ion-toggle [(ngModel)]="toggleStatus" (ionChange)="toggleAppTheme()"></ion-toggle>\n  </ion-item>\n  <ion-item class="" (click)="openAdmin()">\n    <ion-label>\n      <ion-icon name="settings" class="iconInstellingen"></ion-icon>\n      Admin panel\n    </ion-label>\n  </ion-item>\n  <ion-item class="" (click)="uitloggen()">\n    <ion-label>\n      <ion-icon name="log-out" class="iconInstellingen"></ion-icon>\n      Uitloggen\n    </ion-label>\n  </ion-item>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Documents\GitHub\News-App\src\pages\settings\settings.html"*/,
             providers: [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Nav */]]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_settings_settings__["a" /* SettingsProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__providers_settings_settings__["a" /* SettingsProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_settings_settings__["a" /* SettingsProvider */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]) === "function" && _e || Object])
     ], SettingsPage);
     return SettingsPage;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=settings.js.map

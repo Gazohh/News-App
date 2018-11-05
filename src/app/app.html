@@ -1,7 +1,6 @@
 <!-- SplashScreen -->
 <ion-grid style="height: 100%" class="gridPadding">
   <ion-row justify-content-center align-items-center style="height: 100%" *ngIf="showSplash" class="splash">
-
     <div class="spinner">
       <div class="NewsAgeLogo">
         <img class="NewsAge" src="../assets/imgs/NewsAgeLogo.png">
@@ -10,11 +9,9 @@
         <img src="../assets/svg/spinner/tail-spin.svg">
       </div>
     </div>
-
   </ion-row>
 </ion-grid>
 <!--  -->
-
 <!-- Menu -->
 <ion-menu [class]="selectedTheme" id="myMenu" [content]="content" [swipeEnabled]="false">
   <ion-content id="contentAnimation" menuToggle>
@@ -37,7 +34,7 @@
       </ion-item>
       <ion-footer class="footerMenu">
         <ion-toolbar class="toolbarFooter">
-          <div class="versienummer"><b>©NewsAge</b> V5.0.4</div>
+          <div class="versienummer"><b>©NewsAge</b> V5.0.6</div>
         </ion-toolbar>
       </ion-footer>
     </ion-list>

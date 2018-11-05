@@ -29,32 +29,32 @@
   </ion-refresher>
   <ion-grid>
     <ion-row>
-      <ion-col *ngFor="let item of items" (click)="viewEntry({ record: item })" col-md-6 col-sm-6 col-lg-6 col-xl-6>
+      <ion-col *ngFor="let item of items" col-md-6 col-sm-6 col-lg-6 col-xl-6>
         <ion-card>
-              <div class="ion-card-image-wrapper">
-                <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">
-                <img [src]="item.image" *ngIf="item.site == 'NOS.nl'">
-                <img [src]="item.image" *ngIf="item.site != 'NOS.nl' || item.site != 'NU.nl'">
-              </div>
+          <div class="ion-card-image-wrapper" (click)="viewEntry({ record: item })">
+            <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">
+            <img [src]="item.image" *ngIf="item.site == 'NOS.nl'">
+            <img [src]="item.image" *ngIf="item.site != 'NOS.nl' || item.site != 'NU.nl'">
+          </div>
           <ion-card-content>
             <div *ngIf="rol == 1">
               <ion-fab right *ngIf="item.site == 'De Telegraaf'">
-                <button ion-fab mini (click)="setHideArticle(item.id)" class="ColorTelegraaf">
+                <button ion-fab mini (click)="setHideArticle(item.id)" class="ColorTelegraaf2">
                   <ion-icon name="eye-off"></ion-icon>
                 </button>
               </ion-fab>
               <ion-fab right *ngIf="item.site == 'NOS'">
-                <button ion-fab mini (click)="setHideArticle(item.id)" class="ColorNOS">
+                <button ion-fab mini (click)="setHideArticle(item.id)" class="ColorNOS2">
                   <ion-icon name="eye-off"></ion-icon>
                 </button>
               </ion-fab>
               <ion-fab right *ngIf="item.site == 'NU.nl'">
-                <button ion-fab mini (click)="setHideArticle(item.id)" class="ColorNU">
+                <button ion-fab mini (click)="setHideArticle(item.id)" class="ColorNU2">
                   <ion-icon name="eye-off"></ion-icon>
                 </button>
               </ion-fab>
             </div>
-            <div id="title">
+            <div id="title" (click)="viewEntry({ record: item })">
               <ion-card-title class="TitleFeed" *ngIf="rol != 1">
                 <strong>{{item.title}}</strong>
               </ion-card-title>
@@ -62,25 +62,38 @@
                 <strong>{{item.title}}</strong>
               </ion-card-title>
             </div>
-            <div id="description">
+            <div id="description" (click)="viewEntry({ record: item })">
               <p *ngIf="rol != 1" class="descriptionFeed">{{htmlToPlaintext(item.description) | slice:0:120}}...</p>
               <p *ngIf="rol == 1" class="editDescriptionFeed">{{htmlToPlaintext(item.description) | slice:0:120}}...</p>
             </div>
           </ion-card-content>
-          <ion-item>
+          <ion-item (click)="viewEntry({ record: item })">
             <ion-icon name="contact" item-start></ion-icon>
             <ion-badge item-end *ngIf="item.site == 'De Telegraaf'" class="ColorTelegraaf">{{item.site}}
             </ion-badge>
             <ion-badge item-end *ngIf="item.site == 'NOS'" class="ColorNOS">{{item.site}}</ion-badge>
             <ion-badge item-end *ngIf="item.site == 'NU.nl'" class="ColorNU">{{item.site}}</ion-badge>
           </ion-item>
-          <ion-item>
+          <ion-item (click)="viewEntry({ record: item })">
             <ion-icon name="time" item-start></ion-icon>
             <ion-badge item-end *ngIf="item.site == 'De Telegraaf'" class="ColorTelegraaf">{{item.datum}}
             </ion-badge>
             <ion-badge item-end *ngIf="item.site == 'NOS'" class="ColorNOS">{{item.datum}}</ion-badge>
             <ion-badge item-end *ngIf="item.site == 'NU.nl'" class="ColorNU">{{item.datum}}</ion-badge>
           </ion-item>
+          <div id="socialLikeComments" class="socialLikeComments">
+            <ion-segment color="lightAppKleur">
+              <ion-segment-button value="likes" (click)="kaas()">
+                <ion-icon name="heart"></ion-icon>
+              </ion-segment-button>
+              <ion-segment-button  value="comment">
+                <ion-icon name="text"></ion-icon>
+              </ion-segment-button>
+              <ion-segment-button  value="share">
+                <ion-icon name="share"></ion-icon>
+              </ion-segment-button>
+            </ion-segment>
+          </div>
         </ion-card>
       </ion-col>
     </ion-row>

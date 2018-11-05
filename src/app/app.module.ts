@@ -26,6 +26,7 @@ import {AutoPage} from "../pages/auto/auto";
 import {MisdaadPage} from "../pages/misdaad/misdaad";
 import {TechPage} from "../pages/tech/tech";
 import {AdminPage} from "../pages/admin/admin";
+import {AboutPage} from "../pages/about/about";
 
 //
 // Modules
@@ -52,7 +53,8 @@ import {TutorialPageModule} from "../pages/tutorial/tutorial.module";
     TechPage,
     AdminPage,
     SourcesPage,
-    ProfielPage
+    ProfielPage,
+    AboutPage
   ],
   imports: [
     BrowserModule,
@@ -83,7 +85,8 @@ import {TutorialPageModule} from "../pages/tutorial/tutorial.module";
     TechPage,
     AdminPage,
     SourcesPage,
-    ProfielPage
+    ProfielPage,
+    AboutPage
   ],
   providers: [
     StatusBar,

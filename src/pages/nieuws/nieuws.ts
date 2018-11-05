@@ -54,9 +54,7 @@ export class NieuwsPage {
   }
 
   openPagina(url: any) {
-    var target = "_self";
-    var options = "hidden=no,toolbar=no,location=no,presentationstyle=fullscreen,clearcache=yes,clearsessioncache=yes";
-    const browser = this.iab.create(url,target,options);
+    const browser = this.iab.create(url);
     browser.show();
   }
 }
