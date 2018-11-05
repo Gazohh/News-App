@@ -4,26 +4,56 @@ import { AlertController } from 'ionic-angular';
 import { SettingsPage } from '../settings/settings';
 import { Component } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera';
-import {FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 
 @IonicPage()
 @Component({
-  selector: 'page-profiel',
-  templateUrl: 'profiel.html',
+    selector: 'page-profiel',
+    templateUrl: 'profiel.html',
 })
 export class ProfielPage {
-myphoto:any;
-  constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              private alertCtrl: AlertController,
-              private camera: Camera,
-              private transfer: FileTransfer,
-              private file: File,
-              private loadingCtrl: LoadingController,
-              public actionSheetCtrl: ActionSheetController) {
-  }
+    dataUser:any;
+    myphoto:any;
+    username: any;
+    email: any;
+    id:any = localStorage.getItem("userId");
+    emailVerified: any;
+    rol: any;
+    creationdate:any;
+    profilepicture:any;
+    myprofilepic:any = localStorage.getItem("profilePicture");
+    constructor(public navCtrl: NavController,
+                public navParams: NavParams,
+                private alertCtrl: AlertController,
+                private camera: Camera,
+                private file: File,
+                public actionSheetCtrl: ActionSheetController,
+                public http:HttpClient) {
+        const headers = new HttpHeaders();
+
+        headers.append("Accept", 'application/json');
+
+        headers.append('Content-Type', 'application/json');
+
+        const options = {headers: headers};
+
+        const data = {
+
+            email: localStorage.getItem('userEmail'),
+
+        };
+        this.http.post('http://gazoh.net/getgebruiker.php', data, options)
+            .subscribe(data => {this.dataUser = data;
+                this.username = this.dataUser.username;
+                this.email = this.dataUser.email;
+                this.emailVerified = this.dataUser.emailVerified;
+                this.rol = this.dataUser.rol;
+                this.myphoto = this.dataUser.profilepicture;
+                this.creationdate = this.dataUser.creationdate});
+    }
     presentActionSheet() {
         let actionSheet = this.actionSheetCtrl.create({
             title: 'Kies een profielfoto!',
@@ -55,14 +85,14 @@ myphoto:any;
     }
     takePhoto(){
         const options: CameraOptions = {
-            quality: 100,
+            quality: 70,
             allowEdit:true,
             targetWidth:300,
             targetHeight:300,
             destinationType: this.camera.DestinationType.DATA_URL,
             encodingType: this.camera.EncodingType.JPEG,
             mediaType: this.camera.MediaType.PICTURE
-        }
+        };
 
         this.camera.getPicture(options).then((imageData) => {
             // imageData is either a base64 encoded string or a file URI
@@ -74,6 +104,8 @@ myphoto:any;
     }
     onArticlePictureCreated(base64String: string){
         this.myphoto = 'data:image/jpeg;base64,' + base64String;
+        this.myprofilepic = 'data:image/jpeg;base64,' + base64String;
+        localStorage.setItem("profilePicture", this.myphoto);
     }
 
     // getImage() {
@@ -94,97 +126,123 @@ myphoto:any;
     // }
 
     cropImage() {
-    const options: CameraOptions = {
-      quality: 70,
-      destinationType: this.camera.DestinationType.DATA_URL,
-      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
-      saveToPhotoAlbum: false,
-      allowEdit:true,
-      targetWidth:300,
-      targetHeight:300
-    }
+        const options: CameraOptions = {
+            quality: 70,
+            destinationType: this.camera.DestinationType.DATA_URL,
+            sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+            saveToPhotoAlbum: false,
+            allowEdit:true,
+            targetWidth:300,
+            targetHeight:300
+        };
 
-    this.camera.getPicture(options).then((imageData) => {
-      // imageData is either a base64 encoded string or a file URI
-      // If it's base64:
-      this.myphoto = 'data:image/jpeg;base64,' + imageData;
-    }, (err) => {
-      // Handle error
-    });
-  }
-
-    uploadImage(){
-        //Show loading
-        let loader = this.loadingCtrl.create({
-            content: "Uploading..."
+        this.camera.getPicture(options).then((imageData) => {
+            // imageData is either a base64 encoded string or a file URI
+            // If it's base64:
+            this.myphoto = 'data:image/jpeg;base64,' + imageData;
+            this.myprofilepic = 'data:image/jpeg;base64,' + imageData;
+            localStorage.setItem("profilePicture", this.myphoto);
+        }, (err) => {
+            // Handle error
         });
-        loader.present();
-
-        //create file transfer object
-        const fileTransfer: FileTransferObject = this.transfer.create();
-
-        //random int
-        var random = Math.floor(Math.random() * 100);
-
-        //option transfer
-        let options: FileUploadOptions = {
-            fileKey: 'photo',
-            fileName: "myImage_" + random + ".jpg",
-            chunkedMode: false,
-            httpMethod: 'post',
-            mimeType: "image/jpeg",
-            headers: {}
-        }
-
-        //file transfer action
-        fileTransfer.upload(this.myphoto, 'http://localhost/news-app/src/pages/profiel/uploadFoto.php', options)
-            .then((data) => {
-                alert("Success");
-                loader.dismiss();
-            }, (err) => {
-                console.log(err);
-                alert("Error");
-                loader.dismiss();
-            });
     }
 
-  wijzigWachtwoord() {
-    const prompt = this.alertCtrl.create({
-       title: 'Wachtwoord wijzigen',
-       inputs: [
-         {
-           name: 'oudWachtwoord',
-           placeholder: 'Oude wachtwoord'
-         },
-         {
-           name: 'NieuweWachtwoord1',
-           placeholder: 'Nieuwe wachtwoord'
-         },
-         {
-           name: 'NieuweWachtwoord2',
-           placeholder: 'Herhaal wachtwoord'
-         },
-       ],
-       buttons: [
-         {
-           text: 'Cancel',
-           handler: data => {
-             console.log('Cancel clicked');
-           }
-         },
-         {
-           text: 'Wijzigen',
-           handler: data => {
-             console.log('Saved clicked');
-           }
-         }
-       ]
-     });
-     prompt.present();
-   }
+    wijzigWachtwoord() {
+        const prompt = this.alertCtrl.create({
+            title: 'Wachtwoord wijzigen',
+            inputs: [
+                {
+                    name: 'oudWachtwoord',
+                    placeholder: 'Oude wachtwoord'
+                },
+                {
+                    name: 'NieuweWachtwoord1',
+                    placeholder: 'Nieuwe wachtwoord'
+                },
+                {
+                    name: 'NieuweWachtwoord2',
+                    placeholder: 'Herhaal wachtwoord'
+                },
+            ],
+            buttons: [
+                {
+                    text: 'Cancel',
+                    handler: data => {
+                        console.log('Cancel clicked');
+                    }
+                },
+                {
+                    text: 'Wijzigen',
+                    handler: data => {
+                        console.log('Saved clicked');
+                    }
+                }
+            ]
+        });
+        prompt.present();
+    }
 
-   goBack() {
-     this.navCtrl.push(SettingsPage);
-   }
+    goBack() {
+        this.navCtrl.push(SettingsPage);
+    }
+
+    updateProfile()
+    {
+        const headers = new HttpHeaders();
+
+        headers.append("Accept", 'application/json');
+
+        headers.append('Content-Type', 'application/json');
+
+        const options = {headers: headers};
+
+
+        const data = {
+
+            id: this.id,
+
+            username: this.username,
+
+            email: this.email,
+
+            myphoto: this.myphoto
+
+        };
+        this.http.post('http://gazoh.net/updateProfiel.php', data, options)
+
+            .map(res => res)
+
+            .subscribe(res => {
+                if(res == "Profile updated succesfully")
+                {
+                    let alert = this.alertCtrl.create({
+
+                        title: "Profiel bijgewerkt",
+
+                        subTitle: "Uw profiel is met succesvol bijgewerkt",
+
+                        buttons: ['OK']
+
+                    });
+
+                    alert.present();
+                }
+                else if(res == "No data set!")
+                {
+                    let alert = this.alertCtrl.create({
+
+                        title: "Mislukt",
+
+                        subTitle: "Uw profiel kon niet worden bijgewerkt vanwege een fout aan onze kant!",
+
+                        buttons: ['OK']
+
+                    });
+
+                    alert.present();
+                }
+            });
+        console.log("Dit is je foto:" + this.myphoto);
+    }
 
 }

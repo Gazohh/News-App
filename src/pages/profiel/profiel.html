@@ -8,8 +8,7 @@
     <ion-grid class="gridMenu">
       <ion-col col-12 class="menuCol">
         <div class="alignCenter">
-          <img *ngIf="!myphoto" src="../assets/imgs/Portrait_Placeholder.png" class="avatar-profiel" (click)="presentActionSheet()" />
-          <img *ngIf="myphoto " src="{{ myphoto }}" class="avatar-profiel" (click)="presentActionSheet()" />
+          <img *ngIf="myphoto" src="{{myphoto}}" class="avatar-profiel" (click)="presentActionSheet()" />
             <h5 class="usernameProfiel" (click)="presentActionSheet()">Foto Wijzigen</h5>
         </div>
 
@@ -17,15 +16,15 @@
 
         <ion-item>
           <ion-label color="dark" stacked>Gebruikersnaam</ion-label>
-          <ion-input type="text" placeholder=""></ion-input>
+          <ion-input type="text" placeholder="{{username}}" value="{{username}}"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label color="dark" stacked>Email</ion-label>
-          <ion-input type="email" placeholder=""></ion-input>
+          <ion-input type="email" placeholder="{{email}}" value="{{email}}"></ion-input>
         </ion-item>
 
         <h6 class="wachtwoordWijzigen" (click)="wijzigWachtwoord()">Wijzig Wachtwoord</h6>
-
+        <button ion-button (click)="updateProfile()">Klaar</button>
       </ion-col>
     </ion-grid>
     </ion-list>

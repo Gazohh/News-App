@@ -13,8 +13,8 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Platform } from 'ionic-angular';
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+    selector: 'page-home',
+    templateUrl: 'home.html'
 })
 
 export class HomePage {
@@ -37,104 +37,106 @@ export class HomePage {
 
 
     constructor(
-    public navCtrl: NavController,
-    public loading: LoadingController,
-    public http: HttpClient,
-    private toastCtrl: ToastController,
-    public menuCtrl: MenuController,
-    public events: Events,
-    private screenOrientation: ScreenOrientation,
-    public platform: Platform,
-    private keyboard: Keyboard) {
+        public navCtrl: NavController,
+        public loading: LoadingController,
+        public http: HttpClient,
+        private toastCtrl: ToastController,
+        public menuCtrl: MenuController,
+        public events: Events,
+        private screenOrientation: ScreenOrientation,
+        public platform: Platform,
+        private keyboard: Keyboard) {
+
+        if(localStorage.getItem("sessionToken"))
+        {
+            this.navCtrl.setRoot(CategoryPage)
+        }
 
 
-    if (this.platform.is('cordova')) {
-      this.platform.ready().then(() => {
-        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
-      })
+        if (this.platform.is('cordova')) {
+            this.platform.ready().then(() => {
+                this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+            })
+        }
+
+        this.menuCtrl.enable(false, 'myMenu');
+        keyboard.disableScroll(true);
+
     }
 
-    this.menuCtrl.enable(false, 'myMenu');
-    keyboard.disableScroll(true);
+    //
+    // Buttons met Push
+    //
 
-  }
-
-  //
-  // Buttons met Push
-  //
-
-  // Push naar de register pagina
-  goRegister() {
-    this.navCtrl.push(RegisterPage);
-  }
-  signIn() {
-    // Controleert of de velden wel zijn ingevuld
-    if (this.email == null || this.password == null) {
-      let toast = this.toastCtrl.create({
-        message: 'Niet alle velden zijn ingevuld!',
-        duration: 3000,
-        position: 'top'
-      });
-      toast.present();
+    // Push naar de register pagina
+    goRegister() {
+        this.navCtrl.push(RegisterPage);
     }
-    else {
-        var headers = new HttpHeaders();
-        headers.append("Accept", 'application/json');
-        headers.append('Content-Type', 'application/json');
-        let options = { headers: headers };
-        let data = {
-            email: this.email,
-            password: this.password
-        };
-        let loader = this.loading.create({
-            content: 'Aan het inloggen...',
-        });
-        loader.present().then(() => {
-            // Maakt verbinding met login.php en checkt of gegevens kloppen
-            this.http.post('http://www.gazoh.net/getgebruiker.php', data, options)
-                .subscribe(data => {this.dataUser = data});
-            this.http.post('http://www.gazoh.net/login.php', data, options)
-                .subscribe(res => {
-                    console.log(res);
-                    loader.dismiss();
-                    if (res == "Succesfully logged in!") {
-                        //Connectie met database
-                        let toast = this.toastCtrl.create({
-                            message: "U bent ingelogd!",
-                            duration: 2500,
-                            position: "top",
-                            showCloseButton: true,
-                            closeButtonText: "OK"
-                        });
+    signIn() {
+        // Controleert of de velden wel zijn ingevuld
+        if (this.email == null || this.password == null) {
+            let toast = this.toastCtrl.create({
+                message: 'Niet alle velden zijn ingevuld!',
+                duration: 3000,
+                position: 'top'
+            });
+            toast.present();
+        }
+        else {
+            var headers = new HttpHeaders();
+            headers.append("Accept", 'application/json');
+            headers.append('Content-Type', 'application/json');
+            let options = { headers: headers };
+            let data = {
+                email: this.email,
+                password: this.password
+            };
+            let loader = this.loading.create({
+                content: 'Aan het inloggen...',
+            });
+            loader.present().then(() => {
+                // Maakt verbinding met login.php en checkt of gegevens kloppen
+                this.http.post('http://www.gazoh.net/getgebruiker.php', data, options)
+                    .subscribe(data => {this.dataUser = data});
+                this.http.post('http://www.gazoh.net/login.php', data, options)
+                    .subscribe(res => {
+                        console.log(res);
+                        loader.dismiss();
+                        if (res == "Succesfully logged in!") {
+                            //Connectie met database
+                            let toast = this.toastCtrl.create({
+                                message: "U bent ingelogd!",
+                                duration: 2500,
+                                position: "top",
+                                showCloseButton: true,
+                                closeButtonText: "OK"
+                            });
 
-                        // Localstorage Gebruikersdetails
-                        localStorage.setItem("userId", this.dataUser.id);
-                        localStorage.setItem("userName", this.dataUser.username);
-                        localStorage.setItem("userEmail", this.dataUser.email);
-                        localStorage.setItem("userEmailVerified", this.dataUser.emailVerified);
-                        localStorage.setItem("userRole", this.dataUser.rol);
-                        localStorage.setItem("userCreationDate", this.dataUser.creationdate);
-                        localStorage.setItem("sessionToken", this.token);
+                            // Localstorage Gebruikersdetails
+                            localStorage.setItem("userId", this.dataUser.id);
+                            localStorage.setItem("userName", this.dataUser.username);
+                            localStorage.setItem("userEmail", this.dataUser.email);
+                            localStorage.setItem("userEmailVerified", this.dataUser.emailVerified);
+                            localStorage.setItem("userRole", this.dataUser.rol);
+                            localStorage.setItem("userCreationDate", this.dataUser.creationdate);
+                            localStorage.setItem("sessionToken", this.token);
+                            localStorage.setItem("profilePicture", this.dataUser.profilepicture);
 
-                        // Localstorage Email
-                        localStorage.setItem("email", this.email);
-                        this.navCtrl.setRoot(CategoryPage);
-
-
-
-                        toast.present();
-                    }
-            else {
-              let toast = this.toastCtrl.create({
-                message: "Uw gegevens zijn onjuist, probeer het nogmaals.",
-                showCloseButton: true,
-                closeButtonText: "OK",
-                position: "top"
-              });
-              toast.present();
-            }
-          });
-      });
+                            // Localstorage Email
+                            this.navCtrl.setRoot(CategoryPage);
+                            toast.present();
+                        }
+                        else {
+                            let toast = this.toastCtrl.create({
+                                message: "Uw gegevens zijn onjuist, probeer het nogmaals.",
+                                showCloseButton: true,
+                                closeButtonText: "OK",
+                                position: "top"
+                            });
+                            toast.present();
+                        }
+                    });
+            });
+        }
     }
-  }
 }
