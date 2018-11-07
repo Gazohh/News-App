@@ -26,7 +26,7 @@
           <div class="form-group">
             <ion-item [ngClass]="{ 'ng-touched' : form.get('username').touched }">>
               <ion-label floating>Gebruikersnaam</ion-label>
-              <ion-input type="text" formControlName="username" class="form-control" [(ngModel)]="username"></ion-input>
+              <ion-input type="text" placeholder="{{username}}" value="{{username}}" formControlName="username" class="form-control"></ion-input>
             </ion-item>
           </div>
           <div *ngIf="form.get('username').touched && form.get('username').invalid" class="alert alert-danger" required>
@@ -38,7 +38,7 @@
           <div class="form-group">
             <ion-item [ngClass]="{ 'ng-touched' : form.get('email').touched }">
               <ion-label floating>E-mail</ion-label>
-              <ion-input type="email" formControlName="email" class="form-control" [(ngModel)]="email"></ion-input>
+              <ion-input type="email" placeholder="{{email}}" value="{{email}}" formControlName="email" class="form-control"></ion-input>
             </ion-item>
           </div>
           <div *ngIf="form.get('email').touched && form.get('email').invalid" class="alert alert-danger" required>

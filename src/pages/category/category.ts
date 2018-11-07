@@ -9,9 +9,8 @@ import { AutoPage } from "../auto/auto";
 import { MisdaadPage } from "../misdaad/misdaad";
 import { TechPage } from "../tech/tech";
 import { VermaakPage } from "../vermaak/vermaak";
-import {HttpClient} from "@angular/common/http";
-
-
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import { Events } from 'ionic-angular';
 @IonicPage()
 @Component({
   selector: 'page-category',
@@ -20,16 +19,39 @@ import {HttpClient} from "@angular/common/http";
 export class CategoryPage {
 
     aantalartikelen: any;
+    dataUser:any;
+    username:any;
+    profilepicture:any;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public toastCtrl: ToastController, public http: HttpClient) {
+    constructor(public navCtrl: NavController,
+                public navParams: NavParams,
+                public menuCtrl: MenuController,
+                public toastCtrl: ToastController,
+                public http: HttpClient,
+                public events: Events) {
     this.menuCtrl.enable(true, 'myMenu');
-
+        var headers = new HttpHeaders();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        let options = { headers: headers };
+        let data = {
+            email: localStorage.getItem("userEmail"),
+        };
+        this.http.post('http://www.gazoh.net/getgebruiker.php', data, options)
+            .subscribe(data => {this.dataUser = data;
+            this.username = this.dataUser.username;
+            this.profilepicture = this.dataUser.profilepicture;
+                this.events.publish("username", this.username);
+                this.events.publish("profilepicture", this.profilepicture);
+            });
   }
 
     ionViewWillEnter()
     {
         this.getArtikelen();
+
     }
+
 
   goFeed() {
     this.navCtrl.setRoot(FeedPage);

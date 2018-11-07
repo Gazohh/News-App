@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, ModalController, MenuController, AlertController, Events } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { FavorietenPage } from "../pages/favorieten/favorieten";
 import { HomePage } from "../pages/home/home";
@@ -7,14 +7,10 @@ import { Keyboard } from "@ionic-native/keyboard";
 import { SettingsPage } from "../pages/settings/settings";
 import { SettingsProvider } from "../providers/settings/settings";
 import { CategoryPage } from "../pages/category/category";
-import { ModalController } from 'ionic-angular';
-import { MenuController } from 'ionic-angular';
-import { Events } from 'ionic-angular';
 import { SourcesPage } from "../pages/sources/sources";
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TutorialPage } from "../pages/tutorial/tutorial";
 import { timer } from "rxjs/observable/timer";
-import { AlertController } from 'ionic-angular';
 
 
 @Component({
@@ -32,6 +28,10 @@ export class MyApp {
     toggleStatus: boolean;
     showedAlert: boolean;
     confirmAlert: any;
+    dataUser:any;
+    username:any;
+    profilepicture:any;
+    theme:any;
 
     showSplash = true;
 
@@ -43,6 +43,13 @@ export class MyApp {
                 public menuCtrl: MenuController,
                 public events: Events,
                 public alertCtrl: AlertController) {
+
+        this.events.subscribe("username",(data) => {
+            this.username = data;
+        } );
+        this.events.subscribe("profilepicture",(foto) => {
+            this.profilepicture = foto;
+        } );
         this.settings.getActiveTheme().subscribe(val => this.selectedTheme = val);
         platform.ready().then(() => {
             // Okay, so the platform is ready and our plugins are available.

@@ -21,14 +21,14 @@
   </ion-navbar>
 </ion-header>
 <ion-content class="card-background-page" id="deleteCards">
-
+  <div (click)="goFeed()">
         <ion-card class="cardCategory">
-          <div (click)="goFeed()">
+
             <img src="../../assets/imgs/Nieuws.jpg">
             <ion-title class="card-title2">Algemeen</ion-title>
             <div class="card-subtitle">{{this.aantalartikelen}} Artikelen vandaag</div>
-          </div>
         </ion-card>
+  </div>
 
         <ion-card class="cardCategory">
           <div (click)="goSport()">

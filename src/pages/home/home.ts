@@ -12,6 +12,7 @@ import { Events } from 'ionic-angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Platform } from 'ionic-angular';
 
+
 @Component({
     selector: 'page-home',
     templateUrl: 'home.html'
@@ -125,6 +126,10 @@ export class HomePage {
                             // Localstorage Email
                             this.navCtrl.setRoot(CategoryPage);
                             toast.present();
+
+                            // //Fire username event
+                             this.events.publish("username", this.dataUser.username);
+                             this.events.publish("profilepicture", this.dataUser.profilepicture);
                         }
                         else {
                             let toast = this.toastCtrl.create({
