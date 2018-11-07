@@ -67,14 +67,14 @@
               <p *ngIf="rol == 1" class="editDescriptionFeed">{{htmlToPlaintext(item.description) | slice:0:120}}...</p>
             </div>
           </ion-card-content>
-          <ion-item (click)="viewEntry({ record: item })">
+          <ion-item (click)="viewEntry({ record: item })" class="itemBadge">
             <ion-icon name="contact" item-start></ion-icon>
             <ion-badge item-end *ngIf="item.site == 'De Telegraaf'" class="ColorTelegraaf">{{item.site}}
             </ion-badge>
             <ion-badge item-end *ngIf="item.site == 'NOS'" class="ColorNOS">{{item.site}}</ion-badge>
             <ion-badge item-end *ngIf="item.site == 'NU.nl'" class="ColorNU">{{item.site}}</ion-badge>
           </ion-item>
-          <ion-item (click)="viewEntry({ record: item })">
+          <ion-item (click)="viewEntry({ record: item })" class="itemBadge">
             <ion-icon name="time" item-start></ion-icon>
             <ion-badge item-end *ngIf="item.site == 'De Telegraaf'" class="ColorTelegraaf">{{item.datum}}
             </ion-badge>

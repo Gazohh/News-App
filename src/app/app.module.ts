@@ -41,20 +41,25 @@ import {FeedPageModule} from "../pages/feed/feed.module";
 import {RegisterPageModule} from "../pages/register/register.module";
 import {TutorialPageModule} from "../pages/tutorial/tutorial.module";
 
+//
+// Providers
+//
+import { InfouserProvider } from '../providers/infouser/infouser';
+
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
-    // SettingsPage,
-    // SportPage,
-    // EconomiePage,
-    // AutoPage,
-    // MisdaadPage,
-    // TechPage,
-    // AdminPage,
-    // SourcesPage,
-    // ProfielPage,
-    // AboutPage
+    HomePage,
+    SettingsPage,
+    SportPage,
+    EconomiePage,
+    AutoPage,
+    MisdaadPage,
+    TechPage,
+    AdminPage,
+    SourcesPage,
+    ProfielPage,
+    AboutPage
   ],
   imports: [
     BrowserModule,
@@ -101,7 +106,8 @@ import {TutorialPageModule} from "../pages/tutorial/tutorial.module";
     HeaderColor,
     Camera,
     File,
-    FileTransfer
+    FileTransfer,
+    InfouserProvider
   ]
 
 })

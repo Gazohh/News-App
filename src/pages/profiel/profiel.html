@@ -1,6 +1,14 @@
-<ion-header no-border-bottom>
+<ion-header>
   <ion-navbar>
-    <ion-title text-center>Profiel</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title class="profielPadding">Profiel</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="updateProfile()">
+        <ion-icon name="checkmark"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 <ion-content>
@@ -9,23 +17,38 @@
       <ion-col col-12 class="menuCol">
         <div class="alignCenter">
           <img *ngIf="myphoto" src="{{myphoto}}" class="avatar-profiel" (click)="presentActionSheet()" />
-            <h5 class="usernameProfiel" (click)="presentActionSheet()">Foto Wijzigen</h5>
+          <div class="fotoWijzigen">
+            <h5 class="fotoWijzigenProfiel" (click)="presentActionSheet()">Foto Wijzigen</h5>
+          </div>
         </div>
 
+        <form novalidate [formGroup]="form">
+          <div class="form-group">
+            <ion-item [ngClass]="{ 'ng-touched' : form.get('username').touched }">>
+              <ion-label floating>Gebruikersnaam</ion-label>
+              <ion-input type="text" formControlName="username" class="form-control" [(ngModel)]="username"></ion-input>
+            </ion-item>
+          </div>
+          <div *ngIf="form.get('username').touched && form.get('username').invalid" class="alert alert-danger" required>
+            <div class="validatieText" *ngIf="form.get('username').hasError('required')">Naam moet ingevuld zijn.</div>
+            <div class="validatieText" *ngIf="form.get('username').hasError('pattern')">Ongeldige naam.</div>
+            <div class="validatieText" *ngIf="form.get('username').hasError('minLength')">De minimale lengte zijn 3 letters.</div>
+          </div>
 
+          <div class="form-group">
+            <ion-item [ngClass]="{ 'ng-touched' : form.get('email').touched }">
+              <ion-label floating>E-mail</ion-label>
+              <ion-input type="email" formControlName="email" class="form-control" [(ngModel)]="email"></ion-input>
+            </ion-item>
+          </div>
+          <div *ngIf="form.get('email').touched && form.get('email').invalid" class="alert alert-danger" required>
+            <div class="validatieText" *ngIf="form.get('email').hasError('required')">Email moet ingevuld zijn</div>
+            <div class="validatieText" *ngIf="form.get('email').hasError('pattern')">Ongeldige Email!</div>
+          </div>
 
-        <ion-item>
-          <ion-label color="dark" stacked>Gebruikersnaam</ion-label>
-          <ion-input type="text" placeholder="{{username}}" value="{{username}}"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label color="dark" stacked>Email</ion-label>
-          <ion-input type="email" placeholder="{{email}}" value="{{email}}"></ion-input>
-        </ion-item>
-
+        </form>
         <h6 class="wachtwoordWijzigen" (click)="wijzigWachtwoord()">Wijzig Wachtwoord</h6>
-        <button ion-button (click)="updateProfile()">Klaar</button>
       </ion-col>
     </ion-grid>
-    </ion-list>
+  </ion-list>
 </ion-content>

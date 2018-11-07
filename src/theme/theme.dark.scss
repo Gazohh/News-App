@@ -5,7 +5,7 @@
   }
 
   .grid {
-    background-color: #303030;
+    background-color: transparent !important;
   }
   //background
   ion-content {
@@ -24,7 +24,6 @@
   .dark-theme .darkItem {
     background-color: #212121 !important;
   }
-
   //header voor pagina
   .header .toolbar-background {
     background-color: #29708c !important;
@@ -33,7 +32,6 @@
   .ionTitle {
     background-color: #212121 !important;
   }
-
 
   .label-md {
     color: #FFFFFF !important;
@@ -65,15 +63,15 @@
     color: #fff;
   }
 
-#contentAnimation > div.scroll-content > ion-list > ion-footer > ion-toolbar > div.toolbar-background.toolbar-background-md {
-  background-color: #2f2f2f !important;
-}
+  #contentAnimation > div.scroll-content > ion-list > ion-footer > ion-toolbar > div.toolbar-background.toolbar-background-md {
+    background-color: #2f2f2f !important;
+  }
 
-.versienummer {
-  color: #fff;
-}
+  .versienummer {
+    color: #fff;
+  }
 
- #contentAnimation > div.scroll-content {
+  #contentAnimation > div.scroll-content {
     background-color: #212121 !important;
   }
 
@@ -106,9 +104,11 @@
   p {
     color: #fff;
   }
-h4{
-  color: #FFF;
-}
+
+  h4 {
+    color: #FFF;
+  }
+
   h2 {
     color: #FFF;
   }
@@ -156,7 +156,6 @@ h4{
   .card-md {
     background: transparent;
   }
-
   // Button voor de sources
   .ImportClassesButton {
     background-color: #328a45;
@@ -174,18 +173,20 @@ h4{
     background-color: #29708c;
     color: white;
   }
-
   // Icon margin
   .iconInstellingen {
     margin-right: 2rem !important;
   }
 
-  .wachtwoordWijzigen {
-    color: #3ca7d1 !important;
-    padding-left: 5% !important;
-    margin-top: 25px;
-    font-size: smaller;
+  .validatieText {
+    color: #fff;
   }
 
+  .itemBadge {
+    background-color: #2f2f2f !important;
+  }
 
+  .socialLikeComments {
+    background-color: #2f2f2f !important;
+  }
 }

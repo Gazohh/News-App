@@ -8,6 +8,7 @@ import {AlertController} from 'ionic-angular';
 import {ProfielPage} from "../profiel/profiel";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {AboutPage} from "../about/about";
+import { timer } from "rxjs/observable/timer";
 
 @IonicPage()
 @Component({
@@ -22,6 +23,7 @@ export class SettingsPage {
     setActiveTheme: string;
     toggleStatus: boolean;
     theme = localStorage.getItem('themeColor');
+    batu = false;
 
 
     constructor(private settings: SettingsProvider,
@@ -32,24 +34,22 @@ export class SettingsPage {
         this.settings.getActiveTheme().subscribe(val => this.selectedTheme = val);
         if (this.theme == "light-theme") {
             this.toggleStatus = false;
+            setTimeout(() => this.batu = false, 3500);
         }
         else if (this.theme == "dark-theme") {
             this.toggleStatus = true;
+            setTimeout(() => this.batu = false, 3500);
         }
     }
 
     toggleAppTheme() {
         if (this.selectedTheme == 'light-theme') {
-
             this.settings.setActiveTheme('dark-theme');
             localStorage.setItem("themeColor", this.selectedTheme);
-
         }
         else if (this.selectedTheme == 'dark-theme') {
-
             this.settings.setActiveTheme('light-theme');
             localStorage.setItem("themeColor", this.selectedTheme);
-
         }
     }
 

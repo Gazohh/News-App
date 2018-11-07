@@ -10,6 +10,8 @@ import { MisdaadPage } from "../misdaad/misdaad";
 import { TechPage } from "../tech/tech";
 import { VermaakPage } from "../vermaak/vermaak";
 import {HttpClient} from "@angular/common/http";
+
+
 @IonicPage()
 @Component({
   selector: 'page-category',

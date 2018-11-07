@@ -588,7 +588,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 // IOS menu random 20px
 
 #contentAnimation > div.scroll-content {
-  padding: 0;
+  padding: 0 !important;
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button > div.item-inner > div > ion-label {
@@ -628,11 +628,11 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   margin-top: 3%;
 }
 
-.usernameProfiel {
+.fotoWijzigenProfiel {
   font-size: small;
-  text-align: center;
   color: #3ca7d1;
   margin-top: 10px;
+  text-align: center;
 }
 
 .menuNavBar {
@@ -861,6 +861,14 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
 // ProfilePage
 //
 
+.gebruikersnaamProfiel::first-letter {
+  initial-letter: 3;
+}
+
+.profielPadding {
+  padding-right: 13px;
+}
+
 .avatar-profiel {
   border-radius: 50%;
   top: 0;
@@ -881,12 +889,7 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
   padding-left: 1.7rem !important;
   margin-top: 18px;
   font-size: smaller;
-}
-// headerText
-
-body > ion-app > ng-component > ion-nav > page-profiel > ion-header > ion-navbar > div.toolbar-content.toolbar-content-md > ion-title > div {
-  padding-left: 0;
-  padding-right: 48px;
+  width: 133px
 }
 // Transitions
 //
