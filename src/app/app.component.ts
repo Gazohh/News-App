@@ -10,6 +10,7 @@ import { CategoryPage } from "../pages/category/category";
 import { SourcesPage } from "../pages/sources/sources";
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TutorialPage } from "../pages/tutorial/tutorial";
+import { CommentsPage } from "../pages/comments/comments";
 import { timer } from "rxjs/observable/timer";
 
 
@@ -28,7 +29,6 @@ export class MyApp {
     toggleStatus: boolean;
     showedAlert: boolean;
     confirmAlert: any;
-    dataUser:any;
     username:any;
     profilepicture:any;
     theme:any;
@@ -78,7 +78,6 @@ export class MyApp {
         //   console.log('Welcome', user);
         // });
 
-        console.log(localStorage.getItem("username"));
 
         this.pages = [
             {
@@ -134,13 +133,11 @@ export class MyApp {
         if (localStorage.getItem("themeColor") == "light-theme") {
 
             this.settings.setActiveTheme("light-theme");
-            console.log("Toggle Status: " + this.toggleStatus);
 
         }
         else if (localStorage.getItem("themeColor") == "dark-theme") {
 
             this.settings.setActiveTheme("dark-theme");
-            console.log("Toggle Status: " + this.toggleStatus);
         }
     }
 

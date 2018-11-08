@@ -27,6 +27,8 @@ import {MisdaadPage} from "../pages/misdaad/misdaad";
 import {TechPage} from "../pages/tech/tech";
 import {AdminPage} from "../pages/admin/admin";
 import {AboutPage} from "../pages/about/about";
+import {CommentsPage} from "../pages/comments/comments";
+
 
 //
 // Modules
@@ -59,7 +61,8 @@ import { InfouserProvider } from '../providers/infouser/infouser';
     AdminPage,
     SourcesPage,
     ProfielPage,
-    AboutPage
+    AboutPage,
+    CommentsPage
   ],
   imports: [
     BrowserModule,
@@ -91,7 +94,8 @@ import { InfouserProvider } from '../providers/infouser/infouser';
     AdminPage,
     SourcesPage,
     ProfielPage,
-    AboutPage
+    AboutPage,
+    CommentsPage
   ],
   providers: [
     StatusBar,

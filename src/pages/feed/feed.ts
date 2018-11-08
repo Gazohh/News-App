@@ -10,14 +10,7 @@ import {NieuwsPage} from "../nieuws/nieuws";
 import {LoadingController} from 'ionic-angular';
 import {Searchbar} from 'ionic-angular';
 import { CategoryPage } from "../category/category";
-
-
-/**
- * Generated class for the FeedPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { CommentsPage } from "../comments/comments";
 
 @IonicPage()
 @Component({
@@ -211,6 +204,10 @@ export class FeedPage {
                 });
         this.presentLoadingCustom();
 
+    }
+
+    goComments() {
+      this.navCtrl.push(CommentsPage);
     }
 
     doRefresh(refresher) {
