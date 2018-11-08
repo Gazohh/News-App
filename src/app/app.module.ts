@@ -42,77 +42,100 @@ import {FavorietenPageModule} from "../pages/favorieten/favorieten.module";
 import {FeedPageModule} from "../pages/feed/feed.module";
 import {RegisterPageModule} from "../pages/register/register.module";
 import {TutorialPageModule} from "../pages/tutorial/tutorial.module";
+import {SettingsPageModule} from "../pages/settings/settings.module";
+import {SportPageModule} from "../pages/sport/sport.module";
+import {EconomiePageModule} from "../pages/economie/economie.module";
+import {AutoPageModule} from "../pages/auto/auto.module";
+import {MisdaadPageModule} from "../pages/misdaad/misdaad.module";
+import {TechPageModule} from "../pages/tech/tech.module";
+import {AdminPageModule} from "../pages/admin/admin.module";
+import {SourcesPageModule} from "../pages/sources/sources.module";
+import {ProfielPageModule} from "../pages/profiel/profiel.module";
+import {AboutPageModule} from "../pages/about/about.module";
+import {CommentsPageModule} from "../pages/comments/comments.module";
+
 
 //
 // Providers
 //
-import { InfouserProvider } from '../providers/infouser/infouser';
+import {InfouserProvider} from '../providers/infouser/infouser';
 
 @NgModule({
-  declarations: [
-    MyApp,
-    HomePage
-    // SettingsPage,
-    // SportPage,
-    // EconomiePage,
-    // AutoPage,
-    // MisdaadPage,
-    // TechPage,
-    // AdminPage,
-    // SourcesPage,
-    // ProfielPage,
-    // AboutPage,
-    // CommentsPage
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    IonicModule.forRoot(MyApp, {
-      mode: "md",
-      scrollAssist: false,
-      autoFocusAssist: false
-    }),
-    ReactiveFormsModule,
-    IonicStorageModule.forRoot(),
-    FavorietenPageModule,
-    FeedPageModule,
-    RegisterPageModule,
-    NieuwsPageModule,
-    CategoryPageModule,
-    TutorialPageModule
-  ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    HomePage,
-    SettingsPage,
-    SportPage,
-    EconomiePage,
-    AutoPage,
-    MisdaadPage,
-    TechPage,
-    AdminPage,
-    SourcesPage,
-    ProfielPage,
-    AboutPage,
-    CommentsPage
-  ],
-  providers: [
-    StatusBar,
-    SplashScreen,
-    HttpClientModule,
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
-    SettingsProvider,
-    Network,
-    SettingsProvider,
-    InAppBrowser,
-    ScreenOrientation,
-    HeaderColor,
-    Camera,
-    File,
-    FileTransfer,
-    InfouserProvider
-  ]
+    declarations: [
+        MyApp,
+        HomePage
+        // SettingsPage,
+        // SportPage,
+        // EconomiePage,
+        // AutoPage,
+        // MisdaadPage,
+        // TechPage,
+        // AdminPage,
+        // SourcesPage,
+        // ProfielPage,
+        // AboutPage,
+        // CommentsPage
+    ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        IonicModule.forRoot(MyApp, {
+            mode: "md",
+            scrollAssist: false,
+            autoFocusAssist: false
+        }),
+        ReactiveFormsModule,
+        IonicStorageModule.forRoot(),
+        FavorietenPageModule,
+        FeedPageModule,
+        RegisterPageModule,
+        NieuwsPageModule,
+        CategoryPageModule,
+        TutorialPageModule,
+        SettingsPageModule,
+        SportPageModule,
+        EconomiePageModule,
+        AutoPageModule,
+        MisdaadPageModule,
+        TechPageModule,
+        AdminPageModule,
+        SourcesPageModule,
+        ProfielPageModule,
+        AboutPageModule,
+        CommentsPageModule
+    ],
+    bootstrap: [IonicApp],
+    entryComponents: [
+        MyApp,
+        HomePage,
+        SettingsPage,
+        SportPage,
+        EconomiePage,
+        AutoPage,
+        MisdaadPage,
+        TechPage,
+        AdminPage,
+        SourcesPage,
+        ProfielPage,
+        AboutPage,
+        CommentsPage
+    ],
+    providers: [
+        StatusBar,
+        SplashScreen,
+        HttpClientModule,
+        {provide: ErrorHandler, useClass: IonicErrorHandler},
+        SettingsProvider,
+        Network,
+        SettingsProvider,
+        InAppBrowser,
+        ScreenOrientation,
+        HeaderColor,
+        Camera,
+        File,
+        FileTransfer,
+        InfouserProvider
+    ]
 
 })
 export class AppModule {
