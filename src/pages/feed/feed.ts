@@ -30,6 +30,7 @@ export class FeedPage {
     public driedagengeleden: any;
     public itemempty: boolean;
     public rol:any;
+    public dataUser:any;
 
 
     constructor(
@@ -79,11 +80,24 @@ export class FeedPage {
             toastinlog.present();
         }
 
-        // User role
-        if(localStorage.getItem("userRole"))
-        {
-          this.rol = localStorage.getItem("userRole");
-        }
+        const headers = new HttpHeaders();
+
+        headers.append("Accept", 'application/json');
+
+        headers.append('Content-Type', 'application/json');
+
+        const options = {headers: headers};
+
+        const data = {
+
+            email: localStorage.getItem('userEmail'),
+
+        };
+        this.http.post('http://gazoh.net/getgebruiker.php', data, options)
+            .subscribe(data => {
+                this.dataUser = data;
+                this.rol = this.dataUser.rol;
+            });
         /* //this.GetNews()
          this.presentLoadingCustom();*/
     }

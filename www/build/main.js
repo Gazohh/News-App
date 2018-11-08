@@ -332,6 +332,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var FeedPage = /** @class */ (function () {
     function FeedPage(navCtrl, navParams, menuCtrl, http, network, toastCtrl, loadingCtrl, platform) {
+        var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.menuCtrl = menuCtrl;
@@ -379,10 +380,18 @@ var FeedPage = /** @class */ (function () {
             this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
             toastinlog.present();
         }
-        // User role
-        if (localStorage.getItem("userRole")) {
-            this.rol = localStorage.getItem("userRole");
-        }
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        var options = { headers: headers };
+        var data = {
+            email: localStorage.getItem('userEmail'),
+        };
+        this.http.post('http://gazoh.net/getgebruiker.php', data, options)
+            .subscribe(function (data) {
+            _this.dataUser = data;
+            _this.rol = _this.dataUser.rol;
+        });
         /* //this.GetNews()
          this.presentLoadingCustom();*/
     }
@@ -561,22 +570,16 @@ var FeedPage = /** @class */ (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('searchbar'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* Searchbar */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* Searchbar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* Searchbar */]) === "function" && _a || Object)
     ], FeedPage.prototype, "searchbar", void 0);
     FeedPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-feed',template:/*ion-inline-start:"C:\xampp\htdocs\News-App\src\pages\feed\feed.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle *ngIf="!isSearchbaropened">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title *ngIf="!isSearchbaropened">Home</ion-title>\n\n    <ion-searchbar #searchbar *ngIf="isSearchbaropened" [showCancelButton]="true" (ionCancel)="resetChanges()" (ionInput)="search($event)" placeholder="Waar zijn we naar op zoek?" class="slideInRight"></ion-searchbar>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="isSearchbaropened=true">\n\n        <ion-icon name="search" *ngIf="!isSearchbaropened"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n  <ion-segment [(ngModel)]="datepicker" color="lightAppKleur">\n\n    <ion-segment-button value="vandaag" (click)="load()">\n\n      Vandaag\n\n    </ion-segment-button>\n\n    <ion-segment-button value="gisteren" (click)="loadYesterday()">\n\n      Gisteren\n\n    </ion-segment-button>\n\n    <ion-segment-button value="driedagengeleden" (click)="load3DaysAgo()">\n\n      3 dagen geleden\n\n    </ion-segment-button>\n\n  </ion-segment>\n\n</ion-header>\n\n<ion-content>\n\n  <ion-refresher (ionRefresh)="doRefresh($event)">\n\n    <ion-refresher-content></ion-refresher-content>\n\n  </ion-refresher>\n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-col *ngFor="let item of items" col-md-6 col-sm-6 col-lg-6 col-xl-6>\n\n        <ion-card>\n\n          <div class="ion-card-image-wrapper" (click)="viewEntry({ record: item })">\n\n            <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">\n\n            <img [src]="item.image" *ngIf="item.site == \'NOS.nl\'">\n\n            <img [src]="item.image" *ngIf="item.site != \'NOS.nl\' || item.site != \'NU.nl\'">\n\n          </div>\n\n          <ion-card-content>\n\n            <div *ngIf="rol == 1">\n\n              <ion-fab right *ngIf="item.site == \'De Telegraaf\'">\n\n                <button ion-fab mini (click)="setHideArticle(item.id)" class="ColorTelegraaf2">\n\n                  <ion-icon name="eye-off"></ion-icon>\n\n                </button>\n\n              </ion-fab>\n\n              <ion-fab right *ngIf="item.site == \'NOS\'">\n\n                <button ion-fab mini (click)="setHideArticle(item.id)" class="ColorNOS2">\n\n                  <ion-icon name="eye-off"></ion-icon>\n\n                </button>\n\n              </ion-fab>\n\n              <ion-fab right *ngIf="item.site == \'NU.nl\'">\n\n                <button ion-fab mini (click)="setHideArticle(item.id)" class="ColorNU2">\n\n                  <ion-icon name="eye-off"></ion-icon>\n\n                </button>\n\n              </ion-fab>\n\n            </div>\n\n            <div id="title" (click)="viewEntry({ record: item })">\n\n              <ion-card-title class="TitleFeed" *ngIf="rol != 1">\n\n                <strong>{{item.title}}</strong>\n\n              </ion-card-title>\n\n              <ion-card-title class="editTitleFeed" *ngIf="rol == 1">\n\n                <strong>{{item.title}}</strong>\n\n              </ion-card-title>\n\n            </div>\n\n            <div id="description" (click)="viewEntry({ record: item })">\n\n              <p *ngIf="rol != 1" class="descriptionFeed">{{htmlToPlaintext(item.description) | slice:0:120}}...</p>\n\n              <p *ngIf="rol == 1" class="editDescriptionFeed">{{htmlToPlaintext(item.description) | slice:0:120}}...</p>\n\n            </div>\n\n          </ion-card-content>\n\n          <ion-item (click)="viewEntry({ record: item })" class="itemBadge">\n\n            <ion-icon name="contact" item-start></ion-icon>\n\n            <ion-badge item-end *ngIf="item.site == \'De Telegraaf\'" class="ColorTelegraaf">{{item.site}}\n\n            </ion-badge>\n\n            <ion-badge item-end *ngIf="item.site == \'NOS\'" class="ColorNOS">{{item.site}}</ion-badge>\n\n            <ion-badge item-end *ngIf="item.site == \'NU.nl\'" class="ColorNU">{{item.site}}</ion-badge>\n\n          </ion-item>\n\n          <ion-item (click)="viewEntry({ record: item })" class="itemBadge">\n\n            <ion-icon name="time" item-start></ion-icon>\n\n            <ion-badge item-end *ngIf="item.site == \'De Telegraaf\'" class="ColorTelegraaf">{{item.datum}}\n\n            </ion-badge>\n\n            <ion-badge item-end *ngIf="item.site == \'NOS\'" class="ColorNOS">{{item.datum}}</ion-badge>\n\n            <ion-badge item-end *ngIf="item.site == \'NU.nl\'" class="ColorNU">{{item.datum}}</ion-badge>\n\n          </ion-item>\n\n          <div id="socialLikeComments" class="socialLikeComments">\n\n            <ion-segment color="lightAppKleur">\n\n              <ion-segment-button value="likes" (click)="kaas()">\n\n                <ion-icon name="heart"></ion-icon>\n\n              </ion-segment-button>\n\n              <ion-segment-button  value="comment" (click)="goComments()">\n\n                <ion-icon name="text"></ion-icon>\n\n              </ion-segment-button>\n\n              <ion-segment-button  value="share">\n\n                <ion-icon name="share"></ion-icon>\n\n              </ion-segment-button>\n\n            </ion-segment>\n\n          </div>\n\n        </ion-card>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n\n    <ion-infinite-scroll-content></ion-infinite-scroll-content>\n\n  </ion-infinite-scroll>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\News-App\src\pages\feed\feed.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* MenuController */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */],
-            __WEBPACK_IMPORTED_MODULE_3__ionic_native_network__["a" /* Network */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* MenuController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* MenuController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_network__["a" /* Network */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_network__["a" /* Network */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* ToastController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */]) === "function" && _j || Object])
     ], FeedPage);
     return FeedPage;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 }());
 
 //# sourceMappingURL=feed.js.map
@@ -1257,10 +1260,10 @@ var map = {
 		334
 	],
 	"../pages/settings/settings.module": [
-		335
+		336
 	],
 	"../pages/sources/sources.module": [
-		336
+		335
 	],
 	"../pages/sport/sport.module": [
 		337
@@ -1844,44 +1847,6 @@ var RegisterPageModule = /** @class */ (function () {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SettingsPageModule", function() { return SettingsPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__settings__ = __webpack_require__(76);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-var SettingsPageModule = /** @class */ (function () {
-    function SettingsPageModule() {
-    }
-    SettingsPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__settings__["a" /* SettingsPage */],
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__settings__["a" /* SettingsPage */]),
-            ],
-        })
-    ], SettingsPageModule);
-    return SettingsPageModule;
-}());
-
-//# sourceMappingURL=settings.module.js.map
-
-/***/ }),
-
-/***/ 336:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SourcesPageModule", function() { return SourcesPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
@@ -1912,6 +1877,44 @@ var SourcesPageModule = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=sources.module.js.map
+
+/***/ }),
+
+/***/ 336:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SettingsPageModule", function() { return SettingsPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__settings__ = __webpack_require__(76);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var SettingsPageModule = /** @class */ (function () {
+    function SettingsPageModule() {
+    }
+    SettingsPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__settings__["a" /* SettingsPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__settings__["a" /* SettingsPage */]),
+            ],
+        })
+    ], SettingsPageModule);
+    return SettingsPageModule;
+}());
+
+//# sourceMappingURL=settings.module.js.map
 
 /***/ }),
 
@@ -2231,14 +2234,14 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_feed_feed_module__ = __webpack_require__(237);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__pages_register_register_module__ = __webpack_require__(334);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__pages_tutorial_tutorial_module__ = __webpack_require__(339);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__pages_settings_settings_module__ = __webpack_require__(335);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__pages_settings_settings_module__ = __webpack_require__(336);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__pages_sport_sport_module__ = __webpack_require__(337);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__pages_economie_economie_module__ = __webpack_require__(236);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__pages_auto_auto_module__ = __webpack_require__(226);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__pages_misdaad_misdaad_module__ = __webpack_require__(238);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__pages_tech_tech_module__ = __webpack_require__(338);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__pages_admin_admin_module__ = __webpack_require__(223);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__pages_sources_sources_module__ = __webpack_require__(336);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__pages_sources_sources_module__ = __webpack_require__(335);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__pages_profiel_profiel_module__ = __webpack_require__(241);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__pages_about_about_module__ = __webpack_require__(222);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__pages_comments_comments_module__ = __webpack_require__(235);
@@ -2345,8 +2348,8 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/nieuws/nieuws.module#NieuwsPageModule', name: 'NieuwsPage', segment: 'nieuws', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/profiel/profiel.module#ProfielPageModule', name: 'ProfielPage', segment: 'profiel', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/sources/sources.module#SourcesPageModule', name: 'SourcesPage', segment: 'sources', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/sport/sport.module#SportPageModule', name: 'SportPage', segment: 'sport', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tech/tech.module#TechPageModule', name: 'TechPage', segment: 'tech', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tutorial/tutorial.module#TutorialPageModule', name: 'TutorialPage', segment: 'tutorial', priority: 'low', defaultHistory: [] },
