@@ -11,6 +11,7 @@ import { TechPage } from "../tech/tech";
 import { VermaakPage } from "../vermaak/vermaak";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import { Events } from 'ionic-angular';
+import {HomePage} from "../home/home";
 @IonicPage()
 @Component({
   selector: 'page-category',
@@ -29,6 +30,10 @@ export class CategoryPage {
                 public toastCtrl: ToastController,
                 public http: HttpClient,
                 public events: Events) {
+        if(!localStorage.getItem("sessionToken"))
+        {
+            this.navCtrl.setRoot(HomePage);
+        }
     this.menuCtrl.enable(true, 'myMenu');
         var headers = new HttpHeaders();
         headers.append("Accept", 'application/json');

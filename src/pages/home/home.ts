@@ -50,9 +50,8 @@ export class HomePage {
 
         if(localStorage.getItem("sessionToken"))
         {
-            this.navCtrl.setRoot(CategoryPage)
+            this.navCtrl.setRoot(CategoryPage);
         }
-
 
         if (this.platform.is('cordova')) {
             this.platform.ready().then(() => {

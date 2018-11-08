@@ -49,17 +49,17 @@ import { InfouserProvider } from '../providers/infouser/infouser';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    SettingsPage,
-    SportPage,
-    EconomiePage,
-    AutoPage,
-    MisdaadPage,
-    TechPage,
-    AdminPage,
-    SourcesPage,
-    ProfielPage,
-    AboutPage
+    HomePage
+    // SettingsPage,
+    // SportPage,
+    // EconomiePage,
+    // AutoPage,
+    // MisdaadPage,
+    // TechPage,
+    // AdminPage,
+    // SourcesPage,
+    // ProfielPage,
+    // AboutPage
   ],
   imports: [
     BrowserModule,
