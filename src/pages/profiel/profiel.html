@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
+  <ion-navbar [hideBackButton]="true">
+    <button ion-button icon-only (click)="returnSettings()">
+      <ion-icon class="customIcon" name="arrow-back"></ion-icon>
     </button>
     <ion-title class="profielPadding">Profiel</ion-title>
     <ion-buttons end>

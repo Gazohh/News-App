@@ -1,14 +1,13 @@
-import {IonicPage, NavController, NavParams, LoadingController, ActionSheetController} from 'ionic-angular';
-import { AlertController } from 'ionic-angular';
-import { SettingsPage } from '../settings/settings';
+import {IonicPage, NavController, NavParams, LoadingController, ActionSheetController, Navbar} from 'ionic-angular';
+import {AlertController} from 'ionic-angular';
+import {SettingsPage} from '../settings/settings';
 import {Component, OnInit} from '@angular/core';
-import { Camera, CameraOptions } from '@ionic-native/camera';
-import { FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
-import { File } from '@ionic-native/file';
+import {Camera, CameraOptions} from '@ionic-native/camera';
+import {FileUploadOptions, FileTransferObject} from '@ionic-native/file-transfer';
+import {File} from '@ionic-native/file';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import { Events } from 'ionic-angular';
+import {Events} from 'ionic-angular';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-
 
 
 @IonicPage()
@@ -17,25 +16,26 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
     templateUrl: 'profiel.html',
 })
 export class ProfielPage implements OnInit {
-    dataUser:any;
-    myphoto:any;
+    dataUser: any;
+    myphoto: any;
     username: any;
     email: any;
-    id:any = localStorage.getItem("userId");
+    id: any = localStorage.getItem("userId");
     emailVerified: any;
     rol: any;
-    creationdate:any;
-    profilepicture:any;
+    creationdate: any;
+    profilepicture: any;
     form: FormGroup;
-    oldprofilepicture:any;
-    myprofilepic:any = localStorage.getItem("profilePicture");
+    oldprofilepicture: any;
+    myprofilepic: any = localStorage.getItem("profilePicture");
+
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
                 private alertCtrl: AlertController,
                 private camera: Camera,
                 private file: File,
                 public actionSheetCtrl: ActionSheetController,
-                public http:HttpClient,
+                public http: HttpClient,
                 public events: Events) {
         const headers = new HttpHeaders();
 
@@ -51,16 +51,19 @@ export class ProfielPage implements OnInit {
 
         };
         this.http.post('http://gazoh.net/getgebruiker.php', data, options)
-            .subscribe(data => {this.dataUser = data;
+            .subscribe(data => {
+                this.dataUser = data;
                 this.username = this.dataUser.username;
                 this.email = this.dataUser.email;
                 this.emailVerified = this.dataUser.emailVerified;
                 this.rol = this.dataUser.rol;
                 this.myphoto = this.dataUser.profilepicture;
-                this.creationdate = this.dataUser.creationdate});
+                this.creationdate = this.dataUser.creationdate
+            });
         this.events.publish("username", this.username);
         this.events.publish("profilepicture", this.myphoto);
     }
+
     presentActionSheet() {
         let actionSheet = this.actionSheetCtrl.create({
             title: 'Kies een profielfoto!',
@@ -90,12 +93,13 @@ export class ProfielPage implements OnInit {
 
         actionSheet.present();
     }
-    takePhoto(){
+
+    takePhoto() {
         const options: CameraOptions = {
             quality: 70,
-            allowEdit:true,
-            targetWidth:300,
-            targetHeight:300,
+            allowEdit: true,
+            targetWidth: 300,
+            targetHeight: 300,
             destinationType: this.camera.DestinationType.DATA_URL,
             encodingType: this.camera.EncodingType.JPEG,
             mediaType: this.camera.MediaType.PICTURE
@@ -109,7 +113,8 @@ export class ProfielPage implements OnInit {
             // Handle error
         });
     }
-    onArticlePictureCreated(base64String: string){
+
+    onArticlePictureCreated(base64String: string) {
         this.myphoto = 'data:image/jpeg;base64,' + base64String;
         this.myprofilepic = 'data:image/jpeg;base64,' + base64String;
         localStorage.setItem("profilePicture", this.myphoto);
@@ -138,9 +143,9 @@ export class ProfielPage implements OnInit {
             destinationType: this.camera.DestinationType.DATA_URL,
             sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
             saveToPhotoAlbum: false,
-            allowEdit:true,
-            targetWidth:300,
-            targetHeight:300
+            allowEdit: true,
+            targetWidth: 300,
+            targetHeight: 300
         };
 
         this.camera.getPicture(options).then((imageData) => {
@@ -206,7 +211,7 @@ export class ProfielPage implements OnInit {
         Object.keys(formGroup.controls).forEach(field => {  //{2}
             const control = formGroup.get(field);             //{3}
             if (control instanceof FormControl) {             //{4}
-                control.markAsTouched({ onlySelf: true });
+                control.markAsTouched({onlySelf: true});
             } else if (control instanceof FormGroup) {        //{5}
                 this.validateAllFormFields(control);            //{6}
             }
@@ -223,7 +228,7 @@ export class ProfielPage implements OnInit {
 
             headers.append('Content-Type', 'application/json');
 
-            const options = { headers: headers };
+            const options = {headers: headers};
 
 
             const data = {
@@ -249,7 +254,11 @@ export class ProfielPage implements OnInit {
 
                             subTitle: "Uw profiel is met succesvol bijgewerkt",
 
-                            buttons: [{ text: "OK", handler: data => { this.navCtrl.setRoot(SettingsPage) } }],
+                            buttons: [{
+                                text: "OK", handler: data => {
+                                    this.navCtrl.setRoot(SettingsPage)
+                                }
+                            }],
 
                         });
 
@@ -273,8 +282,7 @@ export class ProfielPage implements OnInit {
         }
     }
 
-    ionViewWillLeave()
-    {
+    returnSettings() {
         const headers = new HttpHeaders();
 
         headers.append("Accept", 'application/json');
@@ -289,10 +297,33 @@ export class ProfielPage implements OnInit {
 
         };
         this.http.post('http://gazoh.net/getgebruiker.php', data, options)
-            .subscribe(data => {this.dataUser = data;
+            .subscribe(data => {
+                this.dataUser = data;
                 this.username = this.dataUser.username;
-                this.oldprofilepicture = this.dataUser.profilepicture;});
-        this.events.publish("username", this.username);
-        this.events.publish("profilepicture", this.oldprofilepicture);
+                this.oldprofilepicture = this.dataUser.profilepicture;
+                this.events.publish("username", this.username);
+                this.events.publish("profilepicture", this.oldprofilepicture);
+            });
+
+        let alert = this.alertCtrl.create({
+            title: 'Verlaat',
+            message: 'Je wijzigingen worden niet opgeslagen als je annuleert. Weet je zeker dat je wilt annuleren ?',
+            buttons: [
+                {
+                    text: "blijf",
+                    role: 'cancel',
+                    handler: () => {
+                        console.log('Cancel clicked');
+                    }
+                },
+                {
+                    text: 'verlaat',
+                    handler: () => {
+                        this.navCtrl.setRoot(SettingsPage);
+                    }
+                }
+            ]
+        });
+        alert.present();
     }
 }
