@@ -57,6 +57,8 @@ export class ProfielPage implements OnInit {
                 this.rol = this.dataUser.rol;
                 this.myphoto = this.dataUser.profilepicture;
                 this.creationdate = this.dataUser.creationdate});
+        this.events.publish("username", this.username);
+        this.events.publish("profilepicture", this.myphoto);
     }
     presentActionSheet() {
         let actionSheet = this.actionSheetCtrl.create({

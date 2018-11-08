@@ -51,6 +51,7 @@ import { InfouserProvider } from '../providers/infouser/infouser';
 @NgModule({
   declarations: [
     MyApp,
+<<<<<<< HEAD
     HomePage,
     SettingsPage,
     SportPage,
@@ -63,6 +64,19 @@ import { InfouserProvider } from '../providers/infouser/infouser';
     ProfielPage,
     AboutPage,
     CommentsPage
+=======
+    HomePage
+    // SettingsPage,
+    // SportPage,
+    // EconomiePage,
+    // AutoPage,
+    // MisdaadPage,
+    // TechPage,
+    // AdminPage,
+    // SourcesPage,
+    // ProfielPage,
+    // AboutPage
+>>>>>>> c21a5a080c551f7a8445d3021d057457404633a9
   ],
   imports: [
     BrowserModule,
