@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 webpackJsonp([4],{
 
-/***/ 717:
+/***/ 719:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -41,6 +40,3 @@ var SettingsPageModule = /** @class */ (function () {
 
 });
 //# sourceMappingURL=4.js.map
-=======
-webpackJsonp([4],{712:function(a,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var e=t(0),_=(t(1),t(9),t(108)),r=function(){return function(){}}(),i=t(376),o=t(377),u=t(378),c=t(379),s=t(380),b=t(381),d=t(382),f=t(383),g=t(384),l=t(400),p=t(17),v=t(19),j=t(217),k=t(75);t.d(n,"SettingsPageModuleNgFactory",function(){return q});var q=e.W(r,[],function(a){return e._7([e._8(512,e.i,e.S,[[8,[i.a,o.a,u.a,c.a,s.a,b.a,d.a,f.a,g.a,l.a]],[3,e.i],e.s]),e._8(4608,p.k,p.j,[e.r,[2,p.t]]),e._8(4608,v.s,v.s,[]),e._8(4608,v.d,v.d,[]),e._8(512,p.b,p.b,[]),e._8(512,v.q,v.q,[]),e._8(512,v.i,v.i,[]),e._8(512,v.o,v.o,[]),e._8(512,j.a,j.a,[]),e._8(512,j.b,j.b,[]),e._8(512,r,r,[]),e._8(256,k.a,_.a,[])])})}});
->>>>>>> c21a5a080c551f7a8445d3021d057457404633a9

@@ -27,6 +27,7 @@ export class ProfielPage implements OnInit {
     creationdate:any;
     profilepicture:any;
     form: FormGroup;
+    oldprofilepicture:any;
     myprofilepic:any = localStorage.getItem("profilePicture");
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
@@ -270,5 +271,28 @@ export class ProfielPage implements OnInit {
                 });
             console.log("Dit is je foto:" + this.myphoto);
         }
+    }
+
+    ionViewWillLeave()
+    {
+        const headers = new HttpHeaders();
+
+        headers.append("Accept", 'application/json');
+
+        headers.append('Content-Type', 'application/json');
+
+        const options = {headers: headers};
+
+        const data = {
+
+            email: localStorage.getItem('userEmail'),
+
+        };
+        this.http.post('http://gazoh.net/getgebruiker.php', data, options)
+            .subscribe(data => {this.dataUser = data;
+                this.username = this.dataUser.username;
+                this.oldprofilepicture = this.dataUser.profilepicture;});
+        this.events.publish("username", this.username);
+        this.events.publish("profilepicture", this.oldprofilepicture);
     }
 }
