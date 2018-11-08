@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 webpackJsonp([4],{
 
 /***/ 719:
@@ -40,3 +41,6 @@ var SettingsPageModule = /** @class */ (function () {
 
 });
 //# sourceMappingURL=4.js.map
+=======
+webpackJsonp([4],{710:function(a,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var e=t(0),_=(t(1),t(9),t(109)),r=function(){return function(){}}(),i=t(377),o=t(378),u=t(379),c=t(380),s=t(381),b=t(382),d=t(383),f=t(384),g=t(385),l=t(398),p=t(18),v=t(19),j=t(218),k=t(76);t.d(n,"SettingsPageModuleNgFactory",function(){return q});var q=e.W(r,[],function(a){return e._7([e._8(512,e.i,e.S,[[8,[i.a,o.a,u.a,c.a,s.a,b.a,d.a,f.a,g.a,l.a]],[3,e.i],e.s]),e._8(4608,p.k,p.j,[e.r,[2,p.t]]),e._8(4608,v.s,v.s,[]),e._8(4608,v.d,v.d,[]),e._8(512,p.b,p.b,[]),e._8(512,v.q,v.q,[]),e._8(512,v.i,v.i,[]),e._8(512,v.o,v.o,[]),e._8(512,j.a,j.a,[]),e._8(512,j.b,j.b,[]),e._8(512,r,r,[]),e._8(256,k.a,_.a,[])])})}});
+>>>>>>> 32daaf477586e04aeb2de4e847d33e1290b441bf
