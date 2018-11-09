@@ -3,7 +3,7 @@
     <button ion-button menuToggle *ngIf="!isSearchbaropened">
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title *ngIf="!isSearchbaropened">Home</ion-title>
+    <ion-title *ngIf="!isSearchbaropened">Algemeen</ion-title>
     <ion-searchbar #searchbar *ngIf="isSearchbaropened" [showCancelButton]="true" (ionCancel)="resetChanges()" (ionInput)="search($event)" placeholder="Waar zijn we naar op zoek?" class="slideInRight"></ion-searchbar>
     <ion-buttons end>
       <button ion-button icon-only (click)="isSearchbaropened=true">
