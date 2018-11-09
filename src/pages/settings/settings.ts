@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {Events, IonicPage, NavController} from 'ionic-angular';
+import {IonicPage, NavController} from 'ionic-angular';
 import {SettingsProvider} from "../../providers/settings/settings";
 import {Nav, Platform} from 'ionic-angular';
 import {HomePage} from '../home/home';
@@ -23,49 +23,23 @@ export class SettingsPage {
     setActiveTheme: string;
     toggleStatus: boolean;
     theme = localStorage.getItem('themeColor');
-    timer = false;
-    dataUser:any;
-    username: string;
-    profilepicture:any;
-    rol:any;
+    batu = false;
+
 
     constructor(private settings: SettingsProvider,
                 private platform: Platform,
                 public navCtrl: NavController,
                 private alertCtrl: AlertController,
-                private http: HttpClient,
-                public events: Events) {
+                private http: HttpClient) {
         this.settings.getActiveTheme().subscribe(val => this.selectedTheme = val);
         if (this.theme == "light-theme") {
             this.toggleStatus = false;
-            setTimeout(() => this.timer = false, 3500);
+            setTimeout(() => this.batu = false, 3500);
         }
         else if (this.theme == "dark-theme") {
             this.toggleStatus = true;
-            setTimeout(() => this.timer = false, 3500);
+            setTimeout(() => this.batu = false, 3500);
         }
-
-        const headers = new HttpHeaders();
-
-        headers.append("Accept", 'application/json');
-
-        headers.append('Content-Type', 'application/json');
-
-        const options = {headers: headers};
-
-        const data = {
-
-            email: localStorage.getItem('userEmail'),
-
-        };
-        this.http.post('http://gazoh.net/getgebruiker.php', data, options)
-            .subscribe(data => {this.dataUser = data;
-                this.username = this.dataUser.username;
-                this.rol = this.dataUser.rol;
-                this.profilepicture = this.dataUser.profilepicture;
-        this.events.publish("username", this.username);
-        this.events.publish("profilepicture", this.profilepicture);
-    });
     }
 
     toggleAppTheme() {
@@ -118,7 +92,7 @@ export class SettingsPage {
         prompt.present();
     }
 
-    goProfiel() {
+    bewerkProfiel() {
         this.navCtrl.push(ProfielPage);
     }
 
