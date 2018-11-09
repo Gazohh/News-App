@@ -10,6 +10,7 @@ import { CategoryPage } from "../pages/category/category";
 import { SourcesPage } from "../pages/sources/sources";
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TutorialPage } from "../pages/tutorial/tutorial";
+import { FeedPage } from "../pages/feed/feed";
 import { CommentsPage } from "../pages/comments/comments";
 import { timer } from "rxjs/observable/timer";
 
@@ -51,7 +52,7 @@ export class MyApp {
 
             if(localStorage.getItem("sessionToken"))
             {
-                this.nav.setRoot(CategoryPage);
+                this.nav.setRoot(FeedPage);
             }
             else if (!localStorage.getItem("sessionToken"))
             {

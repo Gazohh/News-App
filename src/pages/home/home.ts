@@ -3,7 +3,6 @@ import { NavController, LoadingController } from 'ionic-angular';
 import { RegisterPage } from "../register/register";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import 'rxjs/add/operator/map';
-import { CategoryPage } from "../category/category";
 import { ToastController } from 'ionic-angular';
 import { Keyboard } from '@ionic-native/keyboard';
 import { MenuController } from "ionic-angular";
@@ -19,8 +18,6 @@ import { Platform } from 'ionic-angular';
 })
 
 export class HomePage {
-    CategoryPage: any;
-
     dataUser:any;
     username: string;
     email: string;
@@ -50,7 +47,7 @@ export class HomePage {
 
         if(localStorage.getItem("sessionToken"))
         {
-            this.navCtrl.setRoot(CategoryPage);
+            this.navCtrl.setRoot(FeedPage);
         }
 
         if (this.platform.is('cordova')) {
@@ -123,7 +120,7 @@ export class HomePage {
                             localStorage.setItem("profilePicture", this.dataUser.profilepicture);
 
                             // Localstorage Email
-                            this.navCtrl.setRoot(CategoryPage);
+                            this.navCtrl.setRoot(FeedPage);
                             toast.present();
 
                             // //Fire username event
