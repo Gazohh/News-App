@@ -61,7 +61,6 @@ import {CommentsPageModule} from "../pages/comments/comments.module";
 import {InfouserProvider} from '../providers/infouser/infouser';
 
 @NgModule({
-<<<<<<< HEAD
     declarations: [
         MyApp,
         HomePage
@@ -137,70 +136,6 @@ import {InfouserProvider} from '../providers/infouser/infouser';
         FileTransfer,
         InfouserProvider
     ]
-=======
-  declarations: [
-    MyApp,
-    HomePage,
-    SettingsPage,
-    SportPage,
-    EconomiePage,
-    AutoPage,
-    MisdaadPage,
-    TechPage,
-    AdminPage,
-    SourcesPage,
-    ProfielPage,
-    AboutPage
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    IonicModule.forRoot(MyApp, {
-      mode: "md",
-      scrollAssist: false,
-      autoFocusAssist: false
-    }),
-    ReactiveFormsModule,
-    IonicStorageModule.forRoot(),
-    FavorietenPageModule,
-    FeedPageModule,
-    RegisterPageModule,
-    NieuwsPageModule,
-    CategoryPageModule,
-    TutorialPageModule
-  ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    HomePage,
-    SettingsPage,
-    SportPage,
-    EconomiePage,
-    AutoPage,
-    MisdaadPage,
-    TechPage,
-    AdminPage,
-    SourcesPage,
-    ProfielPage,
-    AboutPage
-  ],
-  providers: [
-    StatusBar,
-    SplashScreen,
-    HttpClientModule,
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
-    SettingsProvider,
-    Network,
-    SettingsProvider,
-    InAppBrowser,
-    ScreenOrientation,
-    HeaderColor,
-    Camera,
-    File,
-    FileTransfer,
-    InfouserProvider
-  ]
->>>>>>> parent of c21a5a08... Fixed camera error
 
 })
 export class AppModule {

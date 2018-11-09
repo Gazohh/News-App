@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, ModalController, MenuController, AlertController, Events } from 'ionic-angular';
+import {Nav, Platform, ModalController, MenuController, AlertController, Events} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { FavorietenPage } from "../pages/favorieten/favorieten";
 import { HomePage } from "../pages/home/home";
@@ -43,18 +43,21 @@ export class MyApp {
                 public menuCtrl: MenuController,
                 public events: Events,
                 public alertCtrl: AlertController) {
-
-        this.events.subscribe("username",(data) => {
-            this.username = data;
-        } );
-        this.events.subscribe("profilepicture",(foto) => {
-            this.profilepicture = foto;
-        } );
         this.settings.getActiveTheme().subscribe(val => this.selectedTheme = val);
         platform.ready().then(() => {
             // Okay, so the platform is ready and our plugins are available.
             // Here you can do any higher level native things you might need.
             this.splashScreen.hide();
+
+            if(localStorage.getItem("sessionToken"))
+            {
+                this.nav.setRoot(CategoryPage);
+            }
+            else if (!localStorage.getItem("sessionToken"))
+            {
+                this.nav.setRoot(HomePage);
+                localStorage.clear();
+            }
 
             statusBar.backgroundColorByHexString('#225C73');
 
@@ -71,6 +74,13 @@ export class MyApp {
 
                 this.nav.pop();
             });
+
+            this.events.subscribe("username",(data) => {
+                this.username = data;
+            } );
+            this.events.subscribe("profilepicture",(foto) => {
+                this.profilepicture = foto;
+            } );
         });
 
 
@@ -114,18 +124,6 @@ export class MyApp {
                 icon: 'settings'
             }
         ];
-
-//
-// Local Storage
-//
-
-// Geen localstorage dan redirect terug naar login pagina
-        if (!localStorage.getItem("email")) {
-            this.rootPage = HomePage;
-        }
-        else {
-            this.rootPage = CategoryPage;
-        }
 
 //
 // Dark/Light Mode

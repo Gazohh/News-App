@@ -19,6 +19,12 @@
     "cordova-plugin-file": {
       "PACKAGE_NAME": "io.ionic.starter"
     },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-headercolor": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
     "cordova-plugin-inappbrowser": {
       "PACKAGE_NAME": "io.ionic.starter"
     },
@@ -29,6 +35,9 @@
       "PACKAGE_NAME": "io.ionic.starter"
     },
     "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-screen-orientation": {
       "PACKAGE_NAME": "io.ionic.starter"
     },
     "cordova-plugin-splashscreen": {
@@ -44,15 +53,6 @@
       "PACKAGE_NAME": "io.ionic.starter"
     },
     "info.protonet.imageresizer": {
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
-    "cordova-plugin-screen-orientation": {
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
-    "cordova-plugin-headercolor": {
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
-    "cordova-plugin-file-transfer": {
       "PACKAGE_NAME": "io.ionic.starter"
     }
   },

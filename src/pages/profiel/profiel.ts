@@ -58,14 +58,10 @@ export class ProfielPage implements OnInit {
                 this.emailVerified = this.dataUser.emailVerified;
                 this.rol = this.dataUser.rol;
                 this.myphoto = this.dataUser.profilepicture;
-<<<<<<< HEAD
                 this.creationdate = this.dataUser.creationdate
             });
         this.events.publish("username", this.username);
         this.events.publish("profilepicture", this.myphoto);
-=======
-                this.creationdate = this.dataUser.creationdate});
->>>>>>> parent of c21a5a08... Fixed camera error
     }
 
     presentActionSheet() {

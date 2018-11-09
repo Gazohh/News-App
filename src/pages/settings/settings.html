@@ -11,7 +11,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-item class="" (click)="bewerkProfiel()">
+  <ion-item class="" (click)="goProfiel()">
     <ion-label class="DarkLabel">
       <ion-icon name="person" class="iconInstellingen"></ion-icon>
       Bewerk Profiel
@@ -36,7 +36,7 @@
     </ion-label>
     <ion-toggle [(ngModel)]="toggleStatus" (ionChange)="toggleAppTheme()"></ion-toggle>
   </ion-item>
-  <ion-item class="" (click)="openAdmin()">
+  <ion-item class="" *ngIf="rol == 1" (click)="openAdmin()">
     <ion-label>
       <ion-icon name="settings" class="iconInstellingen"></ion-icon>
       Admin panel
