@@ -6,6 +6,7 @@ webpackJsonp([2],{
 "use strict";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AboutPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
@@ -52,6 +53,8 @@ var AboutPage = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+=======
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 =======
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 =======
@@ -134,7 +137,10 @@ var AdminPage = /** @class */ (function () {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 =======
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 /***/ 122:
@@ -183,6 +189,9 @@ var AutoPage = /** @class */ (function () {
 /***/ }),
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
+=======
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 =======
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
@@ -373,6 +382,7 @@ var EconomiePage = /** @class */ (function () {
 
 /***/ 128:
 <<<<<<< HEAD
+<<<<<<< HEAD
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -424,6 +434,8 @@ var AutoPage = /** @class */ (function () {
 /***/ 129:
 =======
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
+=======
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -459,9 +471,13 @@ var MisdaadPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             selector: 'page-misdaad',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\misdaad\misdaad.html"*/'<ion-header no-border-bottom>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle right class="fakeCenter">\n\n        <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n      <ion-title>Misdaad</ion-title>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n    </ion-navbar>\n\n</ion-header>\n\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\misdaad\misdaad.html"*/,
 =======
             selector: 'page-tech',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\tech\tech.html"*/'<ion-header no-border-bottom>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle right class="fakeCenter">\n\n        <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n      <ion-title>Tech</ion-title>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n    </ion-navbar>\n\n</ion-header>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\tech\tech.html"*/,
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
+=======
+            selector: 'page-misdaad',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\misdaad\misdaad.html"*/'<ion-header no-border-bottom>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle right class="fakeCenter">\n\n        <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n      <ion-title>Misdaad</ion-title>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n    </ion-navbar>\n\n</ion-header>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\misdaad\misdaad.html"*/,
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 =======
             selector: 'page-misdaad',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\misdaad\misdaad.html"*/'<ion-header no-border-bottom>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle right class="fakeCenter">\n\n        <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n      <ion-title>Misdaad</ion-title>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n    </ion-navbar>\n\n</ion-header>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\misdaad\misdaad.html"*/,
@@ -530,6 +546,7 @@ var TechPage = /** @class */ (function () {
 
 /***/ }),
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 /***/ 131:
 =======
@@ -613,10 +630,13 @@ var AboutPage = /** @class */ (function () {
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 =======
 /***/ 131:
+=======
+/***/ 130:
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SourcesPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AboutPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -630,6 +650,75 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+/**
+ * Generated class for the AboutPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var AboutPage = /** @class */ (function () {
+    function AboutPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.themeStatus = localStorage.getItem("themeColor");
+    }
+    AboutPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad AboutPage');
+    };
+    AboutPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+<<<<<<< HEAD
+            selector: 'page-sources',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\sources\sources.html"*/'<ion-header no-border-bottom>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle right class="fakeCenter">\n\n        <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n      <ion-title>Sources</ion-title>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n    </ion-navbar>\n\n      <ion-segment color="dark" [(ngModel)]="page">\n\n        <ion-segment-button value="0" (click)="selectedTab(0)">\n\n          Subscribed\n\n        </ion-segment-button>\n\n        <ion-segment-button value="1" (click)="selectedTab(1)">\n\n          Suggesties\n\n        </ion-segment-button>\n\n      </ion-segment>\n\n</ion-header>\n\n<ion-content>\n\n  <ion-slides #slider (ionSlideWillChange)="moveButton($event)" >\n\n    <!--  -->\n\n    <!-- Alle Sources die zijn geimport -->\n\n    <!--  -->\n\n    <ion-slide>\n\n      <ion-list>\n\n        <ion-item class="sourceItem">\n\n          <ion-avatar class="avatar" item-start>\n\n            <img src="../assets/svg/NOS_logo.svg">\n\n          </ion-avatar>\n\n          <div class="sourceTekst"><b>NOS</b></div>\n\n          <div class="sourceTekst">Nieuwsfeed</div>\n\n          <button ion-button outline item-end color="danger" class="DeleteClassesButton">\n\n            <ion-icon name="close" class="buttonIcon"></ion-icon>Verwijderen\n\n          </button>\n\n        </ion-item>\n\n\n\n        <ion-item class="sourceItem">\n\n          <ion-avatar class="avatar" item-start>\n\n            <img src="../assets/svg/telegraaf.svg">\n\n          </ion-avatar>\n\n          <div class="sourceTekst"><b>De Telegraaf</b></div>\n\n          <div class="sourceTekst">Nieuwsfeed</div>\n\n          <button ion-button outline item-end color="danger" class="DeleteClassesButton">\n\n            <ion-icon name="close" class="buttonIcon"></ion-icon>Verwijderen\n\n          </button>\n\n        </ion-item>\n\n\n\n        <ion-item class="sourceItem">\n\n          <ion-avatar class="avatar" item-start>\n\n            <img src="../assets/svg/nu.nl.svg">\n\n          </ion-avatar>\n\n          <div class="sourceTekst"><b>NU.NL</b></div>\n\n          <div class="sourceTekst">Nieuwsfeed</div>\n\n        <button ion-button outline item-end color="danger" class="DeleteClassesButton">\n\n            <ion-icon name="close" class="buttonIcon"></ion-icon>Verwijderen\n\n          </button>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n    </ion-slide>\n\n    <ion-slide>\n\n      <ion-list>\n\n        <!--  -->\n\n        <!-- Alle Sources die je kunt importen -->\n\n        <!--  -->\n\n        <ion-item class="sourceTitel">\n\n              <h4 class="TitelSources">Nieuwsfeed</h4>\n\n        </ion-item>\n\n        <ion-item class="sourceItem">\n\n          <ion-avatar class="avatar" item-start>\n\n            <img src="../assets/svg/Volkskrant.svg">\n\n          </ion-avatar>\n\n          <div class="sourceTekst"><b>De Volkskrant</b></div>\n\n          <div class="sourceTekst">Nieuwsfeed</div>\n\n          <button ion-button outline item-end color="green" class="ImportClassesButton">\n\n            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen\n\n          </button>\n\n        </ion-item>\n\n\n\n        <ion-item class="sourceItem">\n\n          <ion-avatar class="avatar" item-start>\n\n            <img src="../assets/svg/AD.svg">\n\n          </ion-avatar>\n\n          <div class="sourceTekst"><b>Algemeen Dagblad</b></div>\n\n          <div class="sourceTekst">Nieuwsfeed</div>\n\n        <button ion-button outline item-end color="green" class="ImportClassesButton">\n\n            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen\n\n          </button>\n\n        </ion-item>\n\n\n\n\n\n        <ion-item class="sourceItem">\n\n          <ion-avatar class="avatar" item-start>\n\n            <img src="../assets/svg/RTL_Nederland.svg">\n\n          </ion-avatar>\n\n          <div class="sourceTekst"><b>RTL Nieuws</b></div>\n\n          <div class="sourceTekst">Nieuwsfeed</div>\n\n        <button ion-button outline item-end color="green" class="ImportClassesButton">\n\n            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen\n\n          </button>\n\n        </ion-item>\n\n\n\n        <ion-item class="sourceItem">\n\n          <ion-avatar class="avatar" item-start>\n\n            <img src="../assets/svg/De_Gelderlander.svg">\n\n          </ion-avatar>\n\n          <div class="sourceTekst"><b>De Gelderlander</b></div>\n\n          <div class="sourceTekst">Nieuwsfeed</div>\n\n        <button ion-button outline item-end color="green" class="ImportClassesButton">\n\n            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen\n\n          </button>\n\n        </ion-item>\n\n\n\n        <ion-item class="sourceTitel">\n\n              <h4 class="TitelSources">Tech</h4>\n\n        </ion-item>\n\n\n\n        <ion-item class="sourceItem">\n\n          <ion-avatar class="avatar" item-start>\n\n            <img src="../assets/svg/Tweakers.svg">\n\n          </ion-avatar>\n\n          <div class="sourceTekst"><b>Tweakers</b></div>\n\n          <div class="sourceTekst">Tech</div>\n\n        <button ion-button outline item-end color="green" class="ImportClassesButton">\n\n            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen\n\n          </button>\n\n        </ion-item>\n\n\n\n        <ion-item class="sourceTitel">\n\n              <h4 class="TitelSources">Sport</h4>\n\n        </ion-item>\n\n\n\n        <ion-item class="sourceItem">\n\n          <ion-avatar class="avatar" item-start>\n\n            <img src="../assets/svg/Fifa.svg">\n\n          </ion-avatar>\n\n          <div class="sourceTekst"><b>Fifa</b></div>\n\n          <div class="sourceTekst">Sport</div>\n\n          <button ion-button outline item-end color="green" class="ImportClassesButton">\n\n            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen\n\n          </button>\n\n        </ion-item>\n\n\n\n        <ion-item class="sourceItem">\n\n          <ion-avatar class="avatar" item-start>\n\n            <img src="../assets/svg/FoxSports.svg">\n\n          </ion-avatar>\n\n          <div class="sourceTekst"><b>Fox Sports Go</b></div>\n\n          <div class="sourceTekst">Sport</div>\n\n        <button ion-button outline item-end color="green" class="ImportClassesButton">\n\n            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen\n\n          </button>\n\n        </ion-item>\n\n\n\n        <ion-item class="sourceItem">\n\n          <ion-avatar class="avatar" item-start>\n\n            <img src="../assets/svg/NuSport.svg">\n\n          </ion-avatar>\n\n          <div class="sourceTekst"><b>Nu Sport</b></div>\n\n          <div class="sourceTekst">Sport</div>\n\n        <button ion-button outline item-end color="green" class="ImportClassesButton">\n\n            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen\n\n          </button>\n\n        </ion-item>\n\n\n\n        <ion-item class="sourceItem">\n\n          <ion-avatar class="avatar" item-start>\n\n            <img src="../assets/svg/rtlz.svg">\n\n          </ion-avatar>\n\n          <div class="sourceTekst"><b>RTL Z </b></div>\n\n          <div class="sourceTekst">Sport</div>\n\n        <button ion-button outline item-end color="green" class="ImportClassesButton">\n\n            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen\n\n          </button>\n\n        </ion-item>\n\n\n\n        <ion-item class="sourceItem">\n\n          <ion-avatar class="avatar" item-start>\n\n            <img src="../assets/svg/Voetbalzone.svg">\n\n          </ion-avatar>\n\n          <div class="sourceTekst"><b>Voetbalzone</b></div>\n\n          <div class="sourceTekst">Sport</div>\n\n        <button ion-button outline item-end color="green" class="ImportClassesButton">\n\n            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen\n\n          </button>\n\n        </ion-item>\n\n\n\n\n\n      </ion-list>\n\n    </ion-slide>\n\n  </ion-slides>\n\n</ion-content>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\sources\sources.html"*/,
+=======
+            selector: 'page-about',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\about\about.html"*/'<ion-header no-border-bottom>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle right class="fakeCenter">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n      <ion-title text-center class="centerTitle">Over Ons</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n    <h2>Welkom!</h2>\n\n    <p>Hallo! Welkom op NewsAge! ten eerste willen wij, namens het team, u bedanken voor het gebruiken van NewsAge!</p>\n\n    <h4>Wat is "NewsAge"</h4>\n\n    <p>NewsAge is de perfecte app om alle nieuws in een oogopslag te lezen.\n\n        NewsAge maakt het gemakkelijk voor de gebruiker(jij) door alle nieuws te verzamelen van verschillende bronnen en\n\n        die in een feed te verwerken zodat alles netjes en geordend is ;).</p>\n\n    <h4>Waarom NewsAge?</h4>\n\n    <p>NewsAge is heel gemakkelijk te gebruiken, u kunt bijvoorbeeld met 1 klik een dagblad volgen of niet volgen. U\n\n        kunt ook ervoor kiezen om bijvoorbeeld een artikel te verbergen, dit zorgt ervoor dat u de artikel niet\n\n        ziet.</p>\n\n    <img *ngIf="themeStatus == \'light-theme\'" class="imgAbout" style="float: right; " src="../../assets/imgs/NewsAgeLogoBlack.png"\n\n         width="150"/>\n\n    <img *ngIf="themeStatus == \'dark-theme\'" class="imgAbout" style="float: right; " src="../../assets/imgs/NewsAgeLogo.png"\n\n         width="150"/>\n\n    <ion-footer class="footerMenu">\n\n        <ion-toolbar class="toolbarFooter">\n\n            <div class="versienummer"><b>©NewsAge</b> V5.0.4</div>\n\n        </ion-toolbar>\n\n    </ion-footer>\n\n</ion-content>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\about\about.html"*/,
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]])
+    ], AboutPage);
+    return AboutPage;
+}());
+
+//# sourceMappingURL=about.js.map
+
+/***/ }),
+
+<<<<<<< HEAD
+/***/ 132:
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfielPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__settings_settings__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__ = __webpack_require__(332);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_file__ = __webpack_require__(333);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common_http__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_forms__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__wijzigwachtwoord_wijzigwachtwoord__ = __webpack_require__(723);
+=======
+/***/ 131:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SourcesPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+<<<<<<< HEAD
+=======
 /**
  * Generated class for the SourcesPage page.
  *
@@ -666,7 +755,6 @@ var SourcesPage = /** @class */ (function () {
 /***/ }),
 
 /***/ 132:
->>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -674,11 +762,10 @@ var SourcesPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__settings_settings__ = __webpack_require__(77);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__ = __webpack_require__(332);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_file__ = __webpack_require__(333);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__ = __webpack_require__(334);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_file__ = __webpack_require__(335);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common_http__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_forms__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__wijzigwachtwoord_wijzigwachtwoord__ = __webpack_require__(723);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -689,7 +776,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 
 
 
@@ -932,7 +1019,11 @@ var ProfielPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             selector: 'page-profiel',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\profiel\profiel.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button left class="BackButton" (click)="returnSettings()">\n\n      <ion-icon name="arrow-back"></ion-icon>\n\n    </button>\n\n    <ion-title class="profielPadding">Profiel</ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="updateProfile()">\n\n        <ion-icon name="checkmark"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  <ion-list>\n\n    <ion-grid class="gridMenu">\n\n      <ion-col col-12 class="menuCol">\n\n        <div class="alignCenter">\n\n          <img src="{{myphoto}}" class="avatar-profiel" (click)="presentActionSheet()" />\n\n          <div class="fotoWijzigen">\n\n            <h5 class="fotoWijzigenProfiel" (click)="presentActionSheet()">Foto Wijzigen</h5>\n\n          </div>\n\n        </div>\n\n\n\n        <form novalidate [formGroup]="form">\n\n          <div class="form-group">\n\n            <ion-item [ngClass]="{ \'ng-touched\' : form.get(\'username\').touched }">>\n\n              <ion-label floating>Gebruikersnaam</ion-label>\n\n              <ion-input type="text" placeholder="{{username}}" value="{{username}}" formControlName="username" class="form-control"></ion-input>\n\n            </ion-item>\n\n          </div>\n\n          <div *ngIf="form.get(\'username\').touched && form.get(\'username\').invalid" class="alert alert-danger" required>\n\n            <div class="validatieText" *ngIf="form.get(\'username\').hasError(\'required\')">Naam moet ingevuld zijn.</div>\n\n            <div class="validatieText" *ngIf="form.get(\'username\').hasError(\'pattern\')">Ongeldige naam.</div>\n\n            <div class="validatieText" *ngIf="form.get(\'username\').hasError(\'minLength\')">De minimale lengte zijn 3 letters.</div>\n\n          </div>\n\n\n\n          <div class="form-group">\n\n            <ion-item [ngClass]="{ \'ng-touched\' : form.get(\'email\').touched }">\n\n              <ion-label floating>E-mail</ion-label>\n\n              <ion-input type="email" placeholder="{{email}}" value="{{email}}" formControlName="email" class="form-control"></ion-input>\n\n            </ion-item>\n\n          </div>\n\n          <div *ngIf="form.get(\'email\').touched && form.get(\'email\').invalid" class="alert alert-danger" required>\n\n            <div class="validatieText" *ngIf="form.get(\'email\').hasError(\'required\')">Email moet ingevuld zijn</div>\n\n            <div class="validatieText" *ngIf="form.get(\'email\').hasError(\'pattern\')">Ongeldige Email!</div>\n\n          </div>\n\n\n\n        </form>\n\n        <h6 class="wachtwoordWijzigen" (click)="wijzigWachtwoord()">Wijzig Wachtwoord</h6>\n\n      </ion-col>\n\n    </ion-grid>\n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\profiel\profiel.html"*/,
+=======
+            selector: 'page-profiel',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\profiel\profiel.html"*/'<ion-header>\n\n  <ion-navbar [hideBackButton]="true">\n\n    <button ion-button icon-only (click)="returnSettings()">\n\n      <ion-icon class="customIcon" name="arrow-back"></ion-icon>\n\n    </button>\n\n    <ion-title class="profielPadding">Profiel</ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="updateProfile()">\n\n        <ion-icon name="checkmark"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  <ion-list>\n\n    <ion-grid class="gridMenu">\n\n      <ion-col col-12 class="menuCol">\n\n        <div class="alignCenter">\n\n          <img src="{{myphoto}}" class="avatar-profiel" (click)="presentActionSheet()" />\n\n          <div class="fotoWijzigen">\n\n            <h5 class="fotoWijzigenProfiel" (click)="presentActionSheet()">Foto Wijzigen</h5>\n\n          </div>\n\n        </div>\n\n\n\n        <form novalidate [formGroup]="form">\n\n          <div class="form-group">\n\n            <ion-item [ngClass]="{ \'ng-touched\' : form.get(\'username\').touched }">>\n\n              <ion-label floating>Gebruikersnaam</ion-label>\n\n              <ion-input type="text" placeholder="{{username}}" value="{{username}}" formControlName="username" class="form-control"></ion-input>\n\n            </ion-item>\n\n          </div>\n\n          <div *ngIf="form.get(\'username\').touched && form.get(\'username\').invalid" class="alert alert-danger" required>\n\n            <div class="validatieText" *ngIf="form.get(\'username\').hasError(\'required\')">Naam moet ingevuld zijn.</div>\n\n            <div class="validatieText" *ngIf="form.get(\'username\').hasError(\'pattern\')">Ongeldige naam.</div>\n\n            <div class="validatieText" *ngIf="form.get(\'username\').hasError(\'minLength\')">De minimale lengte zijn 3 letters.</div>\n\n          </div>\n\n\n\n          <div class="form-group">\n\n            <ion-item [ngClass]="{ \'ng-touched\' : form.get(\'email\').touched }">\n\n              <ion-label floating>E-mail</ion-label>\n\n              <ion-input type="email" placeholder="{{email}}" value="{{email}}" formControlName="email" class="form-control"></ion-input>\n\n            </ion-item>\n\n          </div>\n\n          <div *ngIf="form.get(\'email\').touched && form.get(\'email\').invalid" class="alert alert-danger" required>\n\n            <div class="validatieText" *ngIf="form.get(\'email\').hasError(\'required\')">Email moet ingevuld zijn</div>\n\n            <div class="validatieText" *ngIf="form.get(\'email\').hasError(\'pattern\')">Ongeldige Email!</div>\n\n          </div>\n\n\n\n        </form>\n\n        <h6 class="wachtwoordWijzigen" (click)="wijzigWachtwoord()">Wijzig Wachtwoord</h6>\n\n      </ion-col>\n\n    </ion-grid>\n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\profiel\profiel.html"*/,
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 =======
             selector: 'page-profiel',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\profiel\profiel.html"*/'<ion-header>\n\n  <ion-navbar [hideBackButton]="true">\n\n    <button ion-button icon-only (click)="returnSettings()">\n\n      <ion-icon class="customIcon" name="arrow-back"></ion-icon>\n\n    </button>\n\n    <ion-title class="profielPadding">Profiel</ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="updateProfile()">\n\n        <ion-icon name="checkmark"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  <ion-list>\n\n    <ion-grid class="gridMenu">\n\n      <ion-col col-12 class="menuCol">\n\n        <div class="alignCenter">\n\n          <img src="{{myphoto}}" class="avatar-profiel" (click)="presentActionSheet()" />\n\n          <div class="fotoWijzigen">\n\n            <h5 class="fotoWijzigenProfiel" (click)="presentActionSheet()">Foto Wijzigen</h5>\n\n          </div>\n\n        </div>\n\n\n\n        <form novalidate [formGroup]="form">\n\n          <div class="form-group">\n\n            <ion-item [ngClass]="{ \'ng-touched\' : form.get(\'username\').touched }">>\n\n              <ion-label floating>Gebruikersnaam</ion-label>\n\n              <ion-input type="text" placeholder="{{username}}" value="{{username}}" formControlName="username" class="form-control"></ion-input>\n\n            </ion-item>\n\n          </div>\n\n          <div *ngIf="form.get(\'username\').touched && form.get(\'username\').invalid" class="alert alert-danger" required>\n\n            <div class="validatieText" *ngIf="form.get(\'username\').hasError(\'required\')">Naam moet ingevuld zijn.</div>\n\n            <div class="validatieText" *ngIf="form.get(\'username\').hasError(\'pattern\')">Ongeldige naam.</div>\n\n            <div class="validatieText" *ngIf="form.get(\'username\').hasError(\'minLength\')">De minimale lengte zijn 3 letters.</div>\n\n          </div>\n\n\n\n          <div class="form-group">\n\n            <ion-item [ngClass]="{ \'ng-touched\' : form.get(\'email\').touched }">\n\n              <ion-label floating>E-mail</ion-label>\n\n              <ion-input type="email" placeholder="{{email}}" value="{{email}}" formControlName="email" class="form-control"></ion-input>\n\n            </ion-item>\n\n          </div>\n\n          <div *ngIf="form.get(\'email\').touched && form.get(\'email\').invalid" class="alert alert-danger" required>\n\n            <div class="validatieText" *ngIf="form.get(\'email\').hasError(\'required\')">Email moet ingevuld zijn</div>\n\n            <div class="validatieText" *ngIf="form.get(\'email\').hasError(\'pattern\')">Ongeldige Email!</div>\n\n          </div>\n\n\n\n        </form>\n\n        <h6 class="wachtwoordWijzigen" (click)="wijzigWachtwoord()">Wijzig Wachtwoord</h6>\n\n      </ion-col>\n\n    </ion-grid>\n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\profiel\profiel.html"*/,
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
@@ -952,7 +1043,11 @@ var ProfielPage = /** @class */ (function () {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /***/ 132:
+=======
+/***/ 133:
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 =======
 /***/ 133:
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
@@ -998,6 +1093,7 @@ var SettingsProvider = /** @class */ (function () {
 
 /***/ }),
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 /***/ 144:
@@ -1057,6 +1153,8 @@ var SourcesPage = /** @class */ (function () {
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 =======
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
+=======
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 /***/ 176:
 /***/ (function(module, exports) {
 
@@ -1084,10 +1182,17 @@ var map = {
 	"../pages/admin/admin.module": [
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		222
 	],
 	"../pages/auto/auto.module": [
 		234
+=======
+		221
+	],
+	"../pages/auto/auto.module": [
+		224
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 =======
 		221
 	],
@@ -1107,6 +1212,7 @@ var map = {
 	"../pages/comments/comments.module": [
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		235
 	],
 	"../pages/economie/economie.module": [
@@ -1118,6 +1224,8 @@ var map = {
 	"../pages/feed/feed.module": [
 		237
 =======
+=======
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 		234
 	],
 	"../pages/economie/economie.module": [
@@ -1126,6 +1234,9 @@ var map = {
 	"../pages/feed/feed.module": [
 		236
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
+=======
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 =======
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
@@ -1137,6 +1248,7 @@ var map = {
 		239
 	],
 	"../pages/profiel/profiel.module": [
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 		241
@@ -1153,6 +1265,15 @@ var map = {
 =======
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 		243
+=======
+		243
+	],
+	"../pages/register/register.module": [
+		339
+	],
+	"../pages/settings/settings.module": [
+		340
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 	],
 	"../pages/register/register.module": [
 		339
@@ -1163,6 +1284,9 @@ var map = {
 	"../pages/sources/sources.module": [
 		241
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
+=======
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 =======
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
@@ -1226,8 +1350,11 @@ var AdminPageModule = /** @class */ (function () {
             declarations: [
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 __WEBPACK_IMPORTED_MODULE_2__about__["a" /* AboutPage */],
 =======
+=======
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 =======
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
                 __WEBPACK_IMPORTED_MODULE_2__admin__["a" /* AdminPage */],
@@ -1285,6 +1412,7 @@ var AutoPageModule = /** @class */ (function () {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /***/ 222:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1323,6 +1451,8 @@ var AdminPageModule = /** @class */ (function () {
 
 /***/ }),
 
+=======
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 =======
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 =======
@@ -1377,9 +1507,15 @@ var CategoryPageModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__economie_economie__ = __webpack_require__(127);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__auto_auto__ = __webpack_require__(128);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__misdaad_misdaad__ = __webpack_require__(129);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__tech_tech__ = __webpack_require__(130);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__auto_auto__ = __webpack_require__(122);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__misdaad_misdaad__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__tech_tech__ = __webpack_require__(129);
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 =======
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__auto_auto__ = __webpack_require__(122);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__misdaad_misdaad__ = __webpack_require__(128);
@@ -1638,6 +1774,7 @@ var RegisterPage = /** @class */ (function () {
 /***/ 234:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1676,6 +1813,8 @@ var AutoPageModule = /** @class */ (function () {
 /***/ }),
 
 /***/ 235:
+=======
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 =======
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 =======
@@ -1719,7 +1858,11 @@ var CommentsPageModule = /** @class */ (function () {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /***/ 236:
+=======
+/***/ 235:
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 =======
 /***/ 235:
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
@@ -1732,10 +1875,17 @@ var CommentsPageModule = /** @class */ (function () {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EconomiePageModule", function() { return EconomiePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__economie__ = __webpack_require__(127);
+=======
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AboutPageModule", function() { return AboutPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__about__ = __webpack_require__(130);
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 =======
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AboutPageModule", function() { return AboutPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
@@ -1759,6 +1909,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 var EconomiePageModule = /** @class */ (function () {
     function EconomiePageModule() {
     }
@@ -1780,6 +1931,29 @@ var EconomiePageModule = /** @class */ (function () {
 /***/ }),
 
 /***/ 237:
+=======
+var AboutPageModule = /** @class */ (function () {
+    function AboutPageModule() {
+    }
+    AboutPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__about__["a" /* AboutPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__about__["a" /* AboutPage */]),
+            ],
+        })
+    ], AboutPageModule);
+    return AboutPageModule;
+}());
+
+//# sourceMappingURL=about.module.js.map
+
+/***/ }),
+
+/***/ 236:
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 =======
 var AboutPageModule = /** @class */ (function () {
     function AboutPageModule() {
@@ -1863,6 +2037,7 @@ var FeedPageModule = /** @class */ (function () {
 
 /***/ }),
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 /***/ 238:
@@ -2010,10 +2185,14 @@ var MisdaadPageModule = /** @class */ (function () {
 
 /***/ 239:
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
+=======
+/***/ 237:
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfielPageModule", function() { return ProfielPageModule; });
@@ -2032,6 +2211,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nieuws__ = __webpack_require__(414);
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
+=======
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EconomiePageModule", function() { return EconomiePageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__economie__ = __webpack_require__(127);
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2041,6 +2226,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 var ProfielPageModule = /** @class */ (function () {
@@ -2090,30 +2276,39 @@ var MisdaadPageModule = /** @class */ (function () {
 =======
 var NieuwsPageModule = /** @class */ (function () {
     function NieuwsPageModule() {
+=======
+var EconomiePageModule = /** @class */ (function () {
+    function EconomiePageModule() {
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
     }
-    NieuwsPageModule = __decorate([
+    EconomiePageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__nieuws__["a" /* NieuwsPage */],
+                __WEBPACK_IMPORTED_MODULE_2__economie__["a" /* EconomiePage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__nieuws__["a" /* NieuwsPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__economie__["a" /* EconomiePage */]),
             ],
         })
-    ], NieuwsPageModule);
-    return NieuwsPageModule;
+    ], EconomiePageModule);
+    return EconomiePageModule;
 }());
 
-//# sourceMappingURL=nieuws.module.js.map
+//# sourceMappingURL=economie.module.js.map
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 241:
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
+=======
+/***/ 238:
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterPageModule", function() { return RegisterPageModule; });
@@ -2132,6 +2327,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sources__ = __webpack_require__(131);
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
+=======
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MisdaadPageModule", function() { return MisdaadPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__misdaad__ = __webpack_require__(128);
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2143,26 +2344,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 var RegisterPageModule = /** @class */ (function () {
     function RegisterPageModule() {
+=======
+var MisdaadPageModule = /** @class */ (function () {
+    function MisdaadPageModule() {
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
     }
-    RegisterPageModule = __decorate([
+    MisdaadPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__register__["a" /* RegisterPage */],
+                __WEBPACK_IMPORTED_MODULE_2__misdaad__["a" /* MisdaadPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__register__["a" /* RegisterPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__misdaad__["a" /* MisdaadPage */]),
             ],
         })
-    ], RegisterPageModule);
-    return RegisterPageModule;
+    ], MisdaadPageModule);
+    return MisdaadPageModule;
 }());
 
-//# sourceMappingURL=register.module.js.map
+//# sourceMappingURL=misdaad.module.js.map
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 335:
 =======
 var NieuwsPageModule = /** @class */ (function () {
@@ -2210,10 +2417,14 @@ var SourcesPageModule = /** @class */ (function () {
 
 /***/ 242:
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
+=======
+/***/ 239:
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+<<<<<<< HEAD
 <<<<<<< HEAD
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SourcesPageModule", function() { return SourcesPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
@@ -2225,6 +2436,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sport__ = __webpack_require__(126);
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
+=======
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NieuwsPageModule", function() { return NieuwsPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nieuws__ = __webpack_require__(414);
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2235,26 +2452,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 var SourcesPageModule = /** @class */ (function () {
     function SourcesPageModule() {
+=======
+var NieuwsPageModule = /** @class */ (function () {
+    function NieuwsPageModule() {
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
     }
-    SourcesPageModule = __decorate([
+    NieuwsPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__sources__["a" /* SourcesPage */],
+                __WEBPACK_IMPORTED_MODULE_2__nieuws__["a" /* NieuwsPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__sources__["a" /* SourcesPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__nieuws__["a" /* NieuwsPage */]),
             ],
         })
-    ], SourcesPageModule);
-    return SourcesPageModule;
+    ], NieuwsPageModule);
+    return NieuwsPageModule;
 }());
 
-//# sourceMappingURL=sources.module.js.map
+//# sourceMappingURL=nieuws.module.js.map
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 242:
 =======
 var SportPageModule = /** @class */ (function () {
@@ -2279,10 +2502,14 @@ var SportPageModule = /** @class */ (function () {
 
 /***/ 243:
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
+=======
+/***/ 241:
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SourcesPageModule", function() { return SourcesPageModule; });
@@ -2301,6 +2528,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profiel__ = __webpack_require__(132);
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
+=======
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SourcesPageModule", function() { return SourcesPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sources__ = __webpack_require__(131);
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2312,6 +2545,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 var SourcesPageModule = /** @class */ (function () {
     function SourcesPageModule() {
     }
@@ -2326,6 +2562,7 @@ var SourcesPageModule = /** @class */ (function () {
         })
     ], SourcesPageModule);
     return SourcesPageModule;
+<<<<<<< HEAD
 }());
 
 //# sourceMappingURL=sources.module.js.map
@@ -2364,13 +2601,23 @@ var ProfielPageModule = /** @class */ (function () {
 
 /***/ 336:
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
+=======
+}());
+
+//# sourceMappingURL=sources.module.js.map
+
+/***/ }),
+
+/***/ 242:
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TechPageModule", function() { return TechPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SportPageModule", function() { return SportPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sport__ = __webpack_require__(126);
@@ -2380,6 +2627,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 =======
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tech__ = __webpack_require__(129);
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sport__ = __webpack_require__(126);
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2389,27 +2639,68 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var TechPageModule = /** @class */ (function () {
-    function TechPageModule() {
+var SportPageModule = /** @class */ (function () {
+    function SportPageModule() {
     }
-    TechPageModule = __decorate([
+    SportPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__tech__["a" /* TechPage */],
+                __WEBPACK_IMPORTED_MODULE_2__sport__["a" /* SportPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__tech__["a" /* TechPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__sport__["a" /* SportPage */]),
             ],
         })
-    ], TechPageModule);
-    return TechPageModule;
+    ], SportPageModule);
+    return SportPageModule;
 }());
 
-//# sourceMappingURL=tech.module.js.map
+//# sourceMappingURL=sport.module.js.map
 
 /***/ }),
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+/***/ 243:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfielPageModule", function() { return ProfielPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profiel__ = __webpack_require__(132);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var ProfielPageModule = /** @class */ (function () {
+    function ProfielPageModule() {
+    }
+    ProfielPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__profiel__["a" /* ProfielPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__profiel__["a" /* ProfielPage */]),
+            ],
+        })
+    ], ProfielPageModule);
+    return ProfielPageModule;
+}());
+
+//# sourceMappingURL=profiel.module.js.map
+
+/***/ }),
+
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 /***/ 336:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2419,7 +2710,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tech__ = __webpack_require__(130);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tech__ = __webpack_require__(129);
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 =======
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tech__ = __webpack_require__(129);
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
@@ -2452,6 +2747,9 @@ var TechPageModule = /** @class */ (function () {
 
 /***/ }),
 
+<<<<<<< HEAD
+=======
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 =======
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 /***/ 337:
@@ -2743,7 +3041,11 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(712);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_settings_settings__ = __webpack_require__(132);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_settings_settings__ = __webpack_require__(133);
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 =======
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_settings_settings__ = __webpack_require__(133);
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
@@ -2759,6 +3061,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_camera__ = __webpack_require__(332);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_home_home__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_settings_settings__ = __webpack_require__(77);
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_sources_sources__ = __webpack_require__(144);
@@ -2795,6 +3098,8 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__pages_comments_comments_module__ = __webpack_require__(235);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__providers_infouser_infouser__ = __webpack_require__(720);
 =======
+=======
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 =======
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_sources_sources__ = __webpack_require__(131);
@@ -2911,6 +3216,7 @@ var AppModule = /** @class */ (function () {
                     links: [
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                         { loadChildren: '../pages/about/about.module#AboutPageModule', name: 'AboutPage', segment: 'about', priority: 'low', defaultHistory: [] },
 =======
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
@@ -2951,6 +3257,17 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/misdaad/misdaad.module#MisdaadPageModule', name: 'MisdaadPage', segment: 'misdaad', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/nieuws/nieuws.module#NieuwsPageModule', name: 'NieuwsPage', segment: 'nieuws', priority: 'low', defaultHistory: [] },
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
+=======
+                        { loadChildren: '../pages/admin/admin.module#AdminPageModule', name: 'AdminPage', segment: 'admin', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/auto/auto.module#AutoPageModule', name: 'AutoPage', segment: 'auto', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/category/category.module#CategoryPageModule', name: 'CategoryPage', segment: 'category', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/comments/comments.module#CommentsPageModule', name: 'CommentsPage', segment: 'comments', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/about/about.module#AboutPageModule', name: 'AboutPage', segment: 'about', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/feed/feed.module#FeedPageModule', name: 'FeedPage', segment: 'feed', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/economie/economie.module#EconomiePageModule', name: 'EconomiePage', segment: 'economie', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/misdaad/misdaad.module#MisdaadPageModule', name: 'MisdaadPage', segment: 'misdaad', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/nieuws/nieuws.module#NieuwsPageModule', name: 'NieuwsPage', segment: 'nieuws', priority: 'low', defaultHistory: [] },
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
                         { loadChildren: '../pages/sources/sources.module#SourcesPageModule', name: 'SourcesPage', segment: 'sources', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/sport/sport.module#SportPageModule', name: 'SportPage', segment: 'sport', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/profiel/profiel.module#ProfielPageModule', name: 'ProfielPage', segment: 'profiel', priority: 'low', defaultHistory: [] },
@@ -2960,6 +3277,9 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/vermaak/vermaak.module#VermaakPageModule', name: 'VermaakPage', segment: 'vermaak', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] }
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
+=======
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 =======
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
@@ -3275,10 +3595,13 @@ var HomePage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_settings_settings__ = __webpack_require__(77);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_settings_settings__ = __webpack_require__(132);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_category_category__ = __webpack_require__(226);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_sources_sources__ = __webpack_require__(144);
 =======
+=======
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 =======
 >>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_settings_settings__ = __webpack_require__(133);
@@ -3949,8 +4272,13 @@ var FeedPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(47);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__admin_admin__ = __webpack_require__(119);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__profiel_profiel__ = __webpack_require__(131);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__admin_admin__ = __webpack_require__(118);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__profiel_profiel__ = __webpack_require__(132);
+>>>>>>> ebbee7d71882cffc5b75f43a4ea5b3ce1d36bb2f
 =======
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__admin_admin__ = __webpack_require__(118);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__profiel_profiel__ = __webpack_require__(132);
