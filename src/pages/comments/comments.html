@@ -9,8 +9,14 @@
 <ion-footer>
   <ion-item>
     <ion-avatar class="avatar" item-start>
-      <img src="{{pictureprofile}}" class="avatar-profiel" (click)="presentActionSheet()" />
+      <img src="{{pictureprofile}}" class="avatar-profiel" />
     </ion-avatar>
-    <ion-input placeholder="Text Input"></ion-input>
+    <ion-input placeholder="Reageer als {Username}"></ion-input>
+    <div class="sendButton" item-end>
+      <ion-icon name="send"></ion-icon>
+    </div>
+    <!-- <button ion-button>
+      <ion-icon name="send"></ion-icon>
+    </button> -->
   </ion-item>
 </ion-footer>

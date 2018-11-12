@@ -38870,6 +38870,11 @@ ion-slide.swiper-slide {
   margin-right: 2rem !important;
 }
 
+.sendButton {
+  float: right !important;
+  color: #3ca7d1;
+}
+
 .splash {
   position: absolute;
   width: 100%;

@@ -21,7 +21,6 @@
     <preference name="ShowSplashScreen" value="true" />
     <preference name="FadeSplashScreen" value="true" />
     <preference name="FadeSplashScreenDuration" value="500" />
-    <preference name="SplashScreenDelay" value="500" />
     <allow-navigation href="http://localhost:8080/*" />
     <platform name="android">
         <allow-intent href="market" />
