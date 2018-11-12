@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import { ToastController } from 'ionic-angular';
 
 /**
  * Generated class for the CommentsPage page.
@@ -11,34 +12,79 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @IonicPage()
 @Component({
-  selector: 'page-comments',
-  templateUrl: 'comments.html',
+    selector: 'page-comments',
+    templateUrl: 'comments.html',
 })
 export class CommentsPage {
 
-  dataUser: any;
-  username: string;
-  pictureprofile: any;
+    dataUser: any;
+    articleId: string;
+    userId: string;
+    username: string;
+    pictureprofile: any;
+    comment: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
-    const headers = new HttpHeaders();
+    constructor(public navCtrl: NavController,
+                public navParams: NavParams,
+                public http: HttpClient,
+                private toastCtrl: ToastController,) {
+        if (this.navParams.get("record")) {
+            this.selectEntry(this.navParams.get("record"));
+        }
+        const headers = new HttpHeaders();
 
-    headers.append("Accept", 'application/json');
+        headers.append("Accept", 'application/json');
 
-    headers.append('Content-Type', 'application/json');
+        headers.append('Content-Type', 'application/json');
 
-    const options = { headers: headers };
+        const options = {headers: headers};
 
-    const data = {
+        const data = {
 
-      email: localStorage.getItem('userEmail'),
+            email: localStorage.getItem('userEmail'),
 
-    };
-    this.http.post('http://gazoh.net/getgebruiker.php', data, options)
-      .subscribe(data => {
-      this.dataUser = data;
-        this.username = this.dataUser.username;
-        this.pictureprofile = this.dataUser.profilepicture;
-      });
+        };
+        this.http.post('http://gazoh.net/getgebruiker.php', data, options)
+            .subscribe(data => {
+                this.dataUser = data;
+                this.userId = this.dataUser.id;
+                this.username = this.dataUser.username;
+                this.pictureprofile = this.dataUser.profilepicture;
+            });
+    }
+
+    selectEntry(item: any): void {
+        this.articleId = item.id;
+    }
+
+    postComment() {
+        const headers = new HttpHeaders();
+
+        headers.append("Accept", 'application/json');
+
+        headers.append('Content-Type', 'application/json');
+
+        const options = {headers: headers};
+
+        const data = {
+
+            articleId: this.articleId,
+            userId: this.userId,
+            comment: this.comment
+
+        };
+        this.http.post('http://gazoh.net/setcomment.php', data, options)
+            .subscribe(data => {
+                if(data == "comment published")
+                {
+                    let toast = this.toastCtrl.create({
+                        message: "Uw reactie is geplaatst",
+                        duration: 2500,
+                        position: "top"
+                    });
+                    toast.present();
+                }
+                this.comment = "";
+            });
     }
 }

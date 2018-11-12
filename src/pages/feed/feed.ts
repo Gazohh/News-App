@@ -160,6 +160,10 @@ export class FeedPage {
     this.navCtrl.push('NieuwsPage', param);
   }
 
+    viewComments(param: any): void {
+        this.navCtrl.push(CommentsPage, param);
+    }
+
   search(event) {
     let serVal = event.target.value;
     if (serVal && serVal.trim() != '') {
