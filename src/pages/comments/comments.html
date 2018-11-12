@@ -6,6 +6,17 @@
     <ion-title text-center class="centerTitle">Comments</ion-title>
   </ion-navbar>
 </ion-header>
+<ion-content>
+    <ion-item *ngFor="let comment of comments">
+        <ion-avatar>
+            <img src="{{comment.profilepicture}}" class="avatar-profiel" />
+        </ion-avatar>
+        <h1>{{comment.username}}</h1>
+        <p>{{comment.comment}}</p>
+        <br>
+        <p>{{comment.commentDate}}</p>
+    </ion-item>
+</ion-content>
 <ion-footer>
   <ion-item>
     <ion-avatar class="avatar" item-start>

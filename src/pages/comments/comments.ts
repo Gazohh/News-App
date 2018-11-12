@@ -22,7 +22,9 @@ export class CommentsPage {
     userId: string;
     username: string;
     pictureprofile: any;
+    commentDate:any;
     comment: string;
+    public comments:any=[];
 
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
@@ -30,6 +32,7 @@ export class CommentsPage {
                 private toastCtrl: ToastController,) {
         if (this.navParams.get("record")) {
             this.selectEntry(this.navParams.get("record"));
+            this.getComments();
         }
         const headers = new HttpHeaders();
 
@@ -55,6 +58,28 @@ export class CommentsPage {
 
     selectEntry(item: any): void {
         this.articleId = item.id;
+    }
+
+    getComments()
+    {
+        const headers = new HttpHeaders();
+
+        headers.append("Accept", 'application/json');
+
+        headers.append('Content-Type', 'application/json');
+
+        const options = {headers: headers};
+
+        const data = {
+
+            articleId: this.articleId
+
+        };
+        this.http.post('http://gazoh.net/getcomment.php', data, options)
+            .subscribe((data: any) => {
+                this.comments = data;
+                console.log("Hoi kaas" + this.comments)
+            });
     }
 
     postComment() {
