@@ -109,15 +109,15 @@
               <ion-icon name="heart"></ion-icon>
               <div>12 Likes</div>
             </button>
-            <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'" class="socialTelegraaf" (click)="viewComments()">
+            <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'" class="socialTelegraaf" (click)="viewComments({ record: item })">
               <ion-icon name="chatbubbles"></ion-icon>
               <div>12 Reacties</div>
             </button>
-            <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOS" (click)="viewComments()">
+            <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOS" (click)="viewComments({ record: item })">
               <ion-icon name="chatbubbles"></ion-icon>
               <div>12 Reacties</div>
             </button>
-            <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNu" (click)="viewComments()">
+            <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNu" (click)="viewComments({ record: item })">
               <ion-icon name="chatbubbles"></ion-icon>
               <div>12 Reacties</div>
             </button>

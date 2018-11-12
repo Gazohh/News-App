@@ -231,10 +231,6 @@ export class FeedPage {
 
   }
 
-  goComments() {
-    this.navCtrl.push(CommentsPage);
-  }
-
   doRefresh(refresher) {
     if (this.datepicker == "vandaag") {
       this.http

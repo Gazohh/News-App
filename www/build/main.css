@@ -38870,9 +38870,34 @@ ion-slide.swiper-slide {
   margin-right: 2rem !important;
 }
 
+.commentUsername::first-letter {
+  text-transform: uppercase;
+}
+
+.commentUsername {
+  font-weight: bold;
+  color: #000 !important;
+  margin-bottom: 5px !important;
+}
+
+.breakText {
+  white-space: initial;
+  word-wrap: break-word;
+}
+
+.commentDate {
+  float: right;
+  font-size: x-small;
+  color: #666;
+}
+
 .sendButton {
   float: right !important;
-  color: #3ca7d1;
+  color: #3ca7d1 !important;
+  background: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  font-size: large !important;
 }
 
 .splash {

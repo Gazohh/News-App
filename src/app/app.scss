@@ -30,9 +30,33 @@ ion-slide.swiper-slide {
 // ------------------------------------
 // Comments
 
+.commentUsername::first-letter {
+  text-transform: uppercase;
+}
+
+.commentUsername {
+  font-weight: bold;
+  color: #000 !important;
+  margin-bottom: 5px !important;
+}
+
+.breakText {
+  white-space: initial;
+  word-wrap: break-word;
+}
+
+.commentDate {
+  float: right;
+  font-size: x-small;
+  color: #666;
+}
+
 .sendButton {
   float: right !important;
-  color: #3ca7d1;
+  color: #3ca7d1 !important;
+  background: transparent;
+  box-shadow: none;
+  font-size: large !important;
 }
 // ------------------------------------
 // Splash screen
@@ -708,6 +732,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   text-shadow: 0 0 7px #000000;
 }
 // FeedPage Card Design
+
 .feedCard {
   margin: 0;
   border-radius: 2px;
@@ -734,7 +759,6 @@ page-feed img {
   vertical-align: middle !important;
   overflow: hidden !important;
 }
-
 @media only screen and (max-width: 320px) {
   page-feed img {
     text-align: center !important;
@@ -745,7 +769,6 @@ page-feed img {
     height: 100%;
   }
 }
-
 @media only screen and (min-width: 546px) {
   page-feed img {
     text-align: center !important;
@@ -763,7 +786,6 @@ page-feed img {
   height: 145px;
   align-content: center;
 }
-
 
 .iconRow {
   margin: 0 auto;

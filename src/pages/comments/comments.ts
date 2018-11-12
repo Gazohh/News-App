@@ -78,7 +78,6 @@ export class CommentsPage {
         this.http.post('http://gazoh.net/getcomment.php', data, options)
             .subscribe((data: any) => {
                 this.comments = data;
-                console.log("Hoi kaas" + this.comments)
             });
     }
 
@@ -102,12 +101,7 @@ export class CommentsPage {
             .subscribe(data => {
                 if(data == "comment published")
                 {
-                    let toast = this.toastCtrl.create({
-                        message: "Uw reactie is geplaatst",
-                        duration: 2500,
-                        position: "top"
-                    });
-                    toast.present();
+                  console.log(data);
                 }
                 this.comment = "";
             });
