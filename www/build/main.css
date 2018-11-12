@@ -39108,7 +39108,7 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
 }
 
 body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > div.toolbar-content.toolbar-content-md > ion-title > div {
-  padding-right: 4vh;
+  padding-right: 0;
 }
 
 .welkomText {
@@ -39504,6 +39504,12 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   color: white;
   text-align: center;
   margin-top: 3%;
+  font-size: 1.8rem;
+}
+
+.usernameMenu::first-letter {
+  text-transform: uppercase;
+  font-weight: 400;
 }
 
 .fotoWijzigenProfiel {
@@ -39518,7 +39524,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-navbar > div.toolbar-background.toolbar-background-md {
-  background-image: url("../assets/imgs/test.gif");
+  background-image: url("../assets/imgs/backgroundMenu.gif");
   background-repeat: repeat;
   background-size: cover;
   height: 100%;
@@ -39588,6 +39594,28 @@ page-feed img {
   overflow: hidden !important;
 }
 
+@media only screen and (max-width: 320px) {
+  page-feed img {
+    text-align: center !important;
+    display: block !important;
+    margin: 0 auto !important;
+    vertical-align: middle !important;
+    overflow: hidden !important;
+    height: 100%;
+  }
+}
+
+@media only screen and (min-width: 546px) {
+  page-feed img {
+    text-align: center !important;
+    display: block !important;
+    margin: 0 auto !important;
+    vertical-align: middle !important;
+    overflow: hidden !important;
+    height: 100%;
+  }
+}
+
 .ion-card-image-wrapper {
   overflow: hidden !important;
   background: url("../../assets/imgs/noimage.jpg");
@@ -39610,6 +39638,11 @@ page-feed img {
   margin-right: 2.0vh !important;
 }
 
+.socialTelegraaf {
+  color: #27509a !important;
+  margin-left: 5px;
+}
+
 .ColorNU {
   background-color: #020051 !important;
 }
@@ -39619,6 +39652,10 @@ page-feed img {
   margin-right: 2.0vh !important;
 }
 
+.socialNu {
+  color: #020051 !important;
+}
+
 .ColorNOS {
   background-color: #d02527 !important;
 }
@@ -39626,6 +39663,10 @@ page-feed img {
 .ColorNOS2 {
   background-color: #d02527 !important;
   margin-right: 2.0vh !important;
+}
+
+.socialNOS {
+  color: #d02527 !important;
 }
 
 body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > div > ion-card > ion-item.hideButton.item.item-block.item-md > div.item-inner > div > ion-label {
