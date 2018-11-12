@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title class="profielPadding">Wachtwoord Wijzigen</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="updateWachtwoord()">
+        <ion-icon name="checkmark"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <form novalidate [formGroup]="form">
+
+    <ion-item>
+      <ion-label color="lightAppKleur" stacked>Oud Wachtwoord</ion-label>
+      <ion-input type="password" placeholder=""></ion-input>
+    </ion-item>
+
+    <div class="form-group">
+      <ion-item [ngClass]="{ 'ng-touched' : form.get('password').touched }">
+        <ion-label stacked>Nieuwe Wachtwoord</ion-label>
+        <ion-input type="password" formControlName="password" class="form-control" [(ngModel)]="password"></ion-input>
+      </ion-item>
+    </div>
+    <div class="alert alert-danger" *ngIf="form.get('password').touched && form.get('password').invalid ">
+      <div class="validatieText" *ngIf="form.get('password').hasError('required')">Wachtwoord moet ingevuld zijn</div>
+      <div class="validatieText" *ngIf="form.get('password').hasError('minLength')">Wachtwoord moet minimaal 8 tekens lang zijn</div>
+      <div class="validatieText" *ngIf="form.get('password').hasError('pattern')">Wachtwoord moet minstens een hoofdletter, een kleine letter en een cijfer bevatten</div>
+    </div>
+
+    <div class="form-group">
+      <ion-item [ngClass]="{ 'ng-touched' : form.get('password2').touched }">
+        <ion-label stacked>Herhaal Nieuw Wachtwoord</ion-label>
+        <ion-input type="password" formControlName="password2" class="form-control" [(ngModel)]="password2"></ion-input>
+      </ion-item>
+    </div>
+    <div class="alert alert-danger" *ngIf="form.get('password2').touched && form.get('password').invalid ">
+      <div class="validatieText" *ngIf="form.get('password2').hasError('required')">Wachtwoord moet ingevuld zijn</div>
+      <div class="validatieText" *ngIf="form.get('password2').hasError('minLength')">Wachtwoord moet minimaal 8 tekens lang zijn</div>
+      <div class="validatieText" *ngIf="form.get('password2').hasError('pattern')">Wachtwoord moet minstens een hoofdletter, een kleine letter en een cijfer bevatten</div>
+    </div>
+  </form>
+</ion-content>

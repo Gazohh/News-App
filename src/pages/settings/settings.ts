@@ -119,7 +119,7 @@ export class SettingsPage {
     }
 
     goProfiel() {
-        this.navCtrl.push(ProfielPage);
+        this.navCtrl.setRoot(ProfielPage);
     }
 
     rapporteerProbleem(data) {

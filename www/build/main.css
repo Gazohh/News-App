@@ -39518,7 +39518,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-navbar > div.toolbar-background.toolbar-background-md {
-  background-image: url("../assets/imgs/backgroundMenu.jpg");
+  background-image: url("../assets/imgs/test.gif");
   background-repeat: repeat;
   background-size: cover;
   height: 100%;
@@ -39591,7 +39591,7 @@ page-feed img {
 .ion-card-image-wrapper {
   overflow: hidden !important;
   background: url("../../assets/imgs/noimage.jpg");
-  height: 150px;
+  height: 145px;
   -webkit-align-content: center;
   -ms-flex-line-pack: center;
   align-content: center;
@@ -39709,12 +39709,30 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
   marin-bottom: 0;
 }
 
+.BackButton {
+  float: left;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  font-size: 21px;
+  padding: 0;
+  margin-left: 16px;
+}
+
+.button-md:hover:not(.disable-hover) {
+  background-color: transparent !important;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
 .gebruikersnaamProfiel::first-letter {
   initial-letter: 3;
 }
 
 .profielPadding {
   padding-right: 13px;
+  margin: 10px;
+  padding-left: 24px;
 }
 
 .avatar-profiel {

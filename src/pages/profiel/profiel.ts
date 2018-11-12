@@ -8,6 +8,7 @@ import {File} from '@ionic-native/file';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Events} from 'ionic-angular';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import { WijzigwachtwoordPage } from "../wijzigwachtwoord/wijzigwachtwoord";
 
 
 @IonicPage()
@@ -160,38 +161,7 @@ export class ProfielPage implements OnInit {
     }
 
     wijzigWachtwoord() {
-        const prompt = this.alertCtrl.create({
-            title: 'Wachtwoord wijzigen',
-            inputs: [
-                {
-                    name: 'oudWachtwoord',
-                    placeholder: 'Oude wachtwoord'
-                },
-                {
-                    name: 'NieuweWachtwoord1',
-                    placeholder: 'Nieuwe wachtwoord'
-                },
-                {
-                    name: 'NieuweWachtwoord2',
-                    placeholder: 'Herhaal wachtwoord'
-                },
-            ],
-            buttons: [
-                {
-                    text: 'Cancel',
-                    handler: data => {
-                        console.log('Cancel clicked');
-                    }
-                },
-                {
-                    text: 'Wijzigen',
-                    handler: data => {
-                        console.log('Saved clicked');
-                    }
-                }
-            ]
-        });
-        prompt.present();
+      this.navCtrl.push(WijzigwachtwoordPage);
     }
 
     goBack() {
