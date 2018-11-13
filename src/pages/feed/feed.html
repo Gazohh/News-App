@@ -82,14 +82,14 @@
             </div>
           </ion-card-content>
           <!-- Ion-badges  -->
-          <ion-item (click)="viewEntry({ record: item })">
+          <ion-item (click)="viewEntry({ record: item })" class="badgeItem">
             <ion-icon name="contact" item-start></ion-icon>
             <ion-badge item-end *ngIf="item.site == 'De Telegraaf'" class="ColorTelegraaf">{{item.site}}
             </ion-badge>
             <ion-badge item-end *ngIf="item.site == 'NOS'" class="ColorNOS">{{item.site}}</ion-badge>
             <ion-badge item-end *ngIf="item.site == 'NU.nl'" class="ColorNU">{{item.site}}</ion-badge>
           </ion-item>
-          <ion-item (click)="viewEntry({ record: item })">
+          <ion-item (click)="viewEntry({ record: item })" class="badgeItem">
             <ion-icon name="time" item-start></ion-icon>
             <ion-badge item-end *ngIf="item.site == 'De Telegraaf'" class="ColorTelegraaf">{{item.datum}}
             </ion-badge>
