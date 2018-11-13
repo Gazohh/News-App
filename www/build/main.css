@@ -38870,6 +38870,11 @@ ion-slide.swiper-slide {
   margin-right: 2rem !important;
 }
 
+.fakePadding {
+  padding-right: 23px;
+  margin: 10px;
+}
+
 .commentUsername::first-letter {
   text-transform: uppercase;
 }
@@ -39619,7 +39624,7 @@ page-feed img {
   overflow: hidden !important;
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 300px) {
   page-feed img {
     text-align: center !important;
     display: block !important;

@@ -161,7 +161,7 @@ export class FeedPage {
   }
 
     viewComments(param: any): void {
-        this.navCtrl.push(CommentsPage, param);
+        this.navCtrl.setRoot(CommentsPage, param);
     }
 
   search(event) {

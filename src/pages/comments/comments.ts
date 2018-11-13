@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import { ToastController } from 'ionic-angular';
+import { FeedPage } from "../feed/feed";
 
 /**
  * Generated class for the CommentsPage page.
@@ -105,5 +106,9 @@ export class CommentsPage {
                 }
                 this.comment = "";
             });
+    }
+
+    returnFeed() {
+      this.navCtrl.setRoot(FeedPage);
     }
 }

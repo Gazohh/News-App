@@ -30,6 +30,11 @@ ion-slide.swiper-slide {
 // ------------------------------------
 // Comments
 
+.fakePadding {
+  padding-right: 23px;
+  margin: 10px;
+}
+
 .commentUsername::first-letter {
   text-transform: uppercase;
 }
@@ -759,7 +764,7 @@ page-feed img {
   vertical-align: middle !important;
   overflow: hidden !important;
 }
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 300px) {
   page-feed img {
     text-align: center !important;
     display: block !important;
