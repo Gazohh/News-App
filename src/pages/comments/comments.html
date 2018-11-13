@@ -9,7 +9,7 @@
 <ion-content>
   <ion-item *ngFor="let comment of comments">
     <ion-avatar class="avatar" item-start>
-      <img src="{{pictureprofile}}" class="avatar-profiel" />
+      <img src="{{comment.profilepicture}}" class="avatar-profiel" />
     </ion-avatar>
     <p class="commentUsername">{{comment.username}}<span class="commentDate">{{comment.commentDate}}</span></p>
     <p><span class="breakText">{{comment.comment}}</span></p>

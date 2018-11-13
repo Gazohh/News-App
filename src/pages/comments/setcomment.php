@@ -38,7 +38,8 @@ if (isset($data)) {
     $date = date("Y-m-d H:i:s");
 
     $sql = "INSERT INTO comments (articleId, userId, comment, commentDate) VALUES ('$articleId', '$userId', '$comment', '$date')";
-    if($con->query($sql) === TRUE)
+    $sql1 = "UPDATE article SET comments = comments + 1 WHERE id='$articleId'";
+    if($con->query($sql) === TRUE && $con->query($sql1) === TRUE)
     {
         $response = 'comment published';
     }

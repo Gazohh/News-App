@@ -111,15 +111,15 @@
             </button>
             <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'" class="socialTelegraaf" (click)="viewComments({ record: item })">
               <ion-icon name="chatbubbles"></ion-icon>
-              <div>12 Reacties</div>
+              <div>{{item.comments}} Reacties</div>
             </button>
             <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOS" (click)="viewComments({ record: item })">
               <ion-icon name="chatbubbles"></ion-icon>
-              <div>12 Reacties</div>
+              <div>{{item.comments}} Reacties</div>
             </button>
             <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNu" (click)="viewComments({ record: item })">
               <ion-icon name="chatbubbles"></ion-icon>
-              <div>12 Reacties</div>
+              <div>{{item.comments}} Reacties</div>
             </button>
             <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'" class="socialTelegraaf">
               <ion-icon name="share-alt"></ion-icon>
