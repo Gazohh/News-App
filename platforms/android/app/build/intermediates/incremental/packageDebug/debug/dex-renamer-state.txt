@@ -1,4 +1,4 @@
-#Mon Nov 12 14:29:48 CET 2018
-base.0=C\:\\Users\\Gazoh-PC\\Desktop\\Projecten\\News-App\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+#Tue Nov 13 10:55:45 CET 2018
+base.0=C\:\\xampp\\htdocs\\News-App\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex

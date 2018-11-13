@@ -30,7 +30,7 @@ export class CommentsPage {
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
                 public http: HttpClient,
-                private toastCtrl: ToastController,) {
+                private toastCtrl: ToastController) {
         if (this.navParams.get("record")) {
             this.selectEntry(this.navParams.get("record"));
             this.getComments();
@@ -83,6 +83,7 @@ export class CommentsPage {
     }
 
     postComment() {
+
         const headers = new HttpHeaders();
 
         headers.append("Accept", 'application/json');
@@ -103,6 +104,7 @@ export class CommentsPage {
                 if(data == "comment published")
                 {
                   console.log(data);
+                  this.getComments();
                 }
                 this.comment = "";
             });

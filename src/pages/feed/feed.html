@@ -34,7 +34,8 @@
 <ion-content>
   <!-- Swipe up refresher  -->
   <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
+    <ion-refresher-content pullingIcon="arrow-dropdown"
+                           pullingText="Sleep omlaag om te verversen"></ion-refresher-content>
   </ion-refresher>
   <ion-grid>
     <ion-row>
