@@ -9,10 +9,11 @@
 <ion-content>
   <ion-item *ngFor="let comment of comments">
     <ion-avatar class="avatar" item-start>
-      <img src="{{comment.profilepicture}}" class="avatar-profiel" />
+      <img src="{{comment.profilepicture}}" class="avatar-profiel"/>
     </ion-avatar>
     <p class="commentUsername">{{comment.username}}<span class="commentDate">{{comment.commentDate}}</span></p>
     <p><span class="breakText">{{comment.comment}}</span></p>
+    <button ion-button color="danger" item-right *ngIf="userId == comment.userCommentID" (click)="deleteComment(comment.commentId)"><ion-icon name="trash"></ion-icon></button>
   </ion-item>
 
 </ion-content>

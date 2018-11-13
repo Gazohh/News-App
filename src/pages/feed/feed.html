@@ -100,27 +100,30 @@
           <div id="socialLikeComments" class="socialLikeComments">
             <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'" class="socialTelegraaf">
               <ion-icon name="heart"></ion-icon>
-              <div>12 Likes</div>
+              <div>0 Likes</div>
             </button>
             <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOS">
               <ion-icon name="heart"></ion-icon>
-              <div>12 Likes</div>
+              <div>0 Likes</div>
             </button>
             <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNu">
               <ion-icon name="heart"></ion-icon>
-              <div>12 Likes</div>
+              <div>0 Likes</div>
             </button>
             <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'" class="socialTelegraaf" (click)="viewComments({ record: item })">
               <ion-icon name="chatbubbles"></ion-icon>
-              <div>{{item.comments}} Reacties</div>
+              <div *ngIf="item.comments == 1">{{item.comments}} Reactie</div>
+              <div *ngIf="item.comments != 1">{{item.comments}} Reacties</div>
             </button>
             <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOS" (click)="viewComments({ record: item })">
               <ion-icon name="chatbubbles"></ion-icon>
-              <div>{{item.comments}} Reacties</div>
+              <div *ngIf="item.comments == 1">{{item.comments}} Reactie</div>
+              <div *ngIf="item.comments != 1">{{item.comments}} Reacties</div>
             </button>
             <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNu" (click)="viewComments({ record: item })">
               <ion-icon name="chatbubbles"></ion-icon>
-              <div>{{item.comments}} Reacties</div>
+              <div *ngIf="item.comments == 1">{{item.comments}} Reactie</div>
+              <div *ngIf="item.comments != 1">{{item.comments}} Reacties</div>
             </button>
             <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'" class="socialTelegraaf">
               <ion-icon name="share-alt"></ion-icon>

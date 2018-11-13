@@ -30,25 +30,25 @@ require "dbconnect.php";
 
 $data = file_get_contents("php://input");
 
-if(isset($data))
-{
+if (isset($data)) {
     $request = json_decode($data);
-
     $articleId = $request->articleId;
+    $comment = $request->commentId;
+    $date = date("Y-m-d H:i:s");
+
+    $sql = "DELETE FROM comments WHERE articleId='$articleId', commentId='$comment'";
+    $sql1 = "UPDATE article SET comments = comments - 1 WHERE id='$articleId'";
+    if($con->query($sql) === TRUE && $con->query($sql1) === TRUE)
+    {
+        $response = 'comment deleted';
+    }
+    else
+    {
+        $response= "Error: " . $sql . "<br>" . $db->error;
+    }
 }
-
-$sql = "Select comment.commentId, comment.comment, comment.commentDate, user.username, user.profilepicture, user.id AS userID from comments AS comment INNER JOIN users AS user ON comment.userId = user.id WHERE articleId='$articleId'";
-
-$result = mysqli_query($con,$sql);
-
-while($row = mysqli_fetch_array($result))
+else
 {
-    $commentdata[] = $row;
+    $response = "no data set!";
 }
-
-$count = mysqli_num_rows($result);
-
-if($count > 0)
-{
-    echo json_encode($commentdata);
-}
+echo json_encode( $response);

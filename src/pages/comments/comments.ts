@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import { ToastController } from 'ionic-angular';
+import { ToastController, AlertController } from 'ionic-angular';
 import { FeedPage } from "../feed/feed";
 
 /**
@@ -21,16 +21,19 @@ export class CommentsPage {
     dataUser: any;
     articleId: string;
     userId: string;
+    userCommentID:string;
     username: string;
     pictureprofile: any;
     commentDate:any;
     comment: string;
     public comments:any=[];
+    confirmAlert:any;
 
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
                 public http: HttpClient,
-                private toastCtrl: ToastController) {
+                private toastCtrl: ToastController,
+                public alertCtrl: AlertController) {
         if (this.navParams.get("record")) {
             this.selectEntry(this.navParams.get("record"));
             this.getComments();
@@ -108,6 +111,49 @@ export class CommentsPage {
                 }
                 this.comment = "";
             });
+    }
+
+    deleteComment(commentId)
+    {
+        this.confirmAlert = this.alertCtrl.create({
+            title: "Verwijder",
+            message: "Als je reactie verwijderd word kan het niet ongedaan gemaakt worden",
+            buttons: [
+                {
+                    text: 'Annuleer',
+                    handler: () => {
+                        console.log("Clicked cancel")
+                    }
+                },
+                {
+                    text: 'Verwijder',
+                    handler: () => {
+                        const headers = new HttpHeaders();
+
+                        headers.append("Accept", 'application/json');
+
+                        headers.append('Content-Type', 'application/json');
+
+                        const options = {headers: headers};
+
+                        const data = {
+
+                            articleId: this.articleId,
+                            commentId: commentId,
+                        };
+                        this.http.post('http://gazoh.net/deletecomment.php', data, options)
+                            .subscribe(data => {
+                                if(data == "comment deleted")
+                                {
+                                    console.log(data);
+                                    this.getComments();
+                                }
+                            });
+                    }
+                }
+            ]
+        });
+        this.confirmAlert.present();
     }
 
     returnFeed() {
