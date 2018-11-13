@@ -25,6 +25,7 @@ export class CommentsPage {
     username: string;
     pictureprofile: any;
     commentDate:any;
+    userRol: any;
     comment: string;
     public comments:any=[];
     confirmAlert:any;
@@ -56,6 +57,7 @@ export class CommentsPage {
                 this.dataUser = data;
                 this.userId = this.dataUser.id;
                 this.username = this.dataUser.username;
+                this.userRol = this.dataUser.rol;
                 this.pictureprofile = this.dataUser.profilepicture;
             });
     }

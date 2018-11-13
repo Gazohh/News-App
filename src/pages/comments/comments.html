@@ -13,7 +13,7 @@
     </ion-avatar>
     <p class="commentUsername">{{comment.username}}<span class="commentDate">{{comment.commentDate}}</span></p>
     <p><span class="breakText">{{comment.comment}}</span></p>
-    <button ion-button color="danger" item-right *ngIf="userId == comment.userCommentID" (click)="deleteComment(comment.commentId)"><ion-icon name="trash"></ion-icon></button>
+    <button ion-button color="danger" item-right *ngIf="userId == comment.userCommentID || userRol == 1" (click)="deleteComment(comment.commentId)"><ion-icon name="trash"></ion-icon></button>
   </ion-item>
 
 </ion-content>
