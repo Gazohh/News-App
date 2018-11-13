@@ -10,12 +10,8 @@
       {{this.title}}
       <p class="nieuwsDatum">{{this.datum}}</p>
     </ion-card-header>
-
-    <ion-card-content>
-
+    <ion-card-content class="nieuwsContent">
       <p>{{htmlToPlaintext(this.description)}}</p>
-
-
       <button (click)="openPagina(this.link)" ion-button round *ngIf="this.site == 'De Telegraaf'" class="ColorTelegraaf">{{this.site}}</button>
       <button (click)="openPagina(this.link)" ion-button round *ngIf="this.site == 'NOS'" class="ColorNOS">{{this.site}}</button>
       <button (click)="openPagina(this.link)" ion-button round *ngIf="this.site == 'NU.nl'" class="ColorNU">{{this.site}}</button>
