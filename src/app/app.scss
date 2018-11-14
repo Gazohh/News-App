@@ -724,6 +724,7 @@ margin-top: 26px !important;
   display: block;
   background-color: #212121;
   margin: 0 auto;
+  border: 2px solid #fff;
 }
 
 .menuCol {
@@ -853,6 +854,8 @@ page-feed img {
   vertical-align: middle !important;
   overflow: hidden !important;
 }
+
+
 @media only screen and (max-width: 300px) {
   page-feed img {
     text-align: center !important;
@@ -863,6 +866,7 @@ page-feed img {
     height: 100%;
   }
 }
+
 @media only screen and (min-width: 546px) {
   page-feed img {
     text-align: center !important;
@@ -871,6 +875,12 @@ page-feed img {
     vertical-align: middle !important;
     overflow: hidden !important;
     height: 100%;
+  }
+}
+
+@media only screen and (max-width: 280px) {
+  .socialLikeComments {
+    text-align: left !important;
   }
 }
 
@@ -910,6 +920,10 @@ page-feed img {
 
 .socialNu {
   color: rgb(2, 0, 81) !important;
+}
+
+.socialLikeComments {
+  text-align: center;
 }
 
 .ColorNOS {

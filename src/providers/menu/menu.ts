@@ -44,7 +44,7 @@ export class MenuProvider {
         }, {
             title: 'Misdaad',
             component: MisdaadPage,
-            icon: 'warning'
+            icon: 'walk'
         }, {
             title: 'Technologie',
             component: TechPage,
