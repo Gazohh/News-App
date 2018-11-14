@@ -28,6 +28,7 @@ import { TechPage } from "../pages/tech/tech";
 import { AdminPage } from "../pages/admin/admin";
 import { AboutPage } from "../pages/about/about";
 import { CommentsPage } from "../pages/comments/comments";
+import { VermaakPage } from "../pages/vermaak/vermaak";
 import { WijzigwachtwoordPage } from "../pages/wijzigwachtwoord/wijzigwachtwoord";
 
 
@@ -55,11 +56,13 @@ import { ProfielPageModule } from "../pages/profiel/profiel.module";
 import { AboutPageModule } from "../pages/about/about.module";
 import { WijzigwachtwoordPageModule } from "../pages/wijzigwachtwoord/wijzigwachtwoord.module";
 import { CommentsPageModule } from "../pages/comments/comments.module";
+import { VermaakPageModule } from "../pages/vermaak/vermaak.module";
 
 //
 // Providers
 //
 import { InfouserProvider } from '../providers/infouser/infouser';
+import { MenuProvider } from '../providers/menu/menu';
 
 @NgModule({
   declarations: [
@@ -93,7 +96,8 @@ import { InfouserProvider } from '../providers/infouser/infouser';
     ProfielPageModule,
     AboutPageModule,
     CommentsPageModule,
-    WijzigwachtwoordPageModule
+    WijzigwachtwoordPageModule,
+    VermaakPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -110,7 +114,8 @@ import { InfouserProvider } from '../providers/infouser/infouser';
     ProfielPage,
     AboutPage,
     CommentsPage,
-    WijzigwachtwoordPage
+    WijzigwachtwoordPage,
+    VermaakPage
   ],
   providers: [
     StatusBar,
@@ -126,7 +131,8 @@ import { InfouserProvider } from '../providers/infouser/infouser';
     Camera,
     File,
     FileTransfer,
-    InfouserProvider
+    InfouserProvider,
+    MenuProvider
   ]
 
 })

@@ -13,32 +13,39 @@
 </ion-grid>
 <!--  -->
 <!-- Menu -->
-<ion-menu [class]="selectedTheme" id="myMenu" [content]="content" [swipeEnabled]="false">
-  <ion-content id="contentAnimation" menuToggle>
-    <ion-list>
-      <ion-navbar class="menuNavBar">
-        <ion-grid class="gridMenu">
-          <ion-col col-9 class="menuCol">
-            <img src="{{this.profilepicture}}" class="avatar-menu" />
-            <p ngClass="usernameMenu">{{this.username}}</p>
-          </ion-col>
-        </ion-grid>
-      </ion-navbar>
-      <ion-item>
-        <button detail-none ion-item menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-          <ion-icon slot="start" [name]="p.icon"></ion-icon>
-          <span class="menu-titles">
-            {{p.title}}
-          </span>
-        </button>
-      </ion-item>
-      <ion-footer class="footerMenu">
+<ion-menu [class]="selectedTheme" [content]="content" [swipeEnabled]="false">
+    <ion-content id="contentAnimation">
+        <ion-list>
+            <ion-navbar class="menuNavBar">
+                <ion-grid class="gridMenu">
+                    <ion-col col-9 class="menuCol">
+                        <img src="{{this.profilepicture}}" class="avatar-menu"/>
+                        <p ngClass="usernameMenu">{{this.username}}</p>
+                    </ion-col>
+                </ion-grid>
+            </ion-navbar>
+            <ion-item ion-item *ngFor="let p of pages;  let i=index" (click)="openPage(p, i);">
+               <ion-icon slot="start" [name]="p.icon"></ion-icon>
+                <span ion-text class="menuTitle">
+                      {{p.title}}
+                      <span><ion-icon [name]="selectedMenu == i? 'arrow-dropdown' : 'arrow-dropright'" *ngIf="p.subPages" float-right></ion-icon></span>
+                </span>
+                <!--Child Pages  -->
+                <ion-list no-lines [hidden]="selectedMenu != i">
+                    <ion-item no-border *ngFor="let subPage of p.subPages;let i2=index" text-wrap
+                              (click)="openPage(subPage)">
+                         <ion-icon slot="start" [name]="subPage.icon"></ion-icon>
+                        <span ion-text color="color2">&nbsp;{{subPage.title}}</span>
+                    </ion-item>
+                </ion-list>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+    <ion-footer class="footerMenu">
         <ion-toolbar class="toolbarFooter">
-          <div class="versienummer"><b>©NewsAge</b> V5.0.6</div>
+            <div class="versienummer"><b>©NewsAge</b> V5.0.6</div>
         </ion-toolbar>
-      </ion-footer>
-    </ion-list>
-  </ion-content>
+    </ion-footer>
 </ion-menu>
 
 
