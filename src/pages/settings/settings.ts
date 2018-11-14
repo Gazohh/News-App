@@ -9,6 +9,7 @@ import {ProfielPage} from "../profiel/profiel";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {AboutPage} from "../about/about";
 import { timer } from "rxjs/observable/timer";
+import {PrivacybeleidPage} from "../privacybeleid/privacybeleid";
 
 @IonicPage()
 @Component({
@@ -120,6 +121,9 @@ export class SettingsPage {
 
     goProfiel() {
         this.navCtrl.setRoot(ProfielPage);
+    }
+    privacyBeleid(){
+        this.navCtrl.setRoot(PrivacybeleidPage);
     }
 
     rapporteerProbleem(data) {
