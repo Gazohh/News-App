@@ -631,6 +631,16 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   padding-bottom: 10px !important;
 }
 
+// Hele category label
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) {
+  padding-bottom: 15px !important;
+}
+
+// Entertainment lABEL
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list > ion-item:nth-child(6) > div.item-inner > div > ion-label {
+margin-bottom: 0px !important;
+}
+
 // startpagina label
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(2) > div.item-inner > div > ion-label {
   margin-bottom: 6px !important;
@@ -638,11 +648,6 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 //sources label
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(3) > div.item-inner > div > ion-label {
   margin-bottom: 6px !important;
-}
-
-//favorieten label
-#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(5) > div.item-inner > div > ion-label {
-  margin-top: 20px !important;
 }
 
 // Category label
