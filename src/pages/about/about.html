@@ -7,24 +7,21 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-    <h2>Welkom!</h2>
-    <p>Hallo! Welkom op NewsAge! ten eerste willen wij, namens het team, u bedanken voor het gebruiken van NewsAge!</p>
-    <h4>Wat is "NewsAge"</h4>
-    <p>NewsAge is de perfecte app om alle nieuws in een oogopslag te lezen.
-        NewsAge maakt het gemakkelijk voor de gebruiker(jij) door alle nieuws te verzamelen van verschillende bronnen en
-        die in een feed te verwerken zodat alles netjes en geordend is ;).</p>
-    <h4>Waarom NewsAge?</h4>
-    <p>NewsAge is heel gemakkelijk te gebruiken, u kunt bijvoorbeeld met 1 klik een dagblad volgen of niet volgen. U
-        kunt ook ervoor kiezen om bijvoorbeeld een artikel te verbergen, dit zorgt ervoor dat u de artikel niet
-        ziet.</p>
-    <img *ngIf="themeStatus == 'light-theme'" class="imgAbout" style="float: right; " src="../../assets/imgs/NewsAgeLogoBlack.png"
-         width="150"/>
-    <img *ngIf="themeStatus == 'dark-theme'" class="imgAbout" style="float: right; " src="../../assets/imgs/NewsAgeLogo.png"
-         width="150"/>
-    <ion-footer class="footerMenu">
-        <ion-toolbar class="toolbarFooter">
-            <div class="versienummer"><b>©NewsAge</b> V5.0.4</div>
-        </ion-toolbar>
-    </ion-footer>
+<ion-content class="tutorial-page">
+    <ion-slides pager>
+        <ion-slide *ngFor="let slide of slides">
+            <img [src]="slide.image" class="slide-image"/>
+            <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+            <p [innerHTML]="slide.description"></p>
+        </ion-slide>
+        <ion-slide>
+            <img src="../../assets/imgs/ica-slidebox-img-4.png" class="slide-image"/>
+            <h2 class="slide-title">Tot zover over ons!</h2>
+            <button ion-button large clear icon-end color="primary" (click)="overOnsDone()">
+                Verder gaan
+                <ion-icon name="arrow-forward"></ion-icon>
+            </button>
+        </ion-slide>
+    </ion-slides>
 </ion-content>
+
