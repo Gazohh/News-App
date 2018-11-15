@@ -7,15 +7,23 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <ion-item *ngFor="let comment of comments">
+  <ion-list *ngFor="let comment of comments">
+  <ion-item-sliding>
+  <ion-item>
     <ion-avatar class="avatar" item-start>
       <img src="{{comment.profilepicture}}" class="avatar-profiel"/>
     </ion-avatar>
     <p class="commentUsername">{{comment.username}}<span class="commentDate">{{comment.commentDate}}</span></p>
     <p><span class="breakText">{{comment.comment}}</span></p>
-    <button ion-button color="danger" item-right *ngIf="userId == comment.userCommentID || userRol == 1" (click)="deleteComment(comment.commentId)"><ion-icon name="trash"></ion-icon></button>
   </ion-item>
+    <ion-item-options side="right">
 
+      <button ion-button>Favorite</button>
+      <button ion-button color="danger">Share</button>
+      <button ion-button color="danger" item-right *ngIf="userId == comment.userCommentID || userRol == 1" (click)="deleteComment(comment.commentId)"><ion-icon name="trash"></ion-icon></button>
+    </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>
 <ion-footer>
   <ion-item>
