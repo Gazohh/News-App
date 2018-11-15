@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import { ToastController, AlertController } from 'ionic-angular';
+import {AlertController } from 'ionic-angular';
 import { FeedPage } from "../feed/feed";
 
 /**
@@ -33,7 +33,6 @@ export class CommentsPage {
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
                 public http: HttpClient,
-                private toastCtrl: ToastController,
                 public alertCtrl: AlertController) {
         if (this.navParams.get("record")) {
             this.selectEntry(this.navParams.get("record"));

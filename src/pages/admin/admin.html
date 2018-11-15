@@ -63,42 +63,63 @@
         <ion-badge item-end *ngIf="item.site == 'NU.nl'" class="ColorNU">{{item.datum}}</ion-badge>
       </ion-item>
       <div id="socialLikeComments" class="socialLikeComments">
-      <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'" class="socialTelegraaf" (click)="setHideArticle(item.id)">
-        <ion-icon name="eye"></ion-icon>
-        <div>Show</div>
-      </button>
-      <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOS" (click)="setShowArticle(item.id)">
-        <ion-icon name="eye"></ion-icon>
-        <div>Show</div>
-      </button>
-      <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNu" (click)="setShowArticle(item.id)">
-        <ion-icon name="eye"></ion-icon>
-        <div>Show</div>
-      </button>
+        <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'" class="socialTelegraaf" (click)="setHideArticle(item.id)">
+          <ion-icon name="eye"></ion-icon>
+          <div>Show</div>
+        </button>
+        <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOS" (click)="setShowArticle(item.id)">
+          <ion-icon name="eye"></ion-icon>
+          <div>Show</div>
+        </button>
+        <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNu" (click)="setShowArticle(item.id)">
+          <ion-icon name="eye"></ion-icon>
+          <div>Show</div>
+        </button>
       </div>
     </ion-card>
   </div>
 
   <!-- Gebruikers -->
-  <ion-list inset *ngIf="checklist == 'gebruikers'">
+
+  <!-- <ion-list inset *ngIf="checklist == 'gebruikers'">
+    <ion-item-sliding #item>
     <ion-item-group>
       <ion-row>
-        <ion-item class="adminUsers" *ngFor="let user of gebruikerslijst">
-          <ion-avatar class="avatar" item-start>
-            <img src="{{user.profilepicture}}" class="avatar-profiel" />
-          </ion-avatar>
-          <h3>ID: <strong>{{user.id}}</strong></h3>
-          <h3>Email <strong>{{user.email}}</strong></h3>
-
-
-        </ion-item>
-        <!-- <ion-item class="adminUsers" *ngFor="let user of gebruikerslijst"><strong>ID : </strong> {{user.id}} | <strong>{{user.email}} |</strong>
-          <button ion-button color="secondary" item-right>
-            <ion-icon name="create"></ion-icon>
-          </button><button ion-button color="danger" item-right>
-            <ion-icon name="trash"></ion-icon>
-          </button></ion-item> -->
+          <ion-item class="adminUsers" *ngFor="let user of gebruikerslijst">
+            <ion-avatar class="avatar" item-start>
+              <img src="{{user.profilepicture}}" class="avatar-profiel" />
+            </ion-avatar>
+            <h3>ID: <strong>{{user.id}}</strong></h3>
+            <h3>Email <strong>{{user.email}}</strong></h3>
+          </ion-item>
+          <ion-item-options side="right">
+            <button ion-button>Wijzigen</button>
+            <button ion-button>Verwijderen</button>
+          </ion-item-options>
       </ion-row>
     </ion-item-group>
+      </ion-item-sliding>
+  </ion-list> -->
+
+  <ion-list *ngFor="let user of gebruikerslijst">
+    <ion-item-sliding #item>
+      <ion-item class="adminUsers">
+        <ion-avatar class="avatar" item-start>
+          <img src="{{user.profilepicture}}" class="avatar-profiel" />
+        </ion-avatar>
+        <h3>ID: <strong>{{user.id}}</strong></h3>
+        <h3>Email <strong>{{user.email}}</strong></h3>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button (click)="unread(item)" class="deleteSlide">
+          <span class="spanHide">Bewe</span>
+          <ion-icon name="trash" class="iconAdmin"></ion-icon>
+        </button>
+        <button ion-button (click)="unread(item)" class="BewerkSlide">
+          <span class="spanHide">Dele</span>
+          <ion-icon name="create" class="iconAdmin"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
 </ion-content>
