@@ -93,17 +93,20 @@
           </ion-item>
           <!-- Social Buttons - Comments - likes - Share -->
           <div id="socialLikeComments" class="socialLikeComments">
-            <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'" class="socialTelegraaf">
+            <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'" (click)="setLike(item.id)" class="socialTelegraaf">
               <ion-icon name="heart"></ion-icon>
-              <div>0 Likes</div>
+              <div *ngIf="item.likes == 1">{{item.likes}} Like</div>
+              <div *ngIf="item.likes != 1">{{item.likes}} Likes</div>
             </button>
-            <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOS">
+            <button ion-button icon-start clear *ngIf="item.site == 'NOS'" (click)="setLike(item.id)" class="socialNOS">
               <ion-icon name="heart"></ion-icon>
-              <div>0 Likes</div>
+              <div *ngIf="item.likes == 1">{{item.likes}} Like</div>
+              <div *ngIf="item.likes != 1">{{item.likes}} Likes</div>
             </button>
-            <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNu">
+            <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" (click)="setLike(item.id)" class="socialNu">
               <ion-icon name="heart"></ion-icon>
-              <div>0 Likes</div>
+              <div *ngIf="item.likes == 1">{{item.likes}} Like</div>
+              <div *ngIf="item.likes != 1">{{item.likes}} Likes</div>
             </button>
             <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'" class="socialTelegraaf" (click)="viewComments({ record: item })">
               <ion-icon name="chatbubbles"></ion-icon>
@@ -122,15 +125,15 @@
             </button>
             <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'" class="socialTelegraaf">
               <ion-icon name="share-alt"></ion-icon>
-                <div>Share</div>
+                <div>Deel</div>
             </button>
             <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOS">
               <ion-icon name="share-alt"></ion-icon>
-                <div>Share</div>
+                <div>Deel</div>
             </button>
             <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNu">
               <ion-icon name="share-alt"></ion-icon>
-                <div>Share</div>
+                <div>Deel</div>
             </button>
           </div>
         </ion-card>

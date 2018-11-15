@@ -33,6 +33,7 @@ export class FeedPage {
   public rol: any;
   public dataUser: any;
   public username: string;
+  public userId:string;
   public profilepicture: any;
 
 
@@ -102,6 +103,7 @@ export class FeedPage {
         this.dataUser = data;
         this.rol = this.dataUser.rol;
         this.username = this.dataUser.username;
+        this.userId = this.dataUser.id;
         this.profilepicture = this.dataUser.profilepicture;
         this.events.publish("username", this.username);
         this.events.publish("profilepicture", this.profilepicture);
@@ -284,6 +286,57 @@ export class FeedPage {
         });
     console.log('Begin async operation');
   }
+
+  setLike(articleId)
+  {
+      const headers = new HttpHeaders();
+
+      headers.append("Accept", 'application/json');
+
+      headers.append('Content-Type', 'application/json');
+
+      const options = {headers: headers};
+
+      const data = {
+
+          articleId: articleId,
+          userId: this.userId
+
+      };
+      this.http.post('http://gazoh.net/setlike.php', data, options)
+          .subscribe(data => {
+              if(data == "comment published")
+              {
+                  console.log(data);
+              }
+          });
+  }
+
+  dislike(articleId)
+  {
+      const headers = new HttpHeaders();
+
+      headers.append("Accept", 'application/json');
+
+      headers.append('Content-Type', 'application/json');
+
+      const options = {headers: headers};
+
+      const data = {
+
+          articleId: articleId,
+          userId: this.userId
+
+      };
+      this.http.post('http://gazoh.net/unlike.php', data, options)
+          .subscribe(data => {
+              if(data == "unliked")
+              {
+                  console.log(data);
+              }
+          });
+  }
+
 
   setHideArticle(postId) {
     console.log("Hide " + postId);
