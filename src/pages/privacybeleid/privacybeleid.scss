@@ -1,0 +1,24 @@
+page-privacybeleid {
+.voorwaardenLogo{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+  .voorwaardenH1{
+    text-align: center;
+    color: #3ca7d1;
+    font-weight: bold;
+    font-size: 3rem;
+    margin-top: 13px;
+  }
+  .voorwaardenH3{
+    text-align: center;
+    color: #3ca7d1;
+  }
+  //Text in de privacy beleid page
+  body > ion-app > ng-component > ion-nav > page-privacybeleid > ion-content > div.scroll-content{
+    margin-top: 56px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}

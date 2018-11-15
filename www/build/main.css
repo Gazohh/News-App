@@ -3,7 +3,7 @@
 }
 
 .light-theme .toolbar-background {
-  background-color: #ffff !important;
+  background-color: #fff !important;
 }
 
 .light-theme .grid {
@@ -95,7 +95,7 @@
 }
 
 .dark-theme .sourceTekst {
-  background-color: #242424;
+  background-color: #212121 !important;
 }
 
 .dark-theme .sourceItem {
@@ -146,13 +146,17 @@
 }
 
 .dark-theme .item-md {
-  background-color: #212121 !important;
+  background-color: #212121;
   color: #FFF;
 }
 
 .dark-theme .headerText {
-  background-color: #2f2f2f !important;
+  background-color: #212121 !important;
   color: #FFF;
+}
+
+.dark-theme .nieuwsContent {
+  background-color: #212121 !important;
 }
 
 .dark-theme .segment-md-dark .segment-button.segment-activated {
@@ -196,8 +200,29 @@
   background-color: #2f2f2f !important;
 }
 
+.dark-theme .socialNu {
+  color: #fff !important;
+}
+
+.dark-theme .socialTelegraaf {
+  color: #fff !important;
+}
+
+.dark-theme .socialNOS {
+  color: #fff !important;
+}
+
 .dark-theme .socialLikeComments {
   background-color: #2f2f2f !important;
+}
+
+.dark-theme .badgeItem {
+  background-color: #2f2f2f !important;
+  color: #FFF;
+}
+
+.dark-theme .ion-page {
+  background-color: #212121 !important;
 }
 
 .ion-ios-add:before {
@@ -38746,7 +38771,7 @@ readers do not read off random characters that represent icons */
 }
 
 .dark-theme .sourceTekst {
-  background-color: #242424;
+  background-color: #212121 !important;
 }
 
 .dark-theme .sourceItem {
@@ -38797,13 +38822,17 @@ readers do not read off random characters that represent icons */
 }
 
 .dark-theme .item-md {
-  background-color: #212121 !important;
+  background-color: #212121;
   color: #FFF;
 }
 
 .dark-theme .headerText {
-  background-color: #2f2f2f !important;
+  background-color: #212121 !important;
   color: #FFF;
+}
+
+.dark-theme .nieuwsContent {
+  background-color: #212121 !important;
 }
 
 .dark-theme .segment-md-dark .segment-button.segment-activated {
@@ -38847,8 +38876,29 @@ readers do not read off random characters that represent icons */
   background-color: #2f2f2f !important;
 }
 
+.dark-theme .socialNu {
+  color: #fff !important;
+}
+
+.dark-theme .socialTelegraaf {
+  color: #fff !important;
+}
+
+.dark-theme .socialNOS {
+  color: #fff !important;
+}
+
 .dark-theme .socialLikeComments {
   background-color: #2f2f2f !important;
+}
+
+.dark-theme .badgeItem {
+  background-color: #2f2f2f !important;
+  color: #FFF;
+}
+
+.dark-theme .ion-page {
+  background-color: #212121 !important;
 }
 
 .user:before {
@@ -39135,10 +39185,6 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   -webkit-box-shadow: none;
   box-shadow: none;
   text-transform: uppercase;
-}
-
-body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > div.toolbar-content.toolbar-content-md > ion-title > div {
-  padding-right: 0;
 }
 
 .welkomText {
@@ -39495,6 +39541,67 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   color: white;
 }
 
+#contentAnimation > div.scroll-content > ion-list > ion-item {
+  padding-bottom: 10px !important;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) {
+  padding-bottom: 15px !important;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list > ion-item:nth-child(6) > div.item-inner > div > ion-label {
+  margin-bottom: 0px !important;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(2) > div.item-inner > div > ion-label {
+  margin-bottom: 6px !important;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(3) > div.item-inner > div > ion-label {
+  margin-bottom: 6px !important;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label {
+  margin-bottom: 3px !important;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > ion-list > ion-item {
+  padding: 0px !important;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list {
+  margin: 0px;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list > ion-item:nth-child(1) > div.item-inner > div > ion-label {
+  margin-top: 26px !important;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > ion-list > ion-item > div.item-inner > div > ion-label > ion-icon {
+  margin-right: 11px !important;
+  margin-left: 22px !important;
+}
+
+[text-wrap] .label-md {
+  line-height: 2.5 !important;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div {
+  margin-left: 15px !important;
+}
+
+.menuTitle {
+  margin-left: 20px !important;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(2) > div.item-inner > div > ion-label > ion-list {
+  margin: 0px !important;
+}
+
+.activeHightlight {
+  background-color: red !important;
+}
+
 #contentAnimation > div.scroll-content {
   padding: 0 !important;
 }
@@ -39551,6 +39658,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 
 .menuNavBar {
   padding-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-navbar > div.toolbar-background.toolbar-background-md {
@@ -39596,6 +39704,20 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 .card-background-page .card-subtitle {
   top: 63% !important;
   text-shadow: 0 0 7px #000000;
+}
+
+body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > ion-buttons:nth-child(5) > ion-select > div.select-icon {
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.algemeenText {
+  padding-right: 15px !important;
+  padding-left: 0px !important;
+}
+
+body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > ion-buttons:nth-child(5) > ion-select {
+  padding: 0 !important;
 }
 
 .feedCard {

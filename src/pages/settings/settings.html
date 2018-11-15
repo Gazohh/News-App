@@ -1,51 +1,57 @@
 <ion-header no-border-bottom>
-  <ion-navbar>
-    <button ion-button menuToggle right class="fakeCenter">
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Instellingen</ion-title>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-  </ion-navbar>
+    <ion-navbar>
+        <button ion-button menuToggle right class="fakeCenter">
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Instellingen</ion-title>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+    </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-item class="" (click)="goProfiel()">
-    <ion-label class="DarkLabel">
-      <ion-icon name="person" class="iconInstellingen"></ion-icon>
-      Bewerk Profiel
-    </ion-label>
-  </ion-item>
-  <ion-item class="" (click)="rapporteer()">
-    <ion-label class="DarkLabel">
-      <ion-icon name="document" class="iconInstellingen"></ion-icon>
-      Raporteer probleem
-    </ion-label>
-  </ion-item>
-  <ion-item class="" (click)="overOns()">
-    <ion-label class="DarkLabel">
-      <ion-icon name="eye" class="iconInstellingen"></ion-icon>
-      Over ons
-    </ion-label>
-  </ion-item>
-  <ion-item class="">
-    <ion-label class="DarkLabel">
-      <ion-icon name="moon" class="iconInstellingen"></ion-icon>
-      Light/Dark
-    </ion-label>
-    <ion-toggle [(ngModel)]="toggleStatus" (ionChange)="toggleAppTheme()"></ion-toggle>
-  </ion-item>
-  <ion-item class="" *ngIf="rol == 1" (click)="openAdmin()">
-    <ion-label>
-      <ion-icon name="settings" class="iconInstellingen"></ion-icon>
-      Admin panel
-    </ion-label>
-  </ion-item>
-  <ion-item class="" (click)="uitloggen()">
-    <ion-label>
-      <ion-icon name="log-out" class="iconInstellingen"></ion-icon>
-      Uitloggen
-    </ion-label>
-  </ion-item>
+    <ion-item class="" (click)="goProfiel()">
+        <ion-label class="DarkLabel">
+            <ion-icon name="person" class="iconInstellingen"></ion-icon>
+            Bewerk Profiel
+        </ion-label>
+    </ion-item>
+    <ion-item class="" (click)="rapporteer()">
+        <ion-label class="DarkLabel">
+            <ion-icon name="warning" class="iconInstellingen"></ion-icon>
+            Raporteer probleem
+        </ion-label>
+    </ion-item>
+    <ion-item class="" (click)="overOns()">
+        <ion-label class="DarkLabel">
+            <ion-icon name="contacts" class="iconInstellingen"></ion-icon>
+            Over ons
+        </ion-label>
+    </ion-item>
+    <ion-item class="">
+        <ion-label class="DarkLabel">
+            <ion-icon name="moon" class="iconInstellingen"></ion-icon>
+            Light/Dark
+        </ion-label>
+        <ion-toggle [(ngModel)]="toggleStatus" (ionChange)="toggleAppTheme()"></ion-toggle>
+    </ion-item>
+    <ion-item class="" *ngIf="rol == 1" (click)="openAdmin()">
+        <ion-label>
+            <ion-icon name="settings" class="iconInstellingen"></ion-icon>
+            Admin panel
+        </ion-label>
+    </ion-item>
+    <ion-item class="" (click)="privacyBeleid()">
+        <ion-label class="DarkLabel">
+            <ion-icon name="eye-off" class="iconInstellingen"></ion-icon>
+            Privacy Beleid
+        </ion-label>
+    </ion-item>
+    <ion-item class="" (click)="uitloggen()">
+        <ion-label>
+            <ion-icon name="log-out" class="iconInstellingen"></ion-icon>
+            Uitloggen
+        </ion-label>
+    </ion-item>
 </ion-content>

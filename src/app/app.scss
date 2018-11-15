@@ -625,8 +625,82 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 }
 // ------------------------------------
 // Menu
-// IOS menu random 20px
 
+// Ion-item menu
+#contentAnimation > div.scroll-content > ion-list > ion-item {
+  padding-bottom: 10px !important;
+}
+
+// Hele category label
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) {
+  padding-bottom: 15px !important;
+}
+
+// Entertainment lABEL
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list > ion-item:nth-child(6) > div.item-inner > div > ion-label {
+margin-bottom: 0px !important;
+}
+
+// startpagina label
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(2) > div.item-inner > div > ion-label {
+  margin-bottom: 6px !important;
+}
+//sources label
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(3) > div.item-inner > div > ion-label {
+  margin-bottom: 6px !important;
+}
+
+// Category label
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label {
+  margin-bottom: 3px !important;
+}
+
+// subtitle ion-item
+#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > ion-list > ion-item {
+  padding: 0px !important;
+}
+
+//Ion list Category
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list {
+  margin: 0px;
+}
+
+// Algemeen Category
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list > ion-item:nth-child(1) > div.item-inner > div > ion-label {
+margin-top: 26px !important;
+}
+
+// Icons submenu Category
+#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > ion-list > ion-item > div.item-inner > div > ion-label > ion-icon {
+  margin-right: 11px !important;
+  margin-left: 22px !important;
+}
+
+[text-wrap] .label-md {
+  line-height: 2.5 !important;
+}
+
+
+// alle menu items
+#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div {
+  margin-left: 15px !important;
+}
+
+.menuTitle {
+  margin-left: 20px !important;
+}
+
+// Favorieten random margin door sidemenu
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(2) > div.item-inner > div > ion-label > ion-list {
+  margin: 0px !important;
+}
+
+.activeHightlight {
+  background-color: red !important;
+}
+
+
+// IOS menu random 20px aan de top
 #contentAnimation > div.scroll-content {
   padding: 0 !important;
 }
@@ -650,6 +724,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   display: block;
   background-color: #212121;
   margin: 0 auto;
+  border: 2px solid #fff;
 }
 
 .menuCol {
@@ -683,6 +758,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 
 .menuNavBar {
   padding-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-navbar > div.toolbar-background.toolbar-background-md {
@@ -740,6 +816,11 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > 
   height: 0 !important;
 }
 
+.algemeenText {
+  padding-right: 15px !important;
+  padding-left: 0px !important;
+}
+
 // Ion select
 body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > ion-buttons:nth-child(5) > ion-select {
   padding: 0 !important;
@@ -773,6 +854,8 @@ page-feed img {
   vertical-align: middle !important;
   overflow: hidden !important;
 }
+
+
 @media only screen and (max-width: 300px) {
   page-feed img {
     text-align: center !important;
@@ -783,6 +866,7 @@ page-feed img {
     height: 100%;
   }
 }
+
 @media only screen and (min-width: 546px) {
   page-feed img {
     text-align: center !important;
@@ -791,6 +875,12 @@ page-feed img {
     vertical-align: middle !important;
     overflow: hidden !important;
     height: 100%;
+  }
+}
+
+@media only screen and (max-width: 280px) {
+  .socialLikeComments {
+    text-align: left !important;
   }
 }
 
@@ -830,6 +920,10 @@ page-feed img {
 
 .socialNu {
   color: rgb(2, 0, 81) !important;
+}
+
+.socialLikeComments {
+  text-align: center;
 }
 
 .ColorNOS {
