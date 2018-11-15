@@ -6,7 +6,6 @@ import { HomePage } from "../pages/home/home";
 import { Keyboard } from "@ionic-native/keyboard";
 import { SettingsPage } from "../pages/settings/settings";
 import { SettingsProvider } from "../providers/settings/settings";
-import { CategoryPage } from "../pages/category/category";
 import { SourcesPage } from "../pages/sources/sources";
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TutorialPage } from "../pages/tutorial/tutorial";

@@ -27,9 +27,7 @@ export class HomePage {
     rol: any;
     creationdate:any;
     token = Math.random().toString(36).substring(7);
-
     rootPage: any = HomePage;
-
     FeedPage = FeedPage;
     data: string;
 
@@ -45,6 +43,7 @@ export class HomePage {
         public platform: Platform,
         private keyboard: Keyboard) {
 
+
         if(localStorage.getItem("sessionToken"))
         {
             this.navCtrl.setRoot(FeedPage);
@@ -58,6 +57,7 @@ export class HomePage {
 
         this.menuCtrl.enable(false, 'myMenu');
         keyboard.disableScroll(true);
+
 
     }
 
@@ -126,6 +126,7 @@ export class HomePage {
                             // //Fire username event
                              this.events.publish("username", this.dataUser.username);
                              this.events.publish("profilepicture", this.dataUser.profilepicture);
+
                         }
                         else {
                             let toast = this.toastCtrl.create({

@@ -742,11 +742,12 @@ margin-top: 26px !important;
   text-align: center;
   margin-top: 3%;
   font-size: 1.8rem;
+  font-weight: 500;
 }
 
 .usernameMenu::first-letter {
   text-transform: uppercase;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .fotoWijzigenProfiel {
@@ -757,7 +758,6 @@ margin-top: 26px !important;
 }
 
 .menuNavBar {
-  padding-bottom: 1rem;
   margin-bottom: 10px;
 }
 
@@ -828,6 +828,12 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > 
 
 
 // FeedPage Card Design
+// .ion-fab
+body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > ion-card > ion-card-content > div > ion-fab {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 .feedCard {
   margin: 0;
   border-radius: 2px;
@@ -1142,4 +1148,39 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
   -webkit-animation-name: slideInLeft;
   animation-name: slideInLefts;
   animation-duration: 300ms;
+}
+
+
+// Admin page
+
+// Searchbar
+body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-content > ion-list > ion-item-group > ion-row > ion-searchbar {
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+// Gebruikers Content
+body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-content > ion-list {
+  margin-top: 10px !important;
+margin: 0px !important;
+}
+
+// Scroll Content
+body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-content {
+  padding: 0px !important;
+}
+
+.adminTitle {
+  margin-right: 48px !important;
+}
+
+// Search iconRow
+.adminSearchIcon {
+  visibility: hidden !important;
+}
+
+//ion fab admin
+body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-content > div > ion-card > ion-card-content > div > ion-fab {
+  margin-right: 10px !important;
 }

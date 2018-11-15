@@ -36,7 +36,6 @@ import {WijzigwachtwoordPage} from "../pages/wijzigwachtwoord/wijzigwachtwoord";
 // Modules
 //
 import {NieuwsPageModule} from "../pages/nieuws/nieuws.module";
-import {CategoryPageModule} from "../pages/category/category.module";
 import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import {IonicStorageModule} from '@ionic/storage';
@@ -84,7 +83,6 @@ import {MenuProvider} from '../providers/menu/menu';
         FeedPageModule,
         RegisterPageModule,
         NieuwsPageModule,
-        CategoryPageModule,
         TutorialPageModule,
         SettingsPageModule,
         SportPageModule,

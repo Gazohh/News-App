@@ -1,9 +1,19 @@
 <ion-header no-border-bottom>
   <ion-navbar>
-    <button ion-button menuToggle right class="fakeCenter">
-      <ion-icon name="menu"></ion-icon>
-    </button>
-      <ion-title text-center class="centerTitle">Admin</ion-title>
+    <ion-title *ngIf="!isSearchbaropened" class="algemeenText">Admin</ion-title>
+    <!-- Searchbar  -->
+    <ion-searchbar #searchbar *ngIf="isSearchbaropened" [showCancelButton]="true" (ionCancel)="resetChanges()" (ionInput)="search($event)" placeholder="Waar zijn we naar op zoek?" class="slideInRight"></ion-searchbar>
+    <!-- Searchbar icon -->
+    <ion-buttons end *ngIf="checklist == 'artikelen'">
+      <button ion-button icon-only (click)="isSearchbaropened=true">
+        <ion-icon name="search" *ngIf="!isSearchbaropened"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end *ngIf="checklist == 'gebruikers'">
+      <button ion-button icon-only (click)="isSearchbaropened=true">
+        <ion-icon name="search" ></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
   <ion-segment [(ngModel)]="checklist" color="primary">
     <ion-segment-button value="artikelen" (click)="selectArtikelen()">
@@ -15,35 +25,83 @@
   </ion-segment>
 </ion-header>
 <ion-content padding>
-    <div *ngIf="checklist == 'artikelen'">
-        <ion-searchbar placeholder="Zoek.." (ionInput)="searchArtikel($event)" [showCancelButton]="true" (ionCancel)="resetArtikelen()" (ionClear)="resetChanges()"></ion-searchbar>
-    <ion-card *ngFor="let item of artikelenlijst" (click)="viewEntry({ record: item })">
-        <img *ngIf="!item.image" src="http://gazoh.net/images/noimage.jpg">
-        <img [src]="item.image">
-        <ion-card-content>
-            <ion-card-title>
-                <strong>{{item.title}}</strong>
-            </ion-card-title>
-            <p>{{htmlToPlaintext(item.description) | slice:0:120}}...</p>
-        </ion-card-content>
-
-        <!-- Funtie nog schrijven voor if == nu.nl of andere website set badge kleur  -->
-        <ion-item>
-            <ion-icon name="contact" item-start></ion-icon>
-            <ion-badge item-end>{{item.site}}</ion-badge>
-        </ion-item>
-        <ion-item>
-            <ion-icon name="time" item-start></ion-icon>
-            <ion-badge item-end>{{item.datum}}</ion-badge>
-        </ion-item>
+  <div *ngIf="checklist == 'artikelen'">
+    <ion-card *ngFor="let item of artikelenlijst">
+      <div class="ion-card-image-wrapper" (click)="viewEntry({ record: item })">
+        <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">
+        <img [src]="item.image" *ngIf="item.site == 'NOS.nl'">
+        <img [src]="item.image" *ngIf="item.site != 'NOS.nl' || item.site != 'NU.nl'">
+      </div>
+      <ion-card-content>
+        <div>
+          <!-- Ion Fab -->
+          <ion-fab right *ngIf="item.site == 'De Telegraaf'">
+            <button ion-fab mini class="ColorTelegraaf2">
+              <ion-icon name="eye"></ion-icon>
+            </button>
+          </ion-fab>
+          <ion-fab right *ngIf="item.site == 'NOS'">
+            <button ion-fab mini class="ColorNOS2">
+              <ion-icon name="eye"></ion-icon>
+            </button>
+          </ion-fab>
+          <ion-fab right *ngIf="item.site == 'NU.nl'">
+            <button ion-fab mini class="ColorNU2">
+              <ion-icon name="eye"></ion-icon>
+            </button>
+          </ion-fab>
+        </div>
+        <!--  -->
+        <!-- Ion Title  -->
+        <ion-card-title class="adminTitle" (click)="viewEntry({ record: item })">
+          <strong>{{item.title}}</strong>
+        </ion-card-title>
+        <!--  -->
+        <!-- Description  -->
+        <div id="description" (click)="viewEntry({ record: item })">
+          <p *ngIf="rol != 1" class="descriptionFeed">{{htmlToPlaintext(item.description) | slice:0:120}}...</p>
+          <p *ngIf="rol == 1" class="editDescriptionFeed">{{htmlToPlaintext(item.description) | slice:0:120}}...</p>
+        </div>
+        <!--  -->
+      </ion-card-content>
+      <!-- Badges  -->
+      <ion-item (click)="viewEntry({ record: item })" class="badgeItem">
+        <ion-icon name="contact" item-start></ion-icon>
+        <ion-badge item-end *ngIf="item.site == 'De Telegraaf'" class="ColorTelegraaf">{{item.site}}
+        </ion-badge>
+        <ion-badge item-end *ngIf="item.site == 'NOS'" class="ColorNOS">{{item.site}}</ion-badge>
+        <ion-badge item-end *ngIf="item.site == 'NU.nl'" class="ColorNU">{{item.site}}</ion-badge>
+      </ion-item>
+      <ion-item (click)="viewEntry({ record: item })" class="badgeItem">
+        <ion-icon name="time" item-start></ion-icon>
+        <ion-badge item-end *ngIf="item.site == 'De Telegraaf'" class="ColorTelegraaf">{{item.datum}}
+        </ion-badge>
+        <ion-badge item-end *ngIf="item.site == 'NOS'" class="ColorNOS">{{item.datum}}</ion-badge>
+        <ion-badge item-end *ngIf="item.site == 'NU.nl'" class="ColorNU">{{item.datum}}</ion-badge>
+      </ion-item>
     </ion-card>
-    </div>
+  </div>
 
-        <ion-list inset *ngIf="checklist == 'gebruikers'">
-            <ion-item-group>
-                <ion-row>
-                <ion-item class="adminUsers" *ngFor="let user of gebruikerslijst" ><strong>ID : </strong> {{user.id}} | <strong>{{user.email}} |</strong> <button ion-button color="secondary" item-right><ion-icon name="create"></ion-icon></button><button ion-button color="danger" item-right><ion-icon name="trash"></ion-icon></button></ion-item>
-                </ion-row>
-            </ion-item-group>
-        </ion-list>
+  <!-- Gebruikers -->
+  <ion-list inset *ngIf="checklist == 'gebruikers'">
+    <ion-item-group>
+      <ion-row>
+        <ion-item class="adminUsers" *ngFor="let user of gebruikerslijst">
+          <ion-avatar class="avatar" item-start>
+            <img src="{{user.profilepicture}}" class="avatar-profiel" />
+          </ion-avatar>
+          <h3>ID: <strong>{{user.id}}</strong></h3>
+          <h3>Email <strong>{{user.email}}</strong></h3>
+
+
+        </ion-item>
+        <!-- <ion-item class="adminUsers" *ngFor="let user of gebruikerslijst"><strong>ID : </strong> {{user.id}} | <strong>{{user.email}} |</strong>
+          <button ion-button color="secondary" item-right>
+            <ion-icon name="create"></ion-icon>
+          </button><button ion-button color="danger" item-right>
+            <ion-icon name="trash"></ion-icon>
+          </button></ion-item> -->
+      </ion-row>
+    </ion-item-group>
+  </ion-list>
 </ion-content>

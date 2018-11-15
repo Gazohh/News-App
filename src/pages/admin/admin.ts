@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import { Events } from 'ionic-angular';
 
 
 /**
@@ -22,8 +23,12 @@ export class AdminPage {
   artikelen:any;
   gebruikerslijst:any;
   artikelenlijst:any;
+  isSearchbaropened = false;
+  public data: any;
+  public key: string = "items";
+  public items: any = 0;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient, public events: Events) {
   }
 
   ionViewDidLoad() {
@@ -74,4 +79,24 @@ export class AdminPage {
         this.navCtrl.push('NieuwsPage', param);
     }
 
+    resetChanges() {
+      this.http
+        .get('http://gazoh.net/getdata.php')
+        .subscribe((data: any) => {
+          this.items = data;
+        },
+          (error: any) => {
+            console.dir(error);
+          });
+      this.isSearchbaropened = false;
+    }
+
+    search(event) {
+      let serVal = event.target.value;
+      if (serVal && serVal.trim() != '') {
+        this.items = this.items.filter((item) => {
+          return (item.title.toLowerCase().indexOf(serVal.toLowerCase()) > -1);
+        })
+      }
+    }
 }

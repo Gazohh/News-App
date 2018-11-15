@@ -1,17 +1,15 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { MenuController } from "ionic-angular";
-import { Observable } from "rxjs";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Network } from "@ionic-native/network";
 import { ToastController } from 'ionic-angular';
 import { HomePage } from "../home/home";
-import { NieuwsPage } from "../nieuws/nieuws";
 import { LoadingController } from 'ionic-angular';
 import { Searchbar } from 'ionic-angular';
-import { CategoryPage } from "../category/category";
 import { CommentsPage } from "../comments/comments";
 import { Events } from 'ionic-angular';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @IonicPage()
 @Component({
@@ -45,7 +43,12 @@ export class FeedPage {
     private toastCtrl: ToastController,
     public loadingCtrl: LoadingController,
     public platform: Platform,
-    public events: Events) {
+    public events: Events,
+  private screenOrientation: ScreenOrientation) {
+
+      // screenOrientation kan draaien
+      this.screenOrientation.unlock();
+
     if (this.network.type != "none") {
       //this.getData();
       this.datepicker = "vandaag";
@@ -304,5 +307,4 @@ export class FeedPage {
       }
     });
   }
-
 }
