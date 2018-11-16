@@ -4,12 +4,12 @@ import { RegisterPage } from "../register/register";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import 'rxjs/add/operator/map';
 import { ToastController } from 'ionic-angular';
-import { Keyboard } from '@ionic-native/keyboard';
 import { MenuController } from "ionic-angular";
 import { FeedPage } from "../feed/feed";
 import { Events } from 'ionic-angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Platform } from 'ionic-angular';
+import { Keyboard } from '@ionic-native/keyboard';
 
 
 @Component({

@@ -1,4 +1,4 @@
-<ion-header>
+eye-off<ion-header>
   <ion-navbar>
     <button ion-button menuToggle *ngIf="!isSearchbaropened">
       <ion-icon name="menu"></ion-icon>
@@ -29,8 +29,7 @@
 <ion-content>
   <!-- Swipe up refresher  -->
   <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content pullingIcon="arrow-dropdown"
-                           pullingText="Sleep omlaag om te verversen"></ion-refresher-content>
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Sleep omlaag om te verversen"></ion-refresher-content>
   </ion-refresher>
   <ion-grid>
     <ion-row>
@@ -43,24 +42,6 @@
             <img [src]="item.image" *ngIf="item.site != 'NOS.nl' || item.site != 'NU.nl'">
           </div>
           <ion-card-content>
-            <!-- Admin only hide functie -->
-            <div *ngIf="rol == 1">
-              <ion-fab right *ngIf="item.site == 'De Telegraaf'">
-                <button ion-fab mini (click)="setHideArticle(item.id)" class="ColorTelegraaf2">
-                  <ion-icon name="eye-off"></ion-icon>
-                </button>
-              </ion-fab>
-              <ion-fab right *ngIf="item.site == 'NOS'">
-                <button ion-fab mini (click)="setHideArticle(item.id)" class="ColorNOS2">
-                  <ion-icon name="eye-off"></ion-icon>
-                </button>
-              </ion-fab>
-              <ion-fab right *ngIf="item.site == 'NU.nl'">
-                <button ion-fab mini (click)="setHideArticle(item.id)" class="ColorNU2">
-                  <ion-icon name="eye-off"></ion-icon>
-                </button>
-              </ion-fab>
-            </div>
             <!-- Title  -->
             <div id="title" (click)="viewEntry({ record: item })">
               <ion-card-title class="TitleFeed" *ngIf="rol != 1">
@@ -122,15 +103,28 @@
             </button>
             <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'" class="socialTelegraaf">
               <ion-icon name="share-alt"></ion-icon>
-                <div>Share</div>
+              <div>Share</div>
             </button>
             <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOS">
               <ion-icon name="share-alt"></ion-icon>
-                <div>Share</div>
+              <div>Share</div>
             </button>
             <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNu">
               <ion-icon name="share-alt"></ion-icon>
-                <div>Share</div>
+              <div>Share</div>
+            </button>
+            <!-- only admins kunnen dit zien, hide button voor de artikelen -->
+            <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf' && rol == 1" class="socialTelegraaf" (click)="setHideArticle(item.id)">
+              <ion-icon name="eye-off"></ion-icon>
+              <div>Hide</div>
+            </button>
+            <button ion-button icon-start clear *ngIf="item.site == 'NOS' && rol == 1" class="socialNOS" (click)="setHideArticle(item.id)">
+              <ion-icon name="eye-off"></ion-icon>
+              <div>Hide</div>
+            </button>
+            <button ion-button icon-start clear *ngIf="item.site == 'NU.nl' && rol == 1" class="socialNu" (click)="setHideArticle(item.id)">
+              <ion-icon name="eye-off"></ion-icon>
+              <div>Hide</div>
             </button>
           </div>
         </ion-card>
