@@ -10,6 +10,7 @@ import { Searchbar } from 'ionic-angular';
 import { CommentsPage } from "../comments/comments";
 import { Events } from 'ionic-angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import {SourcesPage} from "../sources/sources";
 
 @IonicPage()
 @Component({

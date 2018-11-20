@@ -29,7 +29,7 @@ export class AboutPage {
         {
             title: "Welkom bij NewsAge!",
             description: "Hallo! Welkom op NewsAge! ten eerste willen wij, namens het team, u bedanken voor het gebruiken van NewsAge!",
-            image: "../../assets/imgs/ica-slidebox-img-1.png",
+            image: "../../assets/imgs/NewsAgeLogo.png",
 
         },
         {
@@ -37,14 +37,14 @@ export class AboutPage {
             description: "NewsAge is de perfecte app om alle nieuws in een oogopslag te lezen.\n" +
                 "        NewsAge maakt het gemakkelijk voor de gebruiker(jij) door alle nieuws te verzamelen van verschillende bronnen en\n" +
                 "        die in een feed te verwerken zodat alles netjes en geordend is ;).",
-            image: "../../assets/imgs/ica-slidebox-img-2.png",
+            image: "../../assets/imgs/NewsAgeLogo.png",
         },
         {
             title: "Waarom NewsAge?",
             description: "NewsAge is heel gemakkelijk te gebruiken, u kunt bijvoorbeeld met 1 klik een dagblad volgen of niet volgen. U\n" +
                 "kunt ook ervoor kiezen om bijvoorbeeld een artikel te verbergen, dit zorgt ervoor dat u de artikel niet\n" +
                 "        ziet.",
-            image: "../../assets/imgs/ica-slidebox-img-3.png",
+            image: "../../assets/imgs/NewsAgeLogo.png",
         }
     ];
 

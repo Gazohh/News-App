@@ -146,7 +146,7 @@
   }
 
   .nieuwsContent {
-      background-color: #212121 !important;
+    background-color: #212121 !important;
   }
 
   .segment-md-dark .segment-button.segment-activated {
@@ -214,4 +214,24 @@
   .ion-page {
     background-color: #212121 !important;
   }
+
+  //loginpagina
+  .loginPagina {
+
+    background-color: #2f2f2f !important;
+    color: black;
+    h2 {
+      color: #fff;
+    }
+    .grid {
+      background-color: #2f2f2f !important;
+    }
+    .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+    .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+      border-bottom-color: #32db64 !important;
+      -webkit-box-shadow: none !important;
+      box-shadow: none !important;
+    }
+  }
 }
+
