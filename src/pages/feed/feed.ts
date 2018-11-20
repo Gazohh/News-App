@@ -10,6 +10,8 @@ import { Searchbar } from 'ionic-angular';
 import { CommentsPage } from "../comments/comments";
 import { Events } from 'ionic-angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { Content } from 'ionic-angular';
+import { DataweerProvider } from '../../providers/dataweer/dataweer';
 
 @IonicPage()
 @Component({
@@ -18,6 +20,8 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 })
 export class FeedPage {
   @ViewChild('searchbar') searchbar: Searchbar;
+  @ViewChild(Content) content: Content;
+
   public items: any = 0;
   public data: any;
   public artikelen: any;
@@ -32,7 +36,11 @@ export class FeedPage {
   public dataUser: any;
   public username: string;
   public profilepicture: any;
+  public shouldScrollDown = true;
+  public showScrollButton = false;
 
+  dataweer:any = [];
+  title: string;
 
   constructor(
     public navCtrl: NavController,
@@ -44,10 +52,21 @@ export class FeedPage {
     public loadingCtrl: LoadingController,
     public platform: Platform,
     public events: Events,
-  private screenOrientation: ScreenOrientation) {
+    private screenOrientation: ScreenOrientation,
+    public weerService: DataweerProvider) {
+      if (this.platform.is('cordova')) {
+        this.platform.ready().then(() => {
 
-      // screenOrientation kan draaien
-      this.screenOrientation.unlock();
+          // Checkt of je een token hebt of niet zo niet dan word je naar home page direct
+          if (!localStorage.getItem("sessionToken")) {
+            this.navCtrl.setRoot(HomePage);
+            toastinlog.present();
+          }
+        })
+      }
+
+    // screenOrientation kan draaien
+    this.screenOrientation.unlock();
 
     if (this.network.type != "none") {
       //this.getData();
@@ -81,24 +100,13 @@ export class FeedPage {
       closeButtonText: "OK"
     });
 
-    // Sessie Token
-    if (!localStorage.getItem("sessionToken")) {
-      this.navCtrl.setRoot(HomePage);
-      toastinlog.present();
-    }
-
+    // Hij pakt alle rollen, usernames etc van de database
     const headers = new HttpHeaders();
-
     headers.append("Accept", 'application/json');
-
     headers.append('Content-Type', 'application/json');
-
     const options = { headers: headers };
-
     const data = {
-
       email: localStorage.getItem('userEmail'),
-
     };
     this.http.post('http://gazoh.net/getgebruiker.php', data, options)
       .subscribe(data => {
@@ -109,12 +117,13 @@ export class FeedPage {
         this.events.publish("username", this.username);
         this.events.publish("profilepicture", this.profilepicture);
       });
-    /* //this.GetNews()
-     this.presentLoadingCustom();*/
   }
+  // ---------------------------------------------------------------------------------------------
+  // Hier eindigt de constructor
+ // ---------------------------------------------------------------------------------------------
 
+// Custom Spinner loader
   presentLoadingCustom() {
-
     let loading = this.loadingCtrl.create({
       spinner: 'hide',
       content: `
@@ -126,27 +135,8 @@ export class FeedPage {
     loading.present();
   }
 
-  ionViewDidLoad() {
-    this.menuCtrl.enable(true, 'myMenu');
-  }
 
-  /*getData() {
-      let url = "http://api.jsonbin.io/b/5bab4b98a97c597b3c591b93";
-      var headers = new HttpHeaders();
-      headers.append('Access-Control-Allow-Origin', '*');
-
-      headers.append("Accept", 'application/json');
-
-      headers.append('Content-Type', 'application/json');
-
-      let options = {headers: headers};
-      let data: Observable<any> = this.http.get(url, options);
-      data.subscribe(result => {
-          this.items = result;
-      });
-      localStorage.setItem(this.key, JSON.stringify(this.items));
-  }*/
-
+  // Laad data pas zodra je bent ingelogt
   loadData() {
     localStorage.getItem(this.key);
     if (this.key != null && this.key != undefined) {
@@ -154,6 +144,7 @@ export class FeedPage {
     }
   }
 
+  //
   htmlToPlaintext(text) {
     return text ? String(text).replace(/<[^>]+>/gm, '') : '';
   }
@@ -163,10 +154,12 @@ export class FeedPage {
     this.navCtrl.push('NieuwsPage', param);
   }
 
-    viewComments(param: any): void {
-        this.navCtrl.setRoot(CommentsPage, param);
-    }
+  // Doorverbinden naar de CommentsPage
+  viewComments(param: any): void {
+    this.navCtrl.setRoot(CommentsPage, param);
+  }
 
+  // Zoek functie
   search(event) {
     let serVal = event.target.value;
     if (serVal && serVal.trim() != '') {
@@ -176,6 +169,7 @@ export class FeedPage {
     }
   }
 
+// Zodra je de searchbar canceled
   resetChanges() {
     this.http
       .get('http://gazoh.net/getdata.php')
@@ -192,6 +186,32 @@ export class FeedPage {
   //     this.searchbar.setFocus();
   // }
 
+// Zodra de pagina is geladen
+  ionViewDidLoad() {
+      this.menuCtrl.enable(true, 'myMenu');
+    this.weerService.getRemoteData();
+  }
+
+// Zodra die op de pagina is gekomen
+  ionViewDidEnter() {
+    this.content.ionScrollEnd.subscribe((data) => {
+      let dimensions = this.content.getContentDimensions();
+      let scrollTop = this.content.scrollTop;
+      let contentHeight = dimensions.contentHeight;
+      let scrollHeight = dimensions.scrollHeight;
+
+      if ((scrollTop + contentHeight + 20) > scrollHeight) {
+        this.shouldScrollDown = true;
+        this.showScrollButton = false;
+      } else {
+        this.shouldScrollDown = false;
+        this.showScrollButton = true;
+      }
+      console.log(contentHeight);
+    });
+  }
+
+// Segment Alle nieuws van Vandaag
   load() {
     this.datepicker = "vandaag";
     this.http
@@ -205,11 +225,10 @@ export class FeedPage {
         });
   }
 
+// Segment Alle nieuws van Gisteren
   loadYesterday() {
     this.datepicker = "gisteren";
-    this.http
-      .get('http://gazoh.net/getyesterday.php')
-      .subscribe((data: any) => {
+    this.http.get('http://gazoh.net/getyesterday.php').subscribe((data: any) => {
         this.items = data;
         this.artikelen = data;
       },
@@ -219,6 +238,7 @@ export class FeedPage {
     this.presentLoadingCustom();
   }
 
+// Segment Alle nieuws van Gisteren
   load3DaysAgo() {
     this.datepicker = "driedagengeleden";
     this.http
@@ -234,6 +254,7 @@ export class FeedPage {
 
   }
 
+// De pull to refresh
   doRefresh(refresher) {
     if (this.datepicker == "vandaag") {
       this.http
@@ -275,19 +296,7 @@ export class FeedPage {
     }, 2000);
   }
 
-  doInfinite(infiniteScroll) {
-    this.http
-      .get('http://gazoh.net/getdata.php')
-      .subscribe((data: any) => {
-        this.items = this.items.push(data);
-        infiniteScroll.complete();
-      },
-        (error: any) => {
-          console.dir(error);
-        });
-    console.log('Begin async operation');
-  }
-
+// Het verbergen van de artikel
   setHideArticle(postId) {
     console.log("Hide " + postId);
     var headers = new HttpHeaders();
@@ -307,4 +316,17 @@ export class FeedPage {
       }
     });
   }
+
+// Data van het weer
+  getRemoteData() {
+    this.http.get('https://jsonplaceholder.typicode.com/todos/2').subscribe((data: any) => {
+        this.dataweer = data;
+        this.title = this.dataweer.title;
+        console.log(this.dataweer.id);
+      },
+        (error: any) => {
+          console.dir(error);
+        });
+ }
+
 }

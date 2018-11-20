@@ -13,6 +13,11 @@
   }
 }
 
+.scrollToTop {
+  top: 0;
+  position: sticky;
+}
+
 ion-slide.swiper-slide {
   align-items: flex-start;
 }

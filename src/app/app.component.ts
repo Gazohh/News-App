@@ -125,7 +125,7 @@ export class MyApp {
   // OnInit is het zelfde als platform ready en constructor
   // -------------------------------------
   ngOnInit() {
-    setTimeout(() => this.showSplash = false, 3500);
+    setTimeout(() => this.showSplash = false, 1800);
   }
 
   // Open menu

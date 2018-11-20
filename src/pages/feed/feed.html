@@ -1,4 +1,4 @@
-eye-off<ion-header>
+<ion-header>
   <ion-navbar>
     <button ion-button menuToggle *ngIf="!isSearchbaropened">
       <ion-icon name="menu"></ion-icon>
@@ -24,6 +24,9 @@ eye-off<ion-header>
     <ion-segment-button value="driedagengeleden" (click)="load3DaysAgo()">
       3 dagen geleden
     </ion-segment-button>
+    <ion-segment-button value="hetWeer" (click)="getRemoteData()">
+      Het Weer
+    </ion-segment-button>
   </ion-segment>
 </ion-header>
 <ion-content>
@@ -31,7 +34,7 @@ eye-off<ion-header>
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Sleep omlaag om te verversen"></ion-refresher-content>
   </ion-refresher>
-  <ion-grid>
+  <ion-grid *ngIf="datepicker == 'vandaag' || datepicker == 'gisteren' || datepicker == 'driedagengeleden'">
     <ion-row>
       <ion-col *ngFor="let item of items" col-md-6 col-sm-6 col-lg-6 col-xl-6>
         <ion-card>
@@ -131,4 +134,11 @@ eye-off<ion-header>
       </ion-col>
     </ion-row>
   </ion-grid>
+
+  <div *ngIf="datepicker == 'hetWeer'">
+    <ion-item *ngFor="let weer of dataweer">
+      <p> {{weer.id}} </p>
+    </ion-item>
+  </div>
+
 </ion-content>
