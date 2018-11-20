@@ -34,6 +34,15 @@ ion-slide.swiper-slide {
 }
 // ------------------------------------
 // Comments
+// Input border
+
+body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item > div.item-inner {
+  border: none !important;
+}
+
+.commentSpacing {
+  margin-bottom: 0;
+}
 
 .fakePadding {
   padding-right: 23px;
@@ -265,9 +274,7 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   box-shadow: none;
   text-transform: uppercase;
 }
-
 // Welkom text
-
 .welkomText {
   padding: 3vh;
   margin-bottom: 0;
@@ -630,52 +637,53 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 }
 // ------------------------------------
 // Menu
-
 // Ion-item menu
+
 #contentAnimation > div.scroll-content > ion-list > ion-item {
   padding-bottom: 10px !important;
 }
-
 // Hele category label
+
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) {
   padding-bottom: 15px !important;
 }
-
 // Entertainment lABEL
-#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list > ion-item:nth-child(6) > div.item-inner > div > ion-label {
-margin-bottom: 0px !important;
-}
 
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list > ion-item:nth-child(6) > div.item-inner > div > ion-label {
+  margin-bottom: 0 !important;
+}
 // startpagina label
+
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(2) > div.item-inner > div > ion-label {
   margin-bottom: 6px !important;
 }
 //sources label
+
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(3) > div.item-inner > div > ion-label {
   margin-bottom: 6px !important;
 }
-
 // Category label
+
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label {
   margin-bottom: 3px !important;
 }
-
 // subtitle ion-item
+
 #contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > ion-list > ion-item {
-  padding: 0px !important;
+  padding: 0 !important;
 }
-
 //Ion list Category
+
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list {
-  margin: 0px;
+  margin: 0;
 }
-
 // Algemeen Category
-#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list > ion-item:nth-child(1) > div.item-inner > div > ion-label {
-margin-top: 26px !important;
-}
 
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list > ion-item:nth-child(1) > div.item-inner > div > ion-label {
+  margin-top: 26px !important;
+}
 // Icons submenu Category
+
 #contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > ion-list > ion-item > div.item-inner > div > ion-label > ion-icon {
   margin-right: 11px !important;
   margin-left: 22px !important;
@@ -684,9 +692,8 @@ margin-top: 26px !important;
 [text-wrap] .label-md {
   line-height: 2.5 !important;
 }
-
-
 // alle menu items
+
 #contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div {
   margin-left: 15px !important;
 }
@@ -694,18 +701,17 @@ margin-top: 26px !important;
 .menuTitle {
   margin-left: 20px !important;
 }
-
 // Favorieten random margin door sidemenu
+
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(2) > div.item-inner > div > ion-label > ion-list {
-  margin: 0px !important;
+  margin: 0 !important;
 }
 
 .activeHightlight {
   background-color: red !important;
 }
-
-
 // IOS menu random 20px aan de top
+
 #contentAnimation > div.scroll-content {
   padding: 0 !important;
 }
@@ -816,6 +822,7 @@ margin-top: 26px !important;
 }
 // FeedPage Header
 // Select icon
+
 body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > ion-buttons:nth-child(5) > ion-select > div.select-icon {
   width: 0 !important;
   height: 0 !important;
@@ -823,21 +830,14 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > 
 
 .algemeenText {
   padding-right: 15px !important;
-  padding-left: 0px !important;
+  padding-left: 0 !important;
 }
-
 // Ion select
+
 body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > ion-buttons:nth-child(5) > ion-select {
   padding: 0 !important;
 }
-
-
 // FeedPage Card Design
-// .ion-fab
-body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > ion-card > ion-card-content > div > ion-fab {
-  margin-left: 10px;
-  margin-right: 10px;
-}
 
 .feedCard {
   margin: 0;
@@ -865,8 +865,6 @@ page-feed img {
   vertical-align: middle !important;
   overflow: hidden !important;
 }
-
-
 @media only screen and (max-width: 300px) {
   page-feed img {
     text-align: center !important;
@@ -877,7 +875,6 @@ page-feed img {
     height: 100%;
   }
 }
-
 @media only screen and (min-width: 546px) {
   page-feed img {
     text-align: center !important;
@@ -888,7 +885,6 @@ page-feed img {
     height: 100%;
   }
 }
-
 @media only screen and (max-width: 280px) {
   .socialLikeComments {
     text-align: left !important;
@@ -985,6 +981,11 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
   font-size: 2rem;
 }
 // NieuwsPage
+
+.imageNieuws {
+  object-fit: cover;
+  height: 300px;
+}
 
 body > ion-app > ng-component > ion-nav > page-nieuws > ion-header > ion-navbar > div.toolbar-content.toolbar-content-md {
   white-space: nowrap;
@@ -1153,44 +1154,40 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
   animation-name: slideInLefts;
   animation-duration: 300ms;
 }
-
-
 // Admin page
-
 // Searchbar
 body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-content > ion-list > ion-item-group > ion-row > ion-searchbar {
-    padding-top: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
-
 // Gebruikers Content
-body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-content > ion-list {
-  margin-top: 10px !important;
-margin: 0px !important;
-}
 
+body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-content > ion-list {
+  margin: 0 !important;
+}
 // Scroll Content
+
 body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-content {
-  padding: 0px !important;
+  padding: 0 !important;
 }
 
 .adminTitle {
   margin-right: 48px !important;
 }
-
 // Search iconRow
+
 .adminSearchIcon {
   visibility: hidden !important;
 }
-
 //ion fab admin
+
 body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-content > div > ion-card > ion-card-content > div > ion-fab {
   margin-right: 10px !important;
 }
 //
-
 // Ion - ion-slides
+
 .deleteSlide {
   background-color: #F40000;
 }
@@ -1202,8 +1199,8 @@ body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-
 .spanHide {
   visibility: hidden !important;
 }
-
 // Slide items center align
+
 .iconAdmin {
   padding-bottom: 15px !important;
 }

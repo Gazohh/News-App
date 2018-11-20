@@ -11,7 +11,6 @@ import { CommentsPage } from "../comments/comments";
 import { Events } from 'ionic-angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Content } from 'ionic-angular';
-import { DataweerProvider } from '../../providers/dataweer/dataweer';
 
 @IonicPage()
 @Component({
@@ -38,9 +37,9 @@ export class FeedPage {
   public profilepicture: any;
   public shouldScrollDown = true;
   public showScrollButton = false;
-
-  dataweer:any = [];
-  title: string;
+  public dataweer: any;
+  public title: string;
+  public about: string;
 
   constructor(
     public navCtrl: NavController,
@@ -52,18 +51,17 @@ export class FeedPage {
     public loadingCtrl: LoadingController,
     public platform: Platform,
     public events: Events,
-    private screenOrientation: ScreenOrientation,
-    public weerService: DataweerProvider) {
-      if (this.platform.is('cordova')) {
-        this.platform.ready().then(() => {
+    private screenOrientation: ScreenOrientation) {
+    if (this.platform.is('cordova')) {
+      this.platform.ready().then(() => {
 
-          // Checkt of je een token hebt of niet zo niet dan word je naar home page direct
-          if (!localStorage.getItem("sessionToken")) {
-            this.navCtrl.setRoot(HomePage);
-            toastinlog.present();
-          }
-        })
-      }
+        // Checkt of je een token hebt of niet zo niet dan word je naar home page direct
+        if (!localStorage.getItem("sessionToken")) {
+          this.navCtrl.setRoot(HomePage);
+          toastinlog.present();
+        }
+      })
+    }
 
     // screenOrientation kan draaien
     this.screenOrientation.unlock();
@@ -120,16 +118,16 @@ export class FeedPage {
   }
   // ---------------------------------------------------------------------------------------------
   // Hier eindigt de constructor
- // ---------------------------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------
 
-// Custom Spinner loader
+  // Custom Spinner loader
   presentLoadingCustom() {
     let loading = this.loadingCtrl.create({
       spinner: 'hide',
       content: `
      <div class="custom-spinner-container"><img src="http://gazoh.net/images/spinner.svg"><br> <p>Laden...</p>
      </div>`,
-      duration: 1200
+      duration: 610
     });
 
     loading.present();
@@ -169,7 +167,7 @@ export class FeedPage {
     }
   }
 
-// Zodra je de searchbar canceled
+  // Zodra je de searchbar canceled
   resetChanges() {
     this.http
       .get('http://gazoh.net/getdata.php')
@@ -186,13 +184,12 @@ export class FeedPage {
   //     this.searchbar.setFocus();
   // }
 
-// Zodra de pagina is geladen
+  // Zodra de pagina is geladen
   ionViewDidLoad() {
-      this.menuCtrl.enable(true, 'myMenu');
-    this.weerService.getRemoteData();
+    this.menuCtrl.enable(true, 'myMenu');
   }
 
-// Zodra die op de pagina is gekomen
+  // Zodra die op de pagina is gekomen
   ionViewDidEnter() {
     this.content.ionScrollEnd.subscribe((data) => {
       let dimensions = this.content.getContentDimensions();
@@ -211,7 +208,7 @@ export class FeedPage {
     });
   }
 
-// Segment Alle nieuws van Vandaag
+  // Segment Alle nieuws van Vandaag
   load() {
     this.datepicker = "vandaag";
     this.http
@@ -225,20 +222,34 @@ export class FeedPage {
         });
   }
 
-// Segment Alle nieuws van Gisteren
-  loadYesterday() {
-    this.datepicker = "gisteren";
-    this.http.get('http://gazoh.net/getyesterday.php').subscribe((data: any) => {
+  loadWithSpinner() {
+    this.datepicker = "vandaag";
+    this.http
+      .get('http://gazoh.net/getdata.php')
+      .subscribe((data: any) => {
         this.items = data;
         this.artikelen = data;
       },
         (error: any) => {
           console.dir(error);
         });
+        this.presentLoadingCustom();
+  }
+
+  // Segment Alle nieuws van Gisteren
+  loadYesterday() {
+    this.datepicker = "gisteren";
+    this.http.get('http://gazoh.net/getyesterday.php').subscribe((data: any) => {
+      this.items = data;
+      this.artikelen = data;
+    },
+      (error: any) => {
+        console.dir(error);
+      });
     this.presentLoadingCustom();
   }
 
-// Segment Alle nieuws van Gisteren
+  // Segment Alle nieuws van Gisteren
   load3DaysAgo() {
     this.datepicker = "driedagengeleden";
     this.http
@@ -254,7 +265,7 @@ export class FeedPage {
 
   }
 
-// De pull to refresh
+  // De pull to refresh
   doRefresh(refresher) {
     if (this.datepicker == "vandaag") {
       this.http
@@ -296,7 +307,7 @@ export class FeedPage {
     }, 2000);
   }
 
-// Het verbergen van de artikel
+  // Het verbergen van de artikel
   setHideArticle(postId) {
     console.log("Hide " + postId);
     var headers = new HttpHeaders();
@@ -317,16 +328,18 @@ export class FeedPage {
     });
   }
 
-// Data van het weer
+  // Het weer
   getRemoteData() {
-    this.http.get('https://jsonplaceholder.typicode.com/todos/2').subscribe((data: any) => {
-        this.dataweer = data;
-        this.title = this.dataweer.title;
-        console.log(this.dataweer.id);
-      },
-        (error: any) => {
-          console.dir(error);
-        });
- }
+    this.presentLoadingCustom();
+    this.http.get('http://www.json-generator.com/api/json/get/bVDaukHDFK?indent=2').subscribe((data: any) => {
+      this.dataweer = data;
+      this.title = this.dataweer.title;
+      this.about = this.dataweer.about;
+      console.log(this.dataweer);
+    },
+      (error: any) => {
+        console.dir(error);
+      });
+  }
 
 }

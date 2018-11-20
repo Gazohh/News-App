@@ -1,12 +1,11 @@
 <ion-header>
-  <meta viewport-fit = "cover">
   <meta charset="UTF-8">
   <ion-navbar class="nieuwsNavTitle">{{this.title}}</ion-navbar>
 </ion-header>
 <ion-content>
   <ion-card class="nieuwsCard">
     <img *ngIf="!this.image" src="../assets/imgs/noimage.jpg">
-    <img src="{{this.image}}">
+    <img src="{{this.image}}" class="imageNieuws">
     <ion-card-header class="headerText" text-wrap>
       {{this.title}}
       <p class="nieuwsDatum">{{this.datum}}</p>

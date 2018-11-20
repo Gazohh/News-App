@@ -61,9 +61,8 @@ import { PrivacybeleidPageModule } from "../pages/privacybeleid/privacybeleid.mo
 //
 // Providers
 //
-import { InfouserProvider } from '../providers/infouser/infouser';
 import { MenuProvider } from '../providers/menu/menu';
-import { DataweerProvider } from '../providers/dataweer/dataweer';
+
 
 @NgModule({
   declarations: [
@@ -132,9 +131,7 @@ import { DataweerProvider } from '../providers/dataweer/dataweer';
     Camera,
     File,
     FileTransfer,
-    InfouserProvider,
     MenuProvider,
-    DataweerProvider
   ]
 
 })
