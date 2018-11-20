@@ -225,6 +225,26 @@
   background-color: #212121 !important;
 }
 
+.dark-theme .loginPagina {
+  background-color: #2f2f2f !important;
+  color: black;
+}
+
+.dark-theme .loginPagina h2 {
+  color: #fff;
+}
+
+.dark-theme .loginPagina .grid {
+  background-color: #2f2f2f !important;
+}
+
+.dark-theme .loginPagina .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+.dark-theme .loginPagina .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+  border-bottom-color: #32db64 !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
 .ion-ios-add:before {
   content: "\f102";
 }
@@ -38905,6 +38925,12 @@ readers do not read off random characters that represent icons */
   content: "\f007";
 }
 
+.scrollToTop {
+  top: 0;
+  position: -webkit-sticky;
+  position: sticky;
+}
+
 ion-slide.swiper-slide {
   -webkit-box-align: start;
   -webkit-align-items: flex-start;
@@ -39625,6 +39651,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   display: block;
   background-color: #212121;
   margin: 0 auto;
+  border: 2px solid #fff;
 }
 
 .menuCol {
@@ -39642,11 +39669,12 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   text-align: center;
   margin-top: 3%;
   font-size: 1.8rem;
+  font-weight: 500;
 }
 
 .usernameMenu::first-letter {
   text-transform: uppercase;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .fotoWijzigenProfiel {
@@ -39657,7 +39685,6 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 }
 
 .menuNavBar {
-  padding-bottom: 1rem;
   margin-bottom: 10px;
 }
 
@@ -39720,6 +39747,11 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > 
   padding: 0 !important;
 }
 
+body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > ion-card > ion-card-content > div > ion-fab {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 .feedCard {
   margin: 0;
   border-radius: 2px;
@@ -39768,6 +39800,12 @@ page-feed img {
   }
 }
 
+@media only screen and (max-width: 280px) {
+  .socialLikeComments {
+    text-align: left !important;
+  }
+}
+
 .ion-card-image-wrapper {
   overflow: hidden !important;
   background: url("../../assets/imgs/noimage.jpg");
@@ -39808,6 +39846,10 @@ page-feed img {
   color: #020051 !important;
 }
 
+.socialLikeComments {
+  text-align: center;
+}
+
 .ColorNOS {
   background-color: #d02527 !important;
 }
@@ -39835,7 +39877,6 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 }
 
 .editTitleFeed {
-  margin-right: 49px !important;
   display: block;
   font-size: 2.1rem;
   line-height: 1.1;
@@ -40013,6 +40054,83 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
   animation-duration: 300ms;
 }
 
+body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-content > ion-list > ion-item-group > ion-row > ion-searchbar {
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-content > ion-list {
+  margin-top: 10px !important;
+  margin: 0px !important;
+}
+
+body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-content {
+  padding: 0px !important;
+}
+
+.adminTitle {
+  margin-right: 48px !important;
+}
+
+.adminSearchIcon {
+  visibility: hidden !important;
+}
+
+body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-content > div > ion-card > ion-card-content > div > ion-fab {
+  margin-right: 10px !important;
+}
+
+.deleteSlide {
+  background-color: #F40000;
+}
+
+.BewerkSlide {
+  background-color: #18F400;
+}
+
+.spanHide {
+  visibility: hidden !important;
+}
+
+.iconAdmin {
+  padding-bottom: 15px !important;
+}
+
+page-about .toolbar-background {
+  background: #fff;
+  border-color: transparent;
+}
+
+page-about .slide-zoom {
+  height: 100%;
+}
+
+page-about .slide-title {
+  margin-top: 2.8rem;
+}
+
+page-about .slide-image {
+  max-height: 50%;
+  max-width: 60%;
+  margin: 18px 0;
+}
+
+page-about b {
+  font-weight: 500;
+}
+
+page-about p {
+  padding: 0 40px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #60646B;
+}
+
+page-about p b {
+  color: #000000;
+}
+
 page-admin .nieuwsNavTitle {
   color: white;
   font-weight: 500;
@@ -40024,32 +40142,6 @@ page-admin body > ion-app > ng-component > ion-nav > page-admin > ion-header > i
   text-overflow: ellipsis;
   display: block;
   overflow: hidden;
-}
-
-.card-background-page ion-card {
-  position: relative;
-  text-align: center;
-}
-
-.card-background-page .card-title {
-  position: absolute;
-  top: 36%;
-  font-size: 2.0em;
-  width: 100%;
-  font-weight: bold;
-  color: #fff;
-}
-
-.card-background-page .card-subtitle {
-  font-size: 1.0em;
-  position: absolute;
-  top: 52%;
-  width: 100%;
-  color: #fff;
-}
-
-.card-background-page .hr {
-  color: #000000;
 }
 
 .itemdescription {
@@ -40066,6 +40158,31 @@ hr {
   font-size: 2em !important;
   opacity: 1 !important;
   visibility: visible !important;
+}
+
+page-privacybeleid .voorwaardenLogo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+page-privacybeleid .voorwaardenH1 {
+  text-align: center;
+  color: #3ca7d1;
+  font-weight: bold;
+  font-size: 3rem;
+  margin-top: 13px;
+}
+
+page-privacybeleid .voorwaardenH3 {
+  text-align: center;
+  color: #3ca7d1;
+}
+
+page-privacybeleid body > ion-app > ng-component > ion-nav > page-privacybeleid > ion-content > div.scroll-content {
+  margin-top: 56px;
+  padding-left: 18px;
+  padding-right: 18px;
 }
 
 .registerButton {
