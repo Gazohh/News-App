@@ -39625,6 +39625,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   display: block;
   background-color: #212121;
   margin: 0 auto;
+  border: 2px solid #fff;
 }
 
 .menuCol {
@@ -39768,6 +39769,12 @@ page-feed img {
   }
 }
 
+@media only screen and (max-width: 280px) {
+  .socialLikeComments {
+    text-align: left !important;
+  }
+}
+
 .ion-card-image-wrapper {
   overflow: hidden !important;
   background: url("../../assets/imgs/noimage.jpg");
@@ -39806,6 +39813,10 @@ page-feed img {
 
 .socialNu {
   color: #020051 !important;
+}
+
+.socialLikeComments {
+  text-align: center;
 }
 
 .ColorNOS {
@@ -40066,6 +40077,31 @@ hr {
   font-size: 2em !important;
   opacity: 1 !important;
   visibility: visible !important;
+}
+
+page-privacybeleid .voorwaardenLogo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+page-privacybeleid .voorwaardenH1 {
+  text-align: center;
+  color: #3ca7d1;
+  font-weight: bold;
+  font-size: 3rem;
+  margin-top: 13px;
+}
+
+page-privacybeleid .voorwaardenH3 {
+  text-align: center;
+  color: #3ca7d1;
+}
+
+page-privacybeleid body > ion-app > ng-component > ion-nav > page-privacybeleid > ion-content > div.scroll-content {
+  margin-top: 56px;
+  padding-left: 18px;
+  padding-right: 18px;
 }
 
 .registerButton {

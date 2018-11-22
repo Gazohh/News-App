@@ -85,7 +85,7 @@
   }
 
   .sourceTekst {
-    background-color: #242424;
+    background-color: #212121 !important;
   }
 
   .sourceItem {
@@ -136,13 +136,17 @@
   }
   //div badges en title van de krant(telegraaf etc.)
   .item-md {
-    background-color: #212121 !important;
+    background-color: #212121;
     color: #FFF;
   }
 
   .headerText {
-    background-color: #2f2f2f !important;
+    background-color: #212121 !important;
     color: #FFF;
+  }
+
+  .nieuwsContent {
+      background-color: #212121 !important;
   }
 
   .segment-md-dark .segment-button.segment-activated {
@@ -186,7 +190,28 @@
     background-color: #2f2f2f !important;
   }
 
+  .socialNu {
+    color: #fff !important;
+  }
+
+  .socialTelegraaf {
+    color: #fff !important;
+  }
+
+  .socialNOS {
+    color: #fff !important;
+  }
+
   .socialLikeComments {
     background-color: #2f2f2f !important;
+  }
+
+  .badgeItem {
+    background-color: #2f2f2f !important;
+    color: #FFF;
+  }
+
+  .ion-page {
+    background-color: #212121 !important;
   }
 }
