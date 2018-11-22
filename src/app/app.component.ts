@@ -1,23 +1,16 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform, ModalController, MenuController, AlertController, Events } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
-import { FavorietenPage } from "../pages/favorieten/favorieten";
 import { HomePage } from "../pages/home/home";
 import { Keyboard } from "@ionic-native/keyboard";
 import { SettingsPage } from "../pages/settings/settings";
 import { SettingsProvider } from "../providers/settings/settings";
-import { CategoryPage } from "../pages/category/category";
 import { SourcesPage } from "../pages/sources/sources";
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TutorialPage } from "../pages/tutorial/tutorial";
 import { FeedPage } from "../pages/feed/feed";
 import { CommentsPage } from "../pages/comments/comments";
-import { SportPage } from "../pages/sport/sport";
 import { EconomiePage } from "../pages/economie/economie";
-import { AutoPage } from "../pages/auto/auto";
-import { TechPage } from "../pages/tech/tech";
-import { VermaakPage } from "../pages/vermaak/vermaak";
-import { MisdaadPage } from "../pages/misdaad/misdaad";
 import { MenuProvider } from "../providers/menu/menu";
 import { timer } from "rxjs/observable/timer";
 
@@ -132,7 +125,7 @@ export class MyApp {
   // OnInit is het zelfde als platform ready en constructor
   // -------------------------------------
   ngOnInit() {
-    setTimeout(() => this.showSplash = false, 3500);
+    setTimeout(() => this.showSplash = false, 1800);
   }
 
   // Open menu

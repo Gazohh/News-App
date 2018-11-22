@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Platform } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {Platform} from 'ionic-angular';
+import {FeedPage} from "../feed/feed";
+
 /**
  * Generated class for the TutorialPage page.
  *
@@ -10,33 +12,35 @@ import { Platform } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-tutorial',
-  templateUrl: 'tutorial.html',
+    selector: 'page-tutorial',
+    templateUrl: 'tutorial.html',
 })
 export class TutorialPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform) {
-  }
+    constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform) {
+    }
 
-  slides = [
-      {
-        title: "Welcome to the Docs!",
-        description: "The <b>Ionic Component Documentation</b> showcases a number of useful components that are included out of the box with Ionic.",
-        image: "../../assets/imgs/ica-slidebox-img-1.png",
+    slides = [
+        {
+            title: "Welkom bij NewsAge",
+            description: "Welkom! bij de tutorial vertellen wij kort even hoe u onze app gebruikt.",
+            image: "../../assets/imgs/NewsAgeLogo.png",
 
-      },
-      {
-        title: "What is Ionic?",
-        description: "<b>Ionic Framework</b> is an open source SDK that enables developers to build high quality mobile apps with web technologies like HTML, CSS, and JavaScript.",
-        image: "../../assets/imgs/ica-slidebox-img-2.png",
-      },
-      {
-        title: "What is Ionic Cloud?",
-        description: "The <b>Ionic Cloud</b> is a cloud platform for managing and scaling Ionic apps with integrated services like push notifications, native builds, user auth, and live updating.",
-        image: "../../assets/imgs/ica-slidebox-img-3.png",
-      }
+        },
+        {
+            title: "Hoe gebruik je NewsAge?",
+            description: "Het gebruik van NewsAge is eigenlijk als u \"the hang of it\" krijgt best simpel, U heeft een startpagina waar al het algemene nieuws op komt, " +
+                "daarnaast kunt u in de bronnen aanvinken op welke nieuwspagina u wilt subscriben, dit in 1 knop verder kunt u ook uw profiel aanpassen en kunt u artikelen liken, sharen en als u wilt een reactie plaatsen onder het artikel.",
+            image: "../../assets/imgs/NewsAgeLogo.png",
+        },
+        {
+            title: "Vragen?",
+            description: "Als u verder nog vragen hebt over de app, kunt u ze mailen naar ons via: newsage2018@gmail.com de FAQ worden dan in slides gedaan en zo word de tutorial bijgewerkt.",
+            image: "../../assets/imgs/NewsAgeLogo.png",
+        }
     ];
 
-
-
-  }
+    tutorialDone() {
+        this.navCtrl.setRoot(FeedPage);
+    }
+}

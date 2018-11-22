@@ -1,4 +1,4 @@
-import {IonicPage, NavController, NavParams, LoadingController, ActionSheetController, Navbar} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, ActionSheetController} from 'ionic-angular';
 import {AlertController} from 'ionic-angular';
 import {SettingsPage} from '../settings/settings';
 import {Component, OnInit} from '@angular/core';
@@ -34,7 +34,6 @@ export class ProfielPage implements OnInit {
                 public navParams: NavParams,
                 private alertCtrl: AlertController,
                 private camera: Camera,
-                private file: File,
                 public actionSheetCtrl: ActionSheetController,
                 public http: HttpClient,
                 public events: Events) {

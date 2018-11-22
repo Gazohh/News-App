@@ -15,7 +15,7 @@
   </ion-navbar>
   <!-- Segment -->
   <ion-segment [(ngModel)]="datepicker" color="lightAppKleur">
-    <ion-segment-button value="vandaag" (click)="load()">
+    <ion-segment-button value="vandaag" (click)="loadWithSpinner()">
       Vandaag
     </ion-segment-button>
     <ion-segment-button value="gisteren" (click)="loadYesterday()">
@@ -24,18 +24,21 @@
     <ion-segment-button value="driedagengeleden" (click)="load3DaysAgo()">
       3 dagen geleden
     </ion-segment-button>
+    <ion-segment-button value="hetWeer" (click)="getRemoteData()">
+      Het Weer
+    </ion-segment-button>
   </ion-segment>
 </ion-header>
 <ion-content>
   <!-- Swipe up refresher  -->
   <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content pullingIcon="arrow-dropdown"
-                           pullingText="Sleep omlaag om te verversen"></ion-refresher-content>
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Sleep omlaag om te verversen"></ion-refresher-content>
   </ion-refresher>
-  <ion-grid>
-    <ion-row>
-      <ion-col *ngFor="let item of items" col-md-6 col-sm-6 col-lg-6 col-xl-6>
-        <ion-card>
+  <!-- Grid -->
+  <ion-grid *ngIf="datepicker == 'vandaag' || datepicker == 'gisteren' || datepicker == 'driedagengeleden'">
+    <ion-col>
+      <ion-row>
+        <ion-card *ngFor="let item of items" col-md-6 class="ionCard">
           <!-- Images van nieuwsfeed -->
           <div class="ion-card-image-wrapper" (click)="viewEntry({ record: item })">
             <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">
@@ -43,37 +46,81 @@
             <img [src]="item.image" *ngIf="item.site != 'NOS.nl' || item.site != 'NU.nl'">
           </div>
           <ion-card-content>
-            <!-- Admin only hide functie -->
-            <div *ngIf="rol == 1">
-              <ion-fab right *ngIf="item.site == 'De Telegraaf'">
-                <button ion-fab mini (click)="setHideArticle(item.id)" class="ColorTelegraaf2">
-                  <ion-icon name="eye-off"></ion-icon>
-                </button>
-              </ion-fab>
-              <ion-fab right *ngIf="item.site == 'NOS'">
-                <button ion-fab mini (click)="setHideArticle(item.id)" class="ColorNOS2">
-                  <ion-icon name="eye-off"></ion-icon>
-                </button>
-              </ion-fab>
-              <ion-fab right *ngIf="item.site == 'NU.nl'">
-                <button ion-fab mini (click)="setHideArticle(item.id)" class="ColorNU2">
-                  <ion-icon name="eye-off"></ion-icon>
-                </button>
-              </ion-fab>
+            <!-- Avatar -->
+            <div id="AvatarFeed" (click)="viewEntry({ record: item })">
+              <ion-avatar *ngIf="item.site == 'NOS'" class="avatar" item-start>
+                <img src="../assets/svg/NOS_logo.svg" class="avatar-feedNOS" />
+              </ion-avatar>
+              <ion-avatar *ngIf="item.site == 'NU.nl'" class="avatar" item-start>
+                <img src="../assets/svg/nu.nl.svg" class="avatar-feed" />
+              </ion-avatar>
+              <ion-avatar *ngIf="item.site == 'De Telegraaf'" class="avatar" item-start>
+                <img src="../assets/svg/telegraaf.svg" class="avatar-feedTelegraaf" />
+              </ion-avatar>
+            </div>
+            <!-- Uitgever -->
+            <div id="uitgeverFeed" class="uitgeverFeed" (click)="viewEntry({ record: item })">
+              <span>{{item.site}}</span>
+              <!-- Datum -->
+              <div id="datumFeed" class="datumFeed">
+                <span>{{item.datumdag}}</span>
+              </div>
             </div>
             <!-- Title  -->
             <div id="title" (click)="viewEntry({ record: item })">
-              <ion-card-title class="TitleFeed" *ngIf="rol != 1">
-                <strong>{{item.title}}</strong>
-              </ion-card-title>
-              <ion-card-title class="editTitleFeed" *ngIf="rol == 1">
+              <ion-card-title class="TitleFeed">
                 <strong>{{item.title}}</strong>
               </ion-card-title>
             </div>
             <!-- description  -->
             <div id="description" (click)="viewEntry({ record: item })">
-              <p *ngIf="rol != 1" class="descriptionFeed">{{htmlToPlaintext(item.description) | slice:0:120}}...</p>
-              <p *ngIf="rol == 1" class="editDescriptionFeed">{{htmlToPlaintext(item.description) | slice:0:120}}...</p>
+              <p class="descriptionFeed">{{htmlToPlaintext(item.description) | slice:0:120}}...</p>
+              <hr>
+            </div>
+            <!-- Social Buttons - Comments - likes - Share -->
+            <div id="socialLikeComments" class="socialLikeComments">
+              <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf' && rol == 1" class="socialTelegraafShare" (click)="showConfirmHide(item.id)">
+                <ion-icon name="trash"></ion-icon>
+              </button>
+              <button ion-button icon-start clear *ngIf="item.site == 'NOS' && rol == 1" class="socialNOSShare" (click)="showConfirmHide(item.id)">
+                <ion-icon name="trash"></ion-icon>
+              </button>
+              <button ion-button icon-start clear *ngIf="item.site == 'NU.nl' && rol == 1" class="socialNuShare" (click)="showConfirmHide(item.id)">
+                <ion-icon name="trash"></ion-icon>
+              </button>
+              <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'" class="socialTelegraafShare">
+                <ion-icon name="share-alt"></ion-icon>
+              </button>
+              <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOSShare">
+                <ion-icon name="share-alt"></ion-icon>
+              </button>
+              <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNuShare">
+                <ion-icon name="share-alt"></ion-icon>
+              </button>
+              <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'" class="socialTelegraaf" (click)="viewComments({ record: item })">
+                <ion-icon name="chatbubbles"></ion-icon>
+                <div>{{item.comments}}</div>
+              </button>
+              <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOS" (click)="viewComments({ record: item })">
+                <ion-icon name="chatbubbles"></ion-icon>
+                <div>{{item.comments}}</div>
+              </button>
+              <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNu" (click)="viewComments({ record: item })">
+                <ion-icon name="chatbubbles"></ion-icon>
+                <div>{{item.comments}}</div>
+              </button>
+              <button class="socialTelegraaf" ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'">
+                <ion-icon name="heart"></ion-icon>
+                <div>0</div>
+              </button>
+              <button class="socialNOS" ion-button icon-start clear *ngIf="item.site == 'NOS'">
+                <ion-icon name="heart"></ion-icon>
+                <div>0</div>
+              </button>
+              <button class="socialNu" ion-button icon-start clear *ngIf="item.site == 'NU.nl'">
+                <ion-icon name="heart"></ion-icon>
+                <div>0</div>
+              </button>
             </div>
           </ion-card-content>
           <!-- Ion-badges  -->
@@ -92,7 +139,7 @@
             <ion-badge item-end *ngIf="item.site == 'NU.nl'" class="ColorNU">{{item.datum}}</ion-badge>
           </ion-item>
           <!-- Social Buttons - Comments - likes - Share -->
-          <div id="socialLikeComments" class="socialLikeComments">
+          <div class="socialLikeComments">
             <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'" (click)="setLike(item.id)" class="socialTelegraaf">
               <ion-icon name="heart"></ion-icon>
               <div *ngIf="item.likes == 1">{{item.likes}} Like</div>
@@ -137,10 +184,10 @@
             </button>
           </div>
         </ion-card>
-      </ion-col>
-    </ion-row>
+      </ion-row>
+    </ion-col>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)" loadingSpinner="bubbles">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
   </ion-grid>
-  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
-    <ion-infinite-scroll-content></ion-infinite-scroll-content>
-  </ion-infinite-scroll>
 </ion-content>

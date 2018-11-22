@@ -144,4 +144,6 @@ export class RegisterPage implements OnInit {
         this.navCtrl.push(HomePage);
     }
 
+    
+
 }

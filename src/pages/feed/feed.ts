@@ -1,17 +1,18 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { MenuController } from "ionic-angular";
-import { Observable } from "rxjs";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Network } from "@ionic-native/network";
 import { ToastController } from 'ionic-angular';
 import { HomePage } from "../home/home";
-import { NieuwsPage } from "../nieuws/nieuws";
 import { LoadingController } from 'ionic-angular';
 import { Searchbar } from 'ionic-angular';
-import { CategoryPage } from "../category/category";
 import { CommentsPage } from "../comments/comments";
 import { Events } from 'ionic-angular';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { Content } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
+
 
 @IonicPage()
 @Component({
@@ -19,343 +20,432 @@ import { Events } from 'ionic-angular';
   templateUrl: 'feed.html',
 })
 export class FeedPage {
-  @ViewChild('searchbar') searchbar: Searchbar;
-  public items: any = 0;
-  public data: any;
-  public artikelen: any;
-  public key: string = "items";
-  public isSearchbaropened = false;
-  public datepicker: any;
-  public vandaag: any;
-  public gisteren: any;
-  public driedagengeleden: any;
-  public itemempty: boolean;
-  public rol: any;
-  public dataUser: any;
-  public username: string;
-  public userId:string;
-  public profilepicture: any;
+    @ViewChild('searchbar') searchbar: Searchbar;
+    @ViewChild(Content) content: Content;
+
+    public items: any = 0;
+    public data: any;
+    public artikelen: any;
+    public key: string = "items";
+    public isSearchbaropened = false;
+    public datepicker: any;
+    public vandaag: any;
+    public gisteren: any;
+    public driedagengeleden: any;
+    public itemempty: boolean;
+    public rol: any;
+    public dataUser: any;
+    public username: string;
+    public userId: string;
+    public profilepicture: any;
+    public shouldScrollDown = true;
+    public showScrollButton = false;
+    public dataweer: any;
+    public title: string;
+    public about: string;
 
 
-  constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    public menuCtrl: MenuController,
-    public http: HttpClient,
-    public network: Network,
-    private toastCtrl: ToastController,
-    public loadingCtrl: LoadingController,
-    public platform: Platform,
-    public events: Events) {
-    if (this.network.type != "none") {
-      //this.getData();
-      this.datepicker = "vandaag";
-      if (this.datepicker == "vandaag") {
-        this.load();
-      }
-      else if (this.datepicker == "gisteren") {
-        this.loadYesterday();
-      }
-      else if (this.datepicker == "driedagengeleden") {
-        this.load3DaysAgo();
-      }
+    constructor(
+        public navCtrl: NavController,
+        public navParams: NavParams,
+        public menuCtrl: MenuController,
+        public http: HttpClient,
+        public network: Network,
+        private toastCtrl: ToastController,
+        public loadingCtrl: LoadingController,
+        public platform: Platform,
+        public events: Events,
+        private screenOrientation: ScreenOrientation,
+        private alertCtrl: AlertController) {
+        if (this.platform.is('cordova')) {
+            this.platform.ready().then(() => {
+
+                // Checkt of je een token hebt of niet zo niet dan word je naar home page direct
+                if (!localStorage.getItem("sessionToken")) {
+                    this.navCtrl.setRoot(HomePage);
+                    toastinlog.present();
+                }
+            })
+        }
+
+        // screenOrientation kan draaien
+        this.screenOrientation.unlock();
+
+        if (this.network.type != "none") {
+            //this.getData();
+            this.datepicker = "vandaag";
+            if (this.datepicker == "vandaag") {
+                this.load();
+            }
+            else if (this.datepicker == "gisteren") {
+                this.loadYesterday();
+            }
+            else if (this.datepicker == "driedagengeleden") {
+                this.load3DaysAgo();
+            }
+        }
+        else {
+            this.loadData();
+            let toast = toastCtrl.create({
+                message: "Geen internet verbinding, opgeslagen artikelen worden ingeladen.",
+                duration: 2500,
+                position: "top",
+                showCloseButton: true,
+                closeButtonText: "OK"
+            });
+            toast.present();
+        }
+        let toastinlog = toastCtrl.create({
+            message: "Geen sessie gevonden, log opnieuw in.",
+            duration: 2500,
+            position: "top",
+            showCloseButton: true,
+            closeButtonText: "OK"
+        });
+
+        // Hij pakt alle rollen, usernames etc van de database
+        const headers = new HttpHeaders();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        const options = {headers: headers};
+        const data = {
+            email: localStorage.getItem('userEmail'),
+        };
+        this.http.post('http://gazoh.net/getgebruiker.php', data, options)
+            .subscribe(data => {
+                this.dataUser = data;
+                this.rol = this.dataUser.rol;
+                this.username = this.dataUser.username;
+                this.userId = this.dataUser.id;
+                this.profilepicture = this.dataUser.profilepicture;
+                this.events.publish("username", this.username);
+                this.events.publish("profilepicture", this.profilepicture);
+            });
     }
-    else {
-      this.loadData();
-      let toast = toastCtrl.create({
-        message: "Geen internet verbinding, opgeslagen artikelen worden ingeladen.",
-        duration: 2500,
-        position: "top",
-        showCloseButton: true,
-        closeButtonText: "OK"
-      });
-      toast.present();
+
+    // ---------------------------------------------------------------------------------------------
+    // Hier eindigt de constructor
+    // ---------------------------------------------------------------------------------------------
+
+    // Alert of je de artikel wilt hiden
+    showConfirmHide(postId) {
+        const confirm = this.alertCtrl.create({
+            title: 'Verbergen',
+            message: 'Weetje zeker dat je deze artikel wilt verbergen?',
+            buttons: [
+                {
+                    text: 'Disagree',
+                    handler: () => {
+
+                    }
+                },
+                {
+                    text: 'Agree',
+                    handler: () => {
+
+                        // Hide artikel
+                        console.log("Hide " + postId);
+                        var headers = new HttpHeaders();
+                        headers.append("Accept", 'application/json');
+                        headers.append('Content-Type', 'application/json');
+                        let options = {headers: headers};
+                        this.http.post('http://gazoh.net/hidearticle.php', postId, options).subscribe(res => {
+                            if (res == "hidden") {
+                                let toast = this.toastCtrl.create({
+                                    message: "Artikel " + postId + " verborgen",
+                                    duration: 2500,
+                                    position: "top",
+                                    showCloseButton: true,
+                                    closeButtonText: "OK"
+                                });
+                                toast.present();
+                            }
+                        });
+                    }
+                }
+            ]
+        });
+        confirm.present();
     }
-    let toastinlog = toastCtrl.create({
-      message: "Geen sessie gevonden, log opnieuw in.",
-      duration: 2500,
-      position: "top",
-      showCloseButton: true,
-      closeButtonText: "OK"
-    });
 
-    // Sessie Token
-    if (!localStorage.getItem("sessionToken")) {
-      this.navCtrl.setRoot(HomePage);
-      toastinlog.present();
-    }
-
-    const headers = new HttpHeaders();
-
-    headers.append("Accept", 'application/json');
-
-    headers.append('Content-Type', 'application/json');
-
-    const options = { headers: headers };
-
-    const data = {
-
-      email: localStorage.getItem('userEmail'),
-
-    };
-    this.http.post('http://gazoh.net/getgebruiker.php', data, options)
-      .subscribe(data => {
-        this.dataUser = data;
-        this.rol = this.dataUser.rol;
-        this.username = this.dataUser.username;
-        this.userId = this.dataUser.id;
-        this.profilepicture = this.dataUser.profilepicture;
-        this.events.publish("username", this.username);
-        this.events.publish("profilepicture", this.profilepicture);
-      });
-    /* //this.GetNews()
-     this.presentLoadingCustom();*/
-  }
-
-  presentLoadingCustom() {
-
-    let loading = this.loadingCtrl.create({
-      spinner: 'hide',
-      content: `
+    // Custom Spinner loader
+    presentLoadingCustom() {
+        let loading = this.loadingCtrl.create({
+            spinner: 'hide',
+            content: `
      <div class="custom-spinner-container"><img src="http://gazoh.net/images/spinner.svg"><br> <p>Laden...</p>
      </div>`,
-      duration: 1200
-    });
+            duration: 610
+        });
 
-    loading.present();
-  }
-
-  ionViewDidLoad() {
-    this.menuCtrl.enable(true, 'myMenu');
-  }
-
-  /*getData() {
-      let url = "http://api.jsonbin.io/b/5bab4b98a97c597b3c591b93";
-      var headers = new HttpHeaders();
-      headers.append('Access-Control-Allow-Origin', '*');
-
-      headers.append("Accept", 'application/json');
-
-      headers.append('Content-Type', 'application/json');
-
-      let options = {headers: headers};
-      let data: Observable<any> = this.http.get(url, options);
-      data.subscribe(result => {
-          this.items = result;
-      });
-      localStorage.setItem(this.key, JSON.stringify(this.items));
-  }*/
-
-  loadData() {
-    localStorage.getItem(this.key);
-    if (this.key != null && this.key != undefined) {
-      this.items = JSON.parse(this.key);
+        loading.present();
     }
-  }
 
-  htmlToPlaintext(text) {
-    return text ? String(text).replace(/<[^>]+>/gm, '') : '';
-  }
 
-  // Redirect to NieuwsPage
-  viewEntry(param: any): void {
-    this.navCtrl.push('NieuwsPage', param);
-  }
+    // Laad data pas zodra je bent ingelogt
+    loadData() {
+        localStorage.getItem(this.key);
+        if (this.key != null && this.key != undefined) {
+            this.items = JSON.parse(this.key);
+        }
+    }
 
+    //
+    htmlToPlaintext(text) {
+        return text ? String(text).replace(/<[^>]+>/gm, '') : '';
+    }
+
+    // Redirect to NieuwsPage
+    viewEntry(param: any): void {
+        this.navCtrl.push('NieuwsPage', param);
+    }
+
+    // Doorverbinden naar de CommentsPage
     viewComments(param: any): void {
         this.navCtrl.setRoot(CommentsPage, param);
     }
 
-  search(event) {
-    let serVal = event.target.value;
-    if (serVal && serVal.trim() != '') {
-      this.items = this.items.filter((item) => {
-        return (item.title.toLowerCase().indexOf(serVal.toLowerCase()) > -1);
-      })
-    }
-  }
-
-  resetChanges() {
-    this.http
-      .get('http://gazoh.net/getdata.php')
-      .subscribe((data: any) => {
-        this.items = data;
-      },
-        (error: any) => {
-          console.dir(error);
-        });
-    this.isSearchbaropened = false;
-  }
-
-  // setFocus() {
-  //     this.searchbar.setFocus();
-  // }
-
-  load() {
-    this.datepicker = "vandaag";
-    this.http
-      .get('http://gazoh.net/getdata.php')
-      .subscribe((data: any) => {
-        this.items = data;
-        this.artikelen = data;
-      },
-        (error: any) => {
-          console.dir(error);
-        });
-  }
-
-  loadYesterday() {
-    this.datepicker = "gisteren";
-    this.http
-      .get('http://gazoh.net/getyesterday.php')
-      .subscribe((data: any) => {
-        this.items = data;
-        this.artikelen = data;
-      },
-        (error: any) => {
-          console.dir(error);
-        });
-    this.presentLoadingCustom();
-  }
-
-  load3DaysAgo() {
-    this.datepicker = "driedagengeleden";
-    this.http
-      .get('http://gazoh.net/get3daysago.php')
-      .subscribe((data: any) => {
-        this.items = data;
-        this.artikelen = data;
-      },
-        (error: any) => {
-          console.dir(error);
-        });
-    this.presentLoadingCustom();
-
-  }
-
-  doRefresh(refresher) {
-    if (this.datepicker == "vandaag") {
-      this.http
-        .get('http://gazoh.net/getdata.php')
-        .subscribe((data: any) => {
-          this.items = data;
-          this.artikelen = data;
-        },
-          (error: any) => {
-            console.dir(error);
-          });
-    }
-    else if (this.datepicker == "gisteren") {
-      this.http
-        .get('http://gazoh.net/getyesterday.php')
-        .subscribe((data: any) => {
-          this.items = data;
-          this.artikelen = data;
-        },
-          (error: any) => {
-            console.dir(error);
-          });
-    }
-    else if (this.datepicker == "driedagengeleden") {
-      this.http
-        .get('http://gazoh.net/get3daysago.php')
-        .subscribe((data: any) => {
-          this.items = data;
-          this.artikelen = data;
-        },
-          (error: any) => {
-            console.dir(error);
-          });
+    // Zoek functie
+    search(event) {
+        let serVal = event.target.value;
+        if (serVal && serVal.trim() != '') {
+            this.items = this.items.filter((item) => {
+                return (item.title.toLowerCase().indexOf(serVal.toLowerCase()) > -1);
+            })
+        }
     }
 
-    setTimeout(() => {
-      console.log('Async operation has ended');
-      refresher.complete();
-    }, 2000);
-  }
+    // Zodra je de searchbar canceled
+    resetChanges() {
+        this.http
+            .get('http://gazoh.net/getdata.php')
+            .subscribe((data: any) => {
+                    this.items = data;
+                },
+                (error: any) => {
+                    console.dir(error);
+                });
+        this.isSearchbaropened = false;
+    }
 
-  doInfinite(infiniteScroll) {
-    this.http
-      .get('http://gazoh.net/getdata.php')
-      .subscribe((data: any) => {
-        this.items = this.items.push(data);
-        infiniteScroll.complete();
-      },
-        (error: any) => {
-          console.dir(error);
+    // setFocus() {
+    //     this.searchbar.setFocus();
+    // }
+
+    // Zodra de pagina is geladen
+    ionViewDidLoad() {
+        this.menuCtrl.enable(true, 'myMenu');
+    }
+
+    // Zodra die op de pagina is gekomen
+    ionViewDidEnter() {
+        this.content.ionScrollEnd.subscribe((data) => {
+            let dimensions = this.content.getContentDimensions();
+            let scrollTop = this.content.scrollTop;
+            let contentHeight = dimensions.contentHeight;
+            let scrollHeight = dimensions.scrollHeight;
+
+            if ((scrollTop + contentHeight + 20) > scrollHeight) {
+                this.shouldScrollDown = true;
+                this.showScrollButton = false;
+            } else {
+                this.shouldScrollDown = false;
+                this.showScrollButton = true;
+            }
+            console.log(contentHeight);
         });
-    console.log('Begin async operation');
-  }
+    }
 
-  setLike(articleId)
-  {
-      const headers = new HttpHeaders();
+    // Segment Alle nieuws van Vandaag
+    load() {
+        this.datepicker = "vandaag";
+        this.http
+            .get('http://gazoh.net/getdata.php')
+            .subscribe((data: any) => {
+                    this.items = data;
+                    this.artikelen = data;
+                },
+                (error: any) => {
+                    console.dir(error);
+                });
+    }
 
-      headers.append("Accept", 'application/json');
+    loadWithSpinner() {
+        this.datepicker = "vandaag";
+        this.http
+            .get('http://gazoh.net/getdata.php')
+            .subscribe((data: any) => {
+                    this.items = data;
+                    this.artikelen = data;
+                },
+                (error: any) => {
+                    console.dir(error);
+                });
+        this.presentLoadingCustom();
+    }
 
-      headers.append('Content-Type', 'application/json');
+    // Segment Alle nieuws van Gisteren
+    loadYesterday() {
+        this.datepicker = "gisteren";
+        this.http.get('http://gazoh.net/getyesterday.php').subscribe((data: any) => {
+                this.items = data;
+                this.artikelen = data;
+            },
+            (error: any) => {
+                console.dir(error);
+            });
+        this.presentLoadingCustom();
+    }
 
-      const options = {headers: headers};
+    // Segment Alle nieuws van Gisteren
+    load3DaysAgo() {
+        this.datepicker = "driedagengeleden";
+        this.http
+            .get('http://gazoh.net/get3daysago.php')
+            .subscribe((data: any) => {
+                    this.items = data;
+                    this.artikelen = data;
+                },
+                (error: any) => {
+                    console.dir(error);
+                });
+        this.presentLoadingCustom();
 
-      const data = {
+    }
 
-          articleId: articleId,
-          userId: this.userId
+    // De pull to refresh
+    doRefresh(refresher) {
+        if (this.datepicker == "vandaag") {
+            this.http
+                .get('http://gazoh.net/getdata.php')
+                .subscribe((data: any) => {
+                        this.items = data;
+                        this.artikelen = data;
+                    },
+                    (error: any) => {
+                        console.dir(error);
+                    });
+        }
+        else if (this.datepicker == "gisteren") {
+            this.http
+                .get('http://gazoh.net/getyesterday.php')
+                .subscribe((data: any) => {
+                        this.items = data;
+                        this.artikelen = data;
+                    },
+                    (error: any) => {
+                        console.dir(error);
+                    });
+        }
+        else if (this.datepicker == "driedagengeleden") {
+            this.http
+                .get('http://gazoh.net/get3daysago.php')
+                .subscribe((data: any) => {
+                        this.items = data;
+                        this.artikelen = data;
+                    },
+                    (error: any) => {
+                        console.dir(error);
+                    });
+        }
 
-      };
-      this.http.post('http://gazoh.net/setlike.php', data, options)
-          .subscribe(data => {
-              if(data == "comment published")
-              {
-                  console.log(data);
-              }
-          });
-  }
+        setTimeout(() => {
+            console.log('Async operation has ended');
+            refresher.complete();
+        }, 2000);
+    }
 
-  dislike(articleId)
-  {
-      const headers = new HttpHeaders();
+    doInfinite(infiniteScroll) {
+        this.http
+            .get('http://gazoh.net/getdata.php')
+            .subscribe((data: any) => {
+                    this.items = this.items.push(data);
+                    infiniteScroll.complete();
+                },
+                (error: any) => {
+                    console.dir(error);
+                });
+        console.log('Begin async operation');
+    }
 
-      headers.append("Accept", 'application/json');
+    setLike(articleId) {
+        const headers = new HttpHeaders();
 
-      headers.append('Content-Type', 'application/json');
+        headers.append("Accept", 'application/json');
 
-      const options = {headers: headers};
+        headers.append('Content-Type', 'application/json');
 
-      const data = {
+        const options = {headers: headers};
 
-          articleId: articleId,
-          userId: this.userId
+        const data = {
 
-      };
-      this.http.post('http://gazoh.net/unlike.php', data, options)
-          .subscribe(data => {
-              if(data == "unliked")
-              {
-                  console.log(data);
-              }
-          });
-  }
+            articleId: articleId,
+            userId: this.userId
+
+        };
+        this.http.post('http://gazoh.net/setlike.php', data, options)
+            .subscribe(data => {
+                if (data == "comment published") {
+                    console.log(data);
+                }
+            });
+    }
+
+    dislike(articleId) {
+        const headers = new HttpHeaders();
+
+        headers.append("Accept", 'application/json');
+
+        headers.append('Content-Type', 'application/json');
+
+        const options = {headers: headers};
+
+        const data = {
+
+            articleId: articleId,
+            userId: this.userId
+
+        };
+        this.http.post('http://gazoh.net/unlike.php', data, options)
+            .subscribe(data => {
+                if (data == "unliked") {
+                    console.log(data);
+                }
+            });
+    }
 
 
-  setHideArticle(postId) {
-    console.log("Hide " + postId);
-    var headers = new HttpHeaders();
-    headers.append("Accept", 'application/json');
-    headers.append('Content-Type', 'application/json');
-    let options = { headers: headers };
-    this.http.post('http://gazoh.net/hidearticle.php', postId, options).subscribe(res => {
-      if (res == "hidden") {
-        let toast = this.toastCtrl.create({
-          message: "Artikel " + postId + " verborgen",
-          duration: 2500,
-          position: "top",
-          showCloseButton: true,
-          closeButtonText: "OK"
+    setHideArticle(postId) {
+        console.log("Hide " + postId);
+        var headers = new HttpHeaders();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        let options = {headers: headers};
+        this.http.post('http://gazoh.net/hidearticle.php', postId, options).subscribe(res => {
+            if (res == "hidden") {
+                let toast = this.toastCtrl.create({
+                    message: "Artikel " + postId + " verborgen",
+                    duration: 2500,
+                    position: "top",
+                    showCloseButton: true,
+                    closeButtonText: "OK"
+                });
+                toast.present();
+            }
         });
-        toast.present();
-      }
-    });
-  }
-
+    }
+        // Het weer
+        getRemoteData()
+        {
+            this.presentLoadingCustom();
+            this.http.get('https://xml.buienradar.nl/').subscribe((data: any) => {
+                    this.dataweer = data;
+                    this.title = this.dataweer.title;
+                    this.about = this.dataweer.about;
+                    console.log(this.dataweer);
+                },
+                (error: any) => {
+                    console.dir(error);
+                });
+        }
 }

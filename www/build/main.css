@@ -38905,6 +38905,23 @@ readers do not read off random characters that represent icons */
   content: "\f007";
 }
 
+body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item > div.item-inner {
+  border-bottom-color: transparent !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.bottomMenu {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  border-top: 1px solid #000;
+  background: red;
+  z-index: 1;
+}
+
 ion-slide.swiper-slide {
   -webkit-box-align: start;
   -webkit-align-items: flex-start;
@@ -38918,6 +38935,19 @@ ion-slide.swiper-slide {
 
 .iconInstellingen {
   margin-right: 2rem !important;
+}
+
+body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item > div.item-inner {
+  border: none !important;
+}
+
+.avatar {
+  float: left !important;
+  margin-right: 15px !important;
+}
+
+.commentSpacing {
+  margin-bottom: 0;
 }
 
 .fakePadding {
@@ -38953,6 +38983,9 @@ ion-slide.swiper-slide {
   -webkit-box-shadow: none;
   box-shadow: none;
   font-size: large !important;
+  height: 100%;
+  width: 50px;
+  margin: 0;
 }
 
 .splash {
@@ -39523,24 +39556,6 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   color: #fff;
 }
 
-.fullWidthCard {
-  margin: 0;
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-.Card {
-  border-radius: 1rem;
-}
-
-.toolbar-background {
-  background-color: #141414 !important;
-}
-
-.toolbar-title-ios {
-  color: white;
-}
-
 #contentAnimation > div.scroll-content > ion-list > ion-item {
   padding-bottom: 10px !important;
 }
@@ -39550,7 +39565,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list > ion-item:nth-child(6) > div.item-inner > div > ion-label {
-  margin-bottom: 0px !important;
+  margin-bottom: 0 !important;
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(2) > div.item-inner > div > ion-label {
@@ -39566,11 +39581,11 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > ion-list > ion-item {
-  padding: 0px !important;
+  padding: 0 !important;
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list {
-  margin: 0px;
+  margin: 0;
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list > ion-item:nth-child(1) > div.item-inner > div > ion-label {
@@ -39595,7 +39610,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(2) > div.item-inner > div > ion-label > ion-list {
-  margin: 0px !important;
+  margin: 0 !important;
 }
 
 .activeHightlight {
@@ -39643,11 +39658,12 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   text-align: center;
   margin-top: 3%;
   font-size: 1.8rem;
+  font-weight: 500;
 }
 
 .usernameMenu::first-letter {
   text-transform: uppercase;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .fotoWijzigenProfiel {
@@ -39658,7 +39674,6 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 }
 
 .menuNavBar {
-  padding-bottom: 1rem;
   margin-bottom: 10px;
 }
 
@@ -39714,11 +39729,60 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > 
 
 .algemeenText {
   padding-right: 15px !important;
-  padding-left: 0px !important;
+  padding-left: 0 !important;
 }
 
 body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > ion-buttons:nth-child(5) > ion-select {
   padding: 0 !important;
+}
+
+body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > ion-grid > ion-col > ion-row > ion-card {
+  width: 100% !important;
+  -webkit-box-shadow: 0 7px 12px -8px rgba(0, 0, 0, 0.89) !important;
+  box-shadow: 0 7px 12px -8px rgba(0, 0, 0, 0.89) !important;
+  margin: 0px;
+  margin-bottom: 10px;
+}
+
+.toolbar-background {
+  background-color: #141414 !important;
+}
+
+.avatar-feed {
+  border-radius: 200px 200px 200px 200px;
+  -moz-border-radius: 200px 200px 200px 200px;
+  -webkit-border-radius: 200px 200px 200px 200px;
+  border: 0 solid #000000;
+  height: 100%;
+  width: 40px;
+}
+
+.avatar-feedTelegraaf {
+  border-radius: 200px 200px 200px 200px;
+  -moz-border-radius: 200px 200px 200px 200px;
+  -webkit-border-radius: 200px 200px 200px 200px;
+  border: 0 solid #000000;
+  height: 100%;
+  width: 30px;
+}
+
+.avatar-feedNOS {
+  height: 100%;
+  width: 40px;
+  margin-top: 13px !important;
+}
+
+.uitgeverFeed {
+  margin-top: 1rem;
+  margin-bottom: -3px;
+  font-weight: bold;
+}
+
+.datumFeed {
+  float: right;
+  font-size: 1.2rem;
+  color: #b5b5b5;
+  font-weight: 400;
 }
 
 .feedCard {
@@ -39729,6 +39793,12 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > 
   background: #fff;
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.TitleFeed {
+  margin: 15px 0 0 0 !important;
+  font-size: 1.8rem;
+  padding-bottom: 2px;
 }
 
 .feedGrid {
@@ -39769,12 +39839,6 @@ page-feed img {
   }
 }
 
-@media only screen and (max-width: 280px) {
-  .socialLikeComments {
-    text-align: left !important;
-  }
-}
-
 .ion-card-image-wrapper {
   overflow: hidden !important;
   background: url("../../assets/imgs/noimage.jpg");
@@ -39800,6 +39864,12 @@ page-feed img {
 .socialTelegraaf {
   color: #27509a !important;
   margin-left: 5px;
+  float: right;
+}
+
+.socialTelegraafShare {
+  float: left;
+  color: #27509a !important;
 }
 
 .ColorNU {
@@ -39813,10 +39883,17 @@ page-feed img {
 
 .socialNu {
   color: #020051 !important;
+  float: right;
+}
+
+.socialNuShare {
+  float: left;
+  color: #020051 !important;
 }
 
 .socialLikeComments {
-  text-align: center;
+  float: right;
+  width: 100%;
 }
 
 .ColorNOS {
@@ -39829,6 +39906,12 @@ page-feed img {
 }
 
 .socialNOS {
+  float: right;
+  color: #d02527 !important;
+}
+
+.socialNOSShare {
+  float: left;
   color: #d02527 !important;
 }
 
@@ -39836,27 +39919,14 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
   margin: 0;
 }
 
-.titleFeed {
-  display: block;
-  font-size: 2.1rem;
-  line-height: 1.1;
-  color: #222;
-  margin: 2px 0;
-  padding: 8px 0;
-}
-
-.editTitleFeed {
-  margin-right: 49px !important;
-  display: block;
-  font-size: 2.1rem;
-  line-height: 1.1;
-  color: #222;
-  margin: 2px 0;
-  padding: 8px 0;
-}
-
 .descriptionFeed {
-  margin: 0 0 2px;
+  margin: 0 0 -2px !important;
+}
+
+hr {
+  font-size: 1em !important;
+  margin-bottom: 8px;
+  margin-top: 15px;
 }
 
 .editDescriptionFeed {
@@ -39866,6 +39936,12 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 .headerText {
   font-weight: bold;
   font-size: 2rem;
+}
+
+.imageNieuws {
+  -o-object-fit: cover;
+  object-fit: cover;
+  height: 300px;
 }
 
 body > ion-app > ng-component > ion-nav > page-nieuws > ion-header > ion-navbar > div.toolbar-content.toolbar-content-md {
@@ -40024,6 +40100,82 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
   animation-duration: 300ms;
 }
 
+body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-content > ion-list > ion-item-group > ion-row > ion-searchbar {
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-content > ion-list {
+  margin: 0 !important;
+}
+
+body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-content {
+  padding: 0 !important;
+}
+
+.adminTitle {
+  margin-right: 48px !important;
+}
+
+.adminSearchIcon {
+  visibility: hidden !important;
+}
+
+body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-content > div > ion-card > ion-card-content > div > ion-fab {
+  margin-right: 10px !important;
+}
+
+.deleteSlide {
+  background-color: #F40000;
+}
+
+.BewerkSlide {
+  background-color: #18F400;
+}
+
+.spanHide {
+  visibility: hidden !important;
+}
+
+.iconAdmin {
+  padding-bottom: 15px !important;
+}
+
+page-about .toolbar-background {
+  background: #fff;
+  border-color: transparent;
+}
+
+page-about .slide-zoom {
+  height: 100%;
+}
+
+page-about .slide-title {
+  margin-top: 2.8rem;
+}
+
+page-about .slide-image {
+  max-height: 50%;
+  max-width: 60%;
+  margin: 18px 0;
+}
+
+page-about b {
+  font-weight: 500;
+}
+
+page-about p {
+  padding: 0 40px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #60646B;
+}
+
+page-about p b {
+  color: #000000;
+}
+
 page-admin .nieuwsNavTitle {
   color: white;
   font-weight: 500;
@@ -40035,32 +40187,6 @@ page-admin body > ion-app > ng-component > ion-nav > page-admin > ion-header > i
   text-overflow: ellipsis;
   display: block;
   overflow: hidden;
-}
-
-.card-background-page ion-card {
-  position: relative;
-  text-align: center;
-}
-
-.card-background-page .card-title {
-  position: absolute;
-  top: 36%;
-  font-size: 2.0em;
-  width: 100%;
-  font-weight: bold;
-  color: #fff;
-}
-
-.card-background-page .card-subtitle {
-  font-size: 1.0em;
-  position: absolute;
-  top: 52%;
-  width: 100%;
-  color: #fff;
-}
-
-.card-background-page .hr {
-  color: #000000;
 }
 
 .itemdescription {
