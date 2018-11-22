@@ -48,8 +48,14 @@
           <ion-card-content>
             <!-- Avatar -->
             <div id="AvatarFeed" (click)="viewEntry({ record: item })">
-              <ion-avatar class="avatar" item-start>
-                <img src="../assets/imgs/Portrait_Placeholder.png" class="avatar-feed" />
+              <ion-avatar *ngIf="item.site == 'NOS'" class="avatar" item-start>
+                <img src="../assets/svg/NOS_logo.svg" class="avatar-feedNOS" />
+              </ion-avatar>
+              <ion-avatar *ngIf="item.site == 'NU.nl'" class="avatar" item-start>
+                <img src="../assets/svg/nu.nl.svg" class="avatar-feed" />
+              </ion-avatar>
+              <ion-avatar *ngIf="item.site == 'De Telegraaf'" class="avatar" item-start>
+                <img src="../assets/svg/telegraaf.svg" class="avatar-feedTelegraaf" />
               </ion-avatar>
             </div>
             <!-- Uitgever -->
