@@ -7,9 +7,10 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <ion-list *ngFor="let comment of comments" class="commentSpacing">
+  <ion-list *ngFor="let comment of comments; let last = last" class="commentSpacing">
   <ion-item-sliding>
   <ion-item>
+    {{last ? callFunction() : ''}}
     <ion-avatar class="avatar" item-start>
       <img src="{{comment.profilepicture}}" class="avatar-profiel"/>
     </ion-avatar>
@@ -30,8 +31,8 @@
     <ion-avatar class="avatar" item-start>
       <img src="{{pictureprofile}}" class="avatar-profiel" />
     </ion-avatar>
-    <ion-input placeholder="Reageer als {{this.username}}.." [(ngModel)]="comment"></ion-input>
-    <button ion-button class="sendButton" (click)="postComment()" item-end>
+       <ion-input placeholder="Reageer als {{this.username}}" class="textAreaInput" [(ngModel)]="comment" id="inputMessage" #input></ion-input>
+    <button ion-button class="sendButton" id="sendButtonId" (click)="postComment()" item-end [disabled]="!comment">
       <ion-icon name="send"></ion-icon>
     </button>
   </ion-item>

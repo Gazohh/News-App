@@ -11,6 +11,8 @@ import { CommentsPage } from "../comments/comments";
 import { Events } from 'ionic-angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Content } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
+
 
 @IonicPage()
 @Component({
@@ -41,6 +43,7 @@ export class FeedPage {
   public title: string;
   public about: string;
 
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -51,7 +54,8 @@ export class FeedPage {
     public loadingCtrl: LoadingController,
     public platform: Platform,
     public events: Events,
-    private screenOrientation: ScreenOrientation) {
+    private screenOrientation: ScreenOrientation,
+    private alertCtrl: AlertController) {
     if (this.platform.is('cordova')) {
       this.platform.ready().then(() => {
 
@@ -119,6 +123,47 @@ export class FeedPage {
   // ---------------------------------------------------------------------------------------------
   // Hier eindigt de constructor
   // ---------------------------------------------------------------------------------------------
+
+  // Alert of je de artikel wilt hiden
+  showConfirmHide(postId) {
+    const confirm = this.alertCtrl.create({
+      title: 'Verbergen',
+      message: 'Weetje zeker dat je deze artikel wilt verbergen?',
+      buttons: [
+        {
+          text: 'Disagree',
+          handler: () => {
+
+          }
+        },
+        {
+          text: 'Agree',
+          handler: () => {
+
+            // Hide artikel
+            console.log("Hide " + postId);
+            var headers = new HttpHeaders();
+            headers.append("Accept", 'application/json');
+            headers.append('Content-Type', 'application/json');
+            let options = { headers: headers };
+            this.http.post('http://gazoh.net/hidearticle.php', postId, options).subscribe(res => {
+              if (res == "hidden") {
+                let toast = this.toastCtrl.create({
+                  message: "Artikel " + postId + " verborgen",
+                  duration: 2500,
+                  position: "top",
+                  showCloseButton: true,
+                  closeButtonText: "OK"
+                });
+                toast.present();
+              }
+            });
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
 
   // Custom Spinner loader
   presentLoadingCustom() {
@@ -307,31 +352,10 @@ export class FeedPage {
     }, 2000);
   }
 
-  // Het verbergen van de artikel
-  setHideArticle(postId) {
-    console.log("Hide " + postId);
-    var headers = new HttpHeaders();
-    headers.append("Accept", 'application/json');
-    headers.append('Content-Type', 'application/json');
-    let options = { headers: headers };
-    this.http.post('http://gazoh.net/hidearticle.php', postId, options).subscribe(res => {
-      if (res == "hidden") {
-        let toast = this.toastCtrl.create({
-          message: "Artikel " + postId + " verborgen",
-          duration: 2500,
-          position: "top",
-          showCloseButton: true,
-          closeButtonText: "OK"
-        });
-        toast.present();
-      }
-    });
-  }
-
   // Het weer
   getRemoteData() {
     this.presentLoadingCustom();
-    this.http.get('http://www.json-generator.com/api/json/get/bVDaukHDFK?indent=2').subscribe((data: any) => {
+    this.http.get('https://xml.buienradar.nl/').subscribe((data: any) => {
       this.dataweer = data;
       this.title = this.dataweer.title;
       this.about = this.dataweer.about;

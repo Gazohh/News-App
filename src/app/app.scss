@@ -13,9 +13,20 @@
   }
 }
 
-.scrollToTop {
-  top: 0;
-  position: sticky;
+body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item > div.item-inner {
+  border-bottom-color: transparent !important;
+box-shadow: none !important;
+}
+
+.bottomMenu {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  border-top: 1px solid #000;
+  background: red;
+  z-index: 1;
 }
 
 ion-slide.swiper-slide {
@@ -38,6 +49,11 @@ ion-slide.swiper-slide {
 
 body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item > div.item-inner {
   border: none !important;
+}
+
+.avatar {
+  float: left !important;
+  margin-right: 15px !important;
 }
 
 .commentSpacing {
@@ -76,6 +92,9 @@ body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item 
   background: transparent;
   box-shadow: none;
   font-size: large !important;
+  height: 100%;
+  width: 50px;
+  margin: 0;
 }
 // ------------------------------------
 // Splash screen
@@ -275,6 +294,7 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   text-transform: uppercase;
 }
 // Welkom text
+
 .welkomText {
   padding: 3vh;
   margin-bottom: 0;
@@ -618,14 +638,14 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 // ------------------------------------
 // Cards
 
-.fullWidthCard {
-  margin: 0;
-  width: 100%;
-  margin-bottom: 10px;
-}
 
-.Card {
-  border-radius: 1rem;
+body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > ion-grid > ion-col > ion-row > ion-card {
+  margin: 0px !important;
+margin-bottom: 1.2rem !important;
+width: 100% !important;
+-webkit-box-shadow: 0px 7px 12px -8px rgba(0,0,0,0.89) !important;
+-moz-box-shadow: 0px 7px 12px -8px rgba(0,0,0,0.89) !important;
+box-shadow: 0px 7px 12px -8px rgba(0,0,0,0.89) !important;
 }
 
 .toolbar-background {
@@ -833,11 +853,33 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > 
   padding-left: 0 !important;
 }
 // Ion select
-
 body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > ion-buttons:nth-child(5) > ion-select {
   padding: 0 !important;
 }
 // FeedPage Card Design
+.avatar-feed {
+    border-radius: 50%;
+    top: 0;
+    bottom: 0;
+    margin: 0 auto;
+    display: block;
+    height: 100%;
+    display: block;
+    width: 40px;
+}
+
+.uitgeverFeed {
+  margin-top: 1rem;
+  margin-bottom: -3px;
+  font-weight: bold;
+}
+
+.datumFeed {
+  float: right;
+  font-size: 1.2rem;
+  color: #b5b5b5;
+  font-weight: 400;
+}
 
 .feedCard {
   margin: 0;
@@ -847,6 +889,12 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > 
   background: #fff;
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.TitleFeed {
+  margin: 15px 0px 0px 0px !important;
+  font-size: 1.8rem;
+  padding-bottom: 2px;
 }
 
 .feedGrid {
@@ -885,11 +933,6 @@ page-feed img {
     height: 100%;
   }
 }
-@media only screen and (max-width: 280px) {
-  .socialLikeComments {
-    text-align: left !important;
-  }
-}
 
 .ion-card-image-wrapper {
   overflow: hidden !important;
@@ -914,6 +957,12 @@ page-feed img {
 .socialTelegraaf {
   color: rgb(39, 80, 154) !important;
   margin-left: 5px;
+  float: right;
+}
+
+.socialTelegraafShare {
+  float: left;
+    color: rgb(39, 80, 154) !important;
 }
 
 .ColorNU {
@@ -927,10 +976,17 @@ page-feed img {
 
 .socialNu {
   color: rgb(2, 0, 81) !important;
+  float: right;
+}
+
+.socialNuShare {
+  float: left;
+  color: rgb(2, 0, 81) !important;
 }
 
 .socialLikeComments {
-  text-align: center;
+  float: right;
+  width: 100%;
 }
 
 .ColorNOS {
@@ -943,6 +999,12 @@ page-feed img {
 }
 
 .socialNOS {
+  float: right;
+  color: rgb(208, 37, 39) !important;
+}
+
+.socialNOSShare {
+  float: left;
   color: rgb(208, 37, 39) !important;
 }
 
@@ -950,26 +1012,16 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
   margin: 0;
 }
 
-.titleFeed {
-  display: block;
-  font-size: 2.1rem;
-  line-height: 1.1;
-  color: #222;
-  margin: 2px 0;
-  padding: 8px 0;
-}
-
-.editTitleFeed {
-  display: block;
-  font-size: 2.1rem;
-  line-height: 1.1;
-  color: #222;
-  margin: 2px 0;
-  padding: 8px 0;
-}
-
 .descriptionFeed {
-  margin: 0 0 2px;
+      margin: 0 0 -2px !important;
+}
+
+
+
+hr {
+  font-size: 1em !important;
+  margin-bottom: 8px;
+  margin-top: 15px;
 }
 
 .editDescriptionFeed {
@@ -1156,6 +1208,7 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
 }
 // Admin page
 // Searchbar
+
 body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-content > ion-list > ion-item-group > ion-row > ion-searchbar {
   padding-top: 0;
   padding-left: 0;
