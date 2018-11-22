@@ -84,17 +84,11 @@ export class CommentsPage {
 
   getComments() {
     const headers = new HttpHeaders();
-
     headers.append("Accept", 'application/json');
-
     headers.append('Content-Type', 'application/json');
-
     const options = { headers: headers };
-
     const data = {
-
       articleId: this.articleId
-
     };
     this.http.post('http://gazoh.net/getcomment.php', data, options)
       .subscribe((data: any) => {
@@ -103,28 +97,20 @@ export class CommentsPage {
   }
 
   postComment() {
-
     const headers = new HttpHeaders();
-
     headers.append("Accept", 'application/json');
-
     headers.append('Content-Type', 'application/json');
-
     const options = { headers: headers };
-
     const data = {
-
       articleId: this.articleId,
       userId: this.userId,
-      comment: this.comment
-
+      comment.sort: this.comment
     };
     this.http.post('http://gazoh.net/setcomment.php', data, options)
       .subscribe(data => {
         if (data == "comment published") {
           console.log(data);
           this.getComments();
-
           this.content.scrollToBottom();
         }
         this.comment = "";
@@ -146,15 +132,10 @@ export class CommentsPage {
           text: 'Verwijder',
           handler: () => {
             const headers = new HttpHeaders();
-
             headers.append("Accept", 'application/json');
-
             headers.append('Content-Type', 'application/json');
-
             const options = { headers: headers };
-
             const data = {
-
               articleId: this.articleId,
               commentId: commentId,
             };
@@ -163,7 +144,6 @@ export class CommentsPage {
                 if (data == "comment deleted") {
                   console.log(data);
                   this.getComments();
-
                   this.content.scrollToBottom();
                 }
               });

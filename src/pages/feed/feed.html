@@ -61,11 +61,6 @@
             <!-- Uitgever -->
             <div id="uitgeverFeed" class="uitgeverFeed" (click)="viewEntry({ record: item })">
               <span>{{item.site}}</span>
-              <!-- Datum -->
-              <div id="datumFeed" class="datumFeed">
-                <span>{{item.datumdag}}</span>
-              </div>
-            </div>
             <!-- Title  -->
             <div id="title" (click)="viewEntry({ record: item })">
               <ion-card-title class="TitleFeed">
@@ -75,8 +70,12 @@
             <!-- description  -->
             <div id="description" (click)="viewEntry({ record: item })">
               <p class="descriptionFeed">{{htmlToPlaintext(item.description) | slice:0:120}}...</p>
-              <hr>
             </div>
+            <!-- Datum -->
+            <div id="datumFeed" class="datumFeed">
+              <span>{{item.datum}}</span>
+            </div>
+          </div>
             <!-- Social Buttons - Comments - likes - Share -->
             <div id="socialLikeComments" class="socialLikeComments">
               <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf' && rol == 1" class="socialTelegraafShare" (click)="showConfirmHide(item.id)">
