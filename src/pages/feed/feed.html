@@ -123,66 +123,6 @@
               </button>
             </div>
           </ion-card-content>
-          <!-- Ion-badges  -->
-          <ion-item (click)="viewEntry({ record: item })" class="badgeItem">
-            <ion-icon name="contact" item-start></ion-icon>
-            <ion-badge item-end *ngIf="item.site == 'De Telegraaf'" class="ColorTelegraaf">{{item.site}}
-            </ion-badge>
-            <ion-badge item-end *ngIf="item.site == 'NOS'" class="ColorNOS">{{item.site}}</ion-badge>
-            <ion-badge item-end *ngIf="item.site == 'NU.nl'" class="ColorNU">{{item.site}}</ion-badge>
-          </ion-item>
-          <ion-item (click)="viewEntry({ record: item })" class="badgeItem">
-            <ion-icon name="time" item-start></ion-icon>
-            <ion-badge item-end *ngIf="item.site == 'De Telegraaf'" class="ColorTelegraaf">{{item.datum}}
-            </ion-badge>
-            <ion-badge item-end *ngIf="item.site == 'NOS'" class="ColorNOS">{{item.datum}}</ion-badge>
-            <ion-badge item-end *ngIf="item.site == 'NU.nl'" class="ColorNU">{{item.datum}}</ion-badge>
-          </ion-item>
-          <!-- Social Buttons - Comments - likes - Share -->
-          <div class="socialLikeComments">
-            <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'" (click)="setLike(item.id)" class="socialTelegraaf">
-              <ion-icon name="heart"></ion-icon>
-              <div *ngIf="item.likes == 1">{{item.likes}} Like</div>
-              <div *ngIf="item.likes != 1">{{item.likes}} Likes</div>
-            </button>
-            <button ion-button icon-start clear *ngIf="item.site == 'NOS'" (click)="setLike(item.id)" class="socialNOS">
-              <ion-icon name="heart"></ion-icon>
-              <div *ngIf="item.likes == 1">{{item.likes}} Like</div>
-              <div *ngIf="item.likes != 1">{{item.likes}} Likes</div>
-            </button>
-            <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" (click)="setLike(item.id)" class="socialNu">
-              <ion-icon name="heart"></ion-icon>
-              <div *ngIf="item.likes == 1">{{item.likes}} Like</div>
-              <div *ngIf="item.likes != 1">{{item.likes}} Likes</div>
-            </button>
-            <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'" class="socialTelegraaf" (click)="viewComments({ record: item })">
-              <ion-icon name="chatbubbles"></ion-icon>
-              <div *ngIf="item.comments == 1">{{item.comments}} Reactie</div>
-              <div *ngIf="item.comments != 1">{{item.comments}} Reacties</div>
-            </button>
-            <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOS" (click)="viewComments({ record: item })">
-              <ion-icon name="chatbubbles"></ion-icon>
-              <div *ngIf="item.comments == 1">{{item.comments}} Reactie</div>
-              <div *ngIf="item.comments != 1">{{item.comments}} Reacties</div>
-            </button>
-            <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNu" (click)="viewComments({ record: item })">
-              <ion-icon name="chatbubbles"></ion-icon>
-              <div *ngIf="item.comments == 1">{{item.comments}} Reactie</div>
-              <div *ngIf="item.comments != 1">{{item.comments}} Reacties</div>
-            </button>
-            <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'" class="socialTelegraaf">
-              <ion-icon name="share-alt"></ion-icon>
-                <div>Deel</div>
-            </button>
-            <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOS">
-              <ion-icon name="share-alt"></ion-icon>
-                <div>Deel</div>
-            </button>
-            <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNu">
-              <ion-icon name="share-alt"></ion-icon>
-                <div>Deel</div>
-            </button>
-          </div>
         </ion-card>
       </ion-row>
     </ion-col>
