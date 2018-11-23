@@ -62,13 +62,13 @@
             <div id="uitgeverFeed" class="uitgeverFeed" (click)="viewEntry({ record: item })">
               <span>{{item.site}}</span>
             <!-- Title  -->
-            <div id="title" (click)="viewEntry({ record: item })">
+            <div id="title">
               <ion-card-title class="TitleFeed">
                 <strong>{{item.title}}</strong>
               </ion-card-title>
             </div>
             <!-- description  -->
-            <div id="description" (click)="viewEntry({ record: item })">
+            <div id="description">
               <p class="descriptionFeed">{{htmlToPlaintext(item.description) | slice:0:120}}...</p>
             </div>
             <!-- Datum -->
