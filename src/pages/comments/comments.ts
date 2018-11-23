@@ -93,6 +93,12 @@ export class CommentsPage {
     this.http.post('http://gazoh.net/getcomment.php', data, options)
       .subscribe((data: any) => {
         this.comments = data;
+        for(let comment of this.comments)
+        {
+          this.commentDate = comment.commentDate;
+          console.log(this.commentDate);
+        }
+         this.comments.sort((a, b) => new Date(b.commentDate).getTime() - new Date(a.commentDate).getTime());
       });
   }
 
@@ -104,7 +110,7 @@ export class CommentsPage {
     const data = {
       articleId: this.articleId,
       userId: this.userId,
-      comment.sort: this.comment
+      comment: this.comment
     };
     this.http.post('http://gazoh.net/setcomment.php', data, options)
       .subscribe(data => {
