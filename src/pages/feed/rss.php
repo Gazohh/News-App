@@ -16,6 +16,7 @@ foreach ($urlArray as $url) {
             'site' => $url['name'],
             'title' => $node->getElementsByTagName('title')->item(0)->nodeValue,
             'desc' => $node->getElementsByTagName('description')->item(0)->nodeValue,
+            'image' => $node->getElementsByTagName('enclosure')->item(0) ? $node->getElementsByTagName('enclosure')->item(0)->getAttribute('url') : "",
             'link' => $node->getElementsByTagName('link')->item(0)->nodeValue,
             'date' => $node->getElementsByTagName('pubDate')->item(0)->nodeValue,
         );
@@ -34,24 +35,25 @@ for ($x = 0; $x < $limit; $x++) {
     $site = $feed[$x]['site'];
     $title = str_replace(' & ', ' &amp; ', $feed[$x]['title']);
     $link = $feed[$x]['link'];
-    $description = $feed[$x]['desc'];
-    $feed[$x]['date'] = date( "Y-m-d H:i:s", strtotime($feed[$x]['date']));
+    $description = str_replace('&nbsp;', ' ', $feed[$x]['desc']);
+    $feed[$x]['date'] = date( "Y-m-d H:i:s", strtotime($feed[$x]['date']) + 60*60);
     $date = $feed[$x]['date'];
-    echo $feed[$x]['enclosure'];
 }
 file_put_contents("algemeen.json", json_encode($feed));
 echo '</ul>';
 
-$connect = mysqli_connect("localhost", "root", "", "ionicapp");
+$connect = mysqli_connect("localhost", "gazohonlin_root", "bQ4YR4c5ro", "gazohonlin_ionic");
 $jsondata = file_get_contents("algemeen.json");
 $data = json_decode($jsondata, true);
 foreach ($data as $row) {
-    $titel = utf8_decode($row['title']);
-    $schonetitel = preg_replace('/^\s*\/\/<!\[CDATA\[([\s\S]*)\/\/\]\]>\s*\z/',
-        '$1',
-        $titel);
-    $omschrijving = utf8_decode($row['desc']);
-    $schoneomscrhijving = preg_replace('~//<!\[CDATA\[\s*|\s*//\]\]>~', '', $omschrijving);
-    $sql = "INSERT INTO article (site, title, description, link, datum) VALUES ('" . $row["site"] . "', '" . $schonetitel . "', '" . $schoneomscrhijving . "', '" . $row["link"] . "', '" . $row["date"] . "')";
-    mysqli_query($connect, $sql);
+    $titel = $row['title'];
+    $schonetitel = preg_replace('~//<!\[CDATA\[\s*|\s*//\]\]>~', '', $titel);
+    $schoneomscrhijving = preg_replace('~//<!\[CDATA\[\s*|\s*//\]\]>~', '', $row['desc']);
+    $sql= "INSERT INTO article (site, title, description, image, link, datum) VALUES ('" . $row["site"] . "', '" . $schonetitel . "', '" . $schoneomscrhijving . "', '" . $row["image"] . "', '" . $row["link"] . "', '" . $row["date"] . "')";
+    mysqli_query($connect, "SET NAMES 'utf8'");
+    if(mysqli_query($connect, $sql))
+    {
+        $sql1 = "UPDATE article SET description = REPLACE(description, '&nbsp;', ' ') WHERE description LIKE '%&nbsp;%'";
+        mysqli_query($connect, $sql1);
+    }
 }
