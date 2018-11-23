@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Events} from 'ionic-angular';
-import { ToastController } from 'ionic-angular';
+import { ToastController, AlertController } from 'ionic-angular';
 
 
 
@@ -34,7 +34,8 @@ export class AdminPage {
                 public navParams: NavParams,
                 public http: HttpClient,
                 public events: Events,
-                public toastCtrl: ToastController) {
+                public toastCtrl: ToastController,
+                private alertCtrl: AlertController) {
     }
 
     ionViewDidLoad() {
@@ -99,26 +100,46 @@ export class AdminPage {
         }
     }
 
-    unhide(postId) {
-        const headers = new HttpHeaders();
-        headers.append("Accept", 'application/json');
-        headers.append('Content-Type', 'application/json');
-        const options = { headers: headers };
+    // Alert of je de artikel wilt laten zien
+    showConfirmHide(postId) {
+      const confirm = this.alertCtrl.create({
+        title: 'Publiceren',
+        message: 'Weetje zeker dat je deze artikel wilt publiceren?',
+        buttons: [
+          {
+            text: 'Niet Akkoord',
+            handler: () => {
 
-        const data = {
-            articleId: postId
-        };
-
-        this.http.post('http://www.gazoh.net/showarticle.php', data, options).subscribe(res => {
-            if (res == 'showed')
-            {
-                let toast = this.toastCtrl.create({
-                    message: "Artikel " + postId + " gepubliceerd",
-                    duration: 2500,
-                    position: "bottom"
-                });
-                toast.present();
             }
-        })
+          },
+          {
+            text: 'Akkoord',
+            handler: () => {
+
+              // Show artikel
+              console.log("Show " + postId);
+              const headers = new HttpHeaders();
+              headers.append("Accept", 'application/json');
+              headers.append('Content-Type', 'application/json');
+              const options = { headers: headers };
+              const data = {
+                  articleId: postId
+              };
+              this.http.post('http://www.gazoh.net/showarticle.php', data, options).subscribe(res => {
+                  if (res == 'showed')
+                  {
+                      let toast = this.toastCtrl.create({
+                          message: "Artikel " + postId + " gepubliceerd",
+                          duration: 2500,
+                          position: "bottom"
+                      });
+                      toast.present();
+                  }
+              });
+            }
+          }
+        ]
+      });
+      confirm.present();
     }
 }

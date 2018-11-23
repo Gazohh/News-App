@@ -61,21 +61,21 @@
             <!-- Uitgever -->
             <div id="uitgeverFeed" class="uitgeverFeed" (click)="viewEntry({ record: item })">
               <span>{{item.site}}</span>
-            <!-- Title  -->
-            <div id="title">
-              <ion-card-title class="TitleFeed">
-                <strong>{{item.title}}</strong>
-              </ion-card-title>
+              <!-- Title  -->
+              <div id="title">
+                <ion-card-title class="TitleFeed">
+                  <strong>{{item.title}}</strong>
+                </ion-card-title>
+              </div>
+              <!-- description  -->
+              <div id="description">
+                <p class="descriptionFeed">{{htmlToPlaintext(item.description) | slice:0:120}}...</p>
+              </div>
+              <!-- Datum -->
+              <div id="datumFeed" class="datumFeed">
+                <span>{{item.datum}}</span>
+              </div>
             </div>
-            <!-- description  -->
-            <div id="description">
-              <p class="descriptionFeed">{{htmlToPlaintext(item.description) | slice:0:120}}...</p>
-            </div>
-            <!-- Datum -->
-            <div id="datumFeed" class="datumFeed">
-              <span>{{item.datum}}</span>
-            </div>
-          </div>
             <!-- Social Buttons - Comments - likes - Share -->
             <div id="socialLikeComments" class="socialLikeComments">
               <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf' && rol == 1" class="socialTelegraafShare" (click)="showConfirmHide(item.id)">
@@ -101,8 +101,8 @@
                 <div>{{item.comments}}</div>
               </button>
               <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOS" (click)="viewComments({ record: item })">
-                <ion-icon name="chatbubbles"></ion-icon>
                 <div>{{item.comments}}</div>
+                <ion-icon name="chatbubbles"></ion-icon>
               </button>
               <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNu" (click)="viewComments({ record: item })">
                 <ion-icon name="chatbubbles"></ion-icon>
@@ -129,4 +129,10 @@
       <ion-infinite-scroll-content></ion-infinite-scroll-content>
     </ion-infinite-scroll>
   </ion-grid>
+  <div *ngIf="datepicker == 'hetWeer'">
+    <ion-item *ngFor="let weer of dataweer">
+      {{weer.title}}
+    </ion-item>
+
+  </div>
 </ion-content>
