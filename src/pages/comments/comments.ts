@@ -82,6 +82,7 @@ export class CommentsPage {
     this.articleId = item.id;
   }
 
+
   getComments() {
     const headers = new HttpHeaders();
     headers.append("Accept", 'application/json');
@@ -93,12 +94,11 @@ export class CommentsPage {
     this.http.post('http://gazoh.net/getcomment.php', data, options)
       .subscribe((data: any) => {
         this.comments = data;
-        for(let comment of this.comments)
-        {
-          this.commentDate = comment.commentDate;
-          console.log(this.commentDate);
+        if(this.comments) {
+          this.comments.sort(function(a, b) {
+            return new Date(a.commentDate) - new Date(b.commentDate);
+          });  
         }
-         this.comments.sort((a, b) => new Date(b.commentDate).getTime() - new Date(a.commentDate).getTime());
       });
   }
 

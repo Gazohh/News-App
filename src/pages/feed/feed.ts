@@ -43,6 +43,7 @@ export class FeedPage {
     public dataweer: any;
     public title: string;
     public about: string;
+      public datum : any;
 
 
     constructor(
@@ -202,7 +203,7 @@ export class FeedPage {
 
     // Doorverbinden naar de CommentsPage
     viewComments(param: any): void {
-        this.navCtrl.setRoot(CommentsPage, param);
+        this.navCtrl.push(CommentsPage, param);
     }
 
     // Zoek functie
@@ -264,6 +265,9 @@ export class FeedPage {
             .subscribe((data: any) => {
                     this.items = data;
                     this.artikelen = data;
+                    this.items.sort(function(a, b) {
+                      return new Date(b.datum) - new Date(a.datum);
+                    });
                 },
                 (error: any) => {
                     console.dir(error);
@@ -290,6 +294,9 @@ export class FeedPage {
         this.http.get('http://gazoh.net/getyesterday.php').subscribe((data: any) => {
                 this.items = data;
                 this.artikelen = data;
+                this.items.sort(function(a, b) {
+                  return new Date(b.datum) - new Date(a.datum);
+                });
             },
             (error: any) => {
                 console.dir(error);
@@ -305,6 +312,9 @@ export class FeedPage {
             .subscribe((data: any) => {
                     this.items = data;
                     this.artikelen = data;
+                    this.items.sort(function(a, b) {
+                      return new Date(b.datum) - new Date(a.datum);
+                    });
                 },
                 (error: any) => {
                     console.dir(error);
@@ -431,6 +441,7 @@ export class FeedPage {
                     closeButtonText: "OK"
                 });
                 toast.present();
+
             }
         });
     }
