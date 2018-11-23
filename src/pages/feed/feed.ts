@@ -267,7 +267,7 @@ export class FeedPage {
                     this.artikelen = data;
                     if(this.items) {
                       this.items.sort(function(a, b) {
-                        return new Date(b.datum) - new Date(a.datum);
+                        return +new Date(b.datum) - +new Date(a.datum);
                       });
                     }
                 },
@@ -283,11 +283,7 @@ export class FeedPage {
             .subscribe((data: any) => {
                     this.items = data;
                     this.artikelen = data;
-                    if(this.items) {
-                      this.items.sort(function(a, b) {
-                        return new Date(b.datum) - new Date(a.datum);
-                      });
-                    }
+
                 },
                 (error: any) => {
                     console.dir(error);
@@ -303,7 +299,7 @@ export class FeedPage {
                 this.artikelen = data;
                 if(this.items) {
                   this.items.sort(function(a, b) {
-                    return new Date(b.datum) - new Date(a.datum);
+                    return +new Date(b.datum) - +new Date(a.datum);
                   });
                 }
             },
@@ -323,7 +319,7 @@ export class FeedPage {
                     this.artikelen = data;
                     if(this.items) {
                       this.items.sort(function(a, b) {
-                        return new Date(b.datum) - new Date(a.datum);
+                        return +new Date(b.datum) - +new Date(a.datum);
                       });
                     }
                 },
@@ -344,7 +340,7 @@ export class FeedPage {
                         this.artikelen = data;
                         if(this.items) {
                           this.items.sort(function(a, b) {
-                            return new Date(b.datum) - new Date(a.datum);
+                            return +new Date(b.datum) - +new Date(a.datum);
                           });
                         }
                     },
@@ -360,7 +356,7 @@ export class FeedPage {
                         this.artikelen = data;
                         if(this.items) {
                           this.items.sort(function(a, b) {
-                            return new Date(b.datum) - new Date(a.datum);
+                            return +new Date(b.datum) - +new Date(a.datum);
                           });
                         }
                     },
@@ -376,7 +372,7 @@ export class FeedPage {
                         this.artikelen = data;
                         if(this.items) {
                           this.items.sort(function(a, b) {
-                            return new Date(b.datum) - new Date(a.datum);
+                            return +new Date(b.datum) - +new Date(a.datum);
                           });
                         }
                     },
