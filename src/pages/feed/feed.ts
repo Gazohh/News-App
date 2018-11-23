@@ -12,7 +12,7 @@ import { Events } from 'ionic-angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Content } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
-
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 @IonicPage()
 @Component({
@@ -47,6 +47,7 @@ export class FeedPage {
 
 
     constructor(
+
         public navCtrl: NavController,
         public navParams: NavParams,
         public menuCtrl: MenuController,
@@ -57,7 +58,8 @@ export class FeedPage {
         public platform: Platform,
         public events: Events,
         private screenOrientation: ScreenOrientation,
-        private alertCtrl: AlertController) {
+        private alertCtrl: AlertController,
+        private socialSharing: SocialSharing) {
         if (this.platform.is('cordova')) {
             this.platform.ready().then(() => {
 
@@ -266,7 +268,7 @@ export class FeedPage {
                     this.items = data;
                     this.artikelen = data;
                     this.items.sort(function(a, b) {
-                      return new Date(b.datum) - new Date(a.datum);
+                        return +new Date(b.datum) - +new Date(a.datum);
                     });
                 },
                 (error: any) => {
@@ -295,7 +297,7 @@ export class FeedPage {
                 this.items = data;
                 this.artikelen = data;
                 this.items.sort(function(a, b) {
-                  return new Date(b.datum) - new Date(a.datum);
+                    return +new Date(b.datum) - +new Date(a.datum);
                 });
             },
             (error: any) => {
@@ -313,7 +315,7 @@ export class FeedPage {
                     this.items = data;
                     this.artikelen = data;
                     this.items.sort(function(a, b) {
-                      return new Date(b.datum) - new Date(a.datum);
+                        return +new Date(b.datum) - +new Date(a.datum);
                     });
                 },
                 (error: any) => {
@@ -459,4 +461,37 @@ export class FeedPage {
                     console.dir(error);
                 });
         }
+    shareInfo()
+    {
+        this.socialSharing.share("demo message", "Demo subject", "", "url").
+        then(() => {
+            alert("Sharing success");
+// Success!
+        }).catch(() => {
+// Error!
+            alert("Share failed");
+        });
+    }
+
+    //share voor feedpage
+    // share(){
+    //     this.socialSharing.shareWithOptions(options: {"Your Message", "image" , "link"})
+    //         .then(()=>{
+    //             console.log("WhatsApp share successful");
+    //         }).catch((err)=> {
+    //         console.log
+    //     });
+    //     this.socialSharing.shareViaWhatsApp("Your Message", "image" , "link")
+    //         .then(()=>{
+    //             console.log("WhatsApp share successful");
+    //         }).catch((err)=> {
+    //         console.log
+    //     });
+    //     this.socialSharing.shareViaFacebook("Hallo!", "Image", "Url")
+    //         .then(()=>{
+    //             console.log("Facebook share successful");
+    //         }).catch((err)=> {
+    //         console.log
+    //     });
+    // }
 }

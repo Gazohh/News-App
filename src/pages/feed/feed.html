@@ -87,13 +87,13 @@
               <button ion-button icon-start clear *ngIf="item.site == 'NU.nl' && rol == 1" class="socialNuShare" (click)="showConfirmHide(item.id)">
                 <ion-icon name="trash"></ion-icon>
               </button>
-              <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'" class="socialTelegraafShare">
+              <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'" class="socialTelegraafShare" (click)="shareInfo()">
                 <ion-icon name="share-alt"></ion-icon>
               </button>
-              <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOSShare">
+              <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOSShare" (click)="shareInfo()">
                 <ion-icon name="share-alt"></ion-icon>
               </button>
-              <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNuShare">
+              <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNuShare" (click)="shareInfo()">
                 <ion-icon name="share-alt"></ion-icon>
               </button>
               <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'" class="socialTelegraaf" (click)="viewComments({ record: item })">

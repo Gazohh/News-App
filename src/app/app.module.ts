@@ -62,6 +62,7 @@ import { PrivacybeleidPageModule } from "../pages/privacybeleid/privacybeleid.mo
 // Providers
 //
 import { MenuProvider } from '../providers/menu/menu';
+import {SocialSharing} from "@ionic-native/social-sharing";
 
 
 @NgModule({
@@ -132,6 +133,7 @@ import { MenuProvider } from '../providers/menu/menu';
     File,
     FileTransfer,
     MenuProvider,
+      SocialSharing
   ]
 
 })
