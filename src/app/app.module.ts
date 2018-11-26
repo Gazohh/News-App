@@ -12,6 +12,7 @@ import { HeaderColor } from '@ionic-native/header-color';
 import { File } from '@ionic-native/file';
 import { FileTransfer } from '@ionic-native/file-transfer';
 import { Camera } from '@ionic-native/camera';
+import { Geolocation } from '@ionic-native/geolocation';
 
 //
 // Pages
@@ -132,6 +133,7 @@ import { MenuProvider } from '../providers/menu/menu';
     File,
     FileTransfer,
     MenuProvider,
+    Geolocation
   ]
 
 })

@@ -24,7 +24,7 @@
     <ion-segment-button value="driedagengeleden" (click)="load3DaysAgo()">
       3 dagen geleden
     </ion-segment-button>
-    <ion-segment-button value="hetWeer" (click)="getRemoteData()">
+    <ion-segment-button value="hetWeer" (click)="weerData()">
       Het Weer
     </ion-segment-button>
   </ion-segment>
@@ -101,8 +101,8 @@
                 <div>{{item.comments}}</div>
               </button>
               <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOS" (click)="viewComments({ record: item })">
-                <div>{{item.comments}}</div>
                 <ion-icon name="chatbubbles"></ion-icon>
+                <div>{{item.comments}}</div>
               </button>
               <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNu" (click)="viewComments({ record: item })">
                 <ion-icon name="chatbubbles"></ion-icon>
@@ -129,10 +129,17 @@
       <ion-infinite-scroll-content></ion-infinite-scroll-content>
     </ion-infinite-scroll>
   </ion-grid>
-  <div *ngIf="datepicker == 'hetWeer'">
-    <ion-item *ngFor="let weer of dataweer">
-      {{weer.title}}
-    </ion-item>
-
-  </div>
+  <ion-list *ngIf="datepicker == 'hetWeer'">
+    <div id="container">
+      <ion-card class="weerCard" *ngFor="let weer of dataweer">
+        <ion-card-header>
+          <h1 class="weerNaam">{{weer.name}}</h1>
+          <h6 class="weerDatum">{{weer.localtime}}</h6>
+        </ion-card-header>
+        <ion-card-content>
+          kaas
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </ion-list>
 </ion-content>

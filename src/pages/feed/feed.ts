@@ -12,8 +12,7 @@ import { Events } from 'ionic-angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Content } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
-import { Observable } from 'rxjs/Observable'
-
+import { Geolocation } from '@ionic-native/geolocation';
 
 @IonicPage()
 @Component({
@@ -41,11 +40,11 @@ export class FeedPage {
   public profilepicture: any;
   public shouldScrollDown = true;
   public showScrollButton = false;
-  public dataweer: any;
+  public dataweer = [];
   public title: string;
   public about: string;
   public datum: any;
-  public timezone: any;
+  public name: string;
 
 
   constructor(
@@ -59,7 +58,9 @@ export class FeedPage {
     public platform: Platform,
     public events: Events,
     private screenOrientation: ScreenOrientation,
-    private alertCtrl: AlertController) {
+    private alertCtrl: AlertController,
+    private geolocation: Geolocation) {
+
     if (this.platform.is('cordova')) {
       this.platform.ready().then(() => {
 
@@ -129,6 +130,20 @@ export class FeedPage {
   // ---------------------------------------------------------------------------------------------
   // Hier eindigt de constructor
   // ---------------------------------------------------------------------------------------------
+
+  weerData() {
+    // Locatie opvragen
+    this.geolocation.getCurrentPosition().then((resp) => {
+    }).catch((error) => {
+      console.log('Error getting location', error);
+    });
+
+    // Data van het weer
+    this.http.get('http://api.apixu.com/v1/current.json?key=cd4bbb451ca94192a4e161825182311&q=Amsterdam').subscribe(data => {
+      this.dataweer = Object.keys(data).map(key => data[key]);
+      console.log(this.dataweer);
+    });
+  }
 
   // Alert of je de artikel wilt hiden
   showConfirmHide(postId) {
@@ -285,7 +300,11 @@ export class FeedPage {
       .subscribe((data: any) => {
         this.items = data;
         this.artikelen = data;
-
+        if (this.items) {
+          this.items.sort(function(a, b) {
+            return +new Date(b.datum) - +new Date(a.datum);
+          });
+        }
       },
         (error: any) => {
           console.dir(error);
@@ -462,18 +481,5 @@ export class FeedPage {
 
       }
     });
-  }
-  // Het weer
-  getRemoteData() {
-    var headers = new HttpHeaders();
-    headers.append("Accept", 'application/json');
-    headers.append('Content-Type', 'application/json');
-    let options = { headers: headers };
-    let data:Observable<any>;
-    this.http.get('https://jsonplaceholder.typicode.com/posts', options).subscribe(data => {
-        this.dataweer = data;
-        this.timezone = this.dataweer.timezone
-        console.log(this.dataweer);
-      });
   }
 }

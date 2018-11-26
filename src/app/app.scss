@@ -1273,3 +1273,18 @@ body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-
 .iconAdmin {
   padding-bottom: 15px !important;
 }
+
+// Weer data
+.weerCard {
+  margin: 0px;
+  width: 100%;
+}
+
+.weerNaam {
+  font-weight: bold !important;
+  margin-bottom: -4px !important;
+}
+
+.weerDatum {
+  font-size: small !important;
+}
