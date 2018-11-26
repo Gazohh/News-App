@@ -63,7 +63,7 @@
 		4A526D70EC944B96B9AE7810 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28A3EB0E45744A0FA11FE6C5 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		66E6ED3A5E1C4D899984BC58 /* ImageResizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 31762340BBFA4A98BCF954CC /* ImageResizer.m */; };
 		C6E503CA1E6C413F99269F78 /* IonicKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9421E29404484285DD08D4 /* IonicKeyboard.m */; };
-		60DDCFF7B87A4BAA89F223DB /* CDVLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5027118BF0894526BD25E467 /* CDVLocation.m */; };
+		8933AA3BFCBC4D0A91426D51 /* CDVLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0EF8038E874ED28F721A4A /* CDVLocation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -192,8 +192,8 @@
 		7F5BE2081BA54C028A1E5422 /* ImageResizer.h */ = {isa = PBXFileReference; name = "ImageResizer.h"; path = "info.protonet.imageresizer/ImageResizer.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		3B9421E29404484285DD08D4 /* IonicKeyboard.m */ = {isa = PBXFileReference; name = "IonicKeyboard.m"; path = "ionic-plugin-keyboard/IonicKeyboard.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		F7D5CF9D0A234B60A0D5D460 /* IonicKeyboard.h */ = {isa = PBXFileReference; name = "IonicKeyboard.h"; path = "ionic-plugin-keyboard/IonicKeyboard.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
-		5027118BF0894526BD25E467 /* CDVLocation.m */ = {isa = PBXFileReference; name = "CDVLocation.m"; path = "cordova-plugin-geolocation/CDVLocation.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
-		1D3B5F41A52C471CB07F026F /* CDVLocation.h */ = {isa = PBXFileReference; name = "CDVLocation.h"; path = "cordova-plugin-geolocation/CDVLocation.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		7E0EF8038E874ED28F721A4A /* CDVLocation.m */ = {isa = PBXFileReference; name = "CDVLocation.m"; path = "cordova-plugin-geolocation/CDVLocation.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		B5DC208B933D4D02A49A386E /* CDVLocation.h */ = {isa = PBXFileReference; name = "CDVLocation.h"; path = "cordova-plugin-geolocation/CDVLocation.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -394,8 +394,8 @@
 				7F5BE2081BA54C028A1E5422 /* ImageResizer.h */,
 				3B9421E29404484285DD08D4 /* IonicKeyboard.m */,
 				F7D5CF9D0A234B60A0D5D460 /* IonicKeyboard.h */,
-				5027118BF0894526BD25E467 /* CDVLocation.m */,
-				1D3B5F41A52C471CB07F026F /* CDVLocation.h */,
+				7E0EF8038E874ED28F721A4A /* CDVLocation.m */,
+				B5DC208B933D4D02A49A386E /* CDVLocation.h */,
 			);
 			name = Plugins;
 			path = "NewsAge/Plugins";
@@ -546,7 +546,7 @@
 				89F0882752F94D87A9C99D83 /* SocialSharing.m in Sources */,
 				66E6ED3A5E1C4D899984BC58 /* ImageResizer.m in Sources */,
 				C6E503CA1E6C413F99269F78 /* IonicKeyboard.m in Sources */,
-				60DDCFF7B87A4BAA89F223DB /* CDVLocation.m in Sources */,
+				8933AA3BFCBC4D0A91426D51 /* CDVLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

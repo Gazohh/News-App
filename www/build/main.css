@@ -168,7 +168,7 @@
 }
 
 .dark-theme .card-md {
-  background: transparent;
+  background: #2f2f2f !important;
 }
 
 .dark-theme .ImportClassesButton {
@@ -223,6 +223,14 @@
 
 .dark-theme .ion-page {
   background-color: #212121 !important;
+}
+
+.dark-theme .commentUsername {
+  Color: #FFF !important;
+}
+
+.dark-theme .commentDate {
+  color: #FFF !important;
 }
 
 .ion-ios-add:before {
@@ -38951,7 +38959,7 @@ body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item 
 }
 
 .fakePadding {
-  padding-right: 23px;
+  padding-right: 33px;
   margin: 10px;
 }
 
@@ -39556,6 +39564,10 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   color: #fff;
 }
 
+#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > ion-icon {
+  font-size: 1.3em;
+}
+
 #contentAnimation > div.scroll-content > ion-list > ion-item {
   padding-bottom: 10px !important;
 }
@@ -39740,8 +39752,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
   width: 100% !important;
   -webkit-box-shadow: 0 7px 12px -8px rgba(0, 0, 0, 0.89) !important;
   box-shadow: 0 7px 12px -8px rgba(0, 0, 0, 0.89) !important;
-  margin: 0px;
-  margin-bottom: 10px;
+  margin: 0 0 10px;
 }
 
 .toolbar-background {
@@ -39779,10 +39790,20 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 }
 
 .datumFeed {
+  float: left;
+  font-size: 1.2rem;
+  color: #b5b5b5;
+  font-weight: 400;
+  margin-top: 7px;
+  margin-bottom: 8px;
+}
+
+.tijdFeed {
   float: right;
   font-size: 1.2rem;
   color: #b5b5b5;
   font-weight: 400;
+  margin-top: -4px;
 }
 
 .feedCard {
@@ -39921,12 +39942,6 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 
 .descriptionFeed {
   margin: 0 0 -2px !important;
-}
-
-hr {
-  font-size: 1em !important;
-  margin-bottom: 8px;
-  margin-top: 15px;
 }
 
 .editDescriptionFeed {
@@ -40142,6 +40157,20 @@ body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-
   padding-bottom: 15px !important;
 }
 
+.weerCard {
+  margin: 0px;
+  width: 100%;
+}
+
+.weerNaam {
+  font-weight: bold !important;
+  margin-bottom: -4px !important;
+}
+
+.weerDatum {
+  font-size: small !important;
+}
+
 page-about .toolbar-background {
   background: #fff;
   border-color: transparent;
@@ -40203,6 +40232,11 @@ hr {
   font-size: 2em !important;
   opacity: 1 !important;
   visibility: visible !important;
+}
+
+page-nieuws .nieuwsNavTitle.toolbar.toolbar-md {
+  padding-top: 17px;
+  height: 67px;
 }
 
 page-privacybeleid .voorwaardenLogo {
