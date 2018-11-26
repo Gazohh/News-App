@@ -24,7 +24,7 @@
     <ion-segment-button value="driedagengeleden" (click)="load3DaysAgo()">
       3 dagen geleden
     </ion-segment-button>
-    <ion-segment-button value="hetWeer" (click)="getRemoteData()">
+    <ion-segment-button value="hetWeer" (click)="weerData()">
       Het Weer
     </ion-segment-button>
   </ion-segment>
@@ -61,21 +61,21 @@
             <!-- Uitgever -->
             <div id="uitgeverFeed" class="uitgeverFeed" (click)="viewEntry({ record: item })">
               <span>{{item.site}}</span>
-            <!-- Title  -->
-            <div id="title">
-              <ion-card-title class="TitleFeed">
-                <strong>{{item.title}}</strong>
-              </ion-card-title>
+              <!-- Title  -->
+              <div id="title">
+                <ion-card-title class="TitleFeed">
+                  <strong>{{item.title}}</strong>
+                </ion-card-title>
+              </div>
+              <!-- description  -->
+              <div id="description">
+                <p class="descriptionFeed">{{htmlToPlaintext(item.description) | slice:0:120}}...</p>
+              </div>
+              <!-- Datum -->
+              <div id="datumFeed" class="datumFeed">
+                <span>{{item.datum}}</span>
+              </div>
             </div>
-            <!-- description  -->
-            <div id="description">
-              <p class="descriptionFeed">{{htmlToPlaintext(item.description) | slice:0:120}}...</p>
-            </div>
-            <!-- Datum -->
-            <div id="datumFeed" class="datumFeed">
-              <span>{{item.datum}}</span>
-            </div>
-          </div>
             <!-- Social Buttons - Comments - likes - Share -->
             <div id="socialLikeComments" class="socialLikeComments">
               <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf' && rol == 1" class="socialTelegraafShare" (click)="showConfirmHide(item.id)">
@@ -129,4 +129,17 @@
       <ion-infinite-scroll-content></ion-infinite-scroll-content>
     </ion-infinite-scroll>
   </ion-grid>
+  <ion-list *ngIf="datepicker == 'hetWeer'">
+    <div id="container">
+      <ion-card class="weerCard" *ngFor="let weer of dataweer">
+        <ion-card-header>
+          <h1 class="weerNaam">{{weer.name}}</h1>
+          <h6 class="weerDatum">{{weer.localtime}}</h6>
+        </ion-card-header>
+        <ion-card-content>
+          kaas
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </ion-list>
 </ion-content>

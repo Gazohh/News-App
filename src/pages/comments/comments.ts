@@ -96,8 +96,8 @@ export class CommentsPage {
         this.comments = data;
         if(this.comments) {
           this.comments.sort(function(a, b) {
-            return new Date(a.commentDate) - new Date(b.commentDate);
-          });  
+            return +new Date(a.commentDate) - +new Date(b.commentDate);
+          });
         }
       });
   }
