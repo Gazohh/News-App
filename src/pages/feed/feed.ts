@@ -1,18 +1,18 @@
-import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
-import { MenuController } from "ionic-angular";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Network } from "@ionic-native/network";
-import { ToastController } from 'ionic-angular';
-import { HomePage } from "../home/home";
-import { LoadingController } from 'ionic-angular';
-import { Searchbar } from 'ionic-angular';
-import { CommentsPage } from "../comments/comments";
-import { Events } from 'ionic-angular';
-import { ScreenOrientation } from '@ionic-native/screen-orientation';
-import { Content } from 'ionic-angular';
-import { AlertController } from 'ionic-angular';
-import { Geolocation } from '@ionic-native/geolocation';
+import {Component, ViewChild} from '@angular/core';
+import {IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
+import {MenuController} from "ionic-angular";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Network} from "@ionic-native/network";
+import {ToastController} from 'ionic-angular';
+import {HomePage} from "../home/home";
+import {LoadingController} from 'ionic-angular';
+import {Searchbar} from 'ionic-angular';
+import {CommentsPage} from "../comments/comments";
+import {Events} from 'ionic-angular';
+import {ScreenOrientation} from '@ionic-native/screen-orientation';
+import {Content} from 'ionic-angular';
+import {AlertController} from 'ionic-angular';
+import {Geolocation} from '@ionic-native/geolocation';
 import {SocialSharing} from '@ionic-native/social-sharing';
 
 
@@ -61,14 +61,15 @@ export class FeedPage {
         public events: Events,
         private screenOrientation: ScreenOrientation,
         private alertCtrl: AlertController,
-        private socialSharing: SocialSharing) {
+        private socialSharing: SocialSharing,
+        private geolocation: Geolocation) {
         if (this.platform.is('cordova')) {
             this.platform.ready().then(() => {
 
                 // Checkt of je een token hebt of niet zo niet dan word je naar home page direct
                 if (!localStorage.getItem("sessionToken")) {
                     this.navCtrl.setRoot(HomePage);
-                    toastinlog.present();
+
                 }
             })
         }
@@ -157,6 +158,7 @@ export class FeedPage {
                 });
         }
     }
+
     // ---------------------------------------------------------------------------------------------
     // Hier eindigt de constructor
     // ---------------------------------------------------------------------------------------------
@@ -196,7 +198,7 @@ export class FeedPage {
                         var headers = new HttpHeaders();
                         headers.append("Accept", 'application/json');
                         headers.append('Content-Type', 'application/json');
-                        let options = { headers: headers };
+                        let options = {headers: headers};
                         this.http.post('http://gazoh.net/hidearticle.php', postId, options).subscribe(res => {
                             if (res == "hidden") {
                                 let toast = this.toastCtrl.create({
@@ -274,6 +276,7 @@ export class FeedPage {
                 });
 
     }
+
     // Zodra de pagina is geladen
     ionViewDidLoad() {
         this.menuCtrl.enable(true, 'myMenu');
@@ -307,7 +310,7 @@ export class FeedPage {
                     this.items = data;
                     this.artikelen = data;
                     if (this.items) {
-                        this.items.sort(function(a, b) {
+                        this.items.sort(function (a, b) {
                             return +new Date(b.datum) - +new Date(a.datum);
                         });
 
@@ -326,7 +329,7 @@ export class FeedPage {
                     this.items = data;
                     this.artikelen = data;
                     if (this.items) {
-                        this.items.sort(function(a, b) {
+                        this.items.sort(function (a, b) {
                             return +new Date(b.datum) - +new Date(a.datum);
                         });
                     }
@@ -344,7 +347,7 @@ export class FeedPage {
                 this.items = data;
                 this.artikelen = data;
                 if (this.items) {
-                    this.items.sort(function(a, b) {
+                    this.items.sort(function (a, b) {
                         return +new Date(b.datum) - +new Date(a.datum);
                     });
                 }
@@ -364,7 +367,7 @@ export class FeedPage {
                     this.items = data;
                     this.artikelen = data;
                     if (this.items) {
-                        this.items.sort(function(a, b) {
+                        this.items.sort(function (a, b) {
                             return +new Date(b.datum) - +new Date(a.datum);
                         });
                     }
@@ -385,7 +388,7 @@ export class FeedPage {
                         this.items = data;
                         this.artikelen = data;
                         if (this.items) {
-                            this.items.sort(function(a, b) {
+                            this.items.sort(function (a, b) {
                                 return +new Date(b.datum) - +new Date(a.datum);
                             });
                         }
@@ -401,7 +404,7 @@ export class FeedPage {
                         this.items = data;
                         this.artikelen = data;
                         if (this.items) {
-                            this.items.sort(function(a, b) {
+                            this.items.sort(function (a, b) {
                                 return +new Date(b.datum) - +new Date(a.datum);
                             });
                         }
@@ -417,7 +420,7 @@ export class FeedPage {
                         this.items = data;
                         this.artikelen = data;
                         if (this.items) {
-                            this.items.sort(function(a, b) {
+                            this.items.sort(function (a, b) {
                                 return +new Date(b.datum) - +new Date(a.datum);
                             });
                         }
@@ -516,14 +519,11 @@ export class FeedPage {
     // }
 
 
-
-
-
     dislike(articleId) {
         const headers = new HttpHeaders();
         headers.append("Accept", 'application/json');
         headers.append('Content-Type', 'application/json');
-        const options = { headers: headers };
+        const options = {headers: headers};
         const data = {
             articleId: articleId,
             userId: this.userId
@@ -542,7 +542,7 @@ export class FeedPage {
         var headers = new HttpHeaders();
         headers.append("Accept", 'application/json');
         headers.append('Content-Type', 'application/json');
-        let options = { headers: headers };
+        let options = {headers: headers};
         this.http.post('http://gazoh.net/hidearticle.php', postId, options).subscribe(res => {
             if (res == "hidden") {
                 let toast = this.toastCtrl.create({
@@ -559,4 +559,5 @@ export class FeedPage {
 
 
     }
+}
 
