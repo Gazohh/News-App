@@ -159,7 +159,7 @@
   }
 
   .card-md {
-    background: transparent;
+    background: #2f2f2f !important;
   }
   // Button voor de sources
   .ImportClassesButton {
@@ -214,5 +214,12 @@
 
   .ion-page {
     background-color: #212121 !important;
+  }
+  //reactiescherm
+  .commentUsername{
+    Color: #FFF !important;
+  }
+  .commentDate{
+    color: #FFF !important;
   }
 }

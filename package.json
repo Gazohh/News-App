@@ -24,6 +24,7 @@
     "@ionic-native/core": "^4.12.2",
     "@ionic-native/file": "^4.16.0",
     "@ionic-native/file-transfer": "^4.16.0",
+    "@ionic-native/geolocation": "^4.17.0",
     "@ionic-native/header-color": "^4.16.0",
     "@ionic-native/image-resizer": "^4.14.0",
     "@ionic-native/in-app-browser": "^4.15.0",
