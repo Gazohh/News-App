@@ -9,5 +9,8 @@
         </button>
     </ion-navbar>
     <ion-content>
+        <ion-item *ngFor="let item of likedarticles">
+            {{item.title}}
+        </ion-item>
     </ion-content>
 </ion-header>
