@@ -1,23 +1,23 @@
-import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
-import { MenuController } from "ionic-angular";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Network } from "@ionic-native/network";
-import { ToastController } from 'ionic-angular';
-import { HomePage } from "../home/home";
-import { LoadingController } from 'ionic-angular';
-import { Searchbar } from 'ionic-angular';
-import { CommentsPage } from "../comments/comments";
-import { Events } from 'ionic-angular';
-import { ScreenOrientation } from '@ionic-native/screen-orientation';
-import { Content } from 'ionic-angular';
-import { AlertController } from 'ionic-angular';
-import { SocialSharing } from '@ionic-native/social-sharing';
+import {Component, ViewChild} from '@angular/core';
+import {IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
+import {MenuController} from "ionic-angular";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Network} from "@ionic-native/network";
+import {ToastController} from 'ionic-angular';
+import {HomePage} from "../home/home";
+import {LoadingController} from 'ionic-angular';
+import {Searchbar} from 'ionic-angular';
+import {CommentsPage} from "../comments/comments";
+import {Events} from 'ionic-angular';
+import {ScreenOrientation} from '@ionic-native/screen-orientation';
+import {Content} from 'ionic-angular';
+import {AlertController} from 'ionic-angular';
+import {SocialSharing} from '@ionic-native/social-sharing';
 
 @IonicPage()
 @Component({
-  selector: 'page-feed',
-  templateUrl: 'feed.html',
+    selector: 'page-feed',
+    templateUrl: 'feed.html',
 })
 export class FeedPage {
     @ViewChild('searchbar') searchbar: Searchbar;
@@ -43,11 +43,10 @@ export class FeedPage {
     public dataweer: any;
     public title: string;
     public about: string;
-      public datum : any;
+    public datum: any;
 
 
     constructor(
-
         public navCtrl: NavController,
         public navParams: NavParams,
         public menuCtrl: MenuController,
@@ -267,7 +266,7 @@ export class FeedPage {
             .subscribe((data: any) => {
                     this.items = data;
                     this.artikelen = data;
-                    this.items.sort(function(a, b) {
+                    this.items.sort(function (a, b) {
                         return +new Date(b.datum) - +new Date(a.datum);
                     });
                 },
@@ -296,7 +295,7 @@ export class FeedPage {
         this.http.get('http://gazoh.net/getyesterday.php').subscribe((data: any) => {
                 this.items = data;
                 this.artikelen = data;
-                this.items.sort(function(a, b) {
+                this.items.sort(function (a, b) {
                     return +new Date(b.datum) - +new Date(a.datum);
                 });
             },
@@ -314,7 +313,7 @@ export class FeedPage {
             .subscribe((data: any) => {
                     this.items = data;
                     this.artikelen = data;
-                    this.items.sort(function(a, b) {
+                    this.items.sort(function (a, b) {
                         return +new Date(b.datum) - +new Date(a.datum);
                     });
                 },
@@ -443,34 +442,33 @@ export class FeedPage {
                     closeButtonText: "OK"
                 });
                 toast.present();
-
             }
         });
     }
-        // Het weer
-        getRemoteData()
-        {
-            this.presentLoadingCustom();
-            this.http.get('https://xml.buienradar.nl/').subscribe((data: any) => {
-                    this.dataweer = data;
-                    this.title = this.dataweer.title;
-                    this.about = this.dataweer.about;
-                    console.log(this.dataweer);
-                },
-                (error: any) => {
-                    console.dir(error);
-                });
-        }
-    shareInfo()
-    {
-        this.socialSharing.share("demo message", "Demo subject", "", "url").
-        then(() => {
-            alert("Sharing success");
-// Success!
-        }).catch(() => {
-// Error!
-            alert("Share failed");
-        });
+
+    // Het weer
+    getRemoteData() {
+        this.presentLoadingCustom();
+        this.http.get('https://xml.buienradar.nl/').subscribe((data: any) => {
+                this.dataweer = data;
+                this.title = this.dataweer.title;
+                this.about = this.dataweer.about;
+                console.log(this.dataweer);
+            },
+            (error: any) => {
+                console.dir(error);
+            });
+    }
+
+    shareInfo() {
+        this.socialSharing.share("Ik wil dit artikel met je delen", "Artikel-NewsAge", "www.telegraaf.nl")
+//         then(() => {
+//             alert("Sharing success");
+//      Success!
+//         }).catch(() => {
+//      Error!
+//             alert("Share failed");
+//         });
     }
 
     //share voor feedpage
