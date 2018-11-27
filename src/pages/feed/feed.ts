@@ -313,8 +313,15 @@ export class FeedPage {
     // Segment Alle nieuws van Vandaag
     load() {
         this.datepicker = "vandaag";
+        const headers = new HttpHeaders();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        const options = {headers: headers};
+        const data = {
+            userId: localStorage.getItem('userId')
+        };
         this.http
-            .get('http://gazoh.net/getdata.php')
+            .post('http://gazoh.net/getdata2.php', data, options)
             .subscribe((data: any) => {
                     this.items = data;
                     this.artikelen = data;
@@ -332,8 +339,15 @@ export class FeedPage {
 
     loadWithSpinner() {
         this.datepicker = "vandaag";
+        const headers = new HttpHeaders();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        const options = {headers: headers};
+        const data = {
+            userId: localStorage.getItem('userId')
+        };
         this.http
-            .get('http://gazoh.net/getdata.php')
+            .post('http://gazoh.net/getdata2.php', data, options)
             .subscribe((data: any) => {
                     this.items = data;
                     this.artikelen = data;
@@ -341,6 +355,7 @@ export class FeedPage {
                         this.items.sort(function (a, b) {
                             return +new Date(b.datum) - +new Date(a.datum);
                         });
+
                     }
                 },
                 (error: any) => {
@@ -392,7 +407,7 @@ export class FeedPage {
     doRefresh(refresher) {
         if (this.datepicker == "vandaag") {
             this.http
-                .get('http://gazoh.net/getdata.php')
+                .get('http://gazoh.net/getdata2.php')
                 .subscribe((data: any) => {
                         this.items = data;
                         this.artikelen = data;
@@ -474,7 +489,16 @@ export class FeedPage {
 
         this.http.post('http://gazoh.net/setlike.php', data, options)
             .subscribe(data => {
-                if (data == "comment published") {
+                if (data == "liked") {
+                    if (this.datepicker == "vandaag") {
+                        this.load();
+                    }
+                    else if (this.datepicker == "gisteren") {
+                        this.loadYesterday();
+                    }
+                    else if (this.datepicker == "driedagengeleden") {
+                        this.load3DaysAgo();
+                    }
                     console.log(data);
                 }
             });
@@ -537,12 +561,39 @@ export class FeedPage {
             articleId: articleId,
             userId: this.userId
         };
-        this.http.post('http://gazoh.net/unlike.php', data, options)
-            .subscribe(data => {
-                if (data == "unliked") {
-                    console.log(data);
+        let alert = this.alertCtrl.create({
+            title: "Dislike",
+            message: "Weet je zeker dat je deze artikel wilt verwijderen uit je favorieten ?",
+            buttons: [
+                {
+                    text: 'Annuleer',
+                    handler: () => {
+                        return;
+                    }
+                },
+                {
+                    text: 'Verwijder',
+                    handler: () => {
+                        this.http.post('http://gazoh.net/unlike.php', data, options)
+                            .subscribe(data => {
+                                if (data == "unliked") {
+                                    if (this.datepicker == "vandaag") {
+                                        this.load();
+                                    }
+                                    else if (this.datepicker == "gisteren") {
+                                        this.loadYesterday();
+                                    }
+                                    else if (this.datepicker == "driedagengeleden") {
+                                        this.load3DaysAgo();
+                                    }
+                                    console.log(data);
+                                }
+                            });
+                    }
                 }
-            });
+            ]
+        });
+        alert.present();
     }
 
 

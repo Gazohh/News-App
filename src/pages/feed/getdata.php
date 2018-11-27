@@ -1,47 +1,55 @@
 <?php
-if($_SERVER['REQUEST_METHOD'] === "GET" )
-{
-    header('Access-Control-Allow-Origin: *');
-    header('Access-Control-Allow-Methods: POST, GET, DELETE, PUT, PATCH, OPTIONS');
-    header('Access-Control-Allow-Headers: token, Content-Type');
-    header('Access-Control-Max-Age: 1728000');
+if (isset($_SERVER["HTTP_ORIGIN"])) {
+
+    header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
+
+    header("Access-Control-Allow-Credentials: true");
+
+    header('Access-Control-Max-Age: 86400');    // cache for 1 day
+
 }
 
-// Define database connection parameters
-$hn      = 'localhost';
-$un      = 'gazohonlin_root';
-$pwd     = 'bQ4YR4c5ro';
-$db      = 'gazohonlin_ionic';
-$cs      = 'utf8';
+// Access-Control headers are received during OPTIONS requests
 
-// Set up the PDO parameters
-$dsn 	= "mysql:host=" . $hn . ";port=3306;dbname=" . $db . ";charset=" . $cs;
-$opt 	= array(
-    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
-    PDO::ATTR_EMULATE_PREPARES   => false,
-);
-// Create a PDO instance (connect to the database)
-$pdo 	= new PDO($dsn, $un, $pwd, $opt);
-$data    = array();
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 
 
-// Attempt to query database table and retrieve data
-try {
-    $stmt 	= $pdo->query('SELECT * FROM article ORDER BY date DESC');
-    while($row  = $stmt->fetch(PDO::FETCH_OBJ))
-    {
-        // Assign each row of data to associative array
-        $data[] = $row;
-    }
+    if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']))
 
-    // Return data as JSON
-    echo json_encode($data);
-}
-catch(PDOException $e)
-{
-    echo $e->getMessage();
+        header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+
+    if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
+
+        header("Access-Control-Allow-Headers:        {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
+
+    exit(0);
+
 }
 
+require "dbconnect.php";
 
-?>
+$data = file_get_contents("php://input");
+
+if (isset($data)) {
+    $request = json_decode($data);
+
+    $userId = $request->userId;
+}
+
+$artikelendata = array();
+
+$sql = "SELECT *, DATE(datum) AS datumdag, TIME(datum) as datumtijd, (CASE
+WHEN EXISTS (
+  SELECT *
+  FROM likes
+  WHERE likes.userId = '$userId'
+    AND likes.articleId = article.id
+) THEN TRUE
+  ELSE FALSE END) AS liked FROM article WHERE datum > CURDATE() AND verborgen = 0";
+$result = mysqli_query($con, $sql);
+
+while ($row = mysqli_fetch_assoc($result)) {
+    $artikelendata[] = $row;
+}
+
+echo json_encode($artikelendata);

@@ -108,15 +108,27 @@
                 <ion-icon name="chatbubbles"></ion-icon>
                 <div>{{item.comments}}</div>
               </button>
-              <button class="socialTelegraaf" ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'" (click)="setLike(item.id)">
+              <button class="socialTelegraaf" ion-button icon-start clear *ngIf="item.site == 'De Telegraaf' && item.liked == 0" (click)="setLike(item.id)">
                 <ion-icon name="heart"></ion-icon>
                 <div>{{item.likes}}</div>
               </button>
-              <button class="socialNOS" ion-button icon-start clear *ngIf="item.site == 'NOS'" (click)="setLike(item.id)">
+              <button class="socialNOS" ion-button icon-start clear *ngIf="item.site == 'NOS' && item.liked == 0" (click)="setLike(item.id)">
                 <ion-icon name="heart"></ion-icon>
                 <div>{{item.likes}}</div>
               </button>
-              <button class="socialNu" ion-button icon-start clear *ngIf="item.site == 'NU.nl'" (click)="setLike(item.id)">
+              <button class="socialNu" ion-button icon-start clear *ngIf="item.site == 'NU.nl' && item.liked == 0" (click)="setLike(item.id)">
+                <ion-icon name="heart"></ion-icon>
+                <div>{{item.likes}}</div>
+              </button>
+              <button class="socialTelegraaf" ion-button icon-start clear *ngIf="item.site == 'De Telegraaf' && item.liked == 1" (click)="dislike(item.id)">
+                <ion-icon name="heart"></ion-icon>
+                <div>{{item.likes}}</div>
+              </button>
+              <button class="socialNOS" ion-button icon-start clear *ngIf="item.site == 'NOS' && item.liked == 1" (click)="dislike(item.id)">
+                <ion-icon name="heart"></ion-icon>
+                <div>{{item.likes}}</div>
+              </button>
+              <button class="socialNu" ion-button icon-start clear *ngIf="item.site == 'NU.nl' && item.liked == 1" (click)="dislike(item.id)">
                 <ion-icon name="heart"></ion-icon>
                 <div>{{item.likes}}</div>
               </button>
