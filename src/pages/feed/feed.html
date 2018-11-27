@@ -12,6 +12,17 @@
         <ion-icon name="search" *ngIf="!isSearchbaropened"></ion-icon>
       </button>
     </ion-buttons>
+    <ion-buttons end *ngIf="!isSearchbaropened" class="moreFeed">
+      <ion-icon name="more"></ion-icon>
+      <ion-list class="listMore">
+        <ion-select cancelText="Terug" okText="OK" [selectOptions]="selectOptions" class="SelectMore">
+          <ion-option value="Vandaag">Vandaag</ion-option>
+          <ion-option value="Gisteren">Gisteren</ion-option>
+          <ion-option value="load3DaysAgo">Drie Dagen Geleden</ion-option>
+          <ion-option value="HetWeer">Het Weer</ion-option>
+        </ion-select>
+      </ion-list>
+    </ion-buttons>
   </ion-navbar>
   <!-- Segment -->
   <ion-segment [(ngModel)]="datepicker" color="lightAppKleur">
@@ -142,16 +153,6 @@
     </ion-infinite-scroll>
   </ion-grid>
   <ion-list *ngIf="datepicker == 'hetWeer'">
-    <div id="container">
-      <ion-card class="weerCard" *ngFor="let weer of dataweer">
-        <ion-card-header>
-          <h1 class="weerNaam">{{weer.name}}</h1>
-          <h6 class="weerDatum">{{weer.localtime}}</h6>
-        </ion-card-header>
-        <ion-card-content>
-          kaas
-        </ion-card-content>
-      </ion-card>
-    </div>
+
   </ion-list>
 </ion-content>
