@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 
     if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
 
-        header("Access-Control-Allow-Headers: {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
+        header("Access-Control-Allow-Headers:        {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
 
     exit(0);
 
@@ -30,18 +30,20 @@ require "dbconnect.php";
 
 $data = file_get_contents("php://input");
 
-if(isset($data))
-{
+if (isset($data)) {
     $request = json_decode($data);
 
-    $userId = $request->user;
+    $userId = $request->userId;
 }
 
+$likedata = array();
 
-$sql = "SELECT *, (CASE likes.userId WHEN '$userId' THEN 1 END) AS liked FROM article INNER JOIN likes on likes.articleId = article.id WHERE likes.userId = '$userId'";
+$sql = "SELECT article.id AS articleId, article.title AS articleTitle, article.site AS publisher, article.description AS articleDesc, article.image AS articleImg, article.likes AS articleLikes, article.comments AS articleComments, article.verborgen AS articleVerborgen,likes.id AS likeId, likes.articleId AS likedArticleId, likes.userId AS likedUserId, likes.likeDate AS likeDate, (CASE likes.userId WHEN '$userId' THEN 1 END) AS liked FROM article INNER JOIN likes on likes.articleId = article.id WHERE likes.userId = '$userId'";
 
-$result = mysqli_query($con,$sql);
+$result = mysqli_query($con, $sql);
 
-while($row = mysqli_fetch_array($result)) { $likedata[] = json_encode($row); }
+while ($row = mysqli_fetch_assoc($result)) {
+    $likedata[] = $row;
+}
 
-echo json_encode($likedata,JSON_UNESCAPED_UNICODE);
+echo json_encode($likedata);

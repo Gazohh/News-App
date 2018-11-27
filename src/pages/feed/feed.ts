@@ -201,6 +201,15 @@ export class FeedPage {
                         let options = {headers: headers};
                         this.http.post('http://gazoh.net/hidearticle.php', postId, options).subscribe(res => {
                             if (res == "hidden") {
+                                if (this.datepicker == "vandaag") {
+                                    this.load();
+                                }
+                                else if (this.datepicker == "gisteren") {
+                                    this.loadYesterday();
+                                }
+                                else if (this.datepicker == "driedagengeleden") {
+                                    this.load3DaysAgo();
+                                }
                                 let toast = this.toastCtrl.create({
                                     message: "Artikel " + postId + " verborgen",
                                     duration: 2500,

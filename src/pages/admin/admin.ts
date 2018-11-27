@@ -115,7 +115,6 @@ export class AdminPage {
           {
             text: 'Akkoord',
             handler: () => {
-
               // Show artikel
               console.log("Show " + postId);
               const headers = new HttpHeaders();
@@ -128,6 +127,7 @@ export class AdminPage {
               this.http.post('http://www.gazoh.net/showarticle.php', data, options).subscribe(res => {
                   if (res == 'showed')
                   {
+                      this.selectArtikelen();
                       let toast = this.toastCtrl.create({
                           message: "Artikel " + postId + " gepubliceerd",
                           duration: 2500,

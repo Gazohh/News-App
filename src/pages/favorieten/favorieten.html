@@ -1,16 +1,95 @@
 <ion-header no-border-bottom>
-  <ion-navbar>
-    <button ion-button menuToggle right class="fakeCenter">
-        <ion-icon name="menu"></ion-icon>
-    </button>
-      <ion-title>Favorieten</ion-title>
+    <ion-navbar>
+        <button ion-button menuToggle right class="fakeCenter">
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Favorieten</ion-title>
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
     </ion-navbar>
-    <ion-content>
-        <ion-item *ngFor="let item of likedarticles">
-            {{item.title}}
-        </ion-item>
-    </ion-content>
 </ion-header>
+<ion-content>
+    <ion-grid>
+        <ion-col>
+            <ion-row>
+                <ion-card *ngFor="let item of likedarticles" col-md-6 class="ionCard">
+                    <!-- Images van nieuwsfeed -->
+                    <div class="ion-card-image-wrapper" (click)="viewEntry({ record: item })">
+                        <img *ngIf="!item.articleImg" src="../assets/imgs/noimage.jpg">
+                        <img [src]="item.articleImg" *ngIf="item.publisher == 'NOS.nl'">
+                        <img [src]="item.articleImg" *ngIf="item.publisher != 'NOS.nl' || item.publisher != 'NU.nl'">
+                    </div>
+                    <ion-card-content>
+                        <!-- Avatar -->
+                        <div id="AvatarFeed" (click)="viewEntry({ record: item })">
+                            <ion-avatar *ngIf="item.publisher == 'NOS'" class="avatar" item-start>
+                                <img src="../assets/svg/NOS_logo.svg" class="avatar-feedNOS" />
+                            </ion-avatar>
+                            <ion-avatar *ngIf="item.publisher == 'NU.nl'" class="avatar" item-start>
+                                <img src="../assets/svg/nu.nl.svg" class="avatar-feed" />
+                            </ion-avatar>
+                            <ion-avatar *ngIf="item.publisher == 'De Telegraaf'" class="avatar" item-start>
+                                <img src="../assets/svg/telegraaf.svg" class="avatar-feedTelegraaf" />
+                            </ion-avatar>
+                        </div>
+                        <!-- Uitgever -->
+                        <div id="uitgeverFeed" class="uitgeverFeed" (click)="viewEntry({ record: item })">
+                            <span>{{item.publisher}}</span>
+                            <!-- Title  -->
+                            <div id="title">
+                                <ion-card-title class="TitleFeed">
+                                    <strong>{{item.articleTitle}}</strong>
+                                </ion-card-title>
+                            </div>
+                            <!-- description  -->
+                            <div id="description">
+                                <p class="descriptionFeed">{{htmlToPlaintext(item.articleDesc) | slice:0:120}}...</p>
+                            </div>
+                            <!-- Datum -->
+                            <div id="datumFeed" class="datumFeed">
+                                <span>{{item.datum}}</span>
+                            </div>
+                        </div>
+                        <!-- Social Buttons - Comments - likes - Share -->
+                        <div id="socialLikeComments" class="socialLikeComments">
+                            <button ion-button icon-start clear *ngIf="item.publisher == 'De Telegraaf'" class="socialTelegraafShare" (click)="shareInfo()">
+                                <ion-icon name="share-alt"></ion-icon>
+                            </button>
+                            <button ion-button icon-start clear *ngIf="item.publisher == 'NOS'" class="socialNOSShare" (click)="shareInfo()">
+                                <ion-icon name="share-alt"></ion-icon>
+                            </button>
+                            <button ion-button icon-start clear *ngIf="item.publisher == 'NU.nl'" class="socialNuShare" (click)="shareInfo()">
+                                <ion-icon name="share-alt"></ion-icon>
+                            </button>
+                            <button ion-button icon-start clear *ngIf="item.publisher == 'De Telegraaf'" class="socialTelegraaf" (click)="viewComments({ record: item })">
+                                <ion-icon name="chatbubbles"></ion-icon>
+                                <div>{{item.articleComments}}</div>
+                            </button>
+                            <button ion-button icon-start clear *ngIf="item.publisher == 'NOS'" class="socialNOS" (click)="viewComments({ record: item })">
+                                <ion-icon name="chatbubbles"></ion-icon>
+                                <div>{{item.articleComments}}</div>
+                            </button>
+                            <button ion-button icon-start clear *ngIf="item.publisher == 'NU.nl'" class="socialNu" (click)="viewComments({ record: item })">
+                                <ion-icon name="chatbubbles"></ion-icon>
+                                <div>{{item.articleComments}}</div>
+                            </button>
+                            <button class="socialTelegraaf" ion-button icon-start clear *ngIf="item.publisher == 'De Telegraaf'" (click)="dislike(item.articleId)">
+                                <ion-icon name="heart"></ion-icon>
+                                <div>{{item.articleLikes}}</div>
+                            </button>
+                            <button class="socialNOS" ion-button icon-start clear *ngIf="item.publisher == 'NOS'" (click)="dislike(item.articleId)">
+                                <ion-icon name="heart"></ion-icon>
+                                <div>{{item.articleLikes}}</div>
+                            </button>
+                            <button class="socialNu" ion-button icon-start clear *ngIf="item.publisher == 'NU.nl'" (click)="dislike(item.articleId)">
+                                <ion-icon name="heart"></ion-icon>
+                                <div>{{item.articleLikes}}</div>
+                            </button>
+                        </div>
+                    </ion-card-content>
+                </ion-card>
+            </ion-row>
+        </ion-col>
+    </ion-grid>
+</ion-content>

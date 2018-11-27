@@ -150,7 +150,6 @@ export class CommentsPage {
                 if (data == "comment deleted") {
                   console.log(data);
                   this.getComments();
-                  this.content.scrollToBottom();
                 }
               });
           }
