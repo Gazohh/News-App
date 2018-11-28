@@ -852,8 +852,28 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   text-shadow: 0 0 7px #000000;
 }
 // FeedPage Header
-// Select icon
+.alert-md .alert-wrapper {
+  border-radius: 10px !important;
+}
 
+.alert-md [aria-checked=true] .alert-radio-label {
+  color: #3ca7d1 !important;
+}
+.alert-md .alert-radio-inner {
+    background-color: #3ca7d1 !important;
+}
+
+.alert-md [aria-checked=true] .alert-radio-icon {
+    border-color: #3ca7d1 !important;
+}
+
+.alert-md .alert-button {
+  color: #3ca7d1 !important;
+}
+
+
+
+// Select icon
 body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > ion-buttons:nth-child(5) > ion-select > div.select-icon {
   width: 0 !important;
   height: 0 !important;
@@ -873,10 +893,10 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > 
 
 body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > ion-grid > ion-col > ion-row > ion-card {
   width: 100% !important;
-  -webkit-box-shadow: 0 7px 12px -8px rgba(0,0,0,0.89) !important;
-  -moz-box-shadow: 0 7px 12px -8px rgba(0,0,0,0.89) !important;
-  box-shadow: 0 7px 12px -8px rgba(0,0,0,0.89) !important;
   margin: 0 0 10px;
+
+ box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
 .toolbar-background {

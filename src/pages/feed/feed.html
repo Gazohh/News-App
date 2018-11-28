@@ -15,30 +15,15 @@
     <ion-buttons end *ngIf="!isSearchbaropened" class="moreFeed">
       <ion-icon name="more"></ion-icon>
       <ion-list class="listMore">
-        <ion-select cancelText="Terug" okText="OK" [selectOptions]="selectOptions" class="SelectMore">
-          <ion-option value="Vandaag">Vandaag</ion-option>
-          <ion-option value="Gisteren">Gisteren</ion-option>
-          <ion-option value="load3DaysAgo">Drie Dagen Geleden</ion-option>
+        <ion-select #newSelect [(ngModel)]="datepicker" (ionChange)="onChange(datepicker)" [selectOptions]="selectOptions" class="SelectMore">
+          <ion-option value="vandaag">Vandaag</ion-option>
+          <ion-option value="gisteren">Gisteren</ion-option>
+          <ion-option value="driedagengeleden">Drie Dagen Geleden</ion-option>
           <ion-option value="HetWeer">Het Weer</ion-option>
         </ion-select>
       </ion-list>
     </ion-buttons>
   </ion-navbar>
-  <!-- Segment -->
-  <ion-segment [(ngModel)]="datepicker" color="lightAppKleur">
-    <ion-segment-button value="vandaag" (click)="loadWithSpinner()">
-      Vandaag
-    </ion-segment-button>
-    <ion-segment-button value="gisteren" (click)="loadYesterday()">
-      Gisteren
-    </ion-segment-button>
-    <ion-segment-button value="driedagengeleden" (click)="load3DaysAgo()">
-      3 dagen geleden
-    </ion-segment-button>
-    <ion-segment-button value="hetWeer" (click)="weerData()">
-      Het Weer
-    </ion-segment-button>
-  </ion-segment>
 </ion-header>
 <ion-content>
   <!-- Swipe up refresher  -->

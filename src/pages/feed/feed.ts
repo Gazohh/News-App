@@ -75,7 +75,7 @@ export class FeedPage {
 
     // Select Items
     this.selectOptions = {
-      title: 'Kies'
+      title: 'Bekijk'
     };
     //
 
@@ -178,6 +178,24 @@ export class FeedPage {
   // ---------------------------------------------------------------------------------------------
   // Hier eindigt de constructor
   // ---------------------------------------------------------------------------------------------
+
+  onChange(SelectedValue) {
+    SelectedValue = SelectedValue;
+    console.log(SelectedValue);
+
+    if (this.datepicker == "vandaag") {
+      this.loadWithSpinner();
+    }
+    else if (this.datepicker == "gisteren") {
+      this.loadYesterday();
+    }
+    else if (this.datepicker == "driedagengeleden") {
+      this.load3DaysAgo();
+    } else if (this.datepicker == "HetWeer") {
+      this.weerData();
+    }
+  }
+
 
   weerData() {
     // Locatie opvragen
