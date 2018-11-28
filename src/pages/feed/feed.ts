@@ -46,6 +46,14 @@ export class FeedPage {
   public dataweer: any;
   public title: string;
   public about: string;
+
+
+  // weer
+  public icon: string;
+  public locatie: string;
+  public condition: string;
+  public locatie_regio: string;
+  public degrees: number;
   public datum: any;
 
 
@@ -515,20 +523,6 @@ export class FeedPage {
           }
           console.log(data);
         }
-      });
-  }
-
-  // Het weer
-  getRemoteData() {
-    this.presentLoadingCustom();
-    this.http.get('https://xml.buienradar.nl/').subscribe((data: any) => {
-      this.dataweer = data;
-      this.title = this.dataweer.title;
-      this.about = this.dataweer.about;
-      console.log(this.dataweer);
-    },
-      (error: any) => {
-        console.dir(error);
       });
   }
 
