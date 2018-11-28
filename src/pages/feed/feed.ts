@@ -55,7 +55,8 @@ export class FeedPage {
   public locatie_regio: string;
   public degrees: number;
   public datum: any;
-
+  public name: string;
+  public selectOptions: any;
 
   constructor(
     public navCtrl: NavController,
