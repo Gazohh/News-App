@@ -46,6 +46,7 @@ export class FeedPage {
   public dataweer: any;
   public title: string;
   public about: string;
+  public disabled: boolean = false;
 
 
   // weer
@@ -514,36 +515,38 @@ export class FeedPage {
     console.log('Begin async operation');
   }
 
-  setLike(articleId) {
-    const headers = new HttpHeaders();
+    setLike(articleId) {
+        this.disabled = true;
+        const headers = new HttpHeaders();
 
-    headers.append("Accept", 'application/json');
+        headers.append("Accept", 'application/json');
 
-    headers.append('Content-Type', 'application/json');
+        headers.append('Content-Type', 'application/json');
 
-    const options = { headers: headers };
+        const options = {headers: headers};
 
-    const data = {
-      articleId: articleId,
-      userId: this.userId
-    };
+        const data = {
+            articleId: articleId,
+            userId: this.userId
+        };
 
-    this.http.post('http://gazoh.net/setlike.php', data, options)
-      .subscribe(data => {
-        if (data == "liked") {
-          if (this.datepicker == "vandaag") {
-            this.load();
-          }
-          else if (this.datepicker == "gisteren") {
-            this.loadYesterday();
-          }
-          else if (this.datepicker == "driedagengeleden") {
-            this.load3DaysAgo();
-          }
-          console.log(data);
-        }
-      });
-  }
+        this.http.post('http://gazoh.net/setlike.php', data, options)
+            .subscribe(data => {
+                if (data == "liked") {
+                    this.disabled = false;
+                    if (this.datepicker == "vandaag") {
+                        this.load();
+                    }
+                    else if (this.datepicker == "gisteren") {
+                        this.loadYesterday();
+                    }
+                    else if (this.datepicker == "driedagengeleden") {
+                        this.load3DaysAgo();
+                    }
+                    console.log(data);
+                }
+            });
+    }
 
   shareInfo() {
     this.socialSharing.share("Ik wil dit artikel met je delen", "Artikel-NewsAge", "www.telegraaf.nl")
@@ -579,49 +582,49 @@ export class FeedPage {
   // }
 
 
-  dislike(articleId) {
-    const headers = new HttpHeaders();
-    headers.append("Accept", 'application/json');
-    headers.append('Content-Type', 'application/json');
-    const options = { headers: headers };
-    const data = {
-      articleId: articleId,
-      userId: this.userId
-    };
-    let alert = this.alertCtrl.create({
-      title: "Dislike",
-      message: "Weet je zeker dat je deze artikel wilt verwijderen uit je favorieten ?",
-      buttons: [
-        {
-          text: 'Annuleer',
-          handler: () => {
-            return;
-          }
-        },
-        {
-          text: 'Verwijder',
-          handler: () => {
-            this.http.post('http://gazoh.net/unlike.php', data, options)
-              .subscribe(data => {
-                if (data == "unliked") {
-                  if (this.datepicker == "vandaag") {
-                    this.load();
-                  }
-                  else if (this.datepicker == "gisteren") {
-                    this.loadYesterday();
-                  }
-                  else if (this.datepicker == "driedagengeleden") {
-                    this.load3DaysAgo();
-                  }
-                  console.log(data);
+    dislike(articleId) {
+        const headers = new HttpHeaders();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        const options = {headers: headers};
+        const data = {
+            articleId: articleId,
+            userId: this.userId
+        };
+        let alert = this.alertCtrl.create({
+            title: "Dislike",
+            message: "Weet je zeker dat je deze artikel wilt verwijderen uit je favorieten ?",
+            buttons: [
+                {
+                    text: 'Annuleer',
+                    handler: () => {
+                        return;
+                    }
+                },
+                {
+                    text: 'Verwijder',
+                    handler: () => {
+                        this.http.post('http://gazoh.net/unlike.php', data, options)
+                            .subscribe(data => {
+                                if (data == "unliked") {
+                                    if (this.datepicker == "vandaag") {
+                                        this.load();
+                                    }
+                                    else if (this.datepicker == "gisteren") {
+                                        this.loadYesterday();
+                                    }
+                                    else if (this.datepicker == "driedagengeleden") {
+                                        this.load3DaysAgo();
+                                    }
+                                    console.log(data);
+                                }
+                            });
+                    }
                 }
-              });
-          }
-        }
-      ]
-    });
-    alert.present();
-  }
+            ]
+        });
+        alert.present();
+    }
 
 
   setHideArticle(postId) {

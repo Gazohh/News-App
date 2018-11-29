@@ -74,57 +74,75 @@
             </div>
             <!-- Social Buttons - Comments - likes - Share -->
             <div id="socialLikeComments" class="socialLikeComments">
-              <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf' && rol == 1" class="socialTelegraafShare" (click)="showConfirmHide(item.id)">
+              <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf' && rol == 1"
+                      class="socialTelegraafShare" (click)="showConfirmHide(item.id)">
                 <ion-icon name="trash"></ion-icon>
               </button>
-              <button ion-button icon-start clear *ngIf="item.site == 'NOS' && rol == 1" class="socialNOSShare" (click)="showConfirmHide(item.id)">
+              <button ion-button icon-start clear *ngIf="item.site == 'NOS' && rol == 1"
+                      class="socialNOSShare" (click)="showConfirmHide(item.id)">
                 <ion-icon name="trash"></ion-icon>
               </button>
-              <button ion-button icon-start clear *ngIf="item.site == 'NU.nl' && rol == 1" class="socialNuShare" (click)="showConfirmHide(item.id)">
+              <button ion-button icon-start clear *ngIf="item.site == 'NU.nl' && rol == 1"
+                      class="socialNuShare" (click)="showConfirmHide(item.id)">
                 <ion-icon name="trash"></ion-icon>
               </button>
-              <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'" class="socialTelegraafShare" (click)="shareInfo()">
+              <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'"
+                      class="socialTelegraafShare" (click)="shareInfo()">
                 <ion-icon name="share-alt"></ion-icon>
               </button>
-              <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOSShare" (click)="shareInfo()">
+              <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOSShare"
+                      (click)="shareInfo()">
                 <ion-icon name="share-alt"></ion-icon>
               </button>
-              <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNuShare" (click)="shareInfo()">
+              <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNuShare"
+                      (click)="shareInfo()">
                 <ion-icon name="share-alt"></ion-icon>
               </button>
-              <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'" class="socialTelegraaf" (click)="viewComments({ record: item })">
+              <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'"
+                      class="socialTelegraaf" (click)="viewComments({ record: item })">
                 <ion-icon name="chatbubbles"></ion-icon>
                 <div>{{item.comments}}</div>
               </button>
-              <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOS" (click)="viewComments({ record: item })">
+              <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOS"
+                      (click)="viewComments({ record: item })">
                 <ion-icon name="chatbubbles"></ion-icon>
                 <div>{{item.comments}}</div>
               </button>
-              <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNu" (click)="viewComments({ record: item })">
+              <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNu"
+                      (click)="viewComments({ record: item })">
                 <ion-icon name="chatbubbles"></ion-icon>
                 <div>{{item.comments}}</div>
               </button>
-              <button class="socialTelegraaf" ion-button icon-start clear *ngIf="item.site == 'De Telegraaf' && item.liked == 0" (click)="setLike(item.id)">
+              <button class="socialTelegraaf" ion-button icon-start clear
+                      *ngIf="item.site == 'De Telegraaf' && item.liked == 0" [disabled]="disabled"
+                      (click)="setLike(item.id)">
+                <ion-icon name="heart-outline"></ion-icon>
+                <div>{{item.likes}}</div>
+              </button>
+              <button class="socialNOS" ion-button icon-start clear
+                      *ngIf="item.site == 'NOS' && item.liked == 0" [disabled]="disabled"
+                      (click)="setLike(item.id)">
+                <ion-icon name="heart-outline"></ion-icon>
+                <div>{{item.likes}}</div>
+              </button>
+              <button class="socialNu" ion-button icon-start clear
+                      *ngIf="item.site == 'NU.nl' && item.liked == 0" [disabled]="disabled"
+                      (click)="setLike(item.id)">
+                <ion-icon name="heart-outline"></ion-icon>
+                <div>{{item.likes}}</div>
+              </button>
+              <button class="socialTelegraaf" ion-button icon-start clear
+                      *ngIf="item.site == 'De Telegraaf' && item.liked == 1" (click)="dislike(item.id)">
                 <ion-icon name="heart"></ion-icon>
                 <div>{{item.likes}}</div>
               </button>
-              <button class="socialNOS" ion-button icon-start clear *ngIf="item.site == 'NOS' && item.liked == 0" (click)="setLike(item.id)">
+              <button class="socialNOS" ion-button icon-start clear
+                      *ngIf="item.site == 'NOS' && item.liked == 1" (click)="dislike(item.id)">
                 <ion-icon name="heart"></ion-icon>
                 <div>{{item.likes}}</div>
               </button>
-              <button class="socialNu" ion-button icon-start clear *ngIf="item.site == 'NU.nl' && item.liked == 0" (click)="setLike(item.id)">
-                <ion-icon name="heart"></ion-icon>
-                <div>{{item.likes}}</div>
-              </button>
-              <button class="socialTelegraaf" ion-button icon-start clear *ngIf="item.site == 'De Telegraaf' && item.liked == 1" (click)="dislike(item.id)">
-                <ion-icon name="heart"></ion-icon>
-                <div>{{item.likes}}</div>
-              </button>
-              <button class="socialNOS" ion-button icon-start clear *ngIf="item.site == 'NOS' && item.liked == 1" (click)="dislike(item.id)">
-                <ion-icon name="heart"></ion-icon>
-                <div>{{item.likes}}</div>
-              </button>
-              <button class="socialNu" ion-button icon-start clear *ngIf="item.site == 'NU.nl' && item.liked == 1" (click)="dislike(item.id)">
+              <button class="socialNu" ion-button icon-start clear
+                      *ngIf="item.site == 'NU.nl' && item.liked == 1" (click)="dislike(item.id)">
                 <ion-icon name="heart"></ion-icon>
                 <div>{{item.likes}}</div>
               </button>
