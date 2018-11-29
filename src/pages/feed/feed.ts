@@ -47,17 +47,27 @@ export class FeedPage {
   public title: string;
   public about: string;
   public disabled: boolean = false;
+  public selectOptions: any;
 
 
   // weer
-  public icon: string;
-  public locatie: string;
-  public condition: string;
-  public locatie_regio: string;
-  public degrees: number;
-  public datum: any;
-  public name: string;
-  public selectOptions: any;
+  public dag1NaarCelcius: any;
+  public dag2NaarCelcius: any;
+  public dag3NaarCelcius: any;
+  public dag4NaarCelcius: any;
+  public dag5NaarCelcius: any;
+  public dag1Afronden: any;
+  public dag2Afronden: any;
+  public dag3Afronden: any;
+  public dag4Afronden: any;
+  public dag5Afronden: any;
+  public dag1MathRound: any;
+  public dag2MathRound: any;
+  public dag3MathRound: any;
+  public dag4MathRound: any;
+  public dag5MathRound: any;
+  public plaatsnaam: any;
+  public weather: string;
 
   constructor(
     public navCtrl: NavController,
@@ -206,18 +216,48 @@ export class FeedPage {
     });
 
     // Data van het weer
-    this.http.get('http://api.apixu.com/v1/current.json?key=cd4bbb451ca94192a4e161825182311&q=Amsterdam').subscribe(data => {
+    const headers = new HttpHeaders();
+    headers.append("Accept", 'application/json');
+    headers.append('Content-Type', 'application/json');
+    const options = { headers: headers };
+    this.http.get('https://api.openweathermap.org/data/2.5/forecast?id=2749251&appid=761f22645cd9591d1eba076e0fd173d9', options).subscribe(data => {
       this.dataweer = Object.keys(data).map(key => data[key]);
-      this.locatie = this.dataweer[0].name;
-      this.icon = this.dataweer[1].condition.icon;
-      this.condition = this.dataweer[1].text;
-      this.locatie_regio = this.dataweer[0].region;
-      this.name = this.dataweer[0].name;
-      this.degrees = this.dataweer[1].temp_c;
-      this.datum = this.dataweer[1].last_updated;
+      // Dagen tempratuur to Celcius
+      this.dag1NaarCelcius = this.dataweer[3][0].main.temp - 273.15;
+      this.dag2NaarCelcius = this.dataweer[3][7].main.temp - 273.15;
+      this.dag3NaarCelcius = this.dataweer[3][15].main.temp - 273.15;
+      this.dag4NaarCelcius = this.dataweer[3][23].main.temp - 273.15;
+      this.dag5NaarCelcius = this.dataweer[3][31].main.temp - 273.15;
+      // ----------------------------
+      // Dagen Afronden
+      this.dag1Afronden = this.dag1NaarCelcius.toPrecision(4);
+      this.dag2Afronden = this.dag2NaarCelcius.toPrecision(4);
+      this.dag3Afronden = this.dag3NaarCelcius.toPrecision(4);
+      this.dag4Afronden = this.dag4NaarCelcius.toPrecision(4);
+      this.dag5Afronden = this.dag5NaarCelcius.toPrecision(4);
+      // --------------
+      // Afronden naar graden
+      this.dag1MathRound = Math.round(this.dag1Afronden);
+      this.dag2MathRound = Math.round(this.dag2Afronden);
+      this.dag3MathRound = Math.round(this.dag3Afronden);
+      this.dag4MathRound = Math.round(this.dag4Afronden);
+      this.dag5MathRound = Math.round(this.dag5Afronden);
+      // --------------
+      console.log(this.dag1MathRound);
+      console.log(this.dag2MathRound);
+      console.log(this.dag3MathRound);
+      console.log(this.dag4MathRound);
+      console.log(this.dag5MathRound);
+      // Variablen van de JSON
+      this.plaatsnaam = this.dataweer[4].name.replace('Gemeente', '').replace('East', '');
+      this.weather = this.dataweer[3][0].weather[0].description;
+
+
       console.log(this.dataweer);
+
     });
   }
+
 
   // Alert of je de artikel wilt hiden
   showConfirmHide(postId) {
@@ -515,38 +555,38 @@ export class FeedPage {
     console.log('Begin async operation');
   }
 
-    setLike(articleId) {
-        this.disabled = true;
-        const headers = new HttpHeaders();
+  setLike(articleId) {
+    this.disabled = true;
+    const headers = new HttpHeaders();
 
-        headers.append("Accept", 'application/json');
+    headers.append("Accept", 'application/json');
 
-        headers.append('Content-Type', 'application/json');
+    headers.append('Content-Type', 'application/json');
 
-        const options = {headers: headers};
+    const options = { headers: headers };
 
-        const data = {
-            articleId: articleId,
-            userId: this.userId
-        };
+    const data = {
+      articleId: articleId,
+      userId: this.userId
+    };
 
-        this.http.post('http://gazoh.net/setlike.php', data, options)
-            .subscribe(data => {
-                if (data == "liked") {
-                    this.disabled = false;
-                    if (this.datepicker == "vandaag") {
-                        this.load();
-                    }
-                    else if (this.datepicker == "gisteren") {
-                        this.loadYesterday();
-                    }
-                    else if (this.datepicker == "driedagengeleden") {
-                        this.load3DaysAgo();
-                    }
-                    console.log(data);
-                }
-            });
-    }
+    this.http.post('http://gazoh.net/setlike.php', data, options)
+      .subscribe(data => {
+        if (data == "liked") {
+          this.disabled = false;
+          if (this.datepicker == "vandaag") {
+            this.load();
+          }
+          else if (this.datepicker == "gisteren") {
+            this.loadYesterday();
+          }
+          else if (this.datepicker == "driedagengeleden") {
+            this.load3DaysAgo();
+          }
+          console.log(data);
+        }
+      });
+  }
 
   shareInfo() {
     this.socialSharing.share("Ik wil dit artikel met je delen", "Artikel-NewsAge", "www.telegraaf.nl")
@@ -582,49 +622,49 @@ export class FeedPage {
   // }
 
 
-    dislike(articleId) {
-        const headers = new HttpHeaders();
-        headers.append("Accept", 'application/json');
-        headers.append('Content-Type', 'application/json');
-        const options = {headers: headers};
-        const data = {
-            articleId: articleId,
-            userId: this.userId
-        };
-        let alert = this.alertCtrl.create({
-            title: "Dislike",
-            message: "Weet je zeker dat je deze artikel wilt verwijderen uit je favorieten ?",
-            buttons: [
-                {
-                    text: 'Annuleer',
-                    handler: () => {
-                        return;
-                    }
-                },
-                {
-                    text: 'Verwijder',
-                    handler: () => {
-                        this.http.post('http://gazoh.net/unlike.php', data, options)
-                            .subscribe(data => {
-                                if (data == "unliked") {
-                                    if (this.datepicker == "vandaag") {
-                                        this.load();
-                                    }
-                                    else if (this.datepicker == "gisteren") {
-                                        this.loadYesterday();
-                                    }
-                                    else if (this.datepicker == "driedagengeleden") {
-                                        this.load3DaysAgo();
-                                    }
-                                    console.log(data);
-                                }
-                            });
-                    }
+  dislike(articleId) {
+    const headers = new HttpHeaders();
+    headers.append("Accept", 'application/json');
+    headers.append('Content-Type', 'application/json');
+    const options = { headers: headers };
+    const data = {
+      articleId: articleId,
+      userId: this.userId
+    };
+    let alert = this.alertCtrl.create({
+      title: "Dislike",
+      message: "Weet je zeker dat je deze artikel wilt verwijderen uit je favorieten ?",
+      buttons: [
+        {
+          text: 'Annuleer',
+          handler: () => {
+            return;
+          }
+        },
+        {
+          text: 'Verwijder',
+          handler: () => {
+            this.http.post('http://gazoh.net/unlike.php', data, options)
+              .subscribe(data => {
+                if (data == "unliked") {
+                  if (this.datepicker == "vandaag") {
+                    this.load();
+                  }
+                  else if (this.datepicker == "gisteren") {
+                    this.loadYesterday();
+                  }
+                  else if (this.datepicker == "driedagengeleden") {
+                    this.load3DaysAgo();
+                  }
+                  console.log(data);
                 }
-            ]
-        });
-        alert.present();
-    }
+              });
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
 
 
   setHideArticle(postId) {

@@ -606,13 +606,13 @@ ion-buttons {
 // Navbar
 
 .listMore {
-  margin: 0px !important;
+  margin: 0 !important;
 }
 
 .SelectMore {
-  padding: 0px;
-    margin: 0px;
-    height: 0px;
+  padding: 0;
+  margin: 0;
+  height: 0;
 }
 
 .moreFeed {
@@ -621,8 +621,8 @@ ion-buttons {
   font-size: 1.7em !important;
   padding-left: 7px;
 }
-
 // Selected text van select
+
 body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > ion-buttons.moreFeed.bar-buttons.bar-buttons-md > ion-list > ion-select > div.select-text {
   display: none !important;
 }
@@ -852,6 +852,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   text-shadow: 0 0 7px #000000;
 }
 // FeedPage Header
+
 .alert-md .alert-wrapper {
   border-radius: 10px !important;
 }
@@ -859,21 +860,20 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 .alert-md [aria-checked=true] .alert-radio-label {
   color: #3ca7d1 !important;
 }
+
 .alert-md .alert-radio-inner {
-    background-color: #3ca7d1 !important;
+  background-color: #3ca7d1 !important;
 }
 
 .alert-md [aria-checked=true] .alert-radio-icon {
-    border-color: #3ca7d1 !important;
+  border-color: #3ca7d1 !important;
 }
 
 .alert-md .alert-button {
   color: #3ca7d1 !important;
 }
-
-
-
 // Select icon
+
 body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > ion-buttons:nth-child(5) > ion-select > div.select-icon {
   width: 0 !important;
   height: 0 !important;
@@ -894,9 +894,8 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > 
 body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > ion-grid > ion-col > ion-row > ion-card {
   width: 100% !important;
   margin: 0 0 10px;
-
- box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
 .toolbar-background {
@@ -961,7 +960,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 }
 
 .TitleFeed {
-  margin: 15px 0 0 0 !important;
+  margin: 9px 0 0 0 !important;
   font-size: 1.8rem !important;
   padding-bottom: 2px;
 }
@@ -1318,5 +1317,27 @@ body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-
 .iconAdmin {
   padding-bottom: 15px !important;
 }
-
 // Weer data
+
+.weerCard {
+  position: relative;
+  text-align: center;
+}
+
+.weerTitleVandaag {
+  position: absolute;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  font-size: 3.5rem;
+  width: 100%;
+  font-weight: bold;
+  color: #fff;
+}
+
+.weerTitleVandaag2 {
+  position: absolute;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  font-size: 4rem;
+  width: 100%;
+  font-weight: bold;
+  color: #fff;
+}
