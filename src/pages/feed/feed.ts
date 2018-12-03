@@ -14,6 +14,7 @@ import { Content } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import 'rxjs/add/operator/map';
 
 
 @IonicPage()
@@ -49,25 +50,83 @@ export class FeedPage {
   public disabled: boolean = false;
   public selectOptions: any;
 
-
   // weer
-  public dag1NaarCelcius: any;
-  public dag2NaarCelcius: any;
-  public dag3NaarCelcius: any;
-  public dag4NaarCelcius: any;
-  public dag5NaarCelcius: any;
-  public dag1Afronden: any;
-  public dag2Afronden: any;
-  public dag3Afronden: any;
-  public dag4Afronden: any;
-  public dag5Afronden: any;
-  public dag1MathRound: any;
-  public dag2MathRound: any;
-  public dag3MathRound: any;
-  public dag4MathRound: any;
-  public dag5MathRound: any;
+  public dag1NaarCelcius15uur: any;
+  public dag1NaarCelcius18uur: any;
+  public dag1NaarCelcius21uur: any;
+  public dag2NaarCelcius00uur: any;
+  public dag2NaarCelcius03uur: any;
+  public dag2NaarCelcius06uur: any;
+  public dag2NaarCelcius09uur: any;
+  public dag2NaarCelcius12uur: any;
+  public dag2NaarCelcius15uur: any;
+  public dag2NaarCelcius18uur: any;
+  public dag2NaarCelcius21uur: any;
+  public dag3NaarCelcius00uur: any;
+  public dag3NaarCelcius03uur: any;
+  public dag3NaarCelcius06uur: any;
+  public dag3NaarCelcius09uur: any;
+  public dag3NaarCelcius12uur: any;
+  public dag3NaarCelcius15uur: any;
+  public dag3NaarCelcius18uur: any;
+  public dag3NaarCelcius21uur: any;
+  public dag4NaarCelcius00uur: any;
+  public dag4NaarCelcius03uur: any;
+  public dag4NaarCelcius06uur: any;
+  public dag4NaarCelcius09uur: any;
+  public dag4NaarCelcius12uur: any;
+  public dag4NaarCelcius15uur: any;
+  public dag4NaarCelcius18uur: any;
+  public dag4NaarCelcius21uur: any;
+  public dag5NaarCelcius00uur: any;
+  public dag5NaarCelcius03uur: any;
+  public dag5NaarCelcius06uur: any;
+  public dag5NaarCelcius09uur: any;
+  public dag5NaarCelcius12uur: any;
+  public dag5NaarCelcius15uur: any;
+  public dag5NaarCelcius18uur: any;
+  public dag5NaarCelcius21uur: any;
+  public dag1NaarCelcius15uurMathRound: any;
+  public dag1NaarCelcius18uurMathRound: any;
+  public dag1NaarCelcius21uurMathRound: any;
+  public dag2NaarCelcius00uurMathRound: any;
+  public dag2NaarCelcius03uurMathRound: any;
+  public dag2NaarCelcius06uurMathRound: any;
+  public dag2NaarCelcius09uurMathRound: any;
+  public dag2NaarCelcius12uurMathRound: any;
+  public dag2NaarCelcius15uurMathRound: any;
+  public dag2NaarCelcius18uurMathRound: any;
+  public dag2NaarCelcius21uurMathRound: any;
+  public dag3NaarCelcius00uurMathRound: any;
+  public dag3NaarCelcius03uurMathRound: any;
+  public dag3NaarCelcius06uurMathRound: any;
+  public dag3NaarCelcius09uurMathRound: any;
+  public dag3NaarCelcius12uurMathRound: any;
+  public dag3NaarCelcius15uurMathRound: any;
+  public dag3NaarCelcius18uurMathRound: any;
+  public dag3NaarCelcius21uurMathRound: any;
+  public dag4NaarCelcius00uurMathRound: any;
+  public dag4NaarCelcius03uurMathRound: any;
+  public dag4NaarCelcius06uurMathRound: any;
+  public dag4NaarCelcius09uurMathRound: any;
+  public dag4NaarCelcius12uurMathRound: any;
+  public dag4NaarCelcius15uurMathRound: any;
+  public dag4NaarCelcius18uurMathRound: any;
+  public dag4NaarCelcius21uurMathRound: any;
+  public dag5NaarCelcius00uurMathRound: any;
+  public dag5NaarCelcius03uurMathRound: any;
+  public dag5NaarCelcius06uurMathRound: any;
+  public dag5NaarCelcius09uurMathRound: any;
+  public dag5NaarCelcius12uurMathRound: any;
+  public dag5NaarCelcius15uurMathRound: any;
+  public dag5NaarCelcius18uurMathRound: any;
+  public dag5NaarCelcius21uurMathRound: any;
+
   public plaatsnaam: any;
   public weather: string;
+  public country: string;
+  public weerSegment: any;
+
 
   constructor(
     public navCtrl: NavController,
@@ -83,6 +142,9 @@ export class FeedPage {
     private alertCtrl: AlertController,
     private socialSharing: SocialSharing,
     private geolocation: Geolocation) {
+
+    // setSegment op vandaag op het weer.
+    this.weerSegment = "weerVandaag";
 
     // Select Items
     this.selectOptions = {
@@ -184,7 +246,9 @@ export class FeedPage {
           this.events.publish("profilepicture", this.profilepicture);
         });
     }
+
   }
+
 
   // ---------------------------------------------------------------------------------------------
   // Hier eindigt de constructor
@@ -206,58 +270,6 @@ export class FeedPage {
       this.weerData();
     }
   }
-
-
-  weerData() {
-    // Locatie opvragen
-    this.geolocation.getCurrentPosition().then((resp) => {
-    }).catch((error) => {
-      console.log('Error getting location', error);
-    });
-
-    // Data van het weer
-    const headers = new HttpHeaders();
-    headers.append("Accept", 'application/json');
-    headers.append('Content-Type', 'application/json');
-    const options = { headers: headers };
-    this.http.get('https://api.openweathermap.org/data/2.5/forecast?id=2749251&appid=761f22645cd9591d1eba076e0fd173d9', options).subscribe(data => {
-      this.dataweer = Object.keys(data).map(key => data[key]);
-      // Dagen tempratuur to Celcius
-      this.dag1NaarCelcius = this.dataweer[3][0].main.temp - 273.15;
-      this.dag2NaarCelcius = this.dataweer[3][7].main.temp - 273.15;
-      this.dag3NaarCelcius = this.dataweer[3][15].main.temp - 273.15;
-      this.dag4NaarCelcius = this.dataweer[3][23].main.temp - 273.15;
-      this.dag5NaarCelcius = this.dataweer[3][31].main.temp - 273.15;
-      // ----------------------------
-      // Dagen Afronden
-      this.dag1Afronden = this.dag1NaarCelcius.toPrecision(4);
-      this.dag2Afronden = this.dag2NaarCelcius.toPrecision(4);
-      this.dag3Afronden = this.dag3NaarCelcius.toPrecision(4);
-      this.dag4Afronden = this.dag4NaarCelcius.toPrecision(4);
-      this.dag5Afronden = this.dag5NaarCelcius.toPrecision(4);
-      // --------------
-      // Afronden naar graden
-      this.dag1MathRound = Math.round(this.dag1Afronden);
-      this.dag2MathRound = Math.round(this.dag2Afronden);
-      this.dag3MathRound = Math.round(this.dag3Afronden);
-      this.dag4MathRound = Math.round(this.dag4Afronden);
-      this.dag5MathRound = Math.round(this.dag5Afronden);
-      // --------------
-      console.log(this.dag1MathRound);
-      console.log(this.dag2MathRound);
-      console.log(this.dag3MathRound);
-      console.log(this.dag4MathRound);
-      console.log(this.dag5MathRound);
-      // Variablen van de JSON
-      this.plaatsnaam = this.dataweer[4].name.replace('Gemeente', '').replace('East', '');
-      this.weather = this.dataweer[3][0].weather[0].description;
-
-
-      console.log(this.dataweer);
-
-    });
-  }
-
 
   // Alert of je de artikel wilt hiden
   showConfirmHide(postId) {
@@ -683,10 +695,124 @@ export class FeedPage {
           closeButtonText: "OK"
         });
         toast.present();
-
       }
     });
+  } 
 
+  weerData() {
+    this.presentLoadingCustom();
+    // Locatie opvragen
+    this.geolocation.getCurrentPosition().then((resp) => {
+    }).catch((error) => {
+      console.log('Error getting location', error);
+    });
 
+    // Data van het weer
+    const headers = new HttpHeaders();
+    headers.append("Accept", 'application/json');
+    headers.append('Content-Type', 'application/json');
+    const options = { headers: headers };
+    this.http.get('https://api.openweathermap.org/data/2.5/forecast?id=2759660&appid=761f22645cd9591d1eba076e0fd173d9', options).subscribe(data => {
+      this.dataweer = Object.keys(data).map(key => data[key]);
+      // Dagen tempratuur to Celcius
+      // Dag 1
+      this.dag1NaarCelcius15uur = this.dataweer[3][0].main.temp - 273.15;
+      this.dag1NaarCelcius18uur = this.dataweer[3][1].main.temp - 273.15;
+      this.dag1NaarCelcius21uur = this.dataweer[3][2].main.temp - 273.15;
+      // -----
+      // Dag 2
+      this.dag2NaarCelcius00uur = this.dataweer[3][3].main.temp - 273.15;
+      this.dag2NaarCelcius03uur = this.dataweer[3][4].main.temp - 273.15;
+      this.dag2NaarCelcius06uur = this.dataweer[3][5].main.temp - 273.15;
+      this.dag2NaarCelcius09uur = this.dataweer[3][6].main.temp - 273.15;
+      this.dag2NaarCelcius12uur = this.dataweer[3][7].main.temp - 273.15;
+      this.dag2NaarCelcius15uur = this.dataweer[3][8].main.temp - 273.15;
+      this.dag2NaarCelcius18uur = this.dataweer[3][9].main.temp - 273.15;
+      this.dag2NaarCelcius21uur = this.dataweer[3][10].main.temp - 273.15;
+      // -----
+      // Dag 3
+      this.dag3NaarCelcius00uur = this.dataweer[3][11].main.temp - 273.15;
+      this.dag3NaarCelcius03uur = this.dataweer[3][12].main.temp - 273.15;
+      this.dag3NaarCelcius06uur = this.dataweer[3][13].main.temp - 273.15;
+      this.dag3NaarCelcius09uur = this.dataweer[3][14].main.temp - 273.15;
+      this.dag3NaarCelcius12uur = this.dataweer[3][15].main.temp - 273.15;
+      this.dag3NaarCelcius15uur = this.dataweer[3][16].main.temp - 273.15;
+      this.dag3NaarCelcius18uur = this.dataweer[3][17].main.temp - 273.15;
+      this.dag3NaarCelcius21uur = this.dataweer[3][18].main.temp - 273.15;
+      // -----
+      // Dag 4
+      this.dag4NaarCelcius00uur = this.dataweer[3][19].main.temp - 273.15;
+      this.dag4NaarCelcius03uur = this.dataweer[3][20].main.temp - 273.15;
+      this.dag4NaarCelcius06uur = this.dataweer[3][21].main.temp - 273.15;
+      this.dag4NaarCelcius09uur = this.dataweer[3][22].main.temp - 273.15;
+      this.dag4NaarCelcius12uur = this.dataweer[3][23].main.temp - 273.15;
+      this.dag4NaarCelcius15uur = this.dataweer[3][24].main.temp - 273.15;
+      this.dag4NaarCelcius18uur = this.dataweer[3][25].main.temp - 273.15;
+      this.dag4NaarCelcius21uur = this.dataweer[3][26].main.temp - 273.15;
+      // -----
+      // Dag 5
+      this.dag5NaarCelcius00uur = this.dataweer[3][27].main.temp - 273.15;
+      this.dag5NaarCelcius03uur = this.dataweer[3][28].main.temp - 273.15;
+      this.dag5NaarCelcius06uur = this.dataweer[3][29].main.temp - 273.15;
+      this.dag5NaarCelcius09uur = this.dataweer[3][30].main.temp - 273.15;
+      this.dag5NaarCelcius12uur = this.dataweer[3][31].main.temp - 273.15;
+      this.dag5NaarCelcius15uur = this.dataweer[3][32].main.temp - 273.15;
+      this.dag5NaarCelcius18uur = this.dataweer[3][33].main.temp - 273.15;
+      this.dag5NaarCelcius21uur = this.dataweer[3][34].main.temp - 273.15;
+      // -----
+      // --------------
+      // Afronden naar graden
+      // Dag 1
+      this.dag1NaarCelcius15uurMathRound = Math.round(this.dag1NaarCelcius15uur);
+      this.dag1NaarCelcius18uurMathRound = Math.round(this.dag1NaarCelcius18uur);
+      this.dag1NaarCelcius21uurMathRound = Math.round(this.dag1NaarCelcius21uur);
+      // -----
+      // Dag 2
+      this.dag2NaarCelcius00uurMathRound = Math.round(this.dag2NaarCelcius00uur);
+      this.dag2NaarCelcius03uurMathRound = Math.round(this.dag2NaarCelcius03uur);
+      this.dag2NaarCelcius06uurMathRound = Math.round(this.dag2NaarCelcius06uur);
+      this.dag2NaarCelcius09uurMathRound = Math.round(this.dag2NaarCelcius09uur);
+      this.dag2NaarCelcius12uurMathRound = Math.round(this.dag2NaarCelcius12uur);
+      this.dag2NaarCelcius15uurMathRound = Math.round(this.dag2NaarCelcius15uur);
+      this.dag2NaarCelcius18uurMathRound = Math.round(this.dag2NaarCelcius18uur);
+      this.dag2NaarCelcius21uurMathRound = Math.round(this.dag2NaarCelcius21uur);
+      // -----
+      // Dag 3
+      this.dag3NaarCelcius00uurMathRound = Math.round(this.dag3NaarCelcius00uur);
+      this.dag3NaarCelcius03uurMathRound = Math.round(this.dag3NaarCelcius03uur);
+      this.dag3NaarCelcius06uurMathRound = Math.round(this.dag3NaarCelcius06uur);
+      this.dag3NaarCelcius09uurMathRound = Math.round(this.dag3NaarCelcius09uur);
+      this.dag3NaarCelcius12uurMathRound = Math.round(this.dag3NaarCelcius12uur);
+      this.dag3NaarCelcius15uurMathRound = Math.round(this.dag3NaarCelcius15uur);
+      this.dag3NaarCelcius18uurMathRound = Math.round(this.dag3NaarCelcius18uur);
+      this.dag3NaarCelcius21uurMathRound = Math.round(this.dag3NaarCelcius21uur);
+      // -----
+      // Dag 4
+      this.dag4NaarCelcius00uurMathRound = Math.round(this.dag4NaarCelcius00uur);
+      this.dag4NaarCelcius03uurMathRound = Math.round(this.dag4NaarCelcius03uur);
+      this.dag4NaarCelcius06uurMathRound = Math.round(this.dag4NaarCelcius06uur);
+      this.dag4NaarCelcius09uurMathRound = Math.round(this.dag4NaarCelcius09uur);
+      this.dag4NaarCelcius12uurMathRound = Math.round(this.dag4NaarCelcius12uur);
+      this.dag4NaarCelcius15uurMathRound = Math.round(this.dag4NaarCelcius15uur);
+      this.dag4NaarCelcius18uurMathRound = Math.round(this.dag4NaarCelcius18uur);
+      this.dag4NaarCelcius21uurMathRound = Math.round(this.dag4NaarCelcius21uur);
+      // -----
+      // Dag 5
+      this.dag5NaarCelcius00uurMathRound = Math.round(this.dag5NaarCelcius00uur);
+      this.dag5NaarCelcius03uurMathRound = Math.round(this.dag5NaarCelcius03uur);
+      this.dag5NaarCelcius06uurMathRound = Math.round(this.dag5NaarCelcius06uur);
+      this.dag5NaarCelcius09uurMathRound = Math.round(this.dag5NaarCelcius09uur);
+      this.dag5NaarCelcius12uurMathRound = Math.round(this.dag5NaarCelcius12uur);
+      this.dag5NaarCelcius15uurMathRound = Math.round(this.dag5NaarCelcius15uur);
+      this.dag5NaarCelcius18uurMathRound = Math.round(this.dag5NaarCelcius18uur);
+      this.dag5NaarCelcius21uurMathRound = Math.round(this.dag5NaarCelcius21uur);
+      // -----
+      // Variablen van de JSON
+      this.plaatsnaam = this.dataweer[4].name.replace('Gemeente', '').replace('East', '');
+      this.country = this.dataweer[4].country;
+      this.weather = this.dataweer[3][0].weather[0].description;
+      console.log(this.dataweer);
+    });
   }
+
 }

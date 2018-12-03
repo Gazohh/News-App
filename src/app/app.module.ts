@@ -99,7 +99,7 @@ import {SocialSharing} from "@ionic-native/social-sharing";
         CommentsPageModule,
         WijzigwachtwoordPageModule,
         VermaakPageModule,
-        PrivacybeleidPageModule
+        PrivacybeleidPageModule,
     ],
     bootstrap: [IonicApp],
     entryComponents: [
