@@ -3,9 +3,6 @@
     <button ion-button menuToggle *ngIf="!isSearchbaropened">
       <ion-icon name="menu"></ion-icon>
     </button>
-    <!-- <button ion-button menuToggle *ngIf="!isSearchbaropened">
-      <img src="../assets/imgs/myImage.jpg" class="button button-icon button-clear" menu-toggle="left">
-    </button> -->
     <ion-title *ngIf="!isSearchbaropened" class="algemeenText">Algemeen</ion-title>
     <!-- Searchbar  -->
     <ion-searchbar #searchbar *ngIf="isSearchbaropened" [showCancelButton]="true" (ionCancel)="resetChanges()" (ionInput)="search($event)" placeholder="Waar zijn we naar op zoek?" class="slideInRight"></ion-searchbar>
@@ -21,8 +18,8 @@
         <ion-select #newSelect [(ngModel)]="datepicker" (ionChange)="onChange(datepicker)" [selectOptions]="selectOptions" class="SelectMore">
           <ion-option value="vandaag">Vandaag</ion-option>
           <ion-option value="gisteren">Gisteren</ion-option>
-          <ion-option value="driedagengeleden">Drie Dagen Geleden</ion-option>
-          <ion-option value="HetWeer">Het Weer</ion-option>
+          <ion-option value="driedagengeleden">Drie dagen geleden</ion-option>
+          <ion-option value="HetWeer">De weer</ion-option>
         </ion-select>
       </ion-list>
     </ion-buttons>
@@ -54,7 +51,7 @@
                 <img src="../assets/svg/nu.nl.svg" class="avatar-feed" />
               </ion-avatar>
               <ion-avatar *ngIf="item.site == 'De Telegraaf'" class="avatar" item-start>
-                <img src="../assets/svg/Telegraaf.svg" class="avatar-feedTelegraaf" />
+                <img src="../assets/svg/telegraaf.svg" class="avatar-feedTelegraaf" />
               </ion-avatar>
             </div>
             <!-- Uitgever -->
@@ -143,59 +140,19 @@
   <ion-grid *ngIf="datepicker == 'HetWeer'">
     <ion-col col-12>
       <ion-row>
-        <ion-list class="weerList">
+        <ion-list>
           <ion-card class="weerCard">
             <div class="alignCenterWeer">
               <img src="../assets/imgs/zon.png" alt="Zon">
-              <!-- <div *ngIf="weather == 'light rain'" class="weerPlaatsWeer">Lichte regen</div>
-              <div *ngIf="weather == 'clear sky'" class="weerPlaatsWeer">Heldere lucht</div>
-              <div *ngIf="weather == 'few clouds'" class="weerPlaatsWeer">Gedeeltelijk bewolkt</div>
-              <div *ngIf="weather == 'broken clouds'" class="weerPlaatsWeer">Gedeeltelijk bewolkt</div>
-              <div *ngIf="weather == 'scattered clouds'" class="weerPlaatsWeer">Verspreide bewolking</div>
-              <div class="weerPlaatsnaam">{{this.plaatsnaam}}, {{this.country}}</div>
-              <div *ngIf="dag1NaarCelcius15uurMathRound < 10" class="weerVandaag">{{this.dag1NaarCelcius15uurMathRound}}°</div>
-              <div *ngIf="dag1NaarCelcius15uurMathRound >= 10" class="weerVandaag2">{{this.dag1NaarCelcius15uurMathRound}}°</div> -->
+              <div *ngIf="dag1MathRound >= 10" class="weerTitleVandaag2">{{this.dag1MathRound}}°</div>
+              <div *ngIf="dag1MathRound < 10" class="weerTitleVandaag">{{this.dag1MathRound}}°</div>
             </div>
             <ion-card-content>
-              <!--Segmenten -->
-              <ion-segment [(ngModel)]="weerSegment" color="darkAppKleur">
-                <ion-segment-button value="weerVandaag">
-                  <p class="segmentWeer">Vandaag</p>
-                </ion-segment-button>
-                <ion-segment-button value="weerWeek">
-                  <p class="segmentWeer">Hele week</p>
-                </ion-segment-button>
-              </ion-segment>
-              <!-- Vandaag -->
-                <div *ngIf="this.weerSegment == 'weerVandaag'">
-                  <ion-row class="rowWeer">
-                    <ul class="ulWeerTijden">
-                      <li class="liWeer"><ion-icon name="arrow-dropright" class="accordianMargin"></ion-icon> 15:00</li>
-                      <li class="liWeer"><ion-icon name="arrow-dropright" class="accordianMargin"></ion-icon> 18:00</li>
-                      <li class="liWeer"><ion-icon name="arrow-dropright" class="accordianMargin"></ion-icon> 21:00</li>
-                    </ul>
-                  <ul class="ulWeerTijden">
-                    <li class="liWeer"><ion-icon name="arrow-dropdown" class="accordianMargin"></ion-icon> 15:00</li>
-                    <li class="liWeer"><ion-icon name="arrow-dropdown" class="accordianMargin"></ion-icon> 18:00</li>
-                    <li class="liWeer"><ion-icon name="arrow-dropdown" class="accordianMargin"></ion-icon> 21:00</li>
-                  </ul>
-                  <ul class="ulWeer">
-                    <li class="liWeer">{{this.dag1NaarCelcius15uurMathRound}}°</li>
-                    <li class="liWeer">{{this.dag1NaarCelcius18uurMathRound}}°</li>
-                    <li class="liWeer">{{this.dag1NaarCelcius21uurMathRound}}°</li>
-                  </ul>
-                  </ion-row>
-                </div>
-              <div *ngIf="this.weerSegment == 'weerWeek'">
-                <ion-item *ngIf="accordian == true" (click)="accordian == false">
-                  <ion-icon name="arrow-dropright" class="accordianMargin"></ion-icon>
-                  Vandaag
-                </ion-item>
-                <ion-item *ngIf="accordian == false" (click)="accordian == true">
-                  <ion-icon name="arrow-dropdown" class="accordianMargin"></ion-icon>
-                  Vandaag
-                </ion-item>
-              </div>
+              <p>test</p>
+              <p>test</p>
+              <p>test</p>
+              <p>test</p>
+              <p>test</p>
             </ion-card-content>
           </ion-card>
         </ion-list>

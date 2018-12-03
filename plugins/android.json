@@ -57,6 +57,9 @@
     },
     "cordova-plugin-geolocation": {
       "PACKAGE_NAME": "com.newsage.na"
+    },
+    "cordova-sqlite-storage": {
+      "PACKAGE_NAME": "com.newsage.na"
     }
   },
   "dependent_plugins": {

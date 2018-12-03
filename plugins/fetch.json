@@ -152,5 +152,13 @@
     "variables": {
       "GEOLOCATION_USAGE_DESCRIPTION": "To locate you"
     }
+  },
+  "cordova-sqlite-storage": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-sqlite-storage@2.5.0"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }
