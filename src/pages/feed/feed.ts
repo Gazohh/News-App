@@ -53,8 +53,6 @@ export class FeedPage {
   public open2: boolean = true;
   public open3: boolean = true;
   public open4: boolean = true;
-  public icon: any;
-  public link: any;
 
   // weer
   public dag1NaarCelcius12uur: any;
