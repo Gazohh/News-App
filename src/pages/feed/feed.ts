@@ -49,8 +49,15 @@ export class FeedPage {
   public about: string;
   public disabled: boolean = false;
   public selectOptions: any;
+  public open: boolean = true;
+  public open2: boolean = true;
+  public open3: boolean = true;
+  public open4: boolean = true;
+  public icon: any;
+  public link: any;
 
   // weer
+  public dag1NaarCelcius12uur: any;
   public dag1NaarCelcius15uur: any;
   public dag1NaarCelcius18uur: any;
   public dag1NaarCelcius21uur: any;
@@ -86,6 +93,7 @@ export class FeedPage {
   public dag5NaarCelcius15uur: any;
   public dag5NaarCelcius18uur: any;
   public dag5NaarCelcius21uur: any;
+  public dag1NaarCelcius12uurMathRound: any;
   public dag1NaarCelcius15uurMathRound: any;
   public dag1NaarCelcius18uurMathRound: any;
   public dag1NaarCelcius21uurMathRound: any;
@@ -121,6 +129,14 @@ export class FeedPage {
   public dag5NaarCelcius15uurMathRound: any;
   public dag5NaarCelcius18uurMathRound: any;
   public dag5NaarCelcius21uurMathRound: any;
+  public dag1Weather12uur: any;
+  public dag1Weather15uur: any;
+  public dag1Weather18uur: any;
+  public dag1Weather21uur: any;
+  public dag1Weather12uurHumidity: any;
+  public dag1Weather15uurHumidity: any;
+  public dag1Weather18uurHumidity: any;
+  public dag1Weather21uurHumidity: any;
 
   public plaatsnaam: any;
   public weather: string;
@@ -697,7 +713,7 @@ export class FeedPage {
         toast.present();
       }
     });
-  } 
+  }
 
   weerData() {
     this.presentLoadingCustom();
@@ -716,53 +732,55 @@ export class FeedPage {
       this.dataweer = Object.keys(data).map(key => data[key]);
       // Dagen tempratuur to Celcius
       // Dag 1
-      this.dag1NaarCelcius15uur = this.dataweer[3][0].main.temp - 273.15;
-      this.dag1NaarCelcius18uur = this.dataweer[3][1].main.temp - 273.15;
-      this.dag1NaarCelcius21uur = this.dataweer[3][2].main.temp - 273.15;
+      this.dag1NaarCelcius12uur = this.dataweer[3][0].main.temp - 273.15;
+      this.dag1NaarCelcius15uur = this.dataweer[3][1].main.temp - 273.15;
+      this.dag1NaarCelcius18uur = this.dataweer[3][2].main.temp - 273.15;
+      this.dag1NaarCelcius21uur = this.dataweer[3][3].main.temp - 273.15;
       // -----
       // Dag 2
-      this.dag2NaarCelcius00uur = this.dataweer[3][3].main.temp - 273.15;
-      this.dag2NaarCelcius03uur = this.dataweer[3][4].main.temp - 273.15;
-      this.dag2NaarCelcius06uur = this.dataweer[3][5].main.temp - 273.15;
-      this.dag2NaarCelcius09uur = this.dataweer[3][6].main.temp - 273.15;
-      this.dag2NaarCelcius12uur = this.dataweer[3][7].main.temp - 273.15;
-      this.dag2NaarCelcius15uur = this.dataweer[3][8].main.temp - 273.15;
-      this.dag2NaarCelcius18uur = this.dataweer[3][9].main.temp - 273.15;
-      this.dag2NaarCelcius21uur = this.dataweer[3][10].main.temp - 273.15;
+      this.dag2NaarCelcius00uur = this.dataweer[3][4].main.temp - 273.15;
+      this.dag2NaarCelcius03uur = this.dataweer[3][5].main.temp - 273.15;
+      this.dag2NaarCelcius06uur = this.dataweer[3][6].main.temp - 273.15;
+      this.dag2NaarCelcius09uur = this.dataweer[3][7].main.temp - 273.15;
+      this.dag2NaarCelcius12uur = this.dataweer[3][8].main.temp - 273.15;
+      this.dag2NaarCelcius15uur = this.dataweer[3][9].main.temp - 273.15;
+      this.dag2NaarCelcius18uur = this.dataweer[3][10].main.temp - 273.15;
+      this.dag2NaarCelcius21uur = this.dataweer[3][11].main.temp - 273.15;
       // -----
       // Dag 3
-      this.dag3NaarCelcius00uur = this.dataweer[3][11].main.temp - 273.15;
-      this.dag3NaarCelcius03uur = this.dataweer[3][12].main.temp - 273.15;
-      this.dag3NaarCelcius06uur = this.dataweer[3][13].main.temp - 273.15;
-      this.dag3NaarCelcius09uur = this.dataweer[3][14].main.temp - 273.15;
-      this.dag3NaarCelcius12uur = this.dataweer[3][15].main.temp - 273.15;
-      this.dag3NaarCelcius15uur = this.dataweer[3][16].main.temp - 273.15;
-      this.dag3NaarCelcius18uur = this.dataweer[3][17].main.temp - 273.15;
-      this.dag3NaarCelcius21uur = this.dataweer[3][18].main.temp - 273.15;
+      this.dag3NaarCelcius00uur = this.dataweer[3][12].main.temp - 273.15;
+      this.dag3NaarCelcius03uur = this.dataweer[3][13].main.temp - 273.15;
+      this.dag3NaarCelcius06uur = this.dataweer[3][14].main.temp - 273.15;
+      this.dag3NaarCelcius09uur = this.dataweer[3][15].main.temp - 273.15;
+      this.dag3NaarCelcius12uur = this.dataweer[3][16].main.temp - 273.15;
+      this.dag3NaarCelcius15uur = this.dataweer[3][17].main.temp - 273.15;
+      this.dag3NaarCelcius18uur = this.dataweer[3][18].main.temp - 273.15;
+      this.dag3NaarCelcius21uur = this.dataweer[3][19].main.temp - 273.15;
       // -----
       // Dag 4
-      this.dag4NaarCelcius00uur = this.dataweer[3][19].main.temp - 273.15;
-      this.dag4NaarCelcius03uur = this.dataweer[3][20].main.temp - 273.15;
-      this.dag4NaarCelcius06uur = this.dataweer[3][21].main.temp - 273.15;
-      this.dag4NaarCelcius09uur = this.dataweer[3][22].main.temp - 273.15;
-      this.dag4NaarCelcius12uur = this.dataweer[3][23].main.temp - 273.15;
-      this.dag4NaarCelcius15uur = this.dataweer[3][24].main.temp - 273.15;
-      this.dag4NaarCelcius18uur = this.dataweer[3][25].main.temp - 273.15;
-      this.dag4NaarCelcius21uur = this.dataweer[3][26].main.temp - 273.15;
+      this.dag4NaarCelcius00uur = this.dataweer[3][20].main.temp - 273.15;
+      this.dag4NaarCelcius03uur = this.dataweer[3][21].main.temp - 273.15;
+      this.dag4NaarCelcius06uur = this.dataweer[3][22].main.temp - 273.15;
+      this.dag4NaarCelcius09uur = this.dataweer[3][23].main.temp - 273.15;
+      this.dag4NaarCelcius12uur = this.dataweer[3][24].main.temp - 273.15;
+      this.dag4NaarCelcius15uur = this.dataweer[3][25].main.temp - 273.15;
+      this.dag4NaarCelcius18uur = this.dataweer[3][26].main.temp - 273.15;
+      this.dag4NaarCelcius21uur = this.dataweer[3][27].main.temp - 273.15;
       // -----
       // Dag 5
-      this.dag5NaarCelcius00uur = this.dataweer[3][27].main.temp - 273.15;
-      this.dag5NaarCelcius03uur = this.dataweer[3][28].main.temp - 273.15;
-      this.dag5NaarCelcius06uur = this.dataweer[3][29].main.temp - 273.15;
-      this.dag5NaarCelcius09uur = this.dataweer[3][30].main.temp - 273.15;
-      this.dag5NaarCelcius12uur = this.dataweer[3][31].main.temp - 273.15;
-      this.dag5NaarCelcius15uur = this.dataweer[3][32].main.temp - 273.15;
-      this.dag5NaarCelcius18uur = this.dataweer[3][33].main.temp - 273.15;
-      this.dag5NaarCelcius21uur = this.dataweer[3][34].main.temp - 273.15;
+      this.dag5NaarCelcius00uur = this.dataweer[3][28].main.temp - 273.15;
+      this.dag5NaarCelcius03uur = this.dataweer[3][29].main.temp - 273.15;
+      this.dag5NaarCelcius06uur = this.dataweer[3][30].main.temp - 273.15;
+      this.dag5NaarCelcius09uur = this.dataweer[3][31].main.temp - 273.15;
+      this.dag5NaarCelcius12uur = this.dataweer[3][32].main.temp - 273.15;
+      this.dag5NaarCelcius15uur = this.dataweer[3][33].main.temp - 273.15;
+      this.dag5NaarCelcius18uur = this.dataweer[3][34].main.temp - 273.15;
+      this.dag5NaarCelcius21uur = this.dataweer[3][35].main.temp - 273.15;
       // -----
       // --------------
       // Afronden naar graden
       // Dag 1
+      this.dag1NaarCelcius12uurMathRound = Math.round(this.dag1NaarCelcius15uur);
       this.dag1NaarCelcius15uurMathRound = Math.round(this.dag1NaarCelcius15uur);
       this.dag1NaarCelcius18uurMathRound = Math.round(this.dag1NaarCelcius18uur);
       this.dag1NaarCelcius21uurMathRound = Math.round(this.dag1NaarCelcius21uur);
@@ -811,7 +829,17 @@ export class FeedPage {
       this.plaatsnaam = this.dataweer[4].name.replace('Gemeente', '').replace('East', '');
       this.country = this.dataweer[4].country;
       this.weather = this.dataweer[3][0].weather[0].description;
+      this.dag1Weather12uur = this.dataweer[3][0].weather[0].description;
+      this.dag1Weather15uur = this.dataweer[3][1].weather[0].description;
+      this.dag1Weather18uur = this.dataweer[3][2].weather[0].description;
+      this.dag1Weather21uur = this.dataweer[3][3].weather[0].description;
+      this.dag1Weather12uurHumidity = this.dataweer[3][0].main.humidity;
+      this.dag1Weather15uurHumidity = this.dataweer[3][1].main.humidity;
+      this.dag1Weather18uurHumidity = this.dataweer[3][2].main.humidity;
+      this.dag1Weather21uurHumidity = this.dataweer[3][3].main.humidity;
+
       console.log(this.dataweer);
+      console.log(this.dag1Weather12uur);
     });
   }
 

@@ -1,44 +1,38 @@
 @import "www/assets/scss/theme.dark1.scss";
-
 @font-face {
-    font-family: 'Roboto-Regular';
-    src: url('../assets/fonts/Roboto-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Roboto-Regular';
+  src: url("../assets/fonts/Roboto-Regular.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
-
 @font-face {
-    font-family: 'Roboto-Thin';
-    src: url('../assets/fonts/Roboto-Thin.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Roboto-Thin';
+  src: url("../assets/fonts/Roboto-Thin.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
-
 @font-face {
-    font-family: 'Roboto-Bold';
-    src: url('../assets/fonts/Roboto-Bold.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Roboto-Bold';
+  src: url("../assets/fonts/Roboto-Bold.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
-
 @font-face {
-    font-family: 'Roboto-BoldCondensed';
-    src: url('../assets/fonts/Roboto-BoldCondensed.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Roboto-BoldCondensed';
+  src: url("../assets/fonts/Roboto-BoldCondensed.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
-
 @font-face {
-    font-family: 'Roboto-Medium';
-    src: url('../assets/fonts/Roboto-Medium.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Roboto-Medium';
+  src: url("../assets/fonts/Roboto-Medium.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 * {
-    font-family: 'Roboto-Regular';
+  font-family: 'Roboto-Regular';
 }
-
 
 body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item > div.item-inner {
   border-bottom-color: transparent !important;
@@ -880,7 +874,6 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 }
 // FeedPage Header
 
-
 .alert-md .alert-wrapper {
   border-radius: 10px !important;
 }
@@ -906,8 +899,8 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > 
   width: 0 !important;
   height: 0 !important;
 }
-
 // Algemeen Text
+
 body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > div.toolbar-content.toolbar-content-md > ion-title > div {
   padding-left: 0 !important;
   padding-right: 0 !important;
@@ -967,7 +960,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 .datumFeed {
   float: left;
   font-size: 1.2rem;
-  color: #b5b5b5;
+  color: #BDBDBD;
   font-weight: 400;
   margin-top: 7px;
   margin-bottom: 8px;
@@ -992,11 +985,28 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 
-.TitleFeed {
+#title > ion-card-title > strong {
   margin: 9px 0 0 0 !important;
   font-size: 1.8rem !important;
   padding-bottom: 2px;
   font-family: 'Roboto-Bold' !important;
+}
+
+#title > ion-card-title {
+  line-height: 1;
+}
+
+.cardContentWeer {
+  padding-bottom: 0;
+  padding: 0px;
+}
+
+.segmentWeer {
+        margin-top: 12px;
+}
+
+.tijdWeer {
+  position: absolute;
 }
 
 .feedGrid {
@@ -1350,36 +1360,6 @@ body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-
 }
 // Weer data
 
-.segmentWeer {
-  font-weight: bold !important;
-}
-
-.rowWeer {
-  margin-top: 20px;
-}
-
-.ulWeer {
-  margin: 0;
-  list-style-type: none;
-  padding: 0;
-  left: 77%;
-  position: absolute;
-  font-weight: bold;
-}
-
-.liWeer {
-  margin-top: 10px;
-}
-
-.ulWeerTijden {
-  margin: 0;
-  list-style-type: none;
-}
-
-.accordianMargin {
-  margin-right: 10px;
-}
-
 body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > ion-grid > ion-col > ion-row > ion-list > ion-card > ion-card-content > ion-segment > ion-segment-button:nth-child(2) {
   height: 30px;
   display: block;
@@ -1388,6 +1368,23 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > ion-grid > ion-col > ion-row > ion-list > ion-card > ion-card-content > ion-segment > ion-segment-button:nth-child(1) {
   height: 30px;
   display: block;
+}
+
+.segmentWeer {
+  font-weight: bold !important;
+}
+
+.rowWeer {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.weatherClass {
+  font-size: 1rem;
+  color: #BDBDBD;
+  font-family: 'Roboto-Medium';
+  float: right;
+  text-align: center;
 }
 
 .weerList {
@@ -1450,4 +1447,60 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
   top: 24.5%;
   font-weight: 400;
   color: #fff;
+}
+
+body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > ion-grid > ion-col > ion-row > ion-list > ion-card > ion-card-content > div > ion-row > button > div.item-inner {
+  margin-left: 15px !important;
+}
+
+.gradenDiv {
+  float: right;
+}
+
+.buttonTijd {
+  float: left;
+}
+// icon pijl
+
+body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > ion-grid > ion-col > ion-row > ion-list > ion-card > ion-card-content > div > ion-row > button > div.item-inner > div > ion-label > div.buttonTijd > ion-icon {
+  margin-top: 0;
+  margin-right: 15px;
+}
+
+.graden {
+  text-align: center;
+  font-family: 'Roboto-Bold';
+}
+
+.bewolktSpan {
+  color: #BDBDBD;
+  font-family: 'Roboto-Medium';
+  text-align: center;
+}
+
+.uitklapWeer {
+  list-style-type: none;
+  margin: -9px 0 0;
+}
+
+.tijdWeer {
+  font-family: 'Roboto-Medium';
+}
+// Label uitklapWeer
+
+body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > ion-grid > ion-col > ion-row > ion-list > ion-card > ion-card-content > div > ion-row > ion-item > div.item-inner > div > ion-label {
+  margin-top: 0;
+  padding-left: 26px;
+  padding-right: 26px;
+}
+
+.spanClasses {
+  font-size: smaller;
+  font-family: 'Roboto-Medium';
+}
+
+.badgeClasses {
+  float: right;
+  border-radius: 10px;
+  font-family: 'Roboto-Bold';
 }

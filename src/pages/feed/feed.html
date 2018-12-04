@@ -146,8 +146,8 @@
         <ion-list class="weerList">
           <ion-card class="weerCard">
             <div class="alignCenterWeer">
-              <img src="../assets/imgs/zon.png" alt="Zon">
-              <!-- <div *ngIf="weather == 'light rain'" class="weerPlaatsWeer">Lichte regen</div>
+              <img src="../assets/imgs/Zon.png" alt="Zon">
+              <!-- <div *ngIf="weather == 'light rain'" class="weerPlaatsWeer">Lichte regenbui</div>
               <div *ngIf="weather == 'clear sky'" class="weerPlaatsWeer">Heldere lucht</div>
               <div *ngIf="weather == 'few clouds'" class="weerPlaatsWeer">Gedeeltelijk bewolkt</div>
               <div *ngIf="weather == 'broken clouds'" class="weerPlaatsWeer">Gedeeltelijk bewolkt</div>
@@ -156,7 +156,7 @@
               <div *ngIf="dag1NaarCelcius15uurMathRound < 10" class="weerVandaag">{{this.dag1NaarCelcius15uurMathRound}}°</div>
               <div *ngIf="dag1NaarCelcius15uurMathRound >= 10" class="weerVandaag2">{{this.dag1NaarCelcius15uurMathRound}}°</div> -->
             </div>
-            <ion-card-content>
+            <ion-card-content class="cardContentWeer">
               <!--Segmenten -->
               <ion-segment [(ngModel)]="weerSegment" color="darkAppKleur">
                 <ion-segment-button value="weerVandaag">
@@ -167,34 +167,135 @@
                 </ion-segment-button>
               </ion-segment>
               <!-- Vandaag -->
-                <div *ngIf="this.weerSegment == 'weerVandaag'">
-                  <ion-row class="rowWeer">
-                    <ul class="ulWeerTijden">
-                      <li class="liWeer"><ion-icon name="arrow-dropright" class="accordianMargin"></ion-icon> 15:00</li>
-                      <li class="liWeer"><ion-icon name="arrow-dropright" class="accordianMargin"></ion-icon> 18:00</li>
-                      <li class="liWeer"><ion-icon name="arrow-dropright" class="accordianMargin"></ion-icon> 21:00</li>
-                    </ul>
-                  <ul class="ulWeerTijden">
-                    <li class="liWeer"><ion-icon name="arrow-dropdown" class="accordianMargin"></ion-icon> 15:00</li>
-                    <li class="liWeer"><ion-icon name="arrow-dropdown" class="accordianMargin"></ion-icon> 18:00</li>
-                    <li class="liWeer"><ion-icon name="arrow-dropdown" class="accordianMargin"></ion-icon> 21:00</li>
-                  </ul>
-                  <ul class="ulWeer">
-                    <li class="liWeer">{{this.dag1NaarCelcius15uurMathRound}}°</li>
-                    <li class="liWeer">{{this.dag1NaarCelcius18uurMathRound}}°</li>
-                    <li class="liWeer">{{this.dag1NaarCelcius21uurMathRound}}°</li>
-                  </ul>
-                  </ion-row>
-                </div>
+              <div *ngIf="this.weerSegment == 'weerVandaag'">
+                <ion-row class="rowWeer">
+                  <button ion-item detail-none *ngIf="open" (click)="open=false">
+                    <div class="buttonTijd">
+                      <ion-icon item-left name="arrow-dropright"></ion-icon>
+                      <span class="tijdWeer">12:00</span>
+                    </div>
+                    <div class="gradenDiv">
+                      <div class="graden">{{this.dag1NaarCelcius12uurMathRound}}° C</div>
+                    </div>
+                  </button>
+                  <button ion-item detail-none *ngIf="!open" (click)="open=true">
+                    <div class="buttonTijd">
+                      <ion-icon item-left name="arrow-dropdown"></ion-icon>
+                      <span class="tijdWeer">12:00</span>
+                    </div>
+                    <div class="gradenDiv">
+                      <div class="graden">{{this.dag1NaarCelcius12uurMathRound}}° C</div>
+                    </div>
+                  </button>
+                  <!-- Uitklap -->
+                  <ion-item *ngIf="!open" (click)="open=true" class="uitklapWeer">
+                    <span class="spanClasses">Luchtvochtigheid:</span><ion-badge class="badgeClasses">{{this.dag1Weather12uurHumidity}} %</ion-badge>
+                  </ion-item>
+                  <!--  -->
+                  <button ion-item detail-none *ngIf="open2" (click)="open2=false">
+                    <div class="buttonTijd">
+                      <ion-icon item-left name="arrow-dropright"></ion-icon>
+                      <span class="tijdWeer">15:00</span>
+                    </div>
+                    <div class="gradenDiv">
+                      <div class="graden">{{this.dag1NaarCelcius15uurMathRound}}° C</div>
+                    </div>
+                  </button>
+                  <button ion-item detail-none *ngIf="!open2" (click)="open2=true">
+                    <div class="buttonTijd">
+                      <ion-icon item-left name="arrow-dropdown"></ion-icon>
+                      <span class="tijdWeer">15:00</span>
+                    </div>
+                    <div class="gradenDiv">
+                      <div class="graden">{{this.dag1NaarCelcius15uurMathRound}}° C</div>
+
+                    </div>
+                  </button>
+                  <!-- Uitklap -->
+                  <ion-item *ngIf="!open2" (click)="open2=true" class="uitklapWeer">
+                    <span class="spanClasses">Luchtvochtigheid:</span><ion-badge class="badgeClasses">{{this.dag1Weather15uurHumidity}} %</ion-badge>
+                  </ion-item>
+                  <!--  -->
+                  <button ion-item detail-none *ngIf="open3" (click)="open3=false">
+                    <div class="buttonTijd">
+                      <ion-icon item-left name="arrow-dropright"></ion-icon>
+                      <span class="tijdWeer">18:00</span>
+                    </div>
+                    <div class="gradenDiv">
+                      <div class="graden">{{this.dag1NaarCelcius18uurMathRound}}° C</div>
+                      <!-- <div *ngIf="dag1Weather18uur == 'light rain'" class="weatherClass">Lichte regenbui</div>
+                      <div *ngIf="dag1Weather18uur == 'clear sky'" class="weatherClass">Heldere lucht</div>
+                      <div *ngIf="dag1Weather18uur == 'few clouds'" class="weatherClass">Gedeeltelijk <br><span class="bewolktSpan">bewolkt</span></div>
+                      <div *ngIf="dag1Weather18uur == 'broken clouds'" class="weatherClass">Gedeeltelijk <br><span class="bewolktSpan">bewolkt</span></div>
+                      <div *ngIf="dag1Weather18uur == 'scattered clouds'" class="weatherClass">Verspreide <br><span class="bewolktSpan">bewolking</span></div> -->
+                    </div>
+                  </button>
+                  <button ion-item detail-none *ngIf="!open3" (click)="open3=true">
+                    <div class="buttonTijd">
+                      <ion-icon item-left name="arrow-dropright"></ion-icon>
+                      <span class="tijdWeer">18:00</span>
+                    </div>
+                    <div class="gradenDiv">
+                      <div class="graden">{{this.dag1NaarCelcius18uurMathRound}}° C</div>
+                      <!-- <div *ngIf="dag1Weather18uur == 'light rain'" class="weatherClass">Lichte regenbui</div>
+                      <div *ngIf="dag1Weather18uur == 'clear sky'" class="weatherClass">Heldere lucht</div>
+                      <div *ngIf="dag1Weather18uur == 'few clouds'" class="weatherClass">Gedeeltelijk <br><span class="bewolktSpan">bewolkt</span></div>
+                      <div *ngIf="dag1Weather18uur == 'broken clouds'" class="weatherClass">Gedeeltelijk <br><span class="bewolktSpan">bewolkt</span></div>
+                      <div *ngIf="dag1Weather18uur == 'scattered clouds'" class="weatherClass">Verspreide <br><span class="bewolktSpan">bewolking</span></div> -->
+                    </div>
+                  </button>
+                  <!-- Uitklap -->
+                  <ion-item *ngIf="!open3" (click)="open3=true" class="uitklapWeer">
+                    <span class="spanClasses">Luchtvochtigheid:</span><ion-badge class="badgeClasses">{{this.dag1Weather18uurHumidity}} %</ion-badge>
+                  </ion-item>
+                  <!--  -->
+                  <button ion-item detail-none *ngIf="open4" (click)="open4=false">
+                    <div class="buttonTijd">
+                      <ion-icon item-left name="arrow-dropright"></ion-icon>
+                      <span class="tijdWeer">21:00</span>
+                    </div>
+                    <div class="gradenDiv">
+                      <div class="graden">{{this.dag1NaarCelcius21uurMathRound}}° C</div>
+                      <!-- <div *ngIf="dag1Weather21uur == 'light rain'" class="weatherClass">Lichte regenbui</div>
+                      <div *ngIf="dag1Weather21uur == 'clear sky'" class="weatherClass">Heldere lucht</div>
+                      <div *ngIf="dag1Weather21uur == 'few clouds'" class="weatherClass">Gedeeltelijk <br><span class="bewolktSpan">bewolkt</span></div>
+                      <div *ngIf="dag1Weather21uur == 'broken clouds'" class="weatherClass">Gedeeltelijk <br><span class="bewolktSpan">bewolkt</span></div>
+                      <div *ngIf="dag1Weather21uur == 'scattered clouds'" class="weatherClass">Verspreide <br><span class="bewolktSpan">bewolking</span></div> -->
+                    </div>
+                  </button>
+                  <button ion-item detail-none *ngIf="!open4" (click)="open4=true">
+                    <div class="buttonTijd">
+                      <ion-icon item-left name="arrow-dropright"></ion-icon>
+                      <span class="tijdWeer">21:00</span>
+                    </div>
+                    <div class="gradenDiv">
+                      <div class="graden">{{this.dag1NaarCelcius21uurMathRound}}° C</div>
+                      <!-- <div *ngIf="dag1Weather21uur == 'light rain'" class="weatherClass">Lichte regenbui</div>
+                      <div *ngIf="dag1Weather21uur == 'clear sky'" class="weatherClass">Heldere lucht</div>
+                      <div *ngIf="dag1Weather21uur == 'few clouds'" class="weatherClass">Gedeeltelijk <br><span class="bewolktSpan">bewolkt</span></div>
+                      <div *ngIf="dag1Weather21uur == 'broken clouds'" class="weatherClass">Gedeeltelijk <br><span class="bewolktSpan">bewolkt</span></div>
+                      <div *ngIf="dag1Weather21uur == 'scattered clouds'" class="weatherClass">Verspreide <br><span class="bewolktSpan">bewolking</span></div> -->
+                    </div>
+                  </button>
+                  <!-- Uitklap -->
+                  <ion-item *ngIf="!open4" (click)="open4=true" class="uitklapWeer">
+                    <span class="spanClasses">Luchtvochtigheid:</span><ion-badge class="badgeClasses">{{this.dag1Weather21uurHumidity}} %</ion-badge>
+                  </ion-item>
+                  <!--  -->
+                </ion-row>
+              </div>
+              <!-- Hele Week -->
               <div *ngIf="this.weerSegment == 'weerWeek'">
-                <ion-item *ngIf="accordian == true" (click)="accordian == false">
-                  <ion-icon name="arrow-dropright" class="accordianMargin"></ion-icon>
-                  Vandaag
-                </ion-item>
-                <ion-item *ngIf="accordian == false" (click)="accordian == true">
-                  <ion-icon name="arrow-dropdown" class="accordianMargin"></ion-icon>
-                  Vandaag
-                </ion-item>
+                <ion-row class="rowWeer">
+                  <button ion-item detail-none *ngIf="open" (click)="open=false">
+                    <ion-icon item-left name="arrow-dropright"></ion-icon>
+                    Test
+                  </button>
+                  <button ion-item detail-none *ngIf="!open" (click)="open=true">
+                    <ion-icon item-left name="arrow-dropdown"></ion-icon>
+                    Test
+                  </button>
+                </ion-row>
               </div>
             </ion-card-content>
           </ion-card>
