@@ -13,6 +13,7 @@ import { CommentsPage } from "../pages/comments/comments";
 import { EconomiePage } from "../pages/economie/economie";
 import { MenuProvider } from "../providers/menu/menu";
 import { timer } from "rxjs/observable/timer";
+import {Network} from "@ionic-native/network";
 
 
 @Component({
@@ -51,7 +52,8 @@ export class MyApp {
     public menuCtrl: MenuController,
     public events: Events,
     public alertCtrl: AlertController,
-    public menuProvider: MenuProvider) {
+    public menuProvider: MenuProvider,
+    public network: Network) {
     // -------------------------------------
     // Get Active theme dark/light
     // -------------------------------------
@@ -96,6 +98,10 @@ export class MyApp {
       this.events.subscribe("username", (data) => {
         this.username = data;
       });
+      if(this.network.type == "none")
+      {
+        this.profilepicture = localStorage.getItem('profilePicture');
+      }
       this.events.subscribe("profilepicture", (foto) => {
         this.profilepicture = foto;
       });

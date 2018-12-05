@@ -105,7 +105,8 @@
       "cordova-plugin-file-transfer": {},
       "cordova-plugin-geolocation": {
         "GEOLOCATION_USAGE_DESCRIPTION": "To locate you"
-      }
+      },
+      "cordova-sqlite-storage": {}
     },
     "platforms": [
       "ios"

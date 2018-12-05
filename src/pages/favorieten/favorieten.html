@@ -74,15 +74,15 @@
                                 <ion-icon name="chatbubbles"></ion-icon>
                                 <div>{{item.articleComments}}</div>
                             </button>
-                            <button class="socialTelegraaf" ion-button icon-start clear *ngIf="item.publisher == 'De Telegraaf'" (click)="dislike(item.articleId)">
+                            <button class="socialTelegraaf" ion-button icon-start clear *ngIf="item.publisher == 'De Telegraaf'" (click)="dislike(item.articleId, item.articleTitle)">
                                 <ion-icon name="heart"></ion-icon>
                                 <div>{{item.articleLikes}}</div>
                             </button>
-                            <button class="socialNOS" ion-button icon-start clear *ngIf="item.publisher == 'NOS'" (click)="dislike(item.articleId)">
+                            <button class="socialNOS" ion-button icon-start clear *ngIf="item.publisher == 'NOS'" (click)="dislike(item.articleId, item.articleTitle)">
                                 <ion-icon name="heart"></ion-icon>
                                 <div>{{item.articleLikes}}</div>
                             </button>
-                            <button class="socialNu" ion-button icon-start clear *ngIf="item.publisher == 'NU.nl'" (click)="dislike(item.articleId)">
+                            <button class="socialNu" ion-button icon-start clear *ngIf="item.publisher == 'NU.nl'" (click)="dislike(item.articleId, item.articleTitle)">
                                 <ion-icon name="heart"></ion-icon>
                                 <div>{{item.articleLikes}}</div>
                             </button>

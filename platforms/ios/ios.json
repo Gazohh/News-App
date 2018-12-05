@@ -95,6 +95,10 @@
             {
               "xml": "<feature name=\"Geolocation\"><param name=\"ios-package\" value=\"CDVLocation\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"SQLitePlugin\"><param name=\"ios-package\" value=\"SQLitePlugin\" /></feature>",
+              "count": 1
             }
           ]
         }
@@ -173,6 +177,9 @@
       "PACKAGE_NAME": "com.newsage.na"
     },
     "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.newsage.na"
+    },
+    "cordova-sqlite-storage": {
       "PACKAGE_NAME": "com.newsage.na"
     }
   },
@@ -559,6 +566,14 @@
       "clobbers": [
         "navigator.geolocation"
       ]
+    },
+    {
+      "id": "cordova-sqlite-storage.SQLitePlugin",
+      "file": "plugins/cordova-sqlite-storage/www/SQLitePlugin.js",
+      "pluginId": "cordova-sqlite-storage",
+      "clobbers": [
+        "SQLitePlugin"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -580,6 +595,7 @@
     "cordova-plugin-x-socialsharing": "5.4.1",
     "info.protonet.imageresizer": "0.1.1",
     "ionic-plugin-keyboard": "2.2.1",
-    "cordova-plugin-geolocation": "4.0.1"
+    "cordova-plugin-geolocation": "4.0.1",
+    "cordova-sqlite-storage": "2.5.0"
   }
 }

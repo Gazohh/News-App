@@ -49,6 +49,12 @@
     <feature name="ImageResizer">
         <param name="android-package" value="info.protonet.imageresizer.ImageResizer" />
     </feature>
+    <feature name="Geolocation">
+        <param name="android-package" value="org.apache.cordova.geolocation.Geolocation" />
+    </feature>
+    <feature name="SQLitePlugin">
+        <param name="android-package" value="io.sqlc.SQLitePlugin" />
+    </feature>
     <feature name="Keyboard">
         <param name="android-package" onload="true" value="io.ionic.keyboard.IonicKeyboard" />
     </feature>
@@ -98,8 +104,7 @@
     <preference name="ShowSplashScreen" value="true" />
     <preference name="FadeSplashScreen" value="true" />
     <preference name="FadeSplashScreenDuration" value="500" />
+    <preference name="KeyboardDisplayRequiresUserAction" value="false" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
-    <feature name="Geolocation">
-        <param name="android-package" value="org.apache.cordova.geolocation.Geolocation" />
-    </feature>
+    <preference name="SplashScreenDelay" value="3000" />
 </widget>

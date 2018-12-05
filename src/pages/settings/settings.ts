@@ -29,6 +29,9 @@ export class SettingsPage {
     username: string;
     profilepicture:any;
     rol:any;
+    emailVerified:string;
+    userEmail:string;
+    token:string;
 
     constructor(private settings: SettingsProvider,
                 private platform: Platform,
@@ -62,8 +65,11 @@ export class SettingsPage {
         this.http.post('http://gazoh.net/getgebruiker.php', data, options)
             .subscribe(data => {this.dataUser = data;
                 this.username = this.dataUser.username;
+                this.userEmail = this.dataUser.email;
                 this.rol = this.dataUser.rol;
+                this.token = this.dataUser.token;
                 this.profilepicture = this.dataUser.profilepicture;
+                this.emailVerified = this.dataUser.emailVerified;
         this.events.publish("username", this.username);
         this.events.publish("profilepicture", this.profilepicture);
     });
@@ -87,6 +93,37 @@ export class SettingsPage {
     uitloggen() {
         localStorage.clear();
         this.navCtrl.setRoot(HomePage);
+    }
+
+    resendMail()
+    {
+        const headers = new HttpHeaders();
+
+        headers.append("Accept", 'application/json');
+
+        headers.append('Content-Type', 'application/json');
+
+        const options = {headers: headers};
+
+        const data = {
+
+            email: this.userEmail,
+            username: this.username,
+            token: this.token
+
+        };
+        this.http.post('http://gazoh.net/resendmail.php', data, options)
+            .subscribe(data => {
+                if(data == "email sent")
+                {
+                    let alert = this.alertCtrl.create({
+                        title: 'Email verstuurd',
+                        subTitle: 'De verificatiemail is opnieuw verstuurd naar: ' + this.userEmail,
+                        buttons: ['Sluiten']
+                    });
+                    alert.present();
+                }
+            });
     }
 
     rapporteer() {

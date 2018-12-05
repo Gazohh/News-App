@@ -72,7 +72,7 @@ export class FavorietenPage {
         this.navCtrl.push(CommentsPage, param);
     }
 
-    dislike(articleId) {
+    dislike(articleId, articleTitle) {
         const headers = new HttpHeaders();
         headers.append("Accept", 'application/json');
         headers.append('Content-Type', 'application/json');
@@ -86,7 +86,7 @@ export class FavorietenPage {
                 if (data == "unliked") {
                     this.getFavs();
                     let toast = this.toastCtrl.create({
-                        message: "Artikel " + articleId + " is verwijderd uit je favorieten!",
+                        message: articleTitle + " is verwijderd uit je favorieten!",
                         duration: 2500,
                         position: "bottom"
                     });

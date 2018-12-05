@@ -22,15 +22,15 @@ INJECTED from C:\xampp\htdocs\News-App\platforms\android\app\src\main\AndroidMan
 	android:name
 		ADDED from C:\xampp\htdocs\News-App\platforms\android\app\src\main\AndroidManifest.xml:20:135-183
 manifest
-ADDED from C:\xampp\htdocs\News-App\platforms\android\app\src\main\AndroidManifest.xml:2:1-27:12
-INJECTED from C:\xampp\htdocs\News-App\platforms\android\app\src\main\AndroidManifest.xml:2:1-27:12
-INJECTED from C:\xampp\htdocs\News-App\platforms\android\app\src\main\AndroidManifest.xml:2:1-27:12
-INJECTED from C:\xampp\htdocs\News-App\platforms\android\app\src\main\AndroidManifest.xml:2:1-27:12
+ADDED from C:\xampp\htdocs\News-App\platforms\android\app\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\xampp\htdocs\News-App\platforms\android\app\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\xampp\htdocs\News-App\platforms\android\app\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\xampp\htdocs\News-App\platforms\android\app\src\main\AndroidManifest.xml:2:1-30:12
 MERGED from [com.android.support:support-v4:24.1.1] C:\Users\Batu\.gradle\caches\transforms-1\files-1.1\support-v4-24.1.1.aar\3bf933262e7fc0131994dd72339388d6\AndroidManifest.xml:17:1-27:12
 MERGED from [:CordovaLib] C:\xampp\htdocs\News-App\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:20:1-27:12
-INJECTED from C:\xampp\htdocs\News-App\platforms\android\app\src\main\AndroidManifest.xml:2:1-27:12
-INJECTED from C:\xampp\htdocs\News-App\platforms\android\app\src\main\AndroidManifest.xml:2:1-27:12
-INJECTED from C:\xampp\htdocs\News-App\platforms\android\app\src\main\AndroidManifest.xml:2:1-27:12
+INJECTED from C:\xampp\htdocs\News-App\platforms\android\app\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\xampp\htdocs\News-App\platforms\android\app\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\xampp\htdocs\News-App\platforms\android\app\src\main\AndroidManifest.xml:2:1-30:12
 	package
 		ADDED from C:\xampp\htdocs\News-App\platforms\android\app\src\main\AndroidManifest.xml:2:98-122
 		INJECTED from C:\xampp\htdocs\News-App\platforms\android\app\src\main\AndroidManifest.xml
@@ -135,6 +135,18 @@ uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from C:\xampp\htdocs\News-App\platforms\android\app\src\main\AndroidManifest.xml:26:5-79
 	android:name
 		ADDED from C:\xampp\htdocs\News-App\platforms\android\app\src\main\AndroidManifest.xml:26:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from C:\xampp\htdocs\News-App\platforms\android\app\src\main\AndroidManifest.xml:27:5-81
+	android:name
+		ADDED from C:\xampp\htdocs\News-App\platforms\android\app\src\main\AndroidManifest.xml:27:22-78
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from C:\xampp\htdocs\News-App\platforms\android\app\src\main\AndroidManifest.xml:28:5-79
+	android:name
+		ADDED from C:\xampp\htdocs\News-App\platforms\android\app\src\main\AndroidManifest.xml:28:22-76
+uses-feature#android.hardware.location.gps
+ADDED from C:\xampp\htdocs\News-App\platforms\android\app\src\main\AndroidManifest.xml:29:5-66
+	android:name
+		ADDED from C:\xampp\htdocs\News-App\platforms\android\app\src\main\AndroidManifest.xml:29:19-63
 meta-data#android.support.FILE_PROVIDER_PATHS
 ADDED from C:\xampp\htdocs\News-App\platforms\android\app\src\main\AndroidManifest.xml:13:13-123
 	android:resource
