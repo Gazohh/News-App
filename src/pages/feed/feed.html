@@ -31,7 +31,7 @@
     <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Sleep omlaag om te verversen"></ion-refresher-content>
   </ion-refresher>
   <!-- Grid -->
-  <ion-grid *ngIf="datepicker == 'vandaag' || datepicker == 'gisteren' || datepicker == 'driedagengeleden'">
+  <ion-grid *ngIf="datepicker == 'vandaag' || datepicker == 'gisteren' || datepicker == 'driedagengeleden'" class="feedGrid">
     <ion-col>
       <ion-row>
         <ion-card *ngFor="let item of items" col-md-6 class="ionCard">
@@ -144,23 +144,15 @@
           <ion-card class="weerCard">
             <div class="alignCenterWeer">
               <img src="../assets/imgs/Zon.png" alt="Zon">
-              <!-- <div *ngIf="weather == 'light rain'" class="weerPlaatsWeer">Lichte regenbui</div>
-              <div *ngIf="weather == 'clear sky'" class="weerPlaatsWeer">Heldere lucht</div>
-              <div *ngIf="weather == 'few clouds'" class="weerPlaatsWeer">Gedeeltelijk bewolkt</div>
-              <div *ngIf="weather == 'broken clouds'" class="weerPlaatsWeer">Gedeeltelijk bewolkt</div>
-              <div *ngIf="weather == 'scattered clouds'" class="weerPlaatsWeer">Verspreide bewolking</div>
-              <div class="weerPlaatsnaam">{{this.plaatsnaam}}, {{this.country}}</div>
-              <div *ngIf="dag1NaarCelcius15uurMathRound < 10" class="weerVandaag">{{this.dag1NaarCelcius15uurMathRound}}°</div>
-              <div *ngIf="dag1NaarCelcius15uurMathRound >= 10" class="weerVandaag2">{{this.dag1NaarCelcius15uurMathRound}}°</div> -->
             </div>
             <ion-card-content class="cardContentWeer">
               <!--Segmenten -->
-              <ion-segment [(ngModel)]="weerSegment" color="darkAppKleur">
-                <ion-segment-button value="weerVandaag">
-                  <p class="segmentWeer">Vandaag</p>
+              <ion-segment [(ngModel)]="weerSegment" color="darkAppKleur" class="weerSegmentZon">
+                <ion-segment-button value="weerVandaag" id="weerVandaag">
+                  <p class="segmentWeerVandaag">Vandaag</p>
                 </ion-segment-button>
-                <ion-segment-button value="weerWeek">
-                  <p class="segmentWeer">Hele week</p>
+                <ion-segment-button value="weerWeek" id="weerWeek">
+                  <p class="segmentWeerWeek">Week</p>
                 </ion-segment-button>
               </ion-segment>
               <!-- Vandaag -->
@@ -169,7 +161,7 @@
                   <button ion-item detail-none *ngIf="open" (click)="open=false">
                     <div class="buttonTijd">
                       <ion-icon item-left name="arrow-dropright"></ion-icon>
-                      <span class="tijdWeer">12:00</span>
+                      <span class="tijdWeer">{{this.dag1DatumTijd12uur}}</span>
                     </div>
                     <div class="gradenDiv">
                       <div class="graden">{{this.dag1NaarCelcius12uurMathRound}}° C</div>
@@ -178,7 +170,7 @@
                   <button ion-item detail-none *ngIf="!open" (click)="open=true">
                     <div class="buttonTijd">
                       <ion-icon item-left name="arrow-dropdown"></ion-icon>
-                      <span class="tijdWeer">12:00</span>
+                      <span class="tijdWeer">{{this.dag1DatumTijd12uur}}</span>
                     </div>
                     <div class="gradenDiv">
                       <div class="graden">{{this.dag1NaarCelcius12uurMathRound}}° C</div>
@@ -192,7 +184,7 @@
                   <button ion-item detail-none *ngIf="open2" (click)="open2=false">
                     <div class="buttonTijd">
                       <ion-icon item-left name="arrow-dropright"></ion-icon>
-                      <span class="tijdWeer">15:00</span>
+                      <span class="tijdWeer">{{this.dag1DatumTijd15uur}}</span>
                     </div>
                     <div class="gradenDiv">
                       <div class="graden">{{this.dag1NaarCelcius15uurMathRound}}° C</div>
@@ -201,7 +193,7 @@
                   <button ion-item detail-none *ngIf="!open2" (click)="open2=true">
                     <div class="buttonTijd">
                       <ion-icon item-left name="arrow-dropdown"></ion-icon>
-                      <span class="tijdWeer">15:00</span>
+                      <span class="tijdWeer">{{this.dag1DatumTijd15uur}}</span>
                     </div>
                     <div class="gradenDiv">
                       <div class="graden">{{this.dag1NaarCelcius15uurMathRound}}° C</div>
@@ -216,7 +208,7 @@
                   <button ion-item detail-none *ngIf="open3" (click)="open3=false">
                     <div class="buttonTijd">
                       <ion-icon item-left name="arrow-dropright"></ion-icon>
-                      <span class="tijdWeer">18:00</span>
+                      <span class="tijdWeer">{{this.dag1DatumTijd18uur}}</span>
                     </div>
                     <div class="gradenDiv">
                       <div class="graden">{{this.dag1NaarCelcius18uurMathRound}}° C</div>
@@ -229,8 +221,8 @@
                   </button>
                   <button ion-item detail-none *ngIf="!open3" (click)="open3=true">
                     <div class="buttonTijd">
-                      <ion-icon item-left name="arrow-dropright"></ion-icon>
-                      <span class="tijdWeer">18:00</span>
+                      <ion-icon item-left name="arrow-dropdown"></ion-icon>
+                      <span class="tijdWeer">{{this.dag1DatumTijd18uur}}</span>
                     </div>
                     <div class="gradenDiv">
                       <div class="graden">{{this.dag1NaarCelcius18uurMathRound}}° C</div>
@@ -249,7 +241,7 @@
                   <button ion-item detail-none *ngIf="open4" (click)="open4=false">
                     <div class="buttonTijd">
                       <ion-icon item-left name="arrow-dropright"></ion-icon>
-                      <span class="tijdWeer">21:00</span>
+                      <span class="tijdWeer">{{this.dag1DatumTijd21uur}}</span>
                     </div>
                     <div class="gradenDiv">
                       <div class="graden">{{this.dag1NaarCelcius21uurMathRound}}° C</div>
@@ -262,8 +254,8 @@
                   </button>
                   <button ion-item detail-none *ngIf="!open4" (click)="open4=true">
                     <div class="buttonTijd">
-                      <ion-icon item-left name="arrow-dropright"></ion-icon>
-                      <span class="tijdWeer">21:00</span>
+                      <ion-icon item-left name="arrow-dropdown"></ion-icon>
+                      <span class="tijdWeer">{{this.dag1DatumTijd21uur}}</span>
                     </div>
                     <div class="gradenDiv">
                       <div class="graden">{{this.dag1NaarCelcius21uurMathRound}}° C</div>
