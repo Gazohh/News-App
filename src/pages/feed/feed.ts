@@ -14,6 +14,7 @@ import {Content} from 'ionic-angular';
 import {AlertController} from 'ionic-angular';
 import {Geolocation} from '@ionic-native/geolocation';
 import {SocialSharing} from '@ionic-native/social-sharing';
+import {Storage} from '@ionic/storage';
 import 'rxjs/add/operator/map';
 
 
@@ -159,7 +160,8 @@ export class FeedPage {
         private screenOrientation: ScreenOrientation,
         private alertCtrl: AlertController,
         private socialSharing: SocialSharing,
-        private geolocation: Geolocation) {
+        private geolocation: Geolocation,
+        private storage: Storage) {
 
         // setSegment op vandaag op het weer.
         this.weerSegment = "weerVandaag";
@@ -175,7 +177,15 @@ export class FeedPage {
 
                 // Checkt of je een token hebt of niet zo niet dan word je naar home page direct
                 if (!localStorage.getItem("sessionToken")) {
+                    let toastinlog = toastCtrl.create({
+                        message: "Geen sessie gevonden, log opnieuw in.",
+                        duration: 2500,
+                        position: "top",
+                        showCloseButton: true,
+                        closeButtonText: "OK"
+                    });
                     this.navCtrl.setRoot(HomePage);
+                    toastinlog.present();
 
                 }
             })
@@ -201,6 +211,13 @@ export class FeedPage {
 
                     // Checkt of je een token hebt of niet zo niet dan word je naar home page direct
                     if (!localStorage.getItem("sessionToken")) {
+                        let toastinlog = toastCtrl.create({
+                            message: "Geen sessie gevonden, log opnieuw in.",
+                            duration: 2500,
+                            position: "top",
+                            showCloseButton: true,
+                            closeButtonText: "OK"
+                        });
                         this.navCtrl.setRoot(HomePage);
                         toastinlog.present();
 
@@ -210,7 +227,6 @@ export class FeedPage {
 
             // screenOrientation kan draaien
             this.screenOrientation.unlock();
-
             if (this.network.type != "none") {
                 //this.getData();
                 this.datepicker = "vandaag";
@@ -258,6 +274,25 @@ export class FeedPage {
                     this.events.publish("username", this.username);
                     this.events.publish("profilepicture", this.profilepicture);
                 });
+        }
+        else if(this.network.type = 'none')
+        {
+            this.datepicker = "vandaag";
+            let offlinealert = this.toastCtrl.create({
+                message: "Er is geen internet verbinding, opgeslagen artikelen worden ingeladen.",
+                duration: 2500,
+                position: "bottom"
+            });
+            offlinealert.present();
+            if (this.datepicker == "vandaag") {
+                this.getOfflineDataToday();
+            }
+            else if (this.datepicker == "gisteren") {
+                this.getOfflineDataYesterday();
+            }
+            else if (this.datepicker == "driedagengeleden") {
+                this.getOfflineData3DaysAgo();
+            }
         }
 
     }
@@ -328,6 +363,19 @@ export class FeedPage {
             ]
         });
         confirm.present();
+    }
+
+    ionViewWillEnter()
+    {
+        if (this.datepicker == "vandaag") {
+            this.load();
+        }
+        else if (this.datepicker == "gisteren") {
+            this.loadYesterday();
+        }
+        else if (this.datepicker == "driedagengeleden") {
+            this.load3DaysAgo();
+        }
     }
 
     // Custom Spinner loader
@@ -605,8 +653,8 @@ export class FeedPage {
             });
     }
 
-    shareInfo() {
-        this.socialSharing.share("Ik wil dit artikel met je delen", "Artikel-NewsAge", "www.telegraaf.nl")
+    shareInfo(articleTitle, articleImage, articleLink) {
+        this.socialSharing.share('Bekijk "' + articleTitle + '" via de Newsage app', "NewsAge", articleImage, articleLink);
         //         then(() => {
         //             alert("Sharing success");
         //      Success!
@@ -699,6 +747,53 @@ export class FeedPage {
                 });
                 toast.present();
             }
+        });
+    }
+
+    getOfflineDataToday() {
+        this.datepicker = 'vandaag;'
+        this.storage.get('offlineDataVandaag').then((val) => {
+            this.items = val;
+            this.artikelen = val;
+            if (this.items) {
+                this.items.sort(function (a, b) {
+                    return +new Date(b.datum) - +new Date(a.datum);
+                });
+            }
+            console.log('Data:' + val);
+            console.log('Offline data is imported.');
+        });
+    }
+
+    getOfflineDataYesterday()
+    {
+        this.datepicker = 'gisteren';
+        this.storage.get('offlineDataGisteren').then((val) => {
+            this.items = val;
+            this.artikelen = val;
+            if (this.items) {
+                this.items.sort(function (a, b) {
+                    return +new Date(b.datum) - +new Date(a.datum);
+                });
+            }
+            console.log('Data:' + val);
+            console.log('Offline data is imported.');
+        });
+    }
+
+    getOfflineData3DaysAgo()
+    {
+        this.datepicker = 'driedagengeleden';
+        this.storage.get('offlineData3DagenGeleden').then((val) => {
+            this.items = val;
+            this.artikelen = val;
+            if (this.items) {
+                this.items.sort(function (a, b) {
+                    return +new Date(b.datum) - +new Date(a.datum);
+                });
+            }
+            console.log('Data:' + val);
+            console.log('Offline data is imported.');
         });
     }
 
