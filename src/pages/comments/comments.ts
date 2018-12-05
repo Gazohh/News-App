@@ -5,13 +5,6 @@ import {AlertController} from 'ionic-angular';
 import {FeedPage} from "../feed/feed";
 import {Content} from 'ionic-angular';
 
-/**
- * Generated class for the CommentsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
     selector: 'page-comments',
@@ -44,11 +37,6 @@ export class CommentsPage {
             this.getComments();
         }
 
-        // Set focus op de inputveld
-        setTimeout(() => {
-            this.myInput.setFocus();
-        }, 150);
-
         // Maak connectie met http voor username etc
         const headers = new HttpHeaders();
         headers.append("Accept", 'application/json');
@@ -75,10 +63,13 @@ export class CommentsPage {
         this.content.scrollToBottom(0)
     }
 
+
+
     // Runs when the page is about to enter and become the active page.
     ionViewDidEnter() {
         let dimensions = this.content.getContentDimensions();
         this.content.scrollTo(0, dimensions.contentHeight + 100, 100);
+        setTimeout(() => this.myInput.setFocus(), 250);
     }
 
     ionViewDidLoad() {
