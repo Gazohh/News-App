@@ -1,44 +1,38 @@
 @import "www/assets/scss/theme.dark1.scss";
-
 @font-face {
-    font-family: 'Roboto-Regular';
-    src: url('../assets/fonts/Roboto-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Roboto-Regular';
+  src: url("../assets/fonts/Roboto-Regular.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
-
 @font-face {
-    font-family: 'Roboto-Thin';
-    src: url('../assets/fonts/Roboto-Thin.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Roboto-Thin';
+  src: url("../assets/fonts/Roboto-Thin.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
-
 @font-face {
-    font-family: 'Roboto-Bold';
-    src: url('../assets/fonts/Roboto-Bold.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Roboto-Bold';
+  src: url("../assets/fonts/Roboto-Bold.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
-
 @font-face {
-    font-family: 'Roboto-BoldCondensed';
-    src: url('../assets/fonts/Roboto-BoldCondensed.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Roboto-BoldCondensed';
+  src: url("../assets/fonts/Roboto-BoldCondensed.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
-
 @font-face {
-    font-family: 'Roboto-Medium';
-    src: url('../assets/fonts/Roboto-Medium.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Roboto-Medium';
+  src: url("../assets/fonts/Roboto-Medium.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 * {
-    font-family: 'Roboto-Regular';
+  font-family: 'Roboto-Regular';
 }
-
 
 body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item > div.item-inner {
   border-bottom-color: transparent !important;
@@ -880,7 +874,6 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 }
 // FeedPage Header
 
-
 .alert-md .alert-wrapper {
   border-radius: 10px !important;
 }
@@ -906,8 +899,8 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > 
   width: 0 !important;
   height: 0 !important;
 }
-
 // Algemeen Text
+
 body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > div.toolbar-content.toolbar-content-md > ion-title > div {
   padding-left: 0 !important;
   padding-right: 0 !important;
@@ -925,8 +918,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > 
 body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > ion-grid > ion-col > ion-row > ion-card {
   width: 100% !important;
   margin: 0 0 10px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  box-shadow: rgba(0,0,0,0.01) 3px 6px rgba(0,0,0,0.01), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .toolbar-background {
@@ -967,7 +959,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 .datumFeed {
   float: left;
   font-size: 1.2rem;
-  color: #b5b5b5;
+  color: #BDBDBD;
   font-weight: 400;
   margin-top: 7px;
   margin-bottom: 8px;
@@ -988,15 +980,21 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
   width: 100%;
   font-size: 1.4rem;
   background: #fff;
-  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 
-.TitleFeed {
+#title > ion-card-title > strong {
   margin: 9px 0 0 0 !important;
   font-size: 1.8rem !important;
   padding-bottom: 2px;
   font-family: 'Roboto-Bold' !important;
+}
+
+#title > ion-card-title {
+  line-height: 1;
+}
+
+.cardContentWeer {
+  padding: 0;
 }
 
 .feedGrid {
@@ -1005,6 +1003,10 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 
 .feedCol {
   margin-bottom: 1.5rem;
+}
+
+.feedGrid {
+  padding: 0px;
 }
 // FEED images
 
@@ -1350,44 +1352,74 @@ body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-
 }
 // Weer data
 
-.segmentWeer {
-  font-weight: bold !important;
-}
-
-.rowWeer {
-  margin-top: 20px;
-}
-
-.ulWeer {
-  margin: 0;
-  list-style-type: none;
-  padding: 0;
-  left: 77%;
+.tijdWeer {
   position: absolute;
-  font-weight: bold;
 }
 
-.liWeer {
-  margin-top: 10px;
-}
-
-.ulWeerTijden {
-  margin: 0;
-  list-style-type: none;
-}
-
-.accordianMargin {
-  margin-right: 10px;
-}
-
+// ZON
+// ----------------------------------
+// Segment Week Zon
 body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > ion-grid > ion-col > ion-row > ion-list > ion-card > ion-card-content > ion-segment > ion-segment-button:nth-child(2) {
   height: 30px;
   display: block;
+  border: 1px solid #ef6f53;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-color: #f9944d;
+  background-color: #f9944d;
+  border: #f9944d;
+  color: #fff;
 }
 
+// Segment Vandaag Zon
 body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > ion-grid > ion-col > ion-row > ion-list > ion-card > ion-card-content > ion-segment > ion-segment-button:nth-child(1) {
   height: 30px;
   display: block;
+  border: 1px solid #ef6f53;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-color: #f9944d;
+  background-color: #f9944d;
+  border: #f9944d;
+}
+
+.weerSegmentZon {
+  padding: 20px 60px 0;
+}
+
+.segment-md-darkAppKleur .segment-button.segment-activated {
+  border-color: #ef6f53;
+  background-color: #ef6f53;
+  border: 1px solid #ef6f53;
+  opacity: 1;
+}
+
+.segmentWeerWeek {
+  color: #fff !important;
+}
+
+.segmentWeerVandaag {
+  color: #fff !important;
+}
+// ----------------------------------
+// ----------------------------------
+
+.card-md p {
+  margin-top: 4px;
+  font-size: 2vh;
+}
+
+.rowWeer {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.weatherClass {
+  font-size: 1rem;
+  color: #BDBDBD;
+  font-family: 'Roboto-Medium';
+  float: right;
+  text-align: center;
 }
 
 .weerList {
@@ -1450,4 +1482,61 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
   top: 24.5%;
   font-weight: 400;
   color: #fff;
+}
+
+body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > ion-grid > ion-col > ion-row > ion-list > ion-card > ion-card-content > div > ion-row > button > div.item-inner {
+  margin-left: 15px !important;
+}
+
+.gradenDiv {
+  float: right;
+  margin-right: 15px;
+}
+
+.buttonTijd {
+  float: left;
+}
+// icon pijl
+
+body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > ion-grid > ion-col > ion-row > ion-list > ion-card > ion-card-content > div > ion-row > button > div.item-inner > div > ion-label > div.buttonTijd > ion-icon {
+  margin-top: 0;
+  margin-right: 15px;
+}
+
+.graden {
+  text-align: center;
+  font-family: 'Roboto-Bold';
+}
+
+.bewolktSpan {
+  color: #BDBDBD;
+  font-family: 'Roboto-Medium';
+  text-align: center;
+}
+
+.tijdWeer {
+  font-family: 'Roboto-Medium';
+}
+// Label uitklapWeer
+
+body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > ion-grid > ion-col > ion-row > ion-list > ion-card > ion-card-content > div > ion-row > ion-item > div.item-inner > div > ion-label {
+  margin-top: 0;
+  padding-left: 26px;
+  padding-right: 26px;
+}
+
+.uitklapWeer {
+  list-style-type: none;
+  margin: -9px 0 0;
+}
+
+.spanClasses {
+  font-size: smaller;
+  font-family: 'Roboto-Medium';
+}
+
+.badgeClasses {
+  float: right;
+  border-radius: 10px;
+  font-family: 'Roboto-Bold';
 }
