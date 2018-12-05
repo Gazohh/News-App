@@ -112,6 +112,10 @@ body > ion-app > ng-component > ion-nav > page-settings > ion-content > div.scro
   border-radius: 5px;
 }
 
+.buttonStuurOpnieuwVerification.activated {
+  background-color: #fff;
+}
+
 .verifyText {
   font-family: 'Roboto-Bold' !important;
 }
