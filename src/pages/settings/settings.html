@@ -11,10 +11,19 @@
 </ion-header>
 
 <ion-content>
-    <div *ngIf="emailVerified == 0">
-        <p>Je email <strong>{{userEmail}}</strong> is nog niet geverifieerd, wilt u de verificatiemail opnieuw ontvangen ?</p>
-        <button (click)="resendMail()">Stuur opnieuw</button>
-    </div>
+
+    <ion-card *ngIf="emailVerified == 0" class="cardVerification">
+        <div class="containerVerification">
+            <ion-card-header class="verificationHeader">
+                <ion-icon name="alert" class="alertIcon"></ion-icon>
+                Verifieer je email
+            </ion-card-header>
+            <ion-card-content>
+                <p class="emailVerificationText">Controleer uw e-mailadres <b>{{userEmail}}</b> en volg de instructies om uw account te verifiëren. Als u een e-mail niet hebt ontvangen of als het is verlopen, kunt u opnieuw een verzenden.</p>
+                <button ion-button block (click)="resendMail()" class="buttonStuurOpnieuwVerification"><span class="verifyText">Verifeer</span></button>
+            </ion-card-content>
+        </div>
+    </ion-card>
     <ion-item class="" (click)="goProfiel()">
         <ion-label class="DarkLabel">
             <ion-icon name="person" class="iconInstellingen"></ion-icon>

@@ -60,10 +60,68 @@ ion-slide.swiper-slide {
 // ------------------------------------
 // Settings Pagina
 // Iconen margin
-
 .iconInstellingen {
   margin-right: 2rem !important;
 }
+
+.emailVerificationText {
+  white-space: initial;
+  word-wrap: break-word;
+  text-align: center;
+  color: #fff !important;
+  font-size: 1.8vh;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+// Ion card
+body > ion-app > ng-component > ion-nav > page-settings > ion-content > div.scroll-content > ion-card {
+  border-radius: 5px;
+}
+
+.cardVerification {
+  margin-bottom: 4px;
+}
+
+.alertIcon {
+  float: left;
+  font-size: 4.4vh;
+}
+
+.verificationHeader {
+  font-family: 'Roboto-Bold' !important;
+  font-size: 3vh;
+  white-space: initial;
+  word-wrap: break-word;
+  text-align: center;
+  padding: 12px;
+  padding-right: 40px;
+  padding-left: 20px;
+  padding-bottom: 8px !important;
+  color: #fff;
+
+}
+
+.buttonStuurOpnieuwVerification {
+  width: 35%;
+  background-color: #fff;
+  color: #8c2929;
+  font-size: 1.3rem;
+  margin: 0 auto;
+  margin-top: 15px;
+  border-radius: 5px;
+}
+
+.verifyText {
+  font-family: 'Roboto-Bold' !important;
+}
+
+.containerVerification {
+  background-color: #8c2929 !important;
+  border-radius: 0px !important;
+  padding: 5px !important;
+}
+
 // ------------------------------------
 // Comments
 // Input border
@@ -299,11 +357,6 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   margin-top: 30px;
 }
 
-.background {
-  background-image: url("../assets/imgs/login.png");
-  width: 400px;
-  height: 400px;
-}
 // Home Button (HomePage) - Login pagina
 
 .homeButton {
@@ -1520,9 +1573,9 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 // Label uitklapWeer
 
 body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > ion-grid > ion-col > ion-row > ion-list > ion-card > ion-card-content > div > ion-row > ion-item > div.item-inner > div > ion-label {
-  margin-top: 0;
-  padding-left: 26px;
-  padding-right: 26px;
+  margin-top: -11px;
+  padding-left: 40px;
+  padding-right: 7px;
 }
 
 .uitklapWeer {
