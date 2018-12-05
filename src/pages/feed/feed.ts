@@ -426,15 +426,24 @@ export class FeedPage {
 
     // Zodra je de searchbar canceled
     resetChanges() {
-        this.http
-            .get('http://gazoh.net/getdata.php')
-            .subscribe((data: any) => {
-                    this.items = data;
-                },
-                (error: any) => {
-                    console.dir(error);
-                });
-
+        if(this.network.type != "none")
+        {
+            if (this.datepicker == "vandaag") {
+                this.load();
+                this.isSearchbaropened = false;
+            } else if (this.datepicker == "gisteren") {
+                this.loadYesterday();
+                this.isSearchbaropened = false;
+            } else if (this.datepicker == "driedagengeleden") {
+                this.load3DaysAgo();
+                this.isSearchbaropened = false;
+            }
+        }
+        else
+        {
+            this.items = this.artikelen;
+            this.isSearchbaropened = false;
+        }
     }
 
     // Zodra de pagina is geladen
