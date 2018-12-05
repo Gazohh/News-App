@@ -38,7 +38,7 @@ if (isset($data)) {
 
 $likedata = array();
 
-$sql = "SELECT article.id AS articleId, article.title AS articleTitle, article.site AS publisher, article.description AS articleDesc, article.image AS articleImg, article.likes AS articleLikes, article.comments AS articleComments, article.verborgen AS articleVerborgen,likes.id AS likeId, likes.articleId AS likedArticleId, likes.userId AS likedUserId, likes.likeDate AS likeDate, (CASE likes.userId WHEN '$userId' THEN 1 END) AS liked FROM article INNER JOIN likes on likes.articleId = article.id WHERE likes.userId = '$userId'";
+$sql = "SELECT article.id, article.title, article.site, article.description, article.image, article.datum, article.likes, article.comments, article.verborgen,likes.id AS likeId, likes.articleId AS likedArticleId, likes.userId AS likedUserId, likes.likeDate AS likeDate, (CASE likes.userId WHEN '$userId' THEN 1 END) AS liked FROM article INNER JOIN likes on likes.articleId = article.id WHERE likes.userId = '$userId'";
 
 $result = mysqli_query($con, $sql);
 
@@ -46,4 +46,4 @@ while ($row = mysqli_fetch_assoc($result)) {
     $likedata[] = $row;
 }
 
-echo json_encode($likedata);
+echo json_encode($likedata,JSON_UNESCAPED_UNICODE);
