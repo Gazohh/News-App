@@ -42,7 +42,7 @@ if (isset($data)) {
 
 }
 
-$str = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789!@#$";
+$str = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789!@$";
 $str = str_shuffle($str);
 $token = substr($str, 0, 10);
 
