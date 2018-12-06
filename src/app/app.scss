@@ -1565,35 +1565,49 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
   font-family: 'Roboto-Bold';
 }
 
-.bewolktSpan {
-  color: #BDBDBD;
-  font-family: 'Roboto-Medium';
-  text-align: center;
-}
-
 .tijdWeer {
   font-family: 'Roboto-Medium';
 }
 // Label uitklapWeer
 
-body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > ion-grid > ion-col > ion-row > ion-list > ion-card > ion-card-content > div > ion-row > ion-item > div.item-inner > div > ion-label {
-  margin-top: -11px;
-  padding-left: 40px;
-  padding-right: 7px;
+.uitklapWeerAntwoorden {
+  list-style-type: none;
+  text-align: end;
+  float: right;
+  margin-right: 30px;
+  padding-left: 0px;
 }
 
-.uitklapWeer {
+.uitklapWeer{
   list-style-type: none;
-  margin: -9px 0 0;
+  text-align: end;
+  padding-left: 58px;
+  float: left;
+}
+
+.uitklapMargin {
+  margin-top: -11px !important;
+  width: 100%;
 }
 
 .spanClasses {
   font-size: smaller;
   font-family: 'Roboto-Medium';
+  margin-bottom: 10px;
 }
 
 .badgeClasses {
-  float: right;
   border-radius: 10px;
   font-family: 'Roboto-Bold';
+  margin-bottom: 10px;
+  font-size: smaller;
+}
+
+.bewolktSpan {
+  border-radius: 10px;
+  font-family: 'Roboto-Bold';
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  text-align: center;
+
 }

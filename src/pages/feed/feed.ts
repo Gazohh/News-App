@@ -136,6 +136,14 @@ export class FeedPage {
     public dag1Weather15uurHumidity: any;
     public dag1Weather18uurHumidity: any;
     public dag1Weather21uurHumidity: any;
+    public windNaarKm12uurDag1;
+    public windNaarKm15uurDag1;
+    public windNaarKm18uurDag1;
+    public windNaarKm21uurDag1;
+    public windNaarKm12uurDag1MathRound;
+    public windNaarKm15uurDag1MathRound;
+    public windNaarKm18uurDag1MathRound;
+    public windNaarKm21uurDag1MathRound;
     public dag1DatumTijd12uur: any;
     public dag1DatumTijd15uur: any;
     public dag1DatumTijd18uur: any;
@@ -819,7 +827,7 @@ export class FeedPage {
         headers.append("Accept", 'application/json');
         headers.append('Content-Type', 'application/json');
         const options = {headers: headers};
-        this.http.get('https://api.openweathermap.org/data/2.5/forecast?id=2759660&appid=761f22645cd9591d1eba076e0fd173d9', options).subscribe(data => {
+        this.http.get('https://api.openweathermap.org/data/2.5/forecast?id=6534091&appid=761f22645cd9591d1eba076e0fd173d9', options).subscribe(data => {
             this.dataweer = Object.keys(data).map(key => data[key]);
             // Dagen tempratuur to Celcius
 
@@ -920,19 +928,34 @@ export class FeedPage {
             // Variablen van de JSON
             this.plaatsnaam = this.dataweer[4].name.replace('Gemeente', '').replace('East', '');
             this.country = this.dataweer[4].country;
-            this.weather = this.dataweer[3][0].weather[0].description;
+            this.weather = this.dataweer[3][0].weather[0].description
+            // Description weer
             this.dag1Weather12uur = this.dataweer[3][0].weather[0].description;
             this.dag1Weather15uur = this.dataweer[3][1].weather[0].description;
             this.dag1Weather18uur = this.dataweer[3][2].weather[0].description;
             this.dag1Weather21uur = this.dataweer[3][3].weather[0].description;
+            // Neerslag
             this.dag1Weather12uurHumidity = this.dataweer[3][0].main.humidity;
             this.dag1Weather15uurHumidity = this.dataweer[3][1].main.humidity;
             this.dag1Weather18uurHumidity = this.dataweer[3][2].main.humidity;
             this.dag1Weather21uurHumidity = this.dataweer[3][3].main.humidity;
+            // Datum Tijd
             this.dag1DatumTijd12uur = this.dataweer[3][0].dt_txt
             this.dag1DatumTijd15uur = this.dataweer[3][1].dt_txt;
             this.dag1DatumTijd18uur = this.dataweer[3][2].dt_txt;
             this.dag1DatumTijd21uur = this.dataweer[3][3].dt_txt;
+            // Wind Seconden per uur naar km per uur
+            this.windNaarKm12uurDag1 = this.dataweer[3][0].wind.speed * 3.6;
+            this.windNaarKm15uurDag1 = this.dataweer[3][1].wind.speed * 3.6;
+            this.windNaarKm18uurDag1 = this.dataweer[3][2].wind.speed * 3.6;
+            this.windNaarKm21uurDag1 = this.dataweer[3][3].wind.speed * 3.6;
+            // Wind Seconden per uur naar km per uur AFRONDEN
+            this.windNaarKm12uurDag1MathRound = this.windNaarKm12uurDag1.toPrecision(2);
+            this.windNaarKm15uurDag1MathRound = this.windNaarKm15uurDag1.toPrecision(2);
+            this.windNaarKm18uurDag1MathRound = this.windNaarKm18uurDag1.toPrecision(2);
+            this.windNaarKm21uurDag1MathRound = this.windNaarKm21uurDag1.toPrecision(2);
+            //
+
 
             console.log(this.dataweer);
             console.log(this.dag1Weather12uur);
