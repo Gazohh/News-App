@@ -450,6 +450,7 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
 .centerTitle {
   padding-left: 0;
   padding-right: 48px;
+  font-family: 'Roboto-Bold' !important;
 }
 
 .Title {
@@ -956,13 +957,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > 
   width: 0 !important;
   height: 0 !important;
 }
-// Algemeen Text
 
-body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > div.toolbar-content.toolbar-content-md > ion-title > div {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  font-family: 'Roboto-Bold' !important;
-}
 // Ion select
 
 body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > ion-buttons:nth-child(5) > ion-select {
@@ -1438,6 +1433,10 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
   border-color: #f9944d;
   background-color: #f9944d;
   border: #f9944d;
+}
+
+.badge-md {
+  background-color: #f9944d;
 }
 
 .weerSegmentZon {

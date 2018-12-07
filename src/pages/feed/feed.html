@@ -174,16 +174,23 @@
                 <ion-list>
                     <ion-card class="weerCard">
                         <div class="alignCenterWeer">
-                            <img *ngIf="dag1Weather12uur == 'light rain'" src="../assets/imgs/Weer/lichtBewolkt.png" alt="Zon">
-                            <img *ngIf="dag1Weather12uur == 'clear sky'" src="../assets/imgs/Weer/clearSky.png" alt="Zon">
-                            <img *ngIf="dag1Weather12uur == 'few clouds'" src="../assets/imgs/Weer/lichtBewolkt.png" alt="Bewolkt">
-                            <img *ngIf="dag1Weather12uur == 'broken clouds'" src="../assets/imgs/Weer/lichtBewolkt.png" alt="Bewolkt">
-                            <img *ngIf="dag1Weather12uur == 'scattered clouds'" src="../assets/imgs/Weer/zwaarBewolktMiddag.png" alt="Bewolkt">
+                            <img *ngIf="dag1Weather12uur == 'light rain'" src="../assets/imgs/Weer/lichtBewolkt.png"
+                                 alt="Zon">
+                            <img *ngIf="dag1Weather12uur == 'clear sky'" src="../assets/imgs/Weer/clearSky.png"
+                                 alt="Zon">
+                            <img *ngIf="dag1Weather12uur == 'few clouds'" src="../assets/imgs/Weer/lichtBewolkt.png"
+                                 alt="Bewolkt">
+                            <img *ngIf="dag1Weather12uur == 'broken clouds'" src="../assets/imgs/Weer/lichtBewolkt.png"
+                                 alt="Bewolkt">
+                            <img *ngIf="dag1Weather12uur == 'scattered clouds'"
+                                 src="../assets/imgs/Weer/zwaarBewolktMiddag.png" alt="Bewolkt">
+                            <img *ngIf="dag1Weather12uur == 'moderate rain'"
+                                 src="../assets/imgs/Weer/zwaarBewolktMiddag.png" alt="Bewolkt">
                         </div>
                         <ion-card-content class="cardContentWeer">
                             <!--Segmenten -->
                             <ion-segment [(ngModel)]="weerSegment" color="darkAppKleur" class="weerSegmentZon">
-                                <ion-segment-button value="weerVandaag" id="weerVandaag">
+                                <ion-segment-button value="weerVandaag" id="weerVandaag" class="weatherLight">
                                     <p class="segmentWeerVandaag">Vandaag</p>
                                 </ion-segment-button>
                                 <ion-segment-button value="weerWeek" id="weerWeek">
@@ -230,6 +237,10 @@
                                                 </ion-badge>
                                             </li>
                                             <li>
+
+                                                <ion-badge *ngIf="dag1Weather12uur == 'moderate rain'"
+                                                           class="badgeClasses">Lichte regenbui
+                                                </ion-badge>
                                                 <ion-badge *ngIf="dag1Weather12uur == 'light rain'"
                                                            class="badgeClasses">Lichte regenbui
                                                 </ion-badge>
@@ -285,6 +296,9 @@
                                                 </ion-badge>
                                             </li>
                                             <li>
+                                                <ion-badge *ngIf="dag1Weather15uur == 'moderate rain'"
+                                                           class="badgeClasses">Lichte regenbui
+                                                </ion-badge>
                                                 <ion-badge *ngIf="dag1Weather15uur == 'light rain'"
                                                            class="badgeClasses">Lichte regenbui
                                                 </ion-badge>
@@ -340,6 +354,9 @@
                                                 </ion-badge>
                                             </li>
                                             <li>
+                                                <ion-badge *ngIf="dag1Weather18uur == 'moderate rain'"
+                                                           class="badgeClasses">Lichte regenbui
+                                                </ion-badge>
                                                 <ion-badge *ngIf="dag1Weather18uur == 'light rain'"
                                                            class="badgeClasses">Lichte regenbui
                                                 </ion-badge>
@@ -400,6 +417,9 @@
                                                 </ion-badge>
                                                 <ion-badge *ngIf="dag1Weather21uur == 'clear sky'" class="badgeClasses">
                                                     Heldere lucht
+                                                </ion-badge>
+                                                <ion-badge *ngIf="dag1Weather21uur == 'moderate rain'"
+                                                           class="badgeClasses">Lichte regenbui
                                                 </ion-badge>
                                                 <ion-badge *ngIf="dag1Weather21uur == 'few clouds'"
                                                            class="badgeClasses">Gedeeltelijk <br><span
