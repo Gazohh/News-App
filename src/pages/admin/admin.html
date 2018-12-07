@@ -1,6 +1,6 @@
 <ion-header no-border-bottom>
   <ion-navbar>
-    <ion-title *ngIf="!isSearchbaropened" class="algemeenText">Admin</ion-title>
+    <ion-title *ngIf="!isSearchbaropened" class="adminTitle">Admin</ion-title>
     <!-- Searchbar  -->
     <ion-searchbar #searchbar *ngIf="isSearchbaropened" [showCancelButton]="true" (ionCancel)="resetChanges()" (ionInput)="search($event)" placeholder="Waar zijn we naar op zoek?" class="slideInRight"></ion-searchbar>
     <!-- Searchbar icon -->

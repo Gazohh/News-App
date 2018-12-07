@@ -160,7 +160,7 @@ export class SettingsPage {
         this.navCtrl.setRoot(ProfielPage);
     }
     privacyBeleid(){
-        this.navCtrl.setRoot(PrivacybeleidPage);
+        this.navCtrl.push(PrivacybeleidPage);
     }
 
     rapporteerProbleem(data) {
