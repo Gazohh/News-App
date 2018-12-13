@@ -13,6 +13,8 @@ import {File} from '@ionic-native/file';
 import {FileTransfer} from '@ionic-native/file-transfer';
 import {Camera} from '@ionic-native/camera';
 import {Geolocation} from '@ionic-native/geolocation';
+import { PhotoViewer } from '@ionic-native/photo-viewer';
+
 
 //
 // Pages
@@ -135,7 +137,8 @@ import {SocialSharing} from "@ionic-native/social-sharing";
         FileTransfer,
         MenuProvider,
         SocialSharing,
-        Geolocation
+        Geolocation,
+        PhotoViewer
 
     ]
 

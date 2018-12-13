@@ -54,6 +54,11 @@ export class FavorietenPage {
 
         this.http.post('http://www.gazoh.net/getliked.php', data, options).subscribe(res => {
             this.likedarticles = res;
+            if (this.likedarticles) {
+                this.likedarticles.sort(function (a, b) {
+                    return +new Date(b.datum) - +new Date(a.datum);
+                });
+            }
             console.log(res);
         })
     }

@@ -37,8 +37,7 @@ if(isset($data))
     $articleId = $request->articleId;
 }
 
-$sql = "Select comment.commentId, comment.comment, comment.commentDate, user.username, user.profilepicture, user.id AS userID from comments AS comment INNER JOIN users AS user ON comment.userId = user.id WHERE articleId='$articleId'";
-
+$sql = "Select comment.commentId, comment.comment, DATE_FORMAT(commentDate,'%H:%i') TIMEONLY AS commentDate, user.username, user.profilepicture, user.id AS userID from comments AS comment INNER JOIN users AS user ON comment.userId = user.id WHERE articleId='$articleId'";
 $result = mysqli_query($con,$sql);
 
 while($row = mysqli_fetch_array($result))

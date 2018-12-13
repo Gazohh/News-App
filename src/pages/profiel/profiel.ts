@@ -9,6 +9,8 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Events} from 'ionic-angular';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import { WijzigwachtwoordPage } from "../wijzigwachtwoord/wijzigwachtwoord";
+import { PhotoViewer } from '@ionic-native/photo-viewer';
+
 
 
 @IonicPage()
@@ -36,7 +38,8 @@ export class ProfielPage implements OnInit {
                 private camera: Camera,
                 public actionSheetCtrl: ActionSheetController,
                 public http: HttpClient,
-                public events: Events) {
+                public events: Events,
+                public photoViewer:PhotoViewer) {
         const headers = new HttpHeaders();
 
         headers.append("Accept", 'application/json');
@@ -66,8 +69,23 @@ export class ProfielPage implements OnInit {
 
     presentActionSheet() {
         let actionSheet = this.actionSheetCtrl.create({
-            title: 'Kies een profielfoto!',
+            title: 'Wat wilt u doen ?',
             buttons: [
+                {
+                    text: 'Profielfoto bekijken',
+                    role: 'Profielfoto bekijken',
+                    handler: () => {
+                        if(this.myphoto)
+                        {
+                            this.photoViewer.show(this.myphoto);
+                        }
+                        else if(!this.myphoto)
+                        {
+                            let alert = this.alertCtrl.create({title: "Geen data",message: "Geen foto!"})
+                            alert.present();
+                        }
+                    }
+                },
                 {
                     text: 'Maak foto',
                     role: 'Maak foto',

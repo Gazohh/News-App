@@ -203,7 +203,9 @@ export class FeedPage {
         this.screenOrientation.unlock();
 
         if (this.network.type != "none") {
-            //this.getData();
+            this.setOfflineDataToday();
+            this.setOfflineDataYesterday();
+            this.setOfflineData3DaysAgo();
             this.datepicker = "vandaag";
             if (this.datepicker == "vandaag") {
                 this.load();
@@ -233,37 +235,6 @@ export class FeedPage {
                 })
             }
 
-            // screenOrientation kan draaien
-            this.screenOrientation.unlock();
-            if (this.network.type != "none") {
-                //this.getData();
-                this.datepicker = "vandaag";
-                if (this.datepicker == "vandaag") {
-                    this.load();
-                } else if (this.datepicker == "gisteren") {
-                    this.loadYesterday();
-                } else if (this.datepicker == "driedagengeleden") {
-                    this.load3DaysAgo();
-                }
-            } else {
-                this.loadData();
-                let toast = toastCtrl.create({
-                    message: "Geen internet verbinding, opgeslagen artikelen worden ingeladen.",
-                    duration: 2500,
-                    position: "top",
-                    showCloseButton: true,
-                    closeButtonText: "OK"
-                });
-                toast.present();
-            }
-            let toastinlog = toastCtrl.create({
-                message: "Geen sessie gevonden, log opnieuw in.",
-                duration: 2500,
-                position: "top",
-                showCloseButton: true,
-                closeButtonText: "OK"
-            });
-
             // Hij pakt alle rollen, usernames etc van de database
             const headers = new HttpHeaders();
             headers.append("Accept", 'application/json');
@@ -283,8 +254,8 @@ export class FeedPage {
                     this.events.publish("profilepicture", this.profilepicture);
                 });
         }
-        else if(this.network.type = 'none')
-        {
+        else if (this.network.type == 'none') {
+
             this.datepicker = "vandaag";
             let offlinealert = this.toastCtrl.create({
                 message: "Er is geen internet verbinding, opgeslagen artikelen worden ingeladen.",
@@ -293,16 +264,39 @@ export class FeedPage {
             });
             offlinealert.present();
             if (this.datepicker == "vandaag") {
-                this.getOfflineDataToday();
+                this.storage.get("offlineDataToday").then(data => {
+                    this.items = data;
+                    this.artikelen = data;
+                    if (this.items) {
+                        this.items.sort(function (a, b) {
+                            return +new Date(b.datum) - +new Date(a.datum);
+                        });
+                    }
+                })
             }
             else if (this.datepicker == "gisteren") {
-                this.getOfflineDataYesterday();
+                this.storage.get("offlineDataYesterday").then(data => {
+                    this.items = data;
+                    this.artikelen = data;
+                    if (this.items) {
+                        this.items.sort(function (a, b) {
+                            return +new Date(b.datum) - +new Date(a.datum);
+                        });
+                    }
+                })
             }
             else if (this.datepicker == "driedagengeleden") {
-                this.getOfflineData3DaysAgo();
+                this.storage.get("offlineData3DaysAgo").then(data => {
+                    this.items = data;
+                    this.artikelen = data;
+                    if (this.items) {
+                        this.items.sort(function (a, b) {
+                            return +new Date(b.datum) - +new Date(a.datum);
+                        });
+                    }
+                })
             }
         }
-
     }
 
 
@@ -373,16 +367,53 @@ export class FeedPage {
         confirm.present();
     }
 
-    ionViewWillEnter()
-    {
-        if (this.datepicker == "vandaag") {
-            this.load();
+    ionViewWillEnter() {
+        if (this.network.type != "none") {
+            if (this.datepicker == "vandaag") {
+                this.load();
+            }
+            else if (this.datepicker == "gisteren") {
+                this.loadYesterday();
+            }
+            else if (this.datepicker == "driedagengeleden") {
+                this.load3DaysAgo();
+            }
         }
-        else if (this.datepicker == "gisteren") {
-            this.loadYesterday();
-        }
-        else if (this.datepicker == "driedagengeleden") {
-            this.load3DaysAgo();
+        else if (this.network.type == "none") {
+            console.log("No connection found loading articles from Storage");
+            if (this.datepicker == "vandaag") {
+                this.storage.get("offlineDataToday").then(data => {
+                    this.items = data;
+                    this.artikelen = data;
+                    if (this.items) {
+                        this.items.sort(function (a, b) {
+                            return +new Date(b.datum) - +new Date(a.datum);
+                        });
+                    }
+                })
+            }
+            else if (this.datepicker == "gisteren") {
+                this.storage.get("offlineDataYesterday").then(data => {
+                    this.items = data;
+                    this.artikelen = data;
+                    if (this.items) {
+                        this.items.sort(function (a, b) {
+                            return +new Date(b.datum) - +new Date(a.datum);
+                        });
+                    }
+                })
+            }
+            else if (this.datepicker == "driedagengeleden") {
+                this.storage.get("offlineData3DaysAgo").then(data => {
+                    this.items = data;
+                    this.artikelen = data;
+                    if (this.items) {
+                        this.items.sort(function (a, b) {
+                            return +new Date(b.datum) - +new Date(a.datum);
+                        });
+                    }
+                })
+            }
         }
     }
 
@@ -429,13 +460,20 @@ export class FeedPage {
             this.items = this.items.filter((item) => {
                 return (item.title.toLowerCase().indexOf(serVal.toLowerCase()) > -1);
             })
+            if (this.items.length < 1) {
+                this.items = this.artikelen.filter((item) => {
+                    return (item.title.toLowerCase().indexOf(serVal.toLowerCase()) > -1);
+                })
+            }
+        }
+        else {
+            this.items = this.artikelen;
         }
     }
 
     // Zodra je de searchbar canceled
     resetChanges() {
-        if(this.network.type != "none")
-        {
+        if (this.network.type != "none") {
             if (this.datepicker == "vandaag") {
                 this.load();
                 this.isSearchbaropened = false;
@@ -447,8 +485,7 @@ export class FeedPage {
                 this.isSearchbaropened = false;
             }
         }
-        else
-        {
+        else {
             this.items = this.artikelen;
             this.isSearchbaropened = false;
         }
@@ -458,6 +495,7 @@ export class FeedPage {
     ionViewDidLoad() {
         this.menuCtrl.enable(true, 'myMenu');
     }
+
 
     // Zodra die op de pagina is gekomen
     ionViewDidEnter() {
@@ -535,26 +573,42 @@ export class FeedPage {
     // Segment Alle nieuws van Gisteren
     loadYesterday() {
         this.datepicker = "gisteren";
-        this.http.get('http://gazoh.net/getyesterday.php').subscribe((data: any) => {
-                this.items = data;
-                this.artikelen = data;
-                if (this.items) {
-                    this.items.sort(function (a, b) {
-                        return +new Date(b.datum) - +new Date(a.datum);
-                    });
-                }
-            },
-            (error: any) => {
-                console.dir(error);
-            });
+        const headers = new HttpHeaders();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        const options = {headers: headers};
+        const data = {
+            userId: localStorage.getItem('userId')
+        };
+        this.http
+            .post('http://gazoh.net/getyesterday.php', data, options)
+            .subscribe((data: any) => {
+                    this.items = data;
+                    this.artikelen = data;
+                    if (this.items) {
+                        this.items.sort(function (a, b) {
+                            return +new Date(b.datum) - +new Date(a.datum);
+                        });
+                    }
+                },
+                (error: any) => {
+                    console.dir(error);
+                });
         this.presentLoadingCustom();
     }
 
     // Segment Alle nieuws van Gisteren
     load3DaysAgo() {
         this.datepicker = "driedagengeleden";
+        const headers = new HttpHeaders();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        const options = {headers: headers};
+        const data = {
+            userId: localStorage.getItem('userId')
+        };
         this.http
-            .get('http://gazoh.net/get3daysago.php')
+            .post('http://gazoh.net/get3daysago.php', data, options)
             .subscribe((data: any) => {
                     this.items = data;
                     this.artikelen = data;
@@ -573,70 +627,83 @@ export class FeedPage {
 
     // De pull to refresh
     doRefresh(refresher) {
-        if (this.datepicker == "vandaag") {
-            this.http
-                .get('http://gazoh.net/getdata2.php')
-                .subscribe((data: any) => {
-                        this.items = data;
-                        this.artikelen = data;
-                        if (this.items) {
-                            this.items.sort(function (a, b) {
-                                return +new Date(b.datum) - +new Date(a.datum);
-                            });
-                        }
-                    },
-                    (error: any) => {
-                        console.dir(error);
-                    });
-        } else if (this.datepicker == "gisteren") {
-            this.http
-                .get('http://gazoh.net/getyesterday.php')
-                .subscribe((data: any) => {
-                        this.items = data;
-                        this.artikelen = data;
-                        if (this.items) {
-                            this.items.sort(function (a, b) {
-                                return +new Date(b.datum) - +new Date(a.datum);
-                            });
-                        }
-                    },
-                    (error: any) => {
-                        console.dir(error);
-                    });
-        } else if (this.datepicker == "driedagengeleden") {
-            this.http
-                .get('http://gazoh.net/get3daysago.php')
-                .subscribe((data: any) => {
-                        this.items = data;
-                        this.artikelen = data;
-                        if (this.items) {
-                            this.items.sort(function (a, b) {
-                                return +new Date(b.datum) - +new Date(a.datum);
-                            });
-                        }
-                    },
-                    (error: any) => {
-                        console.dir(error);
-                    });
+        if(this.network.type != "none")
+        {
+            if (this.datepicker == "vandaag") {
+                const headers = new HttpHeaders();
+                headers.append("Accept", 'application/json');
+                headers.append('Content-Type', 'application/json');
+                const options = {headers: headers};
+                const data = {
+                    userId: localStorage.getItem('userId')
+                };
+                this.http
+                    .post('http://gazoh.net/getdata2.php', data, options)
+                    .subscribe((data: any) => {
+                            this.items = data;
+                            this.artikelen = data;
+                            if (this.items) {
+                                this.items.sort(function (a, b) {
+                                    return +new Date(b.datum) - +new Date(a.datum);
+                                });
+                            }
+                        },
+                        (error: any) => {
+                            console.dir(error);
+                        });
+            } else if (this.datepicker == "gisteren") {
+                this.http
+                const headers = new HttpHeaders();
+                headers.append("Accept", 'application/json');
+                headers.append('Content-Type', 'application/json');
+                const options = {headers: headers};
+                const data = {
+                    userId: localStorage.getItem('userId')
+                };
+                this.http
+                    .post('http://gazoh.net/getyesterday.php', data, options)
+                    .subscribe((data: any) => {
+                            this.items = data;
+                            this.artikelen = data;
+                            if (this.items) {
+                                this.items.sort(function (a, b) {
+                                    return +new Date(b.datum) - +new Date(a.datum);
+                                });
+                            }
+                        },
+                        (error: any) => {
+                            console.dir(error);
+                        });
+            } else if (this.datepicker == "driedagengeleden") {
+                const headers = new HttpHeaders();
+                headers.append("Accept", 'application/json');
+                headers.append('Content-Type', 'application/json');
+                const options = {headers: headers};
+                const data = {
+                    userId: localStorage.getItem('userId')
+                };
+                this.http
+                    .post('http://gazoh.net/get3daysago.php', data, options)
+                    .subscribe((data: any) => {
+                            this.items = data;
+                            this.artikelen = data;
+                            if (this.items) {
+                                this.items.sort(function (a, b) {
+                                    return +new Date(b.datum) - +new Date(a.datum);
+                                });
+                            }
+                        },
+                        (error: any) => {
+                            console.dir(error);
+                        });
+        }
+
         }
 
         setTimeout(() => {
             console.log('Async operation has ended');
             refresher.complete();
         }, 2000);
-    }
-
-    doInfinite(infiniteScroll) {
-        this.http
-            .get('http://gazoh.net/getdata.php')
-            .subscribe((data: any) => {
-                    this.items = this.items.push(data);
-                    infiniteScroll.complete();
-                },
-                (error: any) => {
-                    console.dir(error);
-                });
-        console.log('Begin async operation');
     }
 
     setLike(articleId) {
@@ -704,7 +771,7 @@ export class FeedPage {
     // }
 
 
-    dislike(articleId) {
+    dislike(articleId, articleTitle) {
         const headers = new HttpHeaders();
         headers.append("Accept", 'application/json');
         headers.append('Content-Type', 'application/json');
@@ -729,6 +796,12 @@ export class FeedPage {
                         this.http.post('http://gazoh.net/unlike.php', data, options)
                             .subscribe(data => {
                                 if (data == "unliked") {
+                                    let toast = this.toastCtrl.create({
+                                        message: '"' + articleTitle + '"' + " is verwijderd uit je favorieten!",
+                                        duration: 2500,
+                                        position: "bottom"
+                                    });
+                                    toast.present();
                                     if (this.datepicker == "vandaag") {
                                         this.load();
                                     } else if (this.datepicker == "gisteren") {
@@ -744,6 +817,63 @@ export class FeedPage {
             ]
         });
         alert.present();
+    }
+
+    setOfflineDataToday() {
+        const headers = new HttpHeaders();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        const options = {headers: headers};
+        const data = {
+            userId: localStorage.getItem('userId')
+        };
+        this.http
+            .post('http://gazoh.net/getdata2.php', data, options)
+            .subscribe((data: any) => {
+                    this.storage.set("offlineDataToday", data);
+                    console.log("Offline data set in storage: offlineDataToday");
+                },
+                (error: any) => {
+                    console.dir(error);
+                });
+    }
+
+    setOfflineDataYesterday() {
+        const headers = new HttpHeaders();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        const options = {headers: headers};
+        const data = {
+            userId: localStorage.getItem('userId')
+        };
+        this.http
+            .post('http://gazoh.net/getyesterday.php', data, options)
+            .subscribe((data: any) => {
+                    this.storage.set("offlineDataYesterday", data);
+                    console.log("Offline data set in storage: offlineDataYesterday");
+                },
+                (error: any) => {
+                    console.dir(error);
+                });
+    }
+
+    setOfflineData3DaysAgo() {
+        const headers = new HttpHeaders();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        const options = {headers: headers};
+        const data = {
+            userId: localStorage.getItem('userId')
+        };
+        this.http
+            .post('http://gazoh.net/get3daysago.php', data, options)
+            .subscribe((data: any) => {
+                    this.storage.set("offlineData3DaysAgo", data);
+                    console.log("Offline data set in storage: offlineData3DaysAgo");
+                },
+                (error: any) => {
+                    console.dir(error);
+                });
     }
 
 
@@ -764,53 +894,6 @@ export class FeedPage {
                 });
                 toast.present();
             }
-        });
-    }
-
-    getOfflineDataToday() {
-        this.datepicker = 'vandaag;'
-        this.storage.get('offlineDataVandaag').then((val) => {
-            this.items = val;
-            this.artikelen = val;
-            if (this.items) {
-                this.items.sort(function (a, b) {
-                    return +new Date(b.datum) - +new Date(a.datum);
-                });
-            }
-            console.log('Data:' + val);
-            console.log('Offline data is imported.');
-        });
-    }
-
-    getOfflineDataYesterday()
-    {
-        this.datepicker = 'gisteren';
-        this.storage.get('offlineDataGisteren').then((val) => {
-            this.items = val;
-            this.artikelen = val;
-            if (this.items) {
-                this.items.sort(function (a, b) {
-                    return +new Date(b.datum) - +new Date(a.datum);
-                });
-            }
-            console.log('Data:' + val);
-            console.log('Offline data is imported.');
-        });
-    }
-
-    getOfflineData3DaysAgo()
-    {
-        this.datepicker = 'driedagengeleden';
-        this.storage.get('offlineData3DagenGeleden').then((val) => {
-            this.items = val;
-            this.artikelen = val;
-            if (this.items) {
-                this.items.sort(function (a, b) {
-                    return +new Date(b.datum) - +new Date(a.datum);
-                });
-            }
-            console.log('Data:' + val);
-            console.log('Offline data is imported.');
         });
     }
 

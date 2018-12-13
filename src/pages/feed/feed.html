@@ -6,7 +6,7 @@
         <ion-title *ngIf="!isSearchbaropened" class="algemeenText">Algemeen</ion-title>
         <!-- Searchbar  -->
         <ion-searchbar #searchbar *ngIf="isSearchbaropened" [showCancelButton]="true" (ionCancel)="resetChanges()"
-                       (ionInput)="search($event)" placeholder="Waar zijn we naar op zoek?"
+                       (ionInput)="search($event)" placeholder="Waar bent u naar op zoek?"
                        class="slideInRight"></ion-searchbar>
         <!-- Searchbar icon -->
         <ion-buttons end>
@@ -18,11 +18,11 @@
             <ion-icon name="more"></ion-icon>
             <ion-list class="listMore">
                 <ion-select #newSelect [(ngModel)]="datepicker" (ionChange)="onChange(datepicker)"
-                            [selectOptions]="selectOptions" class="SelectMore">
+                            [selectOptions]="selectOptions" cancelText="Annuleer" okText="Ok" class="SelectMore">
                     <ion-option value="vandaag">Vandaag</ion-option>
                     <ion-option value="gisteren">Gisteren</ion-option>
                     <ion-option value="driedagengeleden">Drie dagen geleden</ion-option>
-                    <ion-option value="HetWeer">De weer</ion-option>
+                    <ion-option value="HetWeer">Het weer</ion-option>
                 </ion-select>
             </ion-list>
         </ion-buttons>
@@ -137,17 +137,17 @@
                                 <div>{{item.likes}}</div>
                             </button>
                             <button class="socialTelegraaf" ion-button icon-start clear
-                                    *ngIf="item.site == 'De Telegraaf' && item.liked == 1" (click)="dislike(item.id)">
+                                    *ngIf="item.site == 'De Telegraaf' && item.liked == 1" (click)="dislike(item.id, item.title)">
                                 <ion-icon name="heart"></ion-icon>
                                 <div>{{item.likes}}</div>
                             </button>
                             <button class="socialNOS" ion-button icon-start clear
-                                    *ngIf="item.site == 'NOS' && item.liked == 1" (click)="dislike(item.id)">
+                                    *ngIf="item.site == 'NOS' && item.liked == 1" (click)="dislike(item.id, item.title)">
                                 <ion-icon name="heart"></ion-icon>
                                 <div>{{item.likes}}</div>
                             </button>
                             <button class="socialNu" ion-button icon-start clear
-                                    *ngIf="item.site == 'NU.nl' && item.liked == 1" (click)="dislike(item.id)">
+                                    *ngIf="item.site == 'NU.nl' && item.liked == 1" (click)="dislike(item.id, item.title)">
                                 <ion-icon name="heart"></ion-icon>
                                 <div>{{item.likes}}</div>
                             </button>
@@ -156,9 +156,6 @@
                 </ion-card>
             </ion-row>
         </ion-col>
-        <ion-infinite-scroll (ionInfinite)="doInfinite($event)" loadingSpinner="bubbles">
-            <ion-infinite-scroll-content></ion-infinite-scroll-content>
-        </ion-infinite-scroll>
     </ion-grid>
     <ion-grid *ngIf="datepicker == 'HetWeer'">
         <ion-col col-12>
