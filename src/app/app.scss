@@ -775,7 +775,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 // Category label
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label {
-  margin-bottom: 3px !important;
+  margin-bottom: 2px !important;
 }
 // subtitle ion-item
 
@@ -803,6 +803,10 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   line-height: 2.5 !important;
 }
 // alle menu items
+
+#contentAnimation > div.scroll-content > ion-list {
+  margin: 0px;
+}
 
 #contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div {
   margin-left: 15px !important;
@@ -863,6 +867,15 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   margin-top: 3%;
   font-size: 1.8rem;
   font-weight: 500;
+  margin-bottom: 0px;
+}
+
+.menuNavbar {
+  padding: 0px;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(2) {
+  padding-top: 8px !important;
 }
 
 .usernameMenu::first-letter {
@@ -875,10 +888,6 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   color: #3ca7d1;
   margin-top: 10px;
   text-align: center;
-}
-
-.menuNavBar {
-  margin-bottom: 10px;
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-navbar > div.toolbar-background.toolbar-background-md {
@@ -1624,7 +1633,6 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 
 body > ion-app > ng-component > ion-nav > page-privacybeleid > ion-content > div.scroll-content {
   margin-top: 56px !important;
-  margin-bottom: 56px !important;
   padding-top: 5px !important;
 }
 

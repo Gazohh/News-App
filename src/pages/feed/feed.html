@@ -5,14 +5,9 @@
         </button>
         <ion-title *ngIf="!isSearchbaropened" class="algemeenText">Algemeen</ion-title>
         <!-- Searchbar  -->
-        <ion-searchbar #searchbar
-                       *ngIf="isSearchbaropened && this.datepicker == 'vandaag' || this.datepicker == 'gisteren' || this.datepicker == 'driedagengeleden'"
-                       [showCancelButton]="true" (ionCancel)="resetChanges()"
-                       (ionInput)="search($event)" placeholder="Waar zijn we naar op zoek?"
-                       class="slideInRight"></ion-searchbar>
+        <ion-searchbar #searchbar *ngIf="isSearchbaropened" [showCancelButton]="true" (ionCancel)="resetChanges()" (ionInput)="search($event)" placeholder="Waar zijn we naar op zoek?" class="slideInRight"></ion-searchbar>
         <!-- Searchbar icon -->
-        <ion-buttons end
-                     *ngIf="this.datepicker == 'vandaag' || this.datepicker == 'gisteren' || this.datepicker == 'driedagengeleden'">
+        <ion-buttons end *ngIf="this.datepicker == 'vandaag' || this.datepicker == 'gisteren' || this.datepicker == 'driedagengeleden'">
             <button ion-button icon-only (click)="isSearchbaropened=true">
                 <ion-icon name="search" *ngIf="!isSearchbaropened"></ion-icon>
             </button>
@@ -25,12 +20,11 @@
         <ion-buttons end *ngIf="!isSearchbaropened" class="moreFeed">
             <ion-icon name="more"></ion-icon>
             <ion-list class="listMore">
-                <ion-select #newSelect [(ngModel)]="datepicker" (ionChange)="onChange(datepicker)"
-                            [selectOptions]="selectOptions" cancelText="Annuleer" okText="Ok" class="SelectMore">
+                <ion-select #newSelect [(ngModel)]="datepicker" (ionChange)="onChange(datepicker)" [selectOptions]="selectOptions" cancelText="Annuleer" okText="Ok" class="SelectMore">
                     <ion-option value="vandaag">Vandaag</ion-option>
                     <ion-option value="gisteren">Gisteren</ion-option>
                     <ion-option value="driedagengeleden">Drie dagen geleden</ion-option>
-                    <ion-option value="HetWeer">Het weer</ion-option>
+                    <!--<ion-option value="HetWeer">Het weer</ion-option>-->
                 </ion-select>
             </ion-list>
         </ion-buttons>
