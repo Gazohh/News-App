@@ -306,19 +306,59 @@ export class FeedPage {
     // Hier eindigt de constructor
     // ---------------------------------------------------------------------------------------------
 
+    //
     onChange(SelectedValue) {
         SelectedValue = SelectedValue;
         console.log(SelectedValue);
-
-        if (this.datepicker == "vandaag") {
-            this.loadWithSpinner();
-        } else if (this.datepicker == "gisteren") {
-            this.loadYesterday();
-        } else if (this.datepicker == "driedagengeleden") {
-            this.load3DaysAgo();
-        } else if (this.datepicker == "HetWeer") {
-            this.weerData();
+        if(this.network.type != "none")
+        {
+            if (this.datepicker == "vandaag") {
+                this.loadWithSpinner();
+            } else if (this.datepicker == "gisteren") {
+                this.loadYesterday();
+            } else if (this.datepicker == "driedagengeleden") {
+                this.load3DaysAgo();
+            } else if (this.datepicker == "HetWeer") {
+                this.weerData();
+            }
         }
+        else if (this.network.type == "none")
+        {
+            if (this.datepicker == "vandaag") {
+                this.storage.get("offlineDataToday").then(data => {
+                    this.items = data;
+                    this.artikelen = data;
+                    if (this.items) {
+                        this.items.sort(function (a, b) {
+                            return +new Date(b.datum) - +new Date(a.datum);
+                        });
+                    }
+                })
+            }
+            else if (this.datepicker == "gisteren") {
+                this.storage.get("offlineDataYesterday").then(data => {
+                    this.items = data;
+                    this.artikelen = data;
+                    if (this.items) {
+                        this.items.sort(function (a, b) {
+                            return +new Date(b.datum) - +new Date(a.datum);
+                        });
+                    }
+                })
+            }
+            else if (this.datepicker == "driedagengeleden") {
+                this.storage.get("offlineData3DaysAgo").then(data => {
+                    this.items = data;
+                    this.artikelen = data;
+                    if (this.items) {
+                        this.items.sort(function (a, b) {
+                            return +new Date(b.datum) - +new Date(a.datum);
+                        });
+                    }
+                })
+            }
+        }
+
     }
 
     // Alert of je de artikel wilt hiden
@@ -382,7 +422,6 @@ export class FeedPage {
             }
         }
         else if (this.network.type == "none") {
-            console.log("No connection found loading articles from Storage");
             if (this.datepicker == "vandaag") {
                 this.storage.get("offlineDataToday").then(data => {
                     this.items = data;
@@ -423,7 +462,7 @@ export class FeedPage {
     presentLoadingCustom() {
         let loading = this.loadingCtrl.create({
             spinner: 'hide',
-            content: `<div class="custom-spinner-container"><img src="http://gazoh.net/images/spinner.svg"><br> <p>Laden...</p>
+            content: `<div class="custom-spinner-container"><img src="../assets/svg/spinner/tail-spin.svg"><br> <p>Laden...</p>
      </div>`,
             duration: 610
         });

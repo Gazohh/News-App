@@ -816,8 +816,20 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   margin-left: 20px !important;
 }
 // Favorieten random margin door side
+.cardFavorieten {
+  padding: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100%;
+}
+
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(2) > div.item-inner > div > ion-label > ion-list {
   margin: 0 !important;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list {
+  margin: 0 !important;
+  margin-top: 10px !important;
 }
 
 .activeHightlight {
@@ -1256,6 +1268,10 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
   font-size: 21px;
   padding: 0;
   margin-left: 16px;
+}
+
+.BackButton.activated {
+  background-color: #29708c !important;
 }
 
 .button-md:hover:not(.disable-hover) {

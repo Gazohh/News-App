@@ -13,7 +13,7 @@
     <ion-grid>
         <ion-col>
             <ion-row>
-                <ion-card *ngFor="let item of likedarticles" col-md-6 class="ionCard">
+                <ion-card *ngFor="let item of likedarticles" col-md-6 class="cardFavorieten">
                     <!-- Images van nieuwsfeed -->
                     <div class="ion-card-image-wrapper" (click)="viewEntry({ record: item })">
                         <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">
