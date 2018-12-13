@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {Platform} from 'ionic-angular';
 import {FeedPage} from "../feed/feed";
+import {Storage} from '@ionic/storage';
 
 /**
  * Generated class for the TutorialPage page.
@@ -17,7 +18,7 @@ import {FeedPage} from "../feed/feed";
 })
 export class TutorialPage {
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform, public storage: Storage) {
     }
 
     slides = [
@@ -41,6 +42,8 @@ export class TutorialPage {
     ];
 
     tutorialDone() {
+        localStorage.setItem("TutorialShown", "true");
         this.navCtrl.setRoot(FeedPage);
     }
+
 }

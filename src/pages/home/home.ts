@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
-import { NavController, LoadingController } from 'ionic-angular';
-import { RegisterPage } from "../register/register";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import {Component} from '@angular/core';
+import {NavController, LoadingController} from 'ionic-angular';
+import {RegisterPage} from "../register/register";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import 'rxjs/add/operator/map';
-import { ToastController } from 'ionic-angular';
-import { MenuController } from "ionic-angular";
-import { FeedPage } from "../feed/feed";
-import { Events } from 'ionic-angular';
-import { ScreenOrientation } from '@ionic-native/screen-orientation';
-import { Platform } from 'ionic-angular';
-import { Keyboard } from '@ionic-native/keyboard';
+import {ToastController} from 'ionic-angular';
+import {MenuController} from "ionic-angular";
+import {FeedPage} from "../feed/feed";
+import {Events} from 'ionic-angular';
+import {ScreenOrientation} from '@ionic-native/screen-orientation';
+import {Platform} from 'ionic-angular';
+import {Keyboard} from '@ionic-native/keyboard';
 import {Storage} from '@ionic/storage';
+import {TutorialPage} from "../tutorial/tutorial";
 
 
 @Component({
@@ -65,6 +66,7 @@ export class HomePage {
         // Disable swiping
         this.menuCtrl.enable(false, 'myMenu');
     }
+
     // ---------------------------------------------------------------------------------------------
     // Hier eindigt de constructor
     // ---------------------------------------------------------------------------------------------
@@ -91,7 +93,7 @@ export class HomePage {
             var headers = new HttpHeaders();
             headers.append("Accept", 'application/json');
             headers.append('Content-Type', 'application/json');
-            let options = { headers: headers };
+            let options = {headers: headers};
             let data = {
                 email: this.email,
                 password: this.password
@@ -102,20 +104,14 @@ export class HomePage {
             loader.present().then(() => {
                 // Maakt verbinding met login.php en checkt of gegevens kloppen
                 this.http.post('http://www.gazoh.net/getgebruiker.php', data, options)
-                    .subscribe(data => { this.dataUser = data });
+                    .subscribe(data => {
+                        this.dataUser = data
+                    });
                 this.http.post('http://www.gazoh.net/login.php', data, options)
                     .subscribe(res => {
                         console.log(res);
                         loader.dismiss();
                         if (res == "Succesfully logged in!") {
-                            //Connectie met database
-                            let toast = this.toastCtrl.create({
-                                message: "U bent ingelogd!",
-                                duration: 2500,
-                                position: "top",
-                                showCloseButton: true,
-                                closeButtonText: "OK"
-                            });
 
                             // Localstorage Gebruikersdetails
                             localStorage.setItem("userId", this.dataUser.id);
@@ -126,25 +122,20 @@ export class HomePage {
                             localStorage.setItem("userCreationDate", this.dataUser.creationdate);
                             localStorage.setItem("sessionToken", this.token);
                             localStorage.setItem("profilePicture", this.dataUser.profilepicture);
+                            console.log(localStorage.getItem('TutorialShown'));
 
-                            // Localstorage Email
-                            this.navCtrl.setRoot(FeedPage);
-                            toast.present();
 
-                            this.platform.ready().then(() => {
-                                this.storage.get('TutorialShown').then((result) => {
-                                    if (result) {
-                                        this.rootPage = 'FeedPage';
-                                    } else {
-                                        this.rootPage = 'TutorialPage';
-                                        this.storage.set('TutorialShown', true);
-                                    }
-                                });
-                            });
-
+                                if (localStorage.getItem("TutorialShown") != "true") {
+                                    this.navCtrl.setRoot(TutorialPage);
+                                }
+                                else if (localStorage.getItem("TutorialShown") == "true")
+                                {
+                                    this.navCtrl.setRoot(FeedPage);
+                                }
                             // //Fire username event
                             this.events.publish("username", this.dataUser.username);
                             this.events.publish("profilepicture", this.dataUser.profilepicture);
+
 
                         }
                         else {

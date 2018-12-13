@@ -811,8 +811,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 .menuTitle {
   margin-left: 20px !important;
 }
-// Favorieten random margin door sidemenu
-
+// Favorieten random margin door side
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(2) > div.item-inner > div > ion-label > ion-list {
   margin: 0 !important;
 }

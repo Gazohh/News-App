@@ -17,6 +17,7 @@ import {SocialSharing} from '@ionic-native/social-sharing';
 import {Storage} from '@ionic/storage';
 import 'rxjs/add/operator/map';
 import {LijstweerPage} from "../lijstweer/lijstweer";
+import {TutorialPage} from "../tutorial/tutorial";
 
 
 @IonicPage()
@@ -303,6 +304,7 @@ export class FeedPage {
                 this.getOfflineData3DaysAgo();
             }
         }
+
 
     }
 
