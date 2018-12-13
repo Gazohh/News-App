@@ -314,10 +314,13 @@ export class FeedPage {
         {
             if (this.datepicker == "vandaag") {
                 this.loadWithSpinner();
+                this.content.scrollToTop(0);
             } else if (this.datepicker == "gisteren") {
                 this.loadYesterday();
+                this.content.scrollToTop(0);
             } else if (this.datepicker == "driedagengeleden") {
                 this.load3DaysAgo();
+                this.content.scrollToTop(0);
             } else if (this.datepicker == "HetWeer") {
                 this.weerData();
             }
@@ -328,6 +331,7 @@ export class FeedPage {
                 this.storage.get("offlineDataToday").then(data => {
                     this.items = data;
                     this.artikelen = data;
+                    this.content.scrollToTop(0);
                     if (this.items) {
                         this.items.sort(function (a, b) {
                             return +new Date(b.datum) - +new Date(a.datum);
@@ -339,6 +343,7 @@ export class FeedPage {
                 this.storage.get("offlineDataYesterday").then(data => {
                     this.items = data;
                     this.artikelen = data;
+                    this.content.scrollToTop(0);
                     if (this.items) {
                         this.items.sort(function (a, b) {
                             return +new Date(b.datum) - +new Date(a.datum);
@@ -350,6 +355,7 @@ export class FeedPage {
                 this.storage.get("offlineData3DaysAgo").then(data => {
                     this.items = data;
                     this.artikelen = data;
+                    this.content.scrollToTop(0);
                     if (this.items) {
                         this.items.sort(function (a, b) {
                             return +new Date(b.datum) - +new Date(a.datum);
@@ -872,8 +878,9 @@ export class FeedPage {
         this.http
             .post('http://gazoh.net/getdata2.php', data, options)
             .subscribe((data: any) => {
-                    this.storage.set("offlineDataToday", data);
                     console.log("Offline data set in storage: offlineDataToday");
+                    console.log(data);
+                    this.storage.set("offlineDataToday", data);
                 },
                 (error: any) => {
                     console.dir(error);
@@ -891,8 +898,9 @@ export class FeedPage {
         this.http
             .post('http://gazoh.net/getyesterday.php', data, options)
             .subscribe((data: any) => {
-                    this.storage.set("offlineDataYesterday", data);
                     console.log("Offline data set in storage: offlineDataYesterday");
+                    console.log(data);
+                    this.storage.set("offlineDataYesterday", data);
                 },
                 (error: any) => {
                     console.dir(error);
@@ -910,8 +918,9 @@ export class FeedPage {
         this.http
             .post('http://gazoh.net/get3daysago.php', data, options)
             .subscribe((data: any) => {
-                    this.storage.set("offlineData3DaysAgo", data);
                     console.log("Offline data set in storage: offlineData3DaysAgo");
+                    console.log(data);
+                    this.storage.set("offlineData3DaysAgo", data);
                 },
                 (error: any) => {
                     console.dir(error);
