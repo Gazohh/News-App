@@ -16,6 +16,8 @@ import {Geolocation} from '@ionic-native/geolocation';
 import {SocialSharing} from '@ionic-native/social-sharing';
 import {Storage} from '@ionic/storage';
 import 'rxjs/add/operator/map';
+import {LijstweerPage} from "../lijstweer/lijstweer";
+import {TutorialPage} from "../tutorial/tutorial";
 
 
 @IonicPage()
@@ -483,6 +485,8 @@ export class FeedPage {
             } else if (this.datepicker == "driedagengeleden") {
                 this.load3DaysAgo();
                 this.isSearchbaropened = false;
+            } else if (this.datepicker == "HetWeer") {
+                this.isSearchbaropened = false;
             }
         }
         else {
@@ -627,8 +631,7 @@ export class FeedPage {
 
     // De pull to refresh
     doRefresh(refresher) {
-        if(this.network.type != "none")
-        {
+        if (this.network.type != "none") {
             if (this.datepicker == "vandaag") {
                 const headers = new HttpHeaders();
                 headers.append("Accept", 'application/json');
@@ -696,7 +699,7 @@ export class FeedPage {
                         (error: any) => {
                             console.dir(error);
                         });
-        }
+            }
 
         }
 
@@ -876,7 +879,6 @@ export class FeedPage {
                 });
     }
 
-
     setHideArticle(postId) {
         console.log("Hide " + postId);
         var headers = new HttpHeaders();
@@ -897,6 +899,55 @@ export class FeedPage {
         });
     }
 
+    getOfflineDataToday() {
+        this.datepicker = 'vandaag;'
+        this.storage.get('offlineDataVandaag').then((val) => {
+            this.items = val;
+            this.artikelen = val;
+            if (this.items) {
+                this.items.sort(function (a, b) {
+                    return +new Date(b.datum) - +new Date(a.datum);
+                });
+            }
+            console.log('Data:' + val);
+            console.log('Offline data is imported.');
+        });
+    }
+
+    getOfflineDataYesterday() {
+        this.datepicker = 'gisteren';
+        this.storage.get('offlineDataGisteren').then((val) => {
+            this.items = val;
+            this.artikelen = val;
+            if (this.items) {
+                this.items.sort(function (a, b) {
+                    return +new Date(b.datum) - +new Date(a.datum);
+                });
+            }
+            console.log('Data:' + val);
+            console.log('Offline data is imported.');
+        });
+    }
+
+    getOfflineData3DaysAgo() {
+        this.datepicker = 'driedagengeleden';
+        this.storage.get('offlineData3DagenGeleden').then((val) => {
+            this.items = val;
+            this.artikelen = val;
+            if (this.items) {
+                this.items.sort(function (a, b) {
+                    return +new Date(b.datum) - +new Date(a.datum);
+                });
+            }
+            console.log('Data:' + val);
+            console.log('Offline data is imported.');
+        });
+    }
+
+    goLijstWeerPage() {
+        this.navCtrl.push(LijstweerPage);
+    }
+
     weerData() {
         this.presentLoadingCustom();
         // Locatie opvragen
@@ -910,7 +961,7 @@ export class FeedPage {
         headers.append("Accept", 'application/json');
         headers.append('Content-Type', 'application/json');
         const options = {headers: headers};
-        this.http.get('https://api.openweathermap.org/data/2.5/forecast?id=6534091&appid=761f22645cd9591d1eba076e0fd173d9', options).subscribe(data => {
+        this.http.get('https://api.openweathermap.org/data/2.5/forecast?id=2751282&appid=761f22645cd9591d1eba076e0fd173d9', options).subscribe(data => {
             this.dataweer = Object.keys(data).map(key => data[key]);
             // Dagen tempratuur to Celcius
 

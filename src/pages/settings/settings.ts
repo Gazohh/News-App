@@ -91,7 +91,14 @@ export class SettingsPage {
     }
 
     uitloggen() {
-        localStorage.clear();
+        localStorage.removeItem('userId');
+        localStorage.removeItem('userName');
+        localStorage.removeItem('userEmail');
+        localStorage.removeItem('userEmailVerified');
+        localStorage.removeItem('userRole');
+        localStorage.removeItem('userCreationDate');
+        localStorage.removeItem('sessionToken');
+        localStorage.removeItem('profilePicture');
         this.navCtrl.setRoot(HomePage);
     }
 
@@ -160,7 +167,7 @@ export class SettingsPage {
         this.navCtrl.setRoot(ProfielPage);
     }
     privacyBeleid(){
-        this.navCtrl.setRoot(PrivacybeleidPage);
+        this.navCtrl.push(PrivacybeleidPage);
     }
 
     rapporteerProbleem(data) {

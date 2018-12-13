@@ -389,6 +389,14 @@ module.exports = [
     "clobbers": [
       "SQLitePlugin"
     ]
+  },
+  {
+    "id": "com-sarriaroman-photoviewer.PhotoViewer",
+    "file": "plugins/com-sarriaroman-photoviewer/www/PhotoViewer.js",
+    "pluginId": "com-sarriaroman-photoviewer",
+    "clobbers": [
+      "PhotoViewer"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -413,7 +421,8 @@ module.exports.metadata =
   "info.protonet.imageresizer": "0.1.1",
   "ionic-plugin-keyboard": "2.2.1",
   "cordova-plugin-geolocation": "4.0.1",
-  "cordova-sqlite-storage": "2.5.0"
+  "cordova-sqlite-storage": "2.5.0",
+  "com-sarriaroman-photoviewer": "1.1.18"
 };
 // BOTTOM OF METADATA
 });

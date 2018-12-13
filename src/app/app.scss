@@ -449,7 +449,8 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
 
 .centerTitle {
   padding-left: 0;
-  padding-right: 48px;
+  padding-right: 42px;
+  font-family: 'Roboto-Bold' !important;
 }
 
 .Title {
@@ -810,8 +811,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 .menuTitle {
   margin-left: 20px !important;
 }
-// Favorieten random margin door sidemenu
-
+// Favorieten random margin door side
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(2) > div.item-inner > div > ion-label > ion-list {
   margin: 0 !important;
 }
@@ -956,13 +956,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > 
   width: 0 !important;
   height: 0 !important;
 }
-// Algemeen Text
 
-body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > div.toolbar-content.toolbar-content-md > ion-title > div {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  font-family: 'Roboto-Bold' !important;
-}
 // Ion select
 
 body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > ion-buttons:nth-child(5) > ion-select {
@@ -1267,7 +1261,11 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
 .profielPadding {
   padding-right: 13px;
   margin: 10px;
-  padding-left: 24px;
+  padding-left: 27px;
+}
+
+.wachtwoordWijzigenPadding {
+  padding-right: 18px;
 }
 
 .avatar-profiel {
@@ -1357,6 +1355,11 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
   animation-duration: 300ms;
 }
 // Admin page
+//Admin Text
+body > ion-app > ng-component > ion-nav > page-admin > ion-header > ion-navbar > div.toolbar-content.toolbar-content-md > ion-title > div {
+  padding-right: 10px !important;
+  padding: 0px;
+}
 // Searchbar
 
 body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-content > ion-list > ion-item-group > ion-row > ion-searchbar {
@@ -1375,9 +1378,6 @@ body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-
   padding: 0 !important;
 }
 
-.adminTitle {
-  margin-right: 48px !important;
-}
 // Search iconRow
 
 .adminSearchIcon {
@@ -1438,6 +1438,10 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
   border-color: #f9944d;
   background-color: #f9944d;
   border: #f9944d;
+}
+
+.badge-md {
+  background-color: #f9944d;
 }
 
 .weerSegmentZon {
@@ -1610,4 +1614,20 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
   font-size: 1.2rem;
   text-align: center;
 
+}
+
+ // Privacy Beleid
+.privacyBeleid {
+  padding: 0px;
+  padding-right: 48px;
+}
+
+body > ion-app > ng-component > ion-nav > page-privacybeleid > ion-content > div.scroll-content {
+  margin-top: 56px !important;
+  margin-bottom: 56px !important;
+  padding-top: 5px !important;
+}
+
+.PrivacyBeleidP {
+  margin-top: 5px;
 }

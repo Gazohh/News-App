@@ -158,4 +158,7 @@
     <feature name="SQLitePlugin">
         <param name="ios-package" value="SQLitePlugin" />
     </feature>
+    <feature name="PhotoViewer">
+        <param name="ios-package" value="PhotoViewer" />
+    </feature>
 </widget>

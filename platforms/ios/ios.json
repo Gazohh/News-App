@@ -99,6 +99,10 @@
             {
               "xml": "<feature name=\"SQLitePlugin\"><param name=\"ios-package\" value=\"SQLitePlugin\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"PhotoViewer\"><param name=\"ios-package\" value=\"PhotoViewer\" /></feature>",
+              "count": 1
             }
           ]
         }
@@ -180,6 +184,9 @@
       "PACKAGE_NAME": "com.newsage.na"
     },
     "cordova-sqlite-storage": {
+      "PACKAGE_NAME": "com.newsage.na"
+    },
+    "com-sarriaroman-photoviewer": {
       "PACKAGE_NAME": "com.newsage.na"
     }
   },
@@ -574,6 +581,14 @@
       "clobbers": [
         "SQLitePlugin"
       ]
+    },
+    {
+      "id": "com-sarriaroman-photoviewer.PhotoViewer",
+      "file": "plugins/com-sarriaroman-photoviewer/www/PhotoViewer.js",
+      "pluginId": "com-sarriaroman-photoviewer",
+      "clobbers": [
+        "PhotoViewer"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -596,6 +611,7 @@
     "info.protonet.imageresizer": "0.1.1",
     "ionic-plugin-keyboard": "2.2.1",
     "cordova-plugin-geolocation": "4.0.1",
-    "cordova-sqlite-storage": "2.5.0"
+    "cordova-sqlite-storage": "2.5.0",
+    "com-sarriaroman-photoviewer": "1.1.18"
   }
 }

@@ -238,6 +238,20 @@ module.exports = [
     ]
   },
   {
+    "id": "cordova-plugin-geolocation.geolocation",
+    "file": "plugins/cordova-plugin-geolocation/www/android/geolocation.js",
+    "pluginId": "cordova-plugin-geolocation",
+    "clobbers": [
+      "navigator.geolocation"
+    ]
+  },
+  {
+    "id": "cordova-plugin-geolocation.PositionError",
+    "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
+    "pluginId": "cordova-plugin-geolocation",
+    "runs": true
+  },
+  {
     "id": "cordova-plugin-headercolor.HeaderColor",
     "file": "plugins/cordova-plugin-headercolor/www/HeaderColor.js",
     "pluginId": "cordova-plugin-headercolor",
@@ -326,6 +340,14 @@ module.exports = [
     ]
   },
   {
+    "id": "cordova-sqlite-storage.SQLitePlugin",
+    "file": "plugins/cordova-sqlite-storage/www/SQLitePlugin.js",
+    "pluginId": "cordova-sqlite-storage",
+    "clobbers": [
+      "SQLitePlugin"
+    ]
+  },
+  {
     "id": "info.protonet.imageresizer.ImageResizer",
     "file": "plugins/info.protonet.imageresizer/www/image_resizer.js",
     "pluginId": "info.protonet.imageresizer",
@@ -334,25 +356,11 @@ module.exports = [
     ]
   },
   {
-    "id": "cordova-plugin-geolocation.geolocation",
-    "file": "plugins/cordova-plugin-geolocation/www/android/geolocation.js",
-    "pluginId": "cordova-plugin-geolocation",
+    "id": "com-sarriaroman-photoviewer.PhotoViewer",
+    "file": "plugins/com-sarriaroman-photoviewer/www/PhotoViewer.js",
+    "pluginId": "com-sarriaroman-photoviewer",
     "clobbers": [
-      "navigator.geolocation"
-    ]
-  },
-  {
-    "id": "cordova-plugin-geolocation.PositionError",
-    "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
-    "pluginId": "cordova-plugin-geolocation",
-    "runs": true
-  },
-  {
-    "id": "cordova-sqlite-storage.SQLitePlugin",
-    "file": "plugins/cordova-sqlite-storage/www/SQLitePlugin.js",
-    "pluginId": "cordova-sqlite-storage",
-    "clobbers": [
-      "SQLitePlugin"
+      "PhotoViewer"
     ]
   }
 ];
@@ -364,6 +372,7 @@ module.exports.metadata =
   "cordova-plugin-device": "2.0.2",
   "cordova-plugin-file": "6.0.1",
   "cordova-plugin-file-transfer": "1.7.1",
+  "cordova-plugin-geolocation": "4.0.1",
   "cordova-plugin-headercolor": "1.0",
   "cordova-plugin-inappbrowser": "3.0.0",
   "cordova-plugin-ionic-keyboard": "2.1.2",
@@ -375,9 +384,9 @@ module.exports.metadata =
   "cordova-plugin-statusbar": "2.4.2",
   "cordova-plugin-whitelist": "1.3.3",
   "cordova-plugin-x-socialsharing": "5.4.1",
+  "cordova-sqlite-storage": "2.5.0",
   "info.protonet.imageresizer": "0.1.1",
-  "cordova-plugin-geolocation": "4.0.1",
-  "cordova-sqlite-storage": "2.5.0"
+  "com-sarriaroman-photoviewer": "1.1.18"
 };
 // BOTTOM OF METADATA
 });

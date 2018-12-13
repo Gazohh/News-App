@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { InAppBrowser } from '@ionic-native/in-app-browser';
+import {InAppBrowser, InAppBrowserOptions} from '@ionic-native/in-app-browser';
+
 
 /**
  * Generated class for the NieuwsPage page.
@@ -15,7 +16,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
   templateUrl: 'nieuws.html',
 })
 export class NieuwsPage {
-
+    browser: InAppBrowser;
   title: string;
   description: string;
   link: string;
@@ -24,8 +25,25 @@ export class NieuwsPage {
   site: string;
   id: string;
   url: string;
+    options: InAppBrowserOptions = {
+        location: 'yes',
+        hidden: 'no',
+        clearcache: 'yes',
+        clearsessioncache: 'yes',
+        zoom: 'yes',//Android only
+        hardwareback: 'yes',
+        mediaPlaybackRequiresUserAction: 'no',
+        shouldPauseOnSuspend: 'no', //Android only
+        closebuttoncaption: 'Close', //iOS only
+        disallowoverscroll: 'no', //iOS only
+        toolbar: 'yes', //iOS only
+        enableViewportScale: 'no', //iOS only
+        allowInlineMediaPlayback: 'no',//iOS only
+        presentationstyle: 'pagesheet',//iOS only
+        fullscreen: 'yes',//Windows only
+    };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private iab: InAppBrowser) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private inAppBrowser: InAppBrowser) {
     if (this.navParams.get("record")) {
       this.selectEntry(this.navParams.get("record"));
       console.log(this.navParams.get("record"));
@@ -53,8 +71,17 @@ export class NieuwsPage {
     return text ? String(text).replace(/<[^>]+>/gm, '') : '';
   }
 
-  openPagina(url: any) {
-    const browser = this.iab.create(url);
-    browser.show();
-  }
+   public openPagina(url) {
+      const Options: InAppBrowserOptions = {
+          zoom: 'no',
+          location:'yes',
+          toolbar:'yes',
+          clearcache: 'yes',
+          clearsessioncache: 'yes',
+          disallowoverscroll: 'yes',
+          enableViewportScale: 'yes'
+      }
+        const browser = this.inAppBrowser.create( url , '_self.', Options );
+        browser.show();
+    }
 }

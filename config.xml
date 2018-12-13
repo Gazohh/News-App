@@ -103,5 +103,6 @@
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To locate you" />
     </plugin>
     <plugin name="cordova-sqlite-storage" spec="2.5.0" />
+    <plugin name="com-sarriaroman-photoviewer" spec="1.1.18" />
     <engine name="ios" spec="4.5.5" />
 </widget>

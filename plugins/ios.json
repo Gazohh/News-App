@@ -63,6 +63,9 @@
     },
     "cordova-sqlite-storage": {
       "PACKAGE_NAME": "com.newsage.na"
+    },
+    "com-sarriaroman-photoviewer": {
+      "PACKAGE_NAME": "com.newsage.na"
     }
   },
   "dependent_plugins": {

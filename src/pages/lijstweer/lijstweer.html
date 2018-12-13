@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title class="lijstPadding">Lijst</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-searchbar
+        #searchbar
+        [(ngModel)]="myInput"
+        [showCancelButton]="shouldShowCancel"
+        (ionInput)="search($event)"
+        (ionCancel)="resetChanges()"
+        (ionClear)="clearItems()" placeholder="Waar zijn we naar op zoek?" class="searchbarLijstWeer">
+    </ion-searchbar>
+
+    <ion-list>
+        <ion-item *ngFor="let lijstje of lijst" class="lijstItem">
+            {{lijstje.title}}
+        </ion-item>
+
+    </ion-list>
+
+</ion-content>

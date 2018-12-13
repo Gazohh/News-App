@@ -33914,6 +33914,66 @@ ion-slide.swiper-slide {
   margin-right: 2rem !important;
 }
 
+.emailVerificationText {
+  white-space: initial;
+  word-wrap: break-word;
+  text-align: center;
+  color: #fff !important;
+  font-size: 1.8vh;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+body > ion-app > ng-component > ion-nav > page-settings > ion-content > div.scroll-content > ion-card {
+  border-radius: 5px;
+}
+
+.cardVerification {
+  margin-bottom: 4px;
+}
+
+.alertIcon {
+  float: left;
+  font-size: 4.4vh;
+}
+
+.verificationHeader {
+  font-family: 'Roboto-Bold' !important;
+  font-size: 3vh;
+  white-space: initial;
+  word-wrap: break-word;
+  text-align: center;
+  padding: 12px;
+  padding-right: 40px;
+  padding-left: 20px;
+  padding-bottom: 0px !important;
+  color: #fff;
+}
+
+.buttonStuurOpnieuwVerification {
+  width: 35%;
+  background-color: #fff;
+  color: #8c2929;
+  font-size: 1.3rem;
+  margin: 0 auto;
+  margin-top: 15px;
+  border-radius: 5px;
+}
+
+.buttonStuurOpnieuwVerification.activated {
+  background-color: #fff;
+}
+
+.verifyText {
+  font-family: 'Roboto-Bold' !important;
+}
+
+.containerVerification {
+  background-color: #8c2929 !important;
+  border-radius: 0px !important;
+  padding: 5px !important;
+}
+
 body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item > div.item-inner {
   border: none !important;
 }
@@ -34179,12 +34239,6 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   transition: all 0.4s;
   margin-left: 15px;
   margin-top: 30px;
-}
-
-.background {
-  background-image: url("../assets/imgs/login.png");
-  width: 400px;
-  height: 400px;
 }
 
 .homeButton {
@@ -34766,10 +34820,8 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > 
 body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > ion-grid > ion-col > ion-row > ion-card {
   width: 100% !important;
   margin: 0 0 10px;
-  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  -webkit-box-shadow: rgba(0, 0, 0, 0.01) 3px 6px rgba(0, 0, 0, 0.01), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: rgba(0, 0, 0, 0.01) 3px 6px rgba(0, 0, 0, 0.01), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .toolbar-background {
@@ -34810,7 +34862,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 .datumFeed {
   float: left;
   font-size: 1.2rem;
-  color: #b5b5b5;
+  color: #BDBDBD;
   font-weight: 400;
   margin-top: 7px;
   margin-bottom: 8px;
@@ -34831,15 +34883,21 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
   width: 100%;
   font-size: 1.4rem;
   background: #fff;
-  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 
-.TitleFeed {
+#title > ion-card-title > strong {
   margin: 9px 0 0 0 !important;
   font-size: 1.8rem !important;
   padding-bottom: 2px;
   font-family: 'Roboto-Bold' !important;
+}
+
+#title > ion-card-title {
+  line-height: 1;
+}
+
+.cardContentWeer {
+  padding: 0;
 }
 
 .feedGrid {
@@ -34848,6 +34906,10 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 
 .feedCol {
   margin-bottom: 1.5rem;
+}
+
+.feedGrid {
+  padding: 0px;
 }
 
 page-feed img {
@@ -35174,44 +35236,68 @@ body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-
   padding-bottom: 15px !important;
 }
 
-.segmentWeer {
-  font-weight: bold !important;
-}
-
-.rowWeer {
-  margin-top: 20px;
-}
-
-.ulWeer {
-  margin: 0;
-  list-style-type: none;
-  padding: 0;
-  left: 77%;
+.tijdWeer {
   position: absolute;
-  font-weight: bold;
-}
-
-.liWeer {
-  margin-top: 10px;
-}
-
-.ulWeerTijden {
-  margin: 0;
-  list-style-type: none;
-}
-
-.accordianMargin {
-  margin-right: 10px;
 }
 
 body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > ion-grid > ion-col > ion-row > ion-list > ion-card > ion-card-content > ion-segment > ion-segment-button:nth-child(2) {
   height: 30px;
   display: block;
+  border: 1px solid #ef6f53;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-color: #f9944d;
+  background-color: #f9944d;
+  border: #f9944d;
+  color: #fff;
 }
 
 body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > ion-grid > ion-col > ion-row > ion-list > ion-card > ion-card-content > ion-segment > ion-segment-button:nth-child(1) {
   height: 30px;
   display: block;
+  border: 1px solid #ef6f53;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-color: #f9944d;
+  background-color: #f9944d;
+  border: #f9944d;
+}
+
+.weerSegmentZon {
+  padding: 20px 60px 0;
+}
+
+.segment-md-darkAppKleur .segment-button.segment-activated {
+  border-color: #ef6f53;
+  background-color: #ef6f53;
+  border: 1px solid #ef6f53;
+  opacity: 1;
+}
+
+.segmentWeerWeek {
+  color: #fff !important;
+}
+
+.segmentWeerVandaag {
+  color: #fff !important;
+}
+
+.card-md p {
+  margin-top: 4px;
+  font-size: 2vh;
+}
+
+.rowWeer {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.weatherClass {
+  font-size: 1rem;
+  color: #BDBDBD;
+  font-family: 'Roboto-Medium';
+  float: right;
+  text-align: center;
 }
 
 .weerList {
@@ -35274,6 +35360,74 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
   top: 24.5%;
   font-weight: 400;
   color: #fff;
+}
+
+body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > ion-grid > ion-col > ion-row > ion-list > ion-card > ion-card-content > div > ion-row > button > div.item-inner {
+  margin-left: 15px !important;
+}
+
+.gradenDiv {
+  float: right;
+  margin-right: 15px;
+}
+
+.buttonTijd {
+  float: left;
+}
+
+body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > ion-grid > ion-col > ion-row > ion-list > ion-card > ion-card-content > div > ion-row > button > div.item-inner > div > ion-label > div.buttonTijd > ion-icon {
+  margin-top: 0;
+  margin-right: 15px;
+}
+
+.graden {
+  text-align: center;
+  font-family: 'Roboto-Bold';
+}
+
+.tijdWeer {
+  font-family: 'Roboto-Medium';
+}
+
+.uitklapWeerAntwoorden {
+  list-style-type: none;
+  text-align: end;
+  float: right;
+  margin-right: 30px;
+  padding-left: 0px;
+}
+
+.uitklapWeer {
+  list-style-type: none;
+  text-align: end;
+  padding-left: 58px;
+  float: left;
+}
+
+.uitklapMargin {
+  margin-top: -11px !important;
+  width: 100%;
+}
+
+.spanClasses {
+  font-size: smaller;
+  font-family: 'Roboto-Medium';
+  margin-bottom: 10px;
+}
+
+.badgeClasses {
+  border-radius: 10px;
+  font-family: 'Roboto-Bold';
+  margin-bottom: 10px;
+  font-size: smaller;
+}
+
+.bewolktSpan {
+  border-radius: 10px;
+  font-family: 'Roboto-Bold';
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
 page-about .toolbar-background {
