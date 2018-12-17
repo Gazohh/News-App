@@ -312,14 +312,7 @@ export class FeedPage {
     // ---------------------------------------------------------------------------------------------
     // Hier eindigt de constructor
     // ---------------------------------------------------------------------------------------------
-
-    public scrollFunction = (event: any) => {
-        let dimensions = this.content.getContentDimensions(); // GET THE ion-content DIMENSIONS
-        let bottomPosition = dimensions.contentHeight + dimensions.scrollTop; // THE contentHeight IS THE SIZE OF YOUR CONTENT SHOWN ON SCREEN, THE scrollTop IS HOW MUCH YOU'VE SCROLLED FROM TOP OF YOUR CONTENT.
-        let screenSize = dimensions.scrollHeight; // TOTAL CONTENT SIZE
-        this.isShown = screenSize - bottomPosition <= 10 ? true : false;
-    }
-
+    
     //
     onChange(SelectedValue) {
         SelectedValue = SelectedValue;
