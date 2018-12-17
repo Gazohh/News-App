@@ -49,11 +49,13 @@ foreach ($data as $row) {
     $titel = $row['title'];
     $schonetitel = preg_replace('~//<!\[CDATA\[\s*|\s*//\]\]>~', '', $titel);
     $schoneomscrhijving = preg_replace('~//<!\[CDATA\[\s*|\s*//\]\]>~', '', $row['desc']);
-    $sql= "INSERT INTO article (site, title, description, image, link, datum) VALUES ('" . $row["site"] . "', '" . $schonetitel . "', '" . $schoneomscrhijving . "', '" . $row["image"] . "', '" . $row["link"] . "', '" . $row["date"] . "')";
+    $sql= "INSERT INTO article (site, title, description, image, link, datum) VALUES ('" . $row["site"] . "', '" . $schonetitel . "', '" . $schoneomscrhijving . "', '" . $row['image'] . "', '" . $row["link"] . "', '" . $row["date"] . "')";
     mysqli_query($connect, "SET NAMES 'utf8'");
     if(mysqli_query($connect, $sql))
     {
         $sql1 = "UPDATE article SET description = REPLACE(description, '&nbsp;', ' ') WHERE description LIKE '%&nbsp;%'";
+        $sql2 = "UPDATE article SET description = REPLACE(description, '&amp;', '&') WHERE description LIKE '%&amp;%'";
         mysqli_query($connect, $sql1);
+        mysqli_query($connect, $sql2);
     }
 }

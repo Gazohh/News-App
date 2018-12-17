@@ -582,7 +582,13 @@ export class FeedPage {
                     }
                 },
                 (error: any) => {
-                    console.dir(error);
+                    let toast = this.toastCtrl.create({
+                        message: "Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",
+                        duration: 3500,
+                        position: "top"
+                    });
+                    toast.present();
+                    console.log("Http error is: " + error);
                 });
     }
 
@@ -608,7 +614,13 @@ export class FeedPage {
                     }
                 },
                 (error: any) => {
-                    console.dir(error);
+                    let toast = this.toastCtrl.create({
+                        message: "Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",
+                        duration: 3500,
+                        position: "top"
+                    });
+                    toast.present();
+                    console.log("Http error is: " + error);
                 });
         this.presentLoadingCustom();
     }
@@ -635,7 +647,13 @@ export class FeedPage {
                     }
                 },
                 (error: any) => {
-                    console.dir(error);
+                    let toast = this.toastCtrl.create({
+                        message: "Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",
+                        duration: 3500,
+                        position: "top"
+                    });
+                    toast.present();
+                    console.log("Http error is: " + error);
                 });
         this.presentLoadingCustom();
     }
@@ -662,7 +680,13 @@ export class FeedPage {
                     }
                 },
                 (error: any) => {
-                    console.dir(error);
+                    let toast = this.toastCtrl.create({
+                        message: "Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",
+                        duration: 3500,
+                        position: "top"
+                    });
+                    toast.present();
+                    console.log("Http error is: " + error);
                 });
         this.presentLoadingCustom();
 
@@ -691,7 +715,13 @@ export class FeedPage {
                             }
                         },
                         (error: any) => {
-                            console.dir(error);
+                            let toast = this.toastCtrl.create({
+                                message: "Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",
+                                duration: 3500,
+                                position: "top"
+                            });
+                            toast.present();
+                            console.log("Http error is: " + error);
                         });
             } else if (this.datepicker == "gisteren") {
                 this.http
@@ -714,7 +744,13 @@ export class FeedPage {
                             }
                         },
                         (error: any) => {
-                            console.dir(error);
+                            let toast = this.toastCtrl.create({
+                                message: "Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",
+                                duration: 3500,
+                                position: "top"
+                            });
+                            toast.present();
+                            console.log("Http error is: " + error);
                         });
             } else if (this.datepicker == "driedagengeleden") {
                 const headers = new HttpHeaders();
@@ -736,7 +772,13 @@ export class FeedPage {
                             }
                         },
                         (error: any) => {
-                            console.dir(error);
+                            let toast = this.toastCtrl.create({
+                                message: "Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",
+                                duration: 3500,
+                                position: "top"
+                            });
+                            toast.present();
+                            console.log("Http error is: " + error);
                         });
             }
 
@@ -876,7 +918,13 @@ export class FeedPage {
                     console.log("Offline data set in storage: offlineDataToday");
                 },
                 (error: any) => {
-                    console.dir(error);
+                    let toast = this.toastCtrl.create({
+                        message: "Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",
+                        duration: 3500,
+                        position: "top"
+                    });
+                    toast.present();
+                    console.log("Http error is: " + error);
                 });
     }
 
@@ -895,7 +943,13 @@ export class FeedPage {
                     console.log("Offline data set in storage: offlineDataYesterday");
                 },
                 (error: any) => {
-                    console.dir(error);
+                    let toast = this.toastCtrl.create({
+                        message: "Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",
+                        duration: 3500,
+                        position: "top"
+                    });
+                    toast.present();
+                    console.log("Http error is: " + error);
                 });
     }
 
@@ -914,7 +968,13 @@ export class FeedPage {
                     console.log("Offline data set in storage: offlineData3DaysAgo");
                 },
                 (error: any) => {
-                    console.dir(error);
+                    let toast = this.toastCtrl.create({
+                        message: "Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",
+                        duration: 3500,
+                        position: "top"
+                    });
+                    toast.present();
+                    console.log("Http error is: " + error);
                 });
     }
 
