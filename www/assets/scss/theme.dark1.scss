@@ -1,4 +1,5 @@
 .dark-theme {
+
   // lOGIN
   .darkThemeLogin {
     background-color: #2f2f2f !important;
@@ -9,7 +10,7 @@
   }
   //background
   ion-content {
-    background-color: #212121 !important;
+    background-color: #1c1c1c !important;
   }
 
   .toolbar-title {
@@ -118,7 +119,7 @@
   }
 
   .card-content-md {
-    background-color: #2f2f2f !important;
+    background-color: #262626 !important;
     color: #FFF;
   }
 
@@ -127,7 +128,7 @@
   }
 
   .card-md p {
-    color: #FFFFFF;
+    color: #d4d4d4;
   }
   //titel van card feed
   b,
@@ -141,12 +142,12 @@
   }
 
   .headerText {
-    background-color: #212121 !important;
+    background-color: #1c1c1c !important;
     color: #FFF;
   }
 
   .nieuwsContent {
-      background-color: #212121 !important;
+    background-color: #1c1c1c !important;
   }
 
   .segment-md-dark .segment-button.segment-activated {
@@ -158,7 +159,7 @@
   }
 
   .card-md {
-    background: transparent;
+    background: #262626 !important
   }
   // Button voor de sources
   .ImportClassesButton {
@@ -198,12 +199,49 @@
     color: #fff !important;
   }
 
+  .socialTelegraafShare {
+    float: left;
+    color: #3f80f7!important;
+  }
+
+  .darkChatTelegraaf {
+    color: #3f80f7!important;
+  }
+
+  .socialNuShare {
+    float: left;
+    color: #0041b5 !important;
+  }
+
+  .darkChatNU {
+    color: #0041b5 !important;
+  }
+
+  .socialNOSShare {
+    float: left;
+    color: #ff3728 !important;
+  }
+
+  .darkChatNOS {
+    color: #ff3728 !important;
+  }
+
+
+
+  .darkHeartOutline {
+    color: #f73f3f !important;
+  }
+
+  .darkHeartFull {
+    color: #f73f3f !important;
+  }
+
   .socialNOS {
     color: #fff !important;
   }
 
   .socialLikeComments {
-    background-color: #2f2f2f !important;
+    background-color: #262626 !important;
   }
 
   .badgeItem {
@@ -214,4 +252,38 @@
   .ion-page {
     background-color: #212121 !important;
   }
+  //reactiescherm
+  .commentUsername{
+    Color: #FFF !important;
+  }
+  .commentDate{
+    color: #FFF !important;
+  }
+  //loginpagina
+  .loginPagina {
+
+    background-color: #2f2f2f !important;
+    color: black;
+    h2 {
+      color: #fff;
+    }
+    .grid {
+      background-color: #2f2f2f !important;
+    }
+    .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+    .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+      border-bottom-color: #2f2f2f !important;
+      -webkit-box-shadow: none !important;
+      box-shadow: none !important;
+    }
+  }
+
+  .datumFeed {
+    color: #d4d4d4 !important;
+  }
+
+  .nieuwsDatum {
+    color: #d4d4d4 !important;
+  }
+
 }

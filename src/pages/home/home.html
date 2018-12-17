@@ -1,28 +1,26 @@
 <ion-content class="loginPagina">
-  <ion-grid style="height: 100%" class="gridPadding">
-    <ion-row justify-content-center align-items-center style="height: 100%">
-
-      <ion-col col-12 class="loginPagina">
-        <div class="ValidatieText">
-          <h2 class="WelkomText">Welkom</h2>
-          <p class="gavederText">Log-in om verder te gaan..</p>
-        </div>
-        <div class="ValidatieLogin">
-          <ion-item class="darkThemeLogin">
-            <ion-label color="primary" floating>Email</ion-label>
-            <ion-input type="email" [(ngModel)]="email"></ion-input>
-          </ion-item>
-          <ion-item class="darkThemeLogin">
-            <ion-label color="primary" floating>Wachtwoord</ion-label>
-            <ion-input type="password" [(ngModel)]="password"></ion-input>
-          </ion-item>
-          <br>
-          <div class="Validatie2Login">
-            <button ion-button class="loginButton" (click)="signIn()">Log-in</button>
-            <p class="nogGeenAccount" (click)="goRegister()">Nog geen account? <b>Registreer</b></p>
-          </div>
-        </div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <ion-grid style="height: 100%" class="gridPadding">
+        <ion-row justify-content-center align-items-center style="height: 100%">
+            <ion-col col-12 class="loginPagina">
+                <div class="ValidatieText">
+                    <h2 class="welkomLogo"></h2>
+                </div>
+                <div class="ValidatieLogin">
+                    <ion-item class="darkThemeLogin">
+                        <ion-label color="primary" stacked>Email</ion-label>
+                        <ion-input type="email" [(ngModel)]="email"></ion-input>
+                    </ion-item>
+                    <ion-item class="darkThemeLogin">
+                        <ion-label color="primary" stacked>Wachtwoord</ion-label>
+                        <ion-input type="password" [(ngModel)]="password"></ion-input>
+                    </ion-item>
+                    <br>
+                    <div class="Validatie2Login">
+                        <button ion-button class="loginButton" (click)="signIn()">Log-in</button>
+                        <p class="nogGeenAccount" (click)="goRegister()">Nog geen account? <b>Registreer</b></p>
+                    </div>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>

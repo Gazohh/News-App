@@ -56,6 +56,7 @@ export class FeedPage {
     public open2: boolean = true;
     public open3: boolean = true;
     public open4: boolean = true;
+    public currentTheme: string;
 
     // weer
     public dag1NaarCelcius12uur: any;
@@ -299,6 +300,12 @@ export class FeedPage {
                 })
             }
         }
+
+        if(localStorage.getItem("themeColor"))
+        {
+            this.currentTheme = localStorage.getItem("themeColor")
+            console.log(this.currentTheme);
+        }
     }
 
 
@@ -314,10 +321,13 @@ export class FeedPage {
         {
             if (this.datepicker == "vandaag") {
                 this.loadWithSpinner();
+                this.content.scrollToTop(0);
             } else if (this.datepicker == "gisteren") {
                 this.loadYesterday();
+                this.content.scrollToTop(0);
             } else if (this.datepicker == "driedagengeleden") {
                 this.load3DaysAgo();
+                this.content.scrollToTop(0);
             } else if (this.datepicker == "HetWeer") {
                 this.weerData();
             }
@@ -328,6 +338,7 @@ export class FeedPage {
                 this.storage.get("offlineDataToday").then(data => {
                     this.items = data;
                     this.artikelen = data;
+                    this.content.scrollToTop(0);
                     if (this.items) {
                         this.items.sort(function (a, b) {
                             return +new Date(b.datum) - +new Date(a.datum);
@@ -339,6 +350,7 @@ export class FeedPage {
                 this.storage.get("offlineDataYesterday").then(data => {
                     this.items = data;
                     this.artikelen = data;
+                    this.content.scrollToTop(0);
                     if (this.items) {
                         this.items.sort(function (a, b) {
                             return +new Date(b.datum) - +new Date(a.datum);
@@ -350,6 +362,7 @@ export class FeedPage {
                 this.storage.get("offlineData3DaysAgo").then(data => {
                     this.items = data;
                     this.artikelen = data;
+                    this.content.scrollToTop(0);
                     if (this.items) {
                         this.items.sort(function (a, b) {
                             return +new Date(b.datum) - +new Date(a.datum);
@@ -537,26 +550,6 @@ export class FeedPage {
     // Zodra de pagina is geladen
     ionViewDidLoad() {
         this.menuCtrl.enable(true, 'myMenu');
-    }
-
-
-    // Zodra die op de pagina is gekomen
-    ionViewDidEnter() {
-        this.content.ionScrollEnd.subscribe((data) => {
-            let dimensions = this.content.getContentDimensions();
-            let scrollTop = this.content.scrollTop;
-            let contentHeight = dimensions.contentHeight;
-            let scrollHeight = dimensions.scrollHeight;
-
-            if ((scrollTop + contentHeight + 20) > scrollHeight) {
-                this.shouldScrollDown = true;
-                this.showScrollButton = false;
-            } else {
-                this.shouldScrollDown = false;
-                this.showScrollButton = true;
-            }
-            console.log(contentHeight);
-        });
     }
 
     // Segment Alle nieuws van Vandaag
@@ -914,8 +907,8 @@ export class FeedPage {
         this.http
             .post('http://gazoh.net/getdata2.php', data, options)
             .subscribe((data: any) => {
-                    this.storage.set("offlineDataToday", data);
                     console.log("Offline data set in storage: offlineDataToday");
+                    this.storage.set("offlineDataToday", data);
                 },
                 (error: any) => {
                     let toast = this.toastCtrl.create({
@@ -939,8 +932,8 @@ export class FeedPage {
         this.http
             .post('http://gazoh.net/getyesterday.php', data, options)
             .subscribe((data: any) => {
-                    this.storage.set("offlineDataYesterday", data);
                     console.log("Offline data set in storage: offlineDataYesterday");
+                    this.storage.set("offlineDataYesterday", data);
                 },
                 (error: any) => {
                     let toast = this.toastCtrl.create({
@@ -964,8 +957,8 @@ export class FeedPage {
         this.http
             .post('http://gazoh.net/get3daysago.php', data, options)
             .subscribe((data: any) => {
-                    this.storage.set("offlineData3DaysAgo", data);
                     console.log("Offline data set in storage: offlineData3DaysAgo");
+                    this.storage.set("offlineData3DaysAgo", data);
                 },
                 (error: any) => {
                     let toast = this.toastCtrl.create({
