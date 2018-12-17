@@ -12,6 +12,7 @@ import {Platform} from 'ionic-angular';
 import {Keyboard} from '@ionic-native/keyboard';
 import {Storage} from '@ionic/storage';
 import {TutorialPage} from "../tutorial/tutorial";
+import {SettingsProvider} from "../../providers/settings/settings";
 
 
 @Component({
@@ -34,6 +35,8 @@ export class HomePage {
     rootPage: any = HomePage;
     FeedPage = FeedPage;
     data: string;
+    selectedTheme: string;
+    setActiveTheme: string;
 
 
     constructor(
@@ -46,7 +49,8 @@ export class HomePage {
         private screenOrientation: ScreenOrientation,
         public platform: Platform,
         private keyboard: Keyboard,
-        public storage: Storage) {
+        public storage: Storage,
+        private settings: SettingsProvider) {
 
         // Zodra cordova is opgestart orientate je scherm naar potrait op HomePage
         if (this.platform.is('cordova')) {
@@ -65,6 +69,8 @@ export class HomePage {
 
         // Disable swiping
         this.menuCtrl.enable(false, 'myMenu');
+
+        this.settings.getActiveTheme().subscribe(val => this.selectedTheme = val);
     }
 
     // ---------------------------------------------------------------------------------------------
@@ -122,6 +128,7 @@ export class HomePage {
                             localStorage.setItem("userCreationDate", this.dataUser.creationdate);
                             localStorage.setItem("sessionToken", this.token);
                             localStorage.setItem("profilePicture", this.dataUser.profilepicture);
+                            localStorage.setItem("themeColor", this.selectedTheme);
                             console.log(localStorage.getItem('TutorialShown'));
 
 
