@@ -56,6 +56,7 @@ export class FeedPage {
     public open2: boolean = true;
     public open3: boolean = true;
     public open4: boolean = true;
+    public currentTheme: string;
 
     // weer
     public dag1NaarCelcius12uur: any;
@@ -299,12 +300,25 @@ export class FeedPage {
                 })
             }
         }
+
+        if(localStorage.getItem("themeColor"))
+        {
+            this.currentTheme = localStorage.getItem("themeColor")
+            console.log(this.currentTheme);
+        }
     }
 
 
     // ---------------------------------------------------------------------------------------------
     // Hier eindigt de constructor
     // ---------------------------------------------------------------------------------------------
+
+    public scrollFunction = (event: any) => {
+        let dimensions = this.content.getContentDimensions(); // GET THE ion-content DIMENSIONS
+        let bottomPosition = dimensions.contentHeight + dimensions.scrollTop; // THE contentHeight IS THE SIZE OF YOUR CONTENT SHOWN ON SCREEN, THE scrollTop IS HOW MUCH YOU'VE SCROLLED FROM TOP OF YOUR CONTENT.
+        let screenSize = dimensions.scrollHeight; // TOTAL CONTENT SIZE
+        this.isShown = screenSize - bottomPosition <= 10 ? true : false;
+    }
 
     //
     onChange(SelectedValue) {
@@ -543,26 +557,6 @@ export class FeedPage {
     // Zodra de pagina is geladen
     ionViewDidLoad() {
         this.menuCtrl.enable(true, 'myMenu');
-    }
-
-
-    // Zodra die op de pagina is gekomen
-    ionViewDidEnter() {
-        this.content.ionScrollEnd.subscribe((data) => {
-            let dimensions = this.content.getContentDimensions();
-            let scrollTop = this.content.scrollTop;
-            let contentHeight = dimensions.contentHeight;
-            let scrollHeight = dimensions.scrollHeight;
-
-            if ((scrollTop + contentHeight + 20) > scrollHeight) {
-                this.shouldScrollDown = true;
-                this.showScrollButton = false;
-            } else {
-                this.shouldScrollDown = false;
-                this.showScrollButton = true;
-            }
-            console.log(contentHeight);
-        });
     }
 
     // Segment Alle nieuws van Vandaag
@@ -879,7 +873,6 @@ export class FeedPage {
             .post('http://gazoh.net/getdata2.php', data, options)
             .subscribe((data: any) => {
                     console.log("Offline data set in storage: offlineDataToday");
-                    console.log(data);
                     this.storage.set("offlineDataToday", data);
                 },
                 (error: any) => {
@@ -899,7 +892,6 @@ export class FeedPage {
             .post('http://gazoh.net/getyesterday.php', data, options)
             .subscribe((data: any) => {
                     console.log("Offline data set in storage: offlineDataYesterday");
-                    console.log(data);
                     this.storage.set("offlineDataYesterday", data);
                 },
                 (error: any) => {
@@ -919,7 +911,6 @@ export class FeedPage {
             .post('http://gazoh.net/get3daysago.php', data, options)
             .subscribe((data: any) => {
                     console.log("Offline data set in storage: offlineData3DaysAgo");
-                    console.log(data);
                     this.storage.set("offlineData3DaysAgo", data);
                 },
                 (error: any) => {

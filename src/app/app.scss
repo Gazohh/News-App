@@ -270,8 +270,9 @@ body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scro
 }
 // ------------------------------------
 // HomePage
-// Background color login
 
+
+// Background color login
 body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content {
   background-color: #fff !important;
 }
@@ -388,6 +389,15 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
 .gridPadding {
   padding-left: 0 !important;
   padding-right: 0 !important;
+  background-image: url("../assets/imgs/login.png");
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  overflow: hidden;
 }
 
 .loginButton {
@@ -1194,7 +1204,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 }
 
 .headerText {
-  font-weight: bold;
+  font-family: 'Roboto-Bold' !important;
   font-size: 2rem;
 }
 // NieuwsPage
@@ -1491,7 +1501,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 // ----------------------------------
 
 .card-md p {
-  margin-top: 4px;
+  padding-top: 4px;
   font-size: 2vh;
 }
 
