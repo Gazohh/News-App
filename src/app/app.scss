@@ -1,28 +1,33 @@
 @import "www/assets/scss/theme.dark1.scss";
+
 @font-face {
   font-family: 'Roboto-Regular';
   src: url("../assets/fonts/Roboto-Regular.ttf") format('truetype');
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Roboto-Thin';
   src: url("../assets/fonts/Roboto-Thin.ttf") format('truetype');
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Roboto-Bold';
   src: url("../assets/fonts/Roboto-Bold.ttf") format('truetype');
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Roboto-BoldCondensed';
   src: url("../assets/fonts/Roboto-BoldCondensed.ttf") format('truetype');
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Roboto-Medium';
   src: url("../assets/fonts/Roboto-Medium.ttf") format('truetype');
@@ -57,6 +62,7 @@ ion-slide.swiper-slide {
 .header .toolbar-background {
   background-color: #29708c !important;
 }
+
 // ------------------------------------
 // Settings Pagina
 // Iconen margin
@@ -179,6 +185,7 @@ body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item 
   width: 50px;
   margin: 0;
 }
+
 // ------------------------------------
 // Splash screen
 
@@ -217,6 +224,7 @@ body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item 
   display: flex;
   align-items: center;
 }
+
 // ------------------------------------
 // Registreer Pagina
 
@@ -253,6 +261,7 @@ body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item 
   border-radius: 1vh;
   margin-right: 16%;
 }
+
 // Register Button (RegisterPage)
 
 .registerButton {
@@ -263,14 +272,15 @@ body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item 
   box-shadow: none;
   text-transform: uppercase;
 }
+
 // Register Text
 
 body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div > div > ion-title > div {
   color: white;
 }
+
 // ------------------------------------
 // HomePage
-
 
 // Background color login
 body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content {
@@ -372,6 +382,7 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   box-shadow: none;
   text-transform: uppercase;
 }
+
 // Welkom text
 
 .welkomText {
@@ -454,6 +465,7 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
 .inloggenText {
   color: #000 !important;
 }
+
 // ------------------------------------
 // HTML *
 
@@ -594,12 +606,14 @@ ion-grid {
   height: 100%;
   justify-content: center;
 }
+
 // Background color
 
 body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid {
   background: #ebeeef;
   padding: 10px;
 }
+
 // ------------------------------------
 // scroll-content
 
@@ -616,6 +630,7 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   background: #ebeeef;
   padding: 10px;
 }
+
 // ------------------------------------
 // Row Buttons
 
@@ -660,6 +675,7 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   color: #999999;
   padding-left: 15px;
 }
+
 // ------------------------------------
 // Android (MD)
 
@@ -691,6 +707,7 @@ ion-buttons {
   font-weight: 500;
   color: #FFF !important;
 }
+
 // ------------------------------------
 // Navbar
 
@@ -710,6 +727,7 @@ ion-buttons {
   font-size: 1.7em !important;
   padding-left: 7px;
 }
+
 // Selected text van select
 
 body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > ion-buttons.moreFeed.bar-buttons.bar-buttons-md > ion-list > ion-select > div.select-text {
@@ -750,6 +768,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 .bar-button-default.bar-button-ios-default {
   color: #fff;
 }
+
 // ------------------------------------
 // Menu
 // Icons
@@ -757,51 +776,61 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 #contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > ion-icon {
   font-size: 1.3em;
 }
+
 // Ion-item menu
 
 #contentAnimation > div.scroll-content > ion-list > ion-item {
   padding-bottom: 10px !important;
 }
+
 // Hele category label
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) {
   padding-bottom: 15px !important;
 }
+
 // Entertainment lABEL
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list > ion-item:nth-child(6) > div.item-inner > div > ion-label {
   margin-bottom: 0 !important;
 }
+
 // startpagina label
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(2) > div.item-inner > div > ion-label {
   margin-bottom: 6px !important;
 }
+
 //sources label
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(3) > div.item-inner > div > ion-label {
   margin-bottom: 6px !important;
 }
+
 // Category label
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label {
   margin-bottom: 2px !important;
 }
+
 // subtitle ion-item
 
 #contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > ion-list > ion-item {
   padding: 0 !important;
 }
+
 //Ion list Category
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list {
   margin: 0;
 }
+
 // Algemeen Category
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list > ion-item:nth-child(1) > div.item-inner > div > ion-label {
   margin-top: 26px !important;
 }
+
 // Icons submenu Category
 
 #contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > ion-list > ion-item > div.item-inner > div > ion-label > ion-icon {
@@ -812,6 +841,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 [text-wrap] .label-md {
   line-height: 2.5 !important;
 }
+
 // alle menu items
 
 #contentAnimation > div.scroll-content > ion-list {
@@ -825,6 +855,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 .menuTitle {
   margin-left: 20px !important;
 }
+
 // Favorieten random margin door side
 .cardFavorieten {
   padding: 0px;
@@ -845,6 +876,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 .activeHightlight {
   background-color: red !important;
 }
+
 // IOS menu random 20px aan de top
 
 #contentAnimation > div.scroll-content {
@@ -860,7 +892,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 }
 
 .hide-card {
-  -webkit-box-shadow: none!important;
+  -webkit-box-shadow: none !important;
 }
 
 .avatar-menu {
@@ -933,18 +965,19 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 
 #contentAnimation > div.scroll-content > ion-list > ion-footer > ion-toolbar > div.toolbar-background.toolbar-background-md {
   background-color: #fff !important;
-  color: #000!important;
+  color: #000 !important;
 }
 
 .versienummer {
   margin: 0 0 0 25px;
 }
+
 // ------------------------------------
 // Card Category
 
 .card-title2 {
   font-size: 150% !important;
-  font-weight: bold!important;
+  font-weight: bold !important;
   color: #fff !important;
   text-shadow: 0 0 7px #000000;
   position: absolute;
@@ -960,6 +993,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   top: 63% !important;
   text-shadow: 0 0 7px #000000;
 }
+
 // FeedPage Header
 
 .alert-md .alert-wrapper {
@@ -981,6 +1015,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 .alert-md .alert-button {
   color: #3ca7d1 !important;
 }
+
 // Select icon
 
 body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > ion-buttons:nth-child(5) > ion-select > div.select-icon {
@@ -993,14 +1028,15 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > 
 body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > ion-buttons:nth-child(5) > ion-select {
   padding: 0 !important;
 }
+
 // FeedPage Card Design
 // ------------------------------------
-// Cards
 
+// Cards
 body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > ion-grid > ion-col > ion-row > ion-card {
   width: 100% !important;
   margin: 0 0 10px;
-  box-shadow: rgba(0,0,0,0.01) 3px 6px rgba(0,0,0,0.01), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: rgba(0, 0, 0, 0.01) 3px 6px rgba(0, 0, 0, 0.01), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .toolbar-background {
@@ -1038,6 +1074,10 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
   font-weight: bold;
 }
 
+.uitgeverFeedNU {
+  margin-top: 1.5rem !important;
+}
+
 .datumFeed {
   float: left;
   font-size: 1.2rem;
@@ -1072,6 +1112,9 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 }
 
 #title > ion-card-title {
+  margin-top: 21px;
+  margin-bottom: 4px;
+  padding: 0px !important;
   line-height: 1;
 }
 
@@ -1090,6 +1133,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 .feedGrid {
   padding: 0px;
 }
+
 // FEED images
 
 page-feed img {
@@ -1099,6 +1143,7 @@ page-feed img {
   vertical-align: middle !important;
   overflow: hidden !important;
 }
+
 @media only screen and (max-width: 300px) {
   page-feed img {
     text-align: center !important;
@@ -1109,6 +1154,7 @@ page-feed img {
     height: 100%;
   }
 }
+
 @media only screen and (min-width: 546px) {
   page-feed img {
     text-align: center !important;
@@ -1207,6 +1253,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
   font-family: 'Roboto-Bold' !important;
   font-size: 2rem;
 }
+
 // NieuwsPage
 
 .imageNieuws {
@@ -1239,6 +1286,7 @@ body > ion-app > ng-component > ion-nav > page-nieuws > ion-header > ion-navbar 
 .nieuwsDatum {
   color: #8f8e8e !important;
 }
+
 //
 // Sources
 //
@@ -1246,6 +1294,7 @@ body > ion-app > ng-component > ion-nav > page-nieuws > ion-header > ion-navbar 
 .buttonIcon {
   padding-right: 8px;
 }
+
 //
 // Appbrowser button
 //
@@ -1253,6 +1302,7 @@ body > ion-app > ng-component > ion-nav > page-nieuws > ion-header > ion-navbar 
 body > ion-app > ng-component > ion-nav > page-nieuws > ion-content > div.scroll-content > ion-card > ion-card-content > button {
   top: 10px !important;
 }
+
 //
 // SourcesPage
 //
@@ -1262,11 +1312,13 @@ body > ion-app > ng-component > ion-nav > page-nieuws > ion-content > div.scroll
   font-weight: bold !important;
   color: #9f9f9f;
 }
+
 // Titel Sources List MD  lABEL
 
 body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scroll-content > ion-slides > div > div.swiper-wrapper > ion-slide.swiper-slide.swiper-slide-active > div > ion-list > ion-item:nth-child(1) > div.item-inner > div > ion-label {
   marin-bottom: 0;
 }
+
 //
 // ProfilePage
 //
@@ -1325,6 +1377,7 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
   font-size: smaller;
   width: 133px;
 }
+
 // Transitions
 //
 // slideInRight
@@ -1340,6 +1393,7 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
     transform: translateZ(0);
   }
 }
+
 @keyframes slideInRight {
   0% {
     -webkit-transform: translate3d(100%, 0, 0);
@@ -1358,6 +1412,7 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
   animation-name: slideInRight;
   animation-duration: 300ms !important;
 }
+
 //slideInLeft
 @-webkit-keyframes slideInLeft {
   0% {
@@ -1371,6 +1426,7 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
     transform: translateZ(0);
   }
 }
+
 @keyframes slideInLeft {
   0% {
     -webkit-transform: translate3d(-100%, 0, 0);
@@ -1389,12 +1445,14 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
   animation-name: slideInLefts;
   animation-duration: 300ms;
 }
+
 // Admin page
 //Admin Text
 body > ion-app > ng-component > ion-nav > page-admin > ion-header > ion-navbar > div.toolbar-content.toolbar-content-md > ion-title > div {
   padding-right: 10px !important;
   padding: 0px;
 }
+
 // Searchbar
 
 body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-content > ion-list > ion-item-group > ion-row > ion-searchbar {
@@ -1402,11 +1460,13 @@ body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-
   padding-left: 0;
   padding-right: 0;
 }
+
 // Gebruikers Content
 
 body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-content > ion-list {
   margin: 0 !important;
 }
+
 // Scroll Content
 
 body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-content {
@@ -1418,11 +1478,13 @@ body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-
 .adminSearchIcon {
   visibility: hidden !important;
 }
+
 //ion fab admin
 
 body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-content > div > ion-card > ion-card-content > div > ion-fab {
   margin-right: 10px !important;
 }
+
 //
 // Ion - ion-slides
 
@@ -1437,11 +1499,13 @@ body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-
 .spanHide {
   visibility: hidden !important;
 }
+
 // Slide items center align
 
 .iconAdmin {
   padding-bottom: 15px !important;
 }
+
 // Weer data
 
 .tijdWeer {
@@ -1497,6 +1561,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 .segmentWeerVandaag {
   color: #fff !important;
 }
+
 // ----------------------------------
 // ----------------------------------
 
@@ -1592,6 +1657,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 .buttonTijd {
   float: left;
 }
+
 // icon pijl
 
 body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > ion-grid > ion-col > ion-row > ion-list > ion-card > ion-card-content > div > ion-row > button > div.item-inner > div > ion-label > div.buttonTijd > ion-icon {
@@ -1607,6 +1673,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 .tijdWeer {
   font-family: 'Roboto-Medium';
 }
+
 // Label uitklapWeer
 
 .uitklapWeerAntwoorden {
@@ -1617,7 +1684,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
   padding-left: 0px;
 }
 
-.uitklapWeer{
+.uitklapWeer {
   list-style-type: none;
   text-align: end;
   padding-left: 58px;
@@ -1651,7 +1718,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 
 }
 
- // Privacy Beleid
+// Privacy Beleid
 .privacyBeleid {
   padding: 0px;
   padding-right: 48px;
