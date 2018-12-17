@@ -45,7 +45,7 @@
     <ion-item class="">
         <ion-label class="DarkLabel">
             <ion-icon name="moon" class="iconInstellingen"></ion-icon>
-            Light/Dark
+            Dark Theme
         </ion-label>
         <ion-toggle [(ngModel)]="toggleStatus" (ionChange)="toggleAppTheme()"></ion-toggle>
     </ion-item>
@@ -56,13 +56,13 @@
         </ion-label>
     </ion-item>
     <ion-item class="" *ngIf="rol == 1" (click)="openAdmin()">
-        <ion-label>
+        <ion-label class="DarkLabel">
             <ion-icon name="construct" class="iconInstellingen"></ion-icon>
             Admin panel
         </ion-label>
     </ion-item>
     <ion-item class="" (click)="uitloggen()">
-        <ion-label>
+        <ion-label class="DarkLabel">
             <ion-icon name="log-out" class="iconInstellingen"></ion-icon>
             Uitloggen
         </ion-label>

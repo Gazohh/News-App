@@ -17,8 +17,16 @@ export class SourcesPage {
 
   @ViewChild('slider') slider: Slides;
   page = "0";
+  public currentTheme: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+      // Theme
+      if(localStorage.getItem("themeColor"))
+      {
+          this.currentTheme = localStorage.getItem("themeColor")
+          console.log(this.currentTheme);
+      }
   }
 
   selectedTab(ind) {
@@ -28,4 +36,6 @@ export class SourcesPage {
   moveButton($event) {
     this.page = $event._snapIndex.toString();
   }
+
+
 }

@@ -63,9 +63,6 @@
                                         item-start>
                                 <img src="../assets/svg/NOS_logo_Wit.svg" class="avatar-feedNOS"/>
                             </ion-avatar>
-                            <ion-avatar *ngIf="item.site == 'NU.nl'" class="avatar" item-start>
-                                <img src="../assets/svg/nu.nl.svg" class="avatar-feed"/>
-                            </ion-avatar>
                             <ion-avatar *ngIf="item.site == 'De Telegraaf' && currentTheme == 'light-theme'"
                                         class="avatar" item-start>
                                 <img src="../assets/svg/Telegraaf.svg" class="avatar-feedTelegraaf"/>
@@ -73,6 +70,9 @@
                             <ion-avatar *ngIf="item.site == 'De Telegraaf' && currentTheme == 'dark-theme'"
                                         class="avatar" item-start>
                                 <img src="../assets/svg/Telegraaf_Wit.svg" class="avatar-feedTelegraaf"/>
+                            </ion-avatar>
+                            <ion-avatar *ngIf="item.site == 'NU.nl'" class="avatar" item-start>
+                                <img src="../assets/svg/nu.nl.svg" class="avatar-feed"/>
                             </ion-avatar>
                         </div>
                         <!-- Uitgever -->

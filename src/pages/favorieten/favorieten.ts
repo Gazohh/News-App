@@ -37,6 +37,13 @@ export class FavorietenPage {
                 public http: HttpClient,
                 public toastCtrl: ToastController) {
 
+        // Theme
+        if(localStorage.getItem("themeColor"))
+        {
+            this.currentTheme = localStorage.getItem("themeColor")
+            console.log(this.currentTheme);
+        }
+
     }
 
     ionViewWillEnter() {
