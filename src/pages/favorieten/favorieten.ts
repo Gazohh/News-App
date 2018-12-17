@@ -31,6 +31,7 @@ export class FavorietenPage {
     likedUserArticle: string;
     likeDate: string;
     liked: string;
+    public currentTheme: string;
 
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
