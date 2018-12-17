@@ -29,6 +29,7 @@ export class AdminPage {
     public data: any;
     public key: string = "items";
     public items: any = 0;
+    public currentTheme: string;
 
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
@@ -36,6 +37,13 @@ export class AdminPage {
                 public events: Events,
                 public toastCtrl: ToastController,
                 private alertCtrl: AlertController) {
+
+        // Theme
+        if(localStorage.getItem("themeColor"))
+        {
+            this.currentTheme = localStorage.getItem("themeColor")
+            console.log(this.currentTheme);
+        }
     }
 
     ionViewDidLoad() {
