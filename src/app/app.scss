@@ -1,6 +1,9 @@
 @font-face {
   font-family: 'Roboto-Regular';
-  src: url("../assets/fonts/Roboto-Regular.ttf") format('truetype');
+  src: url('../assets/fonts/Roboto-Regular.ttf');
+url("../assets/fonts/roboto-regular.woff") format('woff'),
+url("../assets/fonts/roboto-regular.woff2") format('woff2'),
+url("../assets/fonts/Roboto-Regular.ttf") format('ttf');
   font-weight: normal;
   font-style: normal;
 }
@@ -14,21 +17,20 @@
 
 @font-face {
   font-family: 'Roboto-Bold';
-  src: url("../assets/fonts/Roboto-Bold.ttf") format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Roboto-BoldCondensed';
-  src: url("../assets/fonts/Roboto-BoldCondensed.ttf") format('truetype');
+  src: url('../assets/fonts/Roboto-Bold.ttf');
+url("../assets/fonts/roboto-bold.woff") format('woff'),
+url("../assets/fonts/roboto-bold.woff2") format('woff2'),
+url("../assets/fonts/Roboto-Bold.ttf") format('ttf');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Roboto-Medium';
-  src: url("../assets/fonts/Roboto-Medium.ttf") format('truetype');
+  src: url('../assets/fonts/Roboto-Medium.ttf');
+url("../assets/fonts/roboto-medium.woff") format('woff'),
+url("../assets/fonts/roboto-medium.woff2") format('woff2'),
+url("../assets/fonts/Roboto-Medium.ttf") format('ttf');
   font-weight: normal;
   font-style: normal;
 }
@@ -1197,33 +1199,31 @@ page-feed img {
 }
 
 .socialTelegraaf {
-  color: rgb(39, 80, 154) !important;
   margin-left: 5px;
   float: right;
 }
 
 .socialTelegraafShare {
   float: left;
-  color: rgb(39, 80, 154) !important;
 }
 
 .ColorNU {
-  background-color: rgb(2, 0, 81) !important;
+  background-color: #0041b5 !important;
 }
 
 .ColorNU2 {
-  background-color: rgb(2, 0, 81) !important;
+  background-color: #0041b5 !important;
   margin-right: 2.0vh !important;
 }
 
 .socialNu {
-  color: rgb(2, 0, 81) !important;
+  color: #0041b5 !important;
   float: right;
 }
 
 .socialNuShare {
   float: left;
-  color: rgb(2, 0, 81) !important;
+  color: #0041b5 !important;
 }
 
 .socialLikeComments {
