@@ -15,8 +15,6 @@ export class WijzigwachtwoordPage implements OnInit {
     password2: string;
     passwordstatus: boolean;
     oldpassword:string;
-    valMessage: any;
-    invalidValMessage: any;
 
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
@@ -27,7 +25,7 @@ export class WijzigwachtwoordPage implements OnInit {
 
     ngOnInit() {
         this.form = new FormGroup({
-            oldpassword: new FormControl('', [Validators.required, Validators.minLength(8), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$')]),
+            oldpassword: new FormControl('', [Validators.required]),
             password: new FormControl('', [Validators.required, Validators.minLength(8), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$')]),
             password2: new FormControl('', [Validators.required, Validators.minLength(8), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$')]),
         })
@@ -43,6 +41,21 @@ export class WijzigwachtwoordPage implements OnInit {
                 this.validateAllFormFields(control);            //{6}
             }
         });
+
+        if(this.password != this.password2) {
+            this.passwordstatus = false;
+            let toast = this.toastCtrl.create({
+                message: 'wellou',
+                duration: 3000,
+                position: 'top'
+            });
+
+            toast.present();
+        }
+        else if ( this.password == this.password2)
+        {
+            this.passwordstatus = true;
+        }
     }
 
     updateWachtwoord() {
@@ -74,15 +87,9 @@ export class WijzigwachtwoordPage implements OnInit {
                                 }]
                             })
                             alert.present();
-                        } else if(data == "No matching password") {
-                            this.valMessage = data;
-                            console.log(this.valMessage);
-                        } else if(this.password != this.password2) {
-                            this.invalidValMessage = this.invalidValMessage;
-                            return null;
-                        } else if(this.password2 != this.password) {
-                            this.invalidValMessage = this.invalidValMessage;
-                            return null;
+                        }
+                        else if(data == "No matching password") {
+
                         }
                     });
             }
