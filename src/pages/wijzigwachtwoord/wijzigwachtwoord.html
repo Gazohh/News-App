@@ -11,18 +11,10 @@
 <ion-content>
   <form novalidate [formGroup]="form">
 
-    <div class="form-group">
-      <ion-item [ngClass]="{ 'ng-touched' : form.get('password').touched }">
-        <ion-label stacked>Oud Wachtwoord</ion-label>
-        <ion-input type="password" formControlName="oldpassword" class="form-control" [(ngModel)]="oldpassword"></ion-input>
-      </ion-item>
-    </div>
-    <div class="alert alert-danger" *ngIf="form.get('password').touched && form.get('password').invalid ">
-      <div class="validatieText" *ngIf="form.get('password').hasError('required')">Wachtwoord moet ingevuld zijn</div>
-      <div class="validatieText" *ngIf="form.get('password').hasError('minLength')">Wachtwoord moet minimaal 8 tekens lang zijn</div>
-      <div class="validatieText" *ngIf="form.get('password').hasError('pattern')">Wachtwoord moet minstens een hoofdletter, een kleine letter en een cijfer bevatten</div>
-    </div>
-
+    <ion-item>
+      <ion-label color="lightAppKleur" stacked>Oud Wachtwoord</ion-label>
+      <ion-input type="password" formControlName="oldpassword" [(ngModel)]="oldpassword" d placeholder=""></ion-input>
+    </ion-item>
 
     <div class="form-group">
       <ion-item [ngClass]="{ 'ng-touched' : form.get('password').touched }">

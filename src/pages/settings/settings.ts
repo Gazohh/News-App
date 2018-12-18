@@ -99,7 +99,6 @@ export class SettingsPage {
         localStorage.removeItem('userCreationDate');
         localStorage.removeItem('sessionToken');
         localStorage.removeItem('profilePicture');
-        localStorage.removeItem('themeColor');
         this.navCtrl.setRoot(HomePage);
     }
 

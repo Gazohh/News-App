@@ -88,9 +88,6 @@ export class WijzigwachtwoordPage implements OnInit {
                             })
                             alert.present();
                         }
-                        else if(data == "No matching password") {
-
-                        }
                     });
             }
         }
