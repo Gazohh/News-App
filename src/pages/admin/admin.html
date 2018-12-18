@@ -1,178 +1,190 @@
 <ion-header no-border-bottom>
-  <ion-navbar>
-    <ion-title *ngIf="!isSearchbaropened" class="adminTitle">Admin</ion-title>
-    <!-- Searchbar  -->
-    <ion-searchbar #searchbar *ngIf="isSearchbaropened" [showCancelButton]="true" (ionCancel)="resetChanges()" (ionInput)="search($event)" placeholder="Waar zijn we naar op zoek?" class="slideInRight"></ion-searchbar>
-    <!-- Searchbar icon -->
-    <ion-buttons end *ngIf="checklist == 'artikelen'">
-      <button ion-button icon-only (click)="isSearchbaropened=true">
-        <ion-icon name="search" *ngIf="!isSearchbaropened"></ion-icon>
-      </button>
-    </ion-buttons>
-    <ion-buttons end *ngIf="checklist == 'gebruikers'">
-      <button ion-button icon-only (click)="isSearchbaropened=true">
-        <ion-icon name="search"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-navbar>
-  <ion-segment [(ngModel)]="checklist" color="primary">
-    <ion-segment-button value="artikelen" (click)="selectArtikelen()">
-      Verborgen
-    </ion-segment-button>
-    <ion-segment-button value="gebruikers" (click)="selectGebruikers()">
-      Gebruikers
-    </ion-segment-button>
-  </ion-segment>
+    <ion-navbar>
+        <ion-title *ngIf="!isSearchbaropened" class="adminTitle">Admin</ion-title>
+        <!-- Searchbar  -->
+        <ion-searchbar #searchbar *ngIf="isSearchbaropened" [showCancelButton]="true" (ionCancel)="resetChanges()"
+                       (ionInput)="search($event)" placeholder="Waar zijn we naar op zoek?"
+                       class="slideInRight"></ion-searchbar>
+        <!-- Searchbar icon -->
+        <ion-buttons end *ngIf="checklist == 'artikelen'">
+            <button ion-button icon-only (click)="isSearchbaropened=true">
+                <ion-icon name="search" *ngIf="!isSearchbaropened"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons end *ngIf="checklist == 'gebruikers'">
+            <button ion-button icon-only (click)="isSearchbaropened=true">
+                <ion-icon name="search"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+    <ion-segment [(ngModel)]="checklist" color="primary">
+        <ion-segment-button value="artikelen" (click)="selectArtikelen()">
+            Verborgen
+        </ion-segment-button>
+        <ion-segment-button value="gebruikers" (click)="selectGebruikers()">
+            Gebruikers
+        </ion-segment-button>
+    </ion-segment>
 </ion-header>
 <ion-content padding>
-  <div *ngIf="checklist == 'artikelen'">
-    <ion-card *ngFor="let item of artikelenlijst" col-md-6 class="ionCard">
-      <!-- Images van nieuwsfeed -->
-      <div class="ion-card-image-wrapper" (click)="viewEntry({ record: item })">
-        <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">
-        <img [src]="item.image" *ngIf="item.site == 'NOS.nl'">
-        <img [src]="item.image" *ngIf="item.site != 'NOS.nl' || item.site != 'NU.nl'">
-      </div>
-      <ion-card-content>
-        <!-- Avatar -->
-        <div id="AvatarFeed" (click)="viewEntry({ record: item })">
-          <ion-avatar *ngIf="item.site == 'NOS' && currentTheme == 'light-theme'" class="avatar" item-start>
-            <img src="../assets/svg/NOS_logo.svg" class="avatar-feedNOS"/>
-          </ion-avatar>
-          <ion-avatar *ngIf="item.site == 'NOS' && currentTheme == 'dark-theme'" class="avatar" item-start>
-            <img src="../assets/svg/NOS_logo_Wit.svg" class="avatar-feedNOS"/>
-          </ion-avatar>
-          <ion-avatar *ngIf="item.site == 'De Telegraaf' && currentTheme == 'light-theme'" class="avatar" item-start>
-            <img src="../assets/svg/Telegraaf.svg" class="avatar-feedTelegraaf"/>
-          </ion-avatar>
-          <ion-avatar *ngIf="item.site == 'De Telegraaf' && currentTheme == 'dark-theme'" class="avatar" item-start>
-            <img src="../assets/svg/Telegraaf_Wit.svg" class="avatar-feedTelegraaf"/>
-          </ion-avatar>
-          <ion-avatar *ngIf="item.site == 'NU.nl'" class="avatar" item-start>
-            <img src="../assets/svg/nu.nl.svg" class="avatar-feed"/>
-          </ion-avatar>
-        </div>
-        <!-- Uitgever -->
-        <div id="uitgeverFeed" (click)="viewEntry({ record: item })">
-          <div class="uitgeverFeed" *ngIf="item.site == 'De Telegraaf' || item.site == 'NOS'">{{item.site}}</div>
-          <div class="uitgeverFeedNU" *ngIf="item.site == 'NU.nl'">{{item.site}}</div>
-          <!-- Title  -->
-          <div id="title">
-            <ion-card-title class="TitleFeed">
-              <strong>{{item.title}}</strong>
-            </ion-card-title>
-          </div>
-          <!-- description  -->
-          <div id="description">
-            <p class="descriptionFeed">{{htmlToPlaintext(item.description) |
-              slice:0:120}}...</p>
-          </div>
-          <!-- Datum -->
-          <div id="datumFeed" class="datumFeed">
-            <span>{{item.datum}}</span>
-          </div>
-        </div>
-        <!-- Social Buttons - Comments - likes - Share -->
-        <div id="socialLikeComments" class="socialLikeComments">
-          <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf' && rol == 1"
-                  class="socialTelegraafShare" (click)="showConfirmHide(item.id)">
-            <ion-icon name="trash"></ion-icon>
-          </button>
-          <button ion-button icon-start clear *ngIf="item.site == 'NOS' && rol == 1"
-                  class="socialNOSShare" (click)="showConfirmHide(item.id)">
-            <ion-icon name="trash"></ion-icon>
-          </button>
-          <button ion-button icon-start clear *ngIf="item.site == 'NU.nl' && rol == 1"
-                  class="socialNuShare" (click)="showConfirmHide(item.id)">
-            <ion-icon name="trash"></ion-icon>
-          </button>
-          <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'"
-                  class="socialTelegraafShare"
-                  (click)="shareInfo(item.title, item.image, item.link)">
-            <ion-icon name="share-alt"></ion-icon>
-          </button>
-          <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOSShare"
-                  (click)="shareInfo(item.title, item.image, item.link)">
-            <ion-icon name="share-alt"></ion-icon>
-          </button>
-          <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNuShare"
-                  (click)="shareInfo(item.title, item.image, item.link)">
-            <ion-icon name="share-alt"></ion-icon>
-          </button>
-          <button class="socialTelegraaf" ion-button icon-start clear
-                  *ngIf="item.site == 'De Telegraaf' && item.liked == 0" [disabled]="disabled"
-                  (click)="setLike(item.id)">
-            <ion-icon name="heart-outline" class="darkHeartOutline"></ion-icon>
-            <div>{{item.likes}}</div>
-          </button>
-          <button class="socialNOS" ion-button icon-start clear
-                  *ngIf="item.site == 'NOS' && item.liked == 0" [disabled]="disabled"
-                  (click)="setLike(item.id)">
-            <ion-icon name="heart-outline" class="darkHeartOutline"></ion-icon>
-            <div>{{item.likes}}</div>
-          </button>
-          <button class="socialNu" ion-button icon-start clear
-                  *ngIf="item.site == 'NU.nl' && item.liked == 0" [disabled]="disabled"
-                  (click)="setLike(item.id)">
-            <ion-icon name="heart-outline" class="darkHeartOutline"></ion-icon>
-            <div>{{item.likes}}</div>
-          </button>
-          <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'"
-                  class="socialTelegraaf" (click)="viewComments({ record: item })">
-            <ion-icon name="chatbubbles" class="darkChatTelegraaf"></ion-icon>
-            <div>{{item.comments}}</div>
-          </button>
-          <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOS"
-                  (click)="viewComments({ record: item })">
-            <ion-icon name="chatbubbles" class="darkChatNOS"></ion-icon>
-            <div>{{item.comments}}</div>
-          </button>
-          <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNu"
-                  (click)="viewComments({ record: item })">
-            <ion-icon name="chatbubbles" class="darkChatNU"></ion-icon>
-            <div>{{item.comments}}</div>
-          </button>
-          <button class="socialTelegraaf" ion-button icon-start clear
-                  *ngIf="item.site == 'De Telegraaf' && item.liked == 1"
-                  (click)="dislike(item.id, item.title)">
-            <ion-icon name="heart" class="darkHeartFull"></ion-icon>
-            <div>{{item.likes}}</div>
-          </button>
-          <button class="socialNOS" ion-button icon-start clear
-                  *ngIf="item.site == 'NOS' && item.liked == 1"
-                  (click)="dislike(item.id, item.title)">
-            <ion-icon name="heart" class="darkHeartFull"></ion-icon>
-            <div>{{item.likes}}</div>
-          </button>
-          <button class="socialNu" ion-button icon-start clear
-                  *ngIf="item.site == 'NU.nl' && item.liked == 1"
-                  (click)="dislike(item.id, item.title)">
-            <ion-icon name="heart" class="darkHeartFull"></ion-icon>
-            <div>{{item.likes}}</div>
-          </button>
-        </div>
-      </ion-card-content>
-    </ion-card>
-  </div>
-  <ion-list *ngFor="let user of gebruikerslijst">
-    <ion-item-sliding #item>
-      <ion-item class="adminUsers">
-        <ion-avatar class="avatar" item-start>
-          <img src="{{user.profilepicture}}" class="avatar-profiel" />
-        </ion-avatar>
-        <h3>ID: <strong>{{user.id}}</strong></h3>
-        <h3>Email <strong>{{user.email}}</strong></h3>
-      </ion-item>
-      <ion-item-options side="right">
-        <button ion-button (click)="unread(item)" class="deleteSlide">
-          <span class="spanHide">Bewe</span>
-          <ion-icon name="trash" class="iconAdmin"></ion-icon>
-        </button>
-        <button ion-button (click)="unread(item)" class="BewerkSlide">
-          <span class="spanHide">Dele</span>
-          <ion-icon name="create" class="iconAdmin"></ion-icon>
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
+    <div *ngIf="checklist == 'artikelen'">
+                    <ion-card *ngFor="let item of artikelenlijst" col-md-6 class="ionCard">
+                        <!-- Images van nieuwsfeed -->
+                        <div class="ion-card-image-wrapper" (click)="viewEntry({ record: item })">
+                            <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">
+                            <img [src]="item.image" *ngIf="item.site == 'NOS.nl'">
+                            <img [src]="item.image" *ngIf="item.site != 'NOS.nl' || item.site != 'NU.nl'">
+                        </div>
+                        <ion-card-content>
+                            <!-- Avatar -->
+                            <div id="AvatarFeed" (click)="viewEntry({ record: item })">
+                                <ion-avatar *ngIf="item.site == 'NOS' && currentTheme == 'light-theme'" class="avatar"
+                                            item-start>
+                                    <img src="../assets/svg/NOS_logo.svg" class="avatar-feedNOS"/>
+                                </ion-avatar>
+                                <ion-avatar *ngIf="item.site == 'NOS' && currentTheme == 'dark-theme'" class="avatar"
+                                            item-start>
+                                    <img src="../assets/svg/NOS_logo_Wit.svg" class="avatar-feedNOS"/>
+                                </ion-avatar>
+                                <ion-avatar *ngIf="item.site == 'De Telegraaf' && currentTheme == 'light-theme'"
+                                            class="avatar"
+                                            item-start>
+                                    <img src="../assets/svg/Telegraaf.svg" class="avatar-feedTelegraaf"/>
+                                </ion-avatar>
+                                <ion-avatar *ngIf="item.site == 'De Telegraaf' && currentTheme == 'dark-theme'"
+                                            class="avatar"
+                                            item-start>
+                                    <img src="../assets/svg/Telegraaf_Wit.svg" class="avatar-feedTelegraaf"/>
+                                </ion-avatar>
+                                <ion-avatar *ngIf="item.site == 'NU.nl'" class="avatar" item-start>
+                                    <img src="../assets/svg/nu.nl.svg" class="avatar-feed"/>
+                                </ion-avatar>
+                            </div>
+                            <!-- Uitgever -->
+                            <div id="uitgeverFeed" (click)="viewEntry({ record: item })">
+                                <div class="uitgeverFeed" *ngIf="item.site == 'De Telegraaf' || item.site == 'NOS'">
+                                    {{item.site}}
+                                </div>
+                                <div class="uitgeverFeedNU" *ngIf="item.site == 'NU.nl'">{{item.site}}</div>
+                                <!-- Title  -->
+                                <div id="title">
+                                    <ion-card-title class="TitleFeed">
+                                        <strong>{{item.title}}</strong>
+                                    </ion-card-title>
+                                </div>
+                                <!-- description  -->
+                                <div id="description">
+                                    <p class="descriptionFeed">{{htmlToPlaintext(item.description) |
+                                        slice:0:120}}...</p>
+                                </div>
+                                <!-- Datum -->
+                                <div id="datumFeed" class="datumFeed">
+                                    <span>{{item.datum}}</span>
+                                </div>
+                            </div>
+                            <!-- Social Buttons - Comments - likes - Share -->
+                            <div id="socialLikeComments" class="socialLikeComments">
+                                <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'"
+                                        class="socialTelegraafShare"
+                                        (click)="showConfirmPublish(item.id)">
+                                    <ion-icon name="eye"></ion-icon>
+                                </button>
+                                <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOSShare"
+                                        (click)="showConfirmPublish(item.id)">
+                                    <ion-icon name="eye"></ion-icon>
+                                </button>
+                                <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNuShare"
+                                        (click)="showConfirmPublish(item.id)">
+                                    <ion-icon name="eye"></ion-icon>
+                                </button>
+                                <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'"
+                                        class="socialTelegraafShare"
+                                        (click)="shareInfo(item.title, item.image, item.link)">
+                                    <ion-icon name="share-alt"></ion-icon>
+                                </button>
+                                <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOSShare"
+                                        (click)="shareInfo(item.title, item.image, item.link)">
+                                    <ion-icon name="share-alt"></ion-icon>
+                                </button>
+                                <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNuShare"
+                                        (click)="shareInfo(item.title, item.image, item.link)">
+                                    <ion-icon name="share-alt"></ion-icon>
+                                </button>
+                                <button class="socialTelegraaf" ion-button icon-start clear
+                                        *ngIf="item.site == 'De Telegraaf' && item.liked == 0" [disabled]="disabled"
+                                        (click)="setLike(item.id)">
+                                    <ion-icon name="heart-outline" class="darkHeartOutline"></ion-icon>
+                                    <div>{{item.likes}}</div>
+                                </button>
+                                <button class="socialNOS" ion-button icon-start clear
+                                        *ngIf="item.site == 'NOS' && item.liked == 0"
+                                        [disabled]="disabled" (click)="setLike(item.id)">
+                                    <ion-icon name="heart-outline" class="darkHeartOutline"></ion-icon>
+                                    <div>{{item.likes}}</div>
+                                </button>
+                                <button class="socialNu" ion-button icon-start clear
+                                        *ngIf="item.site == 'NU.nl' && item.liked == 0"
+                                        [disabled]="disabled" (click)="setLike(item.id)">
+                                    <ion-icon name="heart-outline" class="darkHeartOutline"></ion-icon>
+                                    <div>{{item.likes}}</div>
+                                </button>
+                                <button class="socialTelegraaf" ion-button icon-start clear
+                                        *ngIf="item.site == 'De Telegraaf' && item.liked == 1"
+                                        (click)="dislike(item.id, item.title)">
+                                    <ion-icon name="heart" class="darkHeartFull"></ion-icon>
+                                    <div>{{item.likes}}</div>
+                                </button>
+                                <button class="socialNOS" ion-button icon-start clear
+                                        *ngIf="item.site == 'NOS' && item.liked == 1"
+                                        (click)="dislike(item.id, item.title)">
+                                    <ion-icon name="heart" class="darkHeartFull"></ion-icon>
+                                    <div>{{item.likes}}</div>
+                                </button>
+                                <button class="socialNu" ion-button icon-start clear
+                                        *ngIf="item.site == 'NU.nl' && item.liked == 1"
+                                        (click)="dislike(item.id, item.title)">
+                                    <ion-icon name="heart" class="darkHeartFull"></ion-icon>
+                                    <div>{{item.likes}}</div>
+                                </button>
+                                <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'"
+                                        class="socialTelegraaf"
+                                        (click)="viewComments({ record: item })">
+                                    <ion-icon name="chatbubbles" class="darkChatTelegraaf"></ion-icon>
+                                    <div>{{item.comments}}</div>
+                                </button>
+                                <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOS"
+                                        (click)="viewComments({ record: item })">
+                                    <ion-icon name="chatbubbles" class="darkChatNOS"></ion-icon>
+                                    <div>{{item.comments}}</div>
+                                </button>
+                                <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNu"
+                                        (click)="viewComments({ record: item })">
+                                    <ion-icon name="chatbubbles" class="darkChatNU"></ion-icon>
+                                    <div>{{item.comments}}</div>
+                                </button>
+                            </div>
+                        </ion-card-content>
+                    </ion-card>
+    </div>
+    <ion-list *ngFor="let user of gebruikerslijst">
+        <ion-item-sliding #item>
+            <ion-item class="adminUsers">
+                <ion-avatar class="avatar" item-start>
+                    <img src="{{user.profilepicture}}" class="avatar-profiel"/>
+                </ion-avatar>
+                <h3>ID: <strong>{{user.id}}</strong></h3>
+                <h3>Email <strong>{{user.email}}</strong></h3>
+            </ion-item>
+            <ion-item-options side="right">
+                <button ion-button (click)="unread(item)" class="deleteSlide">
+                    <span class="spanHide">Bewe</span>
+                    <ion-icon name="trash" class="iconAdmin"></ion-icon>
+                </button>
+                <button ion-button (click)="unread(item)" class="BewerkSlide">
+                    <span class="spanHide">Dele</span>
+                    <ion-icon name="create" class="iconAdmin"></ion-icon>
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
 </ion-content>

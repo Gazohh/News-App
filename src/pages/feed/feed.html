@@ -41,8 +41,7 @@
                                pullingText="Sleep omlaag om te verversen"></ion-refresher-content>
     </ion-refresher>
     <!-- Grid -->
-    <ion-grid *ngIf="datepicker == 'vandaag' || datepicker == 'gisteren' || datepicker == 'driedagengeleden'"
-              class="feedGrid">
+    <ion-grid *ngIf="datepicker == 'vandaag' || datepicker == 'gisteren' || datepicker == 'driedagengeleden'" class="feedGrid">
         <ion-col>
             <ion-row>
                 <ion-card *ngFor="let item of items" col-md-6 class="ionCard">
