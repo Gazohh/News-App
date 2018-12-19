@@ -30,7 +30,7 @@ export class MyApp {
     // -------------------------------------
     // pages: Array<{ title: any, component: any, icon: string; }>;
     pages: any;
-    selectedTheme: String;
+    selectedTheme: string;
     toggleStatus: boolean;
     showedAlert: boolean;
     confirmAlert: any;

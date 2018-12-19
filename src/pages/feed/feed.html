@@ -136,21 +136,6 @@
                                 <ion-icon name="heart-outline" class="darkHeartOutline"></ion-icon>
                                 <div>{{item.likes}}</div>
                             </button>
-                            <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'"
-                                    class="socialTelegraaf" (click)="viewComments({ record: item })">
-                                <ion-icon name="chatbubbles" class="darkChatTelegraaf"></ion-icon>
-                                <div>{{item.comments}}</div>
-                            </button>
-                            <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOS"
-                                    (click)="viewComments({ record: item })">
-                                <ion-icon name="chatbubbles" class="darkChatNOS"></ion-icon>
-                                <div>{{item.comments}}</div>
-                            </button>
-                            <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNu"
-                                    (click)="viewComments({ record: item })">
-                                <ion-icon name="chatbubbles" class="darkChatNU"></ion-icon>
-                                <div>{{item.comments}}</div>
-                            </button>
                             <button class="socialTelegraaf" ion-button icon-start clear
                                     *ngIf="item.site == 'De Telegraaf' && item.liked == 1"
                                     (click)="dislike(item.id, item.title)">
@@ -168,6 +153,21 @@
                                     (click)="dislike(item.id, item.title)">
                                 <ion-icon name="heart" class="darkHeartFull"></ion-icon>
                                 <div>{{item.likes}}</div>
+                            </button>
+                            <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'"
+                                    class="socialTelegraaf" (click)="viewComments({ record: item })">
+                                <ion-icon name="chatbubbles" class="darkChatTelegraaf"></ion-icon>
+                                <div>{{item.comments}}</div>
+                            </button>
+                            <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOS"
+                                    (click)="viewComments({ record: item })">
+                                <ion-icon name="chatbubbles" class="darkChatNOS"></ion-icon>
+                                <div>{{item.comments}}</div>
+                            </button>
+                            <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNu"
+                                    (click)="viewComments({ record: item })">
+                                <ion-icon name="chatbubbles" class="darkChatNU"></ion-icon>
+                                <div>{{item.comments}}</div>
                             </button>
                         </div>
                     </ion-card-content>

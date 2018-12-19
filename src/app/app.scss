@@ -66,6 +66,10 @@ ion-slide.swiper-slide {
   margin-right: 2rem !important;
 }
 
+.verificationContent {
+background-color: #8c2929 !important;
+}
+
 .emailVerificationText {
   white-space: initial;
   word-wrap: break-word;
@@ -396,7 +400,6 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
 .gridPadding {
   padding-left: 0 !important;
   padding-right: 0 !important;
-  background-image: url("../assets/imgs/login.png");
   background-repeat: no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
