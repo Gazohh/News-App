@@ -14,7 +14,11 @@ export class WijzigwachtwoordPage implements OnInit {
     password: string;
     password2: string;
     passwordstatus: boolean;
-    oldpassword:string;
+    oldpassword: string;
+    valMessage: any;
+    invalidValMessage: any;
+    pass1: any;
+    pass2: any;
 
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
@@ -25,7 +29,7 @@ export class WijzigwachtwoordPage implements OnInit {
 
     ngOnInit() {
         this.form = new FormGroup({
-            oldpassword: new FormControl('', [Validators.required]),
+            oldpassword: new FormControl('', [Validators.required, Validators.minLength(8), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$')]),
             password: new FormControl('', [Validators.required, Validators.minLength(8), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$')]),
             password2: new FormControl('', [Validators.required, Validators.minLength(8), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$')]),
         })
@@ -41,41 +45,26 @@ export class WijzigwachtwoordPage implements OnInit {
                 this.validateAllFormFields(control);            //{6}
             }
         });
-
-        if(this.password != this.password2) {
-            this.passwordstatus = false;
-            let toast = this.toastCtrl.create({
-                message: 'wellou',
-                duration: 3000,
-                position: 'top'
-            });
-
-            toast.present();
-        }
-        else if ( this.password == this.password2)
-        {
-            this.passwordstatus = true;
-        }
     }
 
     updateWachtwoord() {
-        if (this.form.valid) {
-            if(this.passwordstatus = true)
-            {
-                const headers = new HttpHeaders();
-                headers.append("Accept", 'application/json');
-                headers.append('Content-Type', 'application/json');
-                const options = {headers: headers};
-                const data = {
-                    userId: localStorage.getItem('userId'),
-                    oldpassword: this.oldpassword,
-                    newpassword: this.password,
-                };
-                this.http
-                    .post('http://gazoh.net/wijzigwachtwoord.php', data, options)
-                    .subscribe((data: any) => {
-                        if (data == "password updated")
-                        {
+        if (this.password != this.password2 || this.password2 != this.password) {
+            console.log("pas1 != pas2");
+            this.pass1 = this.pass1;
+        } else if (this.form.valid) {
+            const headers = new HttpHeaders();
+            headers.append("Accept", 'application/json');
+            headers.append('Content-Type', 'application/json');
+            const options = {headers: headers};
+            const data = {
+                userId: localStorage.getItem('userId'),
+                oldpassword: this.oldpassword,
+                newpassword: this.password,
+            };
+            this.http
+                .post('http://gazoh.net/wijzigwachtwoord.php', data, options)
+                .subscribe((data: any) => {
+                        if (data == "password updated") {
                             let alert = this.alertCtrl.create({
                                 title: "Succes",
                                 message: "Je wachtwoord is succesvol gewijzigd.",
@@ -87,14 +76,14 @@ export class WijzigwachtwoordPage implements OnInit {
                                 }]
                             })
                             alert.present();
+                        } else if (data == "No matching password") {
+                            this.valMessage = data;
+                            console.log(this.valMessage);
                         }
-                    });
-            }
-        }
-        else if (this.form.invalid) {
+                    }
+                );
+        } else if (this.form.invalid) {
             this.validateAllFormFields(this.form); //{7}
         }
     }
-
-
 }

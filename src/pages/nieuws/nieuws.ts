@@ -81,7 +81,7 @@ export class NieuwsPage {
           disallowoverscroll: 'yes',
           enableViewportScale: 'yes'
       }
-        const browser = this.inAppBrowser.create( url , '_self.', Options );
+        const browser = this.inAppBrowser.create( url , '_blank', Options );
         browser.show();
     }
 }
