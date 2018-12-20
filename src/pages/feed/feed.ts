@@ -256,8 +256,7 @@ export class FeedPage {
                     this.events.publish("username", this.username);
                     this.events.publish("profilepicture", this.profilepicture);
                 });
-        }
-        else if (this.network.type == 'none') {
+        } else if (this.network.type == 'none') {
 
             this.datepicker = "vandaag";
             let offlinealert = this.toastCtrl.create({
@@ -276,8 +275,7 @@ export class FeedPage {
                         });
                     }
                 })
-            }
-            else if (this.datepicker == "gisteren") {
+            } else if (this.datepicker == "gisteren") {
                 this.storage.get("offlineDataYesterday").then(data => {
                     this.items = data;
                     this.artikelen = data;
@@ -287,8 +285,7 @@ export class FeedPage {
                         });
                     }
                 })
-            }
-            else if (this.datepicker == "driedagengeleden") {
+            } else if (this.datepicker == "driedagengeleden") {
                 this.storage.get("offlineData3DaysAgo").then(data => {
                     this.items = data;
                     this.artikelen = data;
@@ -301,8 +298,7 @@ export class FeedPage {
             }
         }
 
-        if(localStorage.getItem("themeColor"))
-        {
+        if (localStorage.getItem("themeColor")) {
             this.currentTheme = localStorage.getItem("themeColor")
             console.log(this.currentTheme);
         }
@@ -317,8 +313,7 @@ export class FeedPage {
     onChange(SelectedValue) {
         SelectedValue = SelectedValue;
         console.log(SelectedValue);
-        if(this.network.type != "none")
-        {
+        if (this.network.type != "none") {
             if (this.datepicker == "vandaag") {
                 this.loadWithSpinner();
                 this.content.scrollToTop(0);
@@ -331,9 +326,7 @@ export class FeedPage {
             } // else if (this.datepicker == "HetWeer") {
             //     this.weerData();
             // }
-        }
-        else if (this.network.type == "none")
-        {
+        } else if (this.network.type == "none") {
             if (this.datepicker == "vandaag") {
                 this.storage.get("offlineDataToday").then(data => {
                     this.items = data;
@@ -345,8 +338,7 @@ export class FeedPage {
                         });
                     }
                 })
-            }
-            else if (this.datepicker == "gisteren") {
+            } else if (this.datepicker == "gisteren") {
                 this.storage.get("offlineDataYesterday").then(data => {
                     this.items = data;
                     this.artikelen = data;
@@ -357,8 +349,7 @@ export class FeedPage {
                         });
                     }
                 })
-            }
-            else if (this.datepicker == "driedagengeleden") {
+            } else if (this.datepicker == "driedagengeleden") {
                 this.storage.get("offlineData3DaysAgo").then(data => {
                     this.items = data;
                     this.artikelen = data;
@@ -426,15 +417,12 @@ export class FeedPage {
         if (this.network.type != "none") {
             if (this.datepicker == "vandaag") {
                 this.load();
-            }
-            else if (this.datepicker == "gisteren") {
+            } else if (this.datepicker == "gisteren") {
                 this.loadYesterday();
-            }
-            else if (this.datepicker == "driedagengeleden") {
+            } else if (this.datepicker == "driedagengeleden") {
                 this.load3DaysAgo();
             }
-        }
-        else if (this.network.type == "none") {
+        } else if (this.network.type == "none") {
             if (this.datepicker == "vandaag") {
                 this.storage.get("offlineDataToday").then(data => {
                     this.items = data;
@@ -445,8 +433,7 @@ export class FeedPage {
                         });
                     }
                 })
-            }
-            else if (this.datepicker == "gisteren") {
+            } else if (this.datepicker == "gisteren") {
                 this.storage.get("offlineDataYesterday").then(data => {
                     this.items = data;
                     this.artikelen = data;
@@ -456,8 +443,7 @@ export class FeedPage {
                         });
                     }
                 })
-            }
-            else if (this.datepicker == "driedagengeleden") {
+            } else if (this.datepicker == "driedagengeleden") {
                 this.storage.get("offlineData3DaysAgo").then(data => {
                     this.items = data;
                     this.artikelen = data;
@@ -519,8 +505,7 @@ export class FeedPage {
                     return (item.title.toLowerCase().indexOf(serVal.toLowerCase()) > -1);
                 })
             }
-        }
-        else {
+        } else {
             this.items = this.artikelen;
         }
     }
@@ -540,8 +525,7 @@ export class FeedPage {
             } else if (this.datepicker == "HetWeer") {
                 this.isSearchbaropened = false;
             }
-        }
-        else {
+        } else {
             this.items = this.artikelen;
             this.isSearchbaropened = false;
         }
@@ -567,15 +551,10 @@ export class FeedPage {
             .subscribe((data: any) => {
                     this.items = data;
                     this.artikelen = data;
-                    if (this.items) {
-                        this.items.sort(function (a, b) {
-                            return +new Date(b.datum) - +new Date(a.datum);
-                        });
-                    } else if(this.artikelen) {
-                        this.artikelen.sort(function (a, b) {
-                            return +new Date(b.datum) - +new Date(a.datum);
-                        });
-                    }
+                    this.items.sort(function (a, b) {
+                        return +new Date(b.datum) - +new Date(a.datum);
+                    });
+
                 },
                 (error: any) => {
                     let toast = this.toastCtrl.create({
@@ -642,10 +621,6 @@ export class FeedPage {
                         this.items.sort(function (a, b) {
                             return +new Date(b.datum) - +new Date(a.datum);
                         });
-                    } else if(this.artikelen) {
-                        this.artikelen.sort(function (a, b) {
-                            return +new Date(b.datum) - +new Date(a.datum);
-                        });
                     }
                 },
                 (error: any) => {
@@ -679,7 +654,7 @@ export class FeedPage {
                         this.items.sort(function (a, b) {
                             return +new Date(b.datum) - +new Date(a.datum);
                         });
-                    } else if(this.artikelen) {
+                    } else if (this.artikelen) {
                         this.artikelen.sort(function (a, b) {
                             return +new Date(b.datum) - +new Date(a.datum);
                         });
