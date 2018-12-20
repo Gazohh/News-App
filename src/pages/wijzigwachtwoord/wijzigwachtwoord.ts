@@ -29,7 +29,7 @@ export class WijzigwachtwoordPage implements OnInit {
 
     ngOnInit() {
         this.form = new FormGroup({
-            oldpassword: new FormControl('', [Validators.required, Validators.minLength(8), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$')]),
+            oldpassword: new FormControl('', [Validators.required]),
             password: new FormControl('', [Validators.required, Validators.minLength(8), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$')]),
             password2: new FormControl('', [Validators.required, Validators.minLength(8), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$')]),
         })
@@ -47,10 +47,9 @@ export class WijzigwachtwoordPage implements OnInit {
         });
     }
 
-    updateWachtwoord() {
+    updateWachtwoord(event) {
         if (this.password != this.password2 || this.password2 != this.password) {
-            console.log("pas1 != pas2");
-            this.pass1 = this.pass1;
+            this.pass1 = "Wachtwoord niet gelijk";
         } else if (this.form.valid) {
             const headers = new HttpHeaders();
             headers.append("Accept", 'application/json');

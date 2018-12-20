@@ -142,7 +142,7 @@ body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item 
 
 .avatar {
   float: left !important;
-  margin-right: 15px !important;
+  margin-right: 10px !important;
 }
 
 .commentSpacing {
@@ -896,7 +896,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 }
 
 .avatar-menu {
-  height: 80%;
+  height: 83%;
   border-radius: 50%;
   display: inline-block;
   display: block;
@@ -1073,13 +1073,13 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 }
 
 .uitgeverFeed {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   margin-bottom: -3px;
   font-family: 'Roboto-Bold' !important;
 }
 
 .uitgeverFeedNU {
-  margin-top: 1.5rem !important;
+  margin-top: 2rem !important;
   font-family: 'Roboto-Bold' !important;
 }
 
@@ -1257,6 +1257,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 .headerText {
   font-family: 'Roboto-Bold' !important;
   font-size: 2rem;
+  padding-bottom: 5px !important;
 }
 
 // NieuwsPage
@@ -1736,4 +1737,17 @@ body > ion-app > ng-component > ion-nav > page-privacybeleid > ion-content > div
 
 .PrivacyBeleidP {
   margin-top: 5px;
+}
+
+// Custom Validatie
+.goed {
+  border-bottom-color: #32db64;
+  -webkit-box-shadow: inset 0 -1px 0 0 #32db64;
+  box-shadow: inset 0 -1px 0 0 #32db64;
+}
+
+.slecht {
+  border-bottom-color: #f53d3d;
+  -webkit-box-shadow: inset 0 -1px 0 0 #f53d3d;
+  box-shadow: inset 0 -1px 0 0 #f53d3d;
 }

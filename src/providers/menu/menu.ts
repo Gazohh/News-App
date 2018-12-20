@@ -65,11 +65,6 @@ export class MenuProvider {
       icon: 'heart'
     },
     {
-      title: 'Notificaties',
-      component: SettingsPage,
-      icon: 'notifications'
-    },
-    {
       title: 'Tutorial',
       component: TutorialPage,
       icon: 'map'
