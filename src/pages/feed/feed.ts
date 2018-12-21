@@ -551,10 +551,6 @@ export class FeedPage {
             .subscribe((data: any) => {
                     this.items = data;
                     this.artikelen = data;
-                    this.items.sort(function (a, b) {
-                        return +new Date(b.datum) - +new Date(a.datum);
-                    });
-
                 },
                 (error: any) => {
                     let toast = this.toastCtrl.create({

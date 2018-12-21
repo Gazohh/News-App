@@ -28,7 +28,7 @@ export class MenuProvider {
     {
       title: 'Sources',
       component: SourcesPage,
-      icon: 'star'
+      icon: 'link'
     },
     {
         title: 'Categorieen',
