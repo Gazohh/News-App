@@ -32,7 +32,7 @@ export class MenuProvider {
     },
     {
         title: 'Categorieen',
-        icon: 'keypad',
+        icon: 'apps',
         subPages: [{
             title: 'Sport',
             component: SportPage,
