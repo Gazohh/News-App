@@ -63,8 +63,6 @@ export class CommentsPage {
         this.content.scrollToBottom(0)
     }
 
-
-
     // Runs when the page is about to enter and become the active page.
     ionViewDidEnter() {
         let dimensions = this.content.getContentDimensions();
@@ -157,9 +155,5 @@ export class CommentsPage {
             ]
         });
         this.confirmAlert.present();
-    }
-
-    returnFeed() {
-        this.navCtrl.setRoot(FeedPage);
     }
 }
