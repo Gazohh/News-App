@@ -134,6 +134,12 @@ body > ion-app > ng-component > ion-nav > page-settings > ion-content > div.scro
 
 // ------------------------------------
 // Comments
+.itemComment {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
 // Input border
 
 body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item > div.item-inner {
@@ -1073,13 +1079,13 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 }
 
 .uitgeverFeed {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   margin-bottom: -3px;
   font-family: 'Roboto-Bold' !important;
 }
 
 .uitgeverFeedNU {
-  margin-top: 2rem !important;
+  margin-top: 1.6rem !important;
   font-family: 'Roboto-Bold' !important;
 }
 
