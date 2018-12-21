@@ -32,7 +32,7 @@ export class MenuProvider {
     },
     {
         title: 'Categorieen',
-        icon: 'filing',
+        icon: 'keypad',
         subPages: [{
             title: 'Sport',
             component: SportPage,
@@ -56,7 +56,7 @@ export class MenuProvider {
         }, {
             title: 'Entertainment',
             component: VermaakPage,
-            icon: 'contacts'
+            icon: 'people'
         }]
     },
     {
@@ -67,7 +67,7 @@ export class MenuProvider {
     {
       title: 'Tutorial',
       component: TutorialPage,
-      icon: 'map'
+      icon: 'book'
     },
     {
       title: 'Instellingen',
