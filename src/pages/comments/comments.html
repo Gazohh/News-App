@@ -23,13 +23,13 @@
     </ion-item-options>
     </ion-item-sliding>
   </ion-list>
-  <ion-item class="itemComment">
-    <ion-avatar class="avatar" item-start>
-      <img src="{{pictureprofile}}" class="avatar-profiel" />
-    </ion-avatar>
-    <ion-input placeholder="Reageer als {{this.username}}" class="textAreaInput" [(ngModel)]="comment" id="inputMessage" #input></ion-input>
-    <button ion-button class="sendButton" id="sendButtonId" (click)="postComment()" item-end [disabled]="!comment">
-      <ion-icon name="send"></ion-icon>
-    </button>
-  </ion-item>
+    <ion-footer padding class="itemComment">
+      <!--<ion-avatar class="avatar" item-start>-->
+        <!--<img src="{{pictureprofile}}" class="avatar-profiel" />-->
+      <!--</ion-avatar>-->
+      <ion-textarea [(ngModel)]="comment" type="text" placeholder="Reageer als {{this.username}}" class="textAreaInput" id="inputMessage" #input></ion-textarea>
+      <!--<button ion-button class="sendButton" id="sendButtonId" (click)="postComment()" item-end [disabled]="!comment">-->
+        <!--<ion-icon name="send"></ion-icon>-->
+      <!--</button>-->
+    </ion-footer>
 </ion-content>
