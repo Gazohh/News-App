@@ -4,7 +4,6 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {AlertController} from 'ionic-angular';
 import {FeedPage} from "../feed/feed";
 import {Content} from 'ionic-angular';
-import { Keyboard } from '@ionic-native/keyboard';
 
 @IonicPage()
 @Component({
@@ -32,9 +31,7 @@ export class CommentsPage {
                 public navParams: NavParams,
                 public http: HttpClient,
                 public alertCtrl: AlertController,
-                public events: Events,
-                private keyboard: Keyboard) {
-        this.keyboard.disableScroll(true);
+                public events: Events) {
 
         if (this.navParams.get("record")) {
             this.selectEntry(this.navParams.get("record"));

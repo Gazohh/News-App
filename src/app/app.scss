@@ -133,6 +133,12 @@ body > ion-app > ng-component > ion-nav > page-settings > ion-content > div.scro
 }
 
 // ------------------------------------
+// Comments
+
+.FooterComment {
+  overflow-y: scroll;
+}
+
 // Input border
 
 body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item > div.item-inner {
