@@ -30,17 +30,17 @@
                         </ion-item-options>
                     </ion-item-sliding>
                 </ion-list>
-                <ion-footer>
-                    <ion-item class="commentsItem">
-                        <ion-avatar class="avatar" item-start>
-                            <img src="{{pictureprofile}}" class="avatar-profiel"/>
-                        </ion-avatar>
-                        <ion-input placeholder="Reageer als {{this.username}}" [(ngModel)]="comment" id="inputMessage"
-                                   #input></ion-input>
-                        <button ion-button class="sendButton" id="sendButtonId" (click)="postComment()" item-end
-                                [disabled]="!comment">
-                            <ion-icon name="send"></ion-icon>
-                        </button>
-                    </ion-item>
-                </ion-footer>
 </ion-content>
+<ion-footer>
+    <ion-item class="commentsItem">
+        <ion-avatar class="avatar" item-start>
+            <img src="{{pictureprofile}}" class="avatar-profiel"/>
+        </ion-avatar>
+        <ion-input placeholder="Reageer als {{this.username}}" [(ngModel)]="comment" id="inputMessage"
+                   #input></ion-input>
+        <button ion-button class="sendButton" id="sendButtonId" (click)="postComment()" item-end
+                [disabled]="!comment">
+            <ion-icon name="send"></ion-icon>
+        </button>
+    </ion-item>
+</ion-footer>

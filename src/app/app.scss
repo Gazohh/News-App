@@ -133,24 +133,6 @@ body > ion-app > ng-component > ion-nav > page-settings > ion-content > div.scro
 }
 
 // ------------------------------------
-.commentsItem {
-  padding-left: 10px !important;
-  width: 100%;
-}
-
-.gridComment {
-  padding: 0px !important;
-}
-
-// Item inner van ion item
-body > ion-app > ng-component > ion-nav > page-comments > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > ion-footer > ion-item > div.item-inner {
-  padding: 0px !important;
-}
-
-.commentCol {
-  padding: 0px;
-}
-
 // Input border
 
 body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item > div.item-inner {

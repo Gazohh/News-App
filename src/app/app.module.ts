@@ -76,8 +76,8 @@ import {SocialSharing} from "@ionic-native/social-sharing";
     imports: [
         IonicModule.forRoot(MyApp, {
             mode: "md",
-            scrollAssist: true,
-            autoFocusAssist: true
+            scrollAssist: false,
+            autoFocusAssist: false
         }),
         BrowserModule,
         HttpClientModule,
