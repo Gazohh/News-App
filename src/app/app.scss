@@ -67,7 +67,7 @@ ion-slide.swiper-slide {
 }
 
 .verificationContent {
-background-color: #8c2929 !important;
+  background-color: #8c2929 !important;
 }
 
 .emailVerificationText {
@@ -133,7 +133,24 @@ body > ion-app > ng-component > ion-nav > page-settings > ion-content > div.scro
 }
 
 // ------------------------------------
-// Comments
+.commentsItem {
+  padding-left: 10px !important;
+  width: 100%;
+}
+
+.gridComment {
+  padding: 0px !important;
+}
+
+// Item inner van ion item
+body > ion-app > ng-component > ion-nav > page-comments > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > ion-footer > ion-item > div.item-inner {
+  padding: 0px !important;
+}
+
+.commentCol {
+  padding: 0px;
+}
+
 // Input border
 
 body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item > div.item-inner {
@@ -1352,7 +1369,8 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
 }
 
 .profielPadding {
-  padding-right: 13px;
+  padding: 0px;
+  padding-right: 37px;
   margin: 10px;
   padding-left: 27px;
 }
