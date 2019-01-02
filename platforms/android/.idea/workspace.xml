@@ -1,630 +1,294 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="b1f0ec7f-9f15-46de-b211-8c731802e4b1" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../../.sourcemaps/main.js.map" afterPath="$PROJECT_DIR$/../../.sourcemaps/main.js.map" />
-      <change beforePath="$PROJECT_DIR$/../../config.xml" afterPath="$PROJECT_DIR$/../../config.xml" />
-      <change beforePath="$PROJECT_DIR$/../../node_modules/cordova-android/RELEASENOTES.md" afterPath="$PROJECT_DIR$/../../node_modules/cordova-android/RELEASENOTES.md" />
-      <change beforePath="$PROJECT_DIR$/../../node_modules/cordova-android/VERSION" afterPath="$PROJECT_DIR$/../../node_modules/cordova-android/VERSION" />
-      <change beforePath="$PROJECT_DIR$/../../node_modules/cordova-android/bin/lib/create.js" afterPath="$PROJECT_DIR$/../../node_modules/cordova-android/bin/lib/create.js" />
-      <change beforePath="$PROJECT_DIR$/../../node_modules/cordova-android/bin/templates/cordova/lib/pluginHandlers.js" afterPath="$PROJECT_DIR$/../../node_modules/cordova-android/bin/templates/cordova/lib/pluginHandlers.js" />
-      <change beforePath="$PROJECT_DIR$/../../node_modules/cordova-android/bin/templates/cordova/version" afterPath="$PROJECT_DIR$/../../node_modules/cordova-android/bin/templates/cordova/version" />
-      <change beforePath="$PROJECT_DIR$/../../node_modules/cordova-android/bin/templates/project/app/build.gradle" afterPath="$PROJECT_DIR$/../../node_modules/cordova-android/bin/templates/project/app/build.gradle" />
-      <change beforePath="$PROJECT_DIR$/../../node_modules/cordova-android/bin/templates/project/assets/www/cordova.js" afterPath="$PROJECT_DIR$/../../node_modules/cordova-android/bin/templates/project/assets/www/cordova.js" />
-      <change beforePath="$PROJECT_DIR$/../../node_modules/cordova-android/cordova-js-src/exec.js" afterPath="$PROJECT_DIR$/../../node_modules/cordova-android/cordova-js-src/exec.js" />
-      <change beforePath="$PROJECT_DIR$/../../node_modules/cordova-android/framework/build.gradle" afterPath="$PROJECT_DIR$/../../node_modules/cordova-android/framework/build.gradle" />
-      <change beforePath="$PROJECT_DIR$/../../node_modules/cordova-android/framework/src/org/apache/cordova/CordovaWebView.java" afterPath="$PROJECT_DIR$/../../node_modules/cordova-android/framework/src/org/apache/cordova/CordovaWebView.java" />
-      <change beforePath="$PROJECT_DIR$/../../node_modules/cordova-android/node_modules/android-versions/.jshintrc" afterPath="$PROJECT_DIR$/../../node_modules/cordova-android/node_modules/android-versions/.jshintrc" />
-      <change beforePath="$PROJECT_DIR$/../../node_modules/cordova-android/node_modules/android-versions/index.js" afterPath="$PROJECT_DIR$/../../node_modules/cordova-android/node_modules/android-versions/index.js" />
-      <change beforePath="$PROJECT_DIR$/../../node_modules/cordova-android/node_modules/android-versions/package.json" afterPath="$PROJECT_DIR$/../../node_modules/cordova-android/node_modules/android-versions/package.json" />
-      <change beforePath="$PROJECT_DIR$/../../node_modules/cordova-android/node_modules/android-versions/tests/index.test.js" afterPath="$PROJECT_DIR$/../../node_modules/cordova-android/node_modules/android-versions/tests/index.test.js" />
-      <change beforePath="$PROJECT_DIR$/../../node_modules/cordova-android/node_modules/big-integer/BigInteger.d.ts" afterPath="$PROJECT_DIR$/../../node_modules/cordova-android/node_modules/big-integer/BigInteger.d.ts" />
-      <change beforePath="$PROJECT_DIR$/../../node_modules/cordova-android/node_modules/big-integer/LICENSE" afterPath="$PROJECT_DIR$/../../node_modules/cordova-android/node_modules/big-integer/LICENSE" />
-      <change beforePath="$PROJECT_DIR$/../../node_modules/cordova-android/node_modules/big-integer/bower.json" afterPath="$PROJECT_DIR$/../../node_modules/cordova-android/node_modules/big-integer/bower.json" />
-      <change beforePath="$PROJECT_DIR$/../../node_modules/cordova-android/node_modules/big-integer/tsconfig.json" afterPath="$PROJECT_DIR$/../../node_modules/cordova-android/node_modules/big-integer/tsconfig.json" />
-      <change beforePath="$PROJECT_DIR$/../../node_modules/cordova-android/package.json" afterPath="$PROJECT_DIR$/../../node_modules/cordova-android/package.json" />
-      <change beforePath="$PROJECT_DIR$/../../node_modules/cordova-android/spec/fixtures/org.test.plugins.dummyplugin/plugin.xml" afterPath="$PROJECT_DIR$/../../node_modules/cordova-android/spec/fixtures/org.test.plugins.dummyplugin/plugin.xml" />
-      <change beforePath="$PROJECT_DIR$/../../node_modules/cordova-android/spec/unit/pluginHandlers/handlers.spec.js" afterPath="$PROJECT_DIR$/../../node_modules/cordova-android/spec/unit/pluginHandlers/handlers.spec.js" />
-      <change beforePath="$PROJECT_DIR$/../../package-lock.json" afterPath="$PROJECT_DIR$/../../package-lock.json" />
-      <change beforePath="$PROJECT_DIR$/../../package.json" afterPath="$PROJECT_DIR$/../../package.json" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/fileContent/fileContent.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileContent/fileContent.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/resourceHashesCache.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/resourceHashesCache.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/jarAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/jarAnalysis.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskJars.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskJars.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" />
-      <change beforePath="$PROJECT_DIR$/CordovaLib/build.gradle" afterPath="$PROJECT_DIR$/CordovaLib/build.gradle" />
-      <change beforePath="$PROJECT_DIR$/CordovaLib/build/intermediates/classes/debug/org/apache/cordova/CordovaActivity.class" afterPath="$PROJECT_DIR$/CordovaLib/build/intermediates/classes/debug/org/apache/cordova/CordovaActivity.class" />
-      <change beforePath="$PROJECT_DIR$/CordovaLib/build/intermediates/classes/debug/org/apache/cordova/CordovaWebView.class" afterPath="$PROJECT_DIR$/CordovaLib/build/intermediates/classes/debug/org/apache/cordova/CordovaWebView.class" />
-      <change beforePath="$PROJECT_DIR$/CordovaLib/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/CordovaLib/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" />
-      <change beforePath="$PROJECT_DIR$/CordovaLib/build/intermediates/intermediate-jars/debug/classes.jar" afterPath="$PROJECT_DIR$/CordovaLib/build/intermediates/intermediate-jars/debug/classes.jar" />
-      <change beforePath="$PROJECT_DIR$/CordovaLib/build/intermediates/transforms/mergeJniLibs/debug/__content__.json" afterPath="$PROJECT_DIR$/CordovaLib/build/intermediates/transforms/mergeJniLibs/debug/__content__.json" />
-      <change beforePath="$PROJECT_DIR$/CordovaLib/src/org/apache/cordova/CordovaWebView.java" afterPath="$PROJECT_DIR$/CordovaLib/src/org/apache/cordova/CordovaWebView.java" />
-      <change beforePath="$PROJECT_DIR$/android.json" afterPath="$PROJECT_DIR$/android.json" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/newsage/na/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/newsage/na/R.java" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/assets/imgs/Nacht.png" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/assets/imgs/Nacht.png" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/assets/imgs/Regen.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/assets/imgs/Zon.png" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/assets/imgs/Zon.png" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/0.js" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/0.js" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/1.js" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/1.js" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/10.js" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/10.js" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/11.js" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/11.js" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/12.js" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/12.js" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/13.js" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/13.js" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/14.js" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/14.js" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/15.js" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/15.js" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/16.js" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/16.js" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/17.js" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/17.js" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/2.js" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/2.js" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/3.js" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/3.js" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/4.js" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/4.js" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/5.js" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/5.js" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/6.js" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/6.js" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/7.js" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/7.js" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/8.js" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/8.js" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/9.js" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/9.js" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/main.css" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/main.css" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/main.js" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/main.js" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/vendor.js" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/vendor.js" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/cordova-js-src/exec.js" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/cordova-js-src/exec.js" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/cordova.js" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/cordova.js" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/cordova_plugins.js" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/cordova_plugins.js" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi-v2/debug.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi-v2/debug.json" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi-v2/values.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi-v2/values.json" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/debug.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/debug.json" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/newsage/na/R$mipmap.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/newsage/na/R$mipmap.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/newsage/na/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/newsage/na/R$string.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/newsage/na/R$xml.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/newsage/na/R$xml.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/newsage/na/R.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/newsage/na/R.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/camera/CameraLauncher.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/camera/CameraLauncher.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/camera/FileHelper.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/camera/FileHelper.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/file/AssetFilesystem.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/file/AssetFilesystem.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/file/ContentFilesystem.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/file/ContentFilesystem.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/file/Filesystem.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/file/Filesystem.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/file/LocalFilesystem.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/file/LocalFilesystem.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/filetransfer/FileTransfer$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/filetransfer/FileTransfer$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/filetransfer/FileTransfer$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/filetransfer/FileTransfer$2.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/filetransfer/FileTransfer.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/filetransfer/FileTransfer.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/networkinformation/NetworkManager.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/networkinformation/NetworkManager.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/splashscreen/SplashScreen.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/splashscreen/SplashScreen.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJavaRes/merge-state" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJavaRes/merge-state" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJniLibs/merge-state" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJniLibs/merge-state" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugAssets/merger.xml" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/debug/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/debug/dex-renamer-state.txt" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/debug/file-input-save-data.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/debug/file-input-save-data.txt" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/debug/zip-cache/Ds0ewImmF1jQwcd9eZ4ANuUpdzo=" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/debug/zip-cache/Ds0ewImmF1jQwcd9eZ4ANuUpdzo=" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/resources-debug.ap_" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/xml_config.xml.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/xml_config.xml.flat" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/symbol-table-with-package/debug/package-aware-r.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/res/symbol-table-with-package/debug/package-aware-r.txt" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/0.jar" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/2.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/2.jar" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/3.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/3.jar" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/4.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/4.jar" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/android/support/v4/R.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/ionicframework/cordova/webview/AndroidProtocolHandler.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/ionicframework/cordova/webview/IonicWebView$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/ionicframework/cordova/webview/IonicWebView.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/ionicframework/cordova/webview/IonicWebViewEngine$ServerClient.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/ionicframework/cordova/webview/IonicWebViewEngine.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/ionicframework/cordova/webview/UriMatcher.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/ionicframework/cordova/webview/WebViewLocalServer$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/ionicframework/cordova/webview/WebViewLocalServer$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/ionicframework/cordova/webview/WebViewLocalServer$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/ionicframework/cordova/webview/WebViewLocalServer$AssetHostingDetails.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/ionicframework/cordova/webview/WebViewLocalServer$LazyInputStream.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/ionicframework/cordova/webview/WebViewLocalServer$LollipopLazyInputStream.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/ionicframework/cordova/webview/WebViewLocalServer$PathHandler.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/ionicframework/cordova/webview/WebViewLocalServer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/newsage/na/BuildConfig.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/newsage/na/MainActivity.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/newsage/na/R$drawable.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/newsage/na/R$mipmap.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/newsage/na/R$string.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/newsage/na/R$xml.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/newsage/na/R.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/NativePageTransitions$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/NativePageTransitions$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/NativePageTransitions$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/NativePageTransitions$4.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/NativePageTransitions$5.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/NativePageTransitions$6$1$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/NativePageTransitions$6$1$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/NativePageTransitions$6$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/NativePageTransitions$6.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/NativePageTransitions$7$1$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/NativePageTransitions$7$1$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/NativePageTransitions$7$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/NativePageTransitions$7.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/NativePageTransitions$8$1$1$1$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/NativePageTransitions$8$1$1$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/NativePageTransitions$8$1$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/NativePageTransitions$8$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/NativePageTransitions$8.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/NativePageTransitions$9$1$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/NativePageTransitions$9$1$2$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/NativePageTransitions$9$1$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/NativePageTransitions$9$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/NativePageTransitions$9.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/NativePageTransitions.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/lib/AnimationFactory$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/lib/AnimationFactory$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/lib/AnimationFactory$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/lib/AnimationFactory$4.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/lib/AnimationFactory$FlipDirection.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/lib/AnimationFactory.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/lib/FlipAnimation$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/lib/FlipAnimation$ScaleUpDownEnum.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/com/telerik/plugins/nativepagetransitions/lib/FlipAnimation.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/cordova/plugins/screenorientation/CDVOrientation.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/info/protonet/imageresizer/ImageResizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/io/ionic/keyboard/IonicKeyboard$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/io/ionic/keyboard/IonicKeyboard$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/io/ionic/keyboard/IonicKeyboard$3$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/io/ionic/keyboard/IonicKeyboard$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/io/ionic/keyboard/IonicKeyboard.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/io/sqlc/SQLiteAndroidDatabase$QueryType.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/io/sqlc/SQLiteAndroidDatabase.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/io/sqlc/SQLiteConnectorDatabase.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/io/sqlc/SQLitePlugin$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/io/sqlc/SQLitePlugin$Action.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/io/sqlc/SQLitePlugin$DBQuery.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/io/sqlc/SQLitePlugin$DBRunner.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/io/sqlc/SQLitePlugin.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/nl/xservices/plugins/FileProvider.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/nl/xservices/plugins/ShareChooserPendingIntent.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/nl/xservices/plugins/SocialSharing$1$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/nl/xservices/plugins/SocialSharing$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/nl/xservices/plugins/SocialSharing$2$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/nl/xservices/plugins/SocialSharing$2$2$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/nl/xservices/plugins/SocialSharing$2$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/nl/xservices/plugins/SocialSharing$2$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/nl/xservices/plugins/SocialSharing$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/nl/xservices/plugins/SocialSharing$3$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/nl/xservices/plugins/SocialSharing$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/nl/xservices/plugins/SocialSharing$4.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/nl/xservices/plugins/SocialSharing$SocialSharingRunnable.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/nl/xservices/plugins/SocialSharing.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/R.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/camera/CameraLauncher$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/camera/CameraLauncher.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/camera/CordovaUri.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/camera/ExifHelper.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/camera/FileHelper.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/camera/FileProvider.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/device/Device.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/AssetFilesystem.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/ContentFilesystem.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/DirectoryManager.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/EncodingException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/FileExistsException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/FileUtils$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/FileUtils$10.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/FileUtils$11.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/FileUtils$12.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/FileUtils$13.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/FileUtils$14.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/FileUtils$15.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/FileUtils$16.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/FileUtils$17.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/FileUtils$18.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/FileUtils$19.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/FileUtils$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/FileUtils$20.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/FileUtils$21.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/FileUtils$22.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/FileUtils$23.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/FileUtils$24.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/FileUtils$25.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/FileUtils$26.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/FileUtils$27.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/FileUtils$28.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/FileUtils$29.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/FileUtils$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/FileUtils$4.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/FileUtils$5.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/FileUtils$6.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/FileUtils$7.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/FileUtils$8.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/FileUtils$9.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/FileUtils$FileOp.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/FileUtils.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/Filesystem$LimitedInputStream.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/Filesystem$ReadFileCallback.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/Filesystem.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/InvalidModificationException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/LocalFilesystem.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/LocalFilesystemURL.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/NoModificationAllowedException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/PendingRequests$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/PendingRequests$Request.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/PendingRequests.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/file/TypeMismatchException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/filetransfer/FileProgressResult.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/filetransfer/FileTransfer$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/filetransfer/FileTransfer$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/filetransfer/FileTransfer$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/filetransfer/FileTransfer$ExposedGZIPInputStream.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/filetransfer/FileTransfer$RequestContext.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/filetransfer/FileTransfer$SimpleTrackingInputStream.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/filetransfer/FileTransfer$TrackingGZIPInputStream.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/filetransfer/FileTransfer$TrackingInputStream.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/filetransfer/FileTransfer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/filetransfer/FileUploadResult.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/geolocation/Geolocation.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/inappbrowser/InAppBrowser$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/inappbrowser/InAppBrowser$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/inappbrowser/InAppBrowser$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/inappbrowser/InAppBrowser$4.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/inappbrowser/InAppBrowser$5$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/inappbrowser/InAppBrowser$5.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/inappbrowser/InAppBrowser$6$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/inappbrowser/InAppBrowser$6$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/inappbrowser/InAppBrowser$6$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/inappbrowser/InAppBrowser$6$4.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/inappbrowser/InAppBrowser$6$5.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/inappbrowser/InAppBrowser$6.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/inappbrowser/InAppBrowser$InAppBrowserClient.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/inappbrowser/InAppBrowser.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/inappbrowser/InAppBrowserDialog.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/inappbrowser/InAppChromeClient.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/networkinformation/NetworkManager$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/networkinformation/NetworkManager.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/splashscreen/SplashScreen$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/splashscreen/SplashScreen$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/splashscreen/SplashScreen$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/splashscreen/SplashScreen$4$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/splashscreen/SplashScreen$4.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/splashscreen/SplashScreen$5$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/splashscreen/SplashScreen$5.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/splashscreen/SplashScreen$6$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/splashscreen/SplashScreen$6.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/splashscreen/SplashScreen$7.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/splashscreen/SplashScreen.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/statusbar/StatusBar$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/statusbar/StatusBar$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/statusbar/StatusBar$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/statusbar/StatusBar$4.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/statusbar/StatusBar$5.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/statusbar/StatusBar$6.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/statusbar/StatusBar$7.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/statusbar/StatusBar$8.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/statusbar/StatusBar$9.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/statusbar/StatusBar.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/whitelist/WhitelistPlugin$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/whitelist/WhitelistPlugin$CustomConfigXmlParser.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/org/apache/cordova/whitelist/WhitelistPlugin.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6/tomloprod/HeaderColor.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/7.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/7.jar" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/8.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/8.jar" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/__content__.json" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/__content__.json" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/1.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/1.jar" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/android/support/v4/R.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/ionicframework/cordova/webview/AndroidProtocolHandler.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/ionicframework/cordova/webview/IonicWebView$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/ionicframework/cordova/webview/IonicWebView.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/ionicframework/cordova/webview/IonicWebViewEngine$ServerClient.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/ionicframework/cordova/webview/IonicWebViewEngine.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/ionicframework/cordova/webview/UriMatcher.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/ionicframework/cordova/webview/WebViewLocalServer$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/ionicframework/cordova/webview/WebViewLocalServer$2.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/ionicframework/cordova/webview/WebViewLocalServer$3.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/ionicframework/cordova/webview/WebViewLocalServer$AssetHostingDetails.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/ionicframework/cordova/webview/WebViewLocalServer$LazyInputStream.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/ionicframework/cordova/webview/WebViewLocalServer$LollipopLazyInputStream.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/ionicframework/cordova/webview/WebViewLocalServer$PathHandler.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/ionicframework/cordova/webview/WebViewLocalServer.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/newsage/na/BuildConfig.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/newsage/na/MainActivity.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/newsage/na/R$drawable.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/newsage/na/R$mipmap.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/newsage/na/R$string.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/newsage/na/R$xml.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/newsage/na/R.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/NativePageTransitions$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/NativePageTransitions$2.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/NativePageTransitions$3.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/NativePageTransitions$4.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/NativePageTransitions$5.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/NativePageTransitions$6$1$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/NativePageTransitions$6$1$2.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/NativePageTransitions$6$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/NativePageTransitions$6.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/NativePageTransitions$7$1$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/NativePageTransitions$7$1$2.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/NativePageTransitions$7$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/NativePageTransitions$7.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/NativePageTransitions$8$1$1$1$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/NativePageTransitions$8$1$1$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/NativePageTransitions$8$1$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/NativePageTransitions$8$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/NativePageTransitions$8.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/NativePageTransitions$9$1$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/NativePageTransitions$9$1$2$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/NativePageTransitions$9$1$2.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/NativePageTransitions$9$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/NativePageTransitions$9.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/NativePageTransitions.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/lib/AnimationFactory$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/lib/AnimationFactory$2.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/lib/AnimationFactory$3.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/lib/AnimationFactory$4.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/lib/AnimationFactory$FlipDirection.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/lib/AnimationFactory.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/lib/FlipAnimation$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/lib/FlipAnimation$ScaleUpDownEnum.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/com/telerik/plugins/nativepagetransitions/lib/FlipAnimation.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/cordova/plugins/screenorientation/CDVOrientation.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/info/protonet/imageresizer/ImageResizer.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/io/ionic/keyboard/IonicKeyboard$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/io/ionic/keyboard/IonicKeyboard$2.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/io/ionic/keyboard/IonicKeyboard$3$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/io/ionic/keyboard/IonicKeyboard$3.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/io/ionic/keyboard/IonicKeyboard.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/io/sqlc/SQLiteAndroidDatabase$QueryType.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/io/sqlc/SQLiteAndroidDatabase.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/io/sqlc/SQLiteConnectorDatabase.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/io/sqlc/SQLitePlugin$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/io/sqlc/SQLitePlugin$Action.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/io/sqlc/SQLitePlugin$DBQuery.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/io/sqlc/SQLitePlugin$DBRunner.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/io/sqlc/SQLitePlugin.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/nl/xservices/plugins/FileProvider.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/nl/xservices/plugins/ShareChooserPendingIntent.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/nl/xservices/plugins/SocialSharing$1$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/nl/xservices/plugins/SocialSharing$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/nl/xservices/plugins/SocialSharing$2$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/nl/xservices/plugins/SocialSharing$2$2$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/nl/xservices/plugins/SocialSharing$2$2.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/nl/xservices/plugins/SocialSharing$2$3.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/nl/xservices/plugins/SocialSharing$2.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/nl/xservices/plugins/SocialSharing$3$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/nl/xservices/plugins/SocialSharing$3.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/nl/xservices/plugins/SocialSharing$4.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/nl/xservices/plugins/SocialSharing$SocialSharingRunnable.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/nl/xservices/plugins/SocialSharing.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/R.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/camera/CameraLauncher$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/camera/CameraLauncher.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/camera/CordovaUri.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/camera/ExifHelper.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/camera/FileHelper.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/camera/FileProvider.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/device/Device.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/AssetFilesystem.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/ContentFilesystem.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/DirectoryManager.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/EncodingException.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/FileExistsException.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/FileUtils$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/FileUtils$10.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/FileUtils$11.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/FileUtils$12.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/FileUtils$13.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/FileUtils$14.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/FileUtils$15.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/FileUtils$16.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/FileUtils$17.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/FileUtils$18.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/FileUtils$19.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/FileUtils$2.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/FileUtils$20.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/FileUtils$21.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/FileUtils$22.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/FileUtils$23.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/FileUtils$24.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/FileUtils$25.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/FileUtils$26.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/FileUtils$27.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/FileUtils$28.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/FileUtils$29.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/FileUtils$3.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/FileUtils$4.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/FileUtils$5.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/FileUtils$6.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/FileUtils$7.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/FileUtils$8.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/FileUtils$9.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/FileUtils$FileOp.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/FileUtils.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/Filesystem$LimitedInputStream.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/Filesystem$ReadFileCallback.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/Filesystem.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/InvalidModificationException.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/LocalFilesystem.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/LocalFilesystemURL.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/NoModificationAllowedException.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/PendingRequests$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/PendingRequests$Request.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/PendingRequests.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/file/TypeMismatchException.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/filetransfer/FileProgressResult.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/filetransfer/FileTransfer$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/filetransfer/FileTransfer$2.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/filetransfer/FileTransfer$3.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/filetransfer/FileTransfer$ExposedGZIPInputStream.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/filetransfer/FileTransfer$RequestContext.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/filetransfer/FileTransfer$SimpleTrackingInputStream.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/filetransfer/FileTransfer$TrackingGZIPInputStream.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/filetransfer/FileTransfer$TrackingInputStream.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/filetransfer/FileTransfer.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/filetransfer/FileUploadResult.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/geolocation/Geolocation.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/inappbrowser/InAppBrowser$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/inappbrowser/InAppBrowser$2.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/inappbrowser/InAppBrowser$3.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/inappbrowser/InAppBrowser$4.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/inappbrowser/InAppBrowser$5$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/inappbrowser/InAppBrowser$5.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/inappbrowser/InAppBrowser$6$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/inappbrowser/InAppBrowser$6$2.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/inappbrowser/InAppBrowser$6$3.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/inappbrowser/InAppBrowser$6$4.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/inappbrowser/InAppBrowser$6$5.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/inappbrowser/InAppBrowser$6.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/inappbrowser/InAppBrowser$InAppBrowserClient.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/inappbrowser/InAppBrowser.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/inappbrowser/InAppBrowserDialog.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/inappbrowser/InAppChromeClient.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/networkinformation/NetworkManager$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/networkinformation/NetworkManager.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/splashscreen/SplashScreen$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/splashscreen/SplashScreen$2.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/splashscreen/SplashScreen$3.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/splashscreen/SplashScreen$4$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/splashscreen/SplashScreen$4.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/splashscreen/SplashScreen$5$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/splashscreen/SplashScreen$5.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/splashscreen/SplashScreen$6$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/splashscreen/SplashScreen$6.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/splashscreen/SplashScreen$7.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/splashscreen/SplashScreen.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/statusbar/StatusBar$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/statusbar/StatusBar$2.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/statusbar/StatusBar$3.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/statusbar/StatusBar$4.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/statusbar/StatusBar$5.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/statusbar/StatusBar$6.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/statusbar/StatusBar$7.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/statusbar/StatusBar$8.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/statusbar/StatusBar$9.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/statusbar/StatusBar.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/whitelist/WhitelistPlugin$1.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/whitelist/WhitelistPlugin$CustomConfigXmlParser.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/org/apache/cordova/whitelist/WhitelistPlugin.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/10/tomloprod/HeaderColor.dex" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/11.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/12.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/13.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/14.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/15.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/2.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/2.jar" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/3.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/3.jar" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/4.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/4.jar" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/5.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/5.jar" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/6.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/6.jar" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/7.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/7.jar" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/8.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/8.jar" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/__content__.json" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/__content__.json" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/0/classes.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/0/classes.dex" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/__content__.json" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/__content__.json" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/externalLibsDexMerger/debug/0/classes.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/externalLibsDexMerger/debug/0/classes.dex" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJavaRes/debug/__content__.json" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJavaRes/debug/__content__.json" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJniLibs/debug/3/lib/arm64-v8a/libsqlc-native-driver.so" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJniLibs/debug/3/lib/armeabi-v7a/libsqlc-native-driver.so" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJniLibs/debug/3/lib/armeabi/libsqlc-native-driver.so" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJniLibs/debug/3/lib/x86/libsqlc-native-driver.so" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJniLibs/debug/3/lib/x86_64/libsqlc-native-driver.so" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJniLibs/debug/__content__.json" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJniLibs/debug/__content__.json" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/stackFramesFixer/debug/0.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/stackFramesFixer/debug/0.jar" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/stackFramesFixer/debug/1.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/stackFramesFixer/debug/1.jar" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/stackFramesFixer/debug/2.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/stackFramesFixer/debug/2.jar" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/stackFramesFixer/debug/3.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/stackFramesFixer/debug/3.jar" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/stackFramesFixer/debug/4.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/stackFramesFixer/debug/4.jar" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/stackFramesFixer/debug/__content__.json" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/stackFramesFixer/debug/__content__.json" />
-      <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" />
-      <change beforePath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/assets/imgs/Nacht.png" afterPath="$PROJECT_DIR$/app/src/main/assets/www/assets/imgs/Nacht.png" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/assets/imgs/Regen.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/assets/imgs/Zon.png" afterPath="$PROJECT_DIR$/app/src/main/assets/www/assets/imgs/Zon.png" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/0.js" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/0.js" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/1.js" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/1.js" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/10.js" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/10.js" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/11.js" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/11.js" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/12.js" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/12.js" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/13.js" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/13.js" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/14.js" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/14.js" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/15.js" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/15.js" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/16.js" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/16.js" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/17.js" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/17.js" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/2.js" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/2.js" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/3.js" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/3.js" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/4.js" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/4.js" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/5.js" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/5.js" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/6.js" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/6.js" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/7.js" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/7.js" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/8.js" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/8.js" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/9.js" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/9.js" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/main.css" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/main.css" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/main.js" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/main.js" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/vendor.js" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/vendor.js" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/cordova-js-src/exec.js" afterPath="$PROJECT_DIR$/app/src/main/assets/www/cordova-js-src/exec.js" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/cordova.js" afterPath="$PROJECT_DIR$/app/src/main/assets/www/cordova.js" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/cordova_plugins.js" afterPath="$PROJECT_DIR$/app/src/main/assets/www/cordova_plugins.js" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/config.xml" afterPath="$PROJECT_DIR$/app/src/main/res/xml/config.xml" />
-      <change beforePath="$PROJECT_DIR$/cordova/lib/pluginHandlers.js" afterPath="$PROJECT_DIR$/cordova/lib/pluginHandlers.js" />
-      <change beforePath="$PROJECT_DIR$/cordova/node_modules/android-versions/.jshintrc" afterPath="$PROJECT_DIR$/cordova/node_modules/android-versions/.jshintrc" />
-      <change beforePath="$PROJECT_DIR$/cordova/node_modules/android-versions/index.js" afterPath="$PROJECT_DIR$/cordova/node_modules/android-versions/index.js" />
-      <change beforePath="$PROJECT_DIR$/cordova/node_modules/android-versions/package.json" afterPath="$PROJECT_DIR$/cordova/node_modules/android-versions/package.json" />
-      <change beforePath="$PROJECT_DIR$/cordova/node_modules/android-versions/tests/index.test.js" afterPath="$PROJECT_DIR$/cordova/node_modules/android-versions/tests/index.test.js" />
-      <change beforePath="$PROJECT_DIR$/cordova/node_modules/big-integer/BigInteger.d.ts" afterPath="$PROJECT_DIR$/cordova/node_modules/big-integer/BigInteger.d.ts" />
-      <change beforePath="$PROJECT_DIR$/cordova/node_modules/big-integer/LICENSE" afterPath="$PROJECT_DIR$/cordova/node_modules/big-integer/LICENSE" />
-      <change beforePath="$PROJECT_DIR$/cordova/node_modules/big-integer/bower.json" afterPath="$PROJECT_DIR$/cordova/node_modules/big-integer/bower.json" />
-      <change beforePath="$PROJECT_DIR$/cordova/node_modules/big-integer/tsconfig.json" afterPath="$PROJECT_DIR$/cordova/node_modules/big-integer/tsconfig.json" />
-      <change beforePath="$PROJECT_DIR$/cordova/version" afterPath="$PROJECT_DIR$/cordova/version" />
-      <change beforePath="$PROJECT_DIR$/platform_www/cordova-js-src/exec.js" afterPath="$PROJECT_DIR$/platform_www/cordova-js-src/exec.js" />
-      <change beforePath="$PROJECT_DIR$/platform_www/cordova.js" afterPath="$PROJECT_DIR$/platform_www/cordova.js" />
-      <change beforePath="$PROJECT_DIR$/platform_www/cordova_plugins.js" afterPath="$PROJECT_DIR$/platform_www/cordova_plugins.js" />
-      <change beforePath="$PROJECT_DIR$/project.properties" afterPath="$PROJECT_DIR$/project.properties" />
-      <change beforePath="$PROJECT_DIR$/../ios/NewsAge.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/../ios/NewsAge.xcodeproj/project.pbxproj" />
-      <change beforePath="$PROJECT_DIR$/../ios/NewsAge/config.xml" afterPath="$PROJECT_DIR$/../ios/NewsAge/config.xml" />
-      <change beforePath="$PROJECT_DIR$/../ios/ios.json" afterPath="$PROJECT_DIR$/../ios/ios.json" />
-      <change beforePath="$PROJECT_DIR$/../ios/platform_www/cordova_plugins.js" afterPath="$PROJECT_DIR$/../ios/platform_www/cordova_plugins.js" />
-      <change beforePath="$PROJECT_DIR$/../ios/www/cordova_plugins.js" afterPath="$PROJECT_DIR$/../ios/www/cordova_plugins.js" />
-      <change beforePath="$PROJECT_DIR$/../../plugins/android.json" afterPath="$PROJECT_DIR$/../../plugins/android.json" />
-      <change beforePath="$PROJECT_DIR$/../../plugins/fetch.json" afterPath="$PROJECT_DIR$/../../plugins/fetch.json" />
-      <change beforePath="$PROJECT_DIR$/../../plugins/ios.json" afterPath="$PROJECT_DIR$/../../plugins/ios.json" />
-      <change beforePath="$PROJECT_DIR$/../../src/app/app.component.ts" afterPath="$PROJECT_DIR$/../../src/app/app.component.ts" />
-      <change beforePath="$PROJECT_DIR$/../../src/app/app.module.ts" afterPath="$PROJECT_DIR$/../../src/app/app.module.ts" />
-      <change beforePath="$PROJECT_DIR$/../../src/pages/comments/getcomment.php" afterPath="$PROJECT_DIR$/../../src/pages/comments/getcomment.php" />
-      <change beforePath="$PROJECT_DIR$/../../src/pages/favorieten/favorieten.ts" afterPath="$PROJECT_DIR$/../../src/pages/favorieten/favorieten.ts" />
-      <change beforePath="$PROJECT_DIR$/../../src/pages/feed/feed.html" afterPath="$PROJECT_DIR$/../../src/pages/feed/feed.html" />
-      <change beforePath="$PROJECT_DIR$/../../src/pages/feed/feed.ts" afterPath="$PROJECT_DIR$/../../src/pages/feed/feed.ts" />
-      <change beforePath="$PROJECT_DIR$/../../src/pages/profiel/profiel.ts" afterPath="$PROJECT_DIR$/../../src/pages/profiel/profiel.ts" />
-      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/ionicons.eot" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/ionicons.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/ionicons.svg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/ionicons.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/noto-sans-bold.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/noto-sans-bold.woff" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/noto-sans-regular.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/noto-sans-regular.woff" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/noto-sans.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/roboto-bold.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/roboto-bold.woff" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/roboto-bold.woff2" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/roboto-light.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/roboto-light.woff" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/roboto-light.woff2" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/roboto-medium.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/roboto-medium.woff" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/roboto-medium.woff2" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/roboto-regular.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/roboto-regular.woff" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/roboto-regular.woff2" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/roboto.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../../www/build/main.css" afterPath="$PROJECT_DIR$/../../www/build/main.css" />
-      <change beforePath="$PROJECT_DIR$/../../www/build/main.css.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../../www/build/main.js" afterPath="$PROJECT_DIR$/../../www/build/main.js" />
-      <change beforePath="$PROJECT_DIR$/../../www/build/main.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../../www/build/vendor.js" afterPath="$PROJECT_DIR$/../../www/build/vendor.js" />
-      <change beforePath="$PROJECT_DIR$/../../www/build/vendor.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../.sourcemaps/0.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../.sourcemaps/0.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.sourcemaps/1.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../.sourcemaps/1.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.sourcemaps/10.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../.sourcemaps/10.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.sourcemaps/11.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../.sourcemaps/11.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.sourcemaps/12.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../.sourcemaps/12.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.sourcemaps/13.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../.sourcemaps/13.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.sourcemaps/14.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../.sourcemaps/14.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.sourcemaps/15.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../.sourcemaps/15.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.sourcemaps/16.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../.sourcemaps/16.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.sourcemaps/2.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../.sourcemaps/2.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.sourcemaps/3.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../.sourcemaps/3.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.sourcemaps/4.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../.sourcemaps/4.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.sourcemaps/5.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../.sourcemaps/5.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.sourcemaps/6.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../.sourcemaps/6.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.sourcemaps/7.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../.sourcemaps/7.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.sourcemaps/8.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../.sourcemaps/8.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.sourcemaps/9.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../.sourcemaps/9.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.sourcemaps/main.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../.sourcemaps/main.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskJars.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskJars.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle____local_aars___C__xampp_htdocs_News_App_platforms_android_app_libs_sqlite_connector_jar_unspecified_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle____local_aars___C__Users_Gazoh_PC_Desktop_Projecten_News_App_platforms_android_app_libs_sqlite_connector_jar_unspecified_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle____local_aars___C__xampp_htdocs_News_App_platforms_android_app_libs_sqlite_native_driver_jar_unspecified_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle____local_aars___C__Users_Gazoh_PC_Desktop_Projecten_News_App_platforms_android_app_libs_sqlite_native_driver_jar_unspecified_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CordovaLib/CordovaLib.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CordovaLib/CordovaLib.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CordovaLib/build/generated/source/buildConfig/debug/org/apache/cordova/BuildConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/CordovaLib/build/generated/source/buildConfig/debug/org/apache/cordova/BuildConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CordovaLib/build/intermediates/attr/R.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CordovaLib/build/intermediates/attr/R.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CordovaLib/build/intermediates/incremental/debug-mergeJniLibs/merge-state" beforeDir="false" afterPath="$PROJECT_DIR$/CordovaLib/build/intermediates/incremental/debug-mergeJniLibs/merge-state" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CordovaLib/build/intermediates/incremental/mergeDebugAssets/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CordovaLib/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CordovaLib/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CordovaLib/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CordovaLib/build/intermediates/incremental/mergeDebugShaders/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CordovaLib/build/intermediates/incremental/mergeDebugShaders/merger.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CordovaLib/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CordovaLib/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CordovaLib/build/intermediates/incremental/packageDebugResources/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CordovaLib/build/intermediates/incremental/packageDebugResources/merger.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CordovaLib/build/intermediates/manifests/aapt/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CordovaLib/build/intermediates/manifests/aapt/debug/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CordovaLib/build/intermediates/manifests/full/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CordovaLib/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CordovaLib/build/intermediates/res/symbol-table-with-package/debug/package-aware-r.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CordovaLib/build/intermediates/res/symbol-table-with-package/debug/package-aware-r.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CordovaLib/build/outputs/logs/manifest-merger-debug-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CordovaLib/build/outputs/logs/manifest-merger-debug-report.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android.json" beforeDir="false" afterPath="$PROJECT_DIR$/android.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/com/newsage/na/BuildConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/com/newsage/na/BuildConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/newsage/na/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/newsage/na/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/assets/imgs/Bewolkt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/assets/imgs/Zon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/assets/imgs/dalend.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/assets/imgs/opkomend.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/assets/scss/theme.dark1.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/assets/svg/nu.nl.svg" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/assets/svg/nu.nl.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/assets/svg/spinner/tail-spin.svg" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/assets/svg/spinner/tail-spin.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/0.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/0.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/1.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/10.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/10.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/11.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/11.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/12.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/12.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/13.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/13.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/14.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/14.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/15.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/15.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/16.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/16.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/17.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/17.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/2.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/3.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/4.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/4.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/5.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/5.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/6.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/6.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/7.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/7.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/8.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/8.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/9.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/9.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/vendor.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/build/vendor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/www/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi-v2/debug.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi-v2/debug.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi-v2/values.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi-v2/values.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/debug.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/debug.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/camera/CameraLauncher.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/camera/CameraLauncher.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/camera/FileHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/camera/FileHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/file/AssetFilesystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/file/AssetFilesystem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/file/ContentFilesystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/file/ContentFilesystem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/file/Filesystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/file/Filesystem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/file/LocalFilesystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/file/LocalFilesystem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/filetransfer/FileTransfer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/filetransfer/FileTransfer$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/filetransfer/FileTransfer$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/filetransfer/FileTransfer$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/filetransfer/FileTransfer.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/filetransfer/FileTransfer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/networkinformation/NetworkManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/org/apache/cordova/networkinformation/NetworkManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJavaRes/merge-state" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJavaRes/merge-state" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/2l8o14ocQMDd5ptSRXI6NoPa0Hg=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/4wXFcyDQW120We_UhNSp2Zgo9Kk=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/A8B4KDgDN2hgABROnn9yMleLNi0=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/aVgVF_7TTN1zCtZO_1Q54n_LpDs=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/op+R1IxWqMdt454v19C2BFD866s=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/rxvoLScV6Kb4Nkns5cNW_i72ZeU=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/tfe4Na45Gu+rTX9qGJ6xIVO8Ui8=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/yfkltuFAkKFk60GLW94ycn9ckSU=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJniLibs/merge-state" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJniLibs/merge-state" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/2l8o14ocQMDd5ptSRXI6NoPa0Hg=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/4wXFcyDQW120We_UhNSp2Zgo9Kk=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/A8B4KDgDN2hgABROnn9yMleLNi0=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/aVgVF_7TTN1zCtZO_1Q54n_LpDs=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/op+R1IxWqMdt454v19C2BFD866s=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/rxvoLScV6Kb4Nkns5cNW_i72ZeU=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/tfe4Na45Gu+rTX9qGJ6xIVO8Ui8=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/yfkltuFAkKFk60GLW94ycn9ckSU=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugAssets/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugShaders/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugShaders/merger.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/debug/dex-renamer-state.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/debug/file-input-save-data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/debug/file-input-save-data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/debug/zip-cache/Ds0ewImmF1jQwcd9eZ4ANuUpdzo=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/resources-debug.ap_" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/resources-debug.ap_" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_action_next_item.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_action_next_item.png.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_action_previous_item.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_action_previous_item.png.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_action_remove.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_action_remove.png.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-land-hdpi_screen.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-land-hdpi_screen.png.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-land-ldpi_screen.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-land-ldpi_screen.png.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-land-mdpi_screen.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-land-mdpi_screen.png.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-land-xhdpi_screen.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-land-xhdpi_screen.png.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-land-xxhdpi_screen.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-land-xxhdpi_screen.png.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-land-xxxhdpi_screen.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-land-xxxhdpi_screen.png.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_action_next_item.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_action_next_item.png.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_action_previous_item.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_action_previous_item.png.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_action_remove.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_action_remove.png.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-port-hdpi_screen.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-port-hdpi_screen.png.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-port-ldpi_screen.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-port-ldpi_screen.png.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-port-mdpi_screen.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-port-mdpi_screen.png.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-port-xhdpi_screen.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-port-xhdpi_screen.png.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-port-xxhdpi_screen.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-port-xxhdpi_screen.png.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-port-xxxhdpi_screen.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-port-xxxhdpi_screen.png.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_action_next_item.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_action_next_item.png.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_action_previous_item.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_action_previous_item.png.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_action_remove.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_action_remove.png.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_action_next_item.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_action_next_item.png.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_action_previous_item.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_action_previous_item.png.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_action_remove.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_action_remove.png.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_activity_photo.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_activity_photo.xml.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/mipmap-hdpi_icon.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/mipmap-hdpi_icon.png.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/mipmap-ldpi_icon.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/mipmap-ldpi_icon.png.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/mipmap-mdpi_icon.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/mipmap-mdpi_icon.png.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/mipmap-xhdpi_icon.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/mipmap-xhdpi_icon.png.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_icon.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_icon.png.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_icon.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_icon.png.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values_values.arsc.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values_values.arsc.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/xml_camera_provider_paths.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/xml_camera_provider_paths.xml.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/xml_config.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/xml_config.xml.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/xml_sharing_paths.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/xml_sharing_paths.xml.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/symbol-table-with-package/debug/package-aware-r.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/symbol-table-with-package/debug/package-aware-r.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/1/org/apache/cordova/camera/CameraLauncher.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/1/org/apache/cordova/camera/CameraLauncher.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/1/org/apache/cordova/camera/FileHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/1/org/apache/cordova/camera/FileHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/1/org/apache/cordova/file/AssetFilesystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/1/org/apache/cordova/file/AssetFilesystem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/1/org/apache/cordova/file/ContentFilesystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/1/org/apache/cordova/file/ContentFilesystem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/1/org/apache/cordova/file/Filesystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/1/org/apache/cordova/file/Filesystem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/1/org/apache/cordova/file/LocalFilesystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/1/org/apache/cordova/file/LocalFilesystem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/1/org/apache/cordova/filetransfer/FileTransfer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/1/org/apache/cordova/filetransfer/FileTransfer$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/1/org/apache/cordova/filetransfer/FileTransfer$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/1/org/apache/cordova/filetransfer/FileTransfer$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/1/org/apache/cordova/filetransfer/FileTransfer.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/1/org/apache/cordova/filetransfer/FileTransfer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/1/org/apache/cordova/networkinformation/NetworkManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/1/org/apache/cordova/networkinformation/NetworkManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/4.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/4.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/5.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/5.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/6.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/7.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/7.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/8.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/8.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/__content__.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/desugar/debug/__content__.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/org/apache/cordova/camera/CameraLauncher.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/org/apache/cordova/camera/CameraLauncher.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/org/apache/cordova/camera/FileHelper.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/org/apache/cordova/camera/FileHelper.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/org/apache/cordova/file/AssetFilesystem.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/org/apache/cordova/file/AssetFilesystem.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/org/apache/cordova/file/ContentFilesystem.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/org/apache/cordova/file/ContentFilesystem.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/org/apache/cordova/file/Filesystem.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/org/apache/cordova/file/Filesystem.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/org/apache/cordova/file/LocalFilesystem.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/org/apache/cordova/file/LocalFilesystem.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/org/apache/cordova/filetransfer/FileTransfer$1.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/org/apache/cordova/filetransfer/FileTransfer$1.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/org/apache/cordova/filetransfer/FileTransfer$2.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/org/apache/cordova/filetransfer/FileTransfer$2.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/org/apache/cordova/filetransfer/FileTransfer.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/org/apache/cordova/filetransfer/FileTransfer.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/org/apache/cordova/networkinformation/NetworkManager.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/org/apache/cordova/networkinformation/NetworkManager.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/16.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/16.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/17.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/17.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/18.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/18.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/19.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/19.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/2.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/20.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/20.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/21.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/21.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/22.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/22.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/23.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/23.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/24.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/24.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/25.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/25.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/26.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/26.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/27.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/27.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/28.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/28.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/29.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/29.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/3.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/3.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/30.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/30.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/31.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/31.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/32.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/32.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/33.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/33.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/34.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/34.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/35.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/35.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/37.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/37.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/38.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/38.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/39.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/39.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/4.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/4.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/40.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/40.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/41.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/5.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/5.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/8.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/8.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/9.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/9.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/__content__.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/__content__.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/0/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/0/classes.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/__content__.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/__content__.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/externalLibsDexMerger/debug/0/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/externalLibsDexMerger/debug/0/classes.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJavaRes/debug/__content__.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJavaRes/debug/__content__.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJniLibs/debug/__content__.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJniLibs/debug/__content__.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/stackFramesFixer/debug/2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/stackFramesFixer/debug/2.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/stackFramesFixer/debug/3.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/stackFramesFixer/debug/3.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/stackFramesFixer/debug/4.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/stackFramesFixer/debug/4.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/stackFramesFixer/debug/5.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/stackFramesFixer/debug/5.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/stackFramesFixer/debug/6.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/stackFramesFixer/debug/6.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/stackFramesFixer/debug/__content__.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/stackFramesFixer/debug/__content__.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/0.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/0.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/1.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/10.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/10.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/11.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/11.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/12.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/12.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/13.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/13.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/14.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/14.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/15.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/15.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/16.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/16.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/17.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/17.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/18.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/18.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/2.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/3.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/4.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/4.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/5.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/5.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/6.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/6.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/7.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/7.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/8.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/8.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/9.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/9.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/www/build/vendor.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/www/build/vendor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/xml/config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/ionicons.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/ionicons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/ionicons.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/ionicons.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/noto-sans-bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/noto-sans-bold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/noto-sans-regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/noto-sans-regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/noto-sans.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/roboto-bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/roboto-bold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/roboto-bold.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/roboto-light.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/roboto-light.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/roboto-light.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/roboto-medium.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/roboto-medium.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/roboto-medium.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/roboto-regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/roboto-regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/roboto-regular.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../www/assets/fonts/roboto.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../www/build/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../www/build/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../www/build/main.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../www/build/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../www/build/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../www/build/main.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../www/build/vendor.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../www/build/vendor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../www/build/vendor.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../www/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../www/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -651,7 +315,7 @@
   <component name="GradleLocalSettings">
     <option name="myGradleHomes">
       <map>
-        <entry key="$PROJECT_DIR$" value="C:\Users\Batu\.gradle\wrapper\dists\gradle-4.1-all\bzyivzo6n839fup2jbap0tjew\gradle-4.1" />
+        <entry key="$PROJECT_DIR$" value="C:\Users\Gazoh-PC\.gradle\wrapper\dists\gradle-4.1-all\bzyivzo6n839fup2jbap0tjew\gradle-4.1" />
       </map>
     </option>
     <option name="myGradleVersions">
@@ -3576,9 +3240,6 @@
         </entry>
       </map>
     </option>
-    <option name="externalProjectsViewState">
-      <projects_view />
-    </option>
     <option name="projectSyncType">
       <map>
         <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
@@ -3593,34 +3254,23 @@
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator currentView="AndroidView" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
       <pane id="AndroidView" />
+      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="settings.editor.selected.configurable" value="android.sdk-updates" />
     <property name="android.project.structure.last.selected" value="app" />
     <property name="android.project.structure.proportion" value="0.15" />
-    <property name="show.do.not.ask.upgrade.gradle.plugin" value="3.0.1" />
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="device.picker.selection" value="nexus5" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="show.do.not.ask.upgrade.gradle.plugin" value="3.0.1" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -3636,8 +3286,6 @@
   </component>
   <component name="RunManager">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" />
@@ -3647,22 +3295,23 @@
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="file://$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="singleModule" />
       </option>
-      <envs />
       <patterns />
       <method>
+        <option name="Make" enabled="false" />
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="app" />
       <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
       <option name="ARTIFACT_NAME" value="" />
       <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
       <option name="ACTIVITY_EXTRA_FLAGS" value="" />
       <option name="MODE" value="default_activity" />
       <option name="CLEAR_LOGCAT" value="false" />
@@ -3699,34 +3348,16 @@
       </Native>
       <Profilers>
         <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sampled (Java)" />
       </Profilers>
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-    </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SUITE_NAME" />
@@ -3739,15 +3370,12 @@
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="singleModule" />
       </option>
       <option name="USE_DEFAULT_REPORTERS" value="false" />
       <option name="PROPERTIES_FILE" />
-      <envs />
       <properties />
       <listeners />
     </configuration>
@@ -3770,9 +3398,6 @@
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
     </configuration>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -3787,44 +3412,40 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Build Variants" order="2" side_tool="true" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32905984" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32905984" />
+      <window_info anchor="bottom" id="Logcat" order="7" />
+      <window_info id="Captures" order="2" weight="0.25" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24966443" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.32905984" />
+      <window_info anchor="right" id="Gradle" order="3" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager />
-    <watches-manager />
   </component>
 </project>
