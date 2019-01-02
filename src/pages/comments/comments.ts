@@ -69,6 +69,8 @@ export class CommentsPage {
         this.content.scrollToBottom(200);
     }
 
+
+
     // Runs when the page is about to enter and become the active page.
     ionViewDidEnter() {
         setTimeout(() => this.myInput.setFocus(), 200);
@@ -159,5 +161,9 @@ export class CommentsPage {
             ]
         });
         this.confirmAlert.present();
+    }
+
+    returnFeed() {
+        this.navCtrl.setRoot(FeedPage);
     }
 }

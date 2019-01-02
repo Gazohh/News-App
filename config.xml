@@ -24,8 +24,6 @@
     <preference name="KeyboardDisplayRequiresUserAction" value="false" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <preference name="SplashScreenDelay" value="3000" />
-    <preference name="KeyboardResizeMode" value="body" />
-    <preference name="KeyboardResize" value="true" />
     <allow-navigation href="http://localhost:8080/*" />
     <platform name="android">
         <allow-intent href="market" />
