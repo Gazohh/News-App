@@ -1,15 +1,16 @@
-import {IonicPage, NavController, NavParams, ActionSheetController, Navbar} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, ActionSheetController} from 'ionic-angular';
 import {AlertController} from 'ionic-angular';
 import {SettingsPage} from '../settings/settings';
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Camera, CameraOptions} from '@ionic-native/camera';
 import {FileUploadOptions, FileTransferObject} from '@ionic-native/file-transfer';
 import {File} from '@ionic-native/file';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Events} from 'ionic-angular';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {WijzigwachtwoordPage} from "../wijzigwachtwoord/wijzigwachtwoord";
-import {PhotoViewer} from '@ionic-native/photo-viewer';
+import { WijzigwachtwoordPage } from "../wijzigwachtwoord/wijzigwachtwoord";
+import { PhotoViewer } from '@ionic-native/photo-viewer';
+
 
 
 @IonicPage()
@@ -18,8 +19,6 @@ import {PhotoViewer} from '@ionic-native/photo-viewer';
     templateUrl: 'profiel.html',
 })
 export class ProfielPage implements OnInit {
-    @ViewChild(Navbar) navBar: Navbar;
-
     dataUser: any;
     myphoto: any;
     username: any;
@@ -40,7 +39,7 @@ export class ProfielPage implements OnInit {
                 public actionSheetCtrl: ActionSheetController,
                 public http: HttpClient,
                 public events: Events,
-                public photoViewer: PhotoViewer) {
+                public photoViewer:PhotoViewer) {
         const headers = new HttpHeaders();
 
         headers.append("Accept", 'application/json');
@@ -76,10 +75,13 @@ export class ProfielPage implements OnInit {
                     text: 'Profielfoto bekijken',
                     role: 'Profielfoto bekijken',
                     handler: () => {
-                        if (this.myphoto) {
+                        if(this.myphoto)
+                        {
                             this.photoViewer.show(this.myphoto);
-                        } else if (!this.myphoto) {
-                            let alert = this.alertCtrl.create({title: "Geen data", message: "Geen foto!"})
+                        }
+                        else if(!this.myphoto)
+                        {
+                            let alert = this.alertCtrl.create({title: "Geen data",message: "Geen foto!"})
                             alert.present();
                         }
                     }
@@ -176,7 +178,7 @@ export class ProfielPage implements OnInit {
     }
 
     wijzigWachtwoord() {
-        this.navCtrl.push(WijzigwachtwoordPage);
+      this.navCtrl.push(WijzigwachtwoordPage);
     }
 
     goBack() {
@@ -248,7 +250,8 @@ export class ProfielPage implements OnInit {
                         });
 
                         alert.present();
-                    } else if (res == "No data set!") {
+                    }
+                    else if (res == "No data set!") {
                         let alert = this.alertCtrl.create({
 
                             title: "Mislukt",
@@ -266,24 +269,48 @@ export class ProfielPage implements OnInit {
         }
     }
 
-    ionViewDidLoad() {
-        this.navBar.backButtonClick = (e: UIEvent) => {
-            const headers = new HttpHeaders();
-            headers.append("Accept", 'application/json');
-            headers.append('Content-Type', 'application/json');
-            const options = {headers: headers};
-            const data = {
-                email: localStorage.getItem('userEmail'),
-            };
-            this.http.post('http://gazoh.net/getgebruiker.php', data, options)
-                .subscribe(data => {
-                    this.dataUser = data;
-                    this.username = this.dataUser.username;
-                    this.oldprofilepicture = this.dataUser.profilepicture;
-                    this.events.publish("username", this.username);
-                    this.events.publish("profilepicture", this.oldprofilepicture);
-                });
-            this.navCtrl.setRoot(SettingsPage);
-        }
+    returnSettings() {
+        const headers = new HttpHeaders();
+
+        headers.append("Accept", 'application/json');
+
+        headers.append('Content-Type', 'application/json');
+
+        const options = {headers: headers};
+
+        const data = {
+
+            email: localStorage.getItem('userEmail'),
+
+        };
+        this.http.post('http://gazoh.net/getgebruiker.php', data, options)
+            .subscribe(data => {
+                this.dataUser = data;
+                this.username = this.dataUser.username;
+                this.oldprofilepicture = this.dataUser.profilepicture;
+                this.events.publish("username", this.username);
+                this.events.publish("profilepicture", this.oldprofilepicture);
+            });
+
+        let alert = this.alertCtrl.create({
+            title: 'Verlaat',
+            message: 'Je wijzigingen worden niet opgeslagen als je annuleert. Weet je zeker dat je wilt annuleren ?',
+            buttons: [
+                {
+                    text: "blijf",
+                    role: 'cancel',
+                    handler: () => {
+                        console.log('Cancel clicked');
+                    }
+                },
+                {
+                    text: 'verlaat',
+                    handler: () => {
+                        this.navCtrl.setRoot(SettingsPage);
+                    }
+                }
+            ]
+        });
+        alert.present();
     }
 }

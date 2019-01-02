@@ -5,15 +5,13 @@
 </ion-header>
 <ion-content>
     <ion-list *ngFor="let comment of comments; let last = last" class="commentSpacing">
-        {{last ? callFunction() : ''}}
         <ion-item-sliding>
             <ion-item>
+                {{last ? callFunction() : ''}}
                 <ion-avatar class="avatar" item-start>
                     <img src="{{comment.profilepicture}}" class="avatar-profiel"/>
                 </ion-avatar>
-                <p class="commentUsername">{{comment.username}}<span
-                        class="commentDate">{{comment.commentDate}}</span>
-                </p>
+                <p class="commentUsername">{{comment.username}}<span class="commentDate">{{comment.commentDate}}</span></p>
                 <p><span class="breakText">{{comment.comment}}</span></p>
             </ion-item>
             <ion-item-options side="right">
@@ -21,9 +19,7 @@
                     <ion-icon name="create"></ion-icon>
                     Bewerk
                 </button>
-                <button ion-button color="danger" item-right
-                        *ngIf="userId == comment.userCommentID || userRol == 1"
-                        (click)="deleteComment(comment.commentId)">
+                <button ion-button color="danger" item-right *ngIf="userId == comment.userCommentID || userRol == 1" (click)="deleteComment(comment.commentId)">
                     <ion-icon name="trash"></ion-icon>
                     Verwijder
                 </button>
@@ -31,16 +27,16 @@
         </ion-item-sliding>
     </ion-list>
 </ion-content>
-<ion-footer class="commentFooter">
-    <ion-item class="commentsItem">
-        <ion-avatar class="avatar" item-start>
-            <img src="{{pictureprofile}}" class="avatar-profiel"/>
-        </ion-avatar>
-        <ion-input placeholder="Reageer als {{this.username}}" [(ngModel)]="comment" id="inputMessage"
-                   #input></ion-input>
-        <button ion-button class="sendButton" id="sendButtonId" (click)="postComment()" item-end
-                [disabled]="!comment">
-            <ion-icon name="send"></ion-icon>
-        </button>
-    </ion-item>
-</ion-footer>
+    <ion-footer>
+            <ion-item class="commentsItem">
+                <ion-avatar class="avatar" item-start>
+                    <img src="{{pictureprofile}}" class="avatar-profiel"/>
+                </ion-avatar>
+                <ion-input placeholder="Reageer als {{this.username}}" [(ngModel)]="comment" id="inputMessage"
+                           #input></ion-input>
+                <button ion-button class="sendButton" id="sendButtonId" (click)="postComment()" item-end
+                        [disabled]="!comment">
+                    <ion-icon name="send"></ion-icon>
+                </button>
+            </ion-item>
+    </ion-footer>

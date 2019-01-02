@@ -1,5 +1,8 @@
 <ion-header>
   <ion-navbar>
+    <button ion-button left class="BackButton" (click)="returnSettings()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </button>
     <ion-title class="profielPadding">Profiel</ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="updateProfile()">
