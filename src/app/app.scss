@@ -135,9 +135,9 @@ body > ion-app > ng-component > ion-nav > page-settings > ion-content > div.scro
 // ------------------------------------
 // Comments
 
-.FooterComment {
-  overflow-y: scroll;
-}
+//.commentFooter {
+//  overflow-y: scroll;
+//}
 
 // Input border
 
@@ -1078,13 +1078,13 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 }
 
 .uitgeverFeed {
-  margin-top: 1rem;
+  margin-top: 1.3rem;
   margin-bottom: -3px;
   font-family: 'Roboto-Bold' !important;
 }
 
 .uitgeverFeedNU {
-  margin-top: 1.6rem !important;
+  margin-top: 2rem !important;
   font-family: 'Roboto-Bold' !important;
 }
 
@@ -1122,7 +1122,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 }
 
 #title > ion-card-title {
-  margin-top: 21px;
+  margin-top: 23px;
   margin-bottom: 4px;
   padding: 0px !important;
   line-height: 0.9;
