@@ -168,7 +168,7 @@ body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item 
 }
 
 .commentUsername {
-  font-weight: bold;
+  font-family: Roboto-Bold;
   color: #000 !important;
   margin-bottom: 5px !important;
 }
@@ -180,8 +180,9 @@ body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item 
 
 .commentDate {
   float: right;
-  font-size: x-small;
+  font-size: 1.2rem;
   color: #666;
+  font-family: Roboto-Medium;
 }
 
 .sendButton {
@@ -1082,13 +1083,13 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 }
 
 .uitgeverFeed {
-  margin-top: 1.5rem;
+  margin-top: 10px;
   margin-bottom: -3px;
   font-family: 'Roboto-Bold' !important;
 }
 
 .uitgeverFeedNU {
-  margin-top: 2rem !important;
+  margin-top: 15px !important;
   font-family: 'Roboto-Bold' !important;
 }
 

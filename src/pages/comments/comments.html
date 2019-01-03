@@ -9,7 +9,6 @@
         </button>
     </ion-navbar>
 </ion-header>
-
 <ion-content>
     <ion-list *ngFor="let comment of comments; let last = last" class="commentSpacing">
         <ion-item-sliding>
@@ -26,7 +25,7 @@
                     <ion-icon name="create"></ion-icon>
                     Bewerk
                 </button>
-                <button ion-button color="danger" item-right *ngIf="userId == comment.userCommentID || userRol == 1" (click)="deleteComment(comment.commentId)">
+                <button ion-button color="danger" item-right *ngIf="userId == comment.userID || userRol == 1" (click)="deleteComment(comment.commentId)">
                     <ion-icon name="trash"></ion-icon>
                     Verwijder
                 </button>

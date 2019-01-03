@@ -4313,7 +4313,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var CommentsPage = /** @class */ (function () {
-    function CommentsPage(navCtrl, navParams, http, alertCtrl, events, keyboard) {
+    function CommentsPage(navCtrl, navParams, http, alertCtrl, events, keyboard, platform) {
         var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
@@ -4321,8 +4321,11 @@ var CommentsPage = /** @class */ (function () {
         this.alertCtrl = alertCtrl;
         this.events = events;
         this.keyboard = keyboard;
+        this.platform = platform;
         this.comments = [];
-        keyboard.disableScroll(true);
+        this.platform.ready().then(function () {
+            keyboard.disableScroll(true);
+        });
         if (this.navParams.get("record")) {
             this.selectEntry(this.navParams.get("record"));
             this.getComments();
@@ -4449,24 +4452,20 @@ var CommentsPage = /** @class */ (function () {
     ], CommentsPage.prototype, "myInput", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Content */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Content */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Content */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Content */]) === "function" && _a || Object)
     ], CommentsPage.prototype, "content", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* Navbar */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* Navbar */])
+        __metadata("design:type", typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* Navbar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* Navbar */]) === "function" && _b || Object)
     ], CommentsPage.prototype, "navBar", void 0);
     CommentsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-comments',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\comments\comments.html"*/'<ion-header>\n\n    <ion-navbar #navbar>\n\n        <ion-title class="fakePadding">Comments</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-list *ngFor="let comment of comments; let last = last" class="commentSpacing">\n\n        <ion-item-sliding>\n\n            <ion-item>\n\n                {{last ? callFunction() : \'\'}}\n\n                <ion-avatar class="avatar" item-start>\n\n                    <img src="{{comment.profilepicture}}" class="avatar-profiel"/>\n\n                </ion-avatar>\n\n                <p class="commentUsername">{{comment.username}}<span class="commentDate">{{comment.commentDate}}</span></p>\n\n                <p><span class="breakText">{{comment.comment}}</span></p>\n\n            </ion-item>\n\n            <ion-item-options side="right">\n\n                <button ion-button color="secondary">\n\n                    <ion-icon name="create"></ion-icon>\n\n                    Bewerk\n\n                </button>\n\n                <button ion-button color="danger" item-right *ngIf="userId == comment.userCommentID || userRol == 1" (click)="deleteComment(comment.commentId)">\n\n                    <ion-icon name="trash"></ion-icon>\n\n                    Verwijder\n\n                </button>\n\n            </ion-item-options>\n\n        </ion-item-sliding>\n\n    </ion-list>\n\n</ion-content>\n\n    <ion-footer>\n\n            <ion-item class="commentsItem">\n\n                <ion-avatar class="avatar" item-start>\n\n                    <img src="{{pictureprofile}}" class="avatar-profiel"/>\n\n                </ion-avatar>\n\n                <ion-input placeholder="Reageer als {{this.username}}" [(ngModel)]="comment" id="inputMessage"\n\n                           #input></ion-input>\n\n                <button ion-button class="sendButton" id="sendButtonId" (click)="postComment()" item-end\n\n                        [disabled]="!comment">\n\n                    <ion-icon name="send"></ion-icon>\n\n                </button>\n\n            </ion-item>\n\n    </ion-footer>   '/*ion-inline-end:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\comments\comments.html"*/,
+            selector: 'page-comments',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\comments\comments.html"*/'<ion-header no-border-bottom>\n\n    <ion-navbar>\n\n        <button ion-button menuToggle right class="fakeCenter">\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title class="fakePadding">Comments</ion-title>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-list *ngFor="let comment of comments; let last = last" class="commentSpacing">\n\n        <ion-item-sliding>\n\n            <ion-item>\n\n                {{last ? callFunction() : \'\'}}\n\n                <ion-avatar class="avatar" item-start>\n\n                    <img src="{{comment.profilepicture}}" class="avatar-profiel"/>\n\n                </ion-avatar>\n\n                <p class="commentUsername">{{comment.username}}<span class="commentDate">{{comment.commentDate}}</span></p>\n\n                <p><span class="breakText">{{comment.comment}}</span></p>\n\n            </ion-item>\n\n            <ion-item-options side="right">\n\n                <button ion-button color="secondary">\n\n                    <ion-icon name="create"></ion-icon>\n\n                    Bewerk\n\n                </button>\n\n                <button ion-button color="danger" item-right *ngIf="userId == comment.userID || userRol == 1" (click)="deleteComment(comment.commentId)">\n\n                    <ion-icon name="trash"></ion-icon>\n\n                    Verwijder\n\n                </button>\n\n            </ion-item-options>\n\n        </ion-item-sliding>\n\n    </ion-list>\n\n</ion-content>\n\n    <ion-footer>\n\n            <ion-item class="commentsItem">\n\n                <ion-avatar class="avatar" item-start>\n\n                    <img src="{{pictureprofile}}" class="avatar-profiel"/>\n\n                </ion-avatar>\n\n                <ion-input placeholder="Reageer als {{this.username}}" [(ngModel)]="comment" id="inputMessage"\n\n                           #input></ion-input>\n\n                <button ion-button class="sendButton" id="sendButtonId" (click)="postComment()" item-end\n\n                        [disabled]="!comment">\n\n                    <ion-icon name="send"></ion-icon>\n\n                </button>\n\n            </ion-item>\n\n    </ion-footer>   '/*ion-inline-end:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\comments\comments.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */],
-            __WEBPACK_IMPORTED_MODULE_4__ionic_native_keyboard__["a" /* Keyboard */]])
+        __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_keyboard__["a" /* Keyboard */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_keyboard__["a" /* Keyboard */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* Platform */]) === "function" && _j || Object])
     ], CommentsPage);
     return CommentsPage;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 }());
 
 //# sourceMappingURL=comments.js.map

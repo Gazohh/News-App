@@ -33727,6 +33727,10 @@ ion-navbar.toolbar {
   font-family: 'Roboto-Regular';
 }
 
+.toolbar-title-md {
+  font-family: 'Roboto-Medium';
+}
+
 body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item > div.item-inner {
   border-bottom-color: transparent !important;
   -webkit-box-shadow: none !important;
@@ -33850,7 +33854,7 @@ body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item 
 }
 
 .commentUsername {
-  font-weight: bold;
+  font-family: Roboto-Bold;
   color: #000 !important;
   margin-bottom: 5px !important;
 }
@@ -33862,8 +33866,9 @@ body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item 
 
 .commentDate {
   float: right;
-  font-size: x-small;
+  font-size: 1.2rem;
   color: #666;
+  font-family: Roboto-Medium;
 }
 
 .sendButton {
@@ -34734,13 +34739,13 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 }
 
 .uitgeverFeed {
-  margin-top: 1rem;
+  margin-top: 10px;
   margin-bottom: -3px;
   font-family: 'Roboto-Bold' !important;
 }
 
 .uitgeverFeedNU {
-  margin-top: 2rem !important;
+  margin-top: 15px !important;
   font-family: 'Roboto-Bold' !important;
 }
 

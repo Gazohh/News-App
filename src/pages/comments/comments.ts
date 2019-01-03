@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {IonicPage, NavController, NavParams, Navbar, Events} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, Navbar, Events, Platform} from 'ionic-angular';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {AlertController} from 'ionic-angular';
 import {FeedPage} from "../feed/feed";
@@ -34,9 +34,12 @@ export class CommentsPage {
                 public http: HttpClient,
                 public alertCtrl: AlertController,
                 public events: Events,
-                public keyboard: Keyboard) {
+                public keyboard: Keyboard,
+                private platform: Platform) {
 
-        keyboard.disableScroll(true);
+        this.platform.ready().then(() => {
+            keyboard.disableScroll(true);
+        });
 
         if (this.navParams.get("record")) {
             this.selectEntry(this.navParams.get("record"));
