@@ -1,1 +1,42 @@
-webpackJsonp([0],{724:function(l,n,a){"use strict";function u(l){return t._21(0,[(l()(),t.Z(0,0,null,null,6,"ion-item",[["class","lijstItem item item-block"]],null,null,null,f.b,f.a)),t.Y(1,1097728,null,3,C.a,[j.a,m.a,t.j,t.z,[2,v.a]],null,null),t._17(335544320,2,{contentLabel:0}),t._17(603979776,3,{_buttons:1}),t._17(603979776,4,{_icons:1}),t.Y(5,16384,null,0,Y.a,[],null,null),(l()(),t._19(6,2,["\n            ","\n        "]))],null,function(l,n){l(n,6,0,n.context.$implicit.title)})}function e(l){return t._21(0,[t._17(402653184,1,{searchbar:0}),(l()(),t.Z(1,0,null,null,10,"ion-header",[],null,null,null,null,null)),t.Y(2,16384,null,0,w.a,[m.a,t.j,t.z,[2,z.a]],null,null),(l()(),t._19(-1,null,["\n    "])),(l()(),t.Z(4,0,null,null,6,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,I.b,I.a)),t.Y(5,49152,null,0,k.a,[Z.a,[2,z.a],[2,y.a],m.a,t.j,t.z],null,null),(l()(),t._19(-1,3,["\n        "])),(l()(),t.Z(7,0,null,3,2,"ion-title",[["class","lijstPadding"]],null,null,null,P.b,P.a)),t.Y(8,49152,null,0,F.a,[m.a,t.j,t.z,[2,L.a],[2,k.a]],null,null),(l()(),t._19(-1,0,["Lijst"])),(l()(),t._19(-1,3,["\n    "])),(l()(),t._19(-1,null,["\n"])),(l()(),t._19(-1,null,["\n"])),(l()(),t.Z(13,0,null,null,16,"ion-content",[],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,M.b,M.a)),t.Y(14,4374528,null,0,W.a,[m.a,B.a,O.a,t.j,t.z,Z.a,q.a,t.u,[2,z.a],[2,y.a]],null,null),(l()(),t._19(-1,1,["\n    "])),(l()(),t.Z(16,0,null,1,5,"ion-searchbar",[["class","searchbarLijstWeer"],["placeholder","Waar zijn we naar op zoek?"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null],[2,"searchbar-animated",null],[2,"searchbar-has-value",null],[2,"searchbar-active",null],[2,"searchbar-show-cancel",null],[2,"searchbar-left-aligned",null],[2,"searchbar-has-focus",null]],[[null,"ngModelChange"],[null,"ionInput"],[null,"ionCancel"],[null,"ionClear"]],function(l,n,a){var u=!0,e=l.component;if("ngModelChange"===n){u=!1!==(e.myInput=a)&&u}if("ionInput"===n){u=!1!==e.search(a)&&u}if("ionCancel"===n){u=!1!==e.resetChanges()&&u}if("ionClear"===n){u=!1!==e.clearItems()&&u}return u},A.b,A.a)),t.Y(17,671744,null,0,S.n,[[8,null],[8,null],[8,null],[8,null]],{model:[0,"model"]},{update:"ngModelChange"}),t._15(2048,null,S.k,null,[S.n]),t.Y(19,16384,null,0,S.l,[S.k],null,null),t.Y(20,1294336,[[1,4],["searchbar",4]],0,U.a,[m.a,B.a,t.j,t.z,[2,S.k]],{showCancelButton:[0,"showCancelButton"],placeholder:[1,"placeholder"]},{ionInput:"ionInput",ionCancel:"ionCancel",ionClear:"ionClear"}),(l()(),t._19(-1,null,["\n    "])),(l()(),t._19(-1,1,["\n\n    "])),(l()(),t.Z(23,0,null,1,5,"ion-list",[],null,null,null,null,null)),t.Y(24,16384,null,0,V.a,[m.a,t.j,t.z,B.a,x.l,O.a],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.U(16777216,null,null,1,null,u)),t.Y(27,802816,null,0,D.h,[t.I,t.F,t.p],{ngForOf:[0,"ngForOf"]},null),(l()(),t._19(-1,null,["\n\n    "])),(l()(),t._19(-1,1,["\n\n"]))],function(l,n){var a=n.component;l(n,17,0,a.myInput);l(n,20,0,a.shouldShowCancel,"Waar zijn we naar op zoek?");l(n,27,0,a.lijst)},function(l,n){l(n,4,0,t._11(n,5)._hidden,t._11(n,5)._sbPadding);l(n,13,0,t._11(n,14).statusbarPadding,t._11(n,14)._hasRefresher);l(n,16,1,[t._11(n,19).ngClassUntouched,t._11(n,19).ngClassTouched,t._11(n,19).ngClassPristine,t._11(n,19).ngClassDirty,t._11(n,19).ngClassValid,t._11(n,19).ngClassInvalid,t._11(n,19).ngClassPending,t._11(n,20)._animated,t._11(n,20)._value,t._11(n,20)._isActive,t._11(n,20)._showCancelButton,t._11(n,20)._shouldAlignLeft,t._11(n,20)._isFocus])})}Object.defineProperty(n,"__esModule",{value:!0});var t=a(1),i=(a(0),a(6),a(404)),s=function(){return function(){}}(),o=a(395),r=a(396),_=a(397),c=a(398),d=a(399),h=a(400),g=a(401),b=a(402),p=a(403),f=a(50),C=a(22),j=a(21),m=a(3),v=a(42),Y=a(47),w=a(31),z=a(7),I=a(34),k=a(24),Z=a(9),y=a(17),P=a(37),F=a(32),L=a(27),M=a(43),W=a(23),B=a(5),O=a(10),q=a(28),A=a(227),S=a(19),U=a(93),V=a(49),x=a(11),D=a(16),J=a(12),N=t.X({encapsulation:2,styles:[],data:{}}),R=t.V("page-lijstweer",i.a,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"page-lijstweer",[],null,null,null,e,N)),t.Y(1,49152,null,0,i.a,[y.a,J.a],null,null)],null,null)},{},{},[]),T=a(224),X=a(82);a.d(n,"LijstweerPageModuleNgFactory",function(){return $});var $=t.W(s,[],function(l){return t._7([t._8(512,t.i,t.S,[[8,[o.a,r.a,_.a,c.a,d.a,h.a,g.a,b.a,p.a,R]],[3,t.i],t.s]),t._8(4608,D.k,D.j,[t.r,[2,D.t]]),t._8(4608,S.s,S.s,[]),t._8(4608,S.d,S.d,[]),t._8(512,D.b,D.b,[]),t._8(512,S.q,S.q,[]),t._8(512,S.i,S.i,[]),t._8(512,S.o,S.o,[]),t._8(512,T.a,T.a,[]),t._8(512,T.b,T.b,[]),t._8(512,s,s,[]),t._8(256,X.a,i.a,[])])})}});
+webpackJsonp([0],{
+
+/***/ 728:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LijstweerPageModule", function() { return LijstweerPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lijstweer__ = __webpack_require__(391);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var LijstweerPageModule = /** @class */ (function () {
+    function LijstweerPageModule() {
+    }
+    LijstweerPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__lijstweer__["a" /* LijstweerPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__lijstweer__["a" /* LijstweerPage */]),
+            ],
+        })
+    ], LijstweerPageModule);
+    return LijstweerPageModule;
+}());
+
+//# sourceMappingURL=lijstweer.module.js.map
+
+/***/ })
+
+});
+//# sourceMappingURL=0.js.map

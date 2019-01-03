@@ -1,1 +1,4477 @@
-webpackJsonp([19],{119:function(l,n,u){"use strict";u.d(n,"a",function(){return t});u(0),u(6);var e=u(72),t=function(){function l(l,n){this.navCtrl=l,this.navParams=n,this.themeStatus=localStorage.getItem("themeColor"),this.slides=[{title:"Welkom bij NewsAge!",description:"Hallo! Welkom op NewsAge! ten eerste willen wij, namens het team, u bedanken voor het gebruiken van NewsAge!",image:"../../assets/imgs/NewsAgeLogo.png"},{title:'Wat is "NewsAge"',description:"NewsAge is de perfecte app om alle nieuws in een oogopslag te lezen.\n        NewsAge maakt het gemakkelijk voor de gebruiker(jij) door alle nieuws te verzamelen van verschillende bronnen en\n        die in een feed te verwerken zodat alles netjes en geordend is ;).",image:"../../assets/imgs/NewsAgeLogo.png"},{title:"Waarom NewsAge?",description:"NewsAge is heel gemakkelijk te gebruiken, u kunt bijvoorbeeld met 1 klik een dagblad volgen of niet volgen. U\nkunt ook ervoor kiezen om bijvoorbeeld een artikel te verbergen, dit zorgt ervoor dat u de artikel niet\n        ziet.",image:"../../assets/imgs/NewsAgeLogo.png"}]}return l.prototype.ionViewDidLoad=function(){console.log("ionViewDidLoad AboutPage")},l.prototype.overOnsDone=function(){this.navCtrl.setRoot(e.a)},l}()},120:function(l,n,u){"use strict";u.d(n,"a",function(){return t});u(0),u(6);var e=u(73),t=(u(112),function(){function l(l,n,u,e){this.navCtrl=l,this.navParams=n,this.platform=u,this.storage=e,this.slides=[{title:"Welkom bij NewsAge",description:"Welkom! bij de tutorial vertellen wij kort even hoe u onze app gebruikt.",image:"../../assets/imgs/NewsAgeLogo.png"},{title:"Hoe gebruik je NewsAge?",description:'Het gebruik van NewsAge is eigenlijk als u "the hang of it" krijgt best simpel, U heeft een startpagina waar al het algemene nieuws op komt, daarnaast kunt u in de bronnen aanvinken op welke nieuwspagina u wilt subscriben, dit in 1 knop verder kunt u ook uw profiel aanpassen en kunt u artikelen liken, sharen en als u wilt een reactie plaatsen onder het artikel.',image:"../../assets/imgs/NewsAgeLogo.png"},{title:"Vragen?",description:"Als u verder nog vragen hebt over de app, kunt u ze mailen naar ons via: newsage2018@gmail.com de FAQ worden dan in slides gedaan en zo word de tutorial bijgewerkt.",image:"../../assets/imgs/NewsAgeLogo.png"}]}return l.prototype.tutorialDone=function(){localStorage.setItem("TutorialShown","true"),this.navCtrl.setRoot(e.a)},l}())},121:function(l,n,u){"use strict";u.d(n,"a",function(){return t});u(0),u(6);var e=u(30),t=function(){function l(l,n,u,e,t,a){this.navCtrl=l,this.navParams=n,this.http=u,this.events=e,this.toastCtrl=t,this.alertCtrl=a,this.isSearchbaropened=!1,this.key="items",this.items=0,localStorage.getItem("themeColor")&&(this.currentTheme=localStorage.getItem("themeColor"),console.log(this.currentTheme))}return l.prototype.ionViewDidLoad=function(){console.log("ionViewDidLoad AdminPage")},l.prototype.selectGebruikers=function(){var l=this;this.checklist="gebruikers",this.http.get("http://gazoh.net/getuser.php").subscribe(function(n){l.gebruikerslijst=n},function(l){console.dir(l)})},l.prototype.ionViewWillEnter=function(){this.checklist="artikelen",this.selectArtikelen()},l.prototype.selectArtikelen=function(){var l=this;this.checklist="artikelen",this.http.get("http://gazoh.net/getverborgen.php").subscribe(function(n){l.artikelenlijst=n},function(l){console.dir(l)})},l.prototype.htmlToPlaintext=function(l){return l?String(l).replace(/<[^>]+>/gm,""):""},l.prototype.viewEntry=function(l){this.navCtrl.push("NieuwsPage",l)},l.prototype.resetChanges=function(){var l=this;this.http.get("http://gazoh.net/getdata.php").subscribe(function(n){l.items=n},function(l){console.dir(l)}),this.isSearchbaropened=!1},l.prototype.search=function(l){var n=l.target.value;n&&""!=n.trim()&&(this.items=this.items.filter(function(l){return l.title.toLowerCase().indexOf(n.toLowerCase())>-1}))},l.prototype.showConfirmHide=function(l){var n=this;this.alertCtrl.create({title:"Publiceren",message:"Weetje zeker dat je deze artikel wilt publiceren?",buttons:[{text:"Niet Akkoord",handler:function(){}},{text:"Akkoord",handler:function(){console.log("Show "+l);var u=new e.g;u.append("Accept","application/json"),u.append("Content-Type","application/json");n.http.post("http://www.gazoh.net/showarticle.php",{articleId:l},{headers:u}).subscribe(function(u){if("showed"==u){n.selectArtikelen();n.toastCtrl.create({message:"Artikel "+l+" gepubliceerd",duration:2500,position:"bottom"}).present()}})}}]}).present()},l}()},122:function(l,n,u){"use strict";u.d(n,"a",function(){return o});u(0),u(6);var e=u(72),t=(u(161),u(30)),a=u(19),i=u(123),o=(u(162),function(){function l(l,n,u,e,a,i,o,r){var s=this;this.navCtrl=l,this.navParams=n,this.alertCtrl=u,this.camera=e,this.actionSheetCtrl=a,this.http=i,this.events=o,this.photoViewer=r,this.id=localStorage.getItem("userId"),this.myprofilepic=localStorage.getItem("profilePicture");var c=new t.g;c.append("Accept","application/json"),c.append("Content-Type","application/json");var d={headers:c},g={email:localStorage.getItem("userEmail")};this.http.post("http://gazoh.net/getgebruiker.php",g,d).subscribe(function(l){s.dataUser=l,s.username=s.dataUser.username,s.email=s.dataUser.email,s.emailVerified=s.dataUser.emailVerified,s.rol=s.dataUser.rol,s.myphoto=s.dataUser.profilepicture,s.creationdate=s.dataUser.creationdate}),this.events.publish("username",this.username),this.events.publish("profilepicture",this.myphoto)}return l.prototype.presentActionSheet=function(){var l=this;this.actionSheetCtrl.create({title:"Wat wilt u doen ?",buttons:[{text:"Profielfoto bekijken",role:"Profielfoto bekijken",handler:function(){if(l.myphoto)l.photoViewer.show(l.myphoto);else if(!l.myphoto){l.alertCtrl.create({title:"Geen data",message:"Geen foto!"}).present()}}},{text:"Maak foto",role:"Maak foto",handler:function(){l.takePhoto()}},{text:"Kies uit galerij",handler:function(){l.cropImage()}},{text:"Annuleren",role:"cancel",handler:function(){console.log("Cancel clicked")}}]}).present()},l.prototype.takePhoto=function(){var l=this;this.camera.getPicture({quality:70,allowEdit:!0,targetWidth:300,targetHeight:300,destinationType:this.camera.DestinationType.DATA_URL,encodingType:this.camera.EncodingType.JPEG,mediaType:this.camera.MediaType.PICTURE}).then(function(n){l.myphoto="data:image/jpeg;base64,"+n},function(l){})},l.prototype.onArticlePictureCreated=function(l){this.myphoto="data:image/jpeg;base64,"+l,this.myprofilepic="data:image/jpeg;base64,"+l,localStorage.setItem("profilePicture",this.myphoto)},l.prototype.cropImage=function(){var l=this;this.camera.getPicture({quality:70,destinationType:this.camera.DestinationType.DATA_URL,sourceType:this.camera.PictureSourceType.PHOTOLIBRARY,saveToPhotoAlbum:!1,allowEdit:!0,targetWidth:300,targetHeight:300}).then(function(n){l.myphoto="data:image/jpeg;base64,"+n,l.myprofilepic="data:image/jpeg;base64,"+n,localStorage.setItem("profilePicture",l.myphoto)},function(l){})},l.prototype.wijzigWachtwoord=function(){this.navCtrl.push(i.a)},l.prototype.goBack=function(){this.navCtrl.push(e.a)},l.prototype.ngOnInit=function(){this.form=new a.g({username:new a.e("",[a.p.required,a.p.pattern("[a-zA-Z][a-zA-z ]+")]),email:new a.e("",[a.p.required,a.p.email,a.p.pattern("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")])})},l.prototype.validateAllFormFields=function(l){var n=this;Object.keys(l.controls).forEach(function(u){var e=l.get(u);e instanceof a.e?e.markAsTouched({onlySelf:!0}):e instanceof a.g&&n.validateAllFormFields(e)})},l.prototype.updateProfile=function(){var l=this;if(this.form.invalid)this.validateAllFormFields(this.form);else{var n=new t.g;n.append("Accept","application/json"),n.append("Content-Type","application/json");this.http.post("http://gazoh.net/updateProfiel.php",{id:this.id,username:this.username,email:this.email,myphoto:this.myphoto},{headers:n}).map(function(l){return l}).subscribe(function(n){if("Profile updated succesfully"==n){l.alertCtrl.create({title:"Profiel bijgewerkt",subTitle:"Uw profiel is met succesvol bijgewerkt",buttons:[{text:"OK",handler:function(n){l.navCtrl.setRoot(e.a)}}]}).present()}else if("No data set!"==n){l.alertCtrl.create({title:"Mislukt",subTitle:"Uw profiel kon niet worden bijgewerkt vanwege een fout aan onze kant!",buttons:["OK"]}).present()}}),console.log("Dit is je foto:"+this.myphoto)}},l.prototype.ionViewDidLoad=function(){var l=this;this.navBar.backButtonClick=function(n){var u=new t.g;u.append("Accept","application/json"),u.append("Content-Type","application/json");var a={headers:u},i={email:localStorage.getItem("userEmail")};l.http.post("http://gazoh.net/getgebruiker.php",i,a).subscribe(function(n){l.dataUser=n,l.username=l.dataUser.username,l.oldprofilepicture=l.dataUser.profilepicture,l.events.publish("username",l.username),l.events.publish("profilepicture",l.oldprofilepicture)}),l.navCtrl.setRoot(e.a)}},l}())},123:function(l,n,u){"use strict";u.d(n,"a",function(){return a});u(0),u(6);var e=u(19),t=u(30),a=function(){function l(l,n,u,e,t){this.navCtrl=l,this.navParams=n,this.http=u,this.toastCtrl=e,this.alertCtrl=t}return l.prototype.ngOnInit=function(){this.form=new e.g({oldpassword:new e.e("",[e.p.required]),password:new e.e("",[e.p.required,e.p.minLength(8),e.p.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$")]),password2:new e.e("",[e.p.required,e.p.minLength(8),e.p.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$")])})},l.prototype.validateAllFormFields=function(l){var n=this;Object.keys(l.controls).forEach(function(u){var t=l.get(u);t instanceof e.e?t.markAsTouched({onlySelf:!0}):t instanceof e.g&&n.validateAllFormFields(t)})},l.prototype.updateWachtwoord=function(l){var n=this;if(this.password!=this.password2||this.password2!=this.password)this.pass1="Wachtwoord niet gelijk";else if(this.form.valid){var u=new t.g;u.append("Accept","application/json"),u.append("Content-Type","application/json");var e={headers:u},a={userId:localStorage.getItem("userId"),oldpassword:this.oldpassword,newpassword:this.password};this.http.post("http://gazoh.net/wijzigwachtwoord.php",a,e).subscribe(function(l){if("password updated"==l){n.alertCtrl.create({title:"Succes",message:"Je wachtwoord is succesvol gewijzigd.",buttons:[{text:"OK",handler:function(){n.navCtrl.pop()}}]}).present()}else"No matching password"==l&&(n.valMessage=l,console.log(n.valMessage))})}else this.form.invalid&&this.validateAllFormFields(this.form)},l}()},124:function(l,n,u){"use strict";u.d(n,"a",function(){return t});u(0),u(6);var e=u(72),t=function(){function l(l,n){this.navCtrl=l,this.navParams=n}return l.prototype.ionViewDidLoad=function(){console.log("ionViewDidLoad PrivacybeleidPage")},l.prototype.returnSettings=function(){this.navCtrl.setRoot(e.a)},l}()},125:function(l,n,u){"use strict";u.d(n,"a",function(){return e});u(0),u(6);var e=function(){function l(l,n){this.navCtrl=l,this.navParams=n}return l.prototype.ionViewDidLoad=function(){console.log("ionViewDidLoad AutoPage")},l}()},126:function(l,n,u){"use strict";u.d(n,"a",function(){return e});u(0),u(6);var e=function(){function l(l,n){this.navCtrl=l,this.navParams=n}return l.prototype.ionViewDidLoad=function(){console.log("ionViewDidLoad EconomiePage")},l}()},127:function(l,n,u){"use strict";u.d(n,"a",function(){return e});u(0),u(6);var e=function(){function l(l,n){this.navCtrl=l,this.navParams=n}return l.prototype.ionViewDidLoad=function(){console.log("ionViewDidLoad MisdaadPage")},l}()},128:function(l,n,u){"use strict";u.d(n,"a",function(){return e});u(0),u(6);var e=function(){function l(l,n){this.navCtrl=l,this.navParams=n,this.page="0",localStorage.getItem("themeColor")&&(this.currentTheme=localStorage.getItem("themeColor"),console.log(this.currentTheme))}return l.prototype.selectedTab=function(l){this.slider.slideTo(l)},l.prototype.moveButton=function(l){this.page=l._snapIndex.toString()},l}()},129:function(l,n,u){"use strict";u.d(n,"a",function(){return e});u(0),u(6);var e=function(){function l(l,n){this.navCtrl=l,this.navParams=n}return l.prototype.ionViewDidLoad=function(){console.log("ionViewDidLoad TechPage")},l}()},130:function(l,n,u){"use strict";u.d(n,"a",function(){return e});u(0),u(6);var e=function(){function l(l,n){this.navCtrl=l,this.navParams=n}return l.prototype.ionViewDidLoad=function(){console.log("ionViewDidLoad SportPage")},l}()},131:function(l,n,u){"use strict";u.d(n,"a",function(){return e});u(0),u(6);var e=function(){function l(l,n){this.navCtrl=l,this.navParams=n}return l.prototype.ionViewDidLoad=function(){console.log("ionViewDidLoad VermaakPage")},l}()},176:function(l,n,u){"use strict";u.d(n,"a",function(){return o});u(0),u(6);var e=u(87),t=u(30),a=u(157),i=(u.n(a),u(19)),o=function(){function l(l,n,u,e,t){this.navCtrl=l,this.navParams=n,this.alertCtrl=u,this.http=e,this.loading=t}return l.prototype.ngOnInit=function(){this.form=new i.g({username:new i.e("",[i.p.required,i.p.pattern("[a-zA-Z][a-zA-z ]+")]),password:new i.e("",[i.p.required,i.p.minLength(8),i.p.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$")]),email:new i.e("",[i.p.required,i.p.email,i.p.pattern("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")])})},l.prototype.validateAllFormFields=function(l){var n=this;Object.keys(l.controls).forEach(function(u){var e=l.get(u);e instanceof i.e?e.markAsTouched({onlySelf:!0}):e instanceof i.g&&n.validateAllFormFields(e)})},l.prototype.onSubmit=function(){var l=this;if(this.form.invalid)this.validateAllFormFields(this.form);else{var n=new t.g;n.append("Accept","application/json"),n.append("Content-Type","application/json");var u={headers:n},a={username:this.username,password:this.password,email:this.email},i=this.loading.create({content:"Aan het registreren.."});i.present().then(function(){l.http.post("http://gazoh.net/register.php",a,u).map(function(l){return l}).subscribe(function(n){if(i.dismiss(),"Registration successfull"==n){l.alertCtrl.create({title:"Registreren geslaagd",subTitle:"U kunt nu gaan inloggen",buttons:["OK"]}).present(),l.navCtrl.push(e.a)}else if("already in use"==n){l.alertCtrl.create({title:"Registreren mislukt",subTitle:"Er bestaat al een gebruiker met het zelfde email of gebruikersnaam!",buttons:["OK"]}).present()}else{l.alertCtrl.create({title:"Mislukt",subTitle:"Er is iets mis gegaan tijdens het registeren probeert u het opnieuw.",buttons:["OK"]}).present()}})})}},l.prototype.terug=function(){this.navCtrl.push(e.a)},l}()},225:function(l,n,u){"use strict";u.d(n,"a",function(){return e});u(0),u(6);var e=function(){return function(){}}()},226:function(l,n,u){"use strict";u.d(n,"a",function(){return e});u(0),u(6);var e=function(){return function(){}}()},228:function(l,n,u){"use strict";u.d(n,"a",function(){return e});u(0),u(6);var e=function(){return function(){}}()},229:function(l,n,u){"use strict";u.d(n,"a",function(){return e});u(0),u(6);var e=function(){return function(){}}()},230:function(l,n,u){"use strict";u.d(n,"a",function(){return e});u(0),u(6);var e=function(){return function(){}}()},231:function(l,n,u){"use strict";u.d(n,"a",function(){return e});u(0),u(6);var e=function(){return function(){}}()},232:function(l,n,u){"use strict";u.d(n,"a",function(){return e});u(0),u(6);var e=function(){return function(){}}()},233:function(l,n,u){"use strict";u.d(n,"a",function(){return e});u(0),u(6);var e=function(){return function(){}}()},234:function(l,n,u){"use strict";u.d(n,"a",function(){return e});u(0),u(6),u(173);var e=function(){function l(l,n,u){this.navCtrl=l,this.navParams=n,this.inAppBrowser=u,this.options={location:"yes",hidden:"no",clearcache:"yes",clearsessioncache:"yes",zoom:"yes",hardwareback:"yes",mediaPlaybackRequiresUserAction:"no",shouldPauseOnSuspend:"no",closebuttoncaption:"Close",disallowoverscroll:"no",toolbar:"yes",enableViewportScale:"no",allowInlineMediaPlayback:"no",presentationstyle:"pagesheet",fullscreen:"yes"},this.navParams.get("record")?(this.selectEntry(this.navParams.get("record")),console.log(this.navParams.get("record"))):this.navCtrl.setRoot("CategoryPage")}return l.prototype.ionViewDidLoad=function(){console.log("ionViewDidLoad NieuwsPage")},l.prototype.selectEntry=function(l){this.title=l.title,this.image=l.image,this.description=l.description,this.link=l.link,this.site=l.site,this.datum=l.datum,this.id=l.id},l.prototype.htmlToPlaintext=function(l){return l?String(l).replace(/<[^>]+>/gm,""):""},l.prototype.openPagina=function(l){this.inAppBrowser.create(l,"_blank",{zoom:"no",location:"yes",toolbar:"yes",clearcache:"yes",clearsessioncache:"yes",disallowoverscroll:"yes",enableViewportScale:"yes"}).show()},l}()},235:function(l,n,u){"use strict";u.d(n,"a",function(){return e});u(0),u(6);var e=function(){return function(){}}()},236:function(l,n,u){"use strict";u.d(n,"a",function(){return e});u(0),u(6);var e=function(){return function(){}}()},237:function(l,n,u){"use strict";u.d(n,"a",function(){return e});u(0),u(6);var e=function(){return function(){}}()},238:function(l,n,u){"use strict";u.d(n,"a",function(){return e});u(0),u(6);var e=function(){return function(){}}()},239:function(l,n,u){"use strict";u.d(n,"a",function(){return e});u(0),u(6);var e=function(){return function(){}}()},240:function(l,n,u){"use strict";u.d(n,"a",function(){return e});u(0),u(6);var e=function(){return function(){}}()},241:function(l,n,u){"use strict";u.d(n,"a",function(){return e});u(0),u(6);var e=function(){return function(){}}()},242:function(l,n,u){"use strict";u.d(n,"a",function(){return e});u(0),u(6);var e=function(){return function(){}}()},243:function(l,n,u){"use strict";u.d(n,"a",function(){return e});u(0),u(6);var e=function(){return function(){}}()},244:function(l,n,u){"use strict";u.d(n,"a",function(){return e});u(0),u(6);var e=function(){return function(){}}()},255:function(l,n){function u(l){return Promise.resolve().then(function(){throw new Error("Cannot find module '"+l+"'.")})}u.keys=function(){return[]},u.resolve=u,l.exports=u,u.id=255},279:function(l,n,u){function e(l){var n=t[l];return n?u.e(n[1]).then(function(){return u(n[0])}):Promise.reject(new Error("Cannot find module '"+l+"'."))}var t={"../pages/about/about.module.ngfactory":[718,18],"../pages/admin/admin.module.ngfactory":[719,17],"../pages/auto/auto.module.ngfactory":[720,16],"../pages/comments/comments.module.ngfactory":[721,15],"../pages/economie/economie.module.ngfactory":[722,14],"../pages/feed/feed.module.ngfactory":[723,13],"../pages/lijstweer/lijstweer.module.ngfactory":[724,0],"../pages/misdaad/misdaad.module.ngfactory":[725,12],"../pages/nieuws/nieuws.module.ngfactory":[726,11],"../pages/privacybeleid/privacybeleid.module.ngfactory":[727,10],"../pages/profiel/profiel.module.ngfactory":[736,9],"../pages/register/register.module.ngfactory":[728,8],"../pages/settings/settings.module.ngfactory":[729,7],"../pages/sources/sources.module.ngfactory":[730,6],"../pages/sport/sport.module.ngfactory":[733,5],"../pages/tech/tech.module.ngfactory":[731,4],"../pages/tutorial/tutorial.module.ngfactory":[732,3],"../pages/vermaak/vermaak.module.ngfactory":[734,2],"../pages/wijzigwachtwoord/wijzigwachtwoord.module.ngfactory":[735,1]};e.keys=function(){return Object.keys(t)},e.id=279,l.exports=e},404:function(l,n,u){"use strict";u.d(n,"a",function(){return e});u(0),u(6);var e=function(){function l(l,n){this.navCtrl=l,this.navParams=n,this.lijst=[],this.lijstbackup=[],this.lijst=[{title:"One"},{title:"Two"},{title:"Three"},{title:"Four"},{title:"Five"},{title:"Six"}],this.lijstbackup=[{title:"One"},{title:"Two"},{title:"Three"},{title:"Four"},{title:"Five"},{title:"Six"}]}return l.prototype.search=function(l){var n=l.target.value;this.lijst=n&&""!=n.trim()?this.lijst.filter(function(l){return l.title.toLowerCase().indexOf(n.toLowerCase())>-1}):this.lijstbackup},l}()},405:function(l,n,u){"use strict";function e(l){return a._21(0,[(l()(),a.Z(0,0,null,null,8,"ion-slide",[],null,null,null,i.b,i.a)),a.Y(1,180224,null,0,o.a,[a.j,a.z,r.a],null,null),(l()(),a._19(-1,0,["\n            "])),(l()(),a.Z(3,0,null,0,0,"img",[["class","slide-image"]],[[8,"src",4]],null,null,null,null)),(l()(),a._19(-1,0,["\n            "])),(l()(),a.Z(5,0,null,0,0,"h2",[["class","slide-title"]],[[8,"innerHTML",1]],null,null,null,null)),(l()(),a._19(-1,0,["\n            "])),(l()(),a.Z(7,0,null,0,0,"p",[],[[8,"innerHTML",1]],null,null,null,null)),(l()(),a._19(-1,0,["\n        "]))],null,function(l,n){l(n,3,0,n.context.$implicit.image);l(n,5,0,n.context.$implicit.title);l(n,7,0,n.context.$implicit.description)})}function t(l){return a._21(0,[(l()(),a.Z(0,0,null,null,20,"ion-header",[["no-border-bottom",""]],null,null,null,null,null)),a.Y(1,16384,null,0,s.a,[c.a,a.j,a.z,[2,d.a]],null,null),(l()(),a._19(-1,null,["\n  "])),(l()(),a.Z(3,0,null,null,16,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,g.b,g.a)),a.Y(4,49152,null,0,_.a,[m.a,[2,d.a],[2,p.a],c.a,a.j,a.z],null,null),(l()(),a._19(-1,3,["\n    "])),(l()(),a.Z(6,0,null,0,8,"button",[["class","fakeCenter"],["ion-button",""],["menuToggle",""],["right",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==a._11(l,8).toggle()&&e}return e},f.b,f.a)),a.Y(7,1097728,[[1,4]],0,h.a,[[8,""],c.a,a.j,a.z],null,null),a.Y(8,1064960,null,0,b.a,[v.a,[2,d.a],[2,h.a],[2,_.a]],{menuToggle:[0,"menuToggle"]},null),a.Y(9,16384,null,1,k.a,[c.a,a.j,a.z,[2,Z.a],[2,_.a]],null,null),a._17(603979776,1,{_buttons:1}),(l()(),a._19(-1,0,["\n      "])),(l()(),a.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),a.Y(13,147456,null,0,Y.a,[c.a,a.j,a.z],{name:[0,"name"]},null),(l()(),a._19(-1,0,["\n    "])),(l()(),a._19(-1,3,["\n      "])),(l()(),a.Z(16,0,null,3,2,"ion-title",[["class","centerTitle"],["text-center",""]],null,null,null,I.b,I.a)),a.Y(17,49152,null,0,j.a,[c.a,a.j,a.z,[2,Z.a],[2,_.a]],null,null),(l()(),a._19(-1,0,["Over ons"])),(l()(),a._19(-1,3,["\n  "])),(l()(),a._19(-1,null,["\n"])),(l()(),a._19(-1,null,["\n\n"])),(l()(),a.Z(22,0,null,null,25,"ion-content",[["class","tutorial-page"]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,w.b,w.a)),a.Y(23,4374528,null,0,z.a,[c.a,C.a,y.a,a.j,a.z,m.a,T.a,a.u,[2,d.a],[2,p.a]],null,null),(l()(),a._19(-1,1,["\n    "])),(l()(),a.Z(25,0,null,1,21,"ion-slides",[["pager",""]],null,null,null,x.b,x.a)),a.Y(26,1228800,null,0,r.a,[c.a,C.a,a.u,[2,d.a],a.j,a.z],{pager:[0,"pager"]},null),(l()(),a._19(-1,0,["\n        "])),(l()(),a.U(16777216,null,0,1,null,e)),a.Y(29,802816,null,0,F.h,[a.I,a.F,a.p],{ngForOf:[0,"ngForOf"]},null),(l()(),a._19(-1,0,["\n        "])),(l()(),a.Z(31,0,null,0,14,"ion-slide",[],null,null,null,i.b,i.a)),a.Y(32,180224,null,0,o.a,[a.j,a.z,r.a],null,null),(l()(),a._19(-1,0,["\n            "])),(l()(),a.Z(34,0,null,0,0,"img",[["class","slide-image"],["src","../../assets/imgs/NewsAgeLogo.png"]],null,null,null,null,null)),(l()(),a._19(-1,0,["\n            "])),(l()(),a.Z(36,0,null,0,1,"h2",[["class","slide-title"]],null,null,null,null,null)),(l()(),a._19(-1,null,["Tot zover over ons!"])),(l()(),a._19(-1,0,["\n            "])),(l()(),a.Z(39,0,null,0,5,"button",[["clear",""],["color","primary"],["icon-end",""],["ion-button",""],["large",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.overOnsDone()&&e}return e},f.b,f.a)),a.Y(40,1097728,null,0,h.a,[[8,""],c.a,a.j,a.z],{color:[0,"color"],large:[1,"large"],clear:[2,"clear"]},null),(l()(),a._19(-1,0,["\n                Verder gaan\n                "])),(l()(),a.Z(42,0,null,0,1,"ion-icon",[["name","arrow-forward"],["role","img"]],[[2,"hide",null]],null,null,null,null)),a.Y(43,147456,null,0,Y.a,[c.a,a.j,a.z],{name:[0,"name"]},null),(l()(),a._19(-1,0,["\n            "])),(l()(),a._19(-1,0,["\n        "])),(l()(),a._19(-1,0,["\n    "])),(l()(),a._19(-1,1,["\n"])),(l()(),a._19(-1,null,["\n\n"]))],function(l,n){var u=n.component;l(n,8,0,"");l(n,13,0,"menu");l(n,26,0,"");l(n,29,0,u.slides);l(n,40,0,"primary","","");l(n,43,0,"arrow-forward")},function(l,n){l(n,3,0,a._11(n,4)._hidden,a._11(n,4)._sbPadding);l(n,6,0,a._11(n,8).isHidden);l(n,12,0,a._11(n,13)._hidden);l(n,22,0,a._11(n,23).statusbarPadding,a._11(n,23)._hasRefresher);l(n,42,0,a._11(n,43)._hidden)})}u.d(n,"a",function(){return P});var a=u(1),i=u(206),o=u(91),r=u(71),s=u(31),c=u(3),d=u(7),g=u(34),_=u(24),m=u(9),p=u(17),f=u(20),h=u(15),b=u(46),v=u(29),k=u(39),Z=u(27),Y=u(25),I=u(37),j=u(32),w=u(43),z=u(23),C=u(5),y=u(10),T=u(28),x=u(207),F=u(16),S=u(119),U=u(12),$=a.X({encapsulation:2,styles:[],data:{}}),P=a.V("page-about",S.a,function(l){return a._21(0,[(l()(),a.Z(0,0,null,null,1,"page-about",[],null,null,null,t,$)),a.Y(1,49152,null,0,S.a,[p.a,U.a],null,null)],null,null)},{},{},[])},406:function(l,n,u){"use strict";function e(l){return D._21(0,[(l()(),D.Z(0,0,null,null,2,"ion-title",[["class","adminTitle"]],null,null,null,N.b,N.a)),D.Y(1,49152,null,0,O.a,[L.a,D.j,D.z,[2,W.a],[2,V.a]],null,null),(l()(),D._19(-1,0,["Admin"]))],null,null)}function t(l){return D._21(0,[(l()(),D.Z(0,0,null,null,1,"ion-searchbar",[["class","slideInRight"],["placeholder","Waar zijn we naar op zoek?"]],[[2,"searchbar-animated",null],[2,"searchbar-has-value",null],[2,"searchbar-active",null],[2,"searchbar-show-cancel",null],[2,"searchbar-left-aligned",null],[2,"searchbar-has-focus",null]],[[null,"ionCancel"],[null,"ionInput"]],function(l,n,u){var e=!0,t=l.component;if("ionCancel"===n){e=!1!==t.resetChanges()&&e}if("ionInput"===n){e=!1!==t.search(u)&&e}return e},M.b,M.a)),D.Y(1,1294336,[["searchbar",4]],0,H.a,[L.a,E.a,D.j,D.z,[2,R.k]],{showCancelButton:[0,"showCancelButton"],placeholder:[1,"placeholder"]},{ionInput:"ionInput",ionCancel:"ionCancel"})],function(l,n){l(n,1,0,!0,"Waar zijn we naar op zoek?")},function(l,n){l(n,0,0,D._11(n,1)._animated,D._11(n,1)._value,D._11(n,1)._isActive,D._11(n,1)._showCancelButton,D._11(n,1)._shouldAlignLeft,D._11(n,1)._isFocus)})}function a(l){return D._21(0,[(l()(),D.Z(0,0,null,null,1,"ion-icon",[["name","search"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(1,147456,null,0,B.a,[L.a,D.j,D.z],{name:[0,"name"]},null)],function(l,n){l(n,1,0,"search")},function(l,n){l(n,0,0,D._11(n,1)._hidden)})}function i(l){return D._21(0,[(l()(),D.Z(0,0,null,null,10,"ion-buttons",[["end",""]],null,null,null,null,null)),D.Y(1,16384,null,1,q.a,[L.a,D.j,D.z,[2,W.a],[2,V.a]],null,null),D._17(603979776,1,{_buttons:1}),(l()(),D._19(-1,null,["\n      "])),(l()(),D.Z(4,0,null,null,5,"button",[["icon-only",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!=(l.component.isSearchbaropened=!0)&&e}return e},G.b,G.a)),D.Y(5,1097728,[[1,4]],0,K.a,[[8,""],L.a,D.j,D.z],null,null),(l()(),D._19(-1,0,["\n        "])),(l()(),D.U(16777216,null,0,1,null,a)),D.Y(8,16384,null,0,X.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,0,["\n      "])),(l()(),D._19(-1,null,["\n    "]))],function(l,n){l(n,8,0,!n.component.isSearchbaropened)},null)}function o(l){return D._21(0,[(l()(),D.Z(0,0,null,null,10,"ion-buttons",[["end",""]],null,null,null,null,null)),D.Y(1,16384,null,1,q.a,[L.a,D.j,D.z,[2,W.a],[2,V.a]],null,null),D._17(603979776,2,{_buttons:1}),(l()(),D._19(-1,null,["\n      "])),(l()(),D.Z(4,0,null,null,5,"button",[["icon-only",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!=(l.component.isSearchbaropened=!0)&&e}return e},G.b,G.a)),D.Y(5,1097728,[[2,4]],0,K.a,[[8,""],L.a,D.j,D.z],null,null),(l()(),D._19(-1,0,["\n        "])),(l()(),D.Z(7,0,null,0,1,"ion-icon",[["name","search"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(8,147456,null,0,B.a,[L.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n      "])),(l()(),D._19(-1,null,["\n    "]))],function(l,n){l(n,8,0,"search")},function(l,n){l(n,7,0,D._11(n,8)._hidden)})}function r(l){return D._21(0,[(l()(),D.Z(0,0,null,null,0,"img",[["src","../assets/imgs/noimage.jpg"]],null,null,null,null,null))],null,null)}function s(l){return D._21(0,[(l()(),D.Z(0,0,null,null,0,"img",[],[[8,"src",4]],null,null,null,null))],null,function(l,n){l(n,0,0,n.parent.context.$implicit.image)})}function c(l){return D._21(0,[(l()(),D.Z(0,0,null,null,0,"img",[],[[8,"src",4]],null,null,null,null))],null,function(l,n){l(n,0,0,n.parent.context.$implicit.image)})}function d(l){return D._21(0,[(l()(),D.Z(0,0,null,null,4,"ion-avatar",[["class","avatar"],["item-start",""]],null,null,null,null,null)),D.Y(1,16384,null,0,J.a,[],null,null),(l()(),D._19(-1,null,["\n            "])),(l()(),D.Z(3,0,null,null,0,"img",[["class","avatar-feedNOS"],["src","../assets/svg/NOS_logo.svg"]],null,null,null,null,null)),(l()(),D._19(-1,null,["\n          "]))],null,null)}function g(l){return D._21(0,[(l()(),D.Z(0,0,null,null,4,"ion-avatar",[["class","avatar"],["item-start",""]],null,null,null,null,null)),D.Y(1,16384,null,0,J.a,[],null,null),(l()(),D._19(-1,null,["\n            "])),(l()(),D.Z(3,0,null,null,0,"img",[["class","avatar-feedNOS"],["src","../assets/svg/NOS_logo_Wit.svg"]],null,null,null,null,null)),(l()(),D._19(-1,null,["\n          "]))],null,null)}function _(l){return D._21(0,[(l()(),D.Z(0,0,null,null,4,"ion-avatar",[["class","avatar"],["item-start",""]],null,null,null,null,null)),D.Y(1,16384,null,0,J.a,[],null,null),(l()(),D._19(-1,null,["\n            "])),(l()(),D.Z(3,0,null,null,0,"img",[["class","avatar-feedTelegraaf"],["src","../assets/svg/Telegraaf.svg"]],null,null,null,null,null)),(l()(),D._19(-1,null,["\n          "]))],null,null)}function m(l){return D._21(0,[(l()(),D.Z(0,0,null,null,4,"ion-avatar",[["class","avatar"],["item-start",""]],null,null,null,null,null)),D.Y(1,16384,null,0,J.a,[],null,null),(l()(),D._19(-1,null,["\n            "])),(l()(),D.Z(3,0,null,null,0,"img",[["class","avatar-feedTelegraaf"],["src","../assets/svg/Telegraaf_Wit.svg"]],null,null,null,null,null)),(l()(),D._19(-1,null,["\n          "]))],null,null)}function p(l){return D._21(0,[(l()(),D.Z(0,0,null,null,4,"ion-avatar",[["class","avatar"],["item-start",""]],null,null,null,null,null)),D.Y(1,16384,null,0,J.a,[],null,null),(l()(),D._19(-1,null,["\n            "])),(l()(),D.Z(3,0,null,null,0,"img",[["class","avatar-feed"],["src","../assets/svg/nu.nl.svg"]],null,null,null,null,null)),(l()(),D._19(-1,null,["\n          "]))],null,null)}function f(l){return D._21(0,[(l()(),D.Z(0,0,null,null,1,"div",[["class","uitgeverFeed"]],null,null,null,null,null)),(l()(),D._19(1,null,["",""]))],null,function(l,n){l(n,1,0,n.parent.context.$implicit.site)})}function h(l){return D._21(0,[(l()(),D.Z(0,0,null,null,1,"div",[["class","uitgeverFeedNU"]],null,null,null,null,null)),(l()(),D._19(1,null,["",""]))],null,function(l,n){l(n,1,0,n.parent.context.$implicit.site)})}function b(l){return D._21(0,[(l()(),D.Z(0,0,null,null,5,"button",[["class","socialTelegraafShare"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.showConfirmHide(l.parent.context.$implicit.id)&&e}return e},G.b,G.a)),D.Y(1,1097728,null,0,K.a,[[8,""],L.a,D.j,D.z],{clear:[0,"clear"]},null),(l()(),D._19(-1,0,["\n            "])),(l()(),D.Z(3,0,null,0,1,"ion-icon",[["name","trash"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(4,147456,null,0,B.a,[L.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n          "]))],function(l,n){l(n,1,0,"");l(n,4,0,"trash")},function(l,n){l(n,3,0,D._11(n,4)._hidden)})}function v(l){return D._21(0,[(l()(),D.Z(0,0,null,null,5,"button",[["class","socialNOSShare"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.showConfirmHide(l.parent.context.$implicit.id)&&e}return e},G.b,G.a)),D.Y(1,1097728,null,0,K.a,[[8,""],L.a,D.j,D.z],{clear:[0,"clear"]},null),(l()(),D._19(-1,0,["\n            "])),(l()(),D.Z(3,0,null,0,1,"ion-icon",[["name","trash"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(4,147456,null,0,B.a,[L.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n          "]))],function(l,n){l(n,1,0,"");l(n,4,0,"trash")},function(l,n){l(n,3,0,D._11(n,4)._hidden)})}function k(l){return D._21(0,[(l()(),D.Z(0,0,null,null,5,"button",[["class","socialNuShare"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.showConfirmHide(l.parent.context.$implicit.id)&&e}return e},G.b,G.a)),D.Y(1,1097728,null,0,K.a,[[8,""],L.a,D.j,D.z],{clear:[0,"clear"]},null),(l()(),D._19(-1,0,["\n            "])),(l()(),D.Z(3,0,null,0,1,"ion-icon",[["name","trash"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(4,147456,null,0,B.a,[L.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n          "]))],function(l,n){l(n,1,0,"");l(n,4,0,"trash")},function(l,n){l(n,3,0,D._11(n,4)._hidden)})}function Z(l){return D._21(0,[(l()(),D.Z(0,0,null,null,5,"button",[["class","socialTelegraafShare"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.shareInfo(l.parent.context.$implicit.title,l.parent.context.$implicit.image,l.parent.context.$implicit.link)&&e}return e},G.b,G.a)),D.Y(1,1097728,null,0,K.a,[[8,""],L.a,D.j,D.z],{clear:[0,"clear"]},null),(l()(),D._19(-1,0,["\n            "])),(l()(),D.Z(3,0,null,0,1,"ion-icon",[["name","share-alt"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(4,147456,null,0,B.a,[L.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n          "]))],function(l,n){l(n,1,0,"");l(n,4,0,"share-alt")},function(l,n){l(n,3,0,D._11(n,4)._hidden)})}function Y(l){return D._21(0,[(l()(),D.Z(0,0,null,null,5,"button",[["class","socialNOSShare"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.shareInfo(l.parent.context.$implicit.title,l.parent.context.$implicit.image,l.parent.context.$implicit.link)&&e}return e},G.b,G.a)),D.Y(1,1097728,null,0,K.a,[[8,""],L.a,D.j,D.z],{clear:[0,"clear"]},null),(l()(),D._19(-1,0,["\n            "])),(l()(),D.Z(3,0,null,0,1,"ion-icon",[["name","share-alt"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(4,147456,null,0,B.a,[L.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n          "]))],function(l,n){l(n,1,0,"");l(n,4,0,"share-alt")},function(l,n){l(n,3,0,D._11(n,4)._hidden)})}function I(l){return D._21(0,[(l()(),D.Z(0,0,null,null,5,"button",[["class","socialNuShare"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.shareInfo(l.parent.context.$implicit.title,l.parent.context.$implicit.image,l.parent.context.$implicit.link)&&e}return e},G.b,G.a)),D.Y(1,1097728,null,0,K.a,[[8,""],L.a,D.j,D.z],{clear:[0,"clear"]},null),(l()(),D._19(-1,0,["\n            "])),(l()(),D.Z(3,0,null,0,1,"ion-icon",[["name","share-alt"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(4,147456,null,0,B.a,[L.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n          "]))],function(l,n){l(n,1,0,"");l(n,4,0,"share-alt")},function(l,n){l(n,3,0,D._11(n,4)._hidden)})}function j(l){return D._21(0,[(l()(),D.Z(0,0,null,null,8,"button",[["class","socialTelegraaf"],["clear",""],["icon-start",""],["ion-button",""]],[[8,"disabled",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.setLike(l.parent.context.$implicit.id)&&e}return e},G.b,G.a)),D.Y(1,1097728,null,0,K.a,[[8,""],L.a,D.j,D.z],{clear:[0,"clear"]},null),(l()(),D._19(-1,0,["\n            "])),(l()(),D.Z(3,0,null,0,1,"ion-icon",[["class","darkHeartOutline"],["name","heart-outline"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(4,147456,null,0,B.a,[L.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n            "])),(l()(),D.Z(6,0,null,0,1,"div",[],null,null,null,null,null)),(l()(),D._19(7,null,["",""])),(l()(),D._19(-1,0,["\n          "]))],function(l,n){l(n,1,0,"");l(n,4,0,"heart-outline")},function(l,n){l(n,0,0,n.component.disabled);l(n,3,0,D._11(n,4)._hidden);l(n,7,0,n.parent.context.$implicit.likes)})}function w(l){return D._21(0,[(l()(),D.Z(0,0,null,null,8,"button",[["class","socialNOS"],["clear",""],["icon-start",""],["ion-button",""]],[[8,"disabled",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.setLike(l.parent.context.$implicit.id)&&e}return e},G.b,G.a)),D.Y(1,1097728,null,0,K.a,[[8,""],L.a,D.j,D.z],{clear:[0,"clear"]},null),(l()(),D._19(-1,0,["\n            "])),(l()(),D.Z(3,0,null,0,1,"ion-icon",[["class","darkHeartOutline"],["name","heart-outline"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(4,147456,null,0,B.a,[L.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n            "])),(l()(),D.Z(6,0,null,0,1,"div",[],null,null,null,null,null)),(l()(),D._19(7,null,["",""])),(l()(),D._19(-1,0,["\n          "]))],function(l,n){l(n,1,0,"");l(n,4,0,"heart-outline")},function(l,n){l(n,0,0,n.component.disabled);l(n,3,0,D._11(n,4)._hidden);l(n,7,0,n.parent.context.$implicit.likes)})}function z(l){return D._21(0,[(l()(),D.Z(0,0,null,null,8,"button",[["class","socialNu"],["clear",""],["icon-start",""],["ion-button",""]],[[8,"disabled",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.setLike(l.parent.context.$implicit.id)&&e}return e},G.b,G.a)),D.Y(1,1097728,null,0,K.a,[[8,""],L.a,D.j,D.z],{clear:[0,"clear"]},null),(l()(),D._19(-1,0,["\n            "])),(l()(),D.Z(3,0,null,0,1,"ion-icon",[["class","darkHeartOutline"],["name","heart-outline"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(4,147456,null,0,B.a,[L.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n            "])),(l()(),D.Z(6,0,null,0,1,"div",[],null,null,null,null,null)),(l()(),D._19(7,null,["",""])),(l()(),D._19(-1,0,["\n          "]))],function(l,n){l(n,1,0,"");l(n,4,0,"heart-outline")},function(l,n){l(n,0,0,n.component.disabled);l(n,3,0,D._11(n,4)._hidden);l(n,7,0,n.parent.context.$implicit.likes)})}function C(l){return D._21(0,[(l()(),D.Z(0,0,null,null,8,"button",[["class","socialTelegraaf"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.viewComments({record:l.parent.context.$implicit})&&e}return e},G.b,G.a)),D.Y(1,1097728,null,0,K.a,[[8,""],L.a,D.j,D.z],{clear:[0,"clear"]},null),(l()(),D._19(-1,0,["\n            "])),(l()(),D.Z(3,0,null,0,1,"ion-icon",[["class","darkChatTelegraaf"],["name","chatbubbles"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(4,147456,null,0,B.a,[L.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n            "])),(l()(),D.Z(6,0,null,0,1,"div",[],null,null,null,null,null)),(l()(),D._19(7,null,["",""])),(l()(),D._19(-1,0,["\n          "]))],function(l,n){l(n,1,0,"");l(n,4,0,"chatbubbles")},function(l,n){l(n,3,0,D._11(n,4)._hidden);l(n,7,0,n.parent.context.$implicit.comments)})}function y(l){return D._21(0,[(l()(),D.Z(0,0,null,null,8,"button",[["class","socialNOS"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.viewComments({record:l.parent.context.$implicit})&&e}return e},G.b,G.a)),D.Y(1,1097728,null,0,K.a,[[8,""],L.a,D.j,D.z],{clear:[0,"clear"]},null),(l()(),D._19(-1,0,["\n            "])),(l()(),D.Z(3,0,null,0,1,"ion-icon",[["class","darkChatNOS"],["name","chatbubbles"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(4,147456,null,0,B.a,[L.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n            "])),(l()(),D.Z(6,0,null,0,1,"div",[],null,null,null,null,null)),(l()(),D._19(7,null,["",""])),(l()(),D._19(-1,0,["\n          "]))],function(l,n){l(n,1,0,"");l(n,4,0,"chatbubbles")},function(l,n){l(n,3,0,D._11(n,4)._hidden);l(n,7,0,n.parent.context.$implicit.comments)})}function T(l){return D._21(0,[(l()(),D.Z(0,0,null,null,8,"button",[["class","socialNu"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.viewComments({record:l.parent.context.$implicit})&&e}return e},G.b,G.a)),D.Y(1,1097728,null,0,K.a,[[8,""],L.a,D.j,D.z],{clear:[0,"clear"]},null),(l()(),D._19(-1,0,["\n            "])),(l()(),D.Z(3,0,null,0,1,"ion-icon",[["class","darkChatNU"],["name","chatbubbles"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(4,147456,null,0,B.a,[L.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n            "])),(l()(),D.Z(6,0,null,0,1,"div",[],null,null,null,null,null)),(l()(),D._19(7,null,["",""])),(l()(),D._19(-1,0,["\n          "]))],function(l,n){l(n,1,0,"");l(n,4,0,"chatbubbles")},function(l,n){l(n,3,0,D._11(n,4)._hidden);l(n,7,0,n.parent.context.$implicit.comments)})}function x(l){return D._21(0,[(l()(),D.Z(0,0,null,null,8,"button",[["class","socialTelegraaf"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.dislike(l.parent.context.$implicit.id,l.parent.context.$implicit.title)&&e}return e},G.b,G.a)),D.Y(1,1097728,null,0,K.a,[[8,""],L.a,D.j,D.z],{clear:[0,"clear"]},null),(l()(),D._19(-1,0,["\n            "])),(l()(),D.Z(3,0,null,0,1,"ion-icon",[["class","darkHeartFull"],["name","heart"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(4,147456,null,0,B.a,[L.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n            "])),(l()(),D.Z(6,0,null,0,1,"div",[],null,null,null,null,null)),(l()(),D._19(7,null,["",""])),(l()(),D._19(-1,0,["\n          "]))],function(l,n){l(n,1,0,"");l(n,4,0,"heart")},function(l,n){l(n,3,0,D._11(n,4)._hidden);l(n,7,0,n.parent.context.$implicit.likes)})}function F(l){return D._21(0,[(l()(),D.Z(0,0,null,null,8,"button",[["class","socialNOS"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.dislike(l.parent.context.$implicit.id,l.parent.context.$implicit.title)&&e}return e},G.b,G.a)),D.Y(1,1097728,null,0,K.a,[[8,""],L.a,D.j,D.z],{clear:[0,"clear"]},null),(l()(),D._19(-1,0,["\n            "])),(l()(),D.Z(3,0,null,0,1,"ion-icon",[["class","darkHeartFull"],["name","heart"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(4,147456,null,0,B.a,[L.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n            "])),(l()(),D.Z(6,0,null,0,1,"div",[],null,null,null,null,null)),(l()(),D._19(7,null,["",""])),(l()(),D._19(-1,0,["\n          "]))],function(l,n){l(n,1,0,"");l(n,4,0,"heart")},function(l,n){l(n,3,0,D._11(n,4)._hidden);l(n,7,0,n.parent.context.$implicit.likes)})}function S(l){return D._21(0,[(l()(),D.Z(0,0,null,null,8,"button",[["class","socialNu"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.dislike(l.parent.context.$implicit.id,l.parent.context.$implicit.title)&&e}return e},G.b,G.a)),D.Y(1,1097728,null,0,K.a,[[8,""],L.a,D.j,D.z],{clear:[0,"clear"]},null),(l()(),D._19(-1,0,["\n            "])),(l()(),D.Z(3,0,null,0,1,"ion-icon",[["class","darkHeartFull"],["name","heart"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(4,147456,null,0,B.a,[L.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n            "])),(l()(),D.Z(6,0,null,0,1,"div",[],null,null,null,null,null)),(l()(),D._19(7,null,["",""])),(l()(),D._19(-1,0,["\n          "]))],function(l,n){l(n,1,0,"");l(n,4,0,"heart")},function(l,n){l(n,3,0,D._11(n,4)._hidden);l(n,7,0,n.parent.context.$implicit.likes)})}function U(l){return D._21(0,[(l()(),D.Z(0,0,null,null,123,"ion-card",[["class","ionCard"],["col-md-6",""]],null,null,null,null,null)),D.Y(1,16384,null,0,Q.a,[L.a,D.j,D.z],null,null),(l()(),D._19(-1,null,["\n      "])),(l()(),D._19(-1,null,["\n      "])),(l()(),D.Z(4,0,null,null,10,"div",[["class","ion-card-image-wrapper"]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.viewEntry({record:l.context.$implicit})&&e}return e},null,null)),(l()(),D._19(-1,null,["\n        "])),(l()(),D.U(16777216,null,null,1,null,r)),D.Y(7,16384,null,0,X.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n        "])),(l()(),D.U(16777216,null,null,1,null,s)),D.Y(10,16384,null,0,X.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n        "])),(l()(),D.U(16777216,null,null,1,null,c)),D.Y(13,16384,null,0,X.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n      "])),(l()(),D._19(-1,null,["\n      "])),(l()(),D.Z(16,0,null,null,106,"ion-card-content",[],null,null,null,null,null)),D.Y(17,16384,null,0,ll.a,[L.a,D.j,D.z],null,null),(l()(),D._19(-1,null,["\n        "])),(l()(),D._19(-1,null,["\n        "])),(l()(),D.Z(20,0,null,null,16,"div",[["id","AvatarFeed"]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.viewEntry({record:l.context.$implicit})&&e}return e},null,null)),(l()(),D._19(-1,null,["\n          "])),(l()(),D.U(16777216,null,null,1,null,d)),D.Y(23,16384,null,0,X.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n          "])),(l()(),D.U(16777216,null,null,1,null,g)),D.Y(26,16384,null,0,X.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n          "])),(l()(),D.U(16777216,null,null,1,null,_)),D.Y(29,16384,null,0,X.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n          "])),(l()(),D.U(16777216,null,null,1,null,m)),D.Y(32,16384,null,0,X.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n          "])),(l()(),D.U(16777216,null,null,1,null,p)),D.Y(35,16384,null,0,X.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n        "])),(l()(),D._19(-1,null,["\n        "])),(l()(),D._19(-1,null,["\n        "])),(l()(),D.Z(39,0,null,null,33,"div",[["id","uitgeverFeed"]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.viewEntry({record:l.context.$implicit})&&e}return e},null,null)),(l()(),D._19(-1,null,["\n          "])),(l()(),D.U(16777216,null,null,1,null,f)),D.Y(42,16384,null,0,X.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n          "])),(l()(),D.U(16777216,null,null,1,null,h)),D.Y(45,16384,null,0,X.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n          "])),(l()(),D._19(-1,null,["\n          "])),(l()(),D.Z(48,0,null,null,8,"div",[["id","title"]],null,null,null,null,null)),(l()(),D._19(-1,null,["\n            "])),(l()(),D.Z(50,0,null,null,5,"ion-card-title",[["class","TitleFeed"]],null,null,null,null,null)),D.Y(51,16384,null,0,nl.a,[L.a,D.j,D.z],null,null),(l()(),D._19(-1,null,["\n              "])),(l()(),D.Z(53,0,null,null,1,"strong",[],null,null,null,null,null)),(l()(),D._19(54,null,["",""])),(l()(),D._19(-1,null,["\n            "])),(l()(),D._19(-1,null,["\n          "])),(l()(),D._19(-1,null,["\n          "])),(l()(),D._19(-1,null,["\n          "])),(l()(),D.Z(59,0,null,null,5,"div",[["id","description"]],null,null,null,null,null)),(l()(),D._19(-1,null,["\n            "])),(l()(),D.Z(61,0,null,null,2,"p",[["class","descriptionFeed"]],null,null,null,null,null)),(l()(),D._19(62,null,["","..."])),D._13(0,X.r,[]),(l()(),D._19(-1,null,["\n          "])),(l()(),D._19(-1,null,["\n          "])),(l()(),D._19(-1,null,["\n          "])),(l()(),D.Z(67,0,null,null,4,"div",[["class","datumFeed"],["id","datumFeed"]],null,null,null,null,null)),(l()(),D._19(-1,null,["\n            "])),(l()(),D.Z(69,0,null,null,1,"span",[],null,null,null,null,null)),(l()(),D._19(70,null,["",""])),(l()(),D._19(-1,null,["\n          "])),(l()(),D._19(-1,null,["\n        "])),(l()(),D._19(-1,null,["\n        "])),(l()(),D._19(-1,null,["\n        "])),(l()(),D.Z(75,0,null,null,46,"div",[["class","socialLikeComments"],["id","socialLikeComments"]],null,null,null,null,null)),(l()(),D._19(-1,null,["\n          "])),(l()(),D.U(16777216,null,null,1,null,b)),D.Y(78,16384,null,0,X.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n          "])),(l()(),D.U(16777216,null,null,1,null,v)),D.Y(81,16384,null,0,X.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n          "])),(l()(),D.U(16777216,null,null,1,null,k)),D.Y(84,16384,null,0,X.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n          "])),(l()(),D.U(16777216,null,null,1,null,Z)),D.Y(87,16384,null,0,X.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n          "])),(l()(),D.U(16777216,null,null,1,null,Y)),D.Y(90,16384,null,0,X.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n          "])),(l()(),D.U(16777216,null,null,1,null,I)),D.Y(93,16384,null,0,X.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n          "])),(l()(),D.U(16777216,null,null,1,null,j)),D.Y(96,16384,null,0,X.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n          "])),(l()(),D.U(16777216,null,null,1,null,w)),D.Y(99,16384,null,0,X.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n          "])),(l()(),D.U(16777216,null,null,1,null,z)),D.Y(102,16384,null,0,X.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n          "])),(l()(),D.U(16777216,null,null,1,null,C)),D.Y(105,16384,null,0,X.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n          "])),(l()(),D.U(16777216,null,null,1,null,y)),D.Y(108,16384,null,0,X.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n          "])),(l()(),D.U(16777216,null,null,1,null,T)),D.Y(111,16384,null,0,X.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n          "])),(l()(),D.U(16777216,null,null,1,null,x)),D.Y(114,16384,null,0,X.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n          "])),(l()(),D.U(16777216,null,null,1,null,F)),D.Y(117,16384,null,0,X.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n          "])),(l()(),D.U(16777216,null,null,1,null,S)),D.Y(120,16384,null,0,X.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n        "])),(l()(),D._19(-1,null,["\n      "])),(l()(),D._19(-1,null,["\n    "]))],function(l,n){var u=n.component;l(n,7,0,!n.context.$implicit.image);l(n,10,0,"NOS.nl"==n.context.$implicit.site);l(n,13,0,"NOS.nl"!=n.context.$implicit.site||"NU.nl"!=n.context.$implicit.site);l(n,23,0,"NOS"==n.context.$implicit.site&&"light-theme"==u.currentTheme);l(n,26,0,"NOS"==n.context.$implicit.site&&"dark-theme"==u.currentTheme);l(n,29,0,"De Telegraaf"==n.context.$implicit.site&&"light-theme"==u.currentTheme);l(n,32,0,"De Telegraaf"==n.context.$implicit.site&&"dark-theme"==u.currentTheme);l(n,35,0,"NU.nl"==n.context.$implicit.site);l(n,42,0,"De Telegraaf"==n.context.$implicit.site||"NOS"==n.context.$implicit.site);l(n,45,0,"NU.nl"==n.context.$implicit.site);l(n,78,0,"De Telegraaf"==n.context.$implicit.site&&1==u.rol);l(n,81,0,"NOS"==n.context.$implicit.site&&1==u.rol);l(n,84,0,"NU.nl"==n.context.$implicit.site&&1==u.rol);l(n,87,0,"De Telegraaf"==n.context.$implicit.site);l(n,90,0,"NOS"==n.context.$implicit.site);l(n,93,0,"NU.nl"==n.context.$implicit.site);l(n,96,0,"De Telegraaf"==n.context.$implicit.site&&0==n.context.$implicit.liked);l(n,99,0,"NOS"==n.context.$implicit.site&&0==n.context.$implicit.liked);l(n,102,0,"NU.nl"==n.context.$implicit.site&&0==n.context.$implicit.liked);l(n,105,0,"De Telegraaf"==n.context.$implicit.site);l(n,108,0,"NOS"==n.context.$implicit.site);l(n,111,0,"NU.nl"==n.context.$implicit.site);l(n,114,0,"De Telegraaf"==n.context.$implicit.site&&1==n.context.$implicit.liked);l(n,117,0,"NOS"==n.context.$implicit.site&&1==n.context.$implicit.liked);l(n,120,0,"NU.nl"==n.context.$implicit.site&&1==n.context.$implicit.liked)},function(l,n){var u=n.component;l(n,54,0,n.context.$implicit.title);l(n,62,0,D._20(n,62,0,D._11(n,63).transform(u.htmlToPlaintext(n.context.$implicit.description),0,120)));l(n,70,0,n.context.$implicit.datum)})}function $(l){return D._21(0,[(l()(),D.Z(0,0,null,null,4,"div",[],null,null,null,null,null)),(l()(),D._19(-1,null,["\n    "])),(l()(),D.U(16777216,null,null,1,null,U)),D.Y(3,802816,null,0,X.h,[D.I,D.F,D.p],{ngForOf:[0,"ngForOf"]},null),(l()(),D._19(-1,null,["\n  "]))],function(l,n){l(n,3,0,n.component.artikelenlijst)},null)}function P(l){return D._21(0,[(l()(),D.Z(0,0,null,null,56,"ion-list",[],null,null,null,null,null)),D.Y(1,16384,null,0,ul.a,[L.a,D.j,D.z,E.a,el.l,tl.a],null,null),(l()(),D._19(-1,null,["\n    "])),(l()(),D.Z(3,0,null,null,52,"ion-item-sliding",[],null,null,null,al.b,al.a)),D.Y(4,49152,[["item",4]],2,il.a,[[2,ul.a],E.a,D.z,D.j,D.u],null,null),D._17(335544320,4,{item:0}),D._17(603979776,5,{_itemOptions:1}),(l()(),D._19(-1,null,["\n      "])),(l()(),D.Z(8,0,null,0,22,"ion-item",[["class","adminUsers item item-block"]],null,null,null,ol.b,ol.a)),D.Y(9,1097728,[[4,4]],3,rl.a,[sl.a,L.a,D.j,D.z,[2,cl.a]],null,null),D._17(335544320,6,{contentLabel:0}),D._17(603979776,7,{_buttons:1}),D._17(603979776,8,{_icons:1}),D.Y(13,16384,null,0,dl.a,[],null,null),(l()(),D._19(-1,2,["\n        "])),(l()(),D.Z(15,0,null,0,4,"ion-avatar",[["class","avatar"],["item-start",""]],null,null,null,null,null)),D.Y(16,16384,null,0,J.a,[],null,null),(l()(),D._19(-1,null,["\n          "])),(l()(),D.Z(18,0,null,null,0,"img",[["class","avatar-profiel"]],[[8,"src",4]],null,null,null,null)),(l()(),D._19(-1,null,["\n        "])),(l()(),D._19(-1,2,["\n        "])),(l()(),D.Z(21,0,null,2,3,"h3",[],null,null,null,null,null)),(l()(),D._19(-1,null,["ID: "])),(l()(),D.Z(23,0,null,null,1,"strong",[],null,null,null,null,null)),(l()(),D._19(24,null,["",""])),(l()(),D._19(-1,2,["\n        "])),(l()(),D.Z(26,0,null,2,3,"h3",[],null,null,null,null,null)),(l()(),D._19(-1,null,["Email "])),(l()(),D.Z(28,0,null,null,1,"strong",[],null,null,null,null,null)),(l()(),D._19(29,null,["",""])),(l()(),D._19(-1,2,["\n      "])),(l()(),D._19(-1,null,["\n      "])),(l()(),D.Z(32,0,null,1,22,"ion-item-options",[["side","right"]],null,null,null,null,null)),D.Y(33,16384,[[5,4]],0,gl.a,[D.j,E.a],{side:[0,"side"]},null),(l()(),D._19(-1,null,["\n        "])),(l()(),D.Z(35,0,null,null,8,"button",[["class","deleteSlide"],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.unread(D._11(l,4))&&e}return e},G.b,G.a)),D.Y(36,1097728,null,0,K.a,[[8,""],L.a,D.j,D.z],null,null),(l()(),D._19(-1,0,["\n          "])),(l()(),D.Z(38,0,null,0,1,"span",[["class","spanHide"]],null,null,null,null,null)),(l()(),D._19(-1,null,["Bewe"])),(l()(),D._19(-1,0,["\n          "])),(l()(),D.Z(41,0,null,0,1,"ion-icon",[["class","iconAdmin"],["name","trash"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(42,147456,null,0,B.a,[L.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n        "])),(l()(),D._19(-1,null,["\n        "])),(l()(),D.Z(45,0,null,null,8,"button",[["class","BewerkSlide"],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.unread(D._11(l,4))&&e}return e},G.b,G.a)),D.Y(46,1097728,null,0,K.a,[[8,""],L.a,D.j,D.z],null,null),(l()(),D._19(-1,0,["\n          "])),(l()(),D.Z(48,0,null,0,1,"span",[["class","spanHide"]],null,null,null,null,null)),(l()(),D._19(-1,null,["Dele"])),(l()(),D._19(-1,0,["\n          "])),(l()(),D.Z(51,0,null,0,1,"ion-icon",[["class","iconAdmin"],["name","create"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(52,147456,null,0,B.a,[L.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n        "])),(l()(),D._19(-1,null,["\n      "])),(l()(),D._19(-1,null,["\n    "])),(l()(),D._19(-1,null,["\n  "]))],function(l,n){l(n,33,0,"right");l(n,42,0,"trash");l(n,52,0,"create")},function(l,n){l(n,18,0,D._2(1,"",n.context.$implicit.profilepicture,""));l(n,24,0,n.context.$implicit.id);l(n,29,0,n.context.$implicit.email);l(n,41,0,D._11(n,42)._hidden);l(n,51,0,D._11(n,52)._hidden)})}function A(l){return D._21(0,[(l()(),D.Z(0,0,null,null,36,"ion-header",[["no-border-bottom",""]],null,null,null,null,null)),D.Y(1,16384,null,0,_l.a,[L.a,D.j,D.z,[2,ml.a]],null,null),(l()(),D._19(-1,null,["\n  "])),(l()(),D.Z(3,0,null,null,16,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,pl.b,pl.a)),D.Y(4,49152,null,0,V.a,[fl.a,[2,ml.a],[2,hl.a],L.a,D.j,D.z],null,null),(l()(),D._19(-1,3,["\n    "])),(l()(),D.U(16777216,null,3,1,null,e)),D.Y(7,16384,null,0,X.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,3,["\n    "])),(l()(),D._19(-1,3,["\n    "])),(l()(),D.U(16777216,null,3,1,null,t)),D.Y(11,16384,null,0,X.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,3,["\n    "])),(l()(),D._19(-1,3,["\n    "])),(l()(),D.U(16777216,null,2,1,null,i)),D.Y(15,16384,null,0,X.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,3,["\n    "])),(l()(),D.U(16777216,null,2,1,null,o)),D.Y(18,16384,null,0,X.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,3,["\n  "])),(l()(),D._19(-1,null,["\n  "])),(l()(),D.Z(21,0,null,null,14,"ion-segment",[["color","primary"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null],[2,"segment-disabled",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;if("ngModelChange"===n){e=!1!==(l.component.checklist=u)&&e}return e},null,null)),D.Y(22,671744,null,0,R.n,[[8,null],[8,null],[8,null],[8,null]],{model:[0,"model"]},{update:"ngModelChange"}),D._15(2048,null,R.k,null,[R.n]),D.Y(24,16384,null,0,R.l,[R.k],null,null),D.Y(25,1196032,null,1,bl.a,[L.a,D.j,D.z,[2,R.k]],{color:[0,"color"]},null),D._17(603979776,3,{_buttons:1}),(l()(),D._19(-1,null,["\n    "])),(l()(),D.Z(28,0,null,null,2,"ion-segment-button",[["class","segment-button"],["role","button"],["tappable",""],["value","artikelen"]],[[2,"segment-button-disabled",null],[2,"segment-activated",null],[1,"aria-pressed",0]],[[null,"click"]],function(l,n,u){var e=!0,t=l.component;if("click"===n){e=!1!==D._11(l,29).onClick()&&e}if("click"===n){e=!1!==t.selectArtikelen()&&e}return e},vl.b,vl.a)),D.Y(29,114688,[[3,4]],0,kl.a,[],{value:[0,"value"]},null),(l()(),D._19(-1,0,["\n      Verborgen\n    "])),(l()(),D._19(-1,null,["\n    "])),(l()(),D.Z(32,0,null,null,2,"ion-segment-button",[["class","segment-button"],["role","button"],["tappable",""],["value","gebruikers"]],[[2,"segment-button-disabled",null],[2,"segment-activated",null],[1,"aria-pressed",0]],[[null,"click"]],function(l,n,u){var e=!0,t=l.component;if("click"===n){e=!1!==D._11(l,33).onClick()&&e}if("click"===n){e=!1!==t.selectGebruikers()&&e}return e},vl.b,vl.a)),D.Y(33,114688,[[3,4]],0,kl.a,[],{value:[0,"value"]},null),(l()(),D._19(-1,0,["\n      Gebruikers\n    "])),(l()(),D._19(-1,null,["\n  "])),(l()(),D._19(-1,null,["\n"])),(l()(),D._19(-1,null,["\n"])),(l()(),D.Z(38,0,null,null,8,"ion-content",[["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,Zl.b,Zl.a)),D.Y(39,4374528,null,0,Yl.a,[L.a,E.a,tl.a,D.j,D.z,fl.a,Il.a,D.u,[2,ml.a],[2,hl.a]],null,null),(l()(),D._19(-1,1,["\n  "])),(l()(),D.U(16777216,null,1,1,null,$)),D.Y(42,16384,null,0,X.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,1,["\n  "])),(l()(),D.U(16777216,null,1,1,null,P)),D.Y(45,802816,null,0,X.h,[D.I,D.F,D.p],{ngForOf:[0,"ngForOf"]},null),(l()(),D._19(-1,1,["\n"])),(l()(),D._19(-1,null,["\n"]))],function(l,n){var u=n.component;l(n,7,0,!u.isSearchbaropened);l(n,11,0,u.isSearchbaropened);l(n,15,0,"artikelen"==u.checklist);l(n,18,0,"gebruikers"==u.checklist);l(n,22,0,u.checklist);l(n,25,0,"primary");l(n,29,0,"artikelen");l(n,33,0,"gebruikers");l(n,42,0,"artikelen"==u.checklist);l(n,45,0,u.gebruikerslijst)},function(l,n){l(n,3,0,D._11(n,4)._hidden,D._11(n,4)._sbPadding);l(n,21,0,D._11(n,24).ngClassUntouched,D._11(n,24).ngClassTouched,D._11(n,24).ngClassPristine,D._11(n,24).ngClassDirty,D._11(n,24).ngClassValid,D._11(n,24).ngClassInvalid,D._11(n,24).ngClassPending,D._11(n,25)._disabled);l(n,28,0,D._11(n,29)._disabled,D._11(n,29).isActive,D._11(n,29).isActive);l(n,32,0,D._11(n,33)._disabled,D._11(n,33).isActive,D._11(n,33).isActive);l(n,38,0,D._11(n,39).statusbarPadding,D._11(n,39)._hasRefresher)})}u.d(n,"a",function(){return Fl});var D=u(1),N=u(37),O=u(32),L=u(3),W=u(27),V=u(24),M=u(227),H=u(93),E=u(5),R=u(19),B=u(25),q=u(39),G=u(20),K=u(15),X=u(16),J=u(77),Q=u(78),ll=u(79),nl=u(100),ul=u(49),el=u(11),tl=u(10),al=u(390),il=u(104),ol=u(50),rl=u(22),sl=u(21),cl=u(42),dl=u(47),gl=u(103),_l=u(31),ml=u(7),pl=u(34),fl=u(9),hl=u(17),bl=u(117),vl=u(223),kl=u(81),Zl=u(43),Yl=u(23),Il=u(28),jl=u(121),wl=u(12),zl=u(30),Cl=u(57),yl=u(60),Tl=u(52),xl=D.X({encapsulation:2,styles:[],data:{}}),Fl=D.V("page-admin",jl.a,function(l){return D._21(0,[(l()(),D.Z(0,0,null,null,1,"page-admin",[],null,null,null,A,xl)),D.Y(1,49152,null,0,jl.a,[hl.a,wl.a,zl.c,Cl.a,yl.a,Tl.a],null,null)],null,null)},{},{},[])},407:function(l,n,u){"use strict";function e(l){return t._21(0,[(l()(),t.Z(0,0,null,null,30,"ion-header",[["no-border-bottom",""]],null,null,null,null,null)),t.Y(1,16384,null,0,a.a,[i.a,t.j,t.z,[2,o.a]],null,null),(l()(),t._19(-1,null,["\n  "])),(l()(),t.Z(3,0,null,null,26,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,r.b,r.a)),t.Y(4,49152,null,0,s.a,[c.a,[2,o.a],[2,d.a],i.a,t.j,t.z],null,null),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(6,0,null,0,8,"button",[["class","fakeCenter"],["ion-button",""],["menuToggle",""],["right",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==t._11(l,8).toggle()&&e}return e},g.b,g.a)),t.Y(7,1097728,[[1,4]],0,_.a,[[8,""],i.a,t.j,t.z],null,null),t.Y(8,1064960,null,0,m.a,[p.a,[2,o.a],[2,_.a],[2,s.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(9,16384,null,1,f.a,[i.a,t.j,t.z,[2,h.a],[2,s.a]],null,null),t._17(603979776,1,{_buttons:1}),(l()(),t._19(-1,0,["\n        "])),(l()(),t.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(13,147456,null,0,b.a,[i.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n    "])),(l()(),t._19(-1,3,["\n      "])),(l()(),t.Z(16,0,null,3,2,"ion-title",[],null,null,null,v.b,v.a)),t.Y(17,49152,null,0,k.a,[i.a,t.j,t.z,[2,h.a],[2,s.a]],null,null),(l()(),t._19(-1,0,["Auto's"])),(l()(),t._19(-1,3,["\n        "])),(l()(),t.Z(20,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==t._11(l,22).toggle()&&e}return e},g.b,g.a)),t.Y(21,1097728,[[2,4]],0,_.a,[[8,""],i.a,t.j,t.z],null,null),t.Y(22,1064960,null,0,m.a,[p.a,[2,o.a],[2,_.a],[2,s.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(23,16384,null,1,f.a,[i.a,t.j,t.z,[2,h.a],[2,s.a]],null,null),t._17(603979776,2,{_buttons:1}),(l()(),t._19(-1,0,["\n            "])),(l()(),t.Z(26,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(27,147456,null,0,b.a,[i.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n        "])),(l()(),t._19(-1,3,["\n    "])),(l()(),t._19(-1,null,["\n"])),(l()(),t._19(-1,null,["\n"]))],function(l,n){l(n,8,0,"");l(n,13,0,"menu");l(n,22,0,"");l(n,27,0,"menu")},function(l,n){l(n,3,0,t._11(n,4)._hidden,t._11(n,4)._sbPadding);l(n,6,0,t._11(n,8).isHidden);l(n,12,0,t._11(n,13)._hidden);l(n,20,0,t._11(n,22).isHidden);l(n,26,0,t._11(n,27)._hidden)})}u.d(n,"a",function(){return j});var t=u(1),a=u(31),i=u(3),o=u(7),r=u(34),s=u(24),c=u(9),d=u(17),g=u(20),_=u(15),m=u(46),p=u(29),f=u(39),h=u(27),b=u(25),v=u(37),k=u(32),Z=u(125),Y=u(12),I=t.X({encapsulation:2,styles:[],data:{}}),j=t.V("page-auto",Z.a,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"page-auto",[],null,null,null,e,I)),t.Y(1,49152,null,0,Z.a,[d.a,Y.a],null,null)],null,null)},{},{},[])},408:function(l,n,u){"use strict";function e(l){return i._21(0,[(l()(),i.Z(0,0,null,null,5,"button",[["color","danger"],["ion-button",""],["item-right",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.deleteComment(l.parent.context.$implicit.commentId)&&e}return e},o.b,o.a)),i.Y(1,1097728,null,0,r.a,[[8,""],s.a,i.j,i.z],{color:[0,"color"]},null),(l()(),i._19(-1,0,["\n                    "])),(l()(),i.Z(3,0,null,0,1,"ion-icon",[["name","trash"],["role","img"]],[[2,"hide",null]],null,null,null,null)),i.Y(4,147456,null,0,c.a,[s.a,i.j,i.z],{name:[0,"name"]},null),(l()(),i._19(-1,0,["\n                    Verwijder\n                "]))],function(l,n){l(n,1,0,"danger");l(n,4,0,"trash")},function(l,n){l(n,3,0,i._11(n,4)._hidden)})}function t(l){return i._21(0,[(l()(),i.Z(0,0,null,null,46,"ion-list",[["class","commentSpacing"]],null,null,null,null,null)),i.Y(1,16384,null,0,d.a,[s.a,i.j,i.z,g.a,_.l,m.a],null,null),(l()(),i._19(2,null,["\n        ","\n        "])),(l()(),i.Z(3,0,null,null,42,"ion-item-sliding",[],null,null,null,p.b,p.a)),i.Y(4,49152,null,2,f.a,[[2,d.a],g.a,i.z,i.j,i.u],null,null),i._17(335544320,4,{item:0}),i._17(603979776,5,{_itemOptions:1}),(l()(),i._19(-1,null,["\n            "])),(l()(),i.Z(8,0,null,0,22,"ion-item",[["class","item item-block"]],null,null,null,h.b,h.a)),i.Y(9,1097728,[[4,4]],3,b.a,[v.a,s.a,i.j,i.z,[2,k.a]],null,null),i._17(335544320,6,{contentLabel:0}),i._17(603979776,7,{_buttons:1}),i._17(603979776,8,{_icons:1}),i.Y(13,16384,null,0,Z.a,[],null,null),(l()(),i._19(-1,2,["\n                "])),(l()(),i.Z(15,0,null,0,4,"ion-avatar",[["class","avatar"],["item-start",""]],null,null,null,null,null)),i.Y(16,16384,null,0,Y.a,[],null,null),(l()(),i._19(-1,null,["\n                    "])),(l()(),i.Z(18,0,null,null,0,"img",[["class","avatar-profiel"]],[[8,"src",4]],null,null,null,null)),(l()(),i._19(-1,null,["\n                "])),(l()(),i._19(-1,2,["\n                "])),(l()(),i.Z(21,0,null,2,4,"p",[["class","commentUsername"]],null,null,null,null,null)),(l()(),i._19(22,null,["",""])),(l()(),i.Z(23,0,null,null,1,"span",[["class","commentDate"]],null,null,null,null,null)),(l()(),i._19(24,null,["",""])),(l()(),i._19(-1,null,["\n                "])),(l()(),i._19(-1,2,["\n                "])),(l()(),i.Z(27,0,null,2,2,"p",[],null,null,null,null,null)),(l()(),i.Z(28,0,null,null,1,"span",[["class","breakText"]],null,null,null,null,null)),(l()(),i._19(29,null,["",""])),(l()(),i._19(-1,2,["\n            "])),(l()(),i._19(-1,null,["\n            "])),(l()(),i.Z(32,0,null,1,12,"ion-item-options",[["side","right"]],null,null,null,null,null)),i.Y(33,16384,[[5,4]],0,I.a,[i.j,g.a],{side:[0,"side"]},null),(l()(),i._19(-1,null,["\n                "])),(l()(),i.Z(35,0,null,null,5,"button",[["color","secondary"],["ion-button",""]],null,null,null,o.b,o.a)),i.Y(36,1097728,null,0,r.a,[[8,""],s.a,i.j,i.z],{color:[0,"color"]},null),(l()(),i._19(-1,0,["\n                    "])),(l()(),i.Z(38,0,null,0,1,"ion-icon",[["name","create"],["role","img"]],[[2,"hide",null]],null,null,null,null)),i.Y(39,147456,null,0,c.a,[s.a,i.j,i.z],{name:[0,"name"]},null),(l()(),i._19(-1,0,["\n                    Bewerk\n                "])),(l()(),i._19(-1,null,["\n                "])),(l()(),i.U(16777216,null,null,1,null,e)),i.Y(43,16384,null,0,j.i,[i.I,i.F],{ngIf:[0,"ngIf"]},null),(l()(),i._19(-1,null,["\n            "])),(l()(),i._19(-1,null,["\n        "])),(l()(),i._19(-1,null,["\n    "]))],function(l,n){var u=n.component;l(n,33,0,"right");l(n,36,0,"secondary");l(n,39,0,"create");l(n,43,0,u.userId==n.context.$implicit.userCommentID||1==u.userRol)},function(l,n){l(n,2,0,n.context.last?n.component.callFunction():"");l(n,18,0,i._2(1,"",n.context.$implicit.profilepicture,""));l(n,22,0,n.context.$implicit.username);l(n,24,0,n.context.$implicit.commentDate);l(n,29,0,n.context.$implicit.comment);l(n,38,0,i._11(n,39)._hidden)})}function a(l){return i._21(0,[i._17(402653184,1,{myInput:0}),i._17(402653184,2,{content:0}),i._17(402653184,3,{navBar:0}),(l()(),i.Z(3,0,null,null,10,"ion-header",[],null,null,null,null,null)),i.Y(4,16384,null,0,w.a,[s.a,i.j,i.z,[2,z.a]],null,null),(l()(),i._19(-1,null,["\n    "])),(l()(),i.Z(6,0,null,null,6,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,C.b,C.a)),i.Y(7,49152,[[3,4],["navbar",4]],0,y.a,[T.a,[2,z.a],[2,x.a],s.a,i.j,i.z],null,null),(l()(),i._19(-1,3,["\n        "])),(l()(),i.Z(9,0,null,3,2,"ion-title",[["class","fakePadding"]],null,null,null,F.b,F.a)),i.Y(10,49152,null,0,S.a,[s.a,i.j,i.z,[2,U.a],[2,y.a]],null,null),(l()(),i._19(-1,0,["Comments"])),(l()(),i._19(-1,3,["\n    "])),(l()(),i._19(-1,null,["\n"])),(l()(),i._19(-1,null,["\n"])),(l()(),i.Z(15,0,null,null,5,"ion-content",[],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,$.b,$.a)),i.Y(16,4374528,[[2,4]],0,P.a,[s.a,g.a,m.a,i.j,i.z,T.a,A.a,i.u,[2,z.a],[2,x.a]],null,null),(l()(),i._19(-1,1,["\n    "])),(l()(),i.U(16777216,null,1,1,null,t)),i.Y(19,802816,null,0,j.h,[i.I,i.F,i.p],{ngForOf:[0,"ngForOf"]},null),(l()(),i._19(-1,1,["\n"])),(l()(),i._19(-1,null,["\n"])),(l()(),i.Z(22,0,null,null,29,"ion-footer",[["class","commentFooter"]],null,null,null,null,null)),i.Y(23,16384,null,0,D.a,[s.a,i.j,i.z,[2,z.a]],null,null),(l()(),i._19(-1,null,["\n    "])),(l()(),i.Z(25,0,null,null,25,"ion-item",[["class","commentsItem item item-block"]],null,null,null,h.b,h.a)),i.Y(26,1097728,null,3,b.a,[v.a,s.a,i.j,i.z,[2,k.a]],null,null),i._17(335544320,9,{contentLabel:0}),i._17(603979776,10,{_buttons:1}),i._17(603979776,11,{_icons:1}),i.Y(30,16384,null,0,Z.a,[],null,null),(l()(),i._19(-1,2,["\n        "])),(l()(),i.Z(32,0,null,0,4,"ion-avatar",[["class","avatar"],["item-start",""]],null,null,null,null,null)),i.Y(33,16384,null,0,Y.a,[],null,null),(l()(),i._19(-1,null,["\n            "])),(l()(),i.Z(35,0,null,null,0,"img",[["class","avatar-profiel"]],[[8,"src",4]],null,null,null,null)),(l()(),i._19(-1,null,["\n        "])),(l()(),i._19(-1,2,["\n        "])),(l()(),i.Z(38,0,null,3,4,"ion-input",[["id","inputMessage"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;if("ngModelChange"===n){e=!1!==(l.component.comment=u)&&e}return e},N.b,N.a)),i.Y(39,671744,null,0,O.n,[[8,null],[8,null],[8,null],[8,null]],{model:[0,"model"]},{update:"ngModelChange"}),i._15(2048,null,O.k,null,[O.n]),i.Y(41,16384,null,0,O.l,[O.k],null,null),i.Y(42,5423104,[[1,4],["input",4]],0,L.a,[s.a,g.a,v.a,T.a,i.j,i.z,[2,P.a],[2,b.a],[2,O.k],m.a],{placeholder:[0,"placeholder"]},null),(l()(),i._19(-1,2,["\n        "])),(l()(),i.Z(44,0,null,4,5,"button",[["class","sendButton"],["id","sendButtonId"],["ion-button",""],["item-end",""]],[[8,"disabled",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.postComment()&&e}return e},o.b,o.a)),i.Y(45,1097728,[[10,4]],0,r.a,[[8,""],s.a,i.j,i.z],null,null),(l()(),i._19(-1,0,["\n            "])),(l()(),i.Z(47,0,null,0,1,"ion-icon",[["name","send"],["role","img"]],[[2,"hide",null]],null,null,null,null)),i.Y(48,147456,null,0,c.a,[s.a,i.j,i.z],{name:[0,"name"]},null),(l()(),i._19(-1,0,["\n        "])),(l()(),i._19(-1,2,["\n    "])),(l()(),i._19(-1,null,["\n"]))],function(l,n){var u=n.component;l(n,19,0,u.comments);l(n,39,0,u.comment);l(n,42,0,i._2(1,"Reageer als ",u.username,""));l(n,48,0,"send")},function(l,n){var u=n.component;l(n,6,0,i._11(n,7)._hidden,i._11(n,7)._sbPadding);l(n,15,0,i._11(n,16).statusbarPadding,i._11(n,16)._hasRefresher);l(n,35,0,i._2(1,"",u.pictureprofile,""));l(n,38,0,i._11(n,41).ngClassUntouched,i._11(n,41).ngClassTouched,i._11(n,41).ngClassPristine,i._11(n,41).ngClassDirty,i._11(n,41).ngClassValid,i._11(n,41).ngClassInvalid,i._11(n,41).ngClassPending);l(n,44,0,!u.comment);l(n,47,0,i._11(n,48)._hidden)})}u.d(n,"a",function(){return q});var i=u(1),o=u(20),r=u(15),s=u(3),c=u(25),d=u(49),g=u(5),_=u(11),m=u(10),p=u(390),f=u(104),h=u(50),b=u(22),v=u(21),k=u(42),Z=u(47),Y=u(77),I=u(103),j=u(16),w=u(31),z=u(7),C=u(34),y=u(24),T=u(9),x=u(17),F=u(37),S=u(32),U=u(27),$=u(43),P=u(23),A=u(28),D=u(172),N=u(118),O=u(19),L=u(68),W=u(92),V=u(12),M=u(30),H=u(52),E=u(57),R=u(89),B=i.X({encapsulation:2,styles:[],data:{}}),q=i.V("page-comments",W.a,function(l){return i._21(0,[(l()(),i.Z(0,0,null,null,1,"page-comments",[],null,null,null,a,B)),i.Y(1,49152,null,0,W.a,[x.a,V.a,M.c,H.a,E.a,R.a],null,null)],null,null)},{},{},[])},409:function(l,n,u){"use strict";function e(l){return t._21(0,[(l()(),t.Z(0,0,null,null,30,"ion-header",[["no-border-bottom",""]],null,null,null,null,null)),t.Y(1,16384,null,0,a.a,[i.a,t.j,t.z,[2,o.a]],null,null),(l()(),t._19(-1,null,["\n  "])),(l()(),t.Z(3,0,null,null,26,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,r.b,r.a)),t.Y(4,49152,null,0,s.a,[c.a,[2,o.a],[2,d.a],i.a,t.j,t.z],null,null),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(6,0,null,0,8,"button",[["class","fakeCenter"],["ion-button",""],["menuToggle",""],["right",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==t._11(l,8).toggle()&&e}return e},g.b,g.a)),t.Y(7,1097728,[[1,4]],0,_.a,[[8,""],i.a,t.j,t.z],null,null),t.Y(8,1064960,null,0,m.a,[p.a,[2,o.a],[2,_.a],[2,s.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(9,16384,null,1,f.a,[i.a,t.j,t.z,[2,h.a],[2,s.a]],null,null),t._17(603979776,1,{_buttons:1}),(l()(),t._19(-1,0,["\n        "])),(l()(),t.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(13,147456,null,0,b.a,[i.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n    "])),(l()(),t._19(-1,3,["\n      "])),(l()(),t.Z(16,0,null,3,2,"ion-title",[],null,null,null,v.b,v.a)),t.Y(17,49152,null,0,k.a,[i.a,t.j,t.z,[2,h.a],[2,s.a]],null,null),(l()(),t._19(-1,0,["Economie"])),(l()(),t._19(-1,3,["\n        "])),(l()(),t.Z(20,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==t._11(l,22).toggle()&&e}return e},g.b,g.a)),t.Y(21,1097728,[[2,4]],0,_.a,[[8,""],i.a,t.j,t.z],null,null),t.Y(22,1064960,null,0,m.a,[p.a,[2,o.a],[2,_.a],[2,s.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(23,16384,null,1,f.a,[i.a,t.j,t.z,[2,h.a],[2,s.a]],null,null),t._17(603979776,2,{_buttons:1}),(l()(),t._19(-1,0,["\n            "])),(l()(),t.Z(26,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(27,147456,null,0,b.a,[i.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n        "])),(l()(),t._19(-1,3,["\n    "])),(l()(),t._19(-1,null,["\n"])),(l()(),t._19(-1,null,["\n"]))],function(l,n){l(n,8,0,"");l(n,13,0,"menu");l(n,22,0,"");l(n,27,0,"menu")},function(l,n){l(n,3,0,t._11(n,4)._hidden,t._11(n,4)._sbPadding);l(n,6,0,t._11(n,8).isHidden);l(n,12,0,t._11(n,13)._hidden);l(n,20,0,t._11(n,22).isHidden);l(n,26,0,t._11(n,27)._hidden)})}u.d(n,"a",function(){return j});var t=u(1),a=u(31),i=u(3),o=u(7),r=u(34),s=u(24),c=u(9),d=u(17),g=u(20),_=u(15),m=u(46),p=u(29),f=u(39),h=u(27),b=u(25),v=u(37),k=u(32),Z=u(126),Y=u(12),I=t.X({encapsulation:2,styles:[],data:{}}),j=t.V("page-economie",Z.a,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"page-economie",[],null,null,null,e,I)),t.Y(1,49152,null,0,Z.a,[d.a,Y.a],null,null)],null,null)},{},{},[])},410:function(l,n,u){"use strict";function e(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==Pl._11(l,2).toggle()&&e}return e},Al.b,Al.a)),Pl.Y(1,1097728,[[3,4]],0,Dl.a,[[8,""],Nl.a,Pl.j,Pl.z],null,null),Pl.Y(2,1064960,null,0,Ol.a,[Ll.a,[2,Wl.a],[2,Dl.a],[2,Vl.a]],{menuToggle:[0,"menuToggle"]},null),Pl.Y(3,16384,null,1,Ml.a,[Nl.a,Pl.j,Pl.z,[2,Hl.a],[2,Vl.a]],null,null),Pl._17(603979776,3,{_buttons:1}),(l()(),Pl._19(-1,0,["\n            "])),(l()(),Pl.Z(6,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),Pl.Y(7,147456,null,0,El.a,[Nl.a,Pl.j,Pl.z],{name:[0,"name"]},null),(l()(),Pl._19(-1,0,["\n        "]))],function(l,n){l(n,2,0,"");l(n,7,0,"menu")},function(l,n){l(n,0,0,Pl._11(n,2).isHidden);l(n,6,0,Pl._11(n,7)._hidden)})}function t(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,2,"ion-title",[["class","algemeenText"]],null,null,null,Rl.b,Rl.a)),Pl.Y(1,49152,null,0,Bl.a,[Nl.a,Pl.j,Pl.z,[2,Hl.a],[2,Vl.a]],null,null),(l()(),Pl._19(-1,0,["Algemeen"]))],null,null)}function a(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,1,"ion-searchbar",[["class","slideInRight"],["placeholder","Waar zijn we naar op zoek?"]],[[2,"searchbar-animated",null],[2,"searchbar-has-value",null],[2,"searchbar-active",null],[2,"searchbar-show-cancel",null],[2,"searchbar-left-aligned",null],[2,"searchbar-has-focus",null]],[[null,"ionCancel"],[null,"ionInput"]],function(l,n,u){var e=!0,t=l.component;if("ionCancel"===n){e=!1!==t.resetChanges()&&e}if("ionInput"===n){e=!1!==t.search(u)&&e}return e},ql.b,ql.a)),Pl.Y(1,1294336,[[1,4],["searchbar",4]],0,Gl.a,[Nl.a,Kl.a,Pl.j,Pl.z,[2,Xl.k]],{showCancelButton:[0,"showCancelButton"],placeholder:[1,"placeholder"]},{ionInput:"ionInput",ionCancel:"ionCancel"})],function(l,n){l(n,1,0,!0,"Waar zijn we naar op zoek?")},function(l,n){l(n,0,0,Pl._11(n,1)._animated,Pl._11(n,1)._value,Pl._11(n,1)._isActive,Pl._11(n,1)._showCancelButton,Pl._11(n,1)._shouldAlignLeft,Pl._11(n,1)._isFocus)})}function i(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,1,"ion-icon",[["name","search"],["role","img"]],[[2,"hide",null]],null,null,null,null)),Pl.Y(1,147456,null,0,El.a,[Nl.a,Pl.j,Pl.z],{name:[0,"name"]},null)],function(l,n){l(n,1,0,"search")},function(l,n){l(n,0,0,Pl._11(n,1)._hidden)})}function o(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,10,"ion-buttons",[["end",""]],null,null,null,null,null)),Pl.Y(1,16384,null,1,Ml.a,[Nl.a,Pl.j,Pl.z,[2,Hl.a],[2,Vl.a]],null,null),Pl._17(603979776,4,{_buttons:1}),(l()(),Pl._19(-1,null,["\n            "])),(l()(),Pl.Z(4,0,null,null,5,"button",[["icon-only",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!=(l.component.isSearchbaropened=!0)&&e}return e},Al.b,Al.a)),Pl.Y(5,1097728,[[4,4]],0,Dl.a,[[8,""],Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(-1,0,["\n                "])),(l()(),Pl.U(16777216,null,0,1,null,i)),Pl.Y(8,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,0,["\n            "])),(l()(),Pl._19(-1,null,["\n        "]))],function(l,n){l(n,8,0,!n.component.isSearchbaropened)},null)}function r(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,10,"ion-buttons",[["end",""]],null,null,null,null,null)),Pl.Y(1,16384,null,1,Ml.a,[Nl.a,Pl.j,Pl.z,[2,Hl.a],[2,Vl.a]],null,null),Pl._17(603979776,5,{_buttons:1}),(l()(),Pl._19(-1,null,["\n            "])),(l()(),Pl.Z(4,0,null,null,5,"button",[["icon-only",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.goLijstWeerPage()&&e}return e},Al.b,Al.a)),Pl.Y(5,1097728,[[5,4]],0,Dl.a,[[8,""],Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(-1,0,["\n                "])),(l()(),Pl.Z(7,0,null,0,1,"ion-icon",[["name","search"],["role","img"]],[[2,"hide",null]],null,null,null,null)),Pl.Y(8,147456,null,0,El.a,[Nl.a,Pl.j,Pl.z],{name:[0,"name"]},null),(l()(),Pl._19(-1,0,["\n            "])),(l()(),Pl._19(-1,null,["\n        "]))],function(l,n){l(n,8,0,"search")},function(l,n){l(n,7,0,Pl._11(n,8)._hidden)})}function s(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,32,"ion-buttons",[["class","moreFeed"],["end",""]],null,null,null,null,null)),Pl.Y(1,16384,null,1,Ml.a,[Nl.a,Pl.j,Pl.z,[2,Hl.a],[2,Vl.a]],null,null),Pl._17(603979776,6,{_buttons:1}),(l()(),Pl._19(-1,null,["\n            "])),(l()(),Pl.Z(4,0,null,null,1,"ion-icon",[["name","more"],["role","img"]],[[2,"hide",null]],null,null,null,null)),Pl.Y(5,147456,null,0,El.a,[Nl.a,Pl.j,Pl.z],{name:[0,"name"]},null),(l()(),Pl._19(-1,null,["\n            "])),(l()(),Pl.Z(7,0,null,null,24,"ion-list",[["class","listMore"]],null,null,null,null,null)),Pl.Y(8,16384,null,0,Ql.a,[Nl.a,Pl.j,Pl.z,Kl.a,ln.l,nn.a],null,null),(l()(),Pl._19(-1,null,["\n                "])),(l()(),Pl.Z(10,0,null,null,20,"ion-select",[["cancelText","Annuleer"],["class","SelectMore"],["okText","Ok"]],[[2,"select-disabled",null],[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"],[null,"ionChange"],[null,"click"],[null,"keyup.space"]],function(l,n,u){var e=!0,t=l.component;if("click"===n){e=!1!==Pl._11(l,11)._click(u)&&e}if("keyup.space"===n){e=!1!==Pl._11(l,11)._keyup()&&e}if("ngModelChange"===n){e=!1!==(t.datepicker=u)&&e}if("ionChange"===n){e=!1!==t.onChange(t.datepicker)&&e}return e},un.b,un.a)),Pl.Y(11,1228800,[["newSelect",4]],1,en.a,[tn.a,an.a,Nl.a,Pl.j,Pl.z,[2,on.a],rn.a],{cancelText:[0,"cancelText"],okText:[1,"okText"],selectOptions:[2,"selectOptions"]},{ionChange:"ionChange"}),Pl._17(603979776,7,{options:1}),Pl._15(1024,null,Xl.j,function(l){return[l]},[en.a]),Pl.Y(14,671744,null,0,Xl.n,[[8,null],[8,null],[8,null],[2,Xl.j]],{model:[0,"model"]},{update:"ngModelChange"}),Pl._15(2048,null,Xl.k,null,[Xl.n]),Pl.Y(16,16384,null,0,Xl.l,[Xl.k],null,null),(l()(),Pl._19(-1,null,["\n                    "])),(l()(),Pl.Z(18,0,null,null,2,"ion-option",[["value","vandaag"]],null,null,null,null,null)),Pl.Y(19,16384,[[7,4]],0,sn.a,[Pl.j],{value:[0,"value"]},null),(l()(),Pl._19(-1,null,["Vandaag"])),(l()(),Pl._19(-1,null,["\n                    "])),(l()(),Pl.Z(22,0,null,null,2,"ion-option",[["value","gisteren"]],null,null,null,null,null)),Pl.Y(23,16384,[[7,4]],0,sn.a,[Pl.j],{value:[0,"value"]},null),(l()(),Pl._19(-1,null,["Gisteren"])),(l()(),Pl._19(-1,null,["\n                    "])),(l()(),Pl.Z(26,0,null,null,2,"ion-option",[["value","driedagengeleden"]],null,null,null,null,null)),Pl.Y(27,16384,[[7,4]],0,sn.a,[Pl.j],{value:[0,"value"]},null),(l()(),Pl._19(-1,null,["Drie dagen geleden"])),(l()(),Pl._19(-1,null,["\n                    "])),(l()(),Pl._19(-1,null,["\n                "])),(l()(),Pl._19(-1,null,["\n            "])),(l()(),Pl._19(-1,null,["\n        "]))],function(l,n){var u=n.component;l(n,5,0,"more");l(n,11,0,"Annuleer","Ok",u.selectOptions);l(n,14,0,u.datepicker);l(n,19,0,"vandaag");l(n,23,0,"gisteren");l(n,27,0,"driedagengeleden")},function(l,n){l(n,4,0,Pl._11(n,5)._hidden);l(n,10,0,Pl._11(n,11)._disabled,Pl._11(n,16).ngClassUntouched,Pl._11(n,16).ngClassTouched,Pl._11(n,16).ngClassPristine,Pl._11(n,16).ngClassDirty,Pl._11(n,16).ngClassValid,Pl._11(n,16).ngClassInvalid,Pl._11(n,16).ngClassPending)})}function c(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,0,"img",[["src","../assets/imgs/noimage.jpg"]],null,null,null,null,null))],null,null)}function d(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,0,"img",[],[[8,"src",4]],null,null,null,null))],null,function(l,n){l(n,0,0,n.parent.context.$implicit.image)})}function g(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,0,"img",[],[[8,"src",4]],null,null,null,null))],null,function(l,n){l(n,0,0,n.parent.context.$implicit.image)})}function _(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,4,"ion-avatar",[["class","avatar"],["item-start",""]],null,null,null,null,null)),Pl.Y(1,16384,null,0,cn.a,[],null,null),(l()(),Pl._19(-1,null,["\n                                "])),(l()(),Pl.Z(3,0,null,null,0,"img",[["class","avatar-feedNOS"],["src","../assets/svg/NOS_logo.svg"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                            "]))],null,null)}function m(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,4,"ion-avatar",[["class","avatar"],["item-start",""]],null,null,null,null,null)),Pl.Y(1,16384,null,0,cn.a,[],null,null),(l()(),Pl._19(-1,null,["\n                                "])),(l()(),Pl.Z(3,0,null,null,0,"img",[["class","avatar-feedNOS"],["src","../assets/svg/NOS_logo_Wit.svg"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                            "]))],null,null)}function p(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,4,"ion-avatar",[["class","avatar"],["item-start",""]],null,null,null,null,null)),Pl.Y(1,16384,null,0,cn.a,[],null,null),(l()(),Pl._19(-1,null,["\n                                "])),(l()(),Pl.Z(3,0,null,null,0,"img",[["class","avatar-feedTelegraaf"],["src","../assets/svg/Telegraaf.svg"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                            "]))],null,null)}function f(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,4,"ion-avatar",[["class","avatar"],["item-start",""]],null,null,null,null,null)),Pl.Y(1,16384,null,0,cn.a,[],null,null),(l()(),Pl._19(-1,null,["\n                                "])),(l()(),Pl.Z(3,0,null,null,0,"img",[["class","avatar-feedTelegraaf"],["src","../assets/svg/Telegraaf_Wit.svg"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                            "]))],null,null)}function h(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,4,"ion-avatar",[["class","avatar"],["item-start",""]],null,null,null,null,null)),Pl.Y(1,16384,null,0,cn.a,[],null,null),(l()(),Pl._19(-1,null,["\n                                "])),(l()(),Pl.Z(3,0,null,null,0,"img",[["class","avatar-feed"],["src","../assets/svg/nu.nl.svg"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                            "]))],null,null)}function b(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,1,"div",[["class","uitgeverFeed"]],null,null,null,null,null)),(l()(),Pl._19(1,null,["",""]))],null,function(l,n){l(n,1,0,n.parent.context.$implicit.site)})}function v(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,1,"div",[["class","uitgeverFeedNU"]],null,null,null,null,null)),(l()(),Pl._19(1,null,["",""]))],null,function(l,n){l(n,1,0,n.parent.context.$implicit.site)})}function k(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,5,"button",[["class","socialTelegraafShare"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.showConfirmHide(l.parent.context.$implicit.id)&&e}return e},Al.b,Al.a)),Pl.Y(1,1097728,null,0,Dl.a,[[8,""],Nl.a,Pl.j,Pl.z],{clear:[0,"clear"]},null),(l()(),Pl._19(-1,0,["\n                                "])),(l()(),Pl.Z(3,0,null,0,1,"ion-icon",[["name","trash"],["role","img"]],[[2,"hide",null]],null,null,null,null)),Pl.Y(4,147456,null,0,El.a,[Nl.a,Pl.j,Pl.z],{name:[0,"name"]},null),(l()(),Pl._19(-1,0,["\n                            "]))],function(l,n){l(n,1,0,"");l(n,4,0,"trash")},function(l,n){l(n,3,0,Pl._11(n,4)._hidden)})}function Z(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,5,"button",[["class","socialNOSShare"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.showConfirmHide(l.parent.context.$implicit.id)&&e}return e},Al.b,Al.a)),Pl.Y(1,1097728,null,0,Dl.a,[[8,""],Nl.a,Pl.j,Pl.z],{clear:[0,"clear"]},null),(l()(),Pl._19(-1,0,["\n                                "])),(l()(),Pl.Z(3,0,null,0,1,"ion-icon",[["name","trash"],["role","img"]],[[2,"hide",null]],null,null,null,null)),Pl.Y(4,147456,null,0,El.a,[Nl.a,Pl.j,Pl.z],{name:[0,"name"]},null),(l()(),Pl._19(-1,0,["\n                            "]))],function(l,n){l(n,1,0,"");l(n,4,0,"trash")},function(l,n){l(n,3,0,Pl._11(n,4)._hidden)})}function Y(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,5,"button",[["class","socialNuShare"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.showConfirmHide(l.parent.context.$implicit.id)&&e}return e},Al.b,Al.a)),Pl.Y(1,1097728,null,0,Dl.a,[[8,""],Nl.a,Pl.j,Pl.z],{clear:[0,"clear"]},null),(l()(),Pl._19(-1,0,["\n                                "])),(l()(),Pl.Z(3,0,null,0,1,"ion-icon",[["name","trash"],["role","img"]],[[2,"hide",null]],null,null,null,null)),Pl.Y(4,147456,null,0,El.a,[Nl.a,Pl.j,Pl.z],{name:[0,"name"]},null),(l()(),Pl._19(-1,0,["\n                            "]))],function(l,n){l(n,1,0,"");l(n,4,0,"trash")},function(l,n){l(n,3,0,Pl._11(n,4)._hidden)})}function I(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,5,"button",[["class","socialTelegraafShare"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.shareInfo(l.parent.context.$implicit.title,l.parent.context.$implicit.image,l.parent.context.$implicit.link)&&e}return e},Al.b,Al.a)),Pl.Y(1,1097728,null,0,Dl.a,[[8,""],Nl.a,Pl.j,Pl.z],{clear:[0,"clear"]},null),(l()(),Pl._19(-1,0,["\n                                "])),(l()(),Pl.Z(3,0,null,0,1,"ion-icon",[["name","share-alt"],["role","img"]],[[2,"hide",null]],null,null,null,null)),Pl.Y(4,147456,null,0,El.a,[Nl.a,Pl.j,Pl.z],{name:[0,"name"]},null),(l()(),Pl._19(-1,0,["\n                            "]))],function(l,n){l(n,1,0,"");l(n,4,0,"share-alt")},function(l,n){l(n,3,0,Pl._11(n,4)._hidden)})}function j(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,5,"button",[["class","socialNOSShare"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.shareInfo(l.parent.context.$implicit.title,l.parent.context.$implicit.image,l.parent.context.$implicit.link)&&e}return e},Al.b,Al.a)),Pl.Y(1,1097728,null,0,Dl.a,[[8,""],Nl.a,Pl.j,Pl.z],{clear:[0,"clear"]},null),(l()(),Pl._19(-1,0,["\n                                "])),(l()(),Pl.Z(3,0,null,0,1,"ion-icon",[["name","share-alt"],["role","img"]],[[2,"hide",null]],null,null,null,null)),Pl.Y(4,147456,null,0,El.a,[Nl.a,Pl.j,Pl.z],{name:[0,"name"]},null),(l()(),Pl._19(-1,0,["\n                            "]))],function(l,n){l(n,1,0,"");l(n,4,0,"share-alt")},function(l,n){l(n,3,0,Pl._11(n,4)._hidden)})}function w(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,5,"button",[["class","socialNuShare"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.shareInfo(l.parent.context.$implicit.title,l.parent.context.$implicit.image,l.parent.context.$implicit.link)&&e}return e},Al.b,Al.a)),Pl.Y(1,1097728,null,0,Dl.a,[[8,""],Nl.a,Pl.j,Pl.z],{clear:[0,"clear"]},null),(l()(),Pl._19(-1,0,["\n                                "])),(l()(),Pl.Z(3,0,null,0,1,"ion-icon",[["name","share-alt"],["role","img"]],[[2,"hide",null]],null,null,null,null)),Pl.Y(4,147456,null,0,El.a,[Nl.a,Pl.j,Pl.z],{name:[0,"name"]},null),(l()(),Pl._19(-1,0,["\n                            "]))],function(l,n){l(n,1,0,"");l(n,4,0,"share-alt")},function(l,n){l(n,3,0,Pl._11(n,4)._hidden)})}function z(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,8,"button",[["class","socialTelegraaf"],["clear",""],["icon-start",""],["ion-button",""]],[[8,"disabled",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.setLike(l.parent.context.$implicit.id)&&e}return e},Al.b,Al.a)),Pl.Y(1,1097728,null,0,Dl.a,[[8,""],Nl.a,Pl.j,Pl.z],{clear:[0,"clear"]},null),(l()(),Pl._19(-1,0,["\n                                "])),(l()(),Pl.Z(3,0,null,0,1,"ion-icon",[["class","darkHeartOutline"],["name","heart-outline"],["role","img"]],[[2,"hide",null]],null,null,null,null)),Pl.Y(4,147456,null,0,El.a,[Nl.a,Pl.j,Pl.z],{name:[0,"name"]},null),(l()(),Pl._19(-1,0,["\n                                "])),(l()(),Pl.Z(6,0,null,0,1,"div",[],null,null,null,null,null)),(l()(),Pl._19(7,null,["",""])),(l()(),Pl._19(-1,0,["\n                            "]))],function(l,n){l(n,1,0,"");l(n,4,0,"heart-outline")},function(l,n){l(n,0,0,n.component.disabled);l(n,3,0,Pl._11(n,4)._hidden);l(n,7,0,n.parent.context.$implicit.likes)})}function C(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,8,"button",[["class","socialNOS"],["clear",""],["icon-start",""],["ion-button",""]],[[8,"disabled",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.setLike(l.parent.context.$implicit.id)&&e}return e},Al.b,Al.a)),Pl.Y(1,1097728,null,0,Dl.a,[[8,""],Nl.a,Pl.j,Pl.z],{clear:[0,"clear"]},null),(l()(),Pl._19(-1,0,["\n                                "])),(l()(),Pl.Z(3,0,null,0,1,"ion-icon",[["class","darkHeartOutline"],["name","heart-outline"],["role","img"]],[[2,"hide",null]],null,null,null,null)),Pl.Y(4,147456,null,0,El.a,[Nl.a,Pl.j,Pl.z],{name:[0,"name"]},null),(l()(),Pl._19(-1,0,["\n                                "])),(l()(),Pl.Z(6,0,null,0,1,"div",[],null,null,null,null,null)),(l()(),Pl._19(7,null,["",""])),(l()(),Pl._19(-1,0,["\n                            "]))],function(l,n){l(n,1,0,"");l(n,4,0,"heart-outline")},function(l,n){l(n,0,0,n.component.disabled);l(n,3,0,Pl._11(n,4)._hidden);l(n,7,0,n.parent.context.$implicit.likes)})}function y(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,8,"button",[["class","socialNu"],["clear",""],["icon-start",""],["ion-button",""]],[[8,"disabled",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.setLike(l.parent.context.$implicit.id)&&e}return e},Al.b,Al.a)),Pl.Y(1,1097728,null,0,Dl.a,[[8,""],Nl.a,Pl.j,Pl.z],{clear:[0,"clear"]},null),(l()(),Pl._19(-1,0,["\n                                "])),(l()(),Pl.Z(3,0,null,0,1,"ion-icon",[["class","darkHeartOutline"],["name","heart-outline"],["role","img"]],[[2,"hide",null]],null,null,null,null)),Pl.Y(4,147456,null,0,El.a,[Nl.a,Pl.j,Pl.z],{name:[0,"name"]},null),(l()(),Pl._19(-1,0,["\n                                "])),(l()(),Pl.Z(6,0,null,0,1,"div",[],null,null,null,null,null)),(l()(),Pl._19(7,null,["",""])),(l()(),Pl._19(-1,0,["\n                            "]))],function(l,n){l(n,1,0,"");l(n,4,0,"heart-outline")},function(l,n){l(n,0,0,n.component.disabled);l(n,3,0,Pl._11(n,4)._hidden);l(n,7,0,n.parent.context.$implicit.likes)})}function T(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,8,"button",[["class","socialTelegraaf"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.dislike(l.parent.context.$implicit.id,l.parent.context.$implicit.title)&&e}return e},Al.b,Al.a)),Pl.Y(1,1097728,null,0,Dl.a,[[8,""],Nl.a,Pl.j,Pl.z],{clear:[0,"clear"]},null),(l()(),Pl._19(-1,0,["\n                                "])),(l()(),Pl.Z(3,0,null,0,1,"ion-icon",[["class","darkHeartFull"],["name","heart"],["role","img"]],[[2,"hide",null]],null,null,null,null)),Pl.Y(4,147456,null,0,El.a,[Nl.a,Pl.j,Pl.z],{name:[0,"name"]},null),(l()(),Pl._19(-1,0,["\n                                "])),(l()(),Pl.Z(6,0,null,0,1,"div",[],null,null,null,null,null)),(l()(),Pl._19(7,null,["",""])),(l()(),Pl._19(-1,0,["\n                            "]))],function(l,n){l(n,1,0,"");l(n,4,0,"heart")},function(l,n){l(n,3,0,Pl._11(n,4)._hidden);l(n,7,0,n.parent.context.$implicit.likes)})}function x(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,8,"button",[["class","socialNOS"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.dislike(l.parent.context.$implicit.id,l.parent.context.$implicit.title)&&e}return e},Al.b,Al.a)),Pl.Y(1,1097728,null,0,Dl.a,[[8,""],Nl.a,Pl.j,Pl.z],{clear:[0,"clear"]},null),(l()(),Pl._19(-1,0,["\n                                "])),(l()(),Pl.Z(3,0,null,0,1,"ion-icon",[["class","darkHeartFull"],["name","heart"],["role","img"]],[[2,"hide",null]],null,null,null,null)),Pl.Y(4,147456,null,0,El.a,[Nl.a,Pl.j,Pl.z],{name:[0,"name"]},null),(l()(),Pl._19(-1,0,["\n                                "])),(l()(),Pl.Z(6,0,null,0,1,"div",[],null,null,null,null,null)),(l()(),Pl._19(7,null,["",""])),(l()(),Pl._19(-1,0,["\n                            "]))],function(l,n){l(n,1,0,"");l(n,4,0,"heart")},function(l,n){l(n,3,0,Pl._11(n,4)._hidden);l(n,7,0,n.parent.context.$implicit.likes)})}function F(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,8,"button",[["class","socialNu"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.dislike(l.parent.context.$implicit.id,l.parent.context.$implicit.title)&&e}return e},Al.b,Al.a)),Pl.Y(1,1097728,null,0,Dl.a,[[8,""],Nl.a,Pl.j,Pl.z],{clear:[0,"clear"]},null),(l()(),Pl._19(-1,0,["\n                                "])),(l()(),Pl.Z(3,0,null,0,1,"ion-icon",[["class","darkHeartFull"],["name","heart"],["role","img"]],[[2,"hide",null]],null,null,null,null)),Pl.Y(4,147456,null,0,El.a,[Nl.a,Pl.j,Pl.z],{name:[0,"name"]},null),(l()(),Pl._19(-1,0,["\n                                "])),(l()(),Pl.Z(6,0,null,0,1,"div",[],null,null,null,null,null)),(l()(),Pl._19(7,null,["",""])),(l()(),Pl._19(-1,0,["\n                            "]))],function(l,n){l(n,1,0,"");l(n,4,0,"heart")},function(l,n){l(n,3,0,Pl._11(n,4)._hidden);l(n,7,0,n.parent.context.$implicit.likes)})}function S(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,8,"button",[["class","socialTelegraaf"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.viewComments({record:l.parent.context.$implicit})&&e}return e},Al.b,Al.a)),Pl.Y(1,1097728,null,0,Dl.a,[[8,""],Nl.a,Pl.j,Pl.z],{clear:[0,"clear"]},null),(l()(),Pl._19(-1,0,["\n                                "])),(l()(),Pl.Z(3,0,null,0,1,"ion-icon",[["class","darkChatTelegraaf"],["name","chatbubbles"],["role","img"]],[[2,"hide",null]],null,null,null,null)),Pl.Y(4,147456,null,0,El.a,[Nl.a,Pl.j,Pl.z],{name:[0,"name"]},null),(l()(),Pl._19(-1,0,["\n                                "])),(l()(),Pl.Z(6,0,null,0,1,"div",[],null,null,null,null,null)),(l()(),Pl._19(7,null,["",""])),(l()(),Pl._19(-1,0,["\n                            "]))],function(l,n){l(n,1,0,"");l(n,4,0,"chatbubbles")},function(l,n){l(n,3,0,Pl._11(n,4)._hidden);l(n,7,0,n.parent.context.$implicit.comments)})}function U(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,8,"button",[["class","socialNOS"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.viewComments({record:l.parent.context.$implicit})&&e}return e},Al.b,Al.a)),Pl.Y(1,1097728,null,0,Dl.a,[[8,""],Nl.a,Pl.j,Pl.z],{clear:[0,"clear"]},null),(l()(),Pl._19(-1,0,["\n                                "])),(l()(),Pl.Z(3,0,null,0,1,"ion-icon",[["class","darkChatNOS"],["name","chatbubbles"],["role","img"]],[[2,"hide",null]],null,null,null,null)),Pl.Y(4,147456,null,0,El.a,[Nl.a,Pl.j,Pl.z],{name:[0,"name"]},null),(l()(),Pl._19(-1,0,["\n                                "])),(l()(),Pl.Z(6,0,null,0,1,"div",[],null,null,null,null,null)),(l()(),Pl._19(7,null,["",""])),(l()(),Pl._19(-1,0,["\n                            "]))],function(l,n){l(n,1,0,"");l(n,4,0,"chatbubbles")},function(l,n){l(n,3,0,Pl._11(n,4)._hidden);l(n,7,0,n.parent.context.$implicit.comments)})}function $(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,8,"button",[["class","socialNu"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.viewComments({record:l.parent.context.$implicit})&&e}return e},Al.b,Al.a)),Pl.Y(1,1097728,null,0,Dl.a,[[8,""],Nl.a,Pl.j,Pl.z],{clear:[0,"clear"]},null),(l()(),Pl._19(-1,0,["\n                                "])),(l()(),Pl.Z(3,0,null,0,1,"ion-icon",[["class","darkChatNU"],["name","chatbubbles"],["role","img"]],[[2,"hide",null]],null,null,null,null)),Pl.Y(4,147456,null,0,El.a,[Nl.a,Pl.j,Pl.z],{name:[0,"name"]},null),(l()(),Pl._19(-1,0,["\n                                "])),(l()(),Pl.Z(6,0,null,0,1,"div",[],null,null,null,null,null)),(l()(),Pl._19(7,null,["",""])),(l()(),Pl._19(-1,0,["\n                            "]))],function(l,n){l(n,1,0,"");l(n,4,0,"chatbubbles")},function(l,n){l(n,3,0,Pl._11(n,4)._hidden);l(n,7,0,n.parent.context.$implicit.comments)})}function P(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,123,"ion-card",[["class","ionCard"],["col-md-6",""]],null,null,null,null,null)),Pl.Y(1,16384,null,0,dn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(-1,null,["\n                    "])),(l()(),Pl._19(-1,null,["\n                    "])),(l()(),Pl.Z(4,0,null,null,10,"div",[["class","ion-card-image-wrapper"]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.viewEntry({record:l.context.$implicit})&&e}return e},null,null)),(l()(),Pl._19(-1,null,["\n                        "])),(l()(),Pl.U(16777216,null,null,1,null,c)),Pl.Y(7,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                        "])),(l()(),Pl.U(16777216,null,null,1,null,d)),Pl.Y(10,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                        "])),(l()(),Pl.U(16777216,null,null,1,null,g)),Pl.Y(13,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                    "])),(l()(),Pl._19(-1,null,["\n                    "])),(l()(),Pl.Z(16,0,null,null,106,"ion-card-content",[],null,null,null,null,null)),Pl.Y(17,16384,null,0,gn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(-1,null,["\n                        "])),(l()(),Pl._19(-1,null,["\n                        "])),(l()(),Pl.Z(20,0,null,null,16,"div",[["id","AvatarFeed"]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.viewEntry({record:l.context.$implicit})&&e}return e},null,null)),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.U(16777216,null,null,1,null,_)),Pl.Y(23,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.U(16777216,null,null,1,null,m)),Pl.Y(26,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.U(16777216,null,null,1,null,p)),Pl.Y(29,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.U(16777216,null,null,1,null,f)),Pl.Y(32,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.U(16777216,null,null,1,null,h)),Pl.Y(35,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                        "])),(l()(),Pl._19(-1,null,["\n                        "])),(l()(),Pl._19(-1,null,["\n                        "])),(l()(),Pl.Z(39,0,null,null,33,"div",[["id","uitgeverFeed"]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.viewEntry({record:l.context.$implicit})&&e}return e},null,null)),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.U(16777216,null,null,1,null,b)),Pl.Y(42,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.U(16777216,null,null,1,null,v)),Pl.Y(45,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.Z(48,0,null,null,8,"div",[["id","title"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                "])),(l()(),Pl.Z(50,0,null,null,5,"ion-card-title",[["class","TitleFeed"]],null,null,null,null,null)),Pl.Y(51,16384,null,0,_n.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(-1,null,["\n                                    "])),(l()(),Pl.Z(53,0,null,null,1,"strong",[],null,null,null,null,null)),(l()(),Pl._19(54,null,["",""])),(l()(),Pl._19(-1,null,["\n                                "])),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.Z(59,0,null,null,5,"div",[["id","description"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                "])),(l()(),Pl.Z(61,0,null,null,2,"p",[["class","descriptionFeed"]],null,null,null,null,null)),(l()(),Pl._19(62,null,["","..."])),Pl._13(0,Jl.r,[]),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.Z(67,0,null,null,4,"div",[["class","datumFeed"],["id","datumFeed"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                "])),(l()(),Pl.Z(69,0,null,null,1,"span",[],null,null,null,null,null)),(l()(),Pl._19(70,null,["",""])),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl._19(-1,null,["\n                        "])),(l()(),Pl._19(-1,null,["\n                        "])),(l()(),Pl._19(-1,null,["\n                        "])),(l()(),Pl.Z(75,0,null,null,46,"div",[["class","socialLikeComments"],["id","socialLikeComments"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.U(16777216,null,null,1,null,k)),Pl.Y(78,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.U(16777216,null,null,1,null,Z)),Pl.Y(81,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.U(16777216,null,null,1,null,Y)),Pl.Y(84,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.U(16777216,null,null,1,null,I)),Pl.Y(87,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.U(16777216,null,null,1,null,j)),Pl.Y(90,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.U(16777216,null,null,1,null,w)),Pl.Y(93,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.U(16777216,null,null,1,null,z)),Pl.Y(96,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.U(16777216,null,null,1,null,C)),Pl.Y(99,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.U(16777216,null,null,1,null,y)),Pl.Y(102,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.U(16777216,null,null,1,null,T)),Pl.Y(105,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.U(16777216,null,null,1,null,x)),Pl.Y(108,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.U(16777216,null,null,1,null,F)),Pl.Y(111,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.U(16777216,null,null,1,null,S)),Pl.Y(114,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.U(16777216,null,null,1,null,U)),Pl.Y(117,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.U(16777216,null,null,1,null,$)),Pl.Y(120,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                        "])),(l()(),Pl._19(-1,null,["\n                    "])),(l()(),Pl._19(-1,null,["\n                "]))],function(l,n){var u=n.component;l(n,7,0,!n.context.$implicit.image);l(n,10,0,"NOS.nl"==n.context.$implicit.site);l(n,13,0,"NOS.nl"!=n.context.$implicit.site||"NU.nl"!=n.context.$implicit.site);l(n,23,0,"NOS"==n.context.$implicit.site&&"light-theme"==u.currentTheme);l(n,26,0,"NOS"==n.context.$implicit.site&&"dark-theme"==u.currentTheme);l(n,29,0,"De Telegraaf"==n.context.$implicit.site&&"light-theme"==u.currentTheme);l(n,32,0,"De Telegraaf"==n.context.$implicit.site&&"dark-theme"==u.currentTheme);l(n,35,0,"NU.nl"==n.context.$implicit.site);l(n,42,0,"De Telegraaf"==n.context.$implicit.site||"NOS"==n.context.$implicit.site);l(n,45,0,"NU.nl"==n.context.$implicit.site);l(n,78,0,"De Telegraaf"==n.context.$implicit.site&&1==u.rol);l(n,81,0,"NOS"==n.context.$implicit.site&&1==u.rol);l(n,84,0,"NU.nl"==n.context.$implicit.site&&1==u.rol);l(n,87,0,"De Telegraaf"==n.context.$implicit.site);l(n,90,0,"NOS"==n.context.$implicit.site);l(n,93,0,"NU.nl"==n.context.$implicit.site);l(n,96,0,"De Telegraaf"==n.context.$implicit.site&&0==n.context.$implicit.liked);l(n,99,0,"NOS"==n.context.$implicit.site&&0==n.context.$implicit.liked);l(n,102,0,"NU.nl"==n.context.$implicit.site&&0==n.context.$implicit.liked);l(n,105,0,"De Telegraaf"==n.context.$implicit.site&&1==n.context.$implicit.liked);l(n,108,0,"NOS"==n.context.$implicit.site&&1==n.context.$implicit.liked);l(n,111,0,"NU.nl"==n.context.$implicit.site&&1==n.context.$implicit.liked);l(n,114,0,"De Telegraaf"==n.context.$implicit.site);l(n,117,0,"NOS"==n.context.$implicit.site);l(n,120,0,"NU.nl"==n.context.$implicit.site)},function(l,n){var u=n.component;l(n,54,0,n.context.$implicit.title);l(n,62,0,Pl._20(n,62,0,Pl._11(n,63).transform(u.htmlToPlaintext(n.context.$implicit.description),0,120)));l(n,70,0,n.context.$implicit.datum)})}function A(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,13,"ion-grid",[["class","feedGrid grid"]],null,null,null,null,null)),Pl.Y(1,16384,null,0,mn.a,[],null,null),(l()(),Pl._19(-1,null,["\n        "])),(l()(),Pl.Z(3,0,null,null,9,"ion-col",[["class","col"]],null,null,null,null,null)),Pl.Y(4,16384,null,0,pn.a,[],null,null),(l()(),Pl._19(-1,null,["\n            "])),(l()(),Pl.Z(6,0,null,null,5,"ion-row",[["class","row"]],null,null,null,null,null)),Pl.Y(7,16384,null,0,fn.a,[],null,null),(l()(),Pl._19(-1,null,["\n                "])),(l()(),Pl.U(16777216,null,null,1,null,P)),Pl.Y(10,802816,null,0,Jl.h,[Pl.I,Pl.F,Pl.p],{ngForOf:[0,"ngForOf"]},null),(l()(),Pl._19(-1,null,["\n            "])),(l()(),Pl._19(-1,null,["\n        "])),(l()(),Pl._19(-1,null,["\n    "]))],function(l,n){l(n,10,0,n.component.items)},null)}function D(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,0,"img",[["alt","Zon"],["src","../assets/imgs/Weer/lichtBewolkt.png"]],null,null,null,null,null))],null,null)}function N(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,0,"img",[["alt","Zon"],["src","../assets/imgs/Weer/clearSky.png"]],null,null,null,null,null))],null,null)}function O(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,0,"img",[["alt","Bewolkt"],["src","../assets/imgs/Weer/lichtBewolkt.png"]],null,null,null,null,null))],null,null)}function L(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,0,"img",[["alt","Bewolkt"],["src","../assets/imgs/Weer/lichtBewolkt.png"]],null,null,null,null,null))],null,null)}function W(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,0,"img",[["alt","Bewolkt"],["src","../assets/imgs/Weer/zwaarBewolktMiddag.png"]],null,null,null,null,null))],null,null)}function V(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,0,"img",[["alt","Bewolkt"],["src","../assets/imgs/Weer/zwaarBewolktMiddag.png"]],null,null,null,null,null))],null,null)}function M(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,21,"button",[["class","item item-block"],["detail-none",""],["ion-item",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!=(l.component.open=!1)&&e}return e},hn.b,hn.a)),Pl.Y(1,1097728,null,3,on.a,[an.a,Nl.a,Pl.j,Pl.z,[2,bn.a]],null,null),Pl._17(335544320,9,{contentLabel:0}),Pl._17(603979776,10,{_buttons:1}),Pl._17(603979776,11,{_icons:1}),Pl.Y(5,16384,null,0,vn.a,[],null,null),(l()(),Pl._19(-1,2,["\n                                        "])),(l()(),Pl.Z(7,0,null,2,7,"div",[["class","buttonTijd"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(9,0,null,null,1,"ion-icon",[["item-left",""],["name","arrow-dropright"],["role","img"]],[[2,"hide",null]],null,null,null,null)),Pl.Y(10,147456,[[11,4]],0,El.a,[Nl.a,Pl.j,Pl.z],{name:[0,"name"]},null),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(12,0,null,null,1,"span",[["class","tijdWeer"]],null,null,null,null,null)),(l()(),Pl._19(13,null,["",""])),(l()(),Pl._19(-1,null,["\n                                        "])),(l()(),Pl._19(-1,2,["\n                                        "])),(l()(),Pl.Z(16,0,null,2,4,"div",[["class","gradenDiv"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(18,0,null,null,1,"div",[["class","graden"]],null,null,null,null,null)),(l()(),Pl._19(19,null,["","° C"])),(l()(),Pl._19(-1,null,["\n                                        "])),(l()(),Pl._19(-1,2,["\n                                    "]))],function(l,n){l(n,10,0,"arrow-dropright")},function(l,n){var u=n.component;l(n,9,0,Pl._11(n,10)._hidden);l(n,13,0,u.dag1DatumTijd12uur);l(n,19,0,u.dag1NaarCelcius12uurMathRound)})}function H(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,21,"button",[["class","item item-block"],["detail-none",""],["ion-item",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!=(l.component.open=!0)&&e}return e},hn.b,hn.a)),Pl.Y(1,1097728,null,3,on.a,[an.a,Nl.a,Pl.j,Pl.z,[2,bn.a]],null,null),Pl._17(335544320,12,{contentLabel:0}),Pl._17(603979776,13,{_buttons:1}),Pl._17(603979776,14,{_icons:1}),Pl.Y(5,16384,null,0,vn.a,[],null,null),(l()(),Pl._19(-1,2,["\n                                        "])),(l()(),Pl.Z(7,0,null,2,7,"div",[["class","buttonTijd"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(9,0,null,null,1,"ion-icon",[["item-left",""],["name","arrow-dropdown"],["role","img"]],[[2,"hide",null]],null,null,null,null)),Pl.Y(10,147456,[[14,4]],0,El.a,[Nl.a,Pl.j,Pl.z],{name:[0,"name"]},null),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(12,0,null,null,1,"span",[["class","tijdWeer"]],null,null,null,null,null)),(l()(),Pl._19(13,null,["",""])),(l()(),Pl._19(-1,null,["\n                                        "])),(l()(),Pl._19(-1,2,["\n                                        "])),(l()(),Pl.Z(16,0,null,2,4,"div",[["class","gradenDiv"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(18,0,null,null,1,"div",[["class","graden"]],null,null,null,null,null)),(l()(),Pl._19(19,null,["","° C"])),(l()(),Pl._19(-1,null,["\n                                        "])),(l()(),Pl._19(-1,2,["\n                                    "]))],function(l,n){l(n,10,0,"arrow-dropdown")},function(l,n){var u=n.component;l(n,9,0,Pl._11(n,10)._hidden);l(n,13,0,u.dag1DatumTijd12uur);l(n,19,0,u.dag1NaarCelcius12uurMathRound)})}function E(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,10,"ul",[["class","uitklapWeer"]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!=(l.component.open=!0)&&e}return e},null,null)),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(2,0,null,null,1,"li",[["class","spanClasses"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["Luchtvochtigheid"])),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(5,0,null,null,1,"li",[["class","spanClasses"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["Wind"])),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(8,0,null,null,1,"li",[["class","spanClasses"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["Weer"])),(l()(),Pl._19(-1,null,["\n                                        "]))],null,null)}function R(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,2,"ion-badge",[["class","badgeClasses"]],null,null,null,null,null)),Pl.Y(1,16384,null,0,kn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(-1,null,["Lichte regenbui\n                                                "]))],null,null)}function B(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,2,"ion-badge",[["class","badgeClasses"]],null,null,null,null,null)),Pl.Y(1,16384,null,0,kn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(-1,null,["Lichte regenbui\n                                                "]))],null,null)}function q(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,2,"ion-badge",[["class","badgeClasses"]],null,null,null,null,null)),Pl.Y(1,16384,null,0,kn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(-1,null,["\n                                                    Heldere lucht\n                                                "]))],null,null)}function G(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,5,"ion-badge",[["class","badgeClasses"]],null,null,null,null,null)),Pl.Y(1,16384,null,0,kn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(-1,null,["Gedeeltelijk "])),(l()(),Pl.Z(3,0,null,null,0,"br",[],null,null,null,null,null)),(l()(),Pl.Z(4,0,null,null,1,"span",[["class","bewolktSpan"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["bewolkt"]))],null,null)}function K(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,5,"ion-badge",[["class","badgeClasses"]],null,null,null,null,null)),Pl.Y(1,16384,null,0,kn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(-1,null,["Gedeeltelijk "])),(l()(),Pl.Z(3,0,null,null,0,"br",[],null,null,null,null,null)),(l()(),Pl.Z(4,0,null,null,1,"span",[["class","bewolktSpan"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["bewolkt"]))],null,null)}function X(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,5,"ion-badge",[["class","badgeClasses"]],null,null,null,null,null)),Pl.Y(1,16384,null,0,kn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(-1,null,["Verspreide "])),(l()(),Pl.Z(3,0,null,null,0,"br",[],null,null,null,null,null)),(l()(),Pl.Z(4,0,null,null,1,"span",[["class","bewolktSpan"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["bewolking"]))],null,null)}function J(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,36,"ul",[["class","uitklapWeerAntwoorden"]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!=(l.component.open=!0)&&e}return e},null,null)),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(2,0,null,null,5,"li",[],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                                "])),(l()(),Pl.Z(4,0,null,null,2,"ion-badge",[["class","badgeClasses"]],null,null,null,null,null)),Pl.Y(5,16384,null,0,kn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(6,null,["","%\n                                                "])),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(9,0,null,null,5,"li",[],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                                "])),(l()(),Pl.Z(11,0,null,null,2,"ion-badge",[["class","badgeClasses"]],null,null,null,null,null)),Pl.Y(12,16384,null,0,kn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(13,null,["","\n                                                    km/u\n                                                "])),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(16,0,null,null,19,"li",[],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n\n                                                "])),(l()(),Pl.U(16777216,null,null,1,null,R)),Pl.Y(19,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                                "])),(l()(),Pl.U(16777216,null,null,1,null,B)),Pl.Y(22,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                                "])),(l()(),Pl.U(16777216,null,null,1,null,q)),Pl.Y(25,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                                "])),(l()(),Pl.U(16777216,null,null,1,null,G)),Pl.Y(28,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                                "])),(l()(),Pl.U(16777216,null,null,1,null,K)),Pl.Y(31,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                                "])),(l()(),Pl.U(16777216,null,null,1,null,X)),Pl.Y(34,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl._19(-1,null,["\n                                        "]))],function(l,n){var u=n.component;l(n,19,0,"moderate rain"==u.dag1Weather12uur);l(n,22,0,"light rain"==u.dag1Weather12uur);l(n,25,0,"clear sky"==u.dag1Weather12uur);l(n,28,0,"few clouds"==u.dag1Weather12uur);l(n,31,0,"broken clouds"==u.dag1Weather12uur);l(n,34,0,"scattered clouds"==u.dag1Weather12uur)},function(l,n){var u=n.component;l(n,6,0,u.dag1Weather12uurHumidity);l(n,13,0,u.windNaarKm12uurDag1MathRound)})}function Q(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,21,"button",[["class","item item-block"],["detail-none",""],["ion-item",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!=(l.component.open2=!1)&&e}return e},hn.b,hn.a)),Pl.Y(1,1097728,null,3,on.a,[an.a,Nl.a,Pl.j,Pl.z,[2,bn.a]],null,null),Pl._17(335544320,15,{contentLabel:0}),Pl._17(603979776,16,{_buttons:1}),Pl._17(603979776,17,{_icons:1}),Pl.Y(5,16384,null,0,vn.a,[],null,null),(l()(),Pl._19(-1,2,["\n                                        "])),(l()(),Pl.Z(7,0,null,2,7,"div",[["class","buttonTijd"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(9,0,null,null,1,"ion-icon",[["item-left",""],["name","arrow-dropright"],["role","img"]],[[2,"hide",null]],null,null,null,null)),Pl.Y(10,147456,[[17,4]],0,El.a,[Nl.a,Pl.j,Pl.z],{name:[0,"name"]},null),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(12,0,null,null,1,"span",[["class","tijdWeer"]],null,null,null,null,null)),(l()(),Pl._19(13,null,["",""])),(l()(),Pl._19(-1,null,["\n                                        "])),(l()(),Pl._19(-1,2,["\n                                        "])),(l()(),Pl.Z(16,0,null,2,4,"div",[["class","gradenDiv"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(18,0,null,null,1,"div",[["class","graden"]],null,null,null,null,null)),(l()(),Pl._19(19,null,["","° C"])),(l()(),Pl._19(-1,null,["\n                                        "])),(l()(),Pl._19(-1,2,["\n                                    "]))],function(l,n){l(n,10,0,"arrow-dropright")},function(l,n){var u=n.component;l(n,9,0,Pl._11(n,10)._hidden);l(n,13,0,u.dag1DatumTijd15uur);l(n,19,0,u.dag1NaarCelcius15uurMathRound)})}function ll(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,21,"button",[["class","item item-block"],["detail-none",""],["ion-item",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!=(l.component.open2=!0)&&e}return e},hn.b,hn.a)),Pl.Y(1,1097728,null,3,on.a,[an.a,Nl.a,Pl.j,Pl.z,[2,bn.a]],null,null),Pl._17(335544320,18,{contentLabel:0}),Pl._17(603979776,19,{_buttons:1}),Pl._17(603979776,20,{_icons:1}),Pl.Y(5,16384,null,0,vn.a,[],null,null),(l()(),Pl._19(-1,2,["\n                                        "])),(l()(),Pl.Z(7,0,null,2,7,"div",[["class","buttonTijd"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(9,0,null,null,1,"ion-icon",[["item-left",""],["name","arrow-dropdown"],["role","img"]],[[2,"hide",null]],null,null,null,null)),Pl.Y(10,147456,[[20,4]],0,El.a,[Nl.a,Pl.j,Pl.z],{name:[0,"name"]},null),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(12,0,null,null,1,"span",[["class","tijdWeer"]],null,null,null,null,null)),(l()(),Pl._19(13,null,["",""])),(l()(),Pl._19(-1,null,["\n                                        "])),(l()(),Pl._19(-1,2,["\n                                        "])),(l()(),Pl.Z(16,0,null,2,4,"div",[["class","gradenDiv"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(18,0,null,null,1,"div",[["class","graden"]],null,null,null,null,null)),(l()(),Pl._19(19,null,["","° C"])),(l()(),Pl._19(-1,null,["\n                                        "])),(l()(),Pl._19(-1,2,["\n                                    "]))],function(l,n){l(n,10,0,"arrow-dropdown")},function(l,n){var u=n.component;l(n,9,0,Pl._11(n,10)._hidden);l(n,13,0,u.dag1DatumTijd15uur);l(n,19,0,u.dag1NaarCelcius15uurMathRound)})}function nl(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,10,"ul",[["class","uitklapWeer"]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!=(l.component.open2=!0)&&e}return e},null,null)),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(2,0,null,null,1,"li",[["class","spanClasses"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["Luchtvochtigheid"])),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(5,0,null,null,1,"li",[["class","spanClasses"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["Wind"])),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(8,0,null,null,1,"li",[["class","spanClasses"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["Weer"])),(l()(),Pl._19(-1,null,["\n                                        "]))],null,null)}function ul(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,2,"ion-badge",[["class","badgeClasses"]],null,null,null,null,null)),Pl.Y(1,16384,null,0,kn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(-1,null,["Lichte regenbui\n                                                "]))],null,null)}function el(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,2,"ion-badge",[["class","badgeClasses"]],null,null,null,null,null)),Pl.Y(1,16384,null,0,kn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(-1,null,["Lichte regenbui\n                                                "]))],null,null)}function tl(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,2,"ion-badge",[["class","badgeClasses"]],null,null,null,null,null)),Pl.Y(1,16384,null,0,kn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(-1,null,["\n                                                    Heldere lucht\n                                                "]))],null,null)}function al(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,5,"ion-badge",[["class","badgeClasses"]],null,null,null,null,null)),Pl.Y(1,16384,null,0,kn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(-1,null,["Gedeeltelijk "])),(l()(),Pl.Z(3,0,null,null,0,"br",[],null,null,null,null,null)),(l()(),Pl.Z(4,0,null,null,1,"span",[["class","bewolktSpan"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["bewolkt"]))],null,null)}function il(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,5,"ion-badge",[["class","badgeClasses"]],null,null,null,null,null)),Pl.Y(1,16384,null,0,kn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(-1,null,["Gedeeltelijk "])),(l()(),Pl.Z(3,0,null,null,0,"br",[],null,null,null,null,null)),(l()(),Pl.Z(4,0,null,null,1,"span",[["class","bewolktSpan"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["bewolkt"]))],null,null)}function ol(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,5,"ion-badge",[["class","badgeClasses"]],null,null,null,null,null)),Pl.Y(1,16384,null,0,kn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(-1,null,["Verspreide "])),(l()(),Pl.Z(3,0,null,null,0,"br",[],null,null,null,null,null)),(l()(),Pl.Z(4,0,null,null,1,"span",[["class","bewolktSpan"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["bewolking"]))],null,null)}function rl(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,36,"ul",[["class","uitklapWeerAntwoorden"]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!=(l.component.open2=!0)&&e}return e},null,null)),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(2,0,null,null,5,"li",[],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                                "])),(l()(),Pl.Z(4,0,null,null,2,"ion-badge",[["class","badgeClasses"]],null,null,null,null,null)),Pl.Y(5,16384,null,0,kn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(6,null,["","%\n                                                "])),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(9,0,null,null,5,"li",[],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                                "])),(l()(),Pl.Z(11,0,null,null,2,"ion-badge",[["class","badgeClasses"]],null,null,null,null,null)),Pl.Y(12,16384,null,0,kn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(13,null,["","\n                                                    km/u\n                                                "])),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(16,0,null,null,19,"li",[],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                                "])),(l()(),Pl.U(16777216,null,null,1,null,ul)),Pl.Y(19,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                                "])),(l()(),Pl.U(16777216,null,null,1,null,el)),Pl.Y(22,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                                "])),(l()(),Pl.U(16777216,null,null,1,null,tl)),Pl.Y(25,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                                "])),(l()(),Pl.U(16777216,null,null,1,null,al)),Pl.Y(28,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                                "])),(l()(),Pl.U(16777216,null,null,1,null,il)),Pl.Y(31,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                                "])),(l()(),Pl.U(16777216,null,null,1,null,ol)),Pl.Y(34,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl._19(-1,null,["\n                                        "]))],function(l,n){var u=n.component;l(n,19,0,"moderate rain"==u.dag1Weather15uur);l(n,22,0,"light rain"==u.dag1Weather15uur);l(n,25,0,"clear sky"==u.dag1Weather15uur);l(n,28,0,"few clouds"==u.dag1Weather15uur);l(n,31,0,"broken clouds"==u.dag1Weather15uur);l(n,34,0,"scattered clouds"==u.dag1Weather15uur)},function(l,n){var u=n.component;l(n,6,0,u.dag1Weather15uurHumidity);l(n,13,0,u.windNaarKm15uurDag1MathRound)})}function sl(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,21,"button",[["class","item item-block"],["detail-none",""],["ion-item",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!=(l.component.open3=!1)&&e}return e},hn.b,hn.a)),Pl.Y(1,1097728,null,3,on.a,[an.a,Nl.a,Pl.j,Pl.z,[2,bn.a]],null,null),Pl._17(335544320,21,{contentLabel:0}),Pl._17(603979776,22,{_buttons:1}),Pl._17(603979776,23,{_icons:1}),Pl.Y(5,16384,null,0,vn.a,[],null,null),(l()(),Pl._19(-1,2,["\n                                        "])),(l()(),Pl.Z(7,0,null,2,7,"div",[["class","buttonTijd"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(9,0,null,null,1,"ion-icon",[["item-left",""],["name","arrow-dropright"],["role","img"]],[[2,"hide",null]],null,null,null,null)),Pl.Y(10,147456,[[23,4]],0,El.a,[Nl.a,Pl.j,Pl.z],{name:[0,"name"]},null),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(12,0,null,null,1,"span",[["class","tijdWeer"]],null,null,null,null,null)),(l()(),Pl._19(13,null,["",""])),(l()(),Pl._19(-1,null,["\n                                        "])),(l()(),Pl._19(-1,2,["\n                                        "])),(l()(),Pl.Z(16,0,null,2,4,"div",[["class","gradenDiv"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(18,0,null,null,1,"div",[["class","graden"]],null,null,null,null,null)),(l()(),Pl._19(19,null,["","° C"])),(l()(),Pl._19(-1,null,["\n                                        "])),(l()(),Pl._19(-1,2,["\n                                    "]))],function(l,n){l(n,10,0,"arrow-dropright")},function(l,n){var u=n.component;l(n,9,0,Pl._11(n,10)._hidden);l(n,13,0,u.dag1DatumTijd18uur);l(n,19,0,u.dag1NaarCelcius18uurMathRound)})}function cl(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,21,"button",[["class","item item-block"],["detail-none",""],["ion-item",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!=(l.component.open3=!0)&&e}return e},hn.b,hn.a)),Pl.Y(1,1097728,null,3,on.a,[an.a,Nl.a,Pl.j,Pl.z,[2,bn.a]],null,null),Pl._17(335544320,24,{contentLabel:0}),Pl._17(603979776,25,{_buttons:1}),Pl._17(603979776,26,{_icons:1}),Pl.Y(5,16384,null,0,vn.a,[],null,null),(l()(),Pl._19(-1,2,["\n                                        "])),(l()(),Pl.Z(7,0,null,2,7,"div",[["class","buttonTijd"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(9,0,null,null,1,"ion-icon",[["item-left",""],["name","arrow-dropdown"],["role","img"]],[[2,"hide",null]],null,null,null,null)),Pl.Y(10,147456,[[26,4]],0,El.a,[Nl.a,Pl.j,Pl.z],{name:[0,"name"]},null),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(12,0,null,null,1,"span",[["class","tijdWeer"]],null,null,null,null,null)),(l()(),Pl._19(13,null,["",""])),(l()(),Pl._19(-1,null,["\n                                        "])),(l()(),Pl._19(-1,2,["\n                                        "])),(l()(),Pl.Z(16,0,null,2,4,"div",[["class","gradenDiv"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(18,0,null,null,1,"div",[["class","graden"]],null,null,null,null,null)),(l()(),Pl._19(19,null,["","° C"])),(l()(),Pl._19(-1,null,["\n                                        "])),(l()(),Pl._19(-1,2,["\n                                    "]))],function(l,n){l(n,10,0,"arrow-dropdown")},function(l,n){var u=n.component;l(n,9,0,Pl._11(n,10)._hidden);l(n,13,0,u.dag1DatumTijd18uur);l(n,19,0,u.dag1NaarCelcius18uurMathRound)})}function dl(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,10,"ul",[["class","uitklapWeer"]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!=(l.component.open3=!0)&&e}return e},null,null)),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(2,0,null,null,1,"li",[["class","spanClasses"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["Luchtvochtigheid"])),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(5,0,null,null,1,"li",[["class","spanClasses"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["Wind"])),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(8,0,null,null,1,"li",[["class","spanClasses"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["Weer"])),(l()(),Pl._19(-1,null,["\n                                        "]))],null,null)}function gl(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,2,"ion-badge",[["class","badgeClasses"]],null,null,null,null,null)),Pl.Y(1,16384,null,0,kn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(-1,null,["Lichte regenbui\n                                                "]))],null,null)}function _l(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,2,"ion-badge",[["class","badgeClasses"]],null,null,null,null,null)),Pl.Y(1,16384,null,0,kn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(-1,null,["Lichte regenbui\n                                                "]))],null,null)}function ml(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,2,"ion-badge",[["class","badgeClasses"]],null,null,null,null,null)),Pl.Y(1,16384,null,0,kn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(-1,null,["\n                                                    Heldere lucht\n                                                "]))],null,null)}function pl(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,5,"ion-badge",[["class","badgeClasses"]],null,null,null,null,null)),Pl.Y(1,16384,null,0,kn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(-1,null,["Gedeeltelijk "])),(l()(),Pl.Z(3,0,null,null,0,"br",[],null,null,null,null,null)),(l()(),Pl.Z(4,0,null,null,1,"span",[["class","bewolktSpan"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["bewolkt"]))],null,null)}function fl(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,5,"ion-badge",[["class","badgeClasses"]],null,null,null,null,null)),Pl.Y(1,16384,null,0,kn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(-1,null,["Gedeeltelijk "])),(l()(),Pl.Z(3,0,null,null,0,"br",[],null,null,null,null,null)),(l()(),Pl.Z(4,0,null,null,1,"span",[["class","bewolktSpan"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["bewolkt"]))],null,null)}function hl(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,5,"ion-badge",[["class","badgeClasses"]],null,null,null,null,null)),Pl.Y(1,16384,null,0,kn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(-1,null,["Verspreide "])),(l()(),Pl.Z(3,0,null,null,0,"br",[],null,null,null,null,null)),(l()(),Pl.Z(4,0,null,null,1,"span",[["class","bewolktSpan"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["bewolking"]))],null,null)}function bl(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,36,"ul",[["class","uitklapWeerAntwoorden"]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!=(l.component.open3=!0)&&e}return e},null,null)),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(2,0,null,null,5,"li",[],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                                "])),(l()(),Pl.Z(4,0,null,null,2,"ion-badge",[["class","badgeClasses"]],null,null,null,null,null)),Pl.Y(5,16384,null,0,kn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(6,null,["","%\n                                                "])),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(9,0,null,null,5,"li",[],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                                "])),(l()(),Pl.Z(11,0,null,null,2,"ion-badge",[["class","badgeClasses"]],null,null,null,null,null)),Pl.Y(12,16384,null,0,kn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(13,null,["","\n                                                    km/u\n                                                "])),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(16,0,null,null,19,"li",[],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                                "])),(l()(),Pl.U(16777216,null,null,1,null,gl)),Pl.Y(19,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                                "])),(l()(),Pl.U(16777216,null,null,1,null,_l)),Pl.Y(22,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                                "])),(l()(),Pl.U(16777216,null,null,1,null,ml)),Pl.Y(25,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                                "])),(l()(),Pl.U(16777216,null,null,1,null,pl)),Pl.Y(28,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                                "])),(l()(),Pl.U(16777216,null,null,1,null,fl)),Pl.Y(31,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                                "])),(l()(),Pl.U(16777216,null,null,1,null,hl)),Pl.Y(34,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl._19(-1,null,["\n                                        "]))],function(l,n){var u=n.component;l(n,19,0,"moderate rain"==u.dag1Weather18uur);l(n,22,0,"light rain"==u.dag1Weather18uur);l(n,25,0,"clear sky"==u.dag1Weather18uur);l(n,28,0,"few clouds"==u.dag1Weather18uur);l(n,31,0,"broken clouds"==u.dag1Weather18uur);l(n,34,0,"scattered clouds"==u.dag1Weather18uur)},function(l,n){var u=n.component;l(n,6,0,u.dag1Weather18uurHumidity);l(n,13,0,u.windNaarKm18uurDag1MathRound)})}function vl(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,21,"button",[["class","item item-block"],["detail-none",""],["ion-item",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!=(l.component.open4=!1)&&e}return e},hn.b,hn.a)),Pl.Y(1,1097728,null,3,on.a,[an.a,Nl.a,Pl.j,Pl.z,[2,bn.a]],null,null),Pl._17(335544320,27,{contentLabel:0}),Pl._17(603979776,28,{_buttons:1}),Pl._17(603979776,29,{_icons:1}),Pl.Y(5,16384,null,0,vn.a,[],null,null),(l()(),Pl._19(-1,2,["\n                                        "])),(l()(),Pl.Z(7,0,null,2,7,"div",[["class","buttonTijd"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(9,0,null,null,1,"ion-icon",[["item-left",""],["name","arrow-dropright"],["role","img"]],[[2,"hide",null]],null,null,null,null)),Pl.Y(10,147456,[[29,4]],0,El.a,[Nl.a,Pl.j,Pl.z],{name:[0,"name"]},null),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(12,0,null,null,1,"span",[["class","tijdWeer"]],null,null,null,null,null)),(l()(),Pl._19(13,null,["",""])),(l()(),Pl._19(-1,null,["\n                                        "])),(l()(),Pl._19(-1,2,["\n                                        "])),(l()(),Pl.Z(16,0,null,2,4,"div",[["class","gradenDiv"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(18,0,null,null,1,"div",[["class","graden"]],null,null,null,null,null)),(l()(),Pl._19(19,null,["","° C"])),(l()(),Pl._19(-1,null,["\n                                        "])),(l()(),Pl._19(-1,2,["\n                                    "]))],function(l,n){l(n,10,0,"arrow-dropright")},function(l,n){var u=n.component;l(n,9,0,Pl._11(n,10)._hidden);l(n,13,0,u.dag1DatumTijd21uur);l(n,19,0,u.dag1NaarCelcius21uurMathRound)})}function kl(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,21,"button",[["class","item item-block"],["detail-none",""],["ion-item",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!=(l.component.open4=!0)&&e}return e},hn.b,hn.a)),Pl.Y(1,1097728,null,3,on.a,[an.a,Nl.a,Pl.j,Pl.z,[2,bn.a]],null,null),Pl._17(335544320,30,{contentLabel:0}),Pl._17(603979776,31,{_buttons:1}),Pl._17(603979776,32,{_icons:1}),Pl.Y(5,16384,null,0,vn.a,[],null,null),(l()(),Pl._19(-1,2,["\n                                        "])),(l()(),Pl.Z(7,0,null,2,7,"div",[["class","buttonTijd"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(9,0,null,null,1,"ion-icon",[["item-left",""],["name","arrow-dropdown"],["role","img"]],[[2,"hide",null]],null,null,null,null)),Pl.Y(10,147456,[[32,4]],0,El.a,[Nl.a,Pl.j,Pl.z],{name:[0,"name"]},null),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(12,0,null,null,1,"span",[["class","tijdWeer"]],null,null,null,null,null)),(l()(),Pl._19(13,null,["",""])),(l()(),Pl._19(-1,null,["\n                                        "])),(l()(),Pl._19(-1,2,["\n                                        "])),(l()(),Pl.Z(16,0,null,2,4,"div",[["class","gradenDiv"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(18,0,null,null,1,"div",[["class","graden"]],null,null,null,null,null)),(l()(),Pl._19(19,null,["","° C"])),(l()(),Pl._19(-1,null,["\n                                        "])),(l()(),Pl._19(-1,2,["\n                                    "]))],function(l,n){l(n,10,0,"arrow-dropdown")},function(l,n){var u=n.component;l(n,9,0,Pl._11(n,10)._hidden);l(n,13,0,u.dag1DatumTijd21uur);l(n,19,0,u.dag1NaarCelcius21uurMathRound)})}function Zl(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,10,"ul",[["class","uitklapWeer"]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!=(l.component.open4=!0)&&e}return e},null,null)),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(2,0,null,null,1,"li",[["class","spanClasses"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["Luchtvochtigheid"])),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(5,0,null,null,1,"li",[["class","spanClasses"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["Wind"])),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(8,0,null,null,1,"li",[["class","spanClasses"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["Weer"])),(l()(),Pl._19(-1,null,["\n                                        "]))],null,null)}function Yl(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,2,"ion-badge",[["class","badgeClasses"]],null,null,null,null,null)),Pl.Y(1,16384,null,0,kn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(-1,null,["Lichte regenbui\n                                                "]))],null,null)}function Il(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,2,"ion-badge",[["class","badgeClasses"]],null,null,null,null,null)),Pl.Y(1,16384,null,0,kn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(-1,null,["\n                                                    Heldere lucht\n                                                "]))],null,null)}function jl(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,2,"ion-badge",[["class","badgeClasses"]],null,null,null,null,null)),Pl.Y(1,16384,null,0,kn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(-1,null,["Lichte regenbui\n                                                "]))],null,null)}function wl(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,5,"ion-badge",[["class","badgeClasses"]],null,null,null,null,null)),Pl.Y(1,16384,null,0,kn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(-1,null,["Gedeeltelijk "])),(l()(),Pl.Z(3,0,null,null,0,"br",[],null,null,null,null,null)),(l()(),Pl.Z(4,0,null,null,1,"span",[["class","bewolktSpan"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["bewolkt"]))],null,null)}function zl(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,5,"ion-badge",[["class","badgeClasses"]],null,null,null,null,null)),Pl.Y(1,16384,null,0,kn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(-1,null,["Gedeeltelijk "])),(l()(),Pl.Z(3,0,null,null,0,"br",[],null,null,null,null,null)),(l()(),Pl.Z(4,0,null,null,1,"span",[["class","bewolktSpan"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["bewolkt"]))],null,null)}function Cl(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,5,"ion-badge",[["class","badgeClasses"]],null,null,null,null,null)),Pl.Y(1,16384,null,0,kn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(-1,null,["Verspreide "])),(l()(),Pl.Z(3,0,null,null,0,"br",[],null,null,null,null,null)),(l()(),Pl.Z(4,0,null,null,1,"span",[["class","bewolktSpan"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["bewolking"]))],null,null)}function yl(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,36,"ul",[["class","uitklapWeerAntwoorden"]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!=(l.component.open4=!0)&&e}return e},null,null)),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(2,0,null,null,5,"li",[],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                                "])),(l()(),Pl.Z(4,0,null,null,2,"ion-badge",[["class","badgeClasses"]],null,null,null,null,null)),Pl.Y(5,16384,null,0,kn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(6,null,["","%\n                                                "])),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(9,0,null,null,5,"li",[],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                                "])),(l()(),Pl.Z(11,0,null,null,2,"ion-badge",[["class","badgeClasses"]],null,null,null,null,null)),Pl.Y(12,16384,null,0,kn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(13,null,["","\n                                                    km/u\n                                                "])),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl.Z(16,0,null,null,19,"li",[],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                                "])),(l()(),Pl.U(16777216,null,null,1,null,Yl)),Pl.Y(19,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                                "])),(l()(),Pl.U(16777216,null,null,1,null,Il)),Pl.Y(22,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                                "])),(l()(),Pl.U(16777216,null,null,1,null,jl)),Pl.Y(25,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                                "])),(l()(),Pl.U(16777216,null,null,1,null,wl)),Pl.Y(28,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                                "])),(l()(),Pl.U(16777216,null,null,1,null,zl)),Pl.Y(31,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                                "])),(l()(),Pl.U(16777216,null,null,1,null,Cl)),Pl.Y(34,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                            "])),(l()(),Pl._19(-1,null,["\n                                        "]))],function(l,n){var u=n.component;l(n,19,0,"light rain"==u.dag1Weather21uur);l(n,22,0,"clear sky"==u.dag1Weather21uur);l(n,25,0,"moderate rain"==u.dag1Weather21uur);l(n,28,0,"few clouds"==u.dag1Weather21uur);l(n,31,0,"broken clouds"==u.dag1Weather21uur);l(n,34,0,"scattered clouds"==u.dag1Weather21uur)},function(l,n){var u=n.component;l(n,6,0,u.dag1Weather21uurHumidity);l(n,13,0,u.windNaarKm21uurDag1MathRound)})}function Tl(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,73,"div",[],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                "])),(l()(),Pl.Z(2,0,null,null,70,"ion-row",[["class","rowWeer row"]],null,null,null,null,null)),Pl.Y(3,16384,null,0,fn.a,[],null,null),(l()(),Pl._19(-1,null,["\n                                    "])),(l()(),Pl._19(-1,null,["\n                                    "])),(l()(),Pl.U(16777216,null,null,1,null,M)),Pl.Y(7,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                    "])),(l()(),Pl.U(16777216,null,null,1,null,H)),Pl.Y(10,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                    "])),(l()(),Pl._19(-1,null,["\n                                    "])),(l()(),Pl.Z(13,0,null,null,7,"div",[["class","uitklapMargin"],["id","uitklap"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                        "])),(l()(),Pl.U(16777216,null,null,1,null,E)),Pl.Y(16,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                        "])),(l()(),Pl.U(16777216,null,null,1,null,J)),Pl.Y(19,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                    "])),(l()(),Pl._19(-1,null,["\n                                    "])),(l()(),Pl._19(-1,null,["\n                                    "])),(l()(),Pl.U(16777216,null,null,1,null,Q)),Pl.Y(24,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                    "])),(l()(),Pl.U(16777216,null,null,1,null,ll)),Pl.Y(27,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                    "])),(l()(),Pl._19(-1,null,["\n                                    "])),(l()(),Pl.Z(30,0,null,null,7,"div",[["class","uitklapMargin"],["id","uitklap2"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                        "])),(l()(),Pl.U(16777216,null,null,1,null,nl)),Pl.Y(33,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                        "])),(l()(),Pl.U(16777216,null,null,1,null,rl)),Pl.Y(36,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                    "])),(l()(),Pl._19(-1,null,["\n                                    "])),(l()(),Pl._19(-1,null,["\n                                    "])),(l()(),Pl.U(16777216,null,null,1,null,sl)),Pl.Y(41,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                    "])),(l()(),Pl.U(16777216,null,null,1,null,cl)),Pl.Y(44,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                    "])),(l()(),Pl._19(-1,null,["\n                                    "])),(l()(),Pl.Z(47,0,null,null,7,"div",[["class","uitklapMargin"],["id","uitklap3"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                        "])),(l()(),Pl.U(16777216,null,null,1,null,dl)),Pl.Y(50,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                        "])),(l()(),Pl.U(16777216,null,null,1,null,bl)),Pl.Y(53,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                    "])),(l()(),Pl._19(-1,null,["\n                                    "])),(l()(),Pl._19(-1,null,["\n                                    "])),(l()(),Pl.U(16777216,null,null,1,null,vl)),Pl.Y(58,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                    "])),(l()(),Pl.U(16777216,null,null,1,null,kl)),Pl.Y(61,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                    "])),(l()(),Pl._19(-1,null,["\n                                    "])),(l()(),Pl.Z(64,0,null,null,7,"div",[["class","uitklapMargin"],["id","uitklap4"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                        "])),(l()(),Pl.U(16777216,null,null,1,null,Zl)),Pl.Y(67,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                        "])),(l()(),Pl.U(16777216,null,null,1,null,yl)),Pl.Y(70,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                    "])),(l()(),Pl._19(-1,null,["\n                                "])),(l()(),Pl._19(-1,null,["\n                            "]))],function(l,n){var u=n.component;l(n,7,0,u.open);l(n,10,0,!u.open);l(n,16,0,!u.open);l(n,19,0,!u.open);l(n,24,0,u.open2);l(n,27,0,!u.open2);l(n,33,0,!u.open2);l(n,36,0,!u.open2);l(n,41,0,u.open3);l(n,44,0,!u.open3);l(n,50,0,!u.open3);l(n,53,0,!u.open3);l(n,58,0,u.open4);l(n,61,0,!u.open4);l(n,67,0,!u.open4);l(n,70,0,!u.open4)},null)}function xl(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,9,"button",[["class","item item-block"],["detail-none",""],["ion-item",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!=(l.component.open=!1)&&e}return e},hn.b,hn.a)),Pl.Y(1,1097728,null,3,on.a,[an.a,Nl.a,Pl.j,Pl.z,[2,bn.a]],null,null),Pl._17(335544320,33,{contentLabel:0}),Pl._17(603979776,34,{_buttons:1}),Pl._17(603979776,35,{_icons:1}),Pl.Y(5,16384,null,0,vn.a,[],null,null),(l()(),Pl._19(-1,2,["\n                                        "])),(l()(),Pl.Z(7,0,null,0,1,"ion-icon",[["item-left",""],["name","arrow-dropright"],["role","img"]],[[2,"hide",null]],null,null,null,null)),Pl.Y(8,147456,[[35,4]],0,El.a,[Nl.a,Pl.j,Pl.z],{name:[0,"name"]},null),(l()(),Pl._19(-1,2,["\n                                        Test\n                                    "]))],function(l,n){l(n,8,0,"arrow-dropright")},function(l,n){l(n,7,0,Pl._11(n,8)._hidden)})}function Fl(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,9,"button",[["class","item item-block"],["detail-none",""],["ion-item",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!=(l.component.open=!0)&&e}return e},hn.b,hn.a)),Pl.Y(1,1097728,null,3,on.a,[an.a,Nl.a,Pl.j,Pl.z,[2,bn.a]],null,null),Pl._17(335544320,36,{contentLabel:0}),Pl._17(603979776,37,{_buttons:1}),Pl._17(603979776,38,{_icons:1}),Pl.Y(5,16384,null,0,vn.a,[],null,null),(l()(),Pl._19(-1,2,["\n                                        "])),(l()(),Pl.Z(7,0,null,0,1,"ion-icon",[["item-left",""],["name","arrow-dropdown"],["role","img"]],[[2,"hide",null]],null,null,null,null)),Pl.Y(8,147456,[[38,4]],0,El.a,[Nl.a,Pl.j,Pl.z],{name:[0,"name"]},null),(l()(),Pl._19(-1,2,["\n                                        Test\n                                    "]))],function(l,n){l(n,8,0,"arrow-dropdown")},function(l,n){l(n,7,0,Pl._11(n,8)._hidden)})}function Sl(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,11,"div",[],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                                "])),(l()(),Pl.Z(2,0,null,null,8,"ion-row",[["class","rowWeer row"]],null,null,null,null,null)),Pl.Y(3,16384,null,0,fn.a,[],null,null),(l()(),Pl._19(-1,null,["\n                                    "])),(l()(),Pl.U(16777216,null,null,1,null,xl)),Pl.Y(6,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                    "])),(l()(),Pl.U(16777216,null,null,1,null,Fl)),Pl.Y(9,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                                "])),(l()(),Pl._19(-1,null,["\n                            "]))],function(l,n){var u=n.component;l(n,6,0,u.open);l(n,9,0,!u.open)},null)}function Ul(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,74,"ion-grid",[["class","grid"]],null,null,null,null,null)),Pl.Y(1,16384,null,0,mn.a,[],null,null),(l()(),Pl._19(-1,null,["\n        "])),(l()(),Pl.Z(3,0,null,null,70,"ion-col",[["class","col"],["col-12",""]],null,null,null,null,null)),Pl.Y(4,16384,null,0,pn.a,[],null,null),(l()(),Pl._19(-1,null,["\n            "])),(l()(),Pl.Z(6,0,null,null,66,"ion-row",[["class","row"]],null,null,null,null,null)),Pl.Y(7,16384,null,0,fn.a,[],null,null),(l()(),Pl._19(-1,null,["\n                "])),(l()(),Pl.Z(9,0,null,null,62,"ion-list",[],null,null,null,null,null)),Pl.Y(10,16384,null,0,Ql.a,[Nl.a,Pl.j,Pl.z,Kl.a,ln.l,nn.a],null,null),(l()(),Pl._19(-1,null,["\n                    "])),(l()(),Pl.Z(12,0,null,null,58,"ion-card",[["class","weerCard"]],null,null,null,null,null)),Pl.Y(13,16384,null,0,dn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(-1,null,["\n                        "])),(l()(),Pl.Z(15,0,null,null,19,"div",[["class","alignCenterWeer"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.U(16777216,null,null,1,null,D)),Pl.Y(18,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.U(16777216,null,null,1,null,N)),Pl.Y(21,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.U(16777216,null,null,1,null,O)),Pl.Y(24,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.U(16777216,null,null,1,null,L)),Pl.Y(27,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.U(16777216,null,null,1,null,W)),Pl.Y(30,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.U(16777216,null,null,1,null,V)),Pl.Y(33,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                        "])),(l()(),Pl._19(-1,null,["\n                        "])),(l()(),Pl.Z(36,0,null,null,33,"ion-card-content",[["class","cardContentWeer"]],null,null,null,null,null)),Pl.Y(37,16384,null,0,gn.a,[Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.Z(40,0,null,null,20,"ion-segment",[["class","weerSegmentZon"],["color","darkAppKleur"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null],[2,"segment-disabled",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;if("ngModelChange"===n){e=!1!==(l.component.weerSegment=u)&&e}return e},null,null)),Pl.Y(41,671744,null,0,Xl.n,[[8,null],[8,null],[8,null],[8,null]],{model:[0,"model"]},{update:"ngModelChange"}),Pl._15(2048,null,Xl.k,null,[Xl.n]),Pl.Y(43,16384,null,0,Xl.l,[Xl.k],null,null),Pl.Y(44,1196032,null,1,Zn.a,[Nl.a,Pl.j,Pl.z,[2,Xl.k]],{color:[0,"color"]},null),Pl._17(603979776,8,{_buttons:1}),(l()(),Pl._19(-1,null,["\n                                "])),(l()(),Pl.Z(47,0,null,null,5,"ion-segment-button",[["class","weatherLight segment-button"],["id","weerVandaag"],["role","button"],["tappable",""],["value","weerVandaag"]],[[2,"segment-button-disabled",null],[2,"segment-activated",null],[1,"aria-pressed",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==Pl._11(l,48).onClick()&&e}return e},Yn.b,Yn.a)),Pl.Y(48,114688,[[8,4]],0,In.a,[],{value:[0,"value"]},null),(l()(),Pl._19(-1,0,["\n                                    "])),(l()(),Pl.Z(50,0,null,0,1,"p",[["class","segmentWeerVandaag"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["Vandaag"])),(l()(),Pl._19(-1,0,["\n                                "])),(l()(),Pl._19(-1,null,["\n                                "])),(l()(),Pl.Z(54,0,null,null,5,"ion-segment-button",[["class","segment-button"],["id","weerWeek"],["role","button"],["tappable",""],["value","weerWeek"]],[[2,"segment-button-disabled",null],[2,"segment-activated",null],[1,"aria-pressed",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==Pl._11(l,55).onClick()&&e}return e},Yn.b,Yn.a)),Pl.Y(55,114688,[[8,4]],0,In.a,[],{value:[0,"value"]},null),(l()(),Pl._19(-1,0,["\n                                    "])),(l()(),Pl.Z(57,0,null,0,1,"p",[["class","segmentWeerWeek"]],null,null,null,null,null)),(l()(),Pl._19(-1,null,["Week"])),(l()(),Pl._19(-1,0,["\n                                "])),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.U(16777216,null,null,1,null,Tl)),Pl.Y(64,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl._19(-1,null,["\n                            "])),(l()(),Pl.U(16777216,null,null,1,null,Sl)),Pl.Y(68,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,null,["\n                        "])),(l()(),Pl._19(-1,null,["\n                    "])),(l()(),Pl._19(-1,null,["\n                "])),(l()(),Pl._19(-1,null,["\n            "])),(l()(),Pl._19(-1,null,["\n        "])),(l()(),Pl._19(-1,null,["\n    "]))],function(l,n){var u=n.component;l(n,18,0,"light rain"==u.dag1Weather12uur);l(n,21,0,"clear sky"==u.dag1Weather12uur);l(n,24,0,"few clouds"==u.dag1Weather12uur);l(n,27,0,"broken clouds"==u.dag1Weather12uur);l(n,30,0,"scattered clouds"==u.dag1Weather12uur);l(n,33,0,"moderate rain"==u.dag1Weather12uur);l(n,41,0,u.weerSegment);l(n,44,0,"darkAppKleur");l(n,48,0,"weerVandaag");l(n,55,0,"weerWeek");l(n,64,0,"weerVandaag"==u.weerSegment);l(n,68,0,"weerWeek"==u.weerSegment)},function(l,n){l(n,40,0,Pl._11(n,43).ngClassUntouched,Pl._11(n,43).ngClassTouched,Pl._11(n,43).ngClassPristine,Pl._11(n,43).ngClassDirty,Pl._11(n,43).ngClassValid,Pl._11(n,43).ngClassInvalid,Pl._11(n,43).ngClassPending,Pl._11(n,44)._disabled);l(n,47,0,Pl._11(n,48)._disabled,Pl._11(n,48).isActive,Pl._11(n,48).isActive);l(n,54,0,Pl._11(n,55)._disabled,Pl._11(n,55).isActive,Pl._11(n,55).isActive)})}function $l(l){return Pl._21(0,[Pl._17(671088640,1,{searchbar:0}),Pl._17(402653184,2,{content:0}),(l()(),Pl.Z(2,0,null,null,26,"ion-header",[],null,null,null,null,null)),Pl.Y(3,16384,null,0,jn.a,[Nl.a,Pl.j,Pl.z,[2,Wl.a]],null,null),(l()(),Pl._19(-1,null,["\n    "])),(l()(),Pl.Z(5,0,null,null,22,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,wn.b,wn.a)),Pl.Y(6,49152,null,0,Vl.a,[tn.a,[2,Wl.a],[2,zn.a],Nl.a,Pl.j,Pl.z],null,null),(l()(),Pl._19(-1,3,["\n        "])),(l()(),Pl.U(16777216,null,0,1,null,e)),Pl.Y(9,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,3,["\n        "])),(l()(),Pl.U(16777216,null,3,1,null,t)),Pl.Y(12,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,3,["\n        "])),(l()(),Pl._19(-1,3,["\n        "])),(l()(),Pl.U(16777216,null,3,1,null,a)),Pl.Y(16,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,3,["\n        "])),(l()(),Pl._19(-1,3,["\n        "])),(l()(),Pl.U(16777216,null,2,1,null,o)),Pl.Y(20,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,3,["\n        "])),(l()(),Pl.U(16777216,null,2,1,null,r)),Pl.Y(23,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,3,["\n        "])),(l()(),Pl.U(16777216,null,2,1,null,s)),Pl.Y(26,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,3,["\n    "])),(l()(),Pl._19(-1,null,["\n"])),(l()(),Pl._19(-1,null,["\n"])),(l()(),Pl.Z(30,0,null,null,17,"ion-content",[],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,Cn.b,Cn.a)),Pl.Y(31,4374528,[[2,4]],0,yn.a,[Nl.a,Kl.a,nn.a,Pl.j,Pl.z,tn.a,Tn.a,Pl.u,[2,Wl.a],[2,zn.a]],null,null),(l()(),Pl._19(-1,1,["\n    "])),(l()(),Pl._19(-1,1,["\n    "])),(l()(),Pl.Z(34,0,null,2,5,"ion-refresher",[],[[2,"refresher-active",null],[4,"top",null]],[[null,"ionRefresh"]],function(l,n,u){var e=!0;if("ionRefresh"===n){e=!1!==l.component.doRefresh(u)&&e}return e},null,null)),Pl.Y(35,212992,null,0,xn.a,[Kl.a,yn.a,Pl.u,ln.l],null,{ionRefresh:"ionRefresh"}),(l()(),Pl._19(-1,null,["\n        "])),(l()(),Pl.Z(37,0,null,null,1,"ion-refresher-content",[["pullingIcon","arrow-dropdown"],["pullingText","Sleep omlaag om te verversen"]],[[1,"state",0]],null,null,Fn.b,Fn.a)),Pl.Y(38,114688,null,0,Sn.a,[xn.a,Nl.a],{pullingIcon:[0,"pullingIcon"],pullingText:[1,"pullingText"]},null),(l()(),Pl._19(-1,null,["\n    "])),(l()(),Pl._19(-1,1,["\n    "])),(l()(),Pl._19(-1,1,["\n    "])),(l()(),Pl.U(16777216,null,1,1,null,A)),Pl.Y(43,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,1,["\n    "])),(l()(),Pl.U(16777216,null,1,1,null,Ul)),Pl.Y(46,16384,null,0,Jl.i,[Pl.I,Pl.F],{ngIf:[0,"ngIf"]},null),(l()(),Pl._19(-1,1,["\n"])),(l()(),Pl._19(-1,null,["\n"]))],function(l,n){var u=n.component;l(n,9,0,!u.isSearchbaropened);l(n,12,0,!u.isSearchbaropened);l(n,16,0,u.isSearchbaropened);l(n,20,0,"vandaag"==u.datepicker||"gisteren"==u.datepicker||"driedagengeleden"==u.datepicker);l(n,23,0,"HetWeer"==u.datepicker);l(n,26,0,!u.isSearchbaropened),l(n,35,0);l(n,38,0,"arrow-dropdown","Sleep omlaag om te verversen");l(n,43,0,"vandaag"==u.datepicker||"gisteren"==u.datepicker||"driedagengeleden"==u.datepicker);l(n,46,0,"HetWeer"==u.datepicker)},function(l,n){l(n,5,0,Pl._11(n,6)._hidden,Pl._11(n,6)._sbPadding);l(n,30,0,Pl._11(n,31).statusbarPadding,Pl._11(n,31)._hasRefresher);l(n,34,0,"inactive"!==Pl._11(n,35).state,Pl._11(n,35)._top);l(n,37,0,Pl._11(n,38).r.state)})}u.d(n,"a",function(){return Rn});var Pl=u(1),Al=u(20),Dl=u(15),Nl=u(3),Ol=u(46),Ll=u(29),Wl=u(7),Vl=u(24),Ml=u(39),Hl=u(27),El=u(25),Rl=u(37),Bl=u(32),ql=u(227),Gl=u(93),Kl=u(5),Xl=u(19),Jl=u(16),Ql=u(49),ln=u(11),nn=u(10),un=u(712),en=u(170),tn=u(9),an=u(21),on=u(22),rn=u(36),sn=u(168),cn=u(77),dn=u(78),gn=u(79),_n=u(100),mn=u(67),pn=u(66),fn=u(80),hn=u(50),bn=u(42),vn=u(47),kn=u(185),Zn=u(117),Yn=u(223),In=u(81),jn=u(31),wn=u(34),zn=u(17),Cn=u(43),yn=u(23),Tn=u(28),xn=u(116),Fn=u(713),Sn=u(169),Un=u(73),$n=u(12),Pn=u(30),An=u(88),Dn=u(60),Nn=u(85),On=u(57),Ln=u(90),Wn=u(52),Vn=u(160),Mn=u(159),Hn=u(113),En=Pl.X({encapsulation:2,styles:[],data:{}}),Rn=Pl.V("page-feed",Un.a,function(l){return Pl._21(0,[(l()(),Pl.Z(0,0,null,null,1,"page-feed",[],null,null,null,$l,En)),Pl.Y(1,49152,null,0,Un.a,[zn.a,$n.a,Ll.a,Pn.c,An.a,Dn.a,Nn.a,Kl.a,On.a,Ln.a,Wn.a,Vn.a,Mn.a,Hn.a],null,null)],null,null)},{},{},[])},411:function(l,n,u){"use strict";function e(l){return t._21(0,[(l()(),t.Z(0,0,null,null,30,"ion-header",[["no-border-bottom",""]],null,null,null,null,null)),t.Y(1,16384,null,0,a.a,[i.a,t.j,t.z,[2,o.a]],null,null),(l()(),t._19(-1,null,["\n  "])),(l()(),t.Z(3,0,null,null,26,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,r.b,r.a)),t.Y(4,49152,null,0,s.a,[c.a,[2,o.a],[2,d.a],i.a,t.j,t.z],null,null),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(6,0,null,0,8,"button",[["class","fakeCenter"],["ion-button",""],["menuToggle",""],["right",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==t._11(l,8).toggle()&&e}return e},g.b,g.a)),t.Y(7,1097728,[[1,4]],0,_.a,[[8,""],i.a,t.j,t.z],null,null),t.Y(8,1064960,null,0,m.a,[p.a,[2,o.a],[2,_.a],[2,s.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(9,16384,null,1,f.a,[i.a,t.j,t.z,[2,h.a],[2,s.a]],null,null),t._17(603979776,1,{_buttons:1}),(l()(),t._19(-1,0,["\n        "])),(l()(),t.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(13,147456,null,0,b.a,[i.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n    "])),(l()(),t._19(-1,3,["\n      "])),(l()(),t.Z(16,0,null,3,2,"ion-title",[],null,null,null,v.b,v.a)),t.Y(17,49152,null,0,k.a,[i.a,t.j,t.z,[2,h.a],[2,s.a]],null,null),(l()(),t._19(-1,0,["Misdaad"])),(l()(),t._19(-1,3,["\n        "])),(l()(),t.Z(20,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==t._11(l,22).toggle()&&e}return e},g.b,g.a)),t.Y(21,1097728,[[2,4]],0,_.a,[[8,""],i.a,t.j,t.z],null,null),t.Y(22,1064960,null,0,m.a,[p.a,[2,o.a],[2,_.a],[2,s.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(23,16384,null,1,f.a,[i.a,t.j,t.z,[2,h.a],[2,s.a]],null,null),t._17(603979776,2,{_buttons:1}),(l()(),t._19(-1,0,["\n            "])),(l()(),t.Z(26,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(27,147456,null,0,b.a,[i.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n        "])),(l()(),t._19(-1,3,["\n    "])),(l()(),t._19(-1,null,["\n"])),(l()(),t._19(-1,null,["\n"]))],function(l,n){l(n,8,0,"");l(n,13,0,"menu");l(n,22,0,"");l(n,27,0,"menu")},function(l,n){l(n,3,0,t._11(n,4)._hidden,t._11(n,4)._sbPadding);l(n,6,0,t._11(n,8).isHidden);l(n,12,0,t._11(n,13)._hidden);l(n,20,0,t._11(n,22).isHidden);l(n,26,0,t._11(n,27)._hidden)})}u.d(n,"a",function(){return j});var t=u(1),a=u(31),i=u(3),o=u(7),r=u(34),s=u(24),c=u(9),d=u(17),g=u(20),_=u(15),m=u(46),p=u(29),f=u(39),h=u(27),b=u(25),v=u(37),k=u(32),Z=u(127),Y=u(12),I=t.X({encapsulation:2,styles:[],data:{}}),j=t.V("page-misdaad",Z.a,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"page-misdaad",[],null,null,null,e,I)),t.Y(1,49152,null,0,Z.a,[d.a,Y.a],null,null)],null,null)},{},{},[])},412:function(l,n,u){"use strict";function e(l){return s._21(0,[(l()(),s.Z(0,0,null,null,0,"img",[["src","../assets/imgs/noimage.jpg"]],null,null,null,null,null))],null,null)}function t(l){return s._21(0,[(l()(),s.Z(0,0,null,null,0,"img",[["class","imageNieuws"]],[[8,"src",4]],null,null,null,null))],null,function(l,n){l(n,0,0,s._2(1,"",n.component.image,""))})}function a(l){return s._21(0,[(l()(),s.Z(0,0,null,null,2,"button",[["class","ColorTelegraaf"],["ion-button",""],["round",""]],null,[[null,"click"]],function(l,n,u){var e=!0,t=l.component;if("click"===n){e=!1!==t.openPagina(t.link)&&e}return e},c.b,c.a)),s.Y(1,1097728,null,0,d.a,[[8,""],g.a,s.j,s.z],{round:[0,"round"]},null),(l()(),s._19(2,0,["",""]))],function(l,n){l(n,1,0,"")},function(l,n){l(n,2,0,n.component.site)})}function i(l){return s._21(0,[(l()(),s.Z(0,0,null,null,2,"button",[["class","ColorNOS"],["ion-button",""],["round",""]],null,[[null,"click"]],function(l,n,u){var e=!0,t=l.component;if("click"===n){e=!1!==t.openPagina(t.link)&&e}return e},c.b,c.a)),s.Y(1,1097728,null,0,d.a,[[8,""],g.a,s.j,s.z],{round:[0,"round"]},null),(l()(),s._19(2,0,["",""]))],function(l,n){l(n,1,0,"")},function(l,n){l(n,2,0,n.component.site)})}function o(l){return s._21(0,[(l()(),s.Z(0,0,null,null,2,"button",[["class","ColorNU"],["ion-button",""],["round",""]],null,[[null,"click"]],function(l,n,u){var e=!0,t=l.component;if("click"===n){e=!1!==t.openPagina(t.link)&&e}return e},c.b,c.a)),s.Y(1,1097728,null,0,d.a,[[8,""],g.a,s.j,s.z],{round:[0,"round"]},null),(l()(),s._19(2,0,["",""]))],function(l,n){l(n,1,0,"")},function(l,n){l(n,2,0,n.component.site)})}function r(l){return s._21(0,[(l()(),s.Z(0,0,null,null,8,"ion-header",[],null,null,null,null,null)),s.Y(1,16384,null,0,_.a,[g.a,s.j,s.z,[2,m.a]],null,null),(l()(),s._19(-1,null,["\n  "])),(l()(),s.Z(3,0,null,null,0,"meta",[["charset","UTF-8"]],null,null,null,null,null)),(l()(),s._19(-1,null,["\n  "])),(l()(),s.Z(5,0,null,null,2,"ion-navbar",[["class","nieuwsNavTitle toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,p.b,p.a)),s.Y(6,49152,null,0,f.a,[h.a,[2,m.a],[2,b.a],g.a,s.j,s.z],null,null),(l()(),s._19(7,3,["",""])),(l()(),s._19(-1,null,["\n"])),(l()(),s._19(-1,null,["\n"])),(l()(),s.Z(10,0,null,null,35,"ion-content",[],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,v.b,v.a)),s.Y(11,4374528,null,0,k.a,[g.a,Z.a,Y.a,s.j,s.z,h.a,I.a,s.u,[2,m.a],[2,b.a]],null,null),(l()(),s._19(-1,1,["\n  "])),(l()(),s.Z(13,0,null,1,31,"ion-card",[["class","nieuwsCard"]],null,null,null,null,null)),s.Y(14,16384,null,0,j.a,[g.a,s.j,s.z],null,null),(l()(),s._19(-1,null,["\n    "])),(l()(),s.U(16777216,null,null,1,null,e)),s.Y(17,16384,null,0,w.i,[s.I,s.F],{ngIf:[0,"ngIf"]},null),(l()(),s._19(-1,null,["\n    "])),(l()(),s.U(16777216,null,null,1,null,t)),s.Y(20,16384,null,0,w.i,[s.I,s.F],{ngIf:[0,"ngIf"]},null),(l()(),s._19(-1,null,["\n    "])),(l()(),s.Z(22,0,null,null,5,"ion-card-header",[["class","headerText"],["text-wrap",""]],null,null,null,null,null)),s.Y(23,16384,null,0,z.a,[g.a,s.j,s.z],null,null),(l()(),s._19(24,null,["\n      ","\n      "])),(l()(),s.Z(25,0,null,null,1,"p",[["class","nieuwsDatum"]],null,null,null,null,null)),(l()(),s._19(26,null,["",""])),(l()(),s._19(-1,null,["\n    "])),(l()(),s._19(-1,null,["\n    "])),(l()(),s.Z(29,0,null,null,14,"ion-card-content",[["class","nieuwsContent"]],null,null,null,null,null)),s.Y(30,16384,null,0,C.a,[g.a,s.j,s.z],null,null),(l()(),s._19(-1,null,["\n      "])),(l()(),s.Z(32,0,null,null,1,"p",[],null,null,null,null,null)),(l()(),s._19(33,null,["",""])),(l()(),s._19(-1,null,["\n      "])),(l()(),s.U(16777216,null,null,1,null,a)),s.Y(36,16384,null,0,w.i,[s.I,s.F],{ngIf:[0,"ngIf"]},null),(l()(),s._19(-1,null,["\n      "])),(l()(),s.U(16777216,null,null,1,null,i)),s.Y(39,16384,null,0,w.i,[s.I,s.F],{ngIf:[0,"ngIf"]},null),(l()(),s._19(-1,null,["\n      "])),(l()(),s.U(16777216,null,null,1,null,o)),s.Y(42,16384,null,0,w.i,[s.I,s.F],{ngIf:[0,"ngIf"]},null),(l()(),s._19(-1,null,["\n    "])),(l()(),s._19(-1,null,["\n  "])),(l()(),s._19(-1,1,["\n"])),(l()(),s._19(-1,null,["\n"]))],function(l,n){var u=n.component;l(n,17,0,!u.image);l(n,20,0,u.image);l(n,36,0,"De Telegraaf"==u.site);l(n,39,0,"NOS"==u.site);l(n,42,0,"NU.nl"==u.site)},function(l,n){var u=n.component;l(n,5,0,s._11(n,6)._hidden,s._11(n,6)._sbPadding);l(n,7,0,u.title);l(n,10,0,s._11(n,11).statusbarPadding,s._11(n,11)._hasRefresher);l(n,24,0,u.title);l(n,26,0,u.datum);l(n,33,0,u.htmlToPlaintext(u.description))})}u.d(n,"a",function(){return S});var s=u(1),c=u(20),d=u(15),g=u(3),_=u(31),m=u(7),p=u(34),f=u(24),h=u(9),b=u(17),v=u(43),k=u(23),Z=u(5),Y=u(10),I=u(28),j=u(78),w=u(16),z=u(142),C=u(79),y=u(234),T=u(12),x=u(173),F=s.X({encapsulation:2,styles:[],data:{}}),S=s.V("page-nieuws",y.a,function(l){return s._21(0,[(l()(),s.Z(0,0,null,null,1,"page-nieuws",[],null,null,null,r,F)),s.Y(1,49152,null,0,y.a,[b.a,T.a,x.a],null,null)],null,null)},{},{},[])},413:function(l,n,u){"use strict";function e(l){return t._21(0,[(l()(),t.Z(0,0,null,null,10,"ion-header",[],null,null,null,null,null)),t.Y(1,16384,null,0,a.a,[i.a,t.j,t.z,[2,o.a]],null,null),(l()(),t._19(-1,null,["\n    "])),(l()(),t.Z(3,0,null,null,6,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,r.b,r.a)),t.Y(4,49152,null,0,s.a,[c.a,[2,o.a],[2,d.a],i.a,t.j,t.z],null,null),(l()(),t._19(-1,3,["\n        "])),(l()(),t.Z(6,0,null,3,2,"ion-title",[["class","privacyBeleid"]],null,null,null,g.b,g.a)),t.Y(7,49152,null,0,_.a,[i.a,t.j,t.z,[2,m.a],[2,s.a]],null,null),(l()(),t._19(-1,0,["Privacy beleid"])),(l()(),t._19(-1,3,["\n    "])),(l()(),t._19(-1,null,["\n"])),(l()(),t._19(-1,null,["\n"])),(l()(),t.Z(12,0,null,null,52,"ion-content",[["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,p.b,p.a)),t.Y(13,4374528,null,0,f.a,[i.a,h.a,b.a,t.j,t.z,c.a,v.a,t.u,[2,o.a],[2,d.a]],null,null),(l()(),t._19(-1,1,["\n    "])),(l()(),t.Z(15,0,null,1,4,"p",[["class","PrivacyBeleidP"]],null,null,null,null,null)),(l()(),t._19(-1,null,["Axa Studios heeft de NewsAge-app gebouwd als een advertentie-ondersteunde app. Deze SERVICE wordt gratis door Axa\n        Studios geleverd en is bedoeld voor gebruik zoals het hoort.\n        Deze pagina wordt gebruikt om bezoekers te informeren over ons beleid met betrekking tot het verzamelen,\n        gebruiken en vrijgeven van persoonlijke informatie als iemand beslist om onze service te gebruiken.\n        Als u ervoor kiest om onze Service te gebruiken, stemt u in met het verzamelen en gebruiken van informatie in\n        verband met dit beleid. De persoonlijke informatie die we verzamelen, wordt gebruikt voor het leveren en\n        verbeteren van de service. We zullen uw informatie niet gebruiken of delen met iemand anders dan zoals\n        beschreven in dit privacybeleid.\n        De termen die in dit Privacybeleid worden gebruikt, hebben dezelfde betekenis als in onze Algemene voorwaarden,\n        die toegankelijk is via NewsAge, tenzij anders gedefinieerd in dit Privacybeleid.\n        Informatie verzamelen en gebruiken\n        Voor een betere ervaring tijdens het gebruik van onze service, kunnen we van u verlangen dat u ons bepaalde\n        persoonlijk identificeerbare informatie verstrekt. De door ons gevraagde informatie wordt door ons bewaard en\n        gebruikt zoals beschreven in dit privacybeleid.\n        De app maakt gebruik van services van derden die mogelijk informatie verzamelen die wordt gebruikt om u te\n        identificeren.\n        Link naar het privacybeleid van externe serviceproviders die door de app worden gebruikt\n        "])),(l()(),t.Z(17,0,null,null,0,"br",[],null,null,null,null,null)),(l()(),t.Z(18,0,null,null,0,"br",[],null,null,null,null,null)),(l()(),t._19(-1,null,["• Google Play-services"])),(l()(),t._19(-1,1,["\n    "])),(l()(),t.Z(21,0,null,1,1,"h3",[["class","voorwaardenH3"]],null,null,null,null,null)),(l()(),t._19(-1,null,["Loggegevens"])),(l()(),t._19(-1,1,["\n    "])),(l()(),t.Z(24,0,null,1,1,"p",[["class","PrivacyBeleidP"]],null,null,null,null,null)),(l()(),t._19(-1,null,["\n        We willen u laten weten dat wanneer u onze Service gebruikt, we in geval van een fout in de app gegevens en\n        informatie (via producten van derden) op uw telefoon verzamelen, genaamd Loggegevens. Deze loggegevens kunnen\n        informatie bevatten zoals het IP-adres (device protocol), de apparaatnaam, de versie van het besturingssysteem,\n        de configuratie van de app bij het gebruik van onze service, het tijdstip en de datum van uw gebruik van de\n        service en andere statistieken. "])),(l()(),t._19(-1,1,["\n    "])),(l()(),t.Z(27,0,null,1,1,"h3",[["class","voorwaardenH3"]],null,null,null,null,null)),(l()(),t._19(-1,null,[" Cookies"])),(l()(),t._19(-1,1,["\n    "])),(l()(),t.Z(30,0,null,1,1,"p",[["class","PrivacyBeleidP"]],null,null,null,null,null)),(l()(),t._19(-1,null,["\n        Cookies zijn bestanden met een kleine hoeveelheid gegevens die vaak worden gebruikt als anonieme unieke ID's.\n        Deze worden naar uw browser verzonden vanaf de websites die u bezoekt en worden opgeslagen op het interne\n        geheugen van uw apparaat.\n        Deze Service gebruikt deze \"cookies\" niet expliciet. De app kan echter code van derden en bibliotheken gebruiken\n        die 'cookies' gebruiken om informatie te verzamelen en hun services te verbeteren. U hebt de mogelijkheid deze\n        cookies te accepteren of te weigeren en te weten wanneer een cookie naar uw apparaat wordt verzonden. Als u\n        ervoor kiest om onze cookies te weigeren, kunt u sommige delen van deze service mogelijk niet gebruiken.\n    "])),(l()(),t._19(-1,1,["\n    "])),(l()(),t.Z(33,0,null,1,1,"h3",[["class","voorwaardenH3"]],null,null,null,null,null)),(l()(),t._19(-1,null,["Dienstverleners"])),(l()(),t._19(-1,1,["\n    "])),(l()(),t.Z(36,0,null,1,13,"p",[["class","PrivacyBeleidP"]],null,null,null,null,null)),(l()(),t._19(-1,null,["\n        Om de volgende redenen kunnen we bedrijven en personen van derden in dienst nemen:"])),(l()(),t.Z(38,0,null,null,0,"br",[],null,null,null,null,null)),(l()(),t._19(-1,null,["\n        • Om onze service te vergemakkelijken;"])),(l()(),t.Z(40,0,null,null,0,"br",[],null,null,null,null,null)),(l()(),t._19(-1,null,["\n        • Om de Service namens ons te leveren;"])),(l()(),t.Z(42,0,null,null,0,"br",[],null,null,null,null,null)),(l()(),t._19(-1,null,["\n        • Servicegerelateerde services uitvoeren; of"])),(l()(),t.Z(44,0,null,null,0,"br",[],null,null,null,null,null)),(l()(),t._19(-1,null,["\n        • Om ons te helpen bij het analyseren van hoe onze Service wordt gebruikt."])),(l()(),t.Z(46,0,null,null,0,"br",[],null,null,null,null,null)),(l()(),t._19(-1,null,["\n        We willen gebruikers van deze Service informeren dat deze derden toegang hebben tot uw Persoonlijke Informatie.\n        De reden is om namens ons de taken uit te voeren die aan hen zijn toegewezen. Ze zijn echter verplicht om de\n        informatie voor geen enkel ander doel openbaar te maken of te gebruiken.\n        Veiligheid"])),(l()(),t.Z(48,0,null,null,0,"br",[],null,null,null,null,null)),(l()(),t._19(-1,null,["\n        We waarderen uw vertrouwen in het verstrekken van uw persoonlijke gegevens, dus we streven ernaar om commercieel\n        aanvaardbare middelen te gebruiken om deze te beschermen. Maar vergeet niet dat geen enkele verzendmethode via\n        internet of elektronische opslag 100% veilig en betrouwbaar is en we kunnen de absolute veiligheid ervan niet\n        garanderen."])),(l()(),t._19(-1,1,["\n    "])),(l()(),t.Z(51,0,null,1,1,"h3",[["class","voorwaardenH3"]],null,null,null,null,null)),(l()(),t._19(-1,null,["Links naar andere sites"])),(l()(),t._19(-1,1,["\n    "])),(l()(),t.Z(54,0,null,1,3,"p",[["class","PrivacyBeleidP"]],null,null,null,null,null)),(l()(),t._19(-1,null,["\n        Deze Service kan links naar andere sites bevatten. Als u op een link van derden klikt, wordt u naar die site\n        geleid. Merk op dat deze externe sites niet door ons worden beheerd. Daarom raden wij u ten zeerste aan om het\n        Privacybeleid van deze websites te bekijken. We hebben geen controle over en nemen geen verantwoordelijkheid\n        voor de inhoud, het privacybeleid of de praktijken van sites of services van derden.\n        Privacy van kinderen"])),(l()(),t.Z(56,0,null,null,0,"br",[],null,null,null,null,null)),(l()(),t._19(-1,null,["\n        Deze Services richten zich niet tot iemand onder de leeftijd van 13. We verzamelen niet bewust persoonlijk\n        identificeerbare informatie van kinderen onder de 13. Als we ontdekken dat een kind jonger dan 13 jaar ons\n        persoonlijke informatie heeft verstrekt, verwijderen we dit onmiddellijk van onze servers. Als u een ouder of\n        voogd bent en u weet dat uw kind ons persoonlijke informatie heeft verstrekt, neem dan contact met ons op zodat\n        we de nodige acties kunnen ondernemen."])),(l()(),t._19(-1,1,["\n    "])),(l()(),t.Z(59,0,null,1,1,"h3",[["class","voorwaardenH3"]],null,null,null,null,null)),(l()(),t._19(-1,null,["Wijzigingen in dit privacybeleid"])),(l()(),t._19(-1,1,["\n    "])),(l()(),t.Z(62,0,null,1,1,"p",[["class","PrivacyBeleidP"]],null,null,null,null,null)),(l()(),t._19(-1,null,["\n        We kunnen ons privacybeleid van tijd tot tijd bijwerken. Daarom wordt u geadviseerd deze pagina regelmatig te\n        controleren op eventuele wijzigingen. We zullen u op de hoogte brengen van eventuele wijzigingen door het nieuwe\n        Privacybeleid op deze pagina te plaatsen. Deze wijzigingen zijn van kracht onmiddellijk nadat ze op deze pagina\n        zijn geplaatst.\n        Neem contact met ons op\n        Als u vragen of suggesties heeft over ons privacybeleid, aarzel dan niet om contact met ons op te nemen."])),(l()(),t._19(-1,1,["\n"]))],null,function(l,n){l(n,3,0,t._11(n,4)._hidden,t._11(n,4)._sbPadding);l(n,12,0,t._11(n,13).statusbarPadding,t._11(n,13)._hasRefresher)})}u.d(n,"a",function(){return I});var t=u(1),a=u(31),i=u(3),o=u(7),r=u(34),s=u(24),c=u(9),d=u(17),g=u(37),_=u(32),m=u(27),p=u(43),f=u(23),h=u(5),b=u(10),v=u(28),k=u(124),Z=u(12),Y=t.X({encapsulation:2,styles:[],data:{}}),I=t.V("page-privacybeleid",k.a,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"page-privacybeleid",[],null,null,null,e,Y)),t.Y(1,49152,null,0,k.a,[d.a,Z.a],null,null)],null,null)},{},{},[])},414:function(l,n,u){"use strict";function e(l){return m._21(0,[(l()(),m.Z(0,0,null,null,1,"div",[["class","validatieText"]],null,null,null,null,null)),(l()(),m._19(-1,null,["Naam moet ingevuld zijn."]))],null,null)}function t(l){return m._21(0,[(l()(),m.Z(0,0,null,null,1,"div",[["class","validatieText"]],null,null,null,null,null)),(l()(),m._19(-1,null,["Ongeldige naam."]))],null,null)}function a(l){return m._21(0,[(l()(),m.Z(0,0,null,null,7,"div",[["class","alert alert-danger"],["required",""]],null,null,null,null,null)),(l()(),m._19(-1,null,["\n                      "])),(l()(),m.U(16777216,null,null,1,null,e)),m.Y(3,16384,null,0,p.i,[m.I,m.F],{ngIf:[0,"ngIf"]},null),(l()(),m._19(-1,null,["\n                      "])),(l()(),m.U(16777216,null,null,1,null,t)),m.Y(6,16384,null,0,p.i,[m.I,m.F],{ngIf:[0,"ngIf"]},null),(l()(),m._19(-1,null,["\n                    "]))],function(l,n){var u=n.component;l(n,3,0,u.form.get("username").hasError("required"));l(n,6,0,u.form.get("username").hasError("pattern"))},null)}function i(l){return m._21(0,[(l()(),m.Z(0,0,null,null,1,"div",[["class","validatieText"]],null,null,null,null,null)),(l()(),m._19(-1,null,["Email moet ingevuld zijn"]))],null,null)}function o(l){return m._21(0,[(l()(),m.Z(0,0,null,null,1,"div",[["class","validatieText"]],null,null,null,null,null)),(l()(),m._19(-1,null,["Ongeldige Email!"]))],null,null)}function r(l){return m._21(0,[(l()(),m.Z(0,0,null,null,7,"div",[["class","alert alert-danger"],["required",""]],null,null,null,null,null)),(l()(),m._19(-1,null,["\n                      "])),(l()(),m.U(16777216,null,null,1,null,i)),m.Y(3,16384,null,0,p.i,[m.I,m.F],{ngIf:[0,"ngIf"]},null),(l()(),m._19(-1,null,["\n                      "])),(l()(),m.U(16777216,null,null,1,null,o)),m.Y(6,16384,null,0,p.i,[m.I,m.F],{ngIf:[0,"ngIf"]},null),(l()(),m._19(-1,null,["\n                    "]))],function(l,n){var u=n.component;l(n,3,0,u.form.get("email").hasError("required"));l(n,6,0,u.form.get("email").hasError("pattern"))},null)}function s(l){return m._21(0,[(l()(),m.Z(0,0,null,null,1,"div",[["class","validatieText"]],null,null,null,null,null)),(l()(),m._19(-1,null,["Wachtwoord moet ingevuld zijn"]))],null,null)}function c(l){return m._21(0,[(l()(),m.Z(0,0,null,null,1,"div",[["class","validatieText"]],null,null,null,null,null)),(l()(),m._19(-1,null,["Wachtwoord moet minimaal 8 tekens lang zijn"]))],null,null)}function d(l){return m._21(0,[(l()(),m.Z(0,0,null,null,1,"div",[["class","validatieText"]],null,null,null,null,null)),(l()(),m._19(-1,null,["Wachtwoord moet minstens een hoofdletter, een kleine letter en een cijfer bevatten"]))],null,null)}function g(l){return m._21(0,[(l()(),m.Z(0,0,null,null,10,"div",[["class","alert alert-danger"]],null,null,null,null,null)),(l()(),m._19(-1,null,["\n                      "])),(l()(),m.U(16777216,null,null,1,null,s)),m.Y(3,16384,null,0,p.i,[m.I,m.F],{ngIf:[0,"ngIf"]},null),(l()(),m._19(-1,null,["\n                      "])),(l()(),m.U(16777216,null,null,1,null,c)),m.Y(6,16384,null,0,p.i,[m.I,m.F],{ngIf:[0,"ngIf"]},null),(l()(),m._19(-1,null,["\n                      "])),(l()(),m.U(16777216,null,null,1,null,d)),m.Y(9,16384,null,0,p.i,[m.I,m.F],{ngIf:[0,"ngIf"]},null),(l()(),m._19(-1,null,["\n                    "]))],function(l,n){var u=n.component;l(n,3,0,u.form.get("password").hasError("required"));l(n,6,0,u.form.get("password").hasError("minLength"));l(n,9,0,u.form.get("password").hasError("pattern"))},null)}function _(l){return m._21(0,[(l()(),m.Z(0,0,null,null,120,"ion-content",[],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,f.b,f.a)),m.Y(1,4374528,null,0,h.a,[b.a,v.a,k.a,m.j,m.z,Z.a,Y.a,m.u,[2,I.a],[2,j.a]],null,null),(l()(),m._19(-1,1,["\n  "])),(l()(),m.Z(3,0,null,1,116,"ion-grid",[["class","gridPadding grid"],["style","height: 100%"]],null,null,null,null,null)),m.Y(4,16384,null,0,w.a,[],null,null),(l()(),m._19(-1,null,["\n    "])),(l()(),m.Z(6,0,null,null,112,"ion-row",[["align-items-center",""],["class","row"],["justify-content-center",""],["style","height: 100%"]],null,null,null,null,null)),m.Y(7,16384,null,0,z.a,[],null,null),(l()(),m._19(-1,null,["\n      "])),(l()(),m.Z(9,0,null,null,108,"ion-col",[["class","col"],["col-12",""]],null,null,null,null,null)),m.Y(10,16384,null,0,C.a,[],null,null),(l()(),m._19(-1,null,["\n        "])),(l()(),m.Z(12,0,null,null,7,"div",[["class","ValidatieText"]],null,null,null,null,null)),(l()(),m._19(-1,null,["\n          "])),(l()(),m.Z(14,0,null,null,1,"h2",[["class","WelkomText2"]],null,null,null,null,null)),(l()(),m._19(-1,null,["Meld je nu aan"])),(l()(),m._19(-1,null,["\n          "])),(l()(),m.Z(17,0,null,null,1,"p",[["class","gavederText"]],null,null,null,null,null)),(l()(),m._19(-1,null,["Maak een account aan om verder te gaan!"])),(l()(),m._19(-1,null,["\n        "])),(l()(),m._19(-1,null,["\n        "])),(l()(),m.Z(21,0,null,null,95,"div",[["class","ValidatieLogin"]],null,null,null,null,null)),(l()(),m._19(-1,null,["\n                  "])),(l()(),m.Z(23,0,null,null,83,"form",[["novalidate",""]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"submit"],[null,"reset"]],function(l,n,u){var e=!0;if("submit"===n){e=!1!==m._11(l,25).onSubmit(u)&&e}if("reset"===n){e=!1!==m._11(l,25).onReset()&&e}return e},null,null)),m.Y(24,16384,null,0,y.r,[],null,null),m.Y(25,540672,null,0,y.h,[[8,null],[8,null]],{form:[0,"form"]},null),m._15(2048,null,y.b,null,[y.h]),m.Y(27,16384,null,0,y.m,[y.b],null,null),(l()(),m._19(-1,null,["\n                    "])),(l()(),m.Z(29,0,null,null,21,"div",[["class","form-group"]],null,null,null,null,null)),(l()(),m._19(-1,null,["\n                      "])),(l()(),m.Z(31,0,null,null,18,"ion-item",[["class","item item-block"]],null,null,null,T.b,T.a)),m.Y(32,278528,null,0,p.g,[m.p,m.q,m.j,m.A],{ngClass:[0,"ngClass"]},null),m._14(33,{"ng-touched":0}),m.Y(34,1097728,null,3,x.a,[F.a,b.a,m.j,m.z,[2,S.a]],null,null),m._17(335544320,1,{contentLabel:0}),m._17(603979776,2,{_buttons:1}),m._17(603979776,3,{_icons:1}),m.Y(38,16384,null,0,U.a,[],null,null),(l()(),m._19(-1,2,[">\n                        "])),(l()(),m.Z(40,0,null,1,2,"ion-label",[["floating",""]],null,null,null,null,null)),m.Y(41,16384,[[1,4]],0,$.a,[b.a,m.j,m.z,[8,""],[8,null],[8,null],[8,null]],null,null),(l()(),m._19(-1,null,["Gebruikersnaam"])),(l()(),m._19(-1,2,["\n                        "])),(l()(),m.Z(44,0,null,3,4,"ion-input",[["class","form-control"],["formControlName","username"],["type","text"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;if("ngModelChange"===n){e=!1!==(l.component.username=u)&&e}return e},P.b,P.a)),m.Y(45,671744,null,0,y.f,[[3,y.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),m._15(2048,null,y.k,null,[y.f]),m.Y(47,16384,null,0,y.l,[y.k],null,null),m.Y(48,5423104,null,0,A.a,[b.a,v.a,F.a,Z.a,m.j,m.z,[2,h.a],[2,x.a],[2,y.k],k.a],{type:[0,"type"]},null),(l()(),m._19(-1,2,["\n                      "])),(l()(),m._19(-1,null,["\n                    "])),(l()(),m._19(-1,null,["\n                    "])),(l()(),m.U(16777216,null,null,1,null,a)),m.Y(53,16384,null,0,p.i,[m.I,m.F],{ngIf:[0,"ngIf"]},null),(l()(),m._19(-1,null,["\n\n                    "])),(l()(),m.Z(55,0,null,null,21,"div",[["class","form-group"]],null,null,null,null,null)),(l()(),m._19(-1,null,["\n                      "])),(l()(),m.Z(57,0,null,null,18,"ion-item",[["class","item item-block"]],null,null,null,T.b,T.a)),m.Y(58,278528,null,0,p.g,[m.p,m.q,m.j,m.A],{ngClass:[0,"ngClass"]},null),m._14(59,{"ng-touched":0}),m.Y(60,1097728,null,3,x.a,[F.a,b.a,m.j,m.z,[2,S.a]],null,null),m._17(335544320,4,{contentLabel:0}),m._17(603979776,5,{_buttons:1}),m._17(603979776,6,{_icons:1}),m.Y(64,16384,null,0,U.a,[],null,null),(l()(),m._19(-1,2,["\n                        "])),(l()(),m.Z(66,0,null,1,2,"ion-label",[["floating",""]],null,null,null,null,null)),m.Y(67,16384,[[4,4]],0,$.a,[b.a,m.j,m.z,[8,""],[8,null],[8,null],[8,null]],null,null),(l()(),m._19(-1,null,["E-mail"])),(l()(),m._19(-1,2,["\n                        "])),(l()(),m.Z(70,0,null,3,4,"ion-input",[["class","form-control"],["formControlName","email"],["type","email"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;if("ngModelChange"===n){e=!1!==(l.component.email=u)&&e}return e},P.b,P.a)),m.Y(71,671744,null,0,y.f,[[3,y.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),m._15(2048,null,y.k,null,[y.f]),m.Y(73,16384,null,0,y.l,[y.k],null,null),m.Y(74,5423104,null,0,A.a,[b.a,v.a,F.a,Z.a,m.j,m.z,[2,h.a],[2,x.a],[2,y.k],k.a],{type:[0,"type"]},null),(l()(),m._19(-1,2,["\n                      "])),(l()(),m._19(-1,null,["\n                    "])),(l()(),m._19(-1,null,["\n                    "])),(l()(),m.U(16777216,null,null,1,null,r)),m.Y(79,16384,null,0,p.i,[m.I,m.F],{ngIf:[0,"ngIf"]},null),(l()(),m._19(-1,null,["\n\n                    "])),(l()(),m.Z(81,0,null,null,21,"div",[["class","form-group"]],null,null,null,null,null)),(l()(),m._19(-1,null,["\n                      "])),(l()(),m.Z(83,0,null,null,18,"ion-item",[["class","item item-block"]],null,null,null,T.b,T.a)),m.Y(84,278528,null,0,p.g,[m.p,m.q,m.j,m.A],{ngClass:[0,"ngClass"]},null),m._14(85,{"ng-touched":0}),m.Y(86,1097728,null,3,x.a,[F.a,b.a,m.j,m.z,[2,S.a]],null,null),m._17(335544320,7,{contentLabel:0}),m._17(603979776,8,{_buttons:1}),m._17(603979776,9,{_icons:1}),m.Y(90,16384,null,0,U.a,[],null,null),(l()(),m._19(-1,2,["\n                        "])),(l()(),m.Z(92,0,null,1,2,"ion-label",[["floating",""]],null,null,null,null,null)),m.Y(93,16384,[[7,4]],0,$.a,[b.a,m.j,m.z,[8,""],[8,null],[8,null],[8,null]],null,null),(l()(),m._19(-1,null,["Wachtwoord"])),(l()(),m._19(-1,2,["\n                        "])),(l()(),m.Z(96,0,null,3,4,"ion-input",[["class","form-control"],["formControlName","password"],["type","password"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;if("ngModelChange"===n){e=!1!==(l.component.password=u)&&e}return e},P.b,P.a)),m.Y(97,671744,null,0,y.f,[[3,y.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),m._15(2048,null,y.k,null,[y.f]),m.Y(99,16384,null,0,y.l,[y.k],null,null),m.Y(100,5423104,null,0,A.a,[b.a,v.a,F.a,Z.a,m.j,m.z,[2,h.a],[2,x.a],[2,y.k],k.a],{type:[0,"type"]},null),(l()(),m._19(-1,2,["\n                      "])),(l()(),m._19(-1,null,["\n                    "])),(l()(),m._19(-1,null,["\n                    "])),(l()(),m.U(16777216,null,null,1,null,g)),m.Y(105,16384,null,0,p.i,[m.I,m.F],{ngIf:[0,"ngIf"]},null),(l()(),m._19(-1,null,["\n                  "])),(l()(),m._19(-1,null,["\n\n                  "])),(l()(),m.Z(108,0,null,null,0,"br",[],null,null,null,null,null)),(l()(),m._19(-1,null,["\n                  "])),(l()(),m.Z(110,0,null,null,5,"div",[["class","Validatie2Login"]],null,null,null,null,null)),(l()(),m._19(-1,null,["\n                    "])),(l()(),m.Z(112,0,null,null,2,"button",[["class","loginButton"],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.onSubmit()&&e}return e},D.b,D.a)),m.Y(113,1097728,null,0,N.a,[[8,""],b.a,m.j,m.z],null,null),(l()(),m._19(-1,0,["Registreren"])),(l()(),m._19(-1,null,["\n                  "])),(l()(),m._19(-1,null,["\n                "])),(l()(),m._19(-1,null,["\n      "])),(l()(),m._19(-1,null,["\n    "])),(l()(),m._19(-1,null,["\n  "])),(l()(),m._19(-1,1,["\n"])),(l()(),m._19(-1,null,["\n"]))],function(l,n){var u=n.component;l(n,25,0,u.form);l(n,32,0,l(n,33,0,u.form.get("username").touched));l(n,45,0,"username",u.username);l(n,48,0,"text");l(n,53,0,u.form.get("username").touched&&u.form.get("username").invalid);l(n,58,0,l(n,59,0,u.form.get("email").touched));l(n,71,0,"email",u.email);l(n,74,0,"email");l(n,79,0,u.form.get("email").touched&&u.form.get("email").invalid);l(n,84,0,l(n,85,0,u.form.get("password").touched));l(n,97,0,"password",u.password);l(n,100,0,"password");l(n,105,0,u.form.get("password").touched&&u.form.get("password").invalid)},function(l,n){l(n,0,0,m._11(n,1).statusbarPadding,m._11(n,1)._hasRefresher);l(n,23,0,m._11(n,27).ngClassUntouched,m._11(n,27).ngClassTouched,m._11(n,27).ngClassPristine,m._11(n,27).ngClassDirty,m._11(n,27).ngClassValid,m._11(n,27).ngClassInvalid,m._11(n,27).ngClassPending);l(n,44,0,m._11(n,47).ngClassUntouched,m._11(n,47).ngClassTouched,m._11(n,47).ngClassPristine,m._11(n,47).ngClassDirty,m._11(n,47).ngClassValid,m._11(n,47).ngClassInvalid,m._11(n,47).ngClassPending);l(n,70,0,m._11(n,73).ngClassUntouched,m._11(n,73).ngClassTouched,m._11(n,73).ngClassPristine,m._11(n,73).ngClassDirty,m._11(n,73).ngClassValid,m._11(n,73).ngClassInvalid,m._11(n,73).ngClassPending);l(n,96,0,m._11(n,99).ngClassUntouched,m._11(n,99).ngClassTouched,m._11(n,99).ngClassPristine,m._11(n,99).ngClassDirty,m._11(n,99).ngClassValid,m._11(n,99).ngClassInvalid,m._11(n,99).ngClassPending)})}u.d(n,"a",function(){return E});var m=u(1),p=u(16),f=u(43),h=u(23),b=u(3),v=u(5),k=u(10),Z=u(9),Y=u(28),I=u(7),j=u(17),w=u(67),z=u(80),C=u(66),y=u(19),T=u(50),x=u(22),F=u(21),S=u(42),U=u(47),$=u(55),P=u(118),A=u(68),D=u(20),N=u(15),O=u(176),L=u(12),W=u(52),V=u(30),M=u(85),H=m.X({encapsulation:2,styles:[],data:{}}),E=m.V("page-register",O.a,function(l){return m._21(0,[(l()(),m.Z(0,0,null,null,1,"page-register",[],null,null,null,_,H)),m.Y(1,114688,null,0,O.a,[j.a,L.a,W.a,V.c,M.a],null,null)],function(l,n){l(n,1,0)},null)},{},{},[])},415:function(l,n,u){"use strict";function e(l){return i._21(0,[(l()(),i.Z(0,0,null,null,24,"ion-card",[["class","cardVerification"]],null,null,null,null,null)),i.Y(1,16384,null,0,o.a,[r.a,i.j,i.z],null,null),(l()(),i._19(-1,null,["\n        "])),(l()(),i.Z(3,0,null,null,20,"div",[["class","containerVerification"]],null,null,null,null,null)),(l()(),i._19(-1,null,["\n            "])),(l()(),i.Z(5,0,null,null,5,"ion-card-header",[["class","verificationHeader"]],null,null,null,null,null)),i.Y(6,16384,null,0,s.a,[r.a,i.j,i.z],null,null),(l()(),i._19(-1,null,["\n                "])),(l()(),i.Z(8,0,null,null,1,"ion-icon",[["class","alertIcon"],["name","alert"],["role","img"]],[[2,"hide",null]],null,null,null,null)),i.Y(9,147456,null,0,c.a,[r.a,i.j,i.z],{name:[0,"name"]},null),(l()(),i._19(-1,null,["\n                Verifieer je email\n            "])),(l()(),i._19(-1,null,["\n            "])),(l()(),i.Z(12,0,null,null,10,"ion-card-content",[["class","verificationContent"]],null,null,null,null,null)),i.Y(13,16384,null,0,d.a,[r.a,i.j,i.z],null,null),(l()(),i._19(-1,null,["\n                "])),(l()(),i.Z(15,0,null,null,1,"p",[["class","emailVerificationText"]],null,null,null,null,null)),(l()(),i._19(-1,null,["Controleer uw e-mailadres en volg de instructies om uw account te verifiëren. Als u een e-mail niet hebt ontvangen of als het is verlopen, kunt u opnieuw een verzenden."])),(l()(),i._19(-1,null,["\n                "])),(l()(),i.Z(18,0,null,null,3,"button",[["block",""],["class","buttonStuurOpnieuwVerification"],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.resendMail()&&e}return e},g.b,g.a)),i.Y(19,1097728,null,0,_.a,[[8,""],r.a,i.j,i.z],{block:[0,"block"]},null),(l()(),i.Z(20,0,null,0,1,"span",[["class","verifyText"]],null,null,null,null,null)),(l()(),i._19(-1,null,["Verifieer"])),(l()(),i._19(-1,null,["\n            "])),(l()(),i._19(-1,null,["\n        "])),(l()(),i._19(-1,null,["\n    "]))],function(l,n){l(n,9,0,"alert");l(n,19,0,"")},function(l,n){l(n,8,0,i._11(n,9)._hidden)})}function t(l){return i._21(0,[(l()(),i.Z(0,0,null,null,13,"ion-item",[["class"," item item-block"]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.openAdmin()&&e}return e},m.b,m.a)),i.Y(1,1097728,null,3,p.a,[f.a,r.a,i.j,i.z,[2,h.a]],null,null),i._17(335544320,19,{contentLabel:0}),i._17(603979776,20,{_buttons:1}),i._17(603979776,21,{_icons:1}),i.Y(5,16384,null,0,b.a,[],null,null),(l()(),i._19(-1,2,["\n        "])),(l()(),i.Z(7,0,null,1,5,"ion-label",[["class","DarkLabel"]],null,null,null,null,null)),i.Y(8,16384,[[19,4]],0,v.a,[r.a,i.j,i.z,[8,null],[8,null],[8,null],[8,null]],null,null),(l()(),i._19(-1,null,["\n            "])),(l()(),i.Z(10,0,null,null,1,"ion-icon",[["class","iconInstellingen"],["name","construct"],["role","img"]],[[2,"hide",null]],null,null,null,null)),i.Y(11,147456,null,0,c.a,[r.a,i.j,i.z],{name:[0,"name"]},null),(l()(),i._19(-1,null,["\n            Admin panel\n        "])),(l()(),i._19(-1,2,["\n    "]))],function(l,n){l(n,11,0,"construct")},function(l,n){l(n,10,0,i._11(n,11)._hidden)})}function a(l){return i._21(0,[i._17(402653184,1,{nav:0}),(l()(),i.Z(1,0,null,null,30,"ion-header",[["no-border-bottom",""]],null,null,null,null,null)),i.Y(2,16384,null,0,k.a,[r.a,i.j,i.z,[2,Z.a]],null,null),(l()(),i._19(-1,null,["\n    "])),(l()(),i.Z(4,0,null,null,26,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,Y.b,Y.a)),i.Y(5,49152,null,0,I.a,[j.a,[2,Z.a],[2,w.a],r.a,i.j,i.z],null,null),(l()(),i._19(-1,3,["\n        "])),(l()(),i.Z(7,0,null,0,8,"button",[["class","fakeCenter"],["ion-button",""],["menuToggle",""],["right",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==i._11(l,9).toggle()&&e}return e},g.b,g.a)),i.Y(8,1097728,[[2,4]],0,_.a,[[8,""],r.a,i.j,i.z],null,null),i.Y(9,1064960,null,0,z.a,[C.a,[2,Z.a],[2,_.a],[2,I.a]],{menuToggle:[0,"menuToggle"]},null),i.Y(10,16384,null,1,y.a,[r.a,i.j,i.z,[2,T.a],[2,I.a]],null,null),i._17(603979776,2,{_buttons:1}),(l()(),i._19(-1,0,["\n            "])),(l()(),i.Z(13,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),i.Y(14,147456,null,0,c.a,[r.a,i.j,i.z],{name:[0,"name"]},null),(l()(),i._19(-1,0,["\n        "])),(l()(),i._19(-1,3,["\n        "])),(l()(),i.Z(17,0,null,3,2,"ion-title",[],null,null,null,x.b,x.a)),i.Y(18,49152,null,0,F.a,[r.a,i.j,i.z,[2,T.a],[2,I.a]],null,null),(l()(),i._19(-1,0,["Instellingen"])),(l()(),i._19(-1,3,["\n        "])),(l()(),i.Z(21,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==i._11(l,23).toggle()&&e}return e},g.b,g.a)),i.Y(22,1097728,[[3,4]],0,_.a,[[8,""],r.a,i.j,i.z],null,null),i.Y(23,1064960,null,0,z.a,[C.a,[2,Z.a],[2,_.a],[2,I.a]],{menuToggle:[0,"menuToggle"]},null),i.Y(24,16384,null,1,y.a,[r.a,i.j,i.z,[2,T.a],[2,I.a]],null,null),i._17(603979776,3,{_buttons:1}),(l()(),i._19(-1,0,["\n            "])),(l()(),i.Z(27,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),i.Y(28,147456,null,0,c.a,[r.a,i.j,i.z],{name:[0,"name"]},null),(l()(),i._19(-1,0,["\n        "])),(l()(),i._19(-1,3,["\n    "])),(l()(),i._19(-1,null,["\n"])),(l()(),i._19(-1,null,["\n\n"])),(l()(),i.Z(33,0,null,null,105,"ion-content",[],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,S.b,S.a)),i.Y(34,4374528,null,0,U.a,[r.a,$.a,P.a,i.j,i.z,j.a,A.a,i.u,[2,Z.a],[2,w.a]],null,null),(l()(),i._19(-1,1,["\n\n    "])),(l()(),i.U(16777216,null,1,1,null,e)),i.Y(37,16384,null,0,D.i,[i.I,i.F],{ngIf:[0,"ngIf"]},null),(l()(),i._19(-1,1,["\n    "])),(l()(),i.Z(39,0,null,1,13,"ion-item",[["class"," item item-block"]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.goProfiel()&&e}return e},m.b,m.a)),i.Y(40,1097728,null,3,p.a,[f.a,r.a,i.j,i.z,[2,h.a]],null,null),i._17(335544320,4,{contentLabel:0}),i._17(603979776,5,{_buttons:1}),i._17(603979776,6,{_icons:1}),i.Y(44,16384,null,0,b.a,[],null,null),(l()(),i._19(-1,2,["\n        "])),(l()(),i.Z(46,0,null,1,5,"ion-label",[["class","DarkLabel"]],null,null,null,null,null)),i.Y(47,16384,[[4,4]],0,v.a,[r.a,i.j,i.z,[8,null],[8,null],[8,null],[8,null]],null,null),(l()(),i._19(-1,null,["\n            "])),(l()(),i.Z(49,0,null,null,1,"ion-icon",[["class","iconInstellingen"],["name","person"],["role","img"]],[[2,"hide",null]],null,null,null,null)),i.Y(50,147456,null,0,c.a,[r.a,i.j,i.z],{name:[0,"name"]},null),(l()(),i._19(-1,null,["\n            Bewerk Profiel\n        "])),(l()(),i._19(-1,2,["\n    "])),(l()(),i._19(-1,1,["\n    "])),(l()(),i.Z(54,0,null,1,13,"ion-item",[["class"," item item-block"]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.rapporteer()&&e}return e},m.b,m.a)),i.Y(55,1097728,null,3,p.a,[f.a,r.a,i.j,i.z,[2,h.a]],null,null),i._17(335544320,7,{contentLabel:0}),i._17(603979776,8,{_buttons:1}),i._17(603979776,9,{_icons:1}),i.Y(59,16384,null,0,b.a,[],null,null),(l()(),i._19(-1,2,["\n        "])),(l()(),i.Z(61,0,null,1,5,"ion-label",[["class","DarkLabel"]],null,null,null,null,null)),i.Y(62,16384,[[7,4]],0,v.a,[r.a,i.j,i.z,[8,null],[8,null],[8,null],[8,null]],null,null),(l()(),i._19(-1,null,["\n            "])),(l()(),i.Z(64,0,null,null,1,"ion-icon",[["class","iconInstellingen"],["name","warning"],["role","img"]],[[2,"hide",null]],null,null,null,null)),i.Y(65,147456,null,0,c.a,[r.a,i.j,i.z],{name:[0,"name"]},null),(l()(),i._19(-1,null,["\n            Raporteer probleem\n        "])),(l()(),i._19(-1,2,["\n    "])),(l()(),i._19(-1,1,["\n    "])),(l()(),i.Z(69,0,null,1,13,"ion-item",[["class"," item item-block"]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.overOns()&&e}return e},m.b,m.a)),i.Y(70,1097728,null,3,p.a,[f.a,r.a,i.j,i.z,[2,h.a]],null,null),i._17(335544320,10,{contentLabel:0}),i._17(603979776,11,{_buttons:1}),i._17(603979776,12,{_icons:1}),i.Y(74,16384,null,0,b.a,[],null,null),(l()(),i._19(-1,2,["\n        "])),(l()(),i.Z(76,0,null,1,5,"ion-label",[["class","DarkLabel"]],null,null,null,null,null)),i.Y(77,16384,[[10,4]],0,v.a,[r.a,i.j,i.z,[8,null],[8,null],[8,null],[8,null]],null,null),(l()(),i._19(-1,null,["\n            "])),(l()(),i.Z(79,0,null,null,1,"ion-icon",[["class","iconInstellingen"],["name","contacts"],["role","img"]],[[2,"hide",null]],null,null,null,null)),i.Y(80,147456,null,0,c.a,[r.a,i.j,i.z],{name:[0,"name"]},null),(l()(),i._19(-1,null,["\n            Over ons\n        "])),(l()(),i._19(-1,2,["\n    "])),(l()(),i._19(-1,1,["\n    "])),(l()(),i.Z(84,0,null,1,20,"ion-item",[["class"," item item-block"]],null,null,null,m.b,m.a)),i.Y(85,1097728,null,3,p.a,[f.a,r.a,i.j,i.z,[2,h.a]],null,null),i._17(335544320,13,{contentLabel:0}),i._17(603979776,14,{_buttons:1}),i._17(603979776,15,{_icons:1}),i.Y(89,16384,null,0,b.a,[],null,null),(l()(),i._19(-1,2,["\n        "])),(l()(),i.Z(91,0,null,1,5,"ion-label",[["class","DarkLabel"]],null,null,null,null,null)),i.Y(92,16384,[[13,4]],0,v.a,[r.a,i.j,i.z,[8,null],[8,null],[8,null],[8,null]],null,null),(l()(),i._19(-1,null,["\n            "])),(l()(),i.Z(94,0,null,null,1,"ion-icon",[["class","iconInstellingen"],["name","moon"],["role","img"]],[[2,"hide",null]],null,null,null,null)),i.Y(95,147456,null,0,c.a,[r.a,i.j,i.z],{name:[0,"name"]},null),(l()(),i._19(-1,null,["\n            Dark Theme\n        "])),(l()(),i._19(-1,2,["\n        "])),(l()(),i.Z(98,0,null,4,5,"ion-toggle",[],[[2,"toggle-disabled",null],[2,"toggle-checked",null],[2,"toggle-activated",null],[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"],[null,"ionChange"],[null,"keyup"]],function(l,n,u){var e=!0,t=l.component;if("keyup"===n){e=!1!==i._11(l,99)._keyup(u)&&e}if("ngModelChange"===n){e=!1!==(t.toggleStatus=u)&&e}if("ionChange"===n){e=!1!==t.toggleAppTheme()&&e}return e},N.b,N.a)),i.Y(99,1228800,null,0,O.a,[f.a,r.a,$.a,i.j,i.z,L.a,[2,p.a],W.l,P.a,i.u],null,{ionChange:"ionChange"}),i._15(1024,null,V.j,function(l){return[l]},[O.a]),i.Y(101,671744,null,0,V.n,[[8,null],[8,null],[8,null],[2,V.j]],{model:[0,"model"]},{update:"ngModelChange"}),i._15(2048,null,V.k,null,[V.n]),i.Y(103,16384,null,0,V.l,[V.k],null,null),(l()(),i._19(-1,2,["\n    "])),(l()(),i._19(-1,1,["\n    "])),(l()(),i.Z(106,0,null,1,13,"ion-item",[["class"," item item-block"]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.privacyBeleid()&&e}return e},m.b,m.a)),i.Y(107,1097728,null,3,p.a,[f.a,r.a,i.j,i.z,[2,h.a]],null,null),i._17(335544320,16,{contentLabel:0}),i._17(603979776,17,{_buttons:1}),i._17(603979776,18,{_icons:1}),i.Y(111,16384,null,0,b.a,[],null,null),(l()(),i._19(-1,2,["\n        "])),(l()(),i.Z(113,0,null,1,5,"ion-label",[["class","DarkLabel"]],null,null,null,null,null)),i.Y(114,16384,[[16,4]],0,v.a,[r.a,i.j,i.z,[8,null],[8,null],[8,null],[8,null]],null,null),(l()(),i._19(-1,null,["\n            "])),(l()(),i.Z(116,0,null,null,1,"ion-icon",[["class","iconInstellingen"],["name","eye-off"],["role","img"]],[[2,"hide",null]],null,null,null,null)),i.Y(117,147456,null,0,c.a,[r.a,i.j,i.z],{name:[0,"name"]},null),(l()(),i._19(-1,null,["\n            Privacy Beleid\n        "])),(l()(),i._19(-1,2,["\n    "])),(l()(),i._19(-1,1,["\n    "])),(l()(),i.U(16777216,null,1,1,null,t)),i.Y(122,16384,null,0,D.i,[i.I,i.F],{ngIf:[0,"ngIf"]},null),(l()(),i._19(-1,1,["\n    "])),(l()(),i.Z(124,0,null,1,13,"ion-item",[["class"," item item-block"]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.uitloggen()&&e}return e},m.b,m.a)),i.Y(125,1097728,null,3,p.a,[f.a,r.a,i.j,i.z,[2,h.a]],null,null),i._17(335544320,22,{contentLabel:0}),i._17(603979776,23,{_buttons:1}),i._17(603979776,24,{_icons:1}),i.Y(129,16384,null,0,b.a,[],null,null),(l()(),i._19(-1,2,["\n        "])),(l()(),i.Z(131,0,null,1,5,"ion-label",[["class","DarkLabel"]],null,null,null,null,null)),i.Y(132,16384,[[22,4]],0,v.a,[r.a,i.j,i.z,[8,null],[8,null],[8,null],[8,null]],null,null),(l()(),i._19(-1,null,["\n            "])),(l()(),i.Z(134,0,null,null,1,"ion-icon",[["class","iconInstellingen"],["name","log-out"],["role","img"]],[[2,"hide",null]],null,null,null,null)),i.Y(135,147456,null,0,c.a,[r.a,i.j,i.z],{name:[0,"name"]},null),(l()(),i._19(-1,null,["\n            Uitloggen\n        "])),(l()(),i._19(-1,2,["\n    "])),(l()(),i._19(-1,1,["\n"])),(l()(),i._19(-1,null,["\n"]))],function(l,n){var u=n.component;l(n,9,0,"");l(n,14,0,"menu");l(n,23,0,"");l(n,28,0,"menu");l(n,37,0,0==u.emailVerified);l(n,50,0,"person");l(n,65,0,"warning");l(n,80,0,"contacts");l(n,95,0,"moon");l(n,101,0,u.toggleStatus);l(n,117,0,"eye-off");l(n,122,0,1==u.rol);l(n,135,0,"log-out")},function(l,n){l(n,4,0,i._11(n,5)._hidden,i._11(n,5)._sbPadding);l(n,7,0,i._11(n,9).isHidden);l(n,13,0,i._11(n,14)._hidden);l(n,21,0,i._11(n,23).isHidden);l(n,27,0,i._11(n,28)._hidden);l(n,33,0,i._11(n,34).statusbarPadding,i._11(n,34)._hasRefresher);l(n,49,0,i._11(n,50)._hidden);l(n,64,0,i._11(n,65)._hidden);l(n,79,0,i._11(n,80)._hidden);l(n,94,0,i._11(n,95)._hidden);l(n,98,0,i._11(n,99)._disabled,i._11(n,99)._value,i._11(n,99)._activated,i._11(n,103).ngClassUntouched,i._11(n,103).ngClassTouched,i._11(n,103).ngClassPristine,i._11(n,103).ngClassDirty,i._11(n,103).ngClassValid,i._11(n,103).ngClassInvalid,i._11(n,103).ngClassPending);l(n,116,0,i._11(n,117)._hidden);l(n,134,0,i._11(n,135)._hidden)})}u.d(n,"a",function(){return J});var i=u(1),o=u(78),r=u(3),s=u(142),c=u(25),d=u(79),g=u(20),_=u(15),m=u(50),p=u(22),f=u(21),h=u(42),b=u(47),v=u(55),k=u(31),Z=u(7),Y=u(34),I=u(24),j=u(9),w=u(17),z=u(46),C=u(29),y=u(39),T=u(27),x=u(37),F=u(32),S=u(43),U=u(23),$=u(5),P=u(10),A=u(28),D=u(16),N=u(714),O=u(171),L=u(56),W=u(11),V=u(19),M=u(86),H=u(58),E=u(36),R=u(72),B=u(70),q=u(52),G=u(30),K=u(57),X=i.X({encapsulation:2,styles:[],data:{}}),J=i.V("page-settings",R.a,function(l){return i._21(0,[(l()(),i.Z(0,0,null,null,2,"page-settings",[],null,null,null,a,X)),i._15(135680,null,M.a,M.a,[[2,Z.a],[2,w.a],j.a,r.a,$.a,i.j,i.u,i.z,i.i,W.l,H.a,[2,E.a],P.a,i.k]),i.Y(2,49152,null,0,R.a,[B.a,$.a,w.a,q.a,G.c,K.a],null,null)],null,null)},{},{},[])},416:function(l,n,u){"use strict";function e(l){return r._21(0,[(l()(),r.Z(0,0,null,null,0,"img",[["src","../assets/svg/NOS_logo.svg"]],null,null,null,null,null))],null,null)}function t(l){return r._21(0,[(l()(),r.Z(0,0,null,null,0,"img",[["src","../assets/svg/NOS_logo_Wit.svg"]],null,null,null,null,null))],null,null)}function a(l){return r._21(0,[(l()(),r.Z(0,0,null,null,0,"img",[["src","../assets/svg/Telegraaf.svg"]],null,null,null,null,null))],null,null)}function i(l){return r._21(0,[(l()(),r.Z(0,0,null,null,0,"img",[["src","../assets/svg/Telegraaf_Wit.svg"]],null,null,null,null,null))],null,null)}function o(l){return r._21(0,[r._17(402653184,1,{slider:0}),(l()(),r.Z(1,0,null,null,46,"ion-header",[["no-border-bottom",""]],null,null,null,null,null)),r.Y(2,16384,null,0,s.a,[c.a,r.j,r.z,[2,d.a]],null,null),(l()(),r._19(-1,null,["\n  "])),(l()(),r.Z(4,0,null,null,26,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,g.b,g.a)),r.Y(5,49152,null,0,_.a,[m.a,[2,d.a],[2,p.a],c.a,r.j,r.z],null,null),(l()(),r._19(-1,3,["\n    "])),(l()(),r.Z(7,0,null,0,8,"button",[["class","fakeCenter"],["ion-button",""],["menuToggle",""],["right",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==r._11(l,9).toggle()&&e}return e},f.b,f.a)),r.Y(8,1097728,[[2,4]],0,h.a,[[8,""],c.a,r.j,r.z],null,null),r.Y(9,1064960,null,0,b.a,[v.a,[2,d.a],[2,h.a],[2,_.a]],{menuToggle:[0,"menuToggle"]},null),r.Y(10,16384,null,1,k.a,[c.a,r.j,r.z,[2,Z.a],[2,_.a]],null,null),r._17(603979776,2,{_buttons:1}),(l()(),r._19(-1,0,["\n        "])),(l()(),r.Z(13,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),r.Y(14,147456,null,0,Y.a,[c.a,r.j,r.z],{name:[0,"name"]},null),(l()(),r._19(-1,0,["\n    "])),(l()(),r._19(-1,3,["\n      "])),(l()(),r.Z(17,0,null,3,2,"ion-title",[],null,null,null,I.b,I.a)),r.Y(18,49152,null,0,j.a,[c.a,r.j,r.z,[2,Z.a],[2,_.a]],null,null),(l()(),r._19(-1,0,["Sources"])),(l()(),r._19(-1,3,["\n        "])),(l()(),r.Z(21,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==r._11(l,23).toggle()&&e}return e},f.b,f.a)),r.Y(22,1097728,[[3,4]],0,h.a,[[8,""],c.a,r.j,r.z],null,null),r.Y(23,1064960,null,0,b.a,[v.a,[2,d.a],[2,h.a],[2,_.a]],{menuToggle:[0,"menuToggle"]},null),r.Y(24,16384,null,1,k.a,[c.a,r.j,r.z,[2,Z.a],[2,_.a]],null,null),r._17(603979776,3,{_buttons:1}),(l()(),r._19(-1,0,["\n            "])),(l()(),r.Z(27,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),r.Y(28,147456,null,0,Y.a,[c.a,r.j,r.z],{name:[0,"name"]},null),(l()(),r._19(-1,0,["\n        "])),(l()(),r._19(-1,3,["\n    "])),(l()(),r._19(-1,null,["\n      "])),(l()(),r.Z(32,0,null,null,14,"ion-segment",[["color","darkAppKleur"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null],[2,"segment-disabled",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;if("ngModelChange"===n){e=!1!==(l.component.page=u)&&e}return e},null,null)),r.Y(33,671744,null,0,w.n,[[8,null],[8,null],[8,null],[8,null]],{model:[0,"model"]},{update:"ngModelChange"}),r._15(2048,null,w.k,null,[w.n]),r.Y(35,16384,null,0,w.l,[w.k],null,null),r.Y(36,1196032,null,1,z.a,[c.a,r.j,r.z,[2,w.k]],{color:[0,"color"]},null),r._17(603979776,4,{_buttons:1}),(l()(),r._19(-1,null,["\n        "])),(l()(),r.Z(39,0,null,null,2,"ion-segment-button",[["class","segment-button"],["role","button"],["tappable",""],["value","0"]],[[2,"segment-button-disabled",null],[2,"segment-activated",null],[1,"aria-pressed",0]],[[null,"click"]],function(l,n,u){var e=!0,t=l.component;if("click"===n){e=!1!==r._11(l,40).onClick()&&e}if("click"===n){e=!1!==t.selectedTab(0)&&e}return e},C.b,C.a)),r.Y(40,114688,[[4,4]],0,y.a,[],{value:[0,"value"]},null),(l()(),r._19(-1,0,["\n          Geabboneerd\n        "])),(l()(),r._19(-1,null,["\n        "])),(l()(),r.Z(43,0,null,null,2,"ion-segment-button",[["class","segment-button"],["role","button"],["tappable",""],["value","1"]],[[2,"segment-button-disabled",null],[2,"segment-activated",null],[1,"aria-pressed",0]],[[null,"click"]],function(l,n,u){var e=!0,t=l.component;if("click"===n){e=!1!==r._11(l,44).onClick()&&e}if("click"===n){e=!1!==t.selectedTab(1)&&e}return e},C.b,C.a)),r.Y(44,114688,[[4,4]],0,y.a,[],{value:[0,"value"]},null),(l()(),r._19(-1,0,["\n          Suggesties\n        "])),(l()(),r._19(-1,null,["\n      "])),(l()(),r._19(-1,null,["\n"])),(l()(),r._19(-1,null,["\n"])),(l()(),r.Z(49,0,null,null,433,"ion-content",[],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,T.b,T.a)),r.Y(50,4374528,null,0,x.a,[c.a,F.a,S.a,r.j,r.z,m.a,U.a,r.u,[2,d.a],[2,p.a]],null,null),(l()(),r._19(-1,1,["\n  "])),(l()(),r.Z(52,0,null,1,429,"ion-slides",[],null,[[null,"ionSlideWillChange"]],function(l,n,u){var e=!0;if("ionSlideWillChange"===n){e=!1!==l.component.moveButton(u)&&e}return e},$.b,$.a)),r.Y(53,1228800,[[1,4],["slider",4]],0,P.a,[c.a,F.a,r.u,[2,d.a],r.j,r.z],null,{ionSlideWillChange:"ionSlideWillChange"}),(l()(),r._19(-1,0,["\n    "])),(l()(),r._19(-1,0,["\n    "])),(l()(),r._19(-1,0,["\n    "])),(l()(),r._19(-1,0,["\n    "])),(l()(),r.Z(58,0,null,0,98,"ion-slide",[],null,null,null,A.b,A.a)),r.Y(59,180224,null,0,D.a,[r.j,r.z,P.a],null,null),(l()(),r._19(-1,0,["\n      "])),(l()(),r.Z(61,0,null,0,94,"ion-list",[],null,null,null,null,null)),r.Y(62,16384,null,0,N.a,[c.a,r.j,r.z,F.a,O.l,S.a],null,null),(l()(),r._19(-1,null,["\n        "])),(l()(),r.Z(64,0,null,null,30,"ion-item",[["class","sourceItem item item-block"]],null,null,null,L.b,L.a)),r.Y(65,1097728,null,3,W.a,[V.a,c.a,r.j,r.z,[2,M.a]],null,null),r._17(335544320,5,{contentLabel:0}),r._17(603979776,6,{_buttons:1}),r._17(603979776,7,{_icons:1}),r.Y(69,16384,null,0,H.a,[],null,null),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(71,0,null,0,8,"ion-avatar",[["class","avatar"],["item-start",""]],null,null,null,null,null)),r.Y(72,16384,null,0,E.a,[],null,null),(l()(),r._19(-1,null,["\n            "])),(l()(),r.U(16777216,null,null,1,null,e)),r.Y(75,16384,null,0,R.i,[r.I,r.F],{ngIf:[0,"ngIf"]},null),(l()(),r._19(-1,null,["\n            "])),(l()(),r.U(16777216,null,null,1,null,t)),r.Y(78,16384,null,0,R.i,[r.I,r.F],{ngIf:[0,"ngIf"]},null),(l()(),r._19(-1,null,["\n          "])),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(81,0,null,2,2,"div",[["class","sourceTekst"]],null,null,null,null,null)),(l()(),r.Z(82,0,null,null,1,"b",[],null,null,null,null,null)),(l()(),r._19(-1,null,["NOS"])),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(85,0,null,2,1,"div",[["class","sourceTekst"]],null,null,null,null,null)),(l()(),r._19(-1,null,["Nieuwsfeed"])),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(88,0,null,4,5,"button",[["class","DeleteClassesButton"],["color","danger"],["ion-button",""],["item-end",""],["outline",""]],null,null,null,f.b,f.a)),r.Y(89,1097728,[[6,4]],0,h.a,[[8,""],c.a,r.j,r.z],{color:[0,"color"],outline:[1,"outline"]},null),(l()(),r._19(-1,0,["\n            "])),(l()(),r.Z(91,0,null,0,1,"ion-icon",[["class","buttonIcon"],["name","close"],["role","img"]],[[2,"hide",null]],null,null,null,null)),r.Y(92,147456,null,0,Y.a,[c.a,r.j,r.z],{name:[0,"name"]},null),(l()(),r._19(-1,0,["Verwijderen\n          "])),(l()(),r._19(-1,2,["\n        "])),(l()(),r._19(-1,null,["\n\n        "])),(l()(),r.Z(96,0,null,null,30,"ion-item",[["class","sourceItem item item-block"]],null,null,null,L.b,L.a)),r.Y(97,1097728,null,3,W.a,[V.a,c.a,r.j,r.z,[2,M.a]],null,null),r._17(335544320,8,{contentLabel:0}),r._17(603979776,9,{_buttons:1}),r._17(603979776,10,{_icons:1}),r.Y(101,16384,null,0,H.a,[],null,null),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(103,0,null,0,8,"ion-avatar",[["class","avatar"],["item-start",""]],null,null,null,null,null)),r.Y(104,16384,null,0,E.a,[],null,null),(l()(),r._19(-1,null,["\n            "])),(l()(),r.U(16777216,null,null,1,null,a)),r.Y(107,16384,null,0,R.i,[r.I,r.F],{ngIf:[0,"ngIf"]},null),(l()(),r._19(-1,null,["\n            "])),(l()(),r.U(16777216,null,null,1,null,i)),r.Y(110,16384,null,0,R.i,[r.I,r.F],{ngIf:[0,"ngIf"]},null),(l()(),r._19(-1,null,["\n          "])),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(113,0,null,2,2,"div",[["class","sourceTekst"]],null,null,null,null,null)),(l()(),r.Z(114,0,null,null,1,"b",[],null,null,null,null,null)),(l()(),r._19(-1,null,["De Telegraaf"])),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(117,0,null,2,1,"div",[["class","sourceTekst"]],null,null,null,null,null)),(l()(),r._19(-1,null,["Nieuwsfeed"])),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(120,0,null,4,5,"button",[["class","DeleteClassesButton"],["color","danger"],["ion-button",""],["item-end",""],["outline",""]],null,null,null,f.b,f.a)),r.Y(121,1097728,[[9,4]],0,h.a,[[8,""],c.a,r.j,r.z],{color:[0,"color"],outline:[1,"outline"]},null),(l()(),r._19(-1,0,["\n            "])),(l()(),r.Z(123,0,null,0,1,"ion-icon",[["class","buttonIcon"],["name","close"],["role","img"]],[[2,"hide",null]],null,null,null,null)),r.Y(124,147456,null,0,Y.a,[c.a,r.j,r.z],{name:[0,"name"]},null),(l()(),r._19(-1,0,["Verwijderen\n          "])),(l()(),r._19(-1,2,["\n        "])),(l()(),r._19(-1,null,["\n\n        "])),(l()(),r.Z(128,0,null,null,26,"ion-item",[["class","sourceItem item item-block"]],null,null,null,L.b,L.a)),r.Y(129,1097728,null,3,W.a,[V.a,c.a,r.j,r.z,[2,M.a]],null,null),r._17(335544320,11,{contentLabel:0}),r._17(603979776,12,{_buttons:1}),r._17(603979776,13,{_icons:1}),r.Y(133,16384,null,0,H.a,[],null,null),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(135,0,null,0,4,"ion-avatar",[["class","avatar"],["item-start",""]],null,null,null,null,null)),r.Y(136,16384,null,0,E.a,[],null,null),(l()(),r._19(-1,null,["\n            "])),(l()(),r.Z(138,0,null,null,0,"img",[["src","../assets/svg/nu.nl.svg"]],null,null,null,null,null)),(l()(),r._19(-1,null,["\n          "])),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(141,0,null,2,2,"div",[["class","sourceTekst"]],null,null,null,null,null)),(l()(),r.Z(142,0,null,null,1,"b",[],null,null,null,null,null)),(l()(),r._19(-1,null,["NU.NL"])),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(145,0,null,2,1,"div",[["class","sourceTekst"]],null,null,null,null,null)),(l()(),r._19(-1,null,["Nieuwsfeed"])),(l()(),r._19(-1,2,["\n        "])),(l()(),r.Z(148,0,null,4,5,"button",[["class","DeleteClassesButton"],["color","danger"],["ion-button",""],["item-end",""],["outline",""]],null,null,null,f.b,f.a)),r.Y(149,1097728,[[12,4]],0,h.a,[[8,""],c.a,r.j,r.z],{color:[0,"color"],outline:[1,"outline"]},null),(l()(),r._19(-1,0,["\n            "])),(l()(),r.Z(151,0,null,0,1,"ion-icon",[["class","buttonIcon"],["name","close"],["role","img"]],[[2,"hide",null]],null,null,null,null)),r.Y(152,147456,null,0,Y.a,[c.a,r.j,r.z],{name:[0,"name"]},null),(l()(),r._19(-1,0,["Verwijderen\n          "])),(l()(),r._19(-1,2,["\n        "])),(l()(),r._19(-1,null,["\n\n      "])),(l()(),r._19(-1,0,["\n    "])),(l()(),r._19(-1,0,["\n    "])),(l()(),r.Z(158,0,null,0,322,"ion-slide",[],null,null,null,A.b,A.a)),r.Y(159,180224,null,0,D.a,[r.j,r.z,P.a],null,null),(l()(),r._19(-1,0,["\n      "])),(l()(),r.Z(161,0,null,0,318,"ion-list",[],null,null,null,null,null)),r.Y(162,16384,null,0,N.a,[c.a,r.j,r.z,F.a,O.l,S.a],null,null),(l()(),r._19(-1,null,["\n        "])),(l()(),r._19(-1,null,["\n        "])),(l()(),r._19(-1,null,["\n        "])),(l()(),r._19(-1,null,["\n        "])),(l()(),r.Z(167,0,null,null,9,"ion-item",[["class","sourceTitel item item-block"]],null,null,null,L.b,L.a)),r.Y(168,1097728,null,3,W.a,[V.a,c.a,r.j,r.z,[2,M.a]],null,null),r._17(335544320,14,{contentLabel:0}),r._17(603979776,15,{_buttons:1}),r._17(603979776,16,{_icons:1}),r.Y(172,16384,null,0,H.a,[],null,null),(l()(),r._19(-1,2,["\n              "])),(l()(),r.Z(174,0,null,2,1,"h4",[["class","TitelSources"]],null,null,null,null,null)),(l()(),r._19(-1,null,["Nieuwsfeed"])),(l()(),r._19(-1,2,["\n        "])),(l()(),r._19(-1,null,["\n        "])),(l()(),r.Z(178,0,null,null,26,"ion-item",[["class","sourceItem item item-block"]],null,null,null,L.b,L.a)),r.Y(179,1097728,null,3,W.a,[V.a,c.a,r.j,r.z,[2,M.a]],null,null),r._17(335544320,17,{contentLabel:0}),r._17(603979776,18,{_buttons:1}),r._17(603979776,19,{_icons:1}),r.Y(183,16384,null,0,H.a,[],null,null),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(185,0,null,0,4,"ion-avatar",[["class","avatar"],["item-start",""]],null,null,null,null,null)),r.Y(186,16384,null,0,E.a,[],null,null),(l()(),r._19(-1,null,["\n            "])),(l()(),r.Z(188,0,null,null,0,"img",[["src","../assets/svg/Volkskrant.svg"]],null,null,null,null,null)),(l()(),r._19(-1,null,["\n          "])),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(191,0,null,2,2,"div",[["class","sourceTekst"]],null,null,null,null,null)),(l()(),r.Z(192,0,null,null,1,"b",[],null,null,null,null,null)),(l()(),r._19(-1,null,["De Volkskrant"])),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(195,0,null,2,1,"div",[["class","sourceTekst"]],null,null,null,null,null)),(l()(),r._19(-1,null,["Nieuwsfeed"])),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(198,0,null,4,5,"button",[["class","ImportClassesButton"],["color","green"],["ion-button",""],["item-end",""],["outline",""]],null,null,null,f.b,f.a)),r.Y(199,1097728,[[18,4]],0,h.a,[[8,""],c.a,r.j,r.z],{color:[0,"color"],outline:[1,"outline"]},null),(l()(),r._19(-1,0,["\n            "])),(l()(),r.Z(201,0,null,0,1,"ion-icon",[["class","buttonIcon"],["name","checkmark"],["role","img"]],[[2,"hide",null]],null,null,null,null)),r.Y(202,147456,null,0,Y.a,[c.a,r.j,r.z],{name:[0,"name"]},null),(l()(),r._19(-1,0,["Toevoegen\n          "])),(l()(),r._19(-1,2,["\n        "])),(l()(),r._19(-1,null,["\n\n        "])),(l()(),r.Z(206,0,null,null,26,"ion-item",[["class","sourceItem item item-block"]],null,null,null,L.b,L.a)),r.Y(207,1097728,null,3,W.a,[V.a,c.a,r.j,r.z,[2,M.a]],null,null),r._17(335544320,20,{contentLabel:0}),r._17(603979776,21,{_buttons:1}),r._17(603979776,22,{_icons:1}),r.Y(211,16384,null,0,H.a,[],null,null),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(213,0,null,0,4,"ion-avatar",[["class","avatar"],["item-start",""]],null,null,null,null,null)),r.Y(214,16384,null,0,E.a,[],null,null),(l()(),r._19(-1,null,["\n            "])),(l()(),r.Z(216,0,null,null,0,"img",[["src","../assets/svg/AD.svg"]],null,null,null,null,null)),(l()(),r._19(-1,null,["\n          "])),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(219,0,null,2,2,"div",[["class","sourceTekst"]],null,null,null,null,null)),(l()(),r.Z(220,0,null,null,1,"b",[],null,null,null,null,null)),(l()(),r._19(-1,null,["Algemeen Dagblad"])),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(223,0,null,2,1,"div",[["class","sourceTekst"]],null,null,null,null,null)),(l()(),r._19(-1,null,["Nieuwsfeed"])),(l()(),r._19(-1,2,["\n        "])),(l()(),r.Z(226,0,null,4,5,"button",[["class","ImportClassesButton"],["color","green"],["ion-button",""],["item-end",""],["outline",""]],null,null,null,f.b,f.a)),r.Y(227,1097728,[[21,4]],0,h.a,[[8,""],c.a,r.j,r.z],{color:[0,"color"],outline:[1,"outline"]},null),(l()(),r._19(-1,0,["\n            "])),(l()(),r.Z(229,0,null,0,1,"ion-icon",[["class","buttonIcon"],["name","checkmark"],["role","img"]],[[2,"hide",null]],null,null,null,null)),r.Y(230,147456,null,0,Y.a,[c.a,r.j,r.z],{name:[0,"name"]},null),(l()(),r._19(-1,0,["Toevoegen\n          "])),(l()(),r._19(-1,2,["\n        "])),(l()(),r._19(-1,null,["\n\n\n        "])),(l()(),r.Z(234,0,null,null,26,"ion-item",[["class","sourceItem item item-block"]],null,null,null,L.b,L.a)),r.Y(235,1097728,null,3,W.a,[V.a,c.a,r.j,r.z,[2,M.a]],null,null),r._17(335544320,23,{contentLabel:0}),r._17(603979776,24,{_buttons:1}),r._17(603979776,25,{_icons:1}),r.Y(239,16384,null,0,H.a,[],null,null),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(241,0,null,0,4,"ion-avatar",[["class","avatar"],["item-start",""]],null,null,null,null,null)),r.Y(242,16384,null,0,E.a,[],null,null),(l()(),r._19(-1,null,["\n            "])),(l()(),r.Z(244,0,null,null,0,"img",[["src","../assets/svg/RTL_Nederland.svg"]],null,null,null,null,null)),(l()(),r._19(-1,null,["\n          "])),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(247,0,null,2,2,"div",[["class","sourceTekst"]],null,null,null,null,null)),(l()(),r.Z(248,0,null,null,1,"b",[],null,null,null,null,null)),(l()(),r._19(-1,null,["RTL Nieuws"])),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(251,0,null,2,1,"div",[["class","sourceTekst"]],null,null,null,null,null)),(l()(),r._19(-1,null,["Nieuwsfeed"])),(l()(),r._19(-1,2,["\n        "])),(l()(),r.Z(254,0,null,4,5,"button",[["class","ImportClassesButton"],["color","green"],["ion-button",""],["item-end",""],["outline",""]],null,null,null,f.b,f.a)),r.Y(255,1097728,[[24,4]],0,h.a,[[8,""],c.a,r.j,r.z],{color:[0,"color"],outline:[1,"outline"]},null),(l()(),r._19(-1,0,["\n            "])),(l()(),r.Z(257,0,null,0,1,"ion-icon",[["class","buttonIcon"],["name","checkmark"],["role","img"]],[[2,"hide",null]],null,null,null,null)),r.Y(258,147456,null,0,Y.a,[c.a,r.j,r.z],{name:[0,"name"]},null),(l()(),r._19(-1,0,["Toevoegen\n          "])),(l()(),r._19(-1,2,["\n        "])),(l()(),r._19(-1,null,["\n\n        "])),(l()(),r.Z(262,0,null,null,26,"ion-item",[["class","sourceItem item item-block"]],null,null,null,L.b,L.a)),r.Y(263,1097728,null,3,W.a,[V.a,c.a,r.j,r.z,[2,M.a]],null,null),r._17(335544320,26,{contentLabel:0}),r._17(603979776,27,{_buttons:1}),r._17(603979776,28,{_icons:1}),r.Y(267,16384,null,0,H.a,[],null,null),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(269,0,null,0,4,"ion-avatar",[["class","avatar"],["item-start",""]],null,null,null,null,null)),r.Y(270,16384,null,0,E.a,[],null,null),(l()(),r._19(-1,null,["\n            "])),(l()(),r.Z(272,0,null,null,0,"img",[["src","../assets/svg/De_Gelderlander.svg"]],null,null,null,null,null)),(l()(),r._19(-1,null,["\n          "])),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(275,0,null,2,2,"div",[["class","sourceTekst"]],null,null,null,null,null)),(l()(),r.Z(276,0,null,null,1,"b",[],null,null,null,null,null)),(l()(),r._19(-1,null,["De Gelderlander"])),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(279,0,null,2,1,"div",[["class","sourceTekst"]],null,null,null,null,null)),(l()(),r._19(-1,null,["Nieuwsfeed"])),(l()(),r._19(-1,2,["\n        "])),(l()(),r.Z(282,0,null,4,5,"button",[["class","ImportClassesButton"],["color","green"],["ion-button",""],["item-end",""],["outline",""]],null,null,null,f.b,f.a)),r.Y(283,1097728,[[27,4]],0,h.a,[[8,""],c.a,r.j,r.z],{color:[0,"color"],outline:[1,"outline"]},null),(l()(),r._19(-1,0,["\n            "])),(l()(),r.Z(285,0,null,0,1,"ion-icon",[["class","buttonIcon"],["name","checkmark"],["role","img"]],[[2,"hide",null]],null,null,null,null)),r.Y(286,147456,null,0,Y.a,[c.a,r.j,r.z],{name:[0,"name"]},null),(l()(),r._19(-1,0,["Toevoegen\n          "])),(l()(),r._19(-1,2,["\n        "])),(l()(),r._19(-1,null,["\n\n        "])),(l()(),r.Z(290,0,null,null,9,"ion-item",[["class","sourceTitel item item-block"]],null,null,null,L.b,L.a)),r.Y(291,1097728,null,3,W.a,[V.a,c.a,r.j,r.z,[2,M.a]],null,null),r._17(335544320,29,{contentLabel:0}),r._17(603979776,30,{_buttons:1}),r._17(603979776,31,{_icons:1}),r.Y(295,16384,null,0,H.a,[],null,null),(l()(),r._19(-1,2,["\n              "])),(l()(),r.Z(297,0,null,2,1,"h4",[["class","TitelSources"]],null,null,null,null,null)),(l()(),r._19(-1,null,["Tech"])),(l()(),r._19(-1,2,["\n        "])),(l()(),r._19(-1,null,["\n\n        "])),(l()(),r.Z(301,0,null,null,26,"ion-item",[["class","sourceItem item item-block"]],null,null,null,L.b,L.a)),r.Y(302,1097728,null,3,W.a,[V.a,c.a,r.j,r.z,[2,M.a]],null,null),r._17(335544320,32,{contentLabel:0}),r._17(603979776,33,{_buttons:1}),r._17(603979776,34,{_icons:1}),r.Y(306,16384,null,0,H.a,[],null,null),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(308,0,null,0,4,"ion-avatar",[["class","avatar"],["item-start",""]],null,null,null,null,null)),r.Y(309,16384,null,0,E.a,[],null,null),(l()(),r._19(-1,null,["\n            "])),(l()(),r.Z(311,0,null,null,0,"img",[["src","../assets/svg/Tweakers.svg"]],null,null,null,null,null)),(l()(),r._19(-1,null,["\n          "])),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(314,0,null,2,2,"div",[["class","sourceTekst"]],null,null,null,null,null)),(l()(),r.Z(315,0,null,null,1,"b",[],null,null,null,null,null)),(l()(),r._19(-1,null,["Tweakers"])),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(318,0,null,2,1,"div",[["class","sourceTekst"]],null,null,null,null,null)),(l()(),r._19(-1,null,["Tech"])),(l()(),r._19(-1,2,["\n        "])),(l()(),r.Z(321,0,null,4,5,"button",[["class","ImportClassesButton"],["color","green"],["ion-button",""],["item-end",""],["outline",""]],null,null,null,f.b,f.a)),r.Y(322,1097728,[[33,4]],0,h.a,[[8,""],c.a,r.j,r.z],{color:[0,"color"],outline:[1,"outline"]},null),(l()(),r._19(-1,0,["\n            "])),(l()(),r.Z(324,0,null,0,1,"ion-icon",[["class","buttonIcon"],["name","checkmark"],["role","img"]],[[2,"hide",null]],null,null,null,null)),r.Y(325,147456,null,0,Y.a,[c.a,r.j,r.z],{name:[0,"name"]},null),(l()(),r._19(-1,0,["Toevoegen\n          "])),(l()(),r._19(-1,2,["\n        "])),(l()(),r._19(-1,null,["\n\n        "])),(l()(),r.Z(329,0,null,null,9,"ion-item",[["class","sourceTitel item item-block"]],null,null,null,L.b,L.a)),r.Y(330,1097728,null,3,W.a,[V.a,c.a,r.j,r.z,[2,M.a]],null,null),r._17(335544320,35,{contentLabel:0}),r._17(603979776,36,{_buttons:1}),r._17(603979776,37,{_icons:1}),r.Y(334,16384,null,0,H.a,[],null,null),(l()(),r._19(-1,2,["\n              "])),(l()(),r.Z(336,0,null,2,1,"h4",[["class","TitelSources"]],null,null,null,null,null)),(l()(),r._19(-1,null,["Sport"])),(l()(),r._19(-1,2,["\n        "])),(l()(),r._19(-1,null,["\n\n        "])),(l()(),r.Z(340,0,null,null,26,"ion-item",[["class","sourceItem item item-block"]],null,null,null,L.b,L.a)),r.Y(341,1097728,null,3,W.a,[V.a,c.a,r.j,r.z,[2,M.a]],null,null),r._17(335544320,38,{contentLabel:0}),r._17(603979776,39,{_buttons:1}),r._17(603979776,40,{_icons:1}),r.Y(345,16384,null,0,H.a,[],null,null),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(347,0,null,0,4,"ion-avatar",[["class","avatar"],["item-start",""]],null,null,null,null,null)),r.Y(348,16384,null,0,E.a,[],null,null),(l()(),r._19(-1,null,["\n            "])),(l()(),r.Z(350,0,null,null,0,"img",[["src","../assets/svg/Fifa.svg"]],null,null,null,null,null)),(l()(),r._19(-1,null,["\n          "])),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(353,0,null,2,2,"div",[["class","sourceTekst"]],null,null,null,null,null)),(l()(),r.Z(354,0,null,null,1,"b",[],null,null,null,null,null)),(l()(),r._19(-1,null,["Fifa"])),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(357,0,null,2,1,"div",[["class","sourceTekst"]],null,null,null,null,null)),(l()(),r._19(-1,null,["Sport"])),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(360,0,null,4,5,"button",[["class","ImportClassesButton"],["color","green"],["ion-button",""],["item-end",""],["outline",""]],null,null,null,f.b,f.a)),r.Y(361,1097728,[[39,4]],0,h.a,[[8,""],c.a,r.j,r.z],{color:[0,"color"],outline:[1,"outline"]},null),(l()(),r._19(-1,0,["\n            "])),(l()(),r.Z(363,0,null,0,1,"ion-icon",[["class","buttonIcon"],["name","checkmark"],["role","img"]],[[2,"hide",null]],null,null,null,null)),r.Y(364,147456,null,0,Y.a,[c.a,r.j,r.z],{name:[0,"name"]},null),(l()(),r._19(-1,0,["Toevoegen\n          "])),(l()(),r._19(-1,2,["\n        "])),(l()(),r._19(-1,null,["\n\n        "])),(l()(),r.Z(368,0,null,null,26,"ion-item",[["class","sourceItem item item-block"]],null,null,null,L.b,L.a)),r.Y(369,1097728,null,3,W.a,[V.a,c.a,r.j,r.z,[2,M.a]],null,null),r._17(335544320,41,{contentLabel:0}),r._17(603979776,42,{_buttons:1}),r._17(603979776,43,{_icons:1}),r.Y(373,16384,null,0,H.a,[],null,null),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(375,0,null,0,4,"ion-avatar",[["class","avatar"],["item-start",""]],null,null,null,null,null)),r.Y(376,16384,null,0,E.a,[],null,null),(l()(),r._19(-1,null,["\n            "])),(l()(),r.Z(378,0,null,null,0,"img",[["src","../assets/svg/FoxSports.svg"]],null,null,null,null,null)),(l()(),r._19(-1,null,["\n          "])),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(381,0,null,2,2,"div",[["class","sourceTekst"]],null,null,null,null,null)),(l()(),r.Z(382,0,null,null,1,"b",[],null,null,null,null,null)),(l()(),r._19(-1,null,["Fox Sports Go"])),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(385,0,null,2,1,"div",[["class","sourceTekst"]],null,null,null,null,null)),(l()(),r._19(-1,null,["Sport"])),(l()(),r._19(-1,2,["\n        "])),(l()(),r.Z(388,0,null,4,5,"button",[["class","ImportClassesButton"],["color","green"],["ion-button",""],["item-end",""],["outline",""]],null,null,null,f.b,f.a)),r.Y(389,1097728,[[42,4]],0,h.a,[[8,""],c.a,r.j,r.z],{color:[0,"color"],outline:[1,"outline"]},null),(l()(),r._19(-1,0,["\n            "])),(l()(),r.Z(391,0,null,0,1,"ion-icon",[["class","buttonIcon"],["name","checkmark"],["role","img"]],[[2,"hide",null]],null,null,null,null)),r.Y(392,147456,null,0,Y.a,[c.a,r.j,r.z],{name:[0,"name"]},null),(l()(),r._19(-1,0,["Toevoegen\n          "])),(l()(),r._19(-1,2,["\n        "])),(l()(),r._19(-1,null,["\n\n        "])),(l()(),r.Z(396,0,null,null,26,"ion-item",[["class","sourceItem item item-block"]],null,null,null,L.b,L.a)),r.Y(397,1097728,null,3,W.a,[V.a,c.a,r.j,r.z,[2,M.a]],null,null),r._17(335544320,44,{contentLabel:0}),r._17(603979776,45,{_buttons:1}),r._17(603979776,46,{_icons:1}),r.Y(401,16384,null,0,H.a,[],null,null),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(403,0,null,0,4,"ion-avatar",[["class","avatar"],["item-start",""]],null,null,null,null,null)),r.Y(404,16384,null,0,E.a,[],null,null),(l()(),r._19(-1,null,["\n            "])),(l()(),r.Z(406,0,null,null,0,"img",[["src","../assets/svg/NuSport.svg"]],null,null,null,null,null)),(l()(),r._19(-1,null,["\n          "])),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(409,0,null,2,2,"div",[["class","sourceTekst"]],null,null,null,null,null)),(l()(),r.Z(410,0,null,null,1,"b",[],null,null,null,null,null)),(l()(),r._19(-1,null,["Nu Sport"])),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(413,0,null,2,1,"div",[["class","sourceTekst"]],null,null,null,null,null)),(l()(),r._19(-1,null,["Sport"])),(l()(),r._19(-1,2,["\n        "])),(l()(),r.Z(416,0,null,4,5,"button",[["class","ImportClassesButton"],["color","green"],["ion-button",""],["item-end",""],["outline",""]],null,null,null,f.b,f.a)),r.Y(417,1097728,[[45,4]],0,h.a,[[8,""],c.a,r.j,r.z],{color:[0,"color"],outline:[1,"outline"]},null),(l()(),r._19(-1,0,["\n            "])),(l()(),r.Z(419,0,null,0,1,"ion-icon",[["class","buttonIcon"],["name","checkmark"],["role","img"]],[[2,"hide",null]],null,null,null,null)),r.Y(420,147456,null,0,Y.a,[c.a,r.j,r.z],{name:[0,"name"]},null),(l()(),r._19(-1,0,["Toevoegen\n          "])),(l()(),r._19(-1,2,["\n        "])),(l()(),r._19(-1,null,["\n\n        "])),(l()(),r.Z(424,0,null,null,26,"ion-item",[["class","sourceItem item item-block"]],null,null,null,L.b,L.a)),r.Y(425,1097728,null,3,W.a,[V.a,c.a,r.j,r.z,[2,M.a]],null,null),r._17(335544320,47,{contentLabel:0}),r._17(603979776,48,{_buttons:1}),r._17(603979776,49,{_icons:1}),r.Y(429,16384,null,0,H.a,[],null,null),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(431,0,null,0,4,"ion-avatar",[["class","avatar"],["item-start",""]],null,null,null,null,null)),r.Y(432,16384,null,0,E.a,[],null,null),(l()(),r._19(-1,null,["\n            "])),(l()(),r.Z(434,0,null,null,0,"img",[["src","../assets/svg/rtlz.svg"]],null,null,null,null,null)),(l()(),r._19(-1,null,["\n          "])),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(437,0,null,2,2,"div",[["class","sourceTekst"]],null,null,null,null,null)),(l()(),r.Z(438,0,null,null,1,"b",[],null,null,null,null,null)),(l()(),r._19(-1,null,["RTL Z "])),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(441,0,null,2,1,"div",[["class","sourceTekst"]],null,null,null,null,null)),(l()(),r._19(-1,null,["Sport"])),(l()(),r._19(-1,2,["\n        "])),(l()(),r.Z(444,0,null,4,5,"button",[["class","ImportClassesButton"],["color","green"],["ion-button",""],["item-end",""],["outline",""]],null,null,null,f.b,f.a)),r.Y(445,1097728,[[48,4]],0,h.a,[[8,""],c.a,r.j,r.z],{color:[0,"color"],outline:[1,"outline"]},null),(l()(),r._19(-1,0,["\n            "])),(l()(),r.Z(447,0,null,0,1,"ion-icon",[["class","buttonIcon"],["name","checkmark"],["role","img"]],[[2,"hide",null]],null,null,null,null)),r.Y(448,147456,null,0,Y.a,[c.a,r.j,r.z],{name:[0,"name"]},null),(l()(),r._19(-1,0,["Toevoegen\n          "])),(l()(),r._19(-1,2,["\n        "])),(l()(),r._19(-1,null,["\n\n        "])),(l()(),r.Z(452,0,null,null,26,"ion-item",[["class","sourceItem item item-block"]],null,null,null,L.b,L.a)),r.Y(453,1097728,null,3,W.a,[V.a,c.a,r.j,r.z,[2,M.a]],null,null),r._17(335544320,50,{contentLabel:0}),r._17(603979776,51,{_buttons:1}),r._17(603979776,52,{_icons:1}),r.Y(457,16384,null,0,H.a,[],null,null),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(459,0,null,0,4,"ion-avatar",[["class","avatar"],["item-start",""]],null,null,null,null,null)),r.Y(460,16384,null,0,E.a,[],null,null),(l()(),r._19(-1,null,["\n            "])),(l()(),r.Z(462,0,null,null,0,"img",[["src","../assets/svg/Voetbalzone.svg"]],null,null,null,null,null)),(l()(),r._19(-1,null,["\n          "])),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(465,0,null,2,2,"div",[["class","sourceTekst"]],null,null,null,null,null)),(l()(),r.Z(466,0,null,null,1,"b",[],null,null,null,null,null)),(l()(),r._19(-1,null,["Voetbalzone"])),(l()(),r._19(-1,2,["\n          "])),(l()(),r.Z(469,0,null,2,1,"div",[["class","sourceTekst"]],null,null,null,null,null)),(l()(),r._19(-1,null,["Sport"])),(l()(),r._19(-1,2,["\n        "])),(l()(),r.Z(472,0,null,4,5,"button",[["class","ImportClassesButton"],["color","green"],["ion-button",""],["item-end",""],["outline",""]],null,null,null,f.b,f.a)),r.Y(473,1097728,[[51,4]],0,h.a,[[8,""],c.a,r.j,r.z],{color:[0,"color"],outline:[1,"outline"]},null),(l()(),r._19(-1,0,["\n            "])),(l()(),r.Z(475,0,null,0,1,"ion-icon",[["class","buttonIcon"],["name","checkmark"],["role","img"]],[[2,"hide",null]],null,null,null,null)),r.Y(476,147456,null,0,Y.a,[c.a,r.j,r.z],{name:[0,"name"]},null),(l()(),r._19(-1,0,["Toevoegen\n          "])),(l()(),r._19(-1,2,["\n        "])),(l()(),r._19(-1,null,["\n\n\n      "])),(l()(),r._19(-1,0,["\n    "])),(l()(),r._19(-1,0,["\n  "])),(l()(),r._19(-1,1,["\n"])),(l()(),r._19(-1,null,["\n"]))],function(l,n){var u=n.component;l(n,9,0,"");l(n,14,0,"menu");l(n,23,0,"");l(n,28,0,"menu");l(n,33,0,u.page);l(n,36,0,"darkAppKleur");l(n,40,0,"0");l(n,44,0,"1");l(n,75,0,"light-theme"==u.currentTheme);l(n,78,0,"dark-theme"==u.currentTheme);l(n,89,0,"danger","");l(n,92,0,"close");l(n,107,0,"light-theme"==u.currentTheme);l(n,110,0,"dark-theme"==u.currentTheme);l(n,121,0,"danger","");l(n,124,0,"close");l(n,149,0,"danger","");l(n,152,0,"close");l(n,199,0,"green","");l(n,202,0,"checkmark");l(n,227,0,"green","");l(n,230,0,"checkmark");l(n,255,0,"green","");l(n,258,0,"checkmark");l(n,283,0,"green","");l(n,286,0,"checkmark");l(n,322,0,"green","");l(n,325,0,"checkmark");l(n,361,0,"green","");l(n,364,0,"checkmark");l(n,389,0,"green","");l(n,392,0,"checkmark");l(n,417,0,"green","");l(n,420,0,"checkmark");l(n,445,0,"green","");l(n,448,0,"checkmark");l(n,473,0,"green","");l(n,476,0,"checkmark")},function(l,n){l(n,4,0,r._11(n,5)._hidden,r._11(n,5)._sbPadding);l(n,7,0,r._11(n,9).isHidden);l(n,13,0,r._11(n,14)._hidden);l(n,21,0,r._11(n,23).isHidden);l(n,27,0,r._11(n,28)._hidden);l(n,32,0,r._11(n,35).ngClassUntouched,r._11(n,35).ngClassTouched,r._11(n,35).ngClassPristine,r._11(n,35).ngClassDirty,r._11(n,35).ngClassValid,r._11(n,35).ngClassInvalid,r._11(n,35).ngClassPending,r._11(n,36)._disabled);l(n,39,0,r._11(n,40)._disabled,r._11(n,40).isActive,r._11(n,40).isActive);l(n,43,0,r._11(n,44)._disabled,r._11(n,44).isActive,r._11(n,44).isActive);l(n,49,0,r._11(n,50).statusbarPadding,r._11(n,50)._hasRefresher);l(n,91,0,r._11(n,92)._hidden);l(n,123,0,r._11(n,124)._hidden);l(n,151,0,r._11(n,152)._hidden);l(n,201,0,r._11(n,202)._hidden);l(n,229,0,r._11(n,230)._hidden);l(n,257,0,r._11(n,258)._hidden);l(n,285,0,r._11(n,286)._hidden);l(n,324,0,r._11(n,325)._hidden);l(n,363,0,r._11(n,364)._hidden);l(n,391,0,r._11(n,392)._hidden);l(n,419,0,r._11(n,420)._hidden);l(n,447,0,r._11(n,448)._hidden);l(n,475,0,r._11(n,476)._hidden)})}u.d(n,"a",function(){return K});var r=u(1),s=u(31),c=u(3),d=u(7),g=u(34),_=u(24),m=u(9),p=u(17),f=u(20),h=u(15),b=u(46),v=u(29),k=u(39),Z=u(27),Y=u(25),I=u(37),j=u(32),w=u(19),z=u(117),C=u(223),y=u(81),T=u(43),x=u(23),F=u(5),S=u(10),U=u(28),$=u(207),P=u(71),A=u(206),D=u(91),N=u(49),O=u(11),L=u(50),W=u(22),V=u(21),M=u(42),H=u(47),E=u(77),R=u(16),B=u(128),q=u(12),G=r.X({encapsulation:2,styles:[],data:{}}),K=r.V("page-sources",B.a,function(l){return r._21(0,[(l()(),r.Z(0,0,null,null,1,"page-sources",[],null,null,null,o,G)),r.Y(1,49152,null,0,B.a,[p.a,q.a],null,null)],null,null)},{},{},[])},417:function(l,n,u){"use strict";function e(l){return t._21(0,[(l()(),t.Z(0,0,null,null,30,"ion-header",[["no-border-bottom",""]],null,null,null,null,null)),t.Y(1,16384,null,0,a.a,[i.a,t.j,t.z,[2,o.a]],null,null),(l()(),t._19(-1,null,["\n  "])),(l()(),t.Z(3,0,null,null,26,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,r.b,r.a)),t.Y(4,49152,null,0,s.a,[c.a,[2,o.a],[2,d.a],i.a,t.j,t.z],null,null),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(6,0,null,0,8,"button",[["class","fakeCenter"],["ion-button",""],["menuToggle",""],["right",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==t._11(l,8).toggle()&&e}return e},g.b,g.a)),t.Y(7,1097728,[[1,4]],0,_.a,[[8,""],i.a,t.j,t.z],null,null),t.Y(8,1064960,null,0,m.a,[p.a,[2,o.a],[2,_.a],[2,s.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(9,16384,null,1,f.a,[i.a,t.j,t.z,[2,h.a],[2,s.a]],null,null),t._17(603979776,1,{_buttons:1}),(l()(),t._19(-1,0,["\n        "])),(l()(),t.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(13,147456,null,0,b.a,[i.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n    "])),(l()(),t._19(-1,3,["\n      "])),(l()(),t.Z(16,0,null,3,2,"ion-title",[],null,null,null,v.b,v.a)),t.Y(17,49152,null,0,k.a,[i.a,t.j,t.z,[2,h.a],[2,s.a]],null,null),(l()(),t._19(-1,0,["Technologie"])),(l()(),t._19(-1,3,["\n        "])),(l()(),t.Z(20,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==t._11(l,22).toggle()&&e}return e},g.b,g.a)),t.Y(21,1097728,[[2,4]],0,_.a,[[8,""],i.a,t.j,t.z],null,null),t.Y(22,1064960,null,0,m.a,[p.a,[2,o.a],[2,_.a],[2,s.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(23,16384,null,1,f.a,[i.a,t.j,t.z,[2,h.a],[2,s.a]],null,null),t._17(603979776,2,{_buttons:1}),(l()(),t._19(-1,0,["\n            "])),(l()(),t.Z(26,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(27,147456,null,0,b.a,[i.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n        "])),(l()(),t._19(-1,3,["\n    "])),(l()(),t._19(-1,null,["\n"])),(l()(),t._19(-1,null,["\n"]))],function(l,n){l(n,8,0,"");l(n,13,0,"menu");l(n,22,0,"");l(n,27,0,"menu")},function(l,n){l(n,3,0,t._11(n,4)._hidden,t._11(n,4)._sbPadding);l(n,6,0,t._11(n,8).isHidden);l(n,12,0,t._11(n,13)._hidden);l(n,20,0,t._11(n,22).isHidden);l(n,26,0,t._11(n,27)._hidden)})}u.d(n,"a",function(){return j});var t=u(1),a=u(31),i=u(3),o=u(7),r=u(34),s=u(24),c=u(9),d=u(17),g=u(20),_=u(15),m=u(46),p=u(29),f=u(39),h=u(27),b=u(25),v=u(37),k=u(32),Z=u(129),Y=u(12),I=t.X({encapsulation:2,styles:[],data:{}}),j=t.V("page-tech",Z.a,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"page-tech",[],null,null,null,e,I)),t.Y(1,49152,null,0,Z.a,[d.a,Y.a],null,null)],null,null)},{},{},[])},418:function(l,n,u){"use strict";function e(l){return t._21(0,[(l()(),t.Z(0,0,null,null,30,"ion-header",[["no-border-bottom",""]],null,null,null,null,null)),t.Y(1,16384,null,0,a.a,[i.a,t.j,t.z,[2,o.a]],null,null),(l()(),t._19(-1,null,["\n  "])),(l()(),t.Z(3,0,null,null,26,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,r.b,r.a)),t.Y(4,49152,null,0,s.a,[c.a,[2,o.a],[2,d.a],i.a,t.j,t.z],null,null),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(6,0,null,0,8,"button",[["class","fakeCenter"],["ion-button",""],["menuToggle",""],["right",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==t._11(l,8).toggle()&&e}return e},g.b,g.a)),t.Y(7,1097728,[[1,4]],0,_.a,[[8,""],i.a,t.j,t.z],null,null),t.Y(8,1064960,null,0,m.a,[p.a,[2,o.a],[2,_.a],[2,s.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(9,16384,null,1,f.a,[i.a,t.j,t.z,[2,h.a],[2,s.a]],null,null),t._17(603979776,1,{_buttons:1}),(l()(),t._19(-1,0,["\n        "])),(l()(),t.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(13,147456,null,0,b.a,[i.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n    "])),(l()(),t._19(-1,3,["\n      "])),(l()(),t.Z(16,0,null,3,2,"ion-title",[],null,null,null,v.b,v.a)),t.Y(17,49152,null,0,k.a,[i.a,t.j,t.z,[2,h.a],[2,s.a]],null,null),(l()(),t._19(-1,0,["Tutorial"])),(l()(),t._19(-1,3,["\n        "])),(l()(),t.Z(20,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==t._11(l,22).toggle()&&e}return e},g.b,g.a)),t.Y(21,1097728,[[2,4]],0,_.a,[[8,""],i.a,t.j,t.z],null,null),t.Y(22,1064960,null,0,m.a,[p.a,[2,o.a],[2,_.a],[2,s.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(23,16384,null,1,f.a,[i.a,t.j,t.z,[2,h.a],[2,s.a]],null,null),t._17(603979776,2,{_buttons:1}),(l()(),t._19(-1,0,["\n            "])),(l()(),t.Z(26,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(27,147456,null,0,b.a,[i.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n        "])),(l()(),t._19(-1,3,["\n    "])),(l()(),t._19(-1,null,["\n"])),(l()(),t._19(-1,null,["\n"])),(l()(),t.Z(32,0,null,null,48,"ion-content",[["class","tutorial-page"]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,Z.b,Z.a)),t.Y(33,4374528,null,0,Y.a,[i.a,I.a,j.a,t.j,t.z,c.a,w.a,t.u,[2,o.a],[2,d.a]],null,null),(l()(),t._19(-1,1,["\n  "])),(l()(),t.Z(35,0,null,1,44,"ion-slides",[["pager",""]],null,null,null,z.b,z.a)),t.Y(36,1228800,null,0,C.a,[i.a,I.a,t.u,[2,o.a],t.j,t.z],{pager:[0,"pager"]},null),(l()(),t._19(-1,0,["\n    "])),(l()(),t.Z(38,0,null,0,11,"ion-slide",[],null,null,null,y.b,y.a)),t.Y(39,180224,null,0,T.a,[t.j,t.z,C.a],null,null),(l()(),t._19(-1,0,["\n      "])),(l()(),t.Z(41,0,null,0,1,"ion-icon",[["name","star"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(42,147456,null,0,b.a,[i.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n      "])),(l()(),t.Z(44,0,null,0,1,"h2",[],null,null,null,null,null)),(l()(),t._19(-1,null,["Kaas"])),(l()(),t._19(-1,0,["\n      "])),(l()(),t.Z(47,0,null,0,1,"p",[],null,null,null,null,null)),(l()(),t._19(-1,null,["ewaja"])),(l()(),t._19(-1,0,["\n    "])),(l()(),t._19(-1,0,["\n    "])),(l()(),t.Z(51,0,null,0,11,"ion-slide",[],null,null,null,y.b,y.a)),t.Y(52,180224,null,0,T.a,[t.j,t.z,C.a],null,null),(l()(),t._19(-1,0,["\n      "])),(l()(),t.Z(54,0,null,0,1,"ion-icon",[["name","star"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(55,147456,null,0,b.a,[i.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n      "])),(l()(),t.Z(57,0,null,0,1,"h2",[],null,null,null,null,null)),(l()(),t._19(-1,null,["Kaas"])),(l()(),t._19(-1,0,["\n      "])),(l()(),t.Z(60,0,null,0,1,"p",[],null,null,null,null,null)),(l()(),t._19(-1,null,["ewaja"])),(l()(),t._19(-1,0,["\n    "])),(l()(),t._19(-1,0,["\n    "])),(l()(),t.Z(64,0,null,0,14,"ion-slide",[],null,null,null,y.b,y.a)),t.Y(65,180224,null,0,T.a,[t.j,t.z,C.a],null,null),(l()(),t._19(-1,0,["\n      "])),(l()(),t.Z(67,0,null,0,0,"img",[["class","slide-image"],["src","../../assets/imgs/NewsAgeLogo.png"]],null,null,null,null,null)),(l()(),t._19(-1,0,["\n      "])),(l()(),t.Z(69,0,null,0,1,"h2",[["class","slide-title"]],null,null,null,null,null)),(l()(),t._19(-1,null,["Bent u er klaar voor?"])),(l()(),t._19(-1,0,["\n      "])),(l()(),t.Z(72,0,null,0,5,"button",[["clear",""],["color","primary"],["icon-end",""],["ion-button",""],["large",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.tutorialDone()&&e}return e},g.b,g.a)),t.Y(73,1097728,null,0,_.a,[[8,""],i.a,t.j,t.z],{color:[0,"color"],large:[1,"large"],clear:[2,"clear"]},null),(l()(),t._19(-1,0,["\n        Doorgaan!\n        "])),(l()(),t.Z(75,0,null,0,1,"ion-icon",[["name","arrow-forward"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(76,147456,null,0,b.a,[i.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n      "])),(l()(),t._19(-1,0,["\n    "])),(l()(),t._19(-1,0,["\n  "])),(l()(),t._19(-1,1,["\n"])),(l()(),t._19(-1,null,["\n"]))],function(l,n){l(n,8,0,"");l(n,13,0,"menu");l(n,22,0,"");l(n,27,0,"menu");l(n,36,0,"");l(n,42,0,"star");l(n,55,0,"star");l(n,73,0,"primary","","");l(n,76,0,"arrow-forward")},function(l,n){l(n,3,0,t._11(n,4)._hidden,t._11(n,4)._sbPadding);l(n,6,0,t._11(n,8).isHidden);l(n,12,0,t._11(n,13)._hidden);l(n,20,0,t._11(n,22).isHidden);l(n,26,0,t._11(n,27)._hidden);l(n,32,0,t._11(n,33).statusbarPadding,t._11(n,33)._hasRefresher);l(n,41,0,t._11(n,42)._hidden);l(n,54,0,t._11(n,55)._hidden);l(n,75,0,t._11(n,76)._hidden)})}u.d(n,"a",function(){return $});var t=u(1),a=u(31),i=u(3),o=u(7),r=u(34),s=u(24),c=u(9),d=u(17),g=u(20),_=u(15),m=u(46),p=u(29),f=u(39),h=u(27),b=u(25),v=u(37),k=u(32),Z=u(43),Y=u(23),I=u(5),j=u(10),w=u(28),z=u(207),C=u(71),y=u(206),T=u(91),x=u(120),F=u(12),S=u(113),U=t.X({encapsulation:2,styles:[],data:{}}),$=t.V("page-tutorial",x.a,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"page-tutorial",[],null,null,null,e,U)),t.Y(1,49152,null,0,x.a,[d.a,F.a,I.a,S.a],null,null)],null,null)},{},{},[])},419:function(l,n,u){"use strict";function e(l){return t._21(0,[(l()(),t.Z(0,0,null,null,30,"ion-header",[["no-border-bottom",""]],null,null,null,null,null)),t.Y(1,16384,null,0,a.a,[i.a,t.j,t.z,[2,o.a]],null,null),(l()(),t._19(-1,null,["\n  "])),(l()(),t.Z(3,0,null,null,26,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,r.b,r.a)),t.Y(4,49152,null,0,s.a,[c.a,[2,o.a],[2,d.a],i.a,t.j,t.z],null,null),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(6,0,null,0,8,"button",[["class","fakeCenter"],["ion-button",""],["menuToggle",""],["right",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==t._11(l,8).toggle()&&e}return e},g.b,g.a)),t.Y(7,1097728,[[1,4]],0,_.a,[[8,""],i.a,t.j,t.z],null,null),t.Y(8,1064960,null,0,m.a,[p.a,[2,o.a],[2,_.a],[2,s.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(9,16384,null,1,f.a,[i.a,t.j,t.z,[2,h.a],[2,s.a]],null,null),t._17(603979776,1,{_buttons:1}),(l()(),t._19(-1,0,["\n        "])),(l()(),t.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(13,147456,null,0,b.a,[i.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n    "])),(l()(),t._19(-1,3,["\n      "])),(l()(),t.Z(16,0,null,3,2,"ion-title",[],null,null,null,v.b,v.a)),t.Y(17,49152,null,0,k.a,[i.a,t.j,t.z,[2,h.a],[2,s.a]],null,null),(l()(),t._19(-1,0,["Sport"])),(l()(),t._19(-1,3,["\n        "])),(l()(),t.Z(20,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==t._11(l,22).toggle()&&e}return e},g.b,g.a)),t.Y(21,1097728,[[2,4]],0,_.a,[[8,""],i.a,t.j,t.z],null,null),t.Y(22,1064960,null,0,m.a,[p.a,[2,o.a],[2,_.a],[2,s.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(23,16384,null,1,f.a,[i.a,t.j,t.z,[2,h.a],[2,s.a]],null,null),t._17(603979776,2,{_buttons:1}),(l()(),t._19(-1,0,["\n            "])),(l()(),t.Z(26,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(27,147456,null,0,b.a,[i.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n        "])),(l()(),t._19(-1,3,["\n    "])),(l()(),t._19(-1,null,["\n"])),(l()(),t._19(-1,null,["\n"]))],function(l,n){l(n,8,0,"");l(n,13,0,"menu");l(n,22,0,"");l(n,27,0,"menu")},function(l,n){l(n,3,0,t._11(n,4)._hidden,t._11(n,4)._sbPadding);l(n,6,0,t._11(n,8).isHidden);l(n,12,0,t._11(n,13)._hidden);l(n,20,0,t._11(n,22).isHidden);l(n,26,0,t._11(n,27)._hidden)})}u.d(n,"a",function(){return j});var t=u(1),a=u(31),i=u(3),o=u(7),r=u(34),s=u(24),c=u(9),d=u(17),g=u(20),_=u(15),m=u(46),p=u(29),f=u(39),h=u(27),b=u(25),v=u(37),k=u(32),Z=u(130),Y=u(12),I=t.X({encapsulation:2,styles:[],data:{}}),j=t.V("page-sport",Z.a,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"page-sport",[],null,null,null,e,I)),t.Y(1,49152,null,0,Z.a,[d.a,Y.a],null,null)],null,null)},{},{},[])},420:function(l,n,u){"use strict";function e(l){return t._21(0,[(l()(),t.Z(0,0,null,null,30,"ion-header",[["no-border-bottom",""]],null,null,null,null,null)),t.Y(1,16384,null,0,a.a,[i.a,t.j,t.z,[2,o.a]],null,null),(l()(),t._19(-1,null,["\n  "])),(l()(),t.Z(3,0,null,null,26,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,r.b,r.a)),t.Y(4,49152,null,0,s.a,[c.a,[2,o.a],[2,d.a],i.a,t.j,t.z],null,null),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(6,0,null,0,8,"button",[["class","fakeCenter"],["ion-button",""],["menuToggle",""],["right",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==t._11(l,8).toggle()&&e}return e},g.b,g.a)),t.Y(7,1097728,[[1,4]],0,_.a,[[8,""],i.a,t.j,t.z],null,null),t.Y(8,1064960,null,0,m.a,[p.a,[2,o.a],[2,_.a],[2,s.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(9,16384,null,1,f.a,[i.a,t.j,t.z,[2,h.a],[2,s.a]],null,null),t._17(603979776,1,{_buttons:1}),(l()(),t._19(-1,0,["\n        "])),(l()(),t.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(13,147456,null,0,b.a,[i.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n    "])),(l()(),t._19(-1,3,["\n      "])),(l()(),t.Z(16,0,null,3,2,"ion-title",[],null,null,null,v.b,v.a)),t.Y(17,49152,null,0,k.a,[i.a,t.j,t.z,[2,h.a],[2,s.a]],null,null),(l()(),t._19(-1,0,["Entertainment"])),(l()(),t._19(-1,3,["\n        "])),(l()(),t.Z(20,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==t._11(l,22).toggle()&&e}return e},g.b,g.a)),t.Y(21,1097728,[[2,4]],0,_.a,[[8,""],i.a,t.j,t.z],null,null),t.Y(22,1064960,null,0,m.a,[p.a,[2,o.a],[2,_.a],[2,s.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(23,16384,null,1,f.a,[i.a,t.j,t.z,[2,h.a],[2,s.a]],null,null),t._17(603979776,2,{_buttons:1}),(l()(),t._19(-1,0,["\n            "])),(l()(),t.Z(26,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(27,147456,null,0,b.a,[i.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n        "])),(l()(),t._19(-1,3,["\n    "])),(l()(),t._19(-1,null,["\n"])),(l()(),t._19(-1,null,["\n"]))],function(l,n){l(n,8,0,"");l(n,13,0,"menu");l(n,22,0,"");l(n,27,0,"menu")},function(l,n){l(n,3,0,t._11(n,4)._hidden,t._11(n,4)._sbPadding);l(n,6,0,t._11(n,8).isHidden);l(n,12,0,t._11(n,13)._hidden);l(n,20,0,t._11(n,22).isHidden);l(n,26,0,t._11(n,27)._hidden)})}u.d(n,"a",function(){return j});var t=u(1),a=u(31),i=u(3),o=u(7),r=u(34),s=u(24),c=u(9),d=u(17),g=u(20),_=u(15),m=u(46),p=u(29),f=u(39),h=u(27),b=u(25),v=u(37),k=u(32),Z=u(131),Y=u(12),I=t.X({encapsulation:2,styles:[],data:{}}),j=t.V("page-vermaak",Z.a,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"page-vermaak",[],null,null,null,e,I)),t.Y(1,49152,null,0,Z.a,[d.a,Y.a],null,null)],null,null)},{},{},[])},421:function(l,n,u){"use strict";function e(l){return f._21(0,[(l()(),f.Z(0,0,null,null,1,"div",[["class","validatieText"]],null,null,null,null,null)),(l()(),f._19(-1,null,["Wachtwoord moet ingevuld zijn"]))],null,null)}function t(l){return f._21(0,[(l()(),f.Z(0,0,null,null,1,"div",[["class","validatieText"]],null,null,null,null,null)),(l()(),f._19(-1,null,["Wachtwoord is niet hetzelfde"]))],null,null)}function a(l){return f._21(0,[(l()(),f.Z(0,0,null,null,7,"div",[["class","alert alert-danger"]],null,null,null,null,null)),(l()(),f._19(-1,null,["\n      "])),(l()(),f.U(16777216,null,null,1,null,e)),f.Y(3,16384,null,0,h.i,[f.I,f.F],{ngIf:[0,"ngIf"]},null),(l()(),f._19(-1,null,["\n      "])),(l()(),f.U(16777216,null,null,1,null,t)),f.Y(6,16384,null,0,h.i,[f.I,f.F],{ngIf:[0,"ngIf"]},null),(l()(),f._19(-1,null,["\n    "]))],function(l,n){var u=n.component;l(n,3,0,u.form.get("oldpassword").hasError("required"));l(n,6,0,"No matching password"==u.valMessage)},null)}function i(l){return f._21(0,[(l()(),f.Z(0,0,null,null,1,"div",[["class","validatieText"]],null,null,null,null,null)),(l()(),f._19(-1,null,["Wachtwoord moet ingevuld zijn"]))],null,null)}function o(l){return f._21(0,[(l()(),f.Z(0,0,null,null,1,"div",[["class","validatieText"]],null,null,null,null,null)),(l()(),f._19(-1,null,["Wachtwoord moet minimaal 8 tekens lang zijn"]))],null,null)}function r(l){return f._21(0,[(l()(),f.Z(0,0,null,null,1,"div",[["class","validatieText"]],null,null,null,null,null)),(l()(),f._19(-1,null,["Wachtwoord moet minstens een hoofdletter, een kleine letter en een cijfer bevatten"]))],null,null)}function s(l){return f._21(0,[(l()(),f.Z(0,0,null,null,10,"div",[["class","alert alert-danger"]],null,null,null,null,null)),(l()(),f._19(-1,null,["\n      "])),(l()(),f.U(16777216,null,null,1,null,i)),f.Y(3,16384,null,0,h.i,[f.I,f.F],{ngIf:[0,"ngIf"]},null),(l()(),f._19(-1,null,["\n      "])),(l()(),f.U(16777216,null,null,1,null,o)),f.Y(6,16384,null,0,h.i,[f.I,f.F],{ngIf:[0,"ngIf"]},null),(l()(),f._19(-1,null,["\n      "])),(l()(),f.U(16777216,null,null,1,null,r)),f.Y(9,16384,null,0,h.i,[f.I,f.F],{ngIf:[0,"ngIf"]},null),(l()(),f._19(-1,null,["\n    "]))],function(l,n){var u=n.component;l(n,3,0,u.form.get("password").hasError("required"));l(n,6,0,u.form.get("password").hasError("minLength"));l(n,9,0,u.form.get("password").hasError("pattern"))},null)}function c(l){return f._21(0,[(l()(),f.Z(0,0,null,null,1,"div",[["class","validatieText"]],null,null,null,null,null)),(l()(),f._19(-1,null,["Wachtwoord moet ingevuld zijn"]))],null,null)}function d(l){return f._21(0,[(l()(),f.Z(0,0,null,null,1,"div",[["class","validatieText"]],null,null,null,null,null)),(l()(),f._19(-1,null,["Wachtwoord moet minimaal 8 tekens lang zijn"]))],null,null)}function g(l){return f._21(0,[(l()(),f.Z(0,0,null,null,1,"div",[["class","validatieText"]],null,null,null,null,null)),(l()(),f._19(-1,null,["Wachtwoord moet minstens een hoofdletter, een kleine letter en een cijfer bevatten"]))],null,null)}function _(l){return f._21(0,[(l()(),f.Z(0,0,null,null,10,"div",[["class","alert alert-danger"]],null,null,null,null,null)),(l()(),f._19(-1,null,["\n      "])),(l()(),f.U(16777216,null,null,1,null,c)),f.Y(3,16384,null,0,h.i,[f.I,f.F],{ngIf:[0,"ngIf"]},null),(l()(),f._19(-1,null,["\n      "])),(l()(),f.U(16777216,null,null,1,null,d)),f.Y(6,16384,null,0,h.i,[f.I,f.F],{ngIf:[0,"ngIf"]},null),(l()(),f._19(-1,null,["\n      "])),(l()(),f.U(16777216,null,null,1,null,g)),f.Y(9,16384,null,0,h.i,[f.I,f.F],{ngIf:[0,"ngIf"]},null),(l()(),f._19(-1,null,["\n    "]))],function(l,n){var u=n.component;l(n,3,0,u.form.get("password2").hasError("required"));l(n,6,0,u.form.get("password2").hasError("minLength"));l(n,9,0,u.form.get("password2").hasError("pattern"))},null)}function m(l){return f._21(0,[(l()(),f.Z(0,0,null,null,4,"div",[["class","alert alert-danger"]],null,null,null,null,null)),(l()(),f._19(-1,null,["\n      "])),(l()(),f.Z(2,0,null,null,1,"div",[["class","validatieText"]],null,null,null,null,null)),(l()(),f._19(-1,null,["Wachtwoord is niet gelijk"])),(l()(),f._19(-1,null,["\n    "]))],null,null)}function p(l){return f._21(0,[(l()(),f.Z(0,0,null,null,22,"ion-header",[],null,null,null,null,null)),f.Y(1,16384,null,0,b.a,[v.a,f.j,f.z,[2,k.a]],null,null),(l()(),f._19(-1,null,["\n  "])),(l()(),f.Z(3,0,null,null,18,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,Z.b,Z.a)),f.Y(4,49152,null,0,Y.a,[I.a,[2,k.a],[2,j.a],v.a,f.j,f.z],null,null),(l()(),f._19(-1,3,["\n    "])),(l()(),f.Z(6,0,null,3,2,"ion-title",[["class","wachtwoordWijzigenPadding"]],null,null,null,w.b,w.a)),f.Y(7,49152,null,0,z.a,[v.a,f.j,f.z,[2,C.a],[2,Y.a]],null,null),(l()(),f._19(-1,0,["Wachtwoord Wijzigen"])),(l()(),f._19(-1,3,["\n    "])),(l()(),f.Z(10,0,null,2,10,"ion-buttons",[["end",""]],null,null,null,null,null)),f.Y(11,16384,null,1,y.a,[v.a,f.j,f.z,[2,C.a],[2,Y.a]],null,null),f._17(603979776,1,{_buttons:1}),(l()(),f._19(-1,null,["\n      "])),(l()(),f.Z(14,0,null,null,5,"button",[["icon-only",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.updateWachtwoord(u)&&e}return e},T.b,T.a)),f.Y(15,1097728,[[1,4]],0,x.a,[[8,""],v.a,f.j,f.z],null,null),(l()(),f._19(-1,0,["\n        "])),(l()(),f.Z(17,0,null,0,1,"ion-icon",[["name","checkmark"],["role","img"]],[[2,"hide",null]],null,null,null,null)),f.Y(18,147456,null,0,F.a,[v.a,f.j,f.z],{name:[0,"name"]},null),(l()(),f._19(-1,0,["\n      "])),(l()(),f._19(-1,null,["\n    "])),(l()(),f._19(-1,3,["\n  "])),(l()(),f._19(-1,null,["\n"])),(l()(),f._19(-1,null,["\n"])),(l()(),f.Z(24,0,null,null,90,"ion-content",[],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,S.b,S.a)),f.Y(25,4374528,null,0,U.a,[v.a,$.a,P.a,f.j,f.z,I.a,A.a,f.u,[2,k.a],[2,j.a]],null,null),(l()(),f._19(-1,1,["\n  "])),(l()(),f.Z(27,0,null,1,86,"form",[["novalidate",""]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"submit"],[null,"reset"]],function(l,n,u){var e=!0;if("submit"===n){e=!1!==f._11(l,29).onSubmit(u)&&e}if("reset"===n){e=!1!==f._11(l,29).onReset()&&e}return e},null,null)),f.Y(28,16384,null,0,D.r,[],null,null),f.Y(29,540672,null,0,D.h,[[8,null],[8,null]],{form:[0,"form"]},null),f._15(2048,null,D.b,null,[D.h]),f.Y(31,16384,null,0,D.m,[D.b],null,null),(l()(),f._19(-1,null,["\n    "])),(l()(),f.Z(33,0,null,null,21,"div",[["class","form-group"]],null,null,null,null,null)),(l()(),f._19(-1,null,["\n      "])),(l()(),f.Z(35,0,null,null,18,"ion-item",[["class","item item-block"]],null,null,null,N.b,N.a)),f.Y(36,278528,null,0,h.g,[f.p,f.q,f.j,f.A],{ngClass:[0,"ngClass"]},null),f._14(37,{"ng-touched":0}),f.Y(38,1097728,null,3,O.a,[L.a,v.a,f.j,f.z,[2,W.a]],null,null),f._17(335544320,2,{contentLabel:0}),f._17(603979776,3,{_buttons:1}),f._17(603979776,4,{_icons:1}),f.Y(42,16384,null,0,V.a,[],null,null),(l()(),f._19(-1,2,["\n        "])),(l()(),f.Z(44,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),f.Y(45,16384,[[2,4]],0,M.a,[v.a,f.j,f.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),f._19(-1,null,["Oud Wachtwoord"])),(l()(),f._19(-1,2,["\n        "])),(l()(),f.Z(48,0,null,3,4,"ion-input",[["class","form-control"],["formControlName","oldpassword"],["type","password"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;if("ngModelChange"===n){e=!1!==(l.component.oldpassword=u)&&e}return e},H.b,H.a)),f.Y(49,671744,null,0,D.f,[[3,D.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),f._15(2048,null,D.k,null,[D.f]),f.Y(51,16384,null,0,D.l,[D.k],null,null),f.Y(52,5423104,null,0,E.a,[v.a,$.a,L.a,I.a,f.j,f.z,[2,U.a],[2,O.a],[2,D.k],P.a],{type:[0,"type"]},null),(l()(),f._19(-1,2,["\n      "])),(l()(),f._19(-1,null,["\n    "])),(l()(),f._19(-1,null,["\n    "])),(l()(),f.U(16777216,null,null,1,null,a)),f.Y(57,16384,null,0,h.i,[f.I,f.F],{ngIf:[0,"ngIf"]},null),(l()(),f._19(-1,null,["\n\n\n    "])),(l()(),f.Z(59,0,null,null,21,"div",[["class","form-group"]],null,null,null,null,null)),(l()(),f._19(-1,null,["\n      "])),(l()(),f.Z(61,0,null,null,18,"ion-item",[["class","item item-block"]],null,null,null,N.b,N.a)),f.Y(62,278528,null,0,h.g,[f.p,f.q,f.j,f.A],{ngClass:[0,"ngClass"]},null),f._14(63,{"ng-touched":0}),f.Y(64,1097728,null,3,O.a,[L.a,v.a,f.j,f.z,[2,W.a]],null,null),f._17(335544320,5,{contentLabel:0}),f._17(603979776,6,{_buttons:1}),f._17(603979776,7,{_icons:1}),f.Y(68,16384,null,0,V.a,[],null,null),(l()(),f._19(-1,2,["\n        "])),(l()(),f.Z(70,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),f.Y(71,16384,[[5,4]],0,M.a,[v.a,f.j,f.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),f._19(-1,null,["Nieuwe Wachtwoord"])),(l()(),f._19(-1,2,["\n        "])),(l()(),f.Z(74,0,null,3,4,"ion-input",[["class","form-control"],["formControlName","password"],["type","password"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;if("ngModelChange"===n){e=!1!==(l.component.password=u)&&e}return e},H.b,H.a)),f.Y(75,671744,null,0,D.f,[[3,D.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),f._15(2048,null,D.k,null,[D.f]),f.Y(77,16384,null,0,D.l,[D.k],null,null),f.Y(78,5423104,null,0,E.a,[v.a,$.a,L.a,I.a,f.j,f.z,[2,U.a],[2,O.a],[2,D.k],P.a],{type:[0,"type"]},null),(l()(),f._19(-1,2,["\n      "])),(l()(),f._19(-1,null,["\n    "])),(l()(),f._19(-1,null,["\n    "])),(l()(),f.U(16777216,null,null,1,null,s)),f.Y(83,16384,null,0,h.i,[f.I,f.F],{ngIf:[0,"ngIf"]},null),(l()(),f._19(-1,null,["\n\n    "])),(l()(),f.Z(85,0,null,null,21,"div",[["class","form-group"]],null,null,null,null,null)),(l()(),f._19(-1,null,["\n      "])),(l()(),f.Z(87,0,null,null,18,"ion-item",[["class","item item-block"]],null,null,null,N.b,N.a)),f.Y(88,278528,null,0,h.g,[f.p,f.q,f.j,f.A],{ngClass:[0,"ngClass"]},null),f._14(89,{"ng-touched":0}),f.Y(90,1097728,null,3,O.a,[L.a,v.a,f.j,f.z,[2,W.a]],null,null),f._17(335544320,8,{contentLabel:0}),f._17(603979776,9,{_buttons:1}),f._17(603979776,10,{_icons:1}),f.Y(94,16384,null,0,V.a,[],null,null),(l()(),f._19(-1,2,["\n        "])),(l()(),f.Z(96,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),f.Y(97,16384,[[8,4]],0,M.a,[v.a,f.j,f.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),f._19(-1,null,["Herhaal Nieuw Wachtwoord"])),(l()(),f._19(-1,2,["\n        "])),(l()(),f.Z(100,0,null,3,4,"ion-input",[["class","form-control"],["formControlName","password2"],["type","password"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;if("ngModelChange"===n){e=!1!==(l.component.password2=u)&&e}return e},H.b,H.a)),f.Y(101,671744,null,0,D.f,[[3,D.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),f._15(2048,null,D.k,null,[D.f]),f.Y(103,16384,null,0,D.l,[D.k],null,null),f.Y(104,5423104,null,0,E.a,[v.a,$.a,L.a,I.a,f.j,f.z,[2,U.a],[2,O.a],[2,D.k],P.a],{type:[0,"type"]},null),(l()(),f._19(-1,2,["\n      "])),(l()(),f._19(-1,null,["\n    "])),(l()(),f._19(-1,null,["\n    "])),(l()(),f.U(16777216,null,null,1,null,_)),f.Y(109,16384,null,0,h.i,[f.I,f.F],{ngIf:[0,"ngIf"]},null),(l()(),f._19(-1,null,["\n    "])),(l()(),f.U(16777216,null,null,1,null,m)),f.Y(112,16384,null,0,h.i,[f.I,f.F],{ngIf:[0,"ngIf"]},null),(l()(),f._19(-1,null,["\n\n\n  "])),(l()(),f._19(-1,1,["\n"])),(l()(),f._19(-1,null,["\n"]))],function(l,n){var u=n.component;l(n,18,0,"checkmark");l(n,29,0,u.form);l(n,36,0,l(n,37,0,u.form.get("oldpassword").touched));l(n,49,0,"oldpassword",u.oldpassword);l(n,52,0,"password");l(n,57,0,u.form.get("oldpassword").touched&&u.form.get("oldpassword").invalid||"No matching password"==u.valMessage);l(n,62,0,l(n,63,0,u.form.get("password").touched));l(n,75,0,"password",u.password);l(n,78,0,"password");l(n,83,0,u.form.get("password").touched&&u.form.get("password").invalid);l(n,88,0,l(n,89,0,u.form.get("password2").touched));l(n,101,0,"password2",u.password2);l(n,104,0,"password");l(n,109,0,u.form.get("password2").touched&&u.form.get("password2").invalid||u.password!=u.password2||u.password2!=u.password);l(n,112,0,u.password!=u.password2||u.password2!=u.password)},function(l,n){l(n,3,0,f._11(n,4)._hidden,f._11(n,4)._sbPadding);l(n,17,0,f._11(n,18)._hidden);l(n,24,0,f._11(n,25).statusbarPadding,f._11(n,25)._hasRefresher);l(n,27,0,f._11(n,31).ngClassUntouched,f._11(n,31).ngClassTouched,f._11(n,31).ngClassPristine,f._11(n,31).ngClassDirty,f._11(n,31).ngClassValid,f._11(n,31).ngClassInvalid,f._11(n,31).ngClassPending);l(n,48,0,f._11(n,51).ngClassUntouched,f._11(n,51).ngClassTouched,f._11(n,51).ngClassPristine,f._11(n,51).ngClassDirty,f._11(n,51).ngClassValid,f._11(n,51).ngClassInvalid,f._11(n,51).ngClassPending);l(n,74,0,f._11(n,77).ngClassUntouched,f._11(n,77).ngClassTouched,f._11(n,77).ngClassPristine,f._11(n,77).ngClassDirty,f._11(n,77).ngClassValid,f._11(n,77).ngClassInvalid,f._11(n,77).ngClassPending);l(n,100,0,f._11(n,103).ngClassUntouched,f._11(n,103).ngClassTouched,f._11(n,103).ngClassPristine,f._11(n,103).ngClassDirty,f._11(n,103).ngClassValid,f._11(n,103).ngClassInvalid,f._11(n,103).ngClassPending)})}u.d(n,"a",function(){return J});var f=u(1),h=u(16),b=u(31),v=u(3),k=u(7),Z=u(34),Y=u(24),I=u(9),j=u(17),w=u(37),z=u(32),C=u(27),y=u(39),T=u(20),x=u(15),F=u(25),S=u(43),U=u(23),$=u(5),P=u(10),A=u(28),D=u(19),N=u(50),O=u(22),L=u(21),W=u(42),V=u(47),M=u(55),H=u(118),E=u(68),R=u(123),B=u(12),q=u(30),G=u(60),K=u(52),X=f.X({encapsulation:2,styles:[],data:{}}),J=f.V("page-wijzigwachtwoord",R.a,function(l){return f._21(0,[(l()(),f.Z(0,0,null,null,1,"page-wijzigwachtwoord",[],null,null,null,p,X)),f.Y(1,114688,null,0,R.a,[j.a,B.a,q.c,G.a,K.a],null,null)],function(l,n){l(n,1,0)},null)},{},{},[])},422:function(l,n,u){"use strict";function e(l){return d._21(0,[(l()(),d.Z(0,0,null,null,1,"div",[["class","validatieText"]],null,null,null,null,null)),(l()(),d._19(-1,null,["Naam moet ingevuld zijn."]))],null,null)}function t(l){return d._21(0,[(l()(),d.Z(0,0,null,null,1,"div",[["class","validatieText"]],null,null,null,null,null)),(l()(),d._19(-1,null,["Ongeldige naam."]))],null,null)}function a(l){return d._21(0,[(l()(),d.Z(0,0,null,null,1,"div",[["class","validatieText"]],null,null,null,null,null)),(l()(),d._19(-1,null,["De minimale lengte zijn 3 letters."]))],null,null)}function i(l){return d._21(0,[(l()(),d.Z(0,0,null,null,10,"div",[["class","alert alert-danger"],["required",""]],null,null,null,null,null)),(l()(),d._19(-1,null,["\n            "])),(l()(),d.U(16777216,null,null,1,null,e)),d.Y(3,16384,null,0,g.i,[d.I,d.F],{ngIf:[0,"ngIf"]},null),(l()(),d._19(-1,null,["\n            "])),(l()(),d.U(16777216,null,null,1,null,t)),d.Y(6,16384,null,0,g.i,[d.I,d.F],{ngIf:[0,"ngIf"]},null),(l()(),d._19(-1,null,["\n            "])),(l()(),d.U(16777216,null,null,1,null,a)),d.Y(9,16384,null,0,g.i,[d.I,d.F],{ngIf:[0,"ngIf"]},null),(l()(),d._19(-1,null,["\n          "]))],function(l,n){var u=n.component;l(n,3,0,u.form.get("username").hasError("required"));l(n,6,0,u.form.get("username").hasError("pattern"));l(n,9,0,u.form.get("username").hasError("minLength"))},null)}function o(l){return d._21(0,[(l()(),d.Z(0,0,null,null,1,"div",[["class","validatieText"]],null,null,null,null,null)),(l()(),d._19(-1,null,["Email moet ingevuld zijn"]))],null,null)}function r(l){return d._21(0,[(l()(),d.Z(0,0,null,null,1,"div",[["class","validatieText"]],null,null,null,null,null)),(l()(),d._19(-1,null,["Ongeldige Email!"]))],null,null)}function s(l){return d._21(0,[(l()(),d.Z(0,0,null,null,7,"div",[["class","alert alert-danger"],["required",""]],null,null,null,null,null)),(l()(),d._19(-1,null,["\n            "])),(l()(),d.U(16777216,null,null,1,null,o)),d.Y(3,16384,null,0,g.i,[d.I,d.F],{ngIf:[0,"ngIf"]},null),(l()(),d._19(-1,null,["\n            "])),(l()(),d.U(16777216,null,null,1,null,r)),d.Y(6,16384,null,0,g.i,[d.I,d.F],{ngIf:[0,"ngIf"]},null),(l()(),d._19(-1,null,["\n          "]))],function(l,n){var u=n.component;l(n,3,0,u.form.get("email").hasError("required"));l(n,6,0,u.form.get("email").hasError("pattern"))},null)}function c(l){return d._21(0,[d._17(402653184,1,{navBar:0}),(l()(),d.Z(1,0,null,null,22,"ion-header",[],null,null,null,null,null)),d.Y(2,16384,null,0,_.a,[m.a,d.j,d.z,[2,p.a]],null,null),(l()(),d._19(-1,null,["\n  "])),(l()(),d.Z(4,0,null,null,18,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,f.b,f.a)),d.Y(5,49152,[[1,4]],0,h.a,[b.a,[2,p.a],[2,v.a],m.a,d.j,d.z],null,null),(l()(),d._19(-1,3,["\n    "])),(l()(),d.Z(7,0,null,3,2,"ion-title",[["class","profielPadding"]],null,null,null,k.b,k.a)),d.Y(8,49152,null,0,Z.a,[m.a,d.j,d.z,[2,Y.a],[2,h.a]],null,null),(l()(),d._19(-1,0,["Profiel"])),(l()(),d._19(-1,3,["\n    "])),(l()(),d.Z(11,0,null,2,10,"ion-buttons",[["end",""]],null,null,null,null,null)),d.Y(12,16384,null,1,I.a,[m.a,d.j,d.z,[2,Y.a],[2,h.a]],null,null),d._17(603979776,2,{_buttons:1}),(l()(),d._19(-1,null,["\n      "])),(l()(),d.Z(15,0,null,null,5,"button",[["icon-only",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.updateProfile()&&e}return e},j.b,j.a)),d.Y(16,1097728,[[2,4]],0,w.a,[[8,""],m.a,d.j,d.z],null,null),(l()(),d._19(-1,0,["\n        "])),(l()(),d.Z(18,0,null,0,1,"ion-icon",[["name","checkmark"],["role","img"]],[[2,"hide",null]],null,null,null,null)),d.Y(19,147456,null,0,z.a,[m.a,d.j,d.z],{name:[0,"name"]},null),(l()(),d._19(-1,0,["\n      "])),(l()(),d._19(-1,null,["\n    "])),(l()(),d._19(-1,3,["\n  "])),(l()(),d._19(-1,null,["\n"])),(l()(),d._19(-1,null,["\n"])),(l()(),d.Z(25,0,null,null,87,"ion-content",[],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,C.b,C.a)),d.Y(26,4374528,null,0,y.a,[m.a,T.a,x.a,d.j,d.z,b.a,F.a,d.u,[2,p.a],[2,v.a]],null,null),(l()(),d._19(-1,1,["\n  "])),(l()(),d.Z(28,0,null,1,83,"ion-list",[],null,null,null,null,null)),d.Y(29,16384,null,0,S.a,[m.a,d.j,d.z,T.a,U.l,x.a],null,null),(l()(),d._19(-1,null,["\n    "])),(l()(),d.Z(31,0,null,null,79,"ion-grid",[["class","gridMenu grid"]],null,null,null,null,null)),d.Y(32,16384,null,0,$.a,[],null,null),(l()(),d._19(-1,null,["\n      "])),(l()(),d.Z(34,0,null,null,75,"ion-col",[["class","menuCol col"],["col-12",""]],null,null,null,null,null)),d.Y(35,16384,null,0,P.a,[],null,null),(l()(),d._19(-1,null,["\n        "])),(l()(),d.Z(37,0,null,null,9,"div",[["class","alignCenter"]],null,null,null,null,null)),(l()(),d._19(-1,null,["\n          "])),(l()(),d.Z(39,0,null,null,0,"img",[["class","avatar-profiel"]],[[8,"src",4]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.presentActionSheet()&&e}return e},null,null)),(l()(),d._19(-1,null,["\n          "])),(l()(),d.Z(41,0,null,null,4,"div",[["class","fotoWijzigen"]],null,null,null,null,null)),(l()(),d._19(-1,null,["\n            "])),(l()(),d.Z(43,0,null,null,1,"h5",[["class","fotoWijzigenProfiel"]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.presentActionSheet()&&e}return e},null,null)),(l()(),d._19(-1,null,["Foto Wijzigen"])),(l()(),d._19(-1,null,["\n          "])),(l()(),d._19(-1,null,["\n        "])),(l()(),d._19(-1,null,["\n\n        "])),(l()(),d.Z(48,0,null,null,57,"form",[["novalidate",""]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"submit"],[null,"reset"]],function(l,n,u){var e=!0;if("submit"===n){e=!1!==d._11(l,50).onSubmit(u)&&e}if("reset"===n){e=!1!==d._11(l,50).onReset()&&e}return e},null,null)),d.Y(49,16384,null,0,A.r,[],null,null),d.Y(50,540672,null,0,A.h,[[8,null],[8,null]],{form:[0,"form"]},null),d._15(2048,null,A.b,null,[A.h]),d.Y(52,16384,null,0,A.m,[A.b],null,null),(l()(),d._19(-1,null,["\n          "])),(l()(),d.Z(54,0,null,null,21,"div",[["class","form-group"]],null,null,null,null,null)),(l()(),d._19(-1,null,["\n            "])),(l()(),d.Z(56,0,null,null,18,"ion-item",[["class","item item-block"]],null,null,null,D.b,D.a)),d.Y(57,278528,null,0,g.g,[d.p,d.q,d.j,d.A],{ngClass:[0,"ngClass"]},null),d._14(58,{"ng-touched":0}),d.Y(59,1097728,null,3,N.a,[O.a,m.a,d.j,d.z,[2,L.a]],null,null),d._17(335544320,3,{contentLabel:0}),d._17(603979776,4,{_buttons:1}),d._17(603979776,5,{_icons:1}),d.Y(63,16384,null,0,W.a,[],null,null),(l()(),d._19(-1,2,[">\n              "])),(l()(),d.Z(65,0,null,1,2,"ion-label",[["floating",""]],null,null,null,null,null)),d.Y(66,16384,[[3,4]],0,V.a,[m.a,d.j,d.z,[8,""],[8,null],[8,null],[8,null]],null,null),(l()(),d._19(-1,null,["Gebruikersnaam"])),(l()(),d._19(-1,2,["\n              "])),(l()(),d.Z(69,0,null,3,4,"ion-input",[["class","form-control"],["formControlName","username"],["type","text"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],null,null,M.b,M.a)),d.Y(70,671744,null,0,A.f,[[3,A.b],[8,null],[8,null],[8,null]],{name:[0,"name"]},null),d._15(2048,null,A.k,null,[A.f]),d.Y(72,16384,null,0,A.l,[A.k],null,null),d.Y(73,5423104,null,0,H.a,[m.a,T.a,O.a,b.a,d.j,d.z,[2,y.a],[2,N.a],[2,A.k],x.a],{value:[0,"value"],type:[1,"type"],placeholder:[2,"placeholder"]},null),(l()(),d._19(-1,2,["\n            "])),(l()(),d._19(-1,null,["\n          "])),(l()(),d._19(-1,null,["\n          "])),(l()(),d.U(16777216,null,null,1,null,i)),d.Y(78,16384,null,0,g.i,[d.I,d.F],{ngIf:[0,"ngIf"]},null),(l()(),d._19(-1,null,["\n\n          "])),(l()(),d.Z(80,0,null,null,21,"div",[["class","form-group"]],null,null,null,null,null)),(l()(),d._19(-1,null,["\n            "])),(l()(),d.Z(82,0,null,null,18,"ion-item",[["class","item item-block"]],null,null,null,D.b,D.a)),d.Y(83,278528,null,0,g.g,[d.p,d.q,d.j,d.A],{ngClass:[0,"ngClass"]},null),d._14(84,{"ng-touched":0}),d.Y(85,1097728,null,3,N.a,[O.a,m.a,d.j,d.z,[2,L.a]],null,null),d._17(335544320,6,{contentLabel:0}),d._17(603979776,7,{_buttons:1}),d._17(603979776,8,{_icons:1}),d.Y(89,16384,null,0,W.a,[],null,null),(l()(),d._19(-1,2,["\n              "])),(l()(),d.Z(91,0,null,1,2,"ion-label",[["floating",""]],null,null,null,null,null)),d.Y(92,16384,[[6,4]],0,V.a,[m.a,d.j,d.z,[8,""],[8,null],[8,null],[8,null]],null,null),(l()(),d._19(-1,null,["E-mail"])),(l()(),d._19(-1,2,["\n              "])),(l()(),d.Z(95,0,null,3,4,"ion-input",[["class","form-control"],["formControlName","email"],["type","email"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],null,null,M.b,M.a)),d.Y(96,671744,null,0,A.f,[[3,A.b],[8,null],[8,null],[8,null]],{name:[0,"name"]},null),d._15(2048,null,A.k,null,[A.f]),d.Y(98,16384,null,0,A.l,[A.k],null,null),d.Y(99,5423104,null,0,H.a,[m.a,T.a,O.a,b.a,d.j,d.z,[2,y.a],[2,N.a],[2,A.k],x.a],{value:[0,"value"],type:[1,"type"],placeholder:[2,"placeholder"]},null),(l()(),d._19(-1,2,["\n            "])),(l()(),d._19(-1,null,["\n          "])),(l()(),d._19(-1,null,["\n          "])),(l()(),d.U(16777216,null,null,1,null,s)),d.Y(104,16384,null,0,g.i,[d.I,d.F],{ngIf:[0,"ngIf"]},null),(l()(),d._19(-1,null,["\n\n        "])),(l()(),d._19(-1,null,["\n        "])),(l()(),d.Z(107,0,null,null,1,"h6",[["class","wachtwoordWijzigen"]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.wijzigWachtwoord()&&e}return e},null,null)),(l()(),d._19(-1,null,["Wijzig Wachtwoord"])),(l()(),d._19(-1,null,["\n      "])),(l()(),d._19(-1,null,["\n    "])),(l()(),d._19(-1,null,["\n  "])),(l()(),d._19(-1,1,["\n"])),(l()(),d._19(-1,null,["\n"]))],function(l,n){var u=n.component;l(n,19,0,"checkmark");l(n,50,0,u.form);l(n,57,0,l(n,58,0,u.form.get("username").touched));l(n,70,0,"username");l(n,73,0,d._2(1,"",u.username,""),"text",d._2(1,"",u.username,""));l(n,78,0,u.form.get("username").touched&&u.form.get("username").invalid);l(n,83,0,l(n,84,0,u.form.get("email").touched));l(n,96,0,"email");l(n,99,0,d._2(1,"",u.email,""),"email",d._2(1,"",u.email,""));l(n,104,0,u.form.get("email").touched&&u.form.get("email").invalid)},function(l,n){var u=n.component;l(n,4,0,d._11(n,5)._hidden,d._11(n,5)._sbPadding);l(n,18,0,d._11(n,19)._hidden);l(n,25,0,d._11(n,26).statusbarPadding,d._11(n,26)._hasRefresher);l(n,39,0,d._2(1,"",u.myphoto,""));l(n,48,0,d._11(n,52).ngClassUntouched,d._11(n,52).ngClassTouched,d._11(n,52).ngClassPristine,d._11(n,52).ngClassDirty,d._11(n,52).ngClassValid,d._11(n,52).ngClassInvalid,d._11(n,52).ngClassPending);l(n,69,0,d._11(n,72).ngClassUntouched,d._11(n,72).ngClassTouched,d._11(n,72).ngClassPristine,d._11(n,72).ngClassDirty,d._11(n,72).ngClassValid,d._11(n,72).ngClassInvalid,d._11(n,72).ngClassPending);l(n,95,0,d._11(n,98).ngClassUntouched,d._11(n,98).ngClassTouched,d._11(n,98).ngClassPristine,d._11(n,98).ngClassDirty,d._11(n,98).ngClassValid,d._11(n,98).ngClassInvalid,d._11(n,98).ngClassPending)})}u.d(n,"a",function(){return ll});var d=u(1),g=u(16),_=u(31),m=u(3),p=u(7),f=u(34),h=u(24),b=u(9),v=u(17),k=u(37),Z=u(32),Y=u(27),I=u(39),j=u(20),w=u(15),z=u(25),C=u(43),y=u(23),T=u(5),x=u(10),F=u(28),S=u(49),U=u(11),$=u(67),P=u(66),A=u(19),D=u(50),N=u(22),O=u(21),L=u(42),W=u(47),V=u(55),M=u(118),H=u(68),E=u(122),R=u(12),B=u(52),q=u(161),G=u(140),K=u(30),X=u(57),J=u(162),Q=d.X({encapsulation:2,styles:[],data:{}}),ll=d.V("page-profiel",E.a,function(l){return d._21(0,[(l()(),d.Z(0,0,null,null,1,"page-profiel",[],null,null,null,c,Q)),d.Y(1,114688,null,0,E.a,[v.a,R.a,B.a,q.a,G.a,K.c,X.a,J.a],null,null)],function(l,n){l(n,1,0)},null)},{},{},[])},423:function(l,n,u){"use strict";function e(l){return D._21(0,[(l()(),D.Z(0,0,null,null,0,"img",[["src","../assets/imgs/noimage.jpg"]],null,null,null,null,null))],null,null)}function t(l){return D._21(0,[(l()(),D.Z(0,0,null,null,0,"img",[],[[8,"src",4]],null,null,null,null))],null,function(l,n){l(n,0,0,n.parent.context.$implicit.image)})}function a(l){return D._21(0,[(l()(),D.Z(0,0,null,null,0,"img",[],[[8,"src",4]],null,null,null,null))],null,function(l,n){l(n,0,0,n.parent.context.$implicit.image)})}function i(l){return D._21(0,[(l()(),D.Z(0,0,null,null,4,"ion-avatar",[["class","avatar"],["item-start",""]],null,null,null,null,null)),D.Y(1,16384,null,0,Rl.a,[],null,null),(l()(),D._19(-1,null,["\n                                "])),(l()(),D.Z(3,0,null,null,0,"img",[["class","avatar-feedNOS"],["src","../assets/svg/NOS_logo.svg"]],null,null,null,null,null)),(l()(),D._19(-1,null,["\n                            "]))],null,null)}function o(l){return D._21(0,[(l()(),D.Z(0,0,null,null,4,"ion-avatar",[["class","avatar"],["item-start",""]],null,null,null,null,null)),D.Y(1,16384,null,0,Rl.a,[],null,null),(l()(),D._19(-1,null,["\n                                "])),(l()(),D.Z(3,0,null,null,0,"img",[["class","avatar-feedNOS"],["src","../assets/svg/NOS_logo_Wit.svg"]],null,null,null,null,null)),(l()(),D._19(-1,null,["\n                            "]))],null,null)}function r(l){return D._21(0,[(l()(),D.Z(0,0,null,null,4,"ion-avatar",[["class","avatar"],["item-start",""]],null,null,null,null,null)),D.Y(1,16384,null,0,Rl.a,[],null,null),(l()(),D._19(-1,null,["\n                                "])),(l()(),D.Z(3,0,null,null,0,"img",[["class","avatar-feedTelegraaf"],["src","../assets/svg/Telegraaf.svg"]],null,null,null,null,null)),(l()(),D._19(-1,null,["\n                            "]))],null,null)}function s(l){return D._21(0,[(l()(),D.Z(0,0,null,null,4,"ion-avatar",[["class","avatar"],["item-start",""]],null,null,null,null,null)),D.Y(1,16384,null,0,Rl.a,[],null,null),(l()(),D._19(-1,null,["\n                                "])),(l()(),D.Z(3,0,null,null,0,"img",[["class","avatar-feedTelegraaf"],["src","../assets/svg/Telegraaf_Wit.svg"]],null,null,null,null,null)),(l()(),D._19(-1,null,["\n                            "]))],null,null)}function c(l){return D._21(0,[(l()(),D.Z(0,0,null,null,4,"ion-avatar",[["class","avatar"],["item-start",""]],null,null,null,null,null)),D.Y(1,16384,null,0,Rl.a,[],null,null),(l()(),D._19(-1,null,["\n                                "])),(l()(),D.Z(3,0,null,null,0,"img",[["class","avatar-feed"],["src","../assets/svg/nu.nl.svg"]],null,null,null,null,null)),(l()(),D._19(-1,null,["\n                            "]))],null,null)}function d(l){return D._21(0,[(l()(),D.Z(0,0,null,null,1,"div",[["class","uitgeverFeed"]],null,null,null,null,null)),(l()(),D._19(1,null,["",""]))],null,function(l,n){l(n,1,0,n.parent.context.$implicit.site)})}function g(l){return D._21(0,[(l()(),D.Z(0,0,null,null,1,"div",[["class","uitgeverFeedNU"]],null,null,null,null,null)),(l()(),D._19(1,null,["",""]))],null,function(l,n){l(n,1,0,n.parent.context.$implicit.site)})}function _(l){return D._21(0,[(l()(),D.Z(0,0,null,null,5,"button",[["class","socialTelegraafShare"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.showConfirmHide(l.parent.context.$implicit.id)&&e}return e},Bl.b,Bl.a)),D.Y(1,1097728,null,0,ql.a,[[8,""],Gl.a,D.j,D.z],{clear:[0,"clear"]},null),(l()(),D._19(-1,0,["\n                                "])),(l()(),D.Z(3,0,null,0,1,"ion-icon",[["name","trash"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(4,147456,null,0,Kl.a,[Gl.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n                            "]))],function(l,n){l(n,1,0,"");l(n,4,0,"trash")},function(l,n){l(n,3,0,D._11(n,4)._hidden)})}function m(l){return D._21(0,[(l()(),D.Z(0,0,null,null,5,"button",[["class","socialNOSShare"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.showConfirmHide(l.parent.context.$implicit.id)&&e}return e},Bl.b,Bl.a)),D.Y(1,1097728,null,0,ql.a,[[8,""],Gl.a,D.j,D.z],{clear:[0,"clear"]},null),(l()(),D._19(-1,0,["\n                                "])),(l()(),D.Z(3,0,null,0,1,"ion-icon",[["name","trash"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(4,147456,null,0,Kl.a,[Gl.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n                            "]))],function(l,n){l(n,1,0,"");l(n,4,0,"trash")},function(l,n){l(n,3,0,D._11(n,4)._hidden)})}function p(l){return D._21(0,[(l()(),D.Z(0,0,null,null,5,"button",[["class","socialNuShare"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.showConfirmHide(l.parent.context.$implicit.id)&&e}return e},Bl.b,Bl.a)),D.Y(1,1097728,null,0,ql.a,[[8,""],Gl.a,D.j,D.z],{clear:[0,"clear"]},null),(l()(),D._19(-1,0,["\n                                "])),(l()(),D.Z(3,0,null,0,1,"ion-icon",[["name","trash"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(4,147456,null,0,Kl.a,[Gl.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n                            "]))],function(l,n){l(n,1,0,"");l(n,4,0,"trash")},function(l,n){l(n,3,0,D._11(n,4)._hidden)})}function f(l){return D._21(0,[(l()(),D.Z(0,0,null,null,5,"button",[["class","socialTelegraafShare"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.shareInfo(l.parent.context.$implicit.title,l.parent.context.$implicit.image,l.parent.context.$implicit.link)&&e}return e},Bl.b,Bl.a)),D.Y(1,1097728,null,0,ql.a,[[8,""],Gl.a,D.j,D.z],{clear:[0,"clear"]},null),(l()(),D._19(-1,0,["\n                                "])),(l()(),D.Z(3,0,null,0,1,"ion-icon",[["name","share-alt"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(4,147456,null,0,Kl.a,[Gl.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n                            "]))],function(l,n){l(n,1,0,"");l(n,4,0,"share-alt")},function(l,n){l(n,3,0,D._11(n,4)._hidden)})}function h(l){return D._21(0,[(l()(),D.Z(0,0,null,null,5,"button",[["class","socialNOSShare"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.shareInfo(l.parent.context.$implicit.title,l.parent.context.$implicit.image,l.parent.context.$implicit.link)&&e}return e},Bl.b,Bl.a)),D.Y(1,1097728,null,0,ql.a,[[8,""],Gl.a,D.j,D.z],{clear:[0,"clear"]},null),(l()(),D._19(-1,0,["\n                                "])),(l()(),D.Z(3,0,null,0,1,"ion-icon",[["name","share-alt"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(4,147456,null,0,Kl.a,[Gl.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n                            "]))],function(l,n){l(n,1,0,"");l(n,4,0,"share-alt")},function(l,n){l(n,3,0,D._11(n,4)._hidden)})}function b(l){return D._21(0,[(l()(),D.Z(0,0,null,null,5,"button",[["class","socialNuShare"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.shareInfo(l.parent.context.$implicit.title,l.parent.context.$implicit.image,l.parent.context.$implicit.link)&&e}return e},Bl.b,Bl.a)),D.Y(1,1097728,null,0,ql.a,[[8,""],Gl.a,D.j,D.z],{clear:[0,"clear"]},null),(l()(),D._19(-1,0,["\n                                "])),(l()(),D.Z(3,0,null,0,1,"ion-icon",[["name","share-alt"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(4,147456,null,0,Kl.a,[Gl.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n                            "]))],function(l,n){l(n,1,0,"");l(n,4,0,"share-alt")},function(l,n){l(n,3,0,D._11(n,4)._hidden)})}function v(l){return D._21(0,[(l()(),D.Z(0,0,null,null,8,"button",[["class","socialTelegraaf"],["clear",""],["icon-start",""],["ion-button",""]],[[8,"disabled",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.setLike(l.parent.context.$implicit.id)&&e}return e},Bl.b,Bl.a)),D.Y(1,1097728,null,0,ql.a,[[8,""],Gl.a,D.j,D.z],{clear:[0,"clear"]},null),(l()(),D._19(-1,0,["\n                                "])),(l()(),D.Z(3,0,null,0,1,"ion-icon",[["class","darkHeartOutline"],["name","heart-outline"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(4,147456,null,0,Kl.a,[Gl.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n                                "])),(l()(),D.Z(6,0,null,0,1,"div",[],null,null,null,null,null)),(l()(),D._19(7,null,["",""])),(l()(),D._19(-1,0,["\n                            "]))],function(l,n){l(n,1,0,"");l(n,4,0,"heart-outline")},function(l,n){l(n,0,0,n.component.disabled);l(n,3,0,D._11(n,4)._hidden);l(n,7,0,n.parent.context.$implicit.likes)})}function k(l){return D._21(0,[(l()(),D.Z(0,0,null,null,8,"button",[["class","socialNOS"],["clear",""],["icon-start",""],["ion-button",""]],[[8,"disabled",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.setLike(l.parent.context.$implicit.id)&&e}return e},Bl.b,Bl.a)),D.Y(1,1097728,null,0,ql.a,[[8,""],Gl.a,D.j,D.z],{clear:[0,"clear"]},null),(l()(),D._19(-1,0,["\n                                "])),(l()(),D.Z(3,0,null,0,1,"ion-icon",[["class","darkHeartOutline"],["name","heart-outline"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(4,147456,null,0,Kl.a,[Gl.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n                                "])),(l()(),D.Z(6,0,null,0,1,"div",[],null,null,null,null,null)),(l()(),D._19(7,null,["",""])),(l()(),D._19(-1,0,["\n                            "]))],function(l,n){l(n,1,0,"");l(n,4,0,"heart-outline")},function(l,n){l(n,0,0,n.component.disabled);l(n,3,0,D._11(n,4)._hidden);l(n,7,0,n.parent.context.$implicit.likes)})}function Z(l){return D._21(0,[(l()(),D.Z(0,0,null,null,8,"button",[["class","socialNu"],["clear",""],["icon-start",""],["ion-button",""]],[[8,"disabled",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.setLike(l.parent.context.$implicit.id)&&e}return e},Bl.b,Bl.a)),D.Y(1,1097728,null,0,ql.a,[[8,""],Gl.a,D.j,D.z],{clear:[0,"clear"]},null),(l()(),D._19(-1,0,["\n                                "])),(l()(),D.Z(3,0,null,0,1,"ion-icon",[["class","darkHeartOutline"],["name","heart-outline"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(4,147456,null,0,Kl.a,[Gl.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n                                "])),(l()(),D.Z(6,0,null,0,1,"div",[],null,null,null,null,null)),(l()(),D._19(7,null,["",""])),(l()(),D._19(-1,0,["\n                            "]))],function(l,n){l(n,1,0,"");l(n,4,0,"heart-outline")},function(l,n){l(n,0,0,n.component.disabled);l(n,3,0,D._11(n,4)._hidden);l(n,7,0,n.parent.context.$implicit.likes)})}function Y(l){return D._21(0,[(l()(),D.Z(0,0,null,null,8,"button",[["class","socialTelegraaf"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.viewComments({record:l.parent.context.$implicit})&&e}return e},Bl.b,Bl.a)),D.Y(1,1097728,null,0,ql.a,[[8,""],Gl.a,D.j,D.z],{clear:[0,"clear"]},null),(l()(),D._19(-1,0,["\n                                "])),(l()(),D.Z(3,0,null,0,1,"ion-icon",[["class","darkChatTelegraaf"],["name","chatbubbles"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(4,147456,null,0,Kl.a,[Gl.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n                                "])),(l()(),D.Z(6,0,null,0,1,"div",[],null,null,null,null,null)),(l()(),D._19(7,null,["",""])),(l()(),D._19(-1,0,["\n                            "]))],function(l,n){l(n,1,0,"");l(n,4,0,"chatbubbles")},function(l,n){l(n,3,0,D._11(n,4)._hidden);l(n,7,0,n.parent.context.$implicit.comments)})}function I(l){return D._21(0,[(l()(),D.Z(0,0,null,null,8,"button",[["class","socialNOS"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.viewComments({record:l.parent.context.$implicit})&&e}return e},Bl.b,Bl.a)),D.Y(1,1097728,null,0,ql.a,[[8,""],Gl.a,D.j,D.z],{clear:[0,"clear"]},null),(l()(),D._19(-1,0,["\n                                "])),(l()(),D.Z(3,0,null,0,1,"ion-icon",[["class","darkChatNOS"],["name","chatbubbles"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(4,147456,null,0,Kl.a,[Gl.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n                                "])),(l()(),D.Z(6,0,null,0,1,"div",[],null,null,null,null,null)),(l()(),D._19(7,null,["",""])),(l()(),D._19(-1,0,["\n                            "]))],function(l,n){l(n,1,0,"");l(n,4,0,"chatbubbles")},function(l,n){l(n,3,0,D._11(n,4)._hidden);l(n,7,0,n.parent.context.$implicit.comments)})}function j(l){return D._21(0,[(l()(),D.Z(0,0,null,null,8,"button",[["class","socialNu"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.viewComments({record:l.parent.context.$implicit})&&e}return e},Bl.b,Bl.a)),D.Y(1,1097728,null,0,ql.a,[[8,""],Gl.a,D.j,D.z],{clear:[0,"clear"]},null),(l()(),D._19(-1,0,["\n                                "])),(l()(),D.Z(3,0,null,0,1,"ion-icon",[["class","darkChatNU"],["name","chatbubbles"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(4,147456,null,0,Kl.a,[Gl.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n                                "])),(l()(),D.Z(6,0,null,0,1,"div",[],null,null,null,null,null)),(l()(),D._19(7,null,["",""])),(l()(),D._19(-1,0,["\n                            "]))],function(l,n){l(n,1,0,"");l(n,4,0,"chatbubbles")},function(l,n){l(n,3,0,D._11(n,4)._hidden);l(n,7,0,n.parent.context.$implicit.comments)})}function w(l){return D._21(0,[(l()(),D.Z(0,0,null,null,8,"button",[["class","socialTelegraaf"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.dislike(l.parent.context.$implicit.id,l.parent.context.$implicit.title)&&e}return e},Bl.b,Bl.a)),D.Y(1,1097728,null,0,ql.a,[[8,""],Gl.a,D.j,D.z],{clear:[0,"clear"]},null),(l()(),D._19(-1,0,["\n                                "])),(l()(),D.Z(3,0,null,0,1,"ion-icon",[["class","darkHeartFull"],["name","heart"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(4,147456,null,0,Kl.a,[Gl.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n                                "])),(l()(),D.Z(6,0,null,0,1,"div",[],null,null,null,null,null)),(l()(),D._19(7,null,["",""])),(l()(),D._19(-1,0,["\n                            "]))],function(l,n){l(n,1,0,"");l(n,4,0,"heart")},function(l,n){l(n,3,0,D._11(n,4)._hidden);l(n,7,0,n.parent.context.$implicit.likes)})}function z(l){return D._21(0,[(l()(),D.Z(0,0,null,null,8,"button",[["class","socialNOS"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.dislike(l.parent.context.$implicit.id,l.parent.context.$implicit.title)&&e}return e},Bl.b,Bl.a)),D.Y(1,1097728,null,0,ql.a,[[8,""],Gl.a,D.j,D.z],{clear:[0,"clear"]},null),(l()(),D._19(-1,0,["\n                                "])),(l()(),D.Z(3,0,null,0,1,"ion-icon",[["class","darkHeartFull"],["name","heart"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(4,147456,null,0,Kl.a,[Gl.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n                                "])),(l()(),D.Z(6,0,null,0,1,"div",[],null,null,null,null,null)),(l()(),D._19(7,null,["",""])),(l()(),D._19(-1,0,["\n                            "]))],function(l,n){l(n,1,0,"");l(n,4,0,"heart")},function(l,n){l(n,3,0,D._11(n,4)._hidden);l(n,7,0,n.parent.context.$implicit.likes)})}function C(l){return D._21(0,[(l()(),D.Z(0,0,null,null,8,"button",[["class","socialNu"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.dislike(l.parent.context.$implicit.id,l.parent.context.$implicit.title)&&e}return e},Bl.b,Bl.a)),D.Y(1,1097728,null,0,ql.a,[[8,""],Gl.a,D.j,D.z],{clear:[0,"clear"]},null),(l()(),D._19(-1,0,["\n                                "])),(l()(),D.Z(3,0,null,0,1,"ion-icon",[["class","darkHeartFull"],["name","heart"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(4,147456,null,0,Kl.a,[Gl.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n                                "])),(l()(),D.Z(6,0,null,0,1,"div",[],null,null,null,null,null)),(l()(),D._19(7,null,["",""])),(l()(),D._19(-1,0,["\n                            "]))],function(l,n){l(n,1,0,"");l(n,4,0,"heart")},function(l,n){l(n,3,0,D._11(n,4)._hidden);l(n,7,0,n.parent.context.$implicit.likes)})}function y(l){return D._21(0,[(l()(),D.Z(0,0,null,null,123,"ion-card",[["class","cardFavorieten"],["col-md-6",""]],null,null,null,null,null)),D.Y(1,16384,null,0,Xl.a,[Gl.a,D.j,D.z],null,null),(l()(),D._19(-1,null,["\n                    "])),(l()(),D._19(-1,null,["\n                    "])),(l()(),D.Z(4,0,null,null,10,"div",[["class","ion-card-image-wrapper"]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.viewEntry({record:l.context.$implicit})&&e}return e},null,null)),(l()(),D._19(-1,null,["\n                        "])),(l()(),D.U(16777216,null,null,1,null,e)),D.Y(7,16384,null,0,Jl.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n                        "])),(l()(),D.U(16777216,null,null,1,null,t)),D.Y(10,16384,null,0,Jl.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n                        "])),(l()(),D.U(16777216,null,null,1,null,a)),D.Y(13,16384,null,0,Jl.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n                    "])),(l()(),D._19(-1,null,["\n                    "])),(l()(),D.Z(16,0,null,null,106,"ion-card-content",[],null,null,null,null,null)),D.Y(17,16384,null,0,Ql.a,[Gl.a,D.j,D.z],null,null),(l()(),D._19(-1,null,["\n                        "])),(l()(),D._19(-1,null,["\n                        "])),(l()(),D.Z(20,0,null,null,16,"div",[["id","AvatarFeed"]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.viewEntry({record:l.context.$implicit})&&e}return e},null,null)),(l()(),D._19(-1,null,["\n                            "])),(l()(),D.U(16777216,null,null,1,null,i)),D.Y(23,16384,null,0,Jl.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n                            "])),(l()(),D.U(16777216,null,null,1,null,o)),D.Y(26,16384,null,0,Jl.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n                            "])),(l()(),D.U(16777216,null,null,1,null,r)),D.Y(29,16384,null,0,Jl.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n                            "])),(l()(),D.U(16777216,null,null,1,null,s)),D.Y(32,16384,null,0,Jl.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n                            "])),(l()(),D.U(16777216,null,null,1,null,c)),D.Y(35,16384,null,0,Jl.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n                        "])),(l()(),D._19(-1,null,["\n                        "])),(l()(),D._19(-1,null,["\n                        "])),(l()(),D.Z(39,0,null,null,33,"div",[["id","uitgeverFeed"]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.viewEntry({record:l.context.$implicit})&&e}return e},null,null)),(l()(),D._19(-1,null,["\n                            "])),(l()(),D.U(16777216,null,null,1,null,d)),D.Y(42,16384,null,0,Jl.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n                            "])),(l()(),D.U(16777216,null,null,1,null,g)),D.Y(45,16384,null,0,Jl.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n                            "])),(l()(),D._19(-1,null,["\n                            "])),(l()(),D.Z(48,0,null,null,8,"div",[["id","title"]],null,null,null,null,null)),(l()(),D._19(-1,null,["\n                                "])),(l()(),D.Z(50,0,null,null,5,"ion-card-title",[["class","TitleFeed"]],null,null,null,null,null)),D.Y(51,16384,null,0,ln.a,[Gl.a,D.j,D.z],null,null),(l()(),D._19(-1,null,["\n                                    "])),(l()(),D.Z(53,0,null,null,1,"strong",[],null,null,null,null,null)),(l()(),D._19(54,null,["",""])),(l()(),D._19(-1,null,["\n                                "])),(l()(),D._19(-1,null,["\n                            "])),(l()(),D._19(-1,null,["\n                            "])),(l()(),D._19(-1,null,["\n                            "])),(l()(),D.Z(59,0,null,null,5,"div",[["id","description"]],null,null,null,null,null)),(l()(),D._19(-1,null,["\n                                "])),(l()(),D.Z(61,0,null,null,2,"p",[["class","descriptionFeed"]],null,null,null,null,null)),(l()(),D._19(62,null,["","..."])),D._13(0,Jl.r,[]),(l()(),D._19(-1,null,["\n                            "])),(l()(),D._19(-1,null,["\n                            "])),(l()(),D._19(-1,null,["\n                            "])),(l()(),D.Z(67,0,null,null,4,"div",[["class","datumFeed"],["id","datumFeed"]],null,null,null,null,null)),(l()(),D._19(-1,null,["\n                                "])),(l()(),D.Z(69,0,null,null,1,"span",[],null,null,null,null,null)),(l()(),D._19(70,null,["",""])),(l()(),D._19(-1,null,["\n                            "])),(l()(),D._19(-1,null,["\n                        "])),(l()(),D._19(-1,null,["\n                        "])),(l()(),D._19(-1,null,["\n                        "])),(l()(),D.Z(75,0,null,null,46,"div",[["class","socialLikeComments"],["id","socialLikeComments"]],null,null,null,null,null)),(l()(),D._19(-1,null,["\n                            "])),(l()(),D.U(16777216,null,null,1,null,_)),D.Y(78,16384,null,0,Jl.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n                            "])),(l()(),D.U(16777216,null,null,1,null,m)),D.Y(81,16384,null,0,Jl.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n                            "])),(l()(),D.U(16777216,null,null,1,null,p)),D.Y(84,16384,null,0,Jl.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n                            "])),(l()(),D.U(16777216,null,null,1,null,f)),D.Y(87,16384,null,0,Jl.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n                            "])),(l()(),D.U(16777216,null,null,1,null,h)),D.Y(90,16384,null,0,Jl.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n                            "])),(l()(),D.U(16777216,null,null,1,null,b)),D.Y(93,16384,null,0,Jl.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n                            "])),(l()(),D.U(16777216,null,null,1,null,v)),D.Y(96,16384,null,0,Jl.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n                            "])),(l()(),D.U(16777216,null,null,1,null,k)),D.Y(99,16384,null,0,Jl.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n                            "])),(l()(),D.U(16777216,null,null,1,null,Z)),D.Y(102,16384,null,0,Jl.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n                            "])),(l()(),D.U(16777216,null,null,1,null,Y)),D.Y(105,16384,null,0,Jl.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n                            "])),(l()(),D.U(16777216,null,null,1,null,I)),D.Y(108,16384,null,0,Jl.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n                            "])),(l()(),D.U(16777216,null,null,1,null,j)),D.Y(111,16384,null,0,Jl.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n                            "])),(l()(),D.U(16777216,null,null,1,null,w)),D.Y(114,16384,null,0,Jl.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n                            "])),(l()(),D.U(16777216,null,null,1,null,z)),D.Y(117,16384,null,0,Jl.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n                            "])),(l()(),D.U(16777216,null,null,1,null,C)),D.Y(120,16384,null,0,Jl.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n                        "])),(l()(),D._19(-1,null,["\n                    "])),(l()(),D._19(-1,null,["\n                "]))],function(l,n){var u=n.component;l(n,7,0,!n.context.$implicit.image);l(n,10,0,"NOS.nl"==n.context.$implicit.site);l(n,13,0,"NOS.nl"!=n.context.$implicit.site||"NU.nl"!=n.context.$implicit.site);l(n,23,0,"NOS"==n.context.$implicit.site&&"light-theme"==u.currentTheme);l(n,26,0,"NOS"==n.context.$implicit.site&&"dark-theme"==u.currentTheme);l(n,29,0,"De Telegraaf"==n.context.$implicit.site&&"light-theme"==u.currentTheme);l(n,32,0,"De Telegraaf"==n.context.$implicit.site&&"dark-theme"==u.currentTheme);l(n,35,0,"NU.nl"==n.context.$implicit.site);l(n,42,0,"De Telegraaf"==n.context.$implicit.site||"NOS"==n.context.$implicit.site);l(n,45,0,"NU.nl"==n.context.$implicit.site);l(n,78,0,"De Telegraaf"==n.context.$implicit.site&&1==u.rol);l(n,81,0,"NOS"==n.context.$implicit.site&&1==u.rol);l(n,84,0,"NU.nl"==n.context.$implicit.site&&1==u.rol);l(n,87,0,"De Telegraaf"==n.context.$implicit.site);l(n,90,0,"NOS"==n.context.$implicit.site);l(n,93,0,"NU.nl"==n.context.$implicit.site);l(n,96,0,"De Telegraaf"==n.context.$implicit.site&&0==n.context.$implicit.liked);l(n,99,0,"NOS"==n.context.$implicit.site&&0==n.context.$implicit.liked);l(n,102,0,"NU.nl"==n.context.$implicit.site&&0==n.context.$implicit.liked);l(n,105,0,"De Telegraaf"==n.context.$implicit.site);l(n,108,0,"NOS"==n.context.$implicit.site);l(n,111,0,"NU.nl"==n.context.$implicit.site);l(n,114,0,"De Telegraaf"==n.context.$implicit.site&&1==n.context.$implicit.liked);l(n,117,0,"NOS"==n.context.$implicit.site&&1==n.context.$implicit.liked);l(n,120,0,"NU.nl"==n.context.$implicit.site&&1==n.context.$implicit.liked)},function(l,n){var u=n.component;l(n,54,0,n.context.$implicit.title);l(n,62,0,D._20(n,62,0,D._11(n,63).transform(u.htmlToPlaintext(n.context.$implicit.description),0,120)));l(n,70,0,n.context.$implicit.datum)})}function T(l){return D._21(0,[(l()(),D.Z(0,0,null,null,30,"ion-header",[["no-border-bottom",""]],null,null,null,null,null)),D.Y(1,16384,null,0,nn.a,[Gl.a,D.j,D.z,[2,un.a]],null,null),(l()(),D._19(-1,null,["\n    "])),(l()(),D.Z(3,0,null,null,26,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,en.b,en.a)),D.Y(4,49152,null,0,tn.a,[an.a,[2,un.a],[2,on.a],Gl.a,D.j,D.z],null,null),(l()(),D._19(-1,3,["\n        "])),(l()(),D.Z(6,0,null,0,8,"button",[["class","fakeCenter"],["ion-button",""],["menuToggle",""],["right",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==D._11(l,8).toggle()&&e}return e},Bl.b,Bl.a)),D.Y(7,1097728,[[1,4]],0,ql.a,[[8,""],Gl.a,D.j,D.z],null,null),D.Y(8,1064960,null,0,rn.a,[sn.a,[2,un.a],[2,ql.a],[2,tn.a]],{menuToggle:[0,"menuToggle"]},null),D.Y(9,16384,null,1,cn.a,[Gl.a,D.j,D.z,[2,dn.a],[2,tn.a]],null,null),D._17(603979776,1,{_buttons:1}),(l()(),D._19(-1,0,["\n            "])),(l()(),D.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(13,147456,null,0,Kl.a,[Gl.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n        "])),(l()(),D._19(-1,3,["\n        "])),(l()(),D.Z(16,0,null,3,2,"ion-title",[],null,null,null,gn.b,gn.a)),D.Y(17,49152,null,0,_n.a,[Gl.a,D.j,D.z,[2,dn.a],[2,tn.a]],null,null),(l()(),D._19(-1,0,["Favorieten"])),(l()(),D._19(-1,3,["\n        "])),(l()(),D.Z(20,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==D._11(l,22).toggle()&&e}return e},Bl.b,Bl.a)),D.Y(21,1097728,[[2,4]],0,ql.a,[[8,""],Gl.a,D.j,D.z],null,null),D.Y(22,1064960,null,0,rn.a,[sn.a,[2,un.a],[2,ql.a],[2,tn.a]],{menuToggle:[0,"menuToggle"]},null),D.Y(23,16384,null,1,cn.a,[Gl.a,D.j,D.z,[2,dn.a],[2,tn.a]],null,null),D._17(603979776,2,{_buttons:1}),(l()(),D._19(-1,0,["\n            "])),(l()(),D.Z(26,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(27,147456,null,0,Kl.a,[Gl.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,0,["\n        "])),(l()(),D._19(-1,3,["\n    "])),(l()(),D._19(-1,null,["\n"])),(l()(),D._19(-1,null,["\n"])),(l()(),D.Z(32,0,null,null,17,"ion-content",[],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,mn.b,mn.a)),D.Y(33,4374528,null,0,pn.a,[Gl.a,fn.a,hn.a,D.j,D.z,an.a,bn.a,D.u,[2,un.a],[2,on.a]],null,null),(l()(),D._19(-1,1,["\n    "])),(l()(),D.Z(35,0,null,1,13,"ion-grid",[["class","grid"]],null,null,null,null,null)),D.Y(36,16384,null,0,vn.a,[],null,null),(l()(),D._19(-1,null,["\n        "])),(l()(),D.Z(38,0,null,null,9,"ion-col",[["class","col"]],null,null,null,null,null)),D.Y(39,16384,null,0,kn.a,[],null,null),(l()(),D._19(-1,null,["\n            "])),(l()(),D.Z(41,0,null,null,5,"ion-row",[["class","row"]],null,null,null,null,null)),D.Y(42,16384,null,0,Zn.a,[],null,null),(l()(),D._19(-1,null,["\n                "])),(l()(),D.U(16777216,null,null,1,null,y)),D.Y(45,802816,null,0,Jl.h,[D.I,D.F,D.p],{ngForOf:[0,"ngForOf"]},null),(l()(),D._19(-1,null,["\n            "])),(l()(),D._19(-1,null,["\n        "])),(l()(),D._19(-1,null,["\n    "])),(l()(),D._19(-1,1,["\n"])),(l()(),D._19(-1,null,["\n"]))],function(l,n){var u=n.component;l(n,8,0,"");l(n,13,0,"menu");l(n,22,0,"");l(n,27,0,"menu");l(n,45,0,u.likedarticles)},function(l,n){l(n,3,0,D._11(n,4)._hidden,D._11(n,4)._sbPadding);l(n,6,0,D._11(n,8).isHidden);l(n,12,0,D._11(n,13)._hidden);l(n,20,0,D._11(n,22).isHidden);l(n,26,0,D._11(n,27)._hidden);l(n,32,0,D._11(n,33).statusbarPadding,D._11(n,33)._hasRefresher)})}function x(l){return D._21(0,[(l()(),D.Z(0,0,null,null,15,"ion-row",[["align-items-center",""],["class","splash row"],["justify-content-center",""],["style","height: 100%"]],null,null,null,null,null)),D.Y(1,16384,null,0,Zn.a,[],null,null),(l()(),D._19(-1,null,["\n    "])),(l()(),D.Z(3,0,null,null,11,"div",[["class","spinner"]],null,null,null,null,null)),(l()(),D._19(-1,null,["\n      "])),(l()(),D.Z(5,0,null,null,3,"div",[["class","NewsAgeLogo"]],null,null,null,null,null)),(l()(),D._19(-1,null,["\n        "])),(l()(),D.Z(7,0,null,null,0,"img",[["class","NewsAge"],["src","../assets/imgs/NewsAgeLogo.png"]],null,null,null,null,null)),(l()(),D._19(-1,null,["\n      "])),(l()(),D._19(-1,null,["\n      "])),(l()(),D.Z(10,0,null,null,3,"div",[["class","loader"]],null,null,null,null,null)),(l()(),D._19(-1,null,["\n        "])),(l()(),D.Z(12,0,null,null,0,"img",[["src","../assets/svg/spinner/tail-spinSplash.svg"]],null,null,null,null,null)),(l()(),D._19(-1,null,["\n      "])),(l()(),D._19(-1,null,["\n    "])),(l()(),D._19(-1,null,["\n  "]))],null,null)}function F(l){return D._21(0,[(l()(),D.Z(0,0,null,null,1,"ion-icon",[["float-right",""],["role","img"]],[[2,"hide",null]],null,null,null,null)),D.Y(1,147456,null,0,Kl.a,[Gl.a,D.j,D.z],{name:[0,"name"]},null)],function(l,n){l(n,1,0,n.component.selectedMenu==n.parent.context.index?"arrow-dropdown":"arrow-dropright")},function(l,n){l(n,0,0,D._11(n,1)._hidden)})}function S(l){return D._21(0,[(l()(),D.Z(0,0,null,null,13,"ion-item",[["class","item item-block"],["no-border",""],["text-wrap",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.openPage(l.context.$implicit)&&e}return e},Hn.b,Hn.a)),D.Y(1,1097728,null,3,En.a,[Rn.a,Gl.a,D.j,D.z,[2,Bn.a]],null,null),D._17(335544320,7,{contentLabel:0}),D._17(603979776,8,{_buttons:1}),D._17(603979776,9,{_icons:1}),D.Y(5,16384,null,0,qn.a,[],null,null),(l()(),D._19(-1,2,["\n                         "])),(l()(),D.Z(7,0,null,2,1,"ion-icon",[["role","img"],["slot","start"]],[[2,"hide",null]],null,null,null,null)),D.Y(8,147456,[[9,4]],0,Kl.a,[Gl.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,2,["\n                        "])),(l()(),D.Z(10,0,null,2,2,"span",[["color","color2"],["ion-text",""]],null,null,null,null,null)),D.Y(11,16384,null,0,Gn.a,[Gl.a,D.j,D.z],{color:[0,"color"]},null),(l()(),D._19(12,null,[" ",""])),(l()(),D._19(-1,2,["\n                    "]))],function(l,n){l(n,8,0,n.context.$implicit.icon);l(n,11,0,"color2")},function(l,n){l(n,7,0,D._11(n,8)._hidden);l(n,12,0,n.context.$implicit.title)})}function U(l){return D._21(0,[(l()(),D.Z(0,0,null,null,25,"ion-item",[["class","item item-block"],["ion-item",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.openPage(l.context.$implicit,l.context.index)&&e}return e},Hn.b,Hn.a)),D.Y(1,1097728,null,3,En.a,[Rn.a,Gl.a,D.j,D.z,[2,Bn.a]],null,null),D._17(335544320,4,{contentLabel:0}),D._17(603979776,5,{_buttons:1}),D._17(603979776,6,{_icons:1}),D.Y(5,16384,null,0,qn.a,[],null,null),(l()(),D._19(-1,2,["\n               "])),(l()(),D.Z(7,0,null,2,1,"ion-icon",[["role","img"],["slot","start"]],[[2,"hide",null]],null,null,null,null)),D.Y(8,147456,[[6,4]],0,Kl.a,[Gl.a,D.j,D.z],{name:[0,"name"]},null),(l()(),D._19(-1,2,["\n                "])),(l()(),D.Z(10,0,null,2,6,"span",[["class","menuTitle"],["ion-text",""]],null,null,null,null,null)),D.Y(11,16384,null,0,Gn.a,[Gl.a,D.j,D.z],null,null),(l()(),D._19(12,null,["\n                      ","\n                      "])),(l()(),D.Z(13,0,null,null,2,"span",[],null,null,null,null,null)),(l()(),D.U(16777216,null,null,1,null,F)),D.Y(15,16384,null,0,Jl.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n                "])),(l()(),D._19(-1,2,["\n                "])),(l()(),D._19(-1,2,["\n                "])),(l()(),D.Z(19,0,null,2,5,"ion-list",[["no-lines",""]],[[8,"hidden",0]],null,null,null,null)),D.Y(20,16384,null,0,Kn.a,[Gl.a,D.j,D.z,fn.a,Xn.l,hn.a],null,null),(l()(),D._19(-1,null,["\n                    "])),(l()(),D.U(16777216,null,null,1,null,S)),D.Y(23,802816,null,0,Jl.h,[D.I,D.F,D.p],{ngForOf:[0,"ngForOf"]},null),(l()(),D._19(-1,null,["\n                "])),(l()(),D._19(-1,2,["\n            "]))],function(l,n){l(n,8,0,n.context.$implicit.icon);l(n,15,0,n.context.$implicit.subPages);l(n,23,0,n.context.$implicit.subPages)},function(l,n){var u=n.component;l(n,7,0,D._11(n,8)._hidden);l(n,12,0,n.context.$implicit.title);l(n,19,0,u.selectedMenu!=n.context.index)})}function $(l){return D._21(0,[D._17(402653184,1,{nav:0}),(l()(),D._19(-1,null,["\n"])),(l()(),D.Z(2,0,null,null,5,"ion-grid",[["class","gridPadding grid"],["style","height: 100%"]],null,null,null,null,null)),D.Y(3,16384,null,0,vn.a,[],null,null),(l()(),D._19(-1,null,["\n  "])),(l()(),D.U(16777216,null,null,1,null,x)),D.Y(6,16384,null,0,Jl.i,[D.I,D.F],{ngIf:[0,"ngIf"]},null),(l()(),D._19(-1,null,["\n"])),(l()(),D._19(-1,null,["\n"])),(l()(),D._19(-1,null,["\n"])),(l()(),D._19(-1,null,["\n"])),(l()(),D.Z(11,0,null,null,47,"ion-menu",[["role","navigation"]],[[8,"className",0]],null,null,Jn.b,Jn.a)),D._15(6144,null,Qn.a,null,[lu.a]),D.Y(13,245760,null,2,lu.a,[sn.a,D.j,Gl.a,fn.a,D.z,bn.a,Xn.l,hn.a,an.a],{content:[0,"content"],swipeEnabled:[1,"swipeEnabled"]},null),D._17(335544320,2,{menuContent:0}),D._17(335544320,3,{menuNav:0}),(l()(),D._19(-1,0,["\n    "])),(l()(),D.Z(17,0,null,0,27,"ion-content",[["id","contentAnimation"]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,mn.b,mn.a)),D.Y(18,4374528,[[2,4]],0,pn.a,[Gl.a,fn.a,hn.a,D.j,D.z,an.a,bn.a,D.u,[2,un.a],[2,on.a]],null,null),(l()(),D._19(-1,1,["\n        "])),(l()(),D.Z(20,0,null,1,23,"ion-list",[],null,null,null,null,null)),D.Y(21,16384,null,0,Kn.a,[Gl.a,D.j,D.z,fn.a,Xn.l,hn.a],null,null),(l()(),D._19(-1,null,["\n            "])),(l()(),D.Z(23,0,null,null,16,"ion-navbar",[["class","menuNavbar toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,en.b,en.a)),D.Y(24,49152,null,0,tn.a,[an.a,[2,un.a],[2,on.a],Gl.a,D.j,D.z],null,null),(l()(),D._19(-1,3,["\n                "])),(l()(),D.Z(26,0,null,3,12,"ion-grid",[["class","gridMenu grid"]],null,null,null,null,null)),D.Y(27,16384,null,0,vn.a,[],null,null),(l()(),D._19(-1,null,["\n                    "])),(l()(),D.Z(29,0,null,null,8,"ion-col",[["class","menuCol col"],["col-9",""]],null,null,null,null,null)),D.Y(30,16384,null,0,kn.a,[],null,null),(l()(),D._19(-1,null,["\n                        "])),(l()(),D.Z(32,0,null,null,0,"img",[["class","avatar-menu"]],[[8,"src",4]],null,null,null,null)),(l()(),D._19(-1,null,["\n                        "])),(l()(),D.Z(34,0,null,null,2,"p",[["ngClass","usernameMenu"]],null,null,null,null,null)),D.Y(35,278528,null,0,Jl.g,[D.p,D.q,D.j,D.A],{ngClass:[0,"ngClass"]},null),(l()(),D._19(36,null,["",""])),(l()(),D._19(-1,null,["\n                    "])),(l()(),D._19(-1,null,["\n                "])),(l()(),D._19(-1,3,["\n            "])),(l()(),D._19(-1,null,["\n            "])),(l()(),D.U(16777216,null,null,1,null,U)),D.Y(42,802816,null,0,Jl.h,[D.I,D.F,D.p],{ngForOf:[0,"ngForOf"]},null),(l()(),D._19(-1,null,["\n        "])),(l()(),D._19(-1,1,["\n    "])),(l()(),D._19(-1,0,["\n    "])),(l()(),D.Z(46,0,null,0,11,"ion-footer",[["class","footerMenu"]],null,null,null,null,null)),D.Y(47,16384,null,0,nu.a,[Gl.a,D.j,D.z,[2,un.a]],null,null),(l()(),D._19(-1,null,["\n        "])),(l()(),D.Z(49,0,null,null,7,"ion-toolbar",[["class","toolbarFooter toolbar"]],[[2,"statusbar-padding",null]],null,null,uu.b,uu.a)),D.Y(50,49152,null,0,dn.a,[Gl.a,D.j,D.z],null,null),(l()(),D._19(-1,3,["\n            "])),(l()(),D.Z(52,0,null,3,3,"div",[["class","versienummer"]],null,null,null,null,null)),(l()(),D.Z(53,0,null,null,1,"span",[["class","newsAgeFooter"]],null,null,null,null,null)),(l()(),D._19(-1,null,["©NewsAge"])),(l()(),D._19(-1,null,[" V7.1.0"])),(l()(),D._19(-1,3,["\n        "])),(l()(),D._19(-1,null,["\n    "])),(l()(),D._19(-1,0,["\n"])),(l()(),D._19(-1,null,["\n\n\n"])),(l()(),D._19(-1,null,["\n"])),(l()(),D.Z(61,0,null,null,2,"ion-nav",[["swipeBackEnabled","false"]],[[8,"className",0]],null,null,eu.b,eu.a)),D._15(6144,null,Qn.a,null,[tu.a]),D.Y(63,4374528,[[1,4],["content",4]],0,tu.a,[[2,un.a],[2,on.a],an.a,Gl.a,fn.a,D.j,D.u,D.z,D.i,Xn.l,au.a,[2,iu.a],hn.a,D.k],{swipeBackEnabled:[0,"swipeBackEnabled"],root:[1,"root"]},null),(l()(),D._19(-1,null,["\n"]))],function(l,n){var u=n.component;l(n,6,0,u.showSplash);l(n,13,0,D._11(n,63),!1);l(n,35,0,"usernameMenu");l(n,42,0,u.pages);l(n,63,0,"false",u.rootPage)},function(l,n){var u=n.component;l(n,11,0,u.selectedTheme);l(n,17,0,D._11(n,18).statusbarPadding,D._11(n,18)._hasRefresher);l(n,23,0,D._11(n,24)._hidden,D._11(n,24)._sbPadding);l(n,32,0,D._2(1,"",u.profilepicture,""));l(n,36,0,u.username);l(n,49,0,D._11(n,50)._sbPadding);l(n,61,0,u.selectedTheme)})}function P(l){return D._21(0,[(l()(),D.Z(0,0,null,null,72,"ion-content",[],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,mn.b,mn.a)),D.Y(1,4374528,null,0,pn.a,[Gl.a,fn.a,hn.a,D.j,D.z,an.a,bn.a,D.u,[2,un.a],[2,on.a]],null,null),(l()(),D._19(-1,1,["\n    "])),(l()(),D.Z(3,0,null,1,68,"ion-grid",[["class","gridPadding grid"],["style","height: 100%"]],null,null,null,null,null)),D.Y(4,16384,null,0,vn.a,[],null,null),(l()(),D._19(-1,null,["\n        "])),(l()(),D.Z(6,0,null,null,64,"ion-row",[["align-items-center",""],["class","row"],["justify-content-center",""],["style","height: 100%"]],null,null,null,null,null)),D.Y(7,16384,null,0,Zn.a,[],null,null),(l()(),D._19(-1,null,["\n            "])),(l()(),D.Z(9,0,null,null,60,"ion-col",[["class","col"],["col-12",""]],null,null,null,null,null)),D.Y(10,16384,null,0,kn.a,[],null,null),(l()(),D._19(-1,null,["\n                "])),(l()(),D.Z(12,0,null,null,3,"div",[["class","ValidatieText"]],null,null,null,null,null)),(l()(),D._19(-1,null,["\n                    "])),(l()(),D.Z(14,0,null,null,0,"h2",[["class","welkomLogo"]],null,null,null,null,null)),(l()(),D._19(-1,null,["\n                "])),(l()(),D._19(-1,null,["\n                "])),(l()(),D.Z(17,0,null,null,51,"div",[["class","ValidatieLogin"]],null,null,null,null,null)),(l()(),D._19(-1,null,["\n                    "])),(l()(),D.Z(19,0,null,null,16,"ion-item",[["class","darkThemeLogin item item-block"]],null,null,null,Hn.b,Hn.a)),D.Y(20,1097728,null,3,En.a,[Rn.a,Gl.a,D.j,D.z,[2,Bn.a]],null,null),D._17(335544320,1,{contentLabel:0}),D._17(603979776,2,{_buttons:1}),D._17(603979776,3,{_icons:1}),D.Y(24,16384,null,0,qn.a,[],null,null),(l()(),D._19(-1,2,["\n                        "])),(l()(),D.Z(26,0,null,1,2,"ion-label",[["color","primary"],["stacked",""]],null,null,null,null,null)),D.Y(27,16384,[[1,4]],0,gu.a,[Gl.a,D.j,D.z,[8,null],[8,""],[8,null],[8,null]],{color:[0,"color"]},null),(l()(),D._19(-1,null,["Email"])),(l()(),D._19(-1,2,["\n                        "])),(l()(),D.Z(30,0,null,3,4,"ion-input",[["type","email"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;if("ngModelChange"===n){e=!1!==(l.component.email=u)&&e}return e},_u.b,_u.a)),D.Y(31,671744,null,0,ml.n,[[8,null],[8,null],[8,null],[8,null]],{model:[0,"model"]},{update:"ngModelChange"}),D._15(2048,null,ml.k,null,[ml.n]),D.Y(33,16384,null,0,ml.l,[ml.k],null,null),D.Y(34,5423104,null,0,mu.a,[Gl.a,fn.a,Rn.a,an.a,D.j,D.z,[2,pn.a],[2,En.a],[2,ml.k],hn.a],{type:[0,"type"]},null),(l()(),D._19(-1,2,["\n                    "])),(l()(),D._19(-1,null,["\n                    "])),(l()(),D.Z(37,0,null,null,16,"ion-item",[["class","darkThemeLogin item item-block"]],null,null,null,Hn.b,Hn.a)),D.Y(38,1097728,null,3,En.a,[Rn.a,Gl.a,D.j,D.z,[2,Bn.a]],null,null),D._17(335544320,4,{contentLabel:0}),D._17(603979776,5,{_buttons:1}),D._17(603979776,6,{_icons:1}),D.Y(42,16384,null,0,qn.a,[],null,null),(l()(),D._19(-1,2,["\n                        "])),(l()(),D.Z(44,0,null,1,2,"ion-label",[["color","primary"],["stacked",""]],null,null,null,null,null)),D.Y(45,16384,[[4,4]],0,gu.a,[Gl.a,D.j,D.z,[8,null],[8,""],[8,null],[8,null]],{color:[0,"color"]},null),(l()(),D._19(-1,null,["Wachtwoord"])),(l()(),D._19(-1,2,["\n                        "])),(l()(),D.Z(48,0,null,3,4,"ion-input",[["type","password"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;if("ngModelChange"===n){e=!1!==(l.component.password=u)&&e}return e},_u.b,_u.a)),D.Y(49,671744,null,0,ml.n,[[8,null],[8,null],[8,null],[8,null]],{model:[0,"model"]},{update:"ngModelChange"}),D._15(2048,null,ml.k,null,[ml.n]),D.Y(51,16384,null,0,ml.l,[ml.k],null,null),D.Y(52,5423104,null,0,mu.a,[Gl.a,fn.a,Rn.a,an.a,D.j,D.z,[2,pn.a],[2,En.a],[2,ml.k],hn.a],{type:[0,"type"]},null),(l()(),D._19(-1,2,["\n                    "])),(l()(),D._19(-1,null,["\n                    "])),(l()(),D.Z(55,0,null,null,0,"br",[],null,null,null,null,null)),(l()(),D._19(-1,null,["\n                    "])),(l()(),D.Z(57,0,null,null,10,"div",[["class","Validatie2Login"]],null,null,null,null,null)),(l()(),D._19(-1,null,["\n                        "])),(l()(),D.Z(59,0,null,null,2,"button",[["class","loginButton"],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.signIn()&&e}return e},Bl.b,Bl.a)),D.Y(60,1097728,null,0,ql.a,[[8,""],Gl.a,D.j,D.z],null,null),(l()(),D._19(-1,0,["Log-in"])),(l()(),D._19(-1,null,["\n                        "])),(l()(),D.Z(63,0,null,null,3,"p",[["class","nogGeenAccount"]],null,[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==l.component.goRegister()&&e}return e},null,null)),(l()(),D._19(-1,null,["Nog geen account? "])),(l()(),D.Z(65,0,null,null,1,"b",[],null,null,null,null,null)),(l()(),D._19(-1,null,["Registreer"])),(l()(),D._19(-1,null,["\n                    "])),(l()(),D._19(-1,null,["\n                "])),(l()(),D._19(-1,null,["\n            "])),(l()(),D._19(-1,null,["\n        "])),(l()(),D._19(-1,null,["\n    "])),(l()(),D._19(-1,1,["\n"])),(l()(),D._19(-1,null,["\n"]))],function(l,n){var u=n.component;l(n,27,0,"primary");l(n,31,0,u.email);l(n,34,0,"email");l(n,45,0,"primary");l(n,49,0,u.password);l(n,52,0,"password")},function(l,n){l(n,0,0,D._11(n,1).statusbarPadding,D._11(n,1)._hasRefresher);l(n,30,0,D._11(n,33).ngClassUntouched,D._11(n,33).ngClassTouched,D._11(n,33).ngClassPristine,D._11(n,33).ngClassDirty,D._11(n,33).ngClassValid,D._11(n,33).ngClassInvalid,D._11(n,33).ngClassPending);l(n,48,0,D._11(n,51).ngClassUntouched,D._11(n,51).ngClassTouched,D._11(n,51).ngClassPristine,D._11(n,51).ngClassDirty,D._11(n,51).ngClassValid,D._11(n,51).ngClassInvalid,D._11(n,51).ngClassPending)})}Object.defineProperty(n,"__esModule",{value:!0});var A=u(74),D=u(1),N=(u(0),u(6),u(174)),O=u(175),L=u(87),W=u(89),V=u(70),M=u(73),H=u(30),E=u(130),R=u(126),B=u(127),q=u(129),G=u(125),K=u(72),X=u(120),J=u(92),Q=function(){function l(l,n,u,e){this.navCtrl=l,this.navParams=n,this.http=u,this.toastCtrl=e,localStorage.getItem("themeColor")&&(this.currentTheme=localStorage.getItem("themeColor"),console.log(this.currentTheme))}return l.prototype.ionViewWillEnter=function(){this.getFavs()},l.prototype.getFavs=function(){var l=this,n=new H.g;n.append("Accept","application/json"),n.append("Content-Type","application/json");var u={headers:n},e={userId:localStorage.getItem("userId")};this.http.post("http://www.gazoh.net/getliked.php",e,u).subscribe(function(n){l.likedarticles=n,l.likedarticles&&l.likedarticles.sort(function(l,n){return+new Date(n.datum)-+new Date(l.datum)}),console.log(n)})},l.prototype.htmlToPlaintext=function(l){return l?String(l).replace(/<[^>]+>/gm,""):""},l.prototype.viewEntry=function(l){this.navCtrl.push("NieuwsPage",l)},l.prototype.viewComments=function(l){this.navCtrl.push(J.a,l)},l.prototype.dislike=function(l,n){var u=this,e=new H.g;e.append("Accept","application/json"),e.append("Content-Type","application/json");var t={headers:e},a={articleId:l,userId:localStorage.getItem("userId")};this.http.post("http://gazoh.net/unlike.php",a,t).subscribe(function(l){if("unliked"==l){u.getFavs();u.toastCtrl.create({message:n+" is verwijderd uit je favorieten!",duration:2500,position:"bottom"}).present()}})},l}(),ll=u(131),nl=u(128),ul=function(){function l(l){this.http=l}return l.prototype.getSideMenus=function(){return[{title:"Startpagina",component:M.a,icon:"home"},{title:"Sources",component:nl.a,icon:"link"},{title:"Categorieen",icon:"apps",subPages:[{title:"Sport",component:E.a,icon:"football"},{title:"Economie",component:R.a,icon:"cash"},{title:"Misdaad",component:B.a,icon:"walk"},{title:"Technologie",component:q.a,icon:"desktop"},{title:"Auto's",component:G.a,icon:"car"},{title:"Entertainment",component:ll.a,icon:"people"}]},{title:"Favorieten",component:Q,icon:"heart"},{title:"Tutorial",component:X.a,icon:"book"},{title:"Instellingen",component:K.a,icon:"settings"}]},l}(),el=u(88),tl=function(){function l(l,n,u,e,t,a,i,o,r,s,c){var d=this;this.platform=l,this.splashScreen=u,this.settings=e,this.modalCtrl=t,this.menuCtrl=a,this.events=i,this.alertCtrl=o,this.menuProvider=r,this.network=s,this.toastCtrl=c,this.rootPage=L.a,this.showSplash=!0,this.settings.getActiveTheme().subscribe(function(l){return d.selectedTheme=l}),l.ready().then(function(){d.splashScreen.hide(),localStorage.getItem("sessionToken")?d.nav.setRoot(M.a):localStorage.getItem("sessionToken")||(d.nav.setRoot(L.a),localStorage.clear()),d.getSideMenuData(),n.backgroundColorByHexString("#225C73"),d.platform.registerBackButtonAction(function(){1==d.nav.length()&&d.confirmExitApp(),d.nav.pop()}),d.events.subscribe("username",function(l){d.username=l}),"none"==d.network.type&&(d.profilepicture=localStorage.getItem("profilePicture")),d.events.subscribe("profilepicture",function(l){d.profilepicture=l})}),"light-theme"==localStorage.getItem("themeColor")?this.settings.setActiveTheme("light-theme"):"dark-theme"==localStorage.getItem("themeColor")&&this.settings.setActiveTheme("dark-theme")}return l.prototype.getSideMenuData=function(){this.pages=this.menuProvider.getSideMenus()},l.prototype.ngOnInit=function(){var l=this;setTimeout(function(){return l.showSplash=!1},1800)},l.prototype.openPage=function(l,n){l.component?(this.nav.setRoot(l.component),this.menuCtrl.close()):this.selectedMenu=this.selectedMenu?0:n},l.prototype.confirmExitApp=function(){var l=this;this.confirmAlert=this.alertCtrl.create({message:"Wilt u de NewsAge app verlaten ?",buttons:[{text:"Annuleer",handler:function(){l.showedAlert=!1}},{text:"Verlaat",handler:function(){l.platform.exitApp()}}]}),this.confirmAlert.present()},l}(),al=u(173),il=u(90),ol=u(392),rl=u(393),sl=u(394),cl=u(161),dl=u(159),gl=u(162),_l=(u(122),u(121),u(119),u(123),u(233)),ml=u(19),pl=u(112),fl=function(){return function(){}}(),hl=u(231),bl=u(236),vl=u(240),kl=u(237),Zl=u(241),Yl=u(230),Il=u(228),jl=u(232),wl=u(239),zl=u(226),Cl=u(238),yl=u(244),Tl=u(225),xl=u(243),Fl=u(229),Sl=u(242),Ul=u(235),$l=u(160),Pl=function(){return function(){}}(),Al=u(97),Dl=u(395),Nl=u(396),Ol=u(397),Ll=u(398),Wl=u(399),Vl=u(400),Ml=u(401),Hl=u(402),El=u(403),Rl=u(77),Bl=u(20),ql=u(15),Gl=u(3),Kl=u(25),Xl=u(78),Jl=u(16),Ql=u(79),ln=u(100),nn=u(31),un=u(7),en=u(34),tn=u(24),an=u(9),on=u(17),rn=u(46),sn=u(29),cn=u(39),dn=u(27),gn=u(37),_n=u(32),mn=u(43),pn=u(23),fn=u(5),hn=u(10),bn=u(28),vn=u(67),kn=u(66),Zn=u(80),Yn=u(12),In=u(60),jn=D.X({encapsulation:2,styles:[],data:{}}),wn=D.V("page-favorieten",Q,function(l){return D._21(0,[(l()(),D.Z(0,0,null,null,1,"page-favorieten",[],null,null,null,T,jn)),D.Y(1,49152,null,0,Q,[on.a,Yn.a,H.c,In.a],null,null)],null,null)},{},{},[]),zn=u(410),Cn=u(414),yn=u(412),Tn=u(418),xn=u(415),Fn=u(419),Sn=u(409),Un=u(407),$n=u(411),Pn=u(417),An=u(406),Dn=u(416),Nn=u(422),On=u(405),Ln=u(408),Wn=u(421),Vn=u(420),Mn=u(413),Hn=u(50),En=u(22),Rn=u(21),Bn=u(42),qn=u(47),Gn=u(219),Kn=u(49),Xn=u(11),Jn=u(715),Qn=u(69),lu=u(148),nu=u(172),uu=u(716),eu=u(717),tu=u(86),au=u(58),iu=u(36),ou=u(167),ru=u(57),su=u(52),cu=D.X({encapsulation:2,styles:[],data:{}}),du=D.V("ng-component",tl,function(l){return D._21(0,[(l()(),D.Z(0,0,null,null,3,"ng-component",[],null,null,null,$,cu)),D._15(4608,null,W.a,W.a,[]),D._15(135680,null,tu.a,tu.a,[[2,un.a],[2,on.a],an.a,Gl.a,fn.a,D.j,D.u,D.z,D.i,Xn.l,au.a,[2,iu.a],hn.a,D.k]),D.Y(3,114688,null,0,tl,[fn.a,O.a,N.a,V.a,ou.a,sn.a,ru.a,su.a,ul,el.a,In.a],null,null)],function(l,n){l(n,3,0)},null)},{},{},[]),gu=u(55),_u=u(118),mu=u(68),pu=u(85),fu=u(113),hu=D.X({encapsulation:2,styles:[],data:{}}),bu=D.V("page-home",L.a,function(l){return D._21(0,[(l()(),D.Z(0,0,null,null,1,"page-home",[],null,null,null,P,hu)),D.Y(1,49152,null,0,L.a,[on.a,pu.a,H.c,In.a,sn.a,ru.a,il.a,fn.a,W.a,fu.a,V.a],null,null)],null,null)},{},{},[]),vu=u(208),ku=u(140),Zu=u(56),Yu=u(224),Iu=u(99),ju=u(82),wu=u(143),zu=u(214),Cu=u(210),yu=u(391),Tu=u(209),xu=u(191),Fu=u(211),Su=u(124),Uu=D.W(Pl,[Al.b],function(l){return D._7([D._8(512,D.i,D.S,[[8,[Dl.a,Nl.a,Ol.a,Ll.a,Wl.a,Vl.a,Ml.a,Hl.a,El.a,wn,zn.a,Cn.a,yn.a,Tn.a,xn.a,Fn.a,Sn.a,Un.a,$n.a,Pn.a,An.a,Dn.a,Nn.a,On.a,Ln.a,Wn.a,Vn.a,Mn.a,du,bu]],[3,D.i],D.s]),D._8(5120,D.r,D._16,[[3,D.r]]),D._8(4608,Jl.k,Jl.j,[D.r,[2,Jl.t]]),D._8(4608,ml.s,ml.s,[]),D._8(4608,ml.d,ml.d,[]),D._8(5120,D.b,D._1,[]),D._8(5120,D.p,D._9,[]),D._8(5120,D.q,D._12,[]),D._8(4608,A.c,A.q,[Jl.c]),D._8(6144,D.D,null,[A.c]),D._8(4608,A.f,vu.a,[]),D._8(5120,A.d,function(l,n,u,e,t){return[new A.k(l,n),new A.o(u),new A.n(e,t)]},[Jl.c,D.u,Jl.c,Jl.c,A.f]),D._8(4608,A.e,A.e,[A.d,D.u]),D._8(135680,A.m,A.m,[Jl.c]),D._8(4608,A.l,A.l,[A.e,A.m]),D._8(6144,D.B,null,[A.l]),D._8(6144,A.p,null,[A.m]),D._8(4608,D.G,D.G,[D.u]),D._8(4608,A.h,A.h,[Jl.c]),D._8(4608,A.i,A.i,[Jl.c]),D._8(4608,H.i,H.o,[Jl.c,D.w,H.m]),D._8(4608,H.p,H.p,[H.i,H.n]),D._8(5120,H.a,function(l){return[l]},[H.p]),D._8(4608,H.l,H.l,[]),D._8(6144,H.j,null,[H.l]),D._8(4608,H.h,H.h,[H.j]),D._8(6144,H.b,null,[H.h]),D._8(4608,H.f,H.k,[H.b,D.o]),D._8(4608,H.c,H.c,[H.f]),D._8(4608,ku.a,ku.a,[an.a,Gl.a]),D._8(4608,su.a,su.a,[an.a,Gl.a]),D._8(4608,ru.a,ru.a,[]),D._8(4608,Rn.a,Rn.a,[]),D._8(4608,Zu.a,Zu.a,[fn.a]),D._8(4608,bn.a,bn.a,[Gl.a,fn.a,D.u,hn.a]),D._8(4608,pu.a,pu.a,[an.a,Gl.a]),D._8(5120,Jl.f,Yu.c,[Jl.q,[2,Jl.a],Gl.a]),D._8(4608,Jl.e,Jl.e,[Jl.f]),D._8(5120,Iu.b,Iu.d,[an.a,Iu.a]),D._8(5120,iu.a,iu.b,[an.a,Iu.b,Jl.e,ju.b,D.i]),D._8(4608,ou.a,ou.a,[an.a,Gl.a,iu.a]),D._8(4608,wu.a,wu.a,[an.a,Gl.a]),D._8(4608,zu.a,zu.a,[an.a,Gl.a,iu.a]),D._8(4608,Cu.a,Cu.a,[Gl.a,fn.a,hn.a,an.a,Xn.l]),D._8(4608,In.a,In.a,[an.a,Gl.a]),D._8(4608,au.a,au.a,[fn.a,Gl.a]),D._8(5120,fu.a,fu.c,[fu.b]),D._8(4608,O.a,O.a,[]),D._8(4608,N.a,N.a,[]),D._8(4608,V.a,V.a,[]),D._8(4608,el.a,el.a,[]),D._8(4608,al.a,al.a,[]),D._8(4608,il.a,il.a,[]),D._8(4608,ol.a,ol.a,[]),D._8(4608,cl.a,cl.a,[]),D._8(4608,rl.a,rl.a,[]),D._8(4608,sl.a,sl.a,[]),D._8(4608,ul,ul,[H.c]),D._8(4608,$l.a,$l.a,[]),D._8(4608,dl.a,dl.a,[]),D._8(4608,gl.a,gl.a,[]),D._8(512,Jl.b,Jl.b,[]),D._8(512,ml.q,ml.q,[]),D._8(512,ml.i,ml.i,[]),D._8(512,ml.o,ml.o,[]),D._8(512,Yu.a,Yu.a,[]),D._8(512,D.k,yu.a,[]),D._8(256,Gl.b,{mode:"md",scrollAssist:!1,autoFocusAssist:!1},[]),D._8(1024,Tu.a,Tu.b,[]),D._8(1024,fn.a,fn.b,[A.b,Tu.a,D.u]),D._8(1024,Gl.a,Gl.c,[Gl.b,fn.a]),D._8(512,hn.a,hn.a,[fn.a]),D._8(512,sn.a,sn.a,[]),D._8(512,an.a,an.a,[Gl.a,fn.a,[2,sn.a]]),D._8(512,Xn.l,Xn.l,[an.a]),D._8(256,Iu.a,{links:[{loadChildren:"../pages/about/about.module.ngfactory#AboutPageModuleNgFactory",name:"AboutPage",segment:"about",priority:"low",defaultHistory:[]},{loadChildren:"../pages/admin/admin.module.ngfactory#AdminPageModuleNgFactory",name:"AdminPage",segment:"admin",priority:"low",defaultHistory:[]},{loadChildren:"../pages/auto/auto.module.ngfactory#AutoPageModuleNgFactory",name:"AutoPage",segment:"auto",priority:"low",defaultHistory:[]},{loadChildren:"../pages/comments/comments.module.ngfactory#CommentsPageModuleNgFactory",name:"CommentsPage",segment:"comments",priority:"low",defaultHistory:[]},{loadChildren:"../pages/economie/economie.module.ngfactory#EconomiePageModuleNgFactory",name:"EconomiePage",segment:"economie",priority:"low",defaultHistory:[]},{loadChildren:"../pages/feed/feed.module.ngfactory#FeedPageModuleNgFactory",name:"FeedPage",segment:"feed",priority:"low",defaultHistory:[]},{loadChildren:"../pages/lijstweer/lijstweer.module.ngfactory#LijstweerPageModuleNgFactory",name:"LijstweerPage",segment:"lijstweer",priority:"low",defaultHistory:[]},{loadChildren:"../pages/misdaad/misdaad.module.ngfactory#MisdaadPageModuleNgFactory",name:"MisdaadPage",segment:"misdaad",priority:"low",defaultHistory:[]},{loadChildren:"../pages/nieuws/nieuws.module.ngfactory#NieuwsPageModuleNgFactory",name:"NieuwsPage",segment:"nieuws",priority:"low",defaultHistory:[]},{loadChildren:"../pages/privacybeleid/privacybeleid.module.ngfactory#PrivacybeleidPageModuleNgFactory",name:"PrivacybeleidPage",segment:"privacybeleid",priority:"low",defaultHistory:[]},{loadChildren:"../pages/register/register.module.ngfactory#RegisterPageModuleNgFactory",name:"RegisterPage",segment:"register",priority:"low",defaultHistory:[]},{loadChildren:"../pages/settings/settings.module.ngfactory#SettingsPageModuleNgFactory",name:"SettingsPage",segment:"settings",priority:"low",defaultHistory:[]},{loadChildren:"../pages/sources/sources.module.ngfactory#SourcesPageModuleNgFactory",name:"SourcesPage",segment:"sources",priority:"low",defaultHistory:[]},{loadChildren:"../pages/tech/tech.module.ngfactory#TechPageModuleNgFactory",name:"TechPage",segment:"tech",priority:"low",defaultHistory:[]},{loadChildren:"../pages/tutorial/tutorial.module.ngfactory#TutorialPageModuleNgFactory",name:"TutorialPage",segment:"tutorial",priority:"low",defaultHistory:[]},{loadChildren:"../pages/sport/sport.module.ngfactory#SportPageModuleNgFactory",name:"SportPage",segment:"sport",priority:"low",defaultHistory:[]},{loadChildren:"../pages/vermaak/vermaak.module.ngfactory#VermaakPageModuleNgFactory",name:"VermaakPage",segment:"vermaak",priority:"low",defaultHistory:[]},{loadChildren:"../pages/wijzigwachtwoord/wijzigwachtwoord.module.ngfactory#WijzigwachtwoordPageModuleNgFactory",name:"WijzigwachtwoordPage",segment:"wijzigwachtwoord",priority:"low",defaultHistory:[]},{loadChildren:"../pages/profiel/profiel.module.ngfactory#ProfielPageModuleNgFactory",name:"ProfielPage",segment:"profiel",priority:"low",defaultHistory:[]}]},[]),D._8(512,D.h,D.h,[]),D._8(512,xu.a,xu.a,[D.h]),D._8(1024,ju.b,ju.c,[xu.a,D.o]),D._8(1024,D.c,function(l,n,u,e,t,a,i,o,r,s,c,d,g){return[A.s(l),Fu.a(n),ru.b(u,e),Cu.b(t,a,i,o,r),ju.d(s,c,d,g)]},[[2,D.t],Gl.a,fn.a,hn.a,Gl.a,fn.a,hn.a,an.a,Xn.l,Gl.a,Iu.a,ju.b,D.u]),D._8(512,D.d,D.d,[[2,D.c]]),D._8(131584,D.f,D.f,[D.u,D.T,D.o,D.k,D.i,D.d]),D._8(512,D.e,D.e,[D.f]),D._8(512,A.a,A.a,[[3,A.a]]),D._8(512,H.e,H.e,[]),D._8(512,H.d,H.d,[]),D._8(512,pl.a,pl.a,[]),D._8(512,Yu.b,Yu.b,[]),D._8(512,fl,fl,[]),D._8(512,hl.a,hl.a,[]),D._8(512,bl.a,bl.a,[]),D._8(512,_l.a,_l.a,[]),D._8(512,vl.a,vl.a,[]),D._8(512,kl.a,kl.a,[]),D._8(512,Zl.a,Zl.a,[]),D._8(512,Yl.a,Yl.a,[]),D._8(512,Il.a,Il.a,[]),D._8(512,jl.a,jl.a,[]),D._8(512,wl.a,wl.a,[]),D._8(512,zl.a,zl.a,[]),D._8(512,Cl.a,Cl.a,[]),D._8(512,yl.a,yl.a,[]),D._8(512,Tl.a,Tl.a,[]),D._8(512,Fl.a,Fl.a,[]),D._8(512,xl.a,xl.a,[]),D._8(512,Sl.a,Sl.a,[]),D._8(512,Ul.a,Ul.a,[]),D._8(512,Pl,Pl,[]),D._8(256,H.m,"XSRF-TOKEN",[]),D._8(256,H.n,"X-XSRF-TOKEN",[]),D._8(256,ju.a,Su.a,[]),D._8(256,Al.a,tl,[]),D._8(256,Jl.a,"/",[]),D._8(256,fu.b,null,[])])});Object(D.M)(),Object(A.j)().bootstrapModuleFactory(Uu)},70:function(l,n,u){"use strict";u.d(n,"a",function(){return t});u(0);var e=u(428),t=(u.n(e),function(){function l(){this.theme=new e.BehaviorSubject("light-theme")}return l.prototype.setActiveTheme=function(l){this.theme.next(l)},l.prototype.getActiveTheme=function(){return this.theme.asObservable()},l}())},72:function(l,n,u){"use strict";u.d(n,"a",function(){return s});u(0),u(6);var e=u(87),t=u(121),a=u(122),i=u(30),o=u(119),r=u(124),s=function(){function l(l,n,u,e,t,a){var o=this;this.settings=l,this.platform=n,this.navCtrl=u,this.alertCtrl=e,this.http=t,this.events=a,this.theme=localStorage.getItem("themeColor"),this.timer=!1,this.settings.getActiveTheme().subscribe(function(l){return o.selectedTheme=l}),"light-theme"==this.theme?(this.toggleStatus=!1,setTimeout(function(){return o.timer=!1},3500)):"dark-theme"==this.theme&&(this.toggleStatus=!0,setTimeout(function(){return o.timer=!1},3500));var r=new i.g;r.append("Accept","application/json"),r.append("Content-Type","application/json");var s={headers:r},c={email:localStorage.getItem("userEmail")};this.http.post("http://gazoh.net/getgebruiker.php",c,s).subscribe(function(l){o.dataUser=l,o.username=o.dataUser.username,o.userEmail=o.dataUser.email,o.rol=o.dataUser.rol,o.token=o.dataUser.token,o.profilepicture=o.dataUser.profilepicture,o.emailVerified=o.dataUser.emailVerified,o.events.publish("username",o.username),o.events.publish("profilepicture",o.profilepicture)})}return l.prototype.toggleAppTheme=function(){"light-theme"==this.selectedTheme?(this.settings.setActiveTheme("dark-theme"),localStorage.setItem("themeColor",this.selectedTheme)):"dark-theme"==this.selectedTheme&&(this.settings.setActiveTheme("light-theme"),localStorage.setItem("themeColor",this.selectedTheme))},l.prototype.openAdmin=function(){this.navCtrl.push(t.a)},l.prototype.uitloggen=function(){localStorage.removeItem("userId"),localStorage.removeItem("userName"),localStorage.removeItem("userEmail"),localStorage.removeItem("userEmailVerified"),localStorage.removeItem("userRole"),localStorage.removeItem("userCreationDate"),localStorage.removeItem("sessionToken"),localStorage.removeItem("profilePicture"),this.navCtrl.setRoot(e.a)},l.prototype.resendMail=function(){var l=this,n=new i.g;n.append("Accept","application/json"),n.append("Content-Type","application/json");this.http.post("http://gazoh.net/resendmail.php",{email:this.userEmail,username:this.username,token:this.token},{headers:n}).subscribe(function(n){if("email sent"==n){l.alertCtrl.create({title:"Email verstuurd",subTitle:"De verificatiemail is opnieuw verstuurd naar: "+l.userEmail,buttons:["Sluiten"]}).present()}})},l.prototype.rapporteer=function(){var l=this;this.alertCtrl.create({title:"Raporteer een probleem",inputs:[{name:"onderwerp",placeholder:"Onderwerp"},{name:"bericht",placeholder:"Omschrijf het probleem"}],buttons:[{text:"Annuleer",handler:function(l){}},{text:"Verstuur",handler:function(n){l.rapporteerProbleem(n)}}]}).present()},l.prototype.goProfiel=function(){this.navCtrl.push(a.a)},l.prototype.privacyBeleid=function(){this.navCtrl.push(r.a)},l.prototype.rapporteerProbleem=function(l){var n=this,u=new i.g;u.append("Accept","application/json"),u.append("Content-Type","application/json");this.http.post("http://gazoh.net/rapporteer.php",l,{headers:u}).map(function(l){return l}).subscribe(function(l){if("succes"==l){n.alertCtrl.create({title:"Geslaagd",subTitle:"Uw probleem is gerapporteerd!",buttons:["OK"]}).present()}}),console.log("Probleem gerapporteerd "+l)},l.prototype.overOns=function(){this.navCtrl.push(o.a)},l}()},73:function(l,n,u){"use strict";u.d(n,"a",function(){return r});u(0),u(6);var e=u(30),t=(u(88),u(87)),a=u(92),i=(u(90),u(159),u(160),u(112),u(157)),o=(u.n(i),u(404)),r=function(){function l(l,n,u,a,i,o,r,s,c,d,g,_,m,p){var f=this;if(this.navCtrl=l,this.navParams=n,this.menuCtrl=u,this.http=a,this.network=i,this.toastCtrl=o,this.loadingCtrl=r,this.platform=s,this.events=c,this.screenOrientation=d,this.alertCtrl=g,this.socialSharing=_,this.geolocation=m,this.storage=p,this.items=0,this.key="items",this.isSearchbaropened=!1,this.shouldScrollDown=!0,this.showScrollButton=!1,this.disabled=!1,this.open=!0,this.open2=!0,this.open3=!0,this.open4=!0,this.selectOptions={title:"Bekijk"},this.platform.is("cordova")&&this.platform.ready().then(function(){if(!localStorage.getItem("sessionToken")){var l=o.create({message:"Geen sessie gevonden, log opnieuw in.",duration:2500,position:"top",showCloseButton:!0,closeButtonText:"OK"});f.navCtrl.setRoot(t.a),l.present()}}),this.screenOrientation.unlock(),"none"!=this.network.type){this.setOfflineDataToday(),this.setOfflineDataYesterday(),this.setOfflineData3DaysAgo(),this.datepicker="vandaag","vandaag"==this.datepicker?this.load():"gisteren"==this.datepicker?this.loadYesterday():"driedagengeleden"==this.datepicker&&this.load3DaysAgo(),this.platform.is("cordova")&&this.platform.ready().then(function(){if(!localStorage.getItem("sessionToken")){var l=o.create({message:"Geen sessie gevonden, log opnieuw in.",duration:2500,position:"top",showCloseButton:!0,closeButtonText:"OK"});f.navCtrl.setRoot(t.a),l.present()}});var h=new e.g;h.append("Accept","application/json"),h.append("Content-Type","application/json");var b={headers:h},v={email:localStorage.getItem("userEmail")};this.http.post("http://gazoh.net/getgebruiker.php",v,b).subscribe(function(l){f.dataUser=l,f.rol=f.dataUser.rol,f.username=f.dataUser.username,f.userId=f.dataUser.id,f.profilepicture=f.dataUser.profilepicture,f.events.publish("username",f.username),f.events.publish("profilepicture",f.profilepicture)})}else if("none"==this.network.type){this.datepicker="vandaag";this.toastCtrl.create({message:"Er is geen internet verbinding, opgeslagen artikelen worden ingeladen.",duration:2500,position:"bottom"}).present(),"vandaag"==this.datepicker?this.storage.get("offlineDataToday").then(function(l){f.items=l,f.artikelen=l,f.items&&f.items.sort(function(l,n){return+new Date(n.datum)-+new Date(l.datum)})}):"gisteren"==this.datepicker?this.storage.get("offlineDataYesterday").then(function(l){f.items=l,f.artikelen=l,f.items&&f.items.sort(function(l,n){return+new Date(n.datum)-+new Date(l.datum)})}):"driedagengeleden"==this.datepicker&&this.storage.get("offlineData3DaysAgo").then(function(l){f.items=l,f.artikelen=l,f.items&&f.items.sort(function(l,n){return+new Date(n.datum)-+new Date(l.datum)})})}localStorage.getItem("themeColor")&&(this.currentTheme=localStorage.getItem("themeColor"),console.log(this.currentTheme))}return l.prototype.onChange=function(l){var n=this;l=l,console.log(l),"none"!=this.network.type?"vandaag"==this.datepicker?(this.loadWithSpinner(),this.content.scrollToTop(0)):"gisteren"==this.datepicker?(this.loadYesterday(),this.content.scrollToTop(0)):"driedagengeleden"==this.datepicker&&(this.load3DaysAgo(),this.content.scrollToTop(0)):"none"==this.network.type&&("vandaag"==this.datepicker?this.storage.get("offlineDataToday").then(function(l){n.items=l,n.artikelen=l,n.content.scrollToTop(0),n.items&&n.items.sort(function(l,n){return+new Date(n.datum)-+new Date(l.datum)})}):"gisteren"==this.datepicker?this.storage.get("offlineDataYesterday").then(function(l){n.items=l,n.artikelen=l,n.content.scrollToTop(0),n.items&&n.items.sort(function(l,n){return+new Date(n.datum)-+new Date(l.datum)})}):"driedagengeleden"==this.datepicker&&this.storage.get("offlineData3DaysAgo").then(function(l){n.items=l,n.artikelen=l,n.content.scrollToTop(0),n.items&&n.items.sort(function(l,n){return+new Date(n.datum)-+new Date(l.datum)})}))},l.prototype.showConfirmHide=function(l){var n=this;this.alertCtrl.create({title:"Verbergen",message:"Weetje zeker dat je deze artikel wilt verbergen?",buttons:[{text:"Niet Akkoord",handler:function(){}},{text:"Akkoord",handler:function(){console.log("Hide "+l);var u=new e.g;u.append("Accept","application/json"),u.append("Content-Type","application/json");n.http.post("http://gazoh.net/hidearticle.php",l,{headers:u}).subscribe(function(u){if("hidden"==u){"vandaag"==n.datepicker?n.load():"gisteren"==n.datepicker?n.loadYesterday():"driedagengeleden"==n.datepicker&&n.load3DaysAgo();n.toastCtrl.create({message:"Artikel "+l+" verborgen",duration:2500,position:"top",showCloseButton:!0,closeButtonText:"OK"}).present()}})}}]}).present()},l.prototype.ionViewWillEnter=function(){var l=this;"none"!=this.network.type?"vandaag"==this.datepicker?this.load():"gisteren"==this.datepicker?this.loadYesterday():"driedagengeleden"==this.datepicker&&this.load3DaysAgo():"none"==this.network.type&&("vandaag"==this.datepicker?this.storage.get("offlineDataToday").then(function(n){l.items=n,l.artikelen=n,l.items&&l.items.sort(function(l,n){return+new Date(n.datum)-+new Date(l.datum)})}):"gisteren"==this.datepicker?this.storage.get("offlineDataYesterday").then(function(n){l.items=n,l.artikelen=n,l.items&&l.items.sort(function(l,n){return+new Date(n.datum)-+new Date(l.datum)})}):"driedagengeleden"==this.datepicker&&this.storage.get("offlineData3DaysAgo").then(function(n){l.items=n,l.artikelen=n,l.items&&l.items.sort(function(l,n){return+new Date(n.datum)-+new Date(l.datum)})}))},l.prototype.presentLoadingCustom=function(){this.loadingCtrl.create({spinner:"hide",content:'<div class="custom-spinner-container"><img src="../assets/svg/spinner/tail-spin.svg"><br> <p>Laden...</p>\n     </div>',duration:610}).present()},l.prototype.loadData=function(){localStorage.getItem(this.key),null!=this.key&&void 0!=this.key&&(this.items=JSON.parse(this.key))},l.prototype.htmlToPlaintext=function(l){return l?String(l).replace(/<[^>]+>/gm,""):""},l.prototype.viewEntry=function(l){this.navCtrl.push("NieuwsPage",l)},l.prototype.viewComments=function(l){this.navCtrl.push(a.a,l)},l.prototype.search=function(l){var n=l.target.value;n&&""!=n.trim()?(this.items=this.items.filter(function(l){return l.title.toLowerCase().indexOf(n.toLowerCase())>-1}),this.items.length<1&&(this.items=this.artikelen.filter(function(l){return l.title.toLowerCase().indexOf(n.toLowerCase())>-1}))):this.items=this.artikelen},l.prototype.resetChanges=function(){"none"!=this.network.type?"vandaag"==this.datepicker?(this.load(),this.isSearchbaropened=!1):"gisteren"==this.datepicker?(this.loadYesterday(),this.isSearchbaropened=!1):"driedagengeleden"==this.datepicker?(this.load3DaysAgo(),this.isSearchbaropened=!1):"HetWeer"==this.datepicker&&(this.isSearchbaropened=!1):(this.items=this.artikelen,this.isSearchbaropened=!1)},l.prototype.ionViewDidLoad=function(){this.menuCtrl.enable(!0,"myMenu")},l.prototype.load=function(){var l=this;this.datepicker="vandaag";var n=new e.g;n.append("Accept","application/json"),n.append("Content-Type","application/json");var u={headers:n},t={userId:localStorage.getItem("userId")};this.http.post("http://gazoh.net/getdata2.php",t,u).subscribe(function(n){l.items=n,l.artikelen=n},function(n){l.toastCtrl.create({message:"Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",duration:3500,position:"top"}).present(),console.log("Http error is: "+n)})},l.prototype.loadWithSpinner=function(){var l=this;this.datepicker="vandaag";var n=new e.g;n.append("Accept","application/json"),n.append("Content-Type","application/json");var u={headers:n},t={userId:localStorage.getItem("userId")};this.http.post("http://gazoh.net/getdata2.php",t,u).subscribe(function(n){l.items=n,l.artikelen=n,l.items&&l.items.sort(function(l,n){return+new Date(n.datum)-+new Date(l.datum)})},function(n){l.toastCtrl.create({message:"Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",duration:3500,position:"top"}).present(),console.log("Http error is: "+n)}),this.presentLoadingCustom()},l.prototype.loadYesterday=function(){var l=this;this.datepicker="gisteren";var n=new e.g;n.append("Accept","application/json"),n.append("Content-Type","application/json");var u={headers:n},t={userId:localStorage.getItem("userId")};this.http.post("http://gazoh.net/getyesterday.php",t,u).subscribe(function(n){l.items=n,l.artikelen=n,l.items=n,l.artikelen=n,l.items&&l.items.sort(function(l,n){return+new Date(n.datum)-+new Date(l.datum)})},function(n){l.toastCtrl.create({message:"Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",duration:3500,position:"top"}).present(),console.log("Http error is: "+n)}),this.presentLoadingCustom()},l.prototype.load3DaysAgo=function(){var l=this;this.datepicker="driedagengeleden";var n=new e.g;n.append("Accept","application/json"),n.append("Content-Type","application/json");var u={headers:n},t={userId:localStorage.getItem("userId")};this.http.post("http://gazoh.net/get3daysago.php",t,u).subscribe(function(n){l.items=n,l.artikelen=n,l.items?l.items.sort(function(l,n){return+new Date(n.datum)-+new Date(l.datum)}):l.artikelen&&l.artikelen.sort(function(l,n){return+new Date(n.datum)-+new Date(l.datum)})},function(n){l.toastCtrl.create({message:"Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",duration:3500,position:"top"}).present(),console.log("Http error is: "+n)}),this.presentLoadingCustom()},l.prototype.doRefresh=function(l){var n=this;if("none"!=this.network.type)if("vandaag"==this.datepicker){(a=new e.g).append("Accept","application/json"),a.append("Content-Type","application/json");var u={headers:a},t={userId:localStorage.getItem("userId")};this.http.post("http://gazoh.net/getdata2.php",t,u).subscribe(function(l){n.items=l,n.artikelen=l,n.items&&n.items.sort(function(l,n){return+new Date(n.datum)-+new Date(l.datum)})},function(l){n.toastCtrl.create({message:"Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",duration:3500,position:"top"}).present(),console.log("Http error is: "+l)})}else if("gisteren"==this.datepicker){(a=new e.g).append("Accept","application/json"),a.append("Content-Type","application/json");u={headers:a},t={userId:localStorage.getItem("userId")};this.http.post("http://gazoh.net/getyesterday.php",t,u).subscribe(function(l){n.items=l,n.artikelen=l,n.items&&n.items.sort(function(l,n){return+new Date(n.datum)-+new Date(l.datum)})},function(l){n.toastCtrl.create({message:"Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",duration:3500,position:"top"}).present(),console.log("Http error is: "+l)})}else if("driedagengeleden"==this.datepicker){var a;(a=new e.g).append("Accept","application/json"),a.append("Content-Type","application/json");u={headers:a},t={userId:localStorage.getItem("userId")};this.http.post("http://gazoh.net/get3daysago.php",t,u).subscribe(function(l){n.items=l,n.artikelen=l,n.items&&n.items.sort(function(l,n){return+new Date(n.datum)-+new Date(l.datum)})},function(l){n.toastCtrl.create({message:"Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",duration:3500,position:"top"}).present(),console.log("Http error is: "+l)})}setTimeout(function(){console.log("Async operation has ended"),l.complete()},2e3)},l.prototype.setLike=function(l){var n=this;this.disabled=!0;var u=new e.g;u.append("Accept","application/json"),u.append("Content-Type","application/json");this.http.post("http://gazoh.net/setlike.php",{articleId:l,userId:this.userId},{headers:u}).subscribe(function(l){"liked"==l&&(n.disabled=!1,"vandaag"==n.datepicker?n.load():"gisteren"==n.datepicker?n.loadYesterday():"driedagengeleden"==n.datepicker&&n.load3DaysAgo(),console.log(l))})},l.prototype.shareInfo=function(l,n,u){this.socialSharing.share('Bekijk "'+l+'" via de Newsage app',"NewsAge",n,u)},l.prototype.dislike=function(l,n){var u=this,t=new e.g;t.append("Accept","application/json"),t.append("Content-Type","application/json");var a={headers:t},i={articleId:l,userId:this.userId};this.alertCtrl.create({title:"Dislike",message:"Weet je zeker dat je deze artikel wilt verwijderen uit je favorieten ?",buttons:[{text:"Annuleer",handler:function(){}},{text:"Verwijder",handler:function(){u.http.post("http://gazoh.net/unlike.php",i,a).subscribe(function(l){if("unliked"==l){u.toastCtrl.create({message:'"'+n+'" is verwijderd uit je favorieten!',duration:2500,position:"bottom"}).present(),"vandaag"==u.datepicker?u.load():"gisteren"==u.datepicker?u.loadYesterday():"driedagengeleden"==u.datepicker&&u.load3DaysAgo(),console.log(l)}})}}]}).present()},l.prototype.setOfflineDataToday=function(){var l=this,n=new e.g;n.append("Accept","application/json"),n.append("Content-Type","application/json");var u={headers:n},t={userId:localStorage.getItem("userId")};this.http.post("http://gazoh.net/getdata2.php",t,u).subscribe(function(n){console.log("Offline data set in storage: offlineDataToday"),l.storage.set("offlineDataToday",n)},function(n){l.toastCtrl.create({message:"Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",duration:3500,position:"top"}).present(),console.log("Http error is: "+n)})},l.prototype.setOfflineDataYesterday=function(){var l=this,n=new e.g;n.append("Accept","application/json"),n.append("Content-Type","application/json");var u={headers:n},t={userId:localStorage.getItem("userId")};this.http.post("http://gazoh.net/getyesterday.php",t,u).subscribe(function(n){console.log("Offline data set in storage: offlineDataYesterday"),l.storage.set("offlineDataYesterday",n)},function(n){l.toastCtrl.create({message:"Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",duration:3500,position:"top"}).present(),console.log("Http error is: "+n)})},l.prototype.setOfflineData3DaysAgo=function(){var l=this,n=new e.g;n.append("Accept","application/json"),n.append("Content-Type","application/json");var u={headers:n},t={userId:localStorage.getItem("userId")};this.http.post("http://gazoh.net/get3daysago.php",t,u).subscribe(function(n){console.log("Offline data set in storage: offlineData3DaysAgo"),l.storage.set("offlineData3DaysAgo",n)},function(n){l.toastCtrl.create({message:"Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",duration:3500,position:"top"}).present(),console.log("Http error is: "+n)})},l.prototype.setHideArticle=function(l){var n=this;console.log("Hide "+l);var u=new e.g;u.append("Accept","application/json"),u.append("Content-Type","application/json");this.http.post("http://gazoh.net/hidearticle.php",l,{headers:u}).subscribe(function(u){if("hidden"==u){n.toastCtrl.create({message:"Artikel "+l+" verborgen",duration:2500,position:"top",showCloseButton:!0,closeButtonText:"OK"}).present()}})},l.prototype.getOfflineDataToday=function(){var l=this;this.datepicker="vandaag;",this.storage.get("offlineDataVandaag").then(function(n){l.items=n,l.artikelen=n,l.items&&l.items.sort(function(l,n){return+new Date(n.datum)-+new Date(l.datum)}),console.log("Data:"+n),console.log("Offline data is imported.")})},l.prototype.getOfflineDataYesterday=function(){var l=this;this.datepicker="gisteren",this.storage.get("offlineDataGisteren").then(function(n){l.items=n,l.artikelen=n,l.items&&l.items.sort(function(l,n){return+new Date(n.datum)-+new Date(l.datum)}),console.log("Data:"+n),console.log("Offline data is imported.")})},l.prototype.getOfflineData3DaysAgo=function(){var l=this;this.datepicker="driedagengeleden",this.storage.get("offlineData3DagenGeleden").then(function(n){l.items=n,l.artikelen=n,l.items&&l.items.sort(function(l,n){return+new Date(n.datum)-+new Date(l.datum)}),console.log("Data:"+n),console.log("Offline data is imported.")})},l.prototype.goLijstWeerPage=function(){this.navCtrl.push(o.a)},l}()},87:function(l,n,u){"use strict";u.d(n,"a",function(){return r});u(0),u(6);var e=u(176),t=u(30),a=u(157),i=(u.n(a),u(73)),o=(u(90),u(89),u(112),u(120)),r=function(){function l(l,u,e,t,a,o,r,s,c,d,g){var _=this;this.navCtrl=l,this.loading=u,this.http=e,this.toastCtrl=t,this.menuCtrl=a,this.events=o,this.screenOrientation=r,this.platform=s,this.keyboard=c,this.storage=d,this.settings=g,this.token=Math.random().toString(36).substring(7),this.rootPage=n,this.FeedPage=i.a,this.platform.is("cordova")&&this.platform.ready().then(function(){_.screenOrientation.lock(_.screenOrientation.ORIENTATIONS.PORTRAIT),localStorage.getItem("sessionToken")&&_.navCtrl.setRoot(i.a)}),this.keyboard.disableScroll(!0),this.menuCtrl.enable(!1,"myMenu"),this.settings.getActiveTheme().subscribe(function(l){return _.selectedTheme=l})}return n=l,l.prototype.goRegister=function(){this.navCtrl.push(e.a)},l.prototype.signIn=function(){var l=this;if(null==this.email||null==this.password){this.toastCtrl.create({message:"Niet alle velden zijn ingevuld!",duration:3e3,position:"top"}).present()}else{var n=new t.g;n.append("Accept","application/json"),n.append("Content-Type","application/json");var u={headers:n},e={email:this.email,password:this.password},a=this.loading.create({content:"Aan het inloggen..."});a.present().then(function(){l.http.post("http://www.gazoh.net/getgebruiker.php",e,u).subscribe(function(n){l.dataUser=n}),l.http.post("http://www.gazoh.net/login.php",e,u).subscribe(function(n){if(console.log(n),a.dismiss(),"Succesfully logged in!"==n)localStorage.setItem("userId",l.dataUser.id),localStorage.setItem("userName",l.dataUser.username),localStorage.setItem("userEmail",l.dataUser.email),localStorage.setItem("userEmailVerified",l.dataUser.emailVerified),localStorage.setItem("userRole",l.dataUser.rol),localStorage.setItem("userCreationDate",l.dataUser.creationdate),localStorage.setItem("sessionToken",l.token),localStorage.setItem("profilePicture",l.dataUser.profilepicture),localStorage.setItem("themeColor",l.selectedTheme),console.log(l.selectedTheme),"true"!=localStorage.getItem("TutorialShown")?l.navCtrl.setRoot(o.a):"true"==localStorage.getItem("TutorialShown")&&l.navCtrl.setRoot(i.a),l.events.publish("username",l.dataUser.username),l.events.publish("profilepicture",l.dataUser.profilepicture);else{l.toastCtrl.create({message:"Uw gegevens zijn onjuist, probeer het nogmaals.",showCloseButton:!0,closeButtonText:"OK",position:"top"}).present()}})})}},l;var n}()},92:function(l,n,u){"use strict";u.d(n,"a",function(){return a});u(0),u(6);var e=u(30),t=u(73),a=(u(89),function(){function l(l,n,u,t,a,i){var o=this;this.navCtrl=l,this.navParams=n,this.http=u,this.alertCtrl=t,this.events=a,this.keyboard=i,this.comments=[],i.disableScroll(!0),this.navParams.get("record")&&(this.selectEntry(this.navParams.get("record")),this.getComments());var r=new e.g;r.append("Accept","application/json"),r.append("Content-Type","application/json");var s={headers:r},c={email:localStorage.getItem("userEmail")};this.http.post("http://gazoh.net/getgebruiker.php",c,s).subscribe(function(l){o.dataUser=l,o.userId=o.dataUser.id,o.username=o.dataUser.username,o.userRol=o.dataUser.rol,o.pictureprofile=o.dataUser.profilepicture})}return l.prototype.callFunction=function(){this.content.scrollToBottom(200)},l.prototype.ionViewDidEnter=function(){var l=this;setTimeout(function(){return l.myInput.setFocus()},200)},l.prototype.ionViewDidLoad=function(){var l=this;this.navBar.backButtonClick=function(n){l.navCtrl.pop()}},l.prototype.selectEntry=function(l){this.articleId=l.id},l.prototype.getComments=function(){var l=this,n=new e.g;n.append("Accept","application/json"),n.append("Content-Type","application/json");this.http.post("http://gazoh.net/getcomment.php",{articleId:this.articleId},{headers:n}).subscribe(function(n){l.comments=n,l.comments&&l.comments.sort(function(l,n){return+new Date(l.commentDate)-+new Date(n.commentDate)})})},l.prototype.postComment=function(){var l=this,n=new e.g;n.append("Accept","application/json"),n.append("Content-Type","application/json");this.http.post("http://gazoh.net/setcomment.php",{articleId:this.articleId,userId:this.userId,comment:this.comment},{headers:n}).subscribe(function(n){"comment published"==n&&(console.log(n),l.getComments(),l.content.scrollToBottom()),l.comment=""})},l.prototype.deleteComment=function(l){var n=this;this.confirmAlert=this.alertCtrl.create({title:"Verwijder",message:"Als je reactie verwijderd word kan het niet ongedaan gemaakt worden",buttons:[{text:"Annuleer",handler:function(){console.log("Clicked cancel")}},{text:"Verwijder",handler:function(){var u=new e.g;u.append("Accept","application/json"),u.append("Content-Type","application/json");n.http.post("http://gazoh.net/deletecomment.php",{articleId:n.articleId,commentId:l},{headers:u}).subscribe(function(l){"comment deleted"==l&&(console.log(l),n.getComments())})}}]}),this.confirmAlert.present()},l.prototype.returnFeed=function(){this.navCtrl.setRoot(t.a)},l}())}},[423]);
+webpackJsonp([1],{
+
+/***/ 122:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(28);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+/**
+ * Generated class for the AdminPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var AdminPage = /** @class */ (function () {
+    function AdminPage(navCtrl, navParams, http, events, toastCtrl, alertCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.events = events;
+        this.toastCtrl = toastCtrl;
+        this.alertCtrl = alertCtrl;
+        this.isSearchbaropened = false;
+        this.key = "items";
+        this.items = 0;
+        // Theme
+        if (localStorage.getItem("themeColor")) {
+            this.currentTheme = localStorage.getItem("themeColor");
+            console.log(this.currentTheme);
+        }
+    }
+    AdminPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad AdminPage');
+    };
+    AdminPage.prototype.selectGebruikers = function () {
+        var _this = this;
+        this.checklist = "gebruikers";
+        this.http
+            .get('http://gazoh.net/getuser.php')
+            .subscribe(function (data) {
+            _this.gebruikerslijst = data;
+        }, function (error) {
+            console.dir(error);
+        });
+    };
+    AdminPage.prototype.ionViewWillEnter = function () {
+        this.checklist = "artikelen";
+        this.selectArtikelen();
+    };
+    AdminPage.prototype.selectArtikelen = function () {
+        var _this = this;
+        this.checklist = "artikelen";
+        this.http
+            .get('http://gazoh.net/getverborgen.php')
+            .subscribe(function (data) {
+            _this.artikelenlijst = data;
+        }, function (error) {
+            console.dir(error);
+        });
+    };
+    AdminPage.prototype.htmlToPlaintext = function (text) {
+        return text ? String(text).replace(/<[^>]+>/gm, '') : '';
+    };
+    AdminPage.prototype.viewEntry = function (param) {
+        this.navCtrl.push('NieuwsPage', param);
+    };
+    AdminPage.prototype.resetChanges = function () {
+        var _this = this;
+        this.http
+            .get('http://gazoh.net/getdata.php')
+            .subscribe(function (data) {
+            _this.items = data;
+        }, function (error) {
+            console.dir(error);
+        });
+        this.isSearchbaropened = false;
+    };
+    AdminPage.prototype.search = function (event) {
+        var serVal = event.target.value;
+        if (serVal && serVal.trim() != '') {
+            this.items = this.items.filter(function (item) {
+                return (item.title.toLowerCase().indexOf(serVal.toLowerCase()) > -1);
+            });
+        }
+    };
+    // Alert of je de artikel wilt laten zien
+    AdminPage.prototype.showConfirmHide = function (postId) {
+        var _this = this;
+        var confirm = this.alertCtrl.create({
+            title: 'Publiceren',
+            message: 'Weetje zeker dat je deze artikel wilt publiceren?',
+            buttons: [
+                {
+                    text: 'Niet Akkoord',
+                    handler: function () {
+                    }
+                },
+                {
+                    text: 'Akkoord',
+                    handler: function () {
+                        // Show artikel
+                        console.log("Show " + postId);
+                        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
+                        headers.append("Accept", 'application/json');
+                        headers.append('Content-Type', 'application/json');
+                        var options = { headers: headers };
+                        var data = {
+                            articleId: postId
+                        };
+                        _this.http.post('http://www.gazoh.net/showarticle.php', data, options).subscribe(function (res) {
+                            if (res == 'showed') {
+                                _this.selectArtikelen();
+                                var toast = _this.toastCtrl.create({
+                                    message: "Artikel " + postId + " gepubliceerd",
+                                    duration: 2500,
+                                    position: "bottom"
+                                });
+                                toast.present();
+                            }
+                        });
+                    }
+                }
+            ]
+        });
+        confirm.present();
+    };
+    AdminPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-admin',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\admin\admin.html"*/'<ion-header no-border-bottom>\n\n  <ion-navbar>\n\n    <ion-title *ngIf="!isSearchbaropened" class="adminTitle">Admin</ion-title>\n\n    <!-- Searchbar  -->\n\n    <ion-searchbar #searchbar *ngIf="isSearchbaropened" [showCancelButton]="true" (ionCancel)="resetChanges()" (ionInput)="search($event)" placeholder="Waar zijn we naar op zoek?" class="slideInRight"></ion-searchbar>\n\n    <!-- Searchbar icon -->\n\n    <ion-buttons end *ngIf="checklist == \'artikelen\'">\n\n      <button ion-button icon-only (click)="isSearchbaropened=true">\n\n        <ion-icon name="search" *ngIf="!isSearchbaropened"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-buttons end *ngIf="checklist == \'gebruikers\'">\n\n      <button ion-button icon-only (click)="isSearchbaropened=true">\n\n        <ion-icon name="search"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n  <ion-segment [(ngModel)]="checklist" color="primary">\n\n    <ion-segment-button value="artikelen" (click)="selectArtikelen()">\n\n      Verborgen\n\n    </ion-segment-button>\n\n    <ion-segment-button value="gebruikers" (click)="selectGebruikers()">\n\n      Gebruikers\n\n    </ion-segment-button>\n\n  </ion-segment>\n\n</ion-header>\n\n<ion-content padding>\n\n  <div *ngIf="checklist == \'artikelen\'">\n\n    <ion-card *ngFor="let item of artikelenlijst" col-md-6 class="ionCard">\n\n      <!-- Images van nieuwsfeed -->\n\n      <div class="ion-card-image-wrapper" (click)="viewEntry({ record: item })">\n\n        <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">\n\n        <img [src]="item.image" *ngIf="item.site == \'NOS.nl\'">\n\n        <img [src]="item.image" *ngIf="item.site != \'NOS.nl\' || item.site != \'NU.nl\'">\n\n      </div>\n\n      <ion-card-content>\n\n        <!-- Avatar -->\n\n        <div id="AvatarFeed" (click)="viewEntry({ record: item })">\n\n          <ion-avatar *ngIf="item.site == \'NOS\' && currentTheme == \'light-theme\'" class="avatar" item-start>\n\n            <img src="../assets/svg/NOS_logo.svg" class="avatar-feedNOS"/>\n\n          </ion-avatar>\n\n          <ion-avatar *ngIf="item.site == \'NOS\' && currentTheme == \'dark-theme\'" class="avatar" item-start>\n\n            <img src="../assets/svg/NOS_logo_Wit.svg" class="avatar-feedNOS"/>\n\n          </ion-avatar>\n\n          <ion-avatar *ngIf="item.site == \'De Telegraaf\' && currentTheme == \'light-theme\'" class="avatar" item-start>\n\n            <img src="../assets/svg/Telegraaf.svg" class="avatar-feedTelegraaf"/>\n\n          </ion-avatar>\n\n          <ion-avatar *ngIf="item.site == \'De Telegraaf\' && currentTheme == \'dark-theme\'" class="avatar" item-start>\n\n            <img src="../assets/svg/Telegraaf_Wit.svg" class="avatar-feedTelegraaf"/>\n\n          </ion-avatar>\n\n          <ion-avatar *ngIf="item.site == \'NU.nl\'" class="avatar" item-start>\n\n            <img src="../assets/svg/nu.nl.svg" class="avatar-feed"/>\n\n          </ion-avatar>\n\n        </div>\n\n        <!-- Uitgever -->\n\n        <div id="uitgeverFeed" (click)="viewEntry({ record: item })">\n\n          <div class="uitgeverFeed" *ngIf="item.site == \'De Telegraaf\' || item.site == \'NOS\'">{{item.site}}</div>\n\n          <div class="uitgeverFeedNU" *ngIf="item.site == \'NU.nl\'">{{item.site}}</div>\n\n          <!-- Title  -->\n\n          <div id="title">\n\n            <ion-card-title class="TitleFeed">\n\n              <strong>{{item.title}}</strong>\n\n            </ion-card-title>\n\n          </div>\n\n          <!-- description  -->\n\n          <div id="description">\n\n            <p class="descriptionFeed">{{htmlToPlaintext(item.description) |\n\n              slice:0:120}}...</p>\n\n          </div>\n\n          <!-- Datum -->\n\n          <div id="datumFeed" class="datumFeed">\n\n            <span>{{item.datum}}</span>\n\n          </div>\n\n        </div>\n\n        <!-- Social Buttons - Comments - likes - Share -->\n\n        <div id="socialLikeComments" class="socialLikeComments">\n\n          <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\' && rol == 1"\n\n                  class="socialTelegraafShare" (click)="showConfirmHide(item.id)">\n\n            <ion-icon name="trash"></ion-icon>\n\n          </button>\n\n          <button ion-button icon-start clear *ngIf="item.site == \'NOS\' && rol == 1"\n\n                  class="socialNOSShare" (click)="showConfirmHide(item.id)">\n\n            <ion-icon name="trash"></ion-icon>\n\n          </button>\n\n          <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\' && rol == 1"\n\n                  class="socialNuShare" (click)="showConfirmHide(item.id)">\n\n            <ion-icon name="trash"></ion-icon>\n\n          </button>\n\n          <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\'"\n\n                  class="socialTelegraafShare"\n\n                  (click)="shareInfo(item.title, item.image, item.link)">\n\n            <ion-icon name="share-alt"></ion-icon>\n\n          </button>\n\n          <button ion-button icon-start clear *ngIf="item.site == \'NOS\'" class="socialNOSShare"\n\n                  (click)="shareInfo(item.title, item.image, item.link)">\n\n            <ion-icon name="share-alt"></ion-icon>\n\n          </button>\n\n          <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\'" class="socialNuShare"\n\n                  (click)="shareInfo(item.title, item.image, item.link)">\n\n            <ion-icon name="share-alt"></ion-icon>\n\n          </button>\n\n          <button class="socialTelegraaf" ion-button icon-start clear\n\n                  *ngIf="item.site == \'De Telegraaf\' && item.liked == 0" [disabled]="disabled"\n\n                  (click)="setLike(item.id)">\n\n            <ion-icon name="heart-outline" class="darkHeartOutline"></ion-icon>\n\n            <div>{{item.likes}}</div>\n\n          </button>\n\n          <button class="socialNOS" ion-button icon-start clear\n\n                  *ngIf="item.site == \'NOS\' && item.liked == 0" [disabled]="disabled"\n\n                  (click)="setLike(item.id)">\n\n            <ion-icon name="heart-outline" class="darkHeartOutline"></ion-icon>\n\n            <div>{{item.likes}}</div>\n\n          </button>\n\n          <button class="socialNu" ion-button icon-start clear\n\n                  *ngIf="item.site == \'NU.nl\' && item.liked == 0" [disabled]="disabled"\n\n                  (click)="setLike(item.id)">\n\n            <ion-icon name="heart-outline" class="darkHeartOutline"></ion-icon>\n\n            <div>{{item.likes}}</div>\n\n          </button>\n\n          <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\'"\n\n                  class="socialTelegraaf" (click)="viewComments({ record: item })">\n\n            <ion-icon name="chatbubbles" class="darkChatTelegraaf"></ion-icon>\n\n            <div>{{item.comments}}</div>\n\n          </button>\n\n          <button ion-button icon-start clear *ngIf="item.site == \'NOS\'" class="socialNOS"\n\n                  (click)="viewComments({ record: item })">\n\n            <ion-icon name="chatbubbles" class="darkChatNOS"></ion-icon>\n\n            <div>{{item.comments}}</div>\n\n          </button>\n\n          <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\'" class="socialNu"\n\n                  (click)="viewComments({ record: item })">\n\n            <ion-icon name="chatbubbles" class="darkChatNU"></ion-icon>\n\n            <div>{{item.comments}}</div>\n\n          </button>\n\n          <button class="socialTelegraaf" ion-button icon-start clear\n\n                  *ngIf="item.site == \'De Telegraaf\' && item.liked == 1"\n\n                  (click)="dislike(item.id, item.title)">\n\n            <ion-icon name="heart" class="darkHeartFull"></ion-icon>\n\n            <div>{{item.likes}}</div>\n\n          </button>\n\n          <button class="socialNOS" ion-button icon-start clear\n\n                  *ngIf="item.site == \'NOS\' && item.liked == 1"\n\n                  (click)="dislike(item.id, item.title)">\n\n            <ion-icon name="heart" class="darkHeartFull"></ion-icon>\n\n            <div>{{item.likes}}</div>\n\n          </button>\n\n          <button class="socialNu" ion-button icon-start clear\n\n                  *ngIf="item.site == \'NU.nl\' && item.liked == 1"\n\n                  (click)="dislike(item.id, item.title)">\n\n            <ion-icon name="heart" class="darkHeartFull"></ion-icon>\n\n            <div>{{item.likes}}</div>\n\n          </button>\n\n        </div>\n\n      </ion-card-content>\n\n    </ion-card>\n\n  </div>\n\n  <ion-list *ngFor="let user of gebruikerslijst">\n\n    <ion-item-sliding #item>\n\n      <ion-item class="adminUsers">\n\n        <ion-avatar class="avatar" item-start>\n\n          <img src="{{user.profilepicture}}" class="avatar-profiel" />\n\n        </ion-avatar>\n\n        <h3>ID: <strong>{{user.id}}</strong></h3>\n\n        <h3>Email <strong>{{user.email}}</strong></h3>\n\n      </ion-item>\n\n      <ion-item-options side="right">\n\n        <button ion-button (click)="unread(item)" class="deleteSlide">\n\n          <span class="spanHide">Bewe</span>\n\n          <ion-icon name="trash" class="iconAdmin"></ion-icon>\n\n        </button>\n\n        <button ion-button (click)="unread(item)" class="BewerkSlide">\n\n          <span class="spanHide">Dele</span>\n\n          <ion-icon name="create" class="iconAdmin"></ion-icon>\n\n        </button>\n\n      </ion-item-options>\n\n    </ion-item-sliding>\n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\admin\admin.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
+    ], AdminPage);
+    return AdminPage;
+}());
+
+//# sourceMappingURL=admin.js.map
+
+/***/ }),
+
+/***/ 126:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AboutPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__settings_settings__ = __webpack_require__(47);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+/**
+ * Generated class for the AboutPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var AboutPage = /** @class */ (function () {
+    function AboutPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.themeStatus = localStorage.getItem("themeColor");
+        this.slides = [
+            {
+                title: "Welkom bij NewsAge!",
+                description: "Hallo! Welkom op NewsAge! ten eerste willen wij, namens het team, u bedanken voor het gebruiken van NewsAge!",
+                image: "../../assets/imgs/NewsAgeLogo.png",
+            },
+            {
+                title: "Wat is \"NewsAge\"",
+                description: "NewsAge is de perfecte app om alle nieuws in een oogopslag te lezen.\n" +
+                    "        NewsAge maakt het gemakkelijk voor de gebruiker(jij) door alle nieuws te verzamelen van verschillende bronnen en\n" +
+                    "        die in een feed te verwerken zodat alles netjes en geordend is ;).",
+                image: "../../assets/imgs/NewsAgeLogo.png",
+            },
+            {
+                title: "Waarom NewsAge?",
+                description: "NewsAge is heel gemakkelijk te gebruiken, u kunt bijvoorbeeld met 1 klik een dagblad volgen of niet volgen. U\n" +
+                    "kunt ook ervoor kiezen om bijvoorbeeld een artikel te verbergen, dit zorgt ervoor dat u de artikel niet\n" +
+                    "        ziet.",
+                image: "../../assets/imgs/NewsAgeLogo.png",
+            }
+        ];
+    }
+    AboutPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad AboutPage');
+    };
+    AboutPage.prototype.overOnsDone = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__settings_settings__["a" /* SettingsPage */]);
+    };
+    AboutPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-about',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\about\about.html"*/'<ion-header no-border-bottom>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle right class="fakeCenter">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n      <ion-title text-center class="centerTitle">Over ons</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content class="tutorial-page">\n\n    <ion-slides pager>\n\n        <ion-slide *ngFor="let slide of slides">\n\n            <img [src]="slide.image" class="slide-image"/>\n\n            <h2 class="slide-title" [innerHTML]="slide.title"></h2>\n\n            <p [innerHTML]="slide.description"></p>\n\n        </ion-slide>\n\n        <ion-slide>\n\n            <img src="../../assets/imgs/NewsAgeLogo.png" class="slide-image"/>\n\n            <h2 class="slide-title">Tot zover over ons!</h2>\n\n            <button ion-button large clear icon-end color="primary" (click)="overOnsDone()">\n\n                Verder gaan\n\n                <ion-icon name="arrow-forward"></ion-icon>\n\n            </button>\n\n        </ion-slide>\n\n    </ion-slides>\n\n</ion-content>\n\n\n\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\about\about.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */]])
+    ], AboutPage);
+    return AboutPage;
+}());
+
+//# sourceMappingURL=about.js.map
+
+/***/ }),
+
+/***/ 142:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TutorialPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__feed_feed__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(89);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var TutorialPage = /** @class */ (function () {
+    function TutorialPage(navCtrl, navParams, platform, storage) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.platform = platform;
+        this.storage = storage;
+        this.slides = [
+            {
+                title: "Welkom bij NewsAge",
+                description: "Welkom! bij de tutorial vertellen wij kort even hoe u onze app gebruikt.",
+                image: "../../assets/imgs/NewsAgeLogo.png",
+            },
+            {
+                title: "Hoe gebruik je NewsAge?",
+                description: "Het gebruik van NewsAge is eigenlijk als u \"the hang of it\" krijgt best simpel, U heeft een startpagina waar al het algemene nieuws op komt, " +
+                    "daarnaast kunt u in de bronnen aanvinken op welke nieuwspagina u wilt subscriben, dit in 1 knop verder kunt u ook uw profiel aanpassen en kunt u artikelen liken, sharen en als u wilt een reactie plaatsen onder het artikel.",
+                image: "../../assets/imgs/NewsAgeLogo.png",
+            },
+            {
+                title: "Vragen?",
+                description: "Als u verder nog vragen hebt over de app, kunt u ze mailen naar ons via: newsage2018@gmail.com de FAQ worden dan in slides gedaan en zo word de tutorial bijgewerkt.",
+                image: "../../assets/imgs/NewsAgeLogo.png",
+            }
+        ];
+    }
+    TutorialPage.prototype.tutorialDone = function () {
+        localStorage.setItem("TutorialShown", "true");
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__feed_feed__["a" /* FeedPage */]);
+    };
+    TutorialPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-tutorial',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\tutorial\tutorial.html"*/'<ion-header no-border-bottom>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle right class="fakeCenter">\n\n        <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n      <ion-title>Tutorial</ion-title>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content class="tutorial-page">\n\n  <ion-slides pager>\n\n    <ion-slide>\n\n      <ion-icon name="star"></ion-icon>\n\n      <h2>Kaas</h2>\n\n      <p>ewaja</p>\n\n    </ion-slide>\n\n    <ion-slide>\n\n      <ion-icon name="star"></ion-icon>\n\n      <h2>Kaas</h2>\n\n      <p>ewaja</p>\n\n    </ion-slide>\n\n    <ion-slide>\n\n      <img src="../../assets/imgs/NewsAgeLogo.png" class="slide-image"/>\n\n      <h2 class="slide-title">Bent u er klaar voor?</h2>\n\n      <button ion-button large clear icon-end color="primary" (click)="tutorialDone()">\n\n        Doorgaan!\n\n        <ion-icon name="arrow-forward"></ion-icon>\n\n      </button>\n\n    </ion-slide>\n\n  </ion-slides>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\tutorial\tutorial.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* Platform */], __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]])
+    ], TutorialPage);
+    return TutorialPage;
+}());
+
+//# sourceMappingURL=tutorial.js.map
+
+/***/ }),
+
+/***/ 143:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfielPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__settings_settings__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__ = __webpack_require__(328);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__wijzigwachtwoord_wijzigwachtwoord__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_photo_viewer__ = __webpack_require__(329);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+var ProfielPage = /** @class */ (function () {
+    function ProfielPage(navCtrl, navParams, alertCtrl, camera, actionSheetCtrl, http, events, photoViewer) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.alertCtrl = alertCtrl;
+        this.camera = camera;
+        this.actionSheetCtrl = actionSheetCtrl;
+        this.http = http;
+        this.events = events;
+        this.photoViewer = photoViewer;
+        this.id = localStorage.getItem("userId");
+        this.myprofilepic = localStorage.getItem("profilePicture");
+        var headers = new __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["c" /* HttpHeaders */]();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        var options = { headers: headers };
+        var data = {
+            email: localStorage.getItem('userEmail'),
+        };
+        this.http.post('http://gazoh.net/getgebruiker.php', data, options)
+            .subscribe(function (data) {
+            _this.dataUser = data;
+            _this.username = _this.dataUser.username;
+            _this.email = _this.dataUser.email;
+            _this.emailVerified = _this.dataUser.emailVerified;
+            _this.rol = _this.dataUser.rol;
+            _this.myphoto = _this.dataUser.profilepicture;
+            _this.creationdate = _this.dataUser.creationdate;
+        });
+        this.events.publish("username", this.username);
+        this.events.publish("profilepicture", this.myphoto);
+    }
+    ProfielPage.prototype.presentActionSheet = function () {
+        var _this = this;
+        var actionSheet = this.actionSheetCtrl.create({
+            title: 'Wat wilt u doen ?',
+            buttons: [
+                {
+                    text: 'Profielfoto bekijken',
+                    role: 'Profielfoto bekijken',
+                    handler: function () {
+                        if (_this.myphoto) {
+                            _this.photoViewer.show(_this.myphoto);
+                        }
+                        else if (!_this.myphoto) {
+                            var alert_1 = _this.alertCtrl.create({ title: "Geen data", message: "Geen foto!" });
+                            alert_1.present();
+                        }
+                    }
+                },
+                {
+                    text: 'Maak foto',
+                    role: 'Maak foto',
+                    handler: function () {
+                        _this.takePhoto();
+                    }
+                },
+                {
+                    text: 'Kies uit galerij',
+                    handler: function () {
+                        _this.cropImage();
+                    }
+                },
+                {
+                    text: 'Annuleren',
+                    role: 'cancel',
+                    handler: function () {
+                        console.log('Cancel clicked');
+                    }
+                }
+            ]
+        });
+        actionSheet.present();
+    };
+    ProfielPage.prototype.takePhoto = function () {
+        var _this = this;
+        var options = {
+            quality: 70,
+            allowEdit: true,
+            targetWidth: 300,
+            targetHeight: 300,
+            destinationType: this.camera.DestinationType.DATA_URL,
+            encodingType: this.camera.EncodingType.JPEG,
+            mediaType: this.camera.MediaType.PICTURE
+        };
+        this.camera.getPicture(options).then(function (imageData) {
+            // imageData is either a base64 encoded string or a file URI
+            // If it's base64:
+            _this.myphoto = 'data:image/jpeg;base64,' + imageData;
+        }, function (err) {
+            // Handle error
+        });
+    };
+    ProfielPage.prototype.onArticlePictureCreated = function (base64String) {
+        this.myphoto = 'data:image/jpeg;base64,' + base64String;
+        this.myprofilepic = 'data:image/jpeg;base64,' + base64String;
+        localStorage.setItem("profilePicture", this.myphoto);
+    };
+    // getImage() {
+    //     const options: CameraOptions = {
+    //         quality: 70,
+    //         destinationType: this.camera.DestinationType.DATA_URL,
+    //         sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+    //         saveToPhotoAlbum:false
+    //     }
+    //
+    //     this.camera.getPicture(options).then((imageData) => {
+    //         // imageData is either a base64 encoded string or a file URI
+    //         // If it's base64:
+    //         this.myphoto = 'data:image/jpeg;base64,' + imageData;
+    //     }, (err) => {
+    //         // Handle error
+    //     });
+    // }
+    ProfielPage.prototype.cropImage = function () {
+        var _this = this;
+        var options = {
+            quality: 70,
+            destinationType: this.camera.DestinationType.DATA_URL,
+            sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+            saveToPhotoAlbum: false,
+            allowEdit: true,
+            targetWidth: 300,
+            targetHeight: 300
+        };
+        this.camera.getPicture(options).then(function (imageData) {
+            // imageData is either a base64 encoded string or a file URI
+            // If it's base64:
+            _this.myphoto = 'data:image/jpeg;base64,' + imageData;
+            _this.myprofilepic = 'data:image/jpeg;base64,' + imageData;
+            localStorage.setItem("profilePicture", _this.myphoto);
+        }, function (err) {
+            // Handle error
+        });
+    };
+    ProfielPage.prototype.wijzigWachtwoord = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__wijzigwachtwoord_wijzigwachtwoord__["a" /* WijzigwachtwoordPage */]);
+    };
+    ProfielPage.prototype.goBack = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_1__settings_settings__["a" /* SettingsPage */]);
+    };
+    // Validatie
+    ProfielPage.prototype.ngOnInit = function () {
+        this.form = new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["b" /* FormGroup */]({
+            username: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* Validators */].pattern('[a-zA-Z][a-zA-z ]+')]),
+            email: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* Validators */].email, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* Validators */].pattern('^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$')])
+        });
+    };
+    // Zodra alles leeg is dan werkt de checkmark functie niet meer
+    ProfielPage.prototype.validateAllFormFields = function (formGroup) {
+        var _this = this;
+        Object.keys(formGroup.controls).forEach(function (field) {
+            var control = formGroup.get(field); //{3}
+            if (control instanceof __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormControl */]) {
+                control.markAsTouched({ onlySelf: true });
+            }
+            else if (control instanceof __WEBPACK_IMPORTED_MODULE_5__angular_forms__["b" /* FormGroup */]) {
+                _this.validateAllFormFields(control); //{6}
+            }
+        });
+    };
+    ProfielPage.prototype.updateProfile = function () {
+        var _this = this;
+        if (this.form.invalid) {
+            this.validateAllFormFields(this.form); //{7}
+        }
+        else {
+            var headers = new __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["c" /* HttpHeaders */]();
+            headers.append("Accept", 'application/json');
+            headers.append('Content-Type', 'application/json');
+            var options = { headers: headers };
+            var data = {
+                id: this.id,
+                username: this.username,
+                email: this.email,
+                myphoto: this.myphoto
+            };
+            this.http.post('http://gazoh.net/updateProfiel.php', data, options)
+                .map(function (res) { return res; })
+                .subscribe(function (res) {
+                if (res == "Profile updated succesfully") {
+                    var alert_2 = _this.alertCtrl.create({
+                        title: "Profiel bijgewerkt",
+                        subTitle: "Uw profiel is met succesvol bijgewerkt",
+                        buttons: [{
+                                text: "OK", handler: function (data) {
+                                    _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_1__settings_settings__["a" /* SettingsPage */]);
+                                }
+                            }],
+                    });
+                    alert_2.present();
+                }
+                else if (res == "No data set!") {
+                    var alert_3 = _this.alertCtrl.create({
+                        title: "Mislukt",
+                        subTitle: "Uw profiel kon niet worden bijgewerkt vanwege een fout aan onze kant!",
+                        buttons: ['OK']
+                    });
+                    alert_3.present();
+                }
+            });
+            console.log("Dit is je foto:" + this.myphoto);
+        }
+    };
+    ProfielPage.prototype.returnSettings = function () {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["c" /* HttpHeaders */]();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        var options = { headers: headers };
+        var data = {
+            email: localStorage.getItem('userEmail'),
+        };
+        this.http.post('http://gazoh.net/getgebruiker.php', data, options)
+            .subscribe(function (data) {
+            _this.dataUser = data;
+            _this.username = _this.dataUser.username;
+            _this.oldprofilepicture = _this.dataUser.profilepicture;
+            _this.events.publish("username", _this.username);
+            _this.events.publish("profilepicture", _this.oldprofilepicture);
+        });
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_1__settings_settings__["a" /* SettingsPage */]);
+    };
+    ProfielPage.prototype.ionViewDidLoad = function () {
+        var _this = this;
+        this.navBar.backButtonClick = function (e) {
+            _this.returnSettings();
+        };
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_0_ionic_angular__["o" /* Navbar */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["o" /* Navbar */])
+    ], ProfielPage.prototype, "navBar", void 0);
+    ProfielPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
+            selector: 'page-profiel',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\profiel\profiel.html"*/'<ion-header>\n\n  <ion-navbar #navbar>\n\n    <ion-title class="profielPadding">Profiel</ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="updateProfile()">\n\n        <ion-icon name="checkmark"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  <ion-list>\n\n    <ion-grid class="gridMenu">\n\n      <ion-col col-12 class="menuCol">\n\n        <div class="alignCenter">\n\n          <img src="{{myphoto}}" class="avatar-profiel" (click)="presentActionSheet()" />\n\n          <div class="fotoWijzigen">\n\n            <h5 class="fotoWijzigenProfiel" (click)="presentActionSheet()">Foto Wijzigen</h5>\n\n          </div>\n\n        </div>\n\n\n\n        <form novalidate [formGroup]="form">\n\n          <div class="form-group">\n\n            <ion-item [ngClass]="{ \'ng-touched\' : form.get(\'username\').touched }">>\n\n              <ion-label floating>Gebruikersnaam</ion-label>\n\n              <ion-input type="text" placeholder="{{username}}" value="{{username}}" formControlName="username" class="form-control"></ion-input>\n\n            </ion-item>\n\n          </div>\n\n          <div *ngIf="form.get(\'username\').touched && form.get(\'username\').invalid" class="alert alert-danger" required>\n\n            <div class="validatieText" *ngIf="form.get(\'username\').hasError(\'required\')">Naam moet ingevuld zijn.</div>\n\n            <div class="validatieText" *ngIf="form.get(\'username\').hasError(\'pattern\')">Ongeldige naam.</div>\n\n            <div class="validatieText" *ngIf="form.get(\'username\').hasError(\'minLength\')">De minimale lengte zijn 3 letters.</div>\n\n          </div>\n\n\n\n          <div class="form-group">\n\n            <ion-item [ngClass]="{ \'ng-touched\' : form.get(\'email\').touched }">\n\n              <ion-label floating>E-mail</ion-label>\n\n              <ion-input type="email" placeholder="{{email}}" value="{{email}}" formControlName="email" class="form-control"></ion-input>\n\n            </ion-item>\n\n          </div>\n\n          <div *ngIf="form.get(\'email\').touched && form.get(\'email\').invalid" class="alert alert-danger" required>\n\n            <div class="validatieText" *ngIf="form.get(\'email\').hasError(\'required\')">Email moet ingevuld zijn</div>\n\n            <div class="validatieText" *ngIf="form.get(\'email\').hasError(\'pattern\')">Ongeldige Email!</div>\n\n          </div>\n\n\n\n        </form>\n\n        <h6 class="wachtwoordWijzigen" (click)="wijzigWachtwoord()">Wijzig Wachtwoord</h6>\n\n      </ion-col>\n\n    </ion-grid>\n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\profiel\profiel.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0_ionic_angular__["m" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["n" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["b" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */],
+            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["a" /* ActionSheetController */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["d" /* Events */],
+            __WEBPACK_IMPORTED_MODULE_7__ionic_native_photo_viewer__["a" /* PhotoViewer */]])
+    ], ProfielPage);
+    return ProfielPage;
+}());
+
+//# sourceMappingURL=profiel.js.map
+
+/***/ }),
+
+/***/ 144:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WijzigwachtwoordPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(28);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var WijzigwachtwoordPage = /** @class */ (function () {
+    function WijzigwachtwoordPage(navCtrl, navParams, http, toastCtrl, alertCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.toastCtrl = toastCtrl;
+        this.alertCtrl = alertCtrl;
+    }
+    WijzigwachtwoordPage.prototype.ngOnInit = function () {
+        this.form = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormGroup */]({
+            oldpassword: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required]),
+            password: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].minLength(8), __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$')]),
+            password2: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].minLength(8), __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$')]),
+        });
+    };
+    // Controleert of de velden voldoen aan de validators
+    WijzigwachtwoordPage.prototype.validateAllFormFields = function (formGroup) {
+        var _this = this;
+        Object.keys(formGroup.controls).forEach(function (field) {
+            var control = formGroup.get(field); //{3}
+            if (control instanceof __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]) {
+                control.markAsTouched({ onlySelf: true });
+            }
+            else if (control instanceof __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormGroup */]) {
+                _this.validateAllFormFields(control); //{6}
+            }
+        });
+    };
+    WijzigwachtwoordPage.prototype.updateWachtwoord = function (event) {
+        var _this = this;
+        if (this.password != this.password2 || this.password2 != this.password) {
+            this.pass1 = "Wachtwoord niet gelijk";
+        }
+        else if (this.form.valid) {
+            var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["c" /* HttpHeaders */]();
+            headers.append("Accept", 'application/json');
+            headers.append('Content-Type', 'application/json');
+            var options = { headers: headers };
+            var data = {
+                userId: localStorage.getItem('userId'),
+                oldpassword: this.oldpassword,
+                newpassword: this.password,
+            };
+            this.http
+                .post('http://gazoh.net/wijzigwachtwoord.php', data, options)
+                .subscribe(function (data) {
+                if (data == "password updated") {
+                    var alert_1 = _this.alertCtrl.create({
+                        title: "Succes",
+                        message: "Je wachtwoord is succesvol gewijzigd.",
+                        buttons: [{
+                                text: "OK",
+                                handler: function () {
+                                    _this.navCtrl.pop();
+                                }
+                            }]
+                    });
+                    alert_1.present();
+                }
+                else if (data == "No matching password") {
+                    _this.valMessage = data;
+                    console.log(_this.valMessage);
+                }
+            });
+        }
+        else if (this.form.invalid) {
+            this.validateAllFormFields(this.form); //{7}
+        }
+    };
+    WijzigwachtwoordPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-wijzigwachtwoord',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\wijzigwachtwoord\wijzigwachtwoord.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title class="wachtwoordWijzigenPadding">Wachtwoord Wijzigen</ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="updateWachtwoord($event)">\n\n        <ion-icon name="checkmark"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  <form novalidate [formGroup]="form">\n\n    <div class="form-group">\n\n      <ion-item [ngClass]="{ \'ng-touched\' : form.get(\'oldpassword\').touched }">\n\n        <ion-label stacked>Oud Wachtwoord</ion-label>\n\n        <ion-input type="password" formControlName="oldpassword" class="form-control" [(ngModel)]="oldpassword"></ion-input>\n\n      </ion-item>\n\n    </div>\n\n    <div class="alert alert-danger" *ngIf="form.get(\'oldpassword\').touched && form.get(\'oldpassword\').invalid || valMessage == \'No matching password\'">\n\n      <div class="validatieText" *ngIf="form.get(\'oldpassword\').hasError(\'required\')">Wachtwoord moet ingevuld zijn</div>\n\n      <div class="validatieText" *ngIf="valMessage == \'No matching password\'">Wachtwoord is niet hetzelfde</div>\n\n    </div>\n\n\n\n\n\n    <div class="form-group">\n\n      <ion-item [ngClass]="{ \'ng-touched\' : form.get(\'password\').touched }">\n\n        <ion-label stacked>Nieuwe Wachtwoord</ion-label>\n\n        <ion-input type="password" formControlName="password" class="form-control" [(ngModel)]="password"></ion-input>\n\n      </ion-item>\n\n    </div>\n\n    <div class="alert alert-danger" *ngIf="form.get(\'password\').touched && form.get(\'password\').invalid">\n\n      <div class="validatieText" *ngIf="form.get(\'password\').hasError(\'required\')">Wachtwoord moet ingevuld zijn</div>\n\n      <div class="validatieText" *ngIf="form.get(\'password\').hasError(\'minLength\')">Wachtwoord moet minimaal 8 tekens lang zijn</div>\n\n      <div class="validatieText" *ngIf="form.get(\'password\').hasError(\'pattern\')">Wachtwoord moet minstens een hoofdletter, een kleine letter en een cijfer bevatten</div>\n\n    </div>\n\n\n\n    <div class="form-group">\n\n      <ion-item [ngClass]="{ \'ng-touched\' : form.get(\'password2\').touched }">\n\n        <ion-label stacked>Herhaal Nieuw Wachtwoord</ion-label>\n\n        <ion-input type="password" formControlName="password2" class="form-control" [(ngModel)]="password2"></ion-input>\n\n      </ion-item>\n\n    </div>\n\n    <div class="alert alert-danger" *ngIf="form.get(\'password2\').touched && form.get(\'password2\').invalid || this.password != this.password2 || this.password2 != this.password">\n\n      <div class="validatieText" *ngIf="form.get(\'password2\').hasError(\'required\')">Wachtwoord moet ingevuld zijn</div>\n\n      <div class="validatieText" *ngIf="form.get(\'password2\').hasError(\'minLength\')">Wachtwoord moet minimaal 8 tekens lang zijn</div>\n\n      <div class="validatieText" *ngIf="form.get(\'password2\').hasError(\'pattern\')">Wachtwoord moet minstens een hoofdletter, een kleine letter en een cijfer bevatten</div>\n\n    </div>\n\n    <div class="alert alert-danger" *ngIf="this.password != this.password2 || this.password2 != this.password">\n\n      <div class="validatieText">Wachtwoord is niet gelijk</div>\n\n    </div>\n\n\n\n\n\n  </form>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\wijzigwachtwoord\wijzigwachtwoord.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
+    ], WijzigwachtwoordPage);
+    return WijzigwachtwoordPage;
+}());
+
+//# sourceMappingURL=wijzigwachtwoord.js.map
+
+/***/ }),
+
+/***/ 145:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AutoPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the AutoPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var AutoPage = /** @class */ (function () {
+    function AutoPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    AutoPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad AutoPage');
+    };
+    AutoPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-auto',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\auto\auto.html"*/'<ion-header no-border-bottom>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle right class="fakeCenter">\n\n        <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n      <ion-title>Auto\'s</ion-title>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n    </ion-navbar>\n\n</ion-header>\n\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\auto\auto.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */]])
+    ], AutoPage);
+    return AutoPage;
+}());
+
+//# sourceMappingURL=auto.js.map
+
+/***/ }),
+
+/***/ 146:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EconomiePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the EconomiePage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var EconomiePage = /** @class */ (function () {
+    function EconomiePage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    EconomiePage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad EconomiePage');
+    };
+    EconomiePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-economie',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\economie\economie.html"*/'<ion-header no-border-bottom>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle right class="fakeCenter">\n\n        <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n      <ion-title>Economie</ion-title>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n    </ion-navbar>\n\n</ion-header>\n\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\economie\economie.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */]])
+    ], EconomiePage);
+    return EconomiePage;
+}());
+
+//# sourceMappingURL=economie.js.map
+
+/***/ }),
+
+/***/ 147:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MisdaadPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the MisdaadPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var MisdaadPage = /** @class */ (function () {
+    function MisdaadPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    MisdaadPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad MisdaadPage');
+    };
+    MisdaadPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-misdaad',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\misdaad\misdaad.html"*/'<ion-header no-border-bottom>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle right class="fakeCenter">\n\n        <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n      <ion-title>Misdaad</ion-title>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n    </ion-navbar>\n\n</ion-header>\n\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\misdaad\misdaad.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */]])
+    ], MisdaadPage);
+    return MisdaadPage;
+}());
+
+//# sourceMappingURL=misdaad.js.map
+
+/***/ }),
+
+/***/ 148:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SourcesPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the SourcesPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var SourcesPage = /** @class */ (function () {
+    function SourcesPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.page = "0";
+        // Theme
+        if (localStorage.getItem("themeColor")) {
+            this.currentTheme = localStorage.getItem("themeColor");
+            console.log(this.currentTheme);
+        }
+    }
+    SourcesPage.prototype.selectedTab = function (ind) {
+        this.slider.slideTo(ind);
+    };
+    SourcesPage.prototype.moveButton = function ($event) {
+        this.page = $event._snapIndex.toString();
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('slider'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* Slides */])
+    ], SourcesPage.prototype, "slider", void 0);
+    SourcesPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-sources',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\sources\sources.html"*/'<ion-header no-border-bottom>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle right class="fakeCenter">\n\n        <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n      <ion-title>Sources</ion-title>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n    </ion-navbar>\n\n      <ion-segment color="darkAppKleur" [(ngModel)]="page">\n\n        <ion-segment-button value="0" (click)="selectedTab(0)">\n\n          Geabboneerd\n\n        </ion-segment-button>\n\n        <ion-segment-button value="1" (click)="selectedTab(1)">\n\n          Suggesties\n\n        </ion-segment-button>\n\n      </ion-segment>\n\n</ion-header>\n\n<ion-content >\n\n  <ion-slides #slider (ionSlideWillChange)="moveButton($event)" >\n\n    <!--  -->\n\n    <!-- Alle Sources die zijn geimport -->\n\n    <!--  -->\n\n    <ion-slide>\n\n      <ion-list>\n\n        <ion-item class="sourceItem">\n\n          <ion-avatar class="avatar" item-start>\n\n            <img src="../assets/svg/NOS_logo.svg" *ngIf="currentTheme == \'light-theme\'">\n\n            <img src="../assets/svg/NOS_logo_Wit.svg" *ngIf="currentTheme == \'dark-theme\'">\n\n          </ion-avatar>\n\n          <div class="sourceTekst"><b>NOS</b></div>\n\n          <div class="sourceTekst">Nieuwsfeed</div>\n\n          <button ion-button outline item-end color="danger" class="DeleteClassesButton">\n\n            <ion-icon name="close" class="buttonIcon"></ion-icon>Verwijderen\n\n          </button>\n\n        </ion-item>\n\n\n\n        <ion-item class="sourceItem">\n\n          <ion-avatar class="avatar" item-start>\n\n            <img src="../assets/svg/Telegraaf.svg" *ngIf="currentTheme == \'light-theme\'">\n\n            <img src="../assets/svg/Telegraaf_Wit.svg" *ngIf="currentTheme == \'dark-theme\'">\n\n          </ion-avatar>\n\n          <div class="sourceTekst"><b>De Telegraaf</b></div>\n\n          <div class="sourceTekst">Nieuwsfeed</div>\n\n          <button ion-button outline item-end color="danger" class="DeleteClassesButton">\n\n            <ion-icon name="close" class="buttonIcon"></ion-icon>Verwijderen\n\n          </button>\n\n        </ion-item>\n\n\n\n        <ion-item class="sourceItem">\n\n          <ion-avatar class="avatar" item-start>\n\n            <img src="../assets/svg/nu.nl.svg">\n\n          </ion-avatar>\n\n          <div class="sourceTekst"><b>NU.NL</b></div>\n\n          <div class="sourceTekst">Nieuwsfeed</div>\n\n        <button ion-button outline item-end color="danger" class="DeleteClassesButton">\n\n            <ion-icon name="close" class="buttonIcon"></ion-icon>Verwijderen\n\n          </button>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n    </ion-slide>\n\n    <ion-slide>\n\n      <ion-list>\n\n        <!--  -->\n\n        <!-- Alle Sources die je kunt importen -->\n\n        <!--  -->\n\n        <ion-item class="sourceTitel">\n\n              <h4 class="TitelSources">Nieuwsfeed</h4>\n\n        </ion-item>\n\n        <ion-item class="sourceItem">\n\n          <ion-avatar class="avatar" item-start>\n\n            <img src="../assets/svg/Volkskrant.svg">\n\n          </ion-avatar>\n\n          <div class="sourceTekst"><b>De Volkskrant</b></div>\n\n          <div class="sourceTekst">Nieuwsfeed</div>\n\n          <button ion-button outline item-end color="green" class="ImportClassesButton">\n\n            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen\n\n          </button>\n\n        </ion-item>\n\n\n\n        <ion-item class="sourceItem">\n\n          <ion-avatar class="avatar" item-start>\n\n            <img src="../assets/svg/AD.svg">\n\n          </ion-avatar>\n\n          <div class="sourceTekst"><b>Algemeen Dagblad</b></div>\n\n          <div class="sourceTekst">Nieuwsfeed</div>\n\n        <button ion-button outline item-end color="green" class="ImportClassesButton">\n\n            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen\n\n          </button>\n\n        </ion-item>\n\n\n\n\n\n        <ion-item class="sourceItem">\n\n          <ion-avatar class="avatar" item-start>\n\n            <img src="../assets/svg/RTL_Nederland.svg">\n\n          </ion-avatar>\n\n          <div class="sourceTekst"><b>RTL Nieuws</b></div>\n\n          <div class="sourceTekst">Nieuwsfeed</div>\n\n        <button ion-button outline item-end color="green" class="ImportClassesButton">\n\n            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen\n\n          </button>\n\n        </ion-item>\n\n\n\n        <ion-item class="sourceItem">\n\n          <ion-avatar class="avatar" item-start>\n\n            <img src="../assets/svg/De_Gelderlander.svg">\n\n          </ion-avatar>\n\n          <div class="sourceTekst"><b>De Gelderlander</b></div>\n\n          <div class="sourceTekst">Nieuwsfeed</div>\n\n        <button ion-button outline item-end color="green" class="ImportClassesButton">\n\n            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen\n\n          </button>\n\n        </ion-item>\n\n\n\n        <ion-item class="sourceTitel">\n\n              <h4 class="TitelSources">Tech</h4>\n\n        </ion-item>\n\n\n\n        <ion-item class="sourceItem">\n\n          <ion-avatar class="avatar" item-start>\n\n            <img src="../assets/svg/Tweakers.svg">\n\n          </ion-avatar>\n\n          <div class="sourceTekst"><b>Tweakers</b></div>\n\n          <div class="sourceTekst">Tech</div>\n\n        <button ion-button outline item-end color="green" class="ImportClassesButton">\n\n            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen\n\n          </button>\n\n        </ion-item>\n\n\n\n        <ion-item class="sourceTitel">\n\n              <h4 class="TitelSources">Sport</h4>\n\n        </ion-item>\n\n\n\n        <ion-item class="sourceItem">\n\n          <ion-avatar class="avatar" item-start>\n\n            <img src="../assets/svg/Fifa.svg">\n\n          </ion-avatar>\n\n          <div class="sourceTekst"><b>Fifa</b></div>\n\n          <div class="sourceTekst">Sport</div>\n\n          <button ion-button outline item-end color="green" class="ImportClassesButton">\n\n            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen\n\n          </button>\n\n        </ion-item>\n\n\n\n        <ion-item class="sourceItem">\n\n          <ion-avatar class="avatar" item-start>\n\n            <img src="../assets/svg/FoxSports.svg">\n\n          </ion-avatar>\n\n          <div class="sourceTekst"><b>Fox Sports Go</b></div>\n\n          <div class="sourceTekst">Sport</div>\n\n        <button ion-button outline item-end color="green" class="ImportClassesButton">\n\n            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen\n\n          </button>\n\n        </ion-item>\n\n\n\n        <ion-item class="sourceItem">\n\n          <ion-avatar class="avatar" item-start>\n\n            <img src="../assets/svg/NuSport.svg">\n\n          </ion-avatar>\n\n          <div class="sourceTekst"><b>Nu Sport</b></div>\n\n          <div class="sourceTekst">Sport</div>\n\n        <button ion-button outline item-end color="green" class="ImportClassesButton">\n\n            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen\n\n          </button>\n\n        </ion-item>\n\n\n\n        <ion-item class="sourceItem">\n\n          <ion-avatar class="avatar" item-start>\n\n            <img src="../assets/svg/rtlz.svg">\n\n          </ion-avatar>\n\n          <div class="sourceTekst"><b>RTL Z </b></div>\n\n          <div class="sourceTekst">Sport</div>\n\n        <button ion-button outline item-end color="green" class="ImportClassesButton">\n\n            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen\n\n          </button>\n\n        </ion-item>\n\n\n\n        <ion-item class="sourceItem">\n\n          <ion-avatar class="avatar" item-start>\n\n            <img src="../assets/svg/Voetbalzone.svg">\n\n          </ion-avatar>\n\n          <div class="sourceTekst"><b>Voetbalzone</b></div>\n\n          <div class="sourceTekst">Sport</div>\n\n        <button ion-button outline item-end color="green" class="ImportClassesButton">\n\n            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen\n\n          </button>\n\n        </ion-item>\n\n\n\n\n\n      </ion-list>\n\n    </ion-slide>\n\n  </ion-slides>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\sources\sources.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */]])
+    ], SourcesPage);
+    return SourcesPage;
+}());
+
+//# sourceMappingURL=sources.js.map
+
+/***/ }),
+
+/***/ 149:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SportPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the SportPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var SportPage = /** @class */ (function () {
+    function SportPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    SportPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad SportPage');
+    };
+    SportPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-sport',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\sport\sport.html"*/'<ion-header no-border-bottom>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle right class="fakeCenter">\n\n        <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n      <ion-title>Sport</ion-title>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n    </ion-navbar>\n\n</ion-header>\n\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\sport\sport.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */]])
+    ], SportPage);
+    return SportPage;
+}());
+
+//# sourceMappingURL=sport.js.map
+
+/***/ }),
+
+/***/ 150:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TechPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the TechPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var TechPage = /** @class */ (function () {
+    function TechPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    TechPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad TechPage');
+    };
+    TechPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-tech',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\tech\tech.html"*/'<ion-header no-border-bottom>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle right class="fakeCenter">\n\n        <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n      <ion-title>Technologie</ion-title>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n    </ion-navbar>\n\n</ion-header>\n\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\tech\tech.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */]])
+    ], TechPage);
+    return TechPage;
+}());
+
+//# sourceMappingURL=tech.js.map
+
+/***/ }),
+
+/***/ 151:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return VermaakPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the VermaakPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var VermaakPage = /** @class */ (function () {
+    function VermaakPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    VermaakPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad VermaakPage');
+    };
+    VermaakPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-vermaak',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\vermaak\vermaak.html"*/'<ion-header no-border-bottom>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle right class="fakeCenter">\n\n        <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n      <ion-title>Entertainment</ion-title>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n    </ion-navbar>\n\n</ion-header>\n\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\vermaak\vermaak.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */]])
+    ], VermaakPage);
+    return VermaakPage;
+}());
+
+//# sourceMappingURL=vermaak.js.map
+
+/***/ }),
+
+/***/ 183:
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error("Cannot find module '" + req + "'.");
+	});
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = 183;
+
+/***/ }),
+
+/***/ 227:
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"../pages/about/about.module": [
+		231
+	],
+	"../pages/admin/admin.module": [
+		228
+	],
+	"../pages/auto/auto.module": [
+		331
+	],
+	"../pages/comments/comments.module": [
+		332
+	],
+	"../pages/economie/economie.module": [
+		333
+	],
+	"../pages/feed/feed.module": [
+		334
+	],
+	"../pages/lijstweer/lijstweer.module": [
+		728,
+		0
+	],
+	"../pages/misdaad/misdaad.module": [
+		335
+	],
+	"../pages/nieuws/nieuws.module": [
+		336
+	],
+	"../pages/privacybeleid/privacybeleid.module": [
+		338
+	],
+	"../pages/profiel/profiel.module": [
+		339
+	],
+	"../pages/register/register.module": [
+		340
+	],
+	"../pages/settings/settings.module": [
+		341
+	],
+	"../pages/sources/sources.module": [
+		342
+	],
+	"../pages/sport/sport.module": [
+		343
+	],
+	"../pages/tech/tech.module": [
+		344
+	],
+	"../pages/tutorial/tutorial.module": [
+		345
+	],
+	"../pages/vermaak/vermaak.module": [
+		346
+	],
+	"../pages/wijzigwachtwoord/wijzigwachtwoord.module": [
+		347
+	]
+};
+function webpackAsyncContext(req) {
+	var ids = map[req];
+	if(!ids)
+		return Promise.reject(new Error("Cannot find module '" + req + "'."));
+	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
+		return __webpack_require__(ids[0]);
+	});
+};
+webpackAsyncContext.keys = function webpackAsyncContextKeys() {
+	return Object.keys(map);
+};
+webpackAsyncContext.id = 227;
+module.exports = webpackAsyncContext;
+
+/***/ }),
+
+/***/ 228:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminPageModule", function() { return AdminPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin__ = __webpack_require__(122);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var AdminPageModule = /** @class */ (function () {
+    function AdminPageModule() {
+    }
+    AdminPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__admin__["a" /* AdminPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__admin__["a" /* AdminPage */]),
+            ],
+        })
+    ], AdminPageModule);
+    return AdminPageModule;
+}());
+
+//# sourceMappingURL=admin.module.js.map
+
+/***/ }),
+
+/***/ 231:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AboutPageModule", function() { return AboutPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__about__ = __webpack_require__(126);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var AboutPageModule = /** @class */ (function () {
+    function AboutPageModule() {
+    }
+    AboutPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__about__["a" /* AboutPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__about__["a" /* AboutPage */]),
+            ],
+        })
+    ], AboutPageModule);
+    return AboutPageModule;
+}());
+
+//# sourceMappingURL=about.module.js.map
+
+/***/ }),
+
+/***/ 324:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(22);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var RegisterPage = /** @class */ (function () {
+    // Construtor hiermee roep je alles aan
+    function RegisterPage(navCtrl, navParams, alertCtrl, http, loading) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.alertCtrl = alertCtrl;
+        this.http = http;
+        this.loading = loading;
+    }
+    RegisterPage.prototype.ngOnInit = function () {
+        this.form = new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["b" /* FormGroup */]({
+            username: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* Validators */].pattern('[a-zA-Z][a-zA-z ]+') /*, Validators.minLength(3)*/]),
+            password: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* Validators */].minLength(8), __WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* Validators */].pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$')]),
+            email: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* Validators */].email, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* Validators */].pattern('^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$')])
+        });
+    };
+    // Push terug naar home button
+    RegisterPage.prototype.validateAllFormFields = function (formGroup) {
+        var _this = this;
+        Object.keys(formGroup.controls).forEach(function (field) {
+            var control = formGroup.get(field); //{3}
+            if (control instanceof __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormControl */]) {
+                control.markAsTouched({ onlySelf: true });
+            }
+            else if (control instanceof __WEBPACK_IMPORTED_MODULE_5__angular_forms__["b" /* FormGroup */]) {
+                _this.validateAllFormFields(control); //{6}
+            }
+        });
+    };
+    RegisterPage.prototype.onSubmit = function () {
+        var _this = this;
+        if (this.form.invalid) {
+            this.validateAllFormFields(this.form); //{7}
+        }
+        else {
+            var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["c" /* HttpHeaders */]();
+            headers.append("Accept", 'application/json');
+            headers.append('Content-Type', 'application/json');
+            var options_1 = { headers: headers };
+            var data_1 = {
+                username: this.username,
+                password: this.password,
+                email: this.email
+            };
+            var loader_1 = this.loading.create({
+                content: 'Aan het registreren..',
+            });
+            loader_1.present().then(function () {
+                _this.http.post('http://gazoh.net/register.php', data_1, options_1)
+                    .map(function (res) { return res; })
+                    .subscribe(function (res) {
+                    loader_1.dismiss();
+                    if (res == "Registration successfull") {
+                        var alert_1 = _this.alertCtrl.create({
+                            title: "Registreren geslaagd",
+                            subTitle: "U kunt nu gaan inloggen",
+                            buttons: ['OK']
+                        });
+                        alert_1.present();
+                        _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__home_home__["a" /* HomePage */]);
+                    }
+                    else if (res == "already in use") {
+                        var alert_2 = _this.alertCtrl.create({
+                            title: "Registreren mislukt",
+                            subTitle: "Er bestaat al een gebruiker met het zelfde email of gebruikersnaam!",
+                            buttons: ['OK']
+                        });
+                        alert_2.present();
+                    }
+                    else {
+                        var alert_3 = _this.alertCtrl.create({
+                            title: "Mislukt",
+                            subTitle: "Er is iets mis gegaan tijdens het registeren probeert u het opnieuw.",
+                            buttons: ['OK']
+                        });
+                        alert_3.present();
+                    }
+                });
+            });
+        }
+    };
+    // Push terug naar home button
+    RegisterPage.prototype.terug = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__home_home__["a" /* HomePage */]);
+    };
+    RegisterPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-register',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\register\register.html"*/'<ion-content>\n\n  <ion-grid style="height: 100%" class="gridPadding">\n\n    <ion-row justify-content-center align-items-center style="height: 100%">\n\n      <ion-col col-12>\n\n        <div class="ValidatieText">\n\n          <h2 class="WelkomText2">Meld je nu aan</h2>\n\n          <p class="gavederText">Maak een account aan om verder te gaan!</p>\n\n        </div>\n\n        <div class="ValidatieLogin">\n\n                  <form novalidate [formGroup]="form">\n\n                    <div class="form-group">\n\n                      <ion-item [ngClass]="{ \'ng-touched\' : form.get(\'username\').touched }">>\n\n                        <ion-label floating>Gebruikersnaam</ion-label>\n\n                        <ion-input type="text" formControlName="username" class="form-control" [(ngModel)]="username"></ion-input>\n\n                      </ion-item>\n\n                    </div>\n\n                    <div *ngIf="form.get(\'username\').touched && form.get(\'username\').invalid" class="alert alert-danger" required>\n\n                      <div class="validatieText" *ngIf="form.get(\'username\').hasError(\'required\')">Naam moet ingevuld zijn.</div>\n\n                      <div class="validatieText" *ngIf="form.get(\'username\').hasError(\'pattern\')">Ongeldige naam.</div>\n\n                    </div>\n\n\n\n                    <div class="form-group">\n\n                      <ion-item [ngClass]="{ \'ng-touched\' : form.get(\'email\').touched }">\n\n                        <ion-label floating>E-mail</ion-label>\n\n                        <ion-input type="email" formControlName="email" class="form-control" [(ngModel)]="email"></ion-input>\n\n                      </ion-item>\n\n                    </div>\n\n                    <div *ngIf="form.get(\'email\').touched && form.get(\'email\').invalid" class="alert alert-danger" required>\n\n                      <div class="validatieText" *ngIf="form.get(\'email\').hasError(\'required\')">Email moet ingevuld zijn</div>\n\n                      <div class="validatieText" *ngIf="form.get(\'email\').hasError(\'pattern\')">Ongeldige Email!</div>\n\n                    </div>\n\n\n\n                    <div class="form-group">\n\n                      <ion-item [ngClass]="{ \'ng-touched\' : form.get(\'password\').touched }">\n\n                        <ion-label floating>Wachtwoord</ion-label>\n\n                        <ion-input type="password" formControlName="password" class="form-control" [(ngModel)]="password"></ion-input>\n\n                      </ion-item>\n\n                    </div>\n\n                    <div class="alert alert-danger" *ngIf="form.get(\'password\').touched && form.get(\'password\').invalid ">\n\n                      <div class="validatieText" *ngIf="form.get(\'password\').hasError(\'required\')">Wachtwoord moet ingevuld zijn</div>\n\n                      <div class="validatieText" *ngIf="form.get(\'password\').hasError(\'minLength\')">Wachtwoord moet minimaal 8 tekens lang zijn</div>\n\n                      <div class="validatieText" *ngIf="form.get(\'password\').hasError(\'pattern\')">Wachtwoord moet minstens een hoofdletter, een kleine letter en een cijfer bevatten</div>\n\n                    </div>\n\n                  </form>\n\n\n\n                  <br>\n\n                  <div class="Validatie2Login">\n\n                    <button ion-button class="loginButton" (click)="onSubmit()">Registreren</button>\n\n                  </div>\n\n                </div>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\register\register.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */]])
+    ], RegisterPage);
+    return RegisterPage;
+}());
+
+//# sourceMappingURL=register.js.map
+
+/***/ }),
+
+/***/ 330:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PrivacybeleidPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__settings_settings__ = __webpack_require__(47);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+/**
+ * Generated class for the PrivacybeleidPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var PrivacybeleidPage = /** @class */ (function () {
+    function PrivacybeleidPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    PrivacybeleidPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad PrivacybeleidPage');
+    };
+    PrivacybeleidPage.prototype.returnSettings = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__settings_settings__["a" /* SettingsPage */]);
+    };
+    PrivacybeleidPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-privacybeleid',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\privacybeleid\privacybeleid.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <ion-title class="privacyBeleid">Privacy beleid</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n\n    <p class="PrivacyBeleidP">Axa Studios heeft de NewsAge-app gebouwd als een advertentie-ondersteunde app. Deze SERVICE wordt gratis door Axa\n\n        Studios geleverd en is bedoeld voor gebruik zoals het hoort.\n\n        Deze pagina wordt gebruikt om bezoekers te informeren over ons beleid met betrekking tot het verzamelen,\n\n        gebruiken en vrijgeven van persoonlijke informatie als iemand beslist om onze service te gebruiken.\n\n        Als u ervoor kiest om onze Service te gebruiken, stemt u in met het verzamelen en gebruiken van informatie in\n\n        verband met dit beleid. De persoonlijke informatie die we verzamelen, wordt gebruikt voor het leveren en\n\n        verbeteren van de service. We zullen uw informatie niet gebruiken of delen met iemand anders dan zoals\n\n        beschreven in dit privacybeleid.\n\n        De termen die in dit Privacybeleid worden gebruikt, hebben dezelfde betekenis als in onze Algemene voorwaarden,\n\n        die toegankelijk is via NewsAge, tenzij anders gedefinieerd in dit Privacybeleid.\n\n        Informatie verzamelen en gebruiken\n\n        Voor een betere ervaring tijdens het gebruik van onze service, kunnen we van u verlangen dat u ons bepaalde\n\n        persoonlijk identificeerbare informatie verstrekt. De door ons gevraagde informatie wordt door ons bewaard en\n\n        gebruikt zoals beschreven in dit privacybeleid.\n\n        De app maakt gebruik van services van derden die mogelijk informatie verzamelen die wordt gebruikt om u te\n\n        identificeren.\n\n        Link naar het privacybeleid van externe serviceproviders die door de app worden gebruikt\n\n        <br><br>• Google Play-services</p>\n\n    <h3 class="voorwaardenH3">Loggegevens</h3>\n\n    <p class="PrivacyBeleidP">\n\n        We willen u laten weten dat wanneer u onze Service gebruikt, we in geval van een fout in de app gegevens en\n\n        informatie (via producten van derden) op uw telefoon verzamelen, genaamd Loggegevens. Deze loggegevens kunnen\n\n        informatie bevatten zoals het IP-adres (device protocol), de apparaatnaam, de versie van het besturingssysteem,\n\n        de configuratie van de app bij het gebruik van onze service, het tijdstip en de datum van uw gebruik van de\n\n        service en andere statistieken. </p>\n\n    <h3 class="voorwaardenH3"> Cookies</h3>\n\n    <p class="PrivacyBeleidP">\n\n        Cookies zijn bestanden met een kleine hoeveelheid gegevens die vaak worden gebruikt als anonieme unieke ID\'s.\n\n        Deze worden naar uw browser verzonden vanaf de websites die u bezoekt en worden opgeslagen op het interne\n\n        geheugen van uw apparaat.\n\n        Deze Service gebruikt deze "cookies" niet expliciet. De app kan echter code van derden en bibliotheken gebruiken\n\n        die \'cookies\' gebruiken om informatie te verzamelen en hun services te verbeteren. U hebt de mogelijkheid deze\n\n        cookies te accepteren of te weigeren en te weten wanneer een cookie naar uw apparaat wordt verzonden. Als u\n\n        ervoor kiest om onze cookies te weigeren, kunt u sommige delen van deze service mogelijk niet gebruiken.\n\n    </p>\n\n    <h3 class="voorwaardenH3">Dienstverleners</h3>\n\n    <p class="PrivacyBeleidP">\n\n        Om de volgende redenen kunnen we bedrijven en personen van derden in dienst nemen:<br>\n\n        • Om onze service te vergemakkelijken;<br>\n\n        • Om de Service namens ons te leveren;<br>\n\n        • Servicegerelateerde services uitvoeren; of<br>\n\n        • Om ons te helpen bij het analyseren van hoe onze Service wordt gebruikt.<br>\n\n        We willen gebruikers van deze Service informeren dat deze derden toegang hebben tot uw Persoonlijke Informatie.\n\n        De reden is om namens ons de taken uit te voeren die aan hen zijn toegewezen. Ze zijn echter verplicht om de\n\n        informatie voor geen enkel ander doel openbaar te maken of te gebruiken.\n\n        Veiligheid<br>\n\n        We waarderen uw vertrouwen in het verstrekken van uw persoonlijke gegevens, dus we streven ernaar om commercieel\n\n        aanvaardbare middelen te gebruiken om deze te beschermen. Maar vergeet niet dat geen enkele verzendmethode via\n\n        internet of elektronische opslag 100% veilig en betrouwbaar is en we kunnen de absolute veiligheid ervan niet\n\n        garanderen.</p>\n\n    <h3 class="voorwaardenH3">Links naar andere sites</h3>\n\n    <p class="PrivacyBeleidP">\n\n        Deze Service kan links naar andere sites bevatten. Als u op een link van derden klikt, wordt u naar die site\n\n        geleid. Merk op dat deze externe sites niet door ons worden beheerd. Daarom raden wij u ten zeerste aan om het\n\n        Privacybeleid van deze websites te bekijken. We hebben geen controle over en nemen geen verantwoordelijkheid\n\n        voor de inhoud, het privacybeleid of de praktijken van sites of services van derden.\n\n        Privacy van kinderen<br>\n\n        Deze Services richten zich niet tot iemand onder de leeftijd van 13. We verzamelen niet bewust persoonlijk\n\n        identificeerbare informatie van kinderen onder de 13. Als we ontdekken dat een kind jonger dan 13 jaar ons\n\n        persoonlijke informatie heeft verstrekt, verwijderen we dit onmiddellijk van onze servers. Als u een ouder of\n\n        voogd bent en u weet dat uw kind ons persoonlijke informatie heeft verstrekt, neem dan contact met ons op zodat\n\n        we de nodige acties kunnen ondernemen.</p>\n\n    <h3 class="voorwaardenH3">Wijzigingen in dit privacybeleid</h3>\n\n    <p class="PrivacyBeleidP">\n\n        We kunnen ons privacybeleid van tijd tot tijd bijwerken. Daarom wordt u geadviseerd deze pagina regelmatig te\n\n        controleren op eventuele wijzigingen. We zullen u op de hoogte brengen van eventuele wijzigingen door het nieuwe\n\n        Privacybeleid op deze pagina te plaatsen. Deze wijzigingen zijn van kracht onmiddellijk nadat ze op deze pagina\n\n        zijn geplaatst.\n\n        Neem contact met ons op\n\n        Als u vragen of suggesties heeft over ons privacybeleid, aarzel dan niet om contact met ons op te nemen.</p>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\privacybeleid\privacybeleid.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */]])
+    ], PrivacybeleidPage);
+    return PrivacybeleidPage;
+}());
+
+//# sourceMappingURL=privacybeleid.js.map
+
+/***/ }),
+
+/***/ 331:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AutoPageModule", function() { return AutoPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__auto__ = __webpack_require__(145);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var AutoPageModule = /** @class */ (function () {
+    function AutoPageModule() {
+    }
+    AutoPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__auto__["a" /* AutoPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__auto__["a" /* AutoPage */]),
+            ],
+        })
+    ], AutoPageModule);
+    return AutoPageModule;
+}());
+
+//# sourceMappingURL=auto.module.js.map
+
+/***/ }),
+
+/***/ 332:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CommentsPageModule", function() { return CommentsPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__comments__ = __webpack_require__(88);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var CommentsPageModule = /** @class */ (function () {
+    function CommentsPageModule() {
+    }
+    CommentsPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__comments__["a" /* CommentsPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__comments__["a" /* CommentsPage */]),
+            ],
+        })
+    ], CommentsPageModule);
+    return CommentsPageModule;
+}());
+
+//# sourceMappingURL=comments.module.js.map
+
+/***/ }),
+
+/***/ 333:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EconomiePageModule", function() { return EconomiePageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__economie__ = __webpack_require__(146);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var EconomiePageModule = /** @class */ (function () {
+    function EconomiePageModule() {
+    }
+    EconomiePageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__economie__["a" /* EconomiePage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__economie__["a" /* EconomiePage */]),
+            ],
+        })
+    ], EconomiePageModule);
+    return EconomiePageModule;
+}());
+
+//# sourceMappingURL=economie.module.js.map
+
+/***/ }),
+
+/***/ 334:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FeedPageModule", function() { return FeedPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__feed__ = __webpack_require__(48);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var FeedPageModule = /** @class */ (function () {
+    function FeedPageModule() {
+    }
+    FeedPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__feed__["a" /* FeedPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__feed__["a" /* FeedPage */]),
+            ],
+        })
+    ], FeedPageModule);
+    return FeedPageModule;
+}());
+
+//# sourceMappingURL=feed.module.js.map
+
+/***/ }),
+
+/***/ 335:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MisdaadPageModule", function() { return MisdaadPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__misdaad__ = __webpack_require__(147);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var MisdaadPageModule = /** @class */ (function () {
+    function MisdaadPageModule() {
+    }
+    MisdaadPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__misdaad__["a" /* MisdaadPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__misdaad__["a" /* MisdaadPage */]),
+            ],
+        })
+    ], MisdaadPageModule);
+    return MisdaadPageModule;
+}());
+
+//# sourceMappingURL=misdaad.module.js.map
+
+/***/ }),
+
+/***/ 336:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NieuwsPageModule", function() { return NieuwsPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nieuws__ = __webpack_require__(705);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var NieuwsPageModule = /** @class */ (function () {
+    function NieuwsPageModule() {
+    }
+    NieuwsPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__nieuws__["a" /* NieuwsPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__nieuws__["a" /* NieuwsPage */]),
+            ],
+        })
+    ], NieuwsPageModule);
+    return NieuwsPageModule;
+}());
+
+//# sourceMappingURL=nieuws.module.js.map
+
+/***/ }),
+
+/***/ 338:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PrivacybeleidPageModule", function() { return PrivacybeleidPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__privacybeleid__ = __webpack_require__(330);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var PrivacybeleidPageModule = /** @class */ (function () {
+    function PrivacybeleidPageModule() {
+    }
+    PrivacybeleidPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__privacybeleid__["a" /* PrivacybeleidPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__privacybeleid__["a" /* PrivacybeleidPage */]),
+            ],
+        })
+    ], PrivacybeleidPageModule);
+    return PrivacybeleidPageModule;
+}());
+
+//# sourceMappingURL=privacybeleid.module.js.map
+
+/***/ }),
+
+/***/ 339:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfielPageModule", function() { return ProfielPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profiel__ = __webpack_require__(143);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var ProfielPageModule = /** @class */ (function () {
+    function ProfielPageModule() {
+    }
+    ProfielPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__profiel__["a" /* ProfielPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__profiel__["a" /* ProfielPage */]),
+            ],
+        })
+    ], ProfielPageModule);
+    return ProfielPageModule;
+}());
+
+//# sourceMappingURL=profiel.module.js.map
+
+/***/ }),
+
+/***/ 340:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterPageModule", function() { return RegisterPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__register__ = __webpack_require__(324);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var RegisterPageModule = /** @class */ (function () {
+    function RegisterPageModule() {
+    }
+    RegisterPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__register__["a" /* RegisterPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__register__["a" /* RegisterPage */]),
+            ],
+        })
+    ], RegisterPageModule);
+    return RegisterPageModule;
+}());
+
+//# sourceMappingURL=register.module.js.map
+
+/***/ }),
+
+/***/ 341:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SettingsPageModule", function() { return SettingsPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__settings__ = __webpack_require__(47);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var SettingsPageModule = /** @class */ (function () {
+    function SettingsPageModule() {
+    }
+    SettingsPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__settings__["a" /* SettingsPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__settings__["a" /* SettingsPage */]),
+            ],
+        })
+    ], SettingsPageModule);
+    return SettingsPageModule;
+}());
+
+//# sourceMappingURL=settings.module.js.map
+
+/***/ }),
+
+/***/ 342:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SourcesPageModule", function() { return SourcesPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sources__ = __webpack_require__(148);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var SourcesPageModule = /** @class */ (function () {
+    function SourcesPageModule() {
+    }
+    SourcesPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__sources__["a" /* SourcesPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__sources__["a" /* SourcesPage */]),
+            ],
+        })
+    ], SourcesPageModule);
+    return SourcesPageModule;
+}());
+
+//# sourceMappingURL=sources.module.js.map
+
+/***/ }),
+
+/***/ 343:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SportPageModule", function() { return SportPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sport__ = __webpack_require__(149);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var SportPageModule = /** @class */ (function () {
+    function SportPageModule() {
+    }
+    SportPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__sport__["a" /* SportPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__sport__["a" /* SportPage */]),
+            ],
+        })
+    ], SportPageModule);
+    return SportPageModule;
+}());
+
+//# sourceMappingURL=sport.module.js.map
+
+/***/ }),
+
+/***/ 344:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TechPageModule", function() { return TechPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tech__ = __webpack_require__(150);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var TechPageModule = /** @class */ (function () {
+    function TechPageModule() {
+    }
+    TechPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__tech__["a" /* TechPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__tech__["a" /* TechPage */]),
+            ],
+        })
+    ], TechPageModule);
+    return TechPageModule;
+}());
+
+//# sourceMappingURL=tech.module.js.map
+
+/***/ }),
+
+/***/ 345:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TutorialPageModule", function() { return TutorialPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tutorial__ = __webpack_require__(142);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var TutorialPageModule = /** @class */ (function () {
+    function TutorialPageModule() {
+    }
+    TutorialPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__tutorial__["a" /* TutorialPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__tutorial__["a" /* TutorialPage */]),
+            ],
+        })
+    ], TutorialPageModule);
+    return TutorialPageModule;
+}());
+
+//# sourceMappingURL=tutorial.module.js.map
+
+/***/ }),
+
+/***/ 346:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VermaakPageModule", function() { return VermaakPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__vermaak__ = __webpack_require__(151);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var VermaakPageModule = /** @class */ (function () {
+    function VermaakPageModule() {
+    }
+    VermaakPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__vermaak__["a" /* VermaakPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__vermaak__["a" /* VermaakPage */]),
+            ],
+        })
+    ], VermaakPageModule);
+    return VermaakPageModule;
+}());
+
+//# sourceMappingURL=vermaak.module.js.map
+
+/***/ }),
+
+/***/ 347:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WijzigwachtwoordPageModule", function() { return WijzigwachtwoordPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__wijzigwachtwoord__ = __webpack_require__(144);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var WijzigwachtwoordPageModule = /** @class */ (function () {
+    function WijzigwachtwoordPageModule() {
+    }
+    WijzigwachtwoordPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__wijzigwachtwoord__["a" /* WijzigwachtwoordPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__wijzigwachtwoord__["a" /* WijzigwachtwoordPage */]),
+            ],
+        })
+    ], WijzigwachtwoordPageModule);
+    return WijzigwachtwoordPageModule;
+}());
+
+//# sourceMappingURL=wijzigwachtwoord.module.js.map
+
+/***/ }),
+
+/***/ 389:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MenuProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_feed_feed__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_sport_sport__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_economie_economie__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_misdaad_misdaad__ = __webpack_require__(147);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_tech_tech__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_auto_auto__ = __webpack_require__(145);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_settings_settings__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_tutorial_tutorial__ = __webpack_require__(142);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_favorieten_favorieten__ = __webpack_require__(390);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_vermaak_vermaak__ = __webpack_require__(151);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_sources_sources__ = __webpack_require__(148);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+var MenuProvider = /** @class */ (function () {
+    function MenuProvider(http) {
+        this.http = http;
+    }
+    MenuProvider.prototype.getSideMenus = function () {
+        return [{
+                title: 'Startpagina',
+                component: __WEBPACK_IMPORTED_MODULE_2__pages_feed_feed__["a" /* FeedPage */],
+                icon: 'home'
+            },
+            {
+                title: 'Sources',
+                component: __WEBPACK_IMPORTED_MODULE_12__pages_sources_sources__["a" /* SourcesPage */],
+                icon: 'link'
+            },
+            {
+                title: 'Categorieen',
+                icon: 'apps',
+                subPages: [{
+                        title: 'Sport',
+                        component: __WEBPACK_IMPORTED_MODULE_3__pages_sport_sport__["a" /* SportPage */],
+                        icon: 'football'
+                    }, {
+                        title: 'Economie',
+                        component: __WEBPACK_IMPORTED_MODULE_4__pages_economie_economie__["a" /* EconomiePage */],
+                        icon: 'cash'
+                    }, {
+                        title: 'Misdaad',
+                        component: __WEBPACK_IMPORTED_MODULE_5__pages_misdaad_misdaad__["a" /* MisdaadPage */],
+                        icon: 'walk'
+                    }, {
+                        title: 'Technologie',
+                        component: __WEBPACK_IMPORTED_MODULE_6__pages_tech_tech__["a" /* TechPage */],
+                        icon: 'desktop'
+                    }, {
+                        title: "Auto's",
+                        component: __WEBPACK_IMPORTED_MODULE_7__pages_auto_auto__["a" /* AutoPage */],
+                        icon: 'car'
+                    }, {
+                        title: 'Entertainment',
+                        component: __WEBPACK_IMPORTED_MODULE_11__pages_vermaak_vermaak__["a" /* VermaakPage */],
+                        icon: 'people'
+                    }]
+            },
+            {
+                title: 'Favorieten',
+                component: __WEBPACK_IMPORTED_MODULE_10__pages_favorieten_favorieten__["a" /* FavorietenPage */],
+                icon: 'heart'
+            },
+            {
+                title: 'Tutorial',
+                component: __WEBPACK_IMPORTED_MODULE_9__pages_tutorial_tutorial__["a" /* TutorialPage */],
+                icon: 'book'
+            },
+            {
+                title: 'Instellingen',
+                component: __WEBPACK_IMPORTED_MODULE_8__pages_settings_settings__["a" /* SettingsPage */],
+                icon: 'settings'
+            }
+        ];
+    };
+    MenuProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
+    ], MenuProvider);
+    return MenuProvider;
+}());
+
+//# sourceMappingURL=menu.js.map
+
+/***/ }),
+
+/***/ 390:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FavorietenPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__comments_comments__ = __webpack_require__(88);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+/**
+ * Generated class for the FavorietenPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var FavorietenPage = /** @class */ (function () {
+    function FavorietenPage(navCtrl, navParams, http, toastCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.toastCtrl = toastCtrl;
+        // Theme
+        if (localStorage.getItem("themeColor")) {
+            this.currentTheme = localStorage.getItem("themeColor");
+            console.log(this.currentTheme);
+        }
+    }
+    FavorietenPage.prototype.ionViewWillEnter = function () {
+        this.getFavs();
+    };
+    FavorietenPage.prototype.getFavs = function () {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        var options = { headers: headers };
+        var data = {
+            userId: localStorage.getItem('userId')
+        };
+        this.http.post('http://www.gazoh.net/getliked.php', data, options).subscribe(function (res) {
+            _this.likedarticles = res;
+            if (_this.likedarticles) {
+                _this.likedarticles.sort(function (a, b) {
+                    return +new Date(b.datum) - +new Date(a.datum);
+                });
+            }
+            console.log(res);
+        });
+    };
+    FavorietenPage.prototype.htmlToPlaintext = function (text) {
+        return text ? String(text).replace(/<[^>]+>/gm, '') : '';
+    };
+    // Redirect to NieuwsPage
+    FavorietenPage.prototype.viewEntry = function (param) {
+        this.navCtrl.push('NieuwsPage', param);
+    };
+    // Doorverbinden naar de CommentsPage
+    FavorietenPage.prototype.viewComments = function (param) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__comments_comments__["a" /* CommentsPage */], param);
+    };
+    FavorietenPage.prototype.dislike = function (articleId, articleTitle) {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        var options = { headers: headers };
+        var data = {
+            articleId: articleId,
+            userId: localStorage.getItem('userId')
+        };
+        this.http.post('http://gazoh.net/unlike.php', data, options)
+            .subscribe(function (data) {
+            if (data == "unliked") {
+                _this.getFavs();
+                var toast = _this.toastCtrl.create({
+                    message: articleTitle + " is verwijderd uit je favorieten!",
+                    duration: 2500,
+                    position: "bottom"
+                });
+                toast.present();
+            }
+        });
+    };
+    FavorietenPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-favorieten',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\favorieten\favorieten.html"*/'<ion-header no-border-bottom>\n\n    <ion-navbar>\n\n        <button ion-button menuToggle right class="fakeCenter">\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title>Favorieten</ion-title>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-grid>\n\n        <ion-col>\n\n            <ion-row>\n\n                <ion-card *ngFor="let item of likedarticles" col-md-6 class="cardFavorieten">\n\n                    <!-- Images van nieuwsfeed -->\n\n                    <div class="ion-card-image-wrapper" (click)="viewEntry({ record: item })">\n\n                        <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">\n\n                        <img [src]="item.image" *ngIf="item.site == \'NOS.nl\'">\n\n                        <img [src]="item.image" *ngIf="item.site != \'NOS.nl\' || item.site != \'NU.nl\'">\n\n                    </div>\n\n                    <ion-card-content>\n\n                        <!-- Avatar -->\n\n                        <div id="AvatarFeed" (click)="viewEntry({ record: item })">\n\n                            <ion-avatar *ngIf="item.site == \'NOS\' && currentTheme == \'light-theme\'" class="avatar" item-start>\n\n                                <img src="../assets/svg/NOS_logo.svg" class="avatar-feedNOS"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'NOS\' && currentTheme == \'dark-theme\'" class="avatar" item-start>\n\n                                <img src="../assets/svg/NOS_logo_Wit.svg" class="avatar-feedNOS"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'De Telegraaf\' && currentTheme == \'light-theme\'" class="avatar" item-start>\n\n                                <img src="../assets/svg/Telegraaf.svg" class="avatar-feedTelegraaf"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'De Telegraaf\' && currentTheme == \'dark-theme\'" class="avatar" item-start>\n\n                                <img src="../assets/svg/Telegraaf_Wit.svg" class="avatar-feedTelegraaf"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'NU.nl\'" class="avatar" item-start>\n\n                                <img src="../assets/svg/nu.nl.svg" class="avatar-feed"/>\n\n                            </ion-avatar>\n\n                        </div>\n\n                        <!-- Uitgever -->\n\n                        <div id="uitgeverFeed" (click)="viewEntry({ record: item })">\n\n                            <div class="uitgeverFeed" *ngIf="item.site == \'De Telegraaf\' || item.site == \'NOS\'">{{item.site}}</div>\n\n                            <div class="uitgeverFeedNU" *ngIf="item.site == \'NU.nl\'">{{item.site}}</div>\n\n                            <!-- Title  -->\n\n                            <div id="title">\n\n                                <ion-card-title class="TitleFeed">\n\n                                    <strong>{{item.title}}</strong>\n\n                                </ion-card-title>\n\n                            </div>\n\n                            <!-- description  -->\n\n                            <div id="description">\n\n                                <p class="descriptionFeed">{{htmlToPlaintext(item.description) |\n\n                                    slice:0:120}}...</p>\n\n                            </div>\n\n                            <!-- Datum -->\n\n                            <div id="datumFeed" class="datumFeed">\n\n                                <span>{{item.datum}}</span>\n\n                            </div>\n\n                        </div>\n\n                        <!-- Social Buttons - Comments - likes - Share -->\n\n                        <div id="socialLikeComments" class="socialLikeComments">\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\' && rol == 1"\n\n                                    class="socialTelegraafShare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NOS\' && rol == 1"\n\n                                    class="socialNOSShare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\' && rol == 1"\n\n                                    class="socialNuShare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\'"\n\n                                    class="socialTelegraafShare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NOS\'" class="socialNOSShare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\'" class="socialNuShare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <button class="socialTelegraaf" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'De Telegraaf\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="darkHeartOutline"></ion-icon>\n\n                                <div>{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialNOS" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'NOS\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="darkHeartOutline"></ion-icon>\n\n                                <div>{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialNu" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'NU.nl\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="darkHeartOutline"></ion-icon>\n\n                                <div>{{item.likes}}</div>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\'"\n\n                                    class="socialTelegraaf" (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatTelegraaf"></ion-icon>\n\n                                <div>{{item.comments}}</div>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NOS\'" class="socialNOS"\n\n                                    (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatNOS"></ion-icon>\n\n                                <div>{{item.comments}}</div>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\'" class="socialNu"\n\n                                    (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatNU"></ion-icon>\n\n                                <div>{{item.comments}}</div>\n\n                            </button>\n\n                            <button class="socialTelegraaf" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'De Telegraaf\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="darkHeartFull"></ion-icon>\n\n                                <div>{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialNOS" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'NOS\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="darkHeartFull"></ion-icon>\n\n                                <div>{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialNu" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'NU.nl\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="darkHeartFull"></ion-icon>\n\n                                <div>{{item.likes}}</div>\n\n                            </button>\n\n                        </div>\n\n                    </ion-card-content>\n\n                </ion-card>\n\n            </ion-row>\n\n        </ion-col>\n\n    </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\favorieten\favorieten.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* ToastController */]])
+    ], FavorietenPage);
+    return FavorietenPage;
+}());
+
+//# sourceMappingURL=favorieten.js.map
+
+/***/ }),
+
+/***/ 391:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LijstweerPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var LijstweerPage = /** @class */ (function () {
+    function LijstweerPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.lijst = [];
+        this.lijstbackup = [];
+        this.lijst = [
+            { title: 'One' },
+            { title: 'Two' },
+            { title: 'Three' },
+            { title: 'Four' },
+            { title: 'Five' },
+            { title: 'Six' }
+        ];
+        this.lijstbackup = [
+            { title: 'One' },
+            { title: 'Two' },
+            { title: 'Three' },
+            { title: 'Four' },
+            { title: 'Five' },
+            { title: 'Six' }
+        ];
+    }
+    // Zoek functie
+    LijstweerPage.prototype.search = function (event) {
+        var serVal = event.target.value;
+        if (serVal && serVal.trim() != '') {
+            this.lijst = this.lijst.filter(function (item) {
+                return (item.title.toLowerCase().indexOf(serVal.toLowerCase()) > -1);
+            });
+        }
+        else {
+            this.lijst = this.lijstbackup;
+        }
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('searchbar'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* Searchbar */])
+    ], LijstweerPage.prototype, "searchbar", void 0);
+    LijstweerPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-lijstweer',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\lijstweer\lijstweer.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <ion-title class="lijstPadding">Lijst</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-searchbar\n\n        #searchbar\n\n        [(ngModel)]="myInput"\n\n        [showCancelButton]="shouldShowCancel"\n\n        (ionInput)="search($event)"\n\n        (ionCancel)="resetChanges()"\n\n        (ionClear)="clearItems()" placeholder="Waar zijn we naar op zoek?" class="searchbarLijstWeer">\n\n    </ion-searchbar>\n\n\n\n    <ion-list>\n\n        <ion-item *ngFor="let lijstje of lijst" class="lijstItem">\n\n            {{lijstje.title}}\n\n        </ion-item>\n\n\n\n    </ion-list>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\lijstweer\lijstweer.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */]])
+    ], LijstweerPage);
+    return LijstweerPage;
+}());
+
+//# sourceMappingURL=lijstweer.js.map
+
+/***/ }),
+
+/***/ 392:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(393);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(397);
+
+
+Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
+//# sourceMappingURL=main.js.map
+
+/***/ }),
+
+/***/ 397:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(387);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(388);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(723);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_settings_settings__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_network__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_in_app_browser__ = __webpack_require__(337);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_screen_orientation__ = __webpack_require__(141);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_header_color__ = __webpack_require__(724);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_file__ = __webpack_require__(725);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_file_transfer__ = __webpack_require__(726);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_camera__ = __webpack_require__(328);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_geolocation__ = __webpack_require__(326);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_photo_viewer__ = __webpack_require__(329);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_home_home__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_settings_settings__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_sources_sources__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_profiel_profiel__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_sport_sport__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_economie_economie__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_auto_auto__ = __webpack_require__(145);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_misdaad_misdaad__ = __webpack_require__(147);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_tech_tech__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_admin_admin__ = __webpack_require__(122);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_about_about__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_comments_comments__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_vermaak_vermaak__ = __webpack_require__(151);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_wijzigwachtwoord_wijzigwachtwoord__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_nieuws_nieuws_module__ = __webpack_require__(336);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__angular_common_http__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__angular_forms__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__ionic_storage__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__pages_favorieten_favorieten_module__ = __webpack_require__(727);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__pages_feed_feed_module__ = __webpack_require__(334);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__pages_register_register_module__ = __webpack_require__(340);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__pages_tutorial_tutorial_module__ = __webpack_require__(345);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__pages_settings_settings_module__ = __webpack_require__(341);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__pages_sport_sport_module__ = __webpack_require__(343);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__pages_economie_economie_module__ = __webpack_require__(333);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__pages_auto_auto_module__ = __webpack_require__(331);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__pages_misdaad_misdaad_module__ = __webpack_require__(335);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__pages_tech_tech_module__ = __webpack_require__(344);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__pages_admin_admin_module__ = __webpack_require__(228);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__pages_sources_sources_module__ = __webpack_require__(342);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__pages_profiel_profiel_module__ = __webpack_require__(339);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__pages_about_about_module__ = __webpack_require__(231);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__pages_wijzigwachtwoord_wijzigwachtwoord_module__ = __webpack_require__(347);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__pages_comments_comments_module__ = __webpack_require__(332);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__pages_vermaak_vermaak_module__ = __webpack_require__(346);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__pages_privacybeleid_privacybeleid_module__ = __webpack_require__(338);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__providers_menu_menu__ = __webpack_require__(389);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__ionic_native_social_sharing__ = __webpack_require__(327);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+// Pages
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+// Modules
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+// Providers
+//
+
+
+var AppModule = /** @class */ (function () {
+    function AppModule() {
+    }
+    AppModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_home_home__["a" /* HomePage */]
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */], {
+                    mode: "md",
+                    scrollAssist: false,
+                    autoFocusAssist: false
+                }, {
+                    links: [
+                        { loadChildren: '../pages/admin/admin.module#AdminPageModule', name: 'AdminPage', segment: 'admin', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/about/about.module#AboutPageModule', name: 'AboutPage', segment: 'about', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/auto/auto.module#AutoPageModule', name: 'AutoPage', segment: 'auto', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/comments/comments.module#CommentsPageModule', name: 'CommentsPage', segment: 'comments', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/economie/economie.module#EconomiePageModule', name: 'EconomiePage', segment: 'economie', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/lijstweer/lijstweer.module#LijstweerPageModule', name: 'LijstweerPage', segment: 'lijstweer', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/feed/feed.module#FeedPageModule', name: 'FeedPage', segment: 'feed', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/misdaad/misdaad.module#MisdaadPageModule', name: 'MisdaadPage', segment: 'misdaad', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/nieuws/nieuws.module#NieuwsPageModule', name: 'NieuwsPage', segment: 'nieuws', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/privacybeleid/privacybeleid.module#PrivacybeleidPageModule', name: 'PrivacybeleidPage', segment: 'privacybeleid', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/profiel/profiel.module#ProfielPageModule', name: 'ProfielPage', segment: 'profiel', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/sources/sources.module#SourcesPageModule', name: 'SourcesPage', segment: 'sources', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/sport/sport.module#SportPageModule', name: 'SportPage', segment: 'sport', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/tech/tech.module#TechPageModule', name: 'TechPage', segment: 'tech', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/tutorial/tutorial.module#TutorialPageModule', name: 'TutorialPage', segment: 'tutorial', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/vermaak/vermaak.module#VermaakPageModule', name: 'VermaakPage', segment: 'vermaak', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/wijzigwachtwoord/wijzigwachtwoord.module#WijzigwachtwoordPageModule', name: 'WijzigwachtwoordPage', segment: 'wijzigwachtwoord', priority: 'low', defaultHistory: [] }
+                    ]
+                }),
+                __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+                __WEBPACK_IMPORTED_MODULE_31__angular_common_http__["b" /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_32__angular_forms__["f" /* ReactiveFormsModule */],
+                __WEBPACK_IMPORTED_MODULE_33__ionic_storage__["a" /* IonicStorageModule */].forRoot(),
+                __WEBPACK_IMPORTED_MODULE_34__pages_favorieten_favorieten_module__["a" /* FavorietenPageModule */],
+                __WEBPACK_IMPORTED_MODULE_35__pages_feed_feed_module__["FeedPageModule"],
+                __WEBPACK_IMPORTED_MODULE_36__pages_register_register_module__["RegisterPageModule"],
+                __WEBPACK_IMPORTED_MODULE_30__pages_nieuws_nieuws_module__["NieuwsPageModule"],
+                __WEBPACK_IMPORTED_MODULE_37__pages_tutorial_tutorial_module__["TutorialPageModule"],
+                __WEBPACK_IMPORTED_MODULE_38__pages_settings_settings_module__["SettingsPageModule"],
+                __WEBPACK_IMPORTED_MODULE_39__pages_sport_sport_module__["SportPageModule"],
+                __WEBPACK_IMPORTED_MODULE_40__pages_economie_economie_module__["EconomiePageModule"],
+                __WEBPACK_IMPORTED_MODULE_41__pages_auto_auto_module__["AutoPageModule"],
+                __WEBPACK_IMPORTED_MODULE_42__pages_misdaad_misdaad_module__["MisdaadPageModule"],
+                __WEBPACK_IMPORTED_MODULE_43__pages_tech_tech_module__["TechPageModule"],
+                __WEBPACK_IMPORTED_MODULE_44__pages_admin_admin_module__["AdminPageModule"],
+                __WEBPACK_IMPORTED_MODULE_45__pages_sources_sources_module__["SourcesPageModule"],
+                __WEBPACK_IMPORTED_MODULE_46__pages_profiel_profiel_module__["ProfielPageModule"],
+                __WEBPACK_IMPORTED_MODULE_47__pages_about_about_module__["AboutPageModule"],
+                __WEBPACK_IMPORTED_MODULE_49__pages_comments_comments_module__["CommentsPageModule"],
+                __WEBPACK_IMPORTED_MODULE_48__pages_wijzigwachtwoord_wijzigwachtwoord_module__["WijzigwachtwoordPageModule"],
+                __WEBPACK_IMPORTED_MODULE_50__pages_vermaak_vermaak_module__["VermaakPageModule"],
+                __WEBPACK_IMPORTED_MODULE_51__pages_privacybeleid_privacybeleid_module__["PrivacybeleidPageModule"]
+            ],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicApp */]],
+            entryComponents: [
+                __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_settings_settings__["a" /* SettingsPage */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_sport_sport__["a" /* SportPage */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_economie_economie__["a" /* EconomiePage */],
+                __WEBPACK_IMPORTED_MODULE_22__pages_auto_auto__["a" /* AutoPage */],
+                __WEBPACK_IMPORTED_MODULE_23__pages_misdaad_misdaad__["a" /* MisdaadPage */],
+                __WEBPACK_IMPORTED_MODULE_24__pages_tech_tech__["a" /* TechPage */],
+                __WEBPACK_IMPORTED_MODULE_25__pages_admin_admin__["a" /* AdminPage */],
+                __WEBPACK_IMPORTED_MODULE_18__pages_sources_sources__["a" /* SourcesPage */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_profiel_profiel__["a" /* ProfielPage */],
+                __WEBPACK_IMPORTED_MODULE_26__pages_about_about__["a" /* AboutPage */],
+                __WEBPACK_IMPORTED_MODULE_27__pages_comments_comments__["a" /* CommentsPage */],
+                __WEBPACK_IMPORTED_MODULE_29__pages_wijzigwachtwoord_wijzigwachtwoord__["a" /* WijzigwachtwoordPage */],
+                __WEBPACK_IMPORTED_MODULE_28__pages_vermaak_vermaak__["a" /* VermaakPage */]
+            ],
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */],
+                __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
+                __WEBPACK_IMPORTED_MODULE_31__angular_common_http__["b" /* HttpClientModule */],
+                { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* IonicErrorHandler */] },
+                __WEBPACK_IMPORTED_MODULE_6__providers_settings_settings__["a" /* SettingsProvider */],
+                __WEBPACK_IMPORTED_MODULE_7__ionic_native_network__["a" /* Network */],
+                __WEBPACK_IMPORTED_MODULE_6__providers_settings_settings__["a" /* SettingsProvider */],
+                __WEBPACK_IMPORTED_MODULE_8__ionic_native_in_app_browser__["a" /* InAppBrowser */],
+                __WEBPACK_IMPORTED_MODULE_9__ionic_native_screen_orientation__["a" /* ScreenOrientation */],
+                __WEBPACK_IMPORTED_MODULE_10__ionic_native_header_color__["a" /* HeaderColor */],
+                __WEBPACK_IMPORTED_MODULE_13__ionic_native_camera__["a" /* Camera */],
+                __WEBPACK_IMPORTED_MODULE_11__ionic_native_file__["a" /* File */],
+                __WEBPACK_IMPORTED_MODULE_12__ionic_native_file_transfer__["a" /* FileTransfer */],
+                __WEBPACK_IMPORTED_MODULE_52__providers_menu_menu__["a" /* MenuProvider */],
+                __WEBPACK_IMPORTED_MODULE_53__ionic_native_social_sharing__["a" /* SocialSharing */],
+                __WEBPACK_IMPORTED_MODULE_14__ionic_native_geolocation__["a" /* Geolocation */],
+                __WEBPACK_IMPORTED_MODULE_15__ionic_native_photo_viewer__["a" /* PhotoViewer */]
+            ]
+        })
+    ], AppModule);
+    return AppModule;
+}());
+
+//# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ 47:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SettingsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_settings_settings__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__admin_admin__ = __webpack_require__(122);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__profiel_profiel__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common_http__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__about_about__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__privacybeleid_privacybeleid__ = __webpack_require__(330);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+var SettingsPage = /** @class */ (function () {
+    function SettingsPage(settings, platform, navCtrl, alertCtrl, http, events) {
+        var _this = this;
+        this.settings = settings;
+        this.platform = platform;
+        this.navCtrl = navCtrl;
+        this.alertCtrl = alertCtrl;
+        this.http = http;
+        this.events = events;
+        this.theme = localStorage.getItem('themeColor');
+        this.timer = false;
+        this.settings.getActiveTheme().subscribe(function (val) { return _this.selectedTheme = val; });
+        if (this.theme == "light-theme") {
+            this.toggleStatus = false;
+            setTimeout(function () { return _this.timer = false; }, 3500);
+        }
+        else if (this.theme == "dark-theme") {
+            this.toggleStatus = true;
+            setTimeout(function () { return _this.timer = false; }, 3500);
+        }
+        var headers = new __WEBPACK_IMPORTED_MODULE_6__angular_common_http__["c" /* HttpHeaders */]();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        var options = { headers: headers };
+        var data = {
+            email: localStorage.getItem('userEmail'),
+        };
+        this.http.post('http://gazoh.net/getgebruiker.php', data, options)
+            .subscribe(function (data) {
+            _this.dataUser = data;
+            _this.username = _this.dataUser.username;
+            _this.userEmail = _this.dataUser.email;
+            _this.rol = _this.dataUser.rol;
+            _this.token = _this.dataUser.token;
+            _this.profilepicture = _this.dataUser.profilepicture;
+            _this.emailVerified = _this.dataUser.emailVerified;
+            _this.events.publish("username", _this.username);
+            _this.events.publish("profilepicture", _this.profilepicture);
+        });
+    }
+    SettingsPage.prototype.toggleAppTheme = function () {
+        if (this.selectedTheme == 'light-theme') {
+            this.settings.setActiveTheme('dark-theme');
+            localStorage.setItem("themeColor", this.selectedTheme);
+        }
+        else if (this.selectedTheme == 'dark-theme') {
+            this.settings.setActiveTheme('light-theme');
+            localStorage.setItem("themeColor", this.selectedTheme);
+        }
+    };
+    SettingsPage.prototype.openAdmin = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__admin_admin__["a" /* AdminPage */]);
+    };
+    SettingsPage.prototype.uitloggen = function () {
+        localStorage.removeItem('userId');
+        localStorage.removeItem('userName');
+        localStorage.removeItem('userEmail');
+        localStorage.removeItem('userEmailVerified');
+        localStorage.removeItem('userRole');
+        localStorage.removeItem('userCreationDate');
+        localStorage.removeItem('sessionToken');
+        localStorage.removeItem('profilePicture');
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */]);
+    };
+    SettingsPage.prototype.resendMail = function () {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_6__angular_common_http__["c" /* HttpHeaders */]();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        var options = { headers: headers };
+        var data = {
+            email: this.userEmail,
+            username: this.username,
+            token: this.token
+        };
+        this.http.post('http://gazoh.net/resendmail.php', data, options)
+            .subscribe(function (data) {
+            if (data == "email sent") {
+                var alert_1 = _this.alertCtrl.create({
+                    title: 'Email verstuurd',
+                    subTitle: 'De verificatiemail is opnieuw verstuurd naar: ' + _this.userEmail,
+                    buttons: ['Sluiten']
+                });
+                alert_1.present();
+            }
+        });
+    };
+    SettingsPage.prototype.rapporteer = function () {
+        var _this = this;
+        var prompt = this.alertCtrl.create({
+            title: 'Raporteer een probleem',
+            inputs: [
+                {
+                    name: 'onderwerp',
+                    placeholder: 'Onderwerp'
+                },
+                {
+                    name: 'bericht',
+                    placeholder: 'Omschrijf het probleem'
+                }
+            ],
+            buttons: [
+                {
+                    text: 'Annuleer',
+                    handler: function (data) {
+                    }
+                },
+                {
+                    text: 'Verstuur',
+                    handler: function (data) {
+                        _this.rapporteerProbleem(data);
+                    }
+                }
+            ]
+        });
+        prompt.present();
+    };
+    SettingsPage.prototype.goProfiel = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__profiel_profiel__["a" /* ProfielPage */]);
+    };
+    SettingsPage.prototype.privacyBeleid = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_8__privacybeleid_privacybeleid__["a" /* PrivacybeleidPage */]);
+    };
+    SettingsPage.prototype.rapporteerProbleem = function (data) {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_6__angular_common_http__["c" /* HttpHeaders */]();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        var options = { headers: headers };
+        this.http.post('http://gazoh.net/rapporteer.php', data, options).map(function (res) { return res; })
+            .subscribe(function (res) {
+            if (res == 'succes') {
+                var alert_2 = _this.alertCtrl.create({
+                    title: "Geslaagd",
+                    subTitle: "Uw probleem is gerapporteerd!",
+                    buttons: ['OK']
+                });
+                alert_2.present();
+            }
+        });
+        console.log('Probleem gerapporteerd ' + data);
+    };
+    SettingsPage.prototype.overOns = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__about_about__["a" /* AboutPage */]);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Nav */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Nav */])
+    ], SettingsPage.prototype, "nav", void 0);
+    SettingsPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-settings',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\settings\settings.html"*/'<ion-header no-border-bottom>\n\n    <ion-navbar>\n\n        <button ion-button menuToggle right class="fakeCenter">\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title>Instellingen</ion-title>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n\n\n    <ion-card *ngIf="emailVerified == 0" class="cardVerification">\n\n        <div class="containerVerification">\n\n            <ion-card-header class="verificationHeader">\n\n                <ion-icon name="alert" class="alertIcon"></ion-icon>\n\n                Verifieer je email\n\n            </ion-card-header>\n\n            <ion-card-content class="verificationContent">\n\n                <p class="emailVerificationText">Controleer uw e-mailadres en volg de instructies om uw account te verifiëren. Als u een e-mail niet hebt ontvangen of als het is verlopen, kunt u opnieuw een verzenden.</p>\n\n                <button ion-button block (click)="resendMail()" class="buttonStuurOpnieuwVerification"><span class="verifyText">Verifieer</span></button>\n\n            </ion-card-content>\n\n        </div>\n\n    </ion-card>\n\n    <ion-item class="" (click)="goProfiel()">\n\n        <ion-label class="DarkLabel">\n\n            <ion-icon name="person" class="iconInstellingen"></ion-icon>\n\n            Bewerk Profiel\n\n        </ion-label>\n\n    </ion-item>\n\n    <ion-item class="" (click)="rapporteer()">\n\n        <ion-label class="DarkLabel">\n\n            <ion-icon name="warning" class="iconInstellingen"></ion-icon>\n\n            Raporteer probleem\n\n        </ion-label>\n\n    </ion-item>\n\n    <ion-item class="" (click)="overOns()">\n\n        <ion-label class="DarkLabel">\n\n            <ion-icon name="contacts" class="iconInstellingen"></ion-icon>\n\n            Over ons\n\n        </ion-label>\n\n    </ion-item>\n\n    <ion-item class="">\n\n        <ion-label class="DarkLabel">\n\n            <ion-icon name="moon" class="iconInstellingen"></ion-icon>\n\n            Dark Theme\n\n        </ion-label>\n\n        <ion-toggle [(ngModel)]="toggleStatus" (ionChange)="toggleAppTheme()"></ion-toggle>\n\n    </ion-item>\n\n    <ion-item class="" (click)="privacyBeleid()">\n\n        <ion-label class="DarkLabel">\n\n            <ion-icon name="eye-off" class="iconInstellingen"></ion-icon>\n\n            Privacy Beleid\n\n        </ion-label>\n\n    </ion-item>\n\n    <ion-item class="" *ngIf="rol == 1" (click)="openAdmin()">\n\n        <ion-label class="DarkLabel">\n\n            <ion-icon name="construct" class="iconInstellingen"></ion-icon>\n\n            Admin panel\n\n        </ion-label>\n\n    </ion-item>\n\n    <ion-item class="" (click)="uitloggen()">\n\n        <ion-label class="DarkLabel">\n\n            <ion-icon name="log-out" class="iconInstellingen"></ion-icon>\n\n            Uitloggen\n\n        </ion-label>\n\n    </ion-item>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\settings\settings.html"*/,
+            providers: [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Nav */]]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_settings_settings__["a" /* SettingsProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* Platform */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_6__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */]])
+    ], SettingsPage);
+    return SettingsPage;
+}());
+
+//# sourceMappingURL=settings.js.map
+
+/***/ }),
+
+/***/ 48:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FeedPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_network__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__comments_comments__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__ = __webpack_require__(141);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_geolocation__ = __webpack_require__(326);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_social_sharing__ = __webpack_require__(327);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_storage__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_map__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__lijstweer_lijstweer__ = __webpack_require__(391);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var FeedPage = /** @class */ (function () {
+    // // weer
+    // public dag1NaarCelcius12uur: any;
+    // public dag1NaarCelcius15uur: any;
+    // public dag1NaarCelcius18uur: any;
+    // public dag1NaarCelcius21uur: any;
+    // public dag2NaarCelcius00uur: any;
+    // public dag2NaarCelcius03uur: any;
+    // public dag2NaarCelcius06uur: any;
+    // public dag2NaarCelcius09uur: any;
+    // public dag2NaarCelcius12uur: any;
+    // public dag2NaarCelcius15uur: any;
+    // public dag2NaarCelcius18uur: any;
+    // public dag2NaarCelcius21uur: any;
+    // public dag3NaarCelcius00uur: any;
+    // public dag3NaarCelcius03uur: any;
+    // public dag3NaarCelcius06uur: any;
+    // public dag3NaarCelcius09uur: any;
+    // public dag3NaarCelcius12uur: any;
+    // public dag3NaarCelcius15uur: any;
+    // public dag3NaarCelcius18uur: any;
+    // public dag3NaarCelcius21uur: any;
+    // public dag4NaarCelcius00uur: any;
+    // public dag4NaarCelcius03uur: any;
+    // public dag4NaarCelcius06uur: any;
+    // public dag4NaarCelcius09uur: any;
+    // public dag4NaarCelcius12uur: any;
+    // public dag4NaarCelcius15uur: any;
+    // public dag4NaarCelcius18uur: any;
+    // public dag4NaarCelcius21uur: any;
+    // public dag5NaarCelcius00uur: any;
+    // public dag5NaarCelcius03uur: any;
+    // public dag5NaarCelcius06uur: any;
+    // public dag5NaarCelcius09uur: any;
+    // public dag5NaarCelcius12uur: any;
+    // public dag5NaarCelcius15uur: any;
+    // public dag5NaarCelcius18uur: any;
+    // public dag5NaarCelcius21uur: any;
+    // public dag1NaarCelcius12uurMathRound: any;
+    // public dag1NaarCelcius15uurMathRound: any;
+    // public dag1NaarCelcius18uurMathRound: any;
+    // public dag1NaarCelcius21uurMathRound: any;
+    // public dag2NaarCelcius00uurMathRound: any;
+    // public dag2NaarCelcius03uurMathRound: any;
+    // public dag2NaarCelcius06uurMathRound: any;
+    // public dag2NaarCelcius09uurMathRound: any;
+    // public dag2NaarCelcius12uurMathRound: any;
+    // public dag2NaarCelcius15uurMathRound: any;
+    // public dag2NaarCelcius18uurMathRound: any;
+    // public dag2NaarCelcius21uurMathRound: any;
+    // public dag3NaarCelcius00uurMathRound: any;
+    // public dag3NaarCelcius03uurMathRound: any;
+    // public dag3NaarCelcius06uurMathRound: any;
+    // public dag3NaarCelcius09uurMathRound: any;
+    // public dag3NaarCelcius12uurMathRound: any;
+    // public dag3NaarCelcius15uurMathRound: any;
+    // public dag3NaarCelcius18uurMathRound: any;
+    // public dag3NaarCelcius21uurMathRound: any;
+    // public dag4NaarCelcius00uurMathRound: any;
+    // public dag4NaarCelcius03uurMathRound: any;
+    // public dag4NaarCelcius06uurMathRound: any;
+    // public dag4NaarCelcius09uurMathRound: any;
+    // public dag4NaarCelcius12uurMathRound: any;
+    // public dag4NaarCelcius15uurMathRound: any;
+    // public dag4NaarCelcius18uurMathRound: any;
+    // public dag4NaarCelcius21uurMathRound: any;
+    // public dag5NaarCelcius00uurMathRound: any;
+    // public dag5NaarCelcius03uurMathRound: any;
+    // public dag5NaarCelcius06uurMathRound: any;
+    // public dag5NaarCelcius09uurMathRound: any;
+    // public dag5NaarCelcius12uurMathRound: any;
+    // public dag5NaarCelcius15uurMathRound: any;
+    // public dag5NaarCelcius18uurMathRound: any;
+    // public dag5NaarCelcius21uurMathRound: any;
+    // public dag1Weather12uur: any;
+    // public dag1Weather15uur: any;
+    // public dag1Weather18uur: any;
+    // public dag1Weather21uur: any;
+    // public dag1Weather12uurHumidity: any;
+    // public dag1Weather15uurHumidity: any;
+    // public dag1Weather18uurHumidity: any;
+    // public dag1Weather21uurHumidity: any;
+    // public windNaarKm12uurDag1;
+    // public windNaarKm15uurDag1;
+    // public windNaarKm18uurDag1;
+    // public windNaarKm21uurDag1;
+    // public windNaarKm12uurDag1MathRound;
+    // public windNaarKm15uurDag1MathRound;
+    // public windNaarKm18uurDag1MathRound;
+    // public windNaarKm21uurDag1MathRound;
+    // public dag1DatumTijd12uur: any;
+    // public dag1DatumTijd15uur: any;
+    // public dag1DatumTijd18uur: any;
+    // public dag1DatumTijd21uur: any;
+    //
+    // public plaatsnaam: any;
+    // public weather: string;
+    // public country: string;
+    // public weerSegment: any;
+    function FeedPage(navCtrl, navParams, menuCtrl, http, network, toastCtrl, loadingCtrl, platform, events, screenOrientation, alertCtrl, socialSharing, geolocation, storage) {
+        // // setSegment op vandaag op het weer.
+        // this.weerSegment = "weerVandaag";
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.menuCtrl = menuCtrl;
+        this.http = http;
+        this.network = network;
+        this.toastCtrl = toastCtrl;
+        this.loadingCtrl = loadingCtrl;
+        this.platform = platform;
+        this.events = events;
+        this.screenOrientation = screenOrientation;
+        this.alertCtrl = alertCtrl;
+        this.socialSharing = socialSharing;
+        this.geolocation = geolocation;
+        this.storage = storage;
+        this.items = 0;
+        this.key = "items";
+        this.isSearchbaropened = false;
+        this.shouldScrollDown = true;
+        this.showScrollButton = false;
+        this.disabled = false;
+        this.open = true;
+        this.open2 = true;
+        this.open3 = true;
+        this.open4 = true;
+        // Select Items
+        this.selectOptions = {
+            title: 'Bekijk'
+        };
+        //
+        if (this.platform.is('cordova')) {
+            this.platform.ready().then(function () {
+                // Checkt of je een token hebt of niet zo niet dan word je naar home page direct
+                if (!localStorage.getItem("sessionToken")) {
+                    var toastinlog = toastCtrl.create({
+                        message: "Geen sessie gevonden, log opnieuw in.",
+                        duration: 2500,
+                        position: "top",
+                        showCloseButton: true,
+                        closeButtonText: "OK"
+                    });
+                    _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
+                    toastinlog.present();
+                }
+            });
+        }
+        // screenOrientation kan draaien
+        this.screenOrientation.unlock();
+        if (this.network.type != "none") {
+            this.setOfflineDataToday();
+            this.setOfflineDataYesterday();
+            this.setOfflineData3DaysAgo();
+            this.datepicker = "vandaag";
+            if (this.datepicker == "vandaag") {
+                this.load();
+            }
+            else if (this.datepicker == "gisteren") {
+                this.loadYesterday();
+            }
+            else if (this.datepicker == "driedagengeleden") {
+                this.load3DaysAgo();
+            }
+            if (this.platform.is('cordova')) {
+                this.platform.ready().then(function () {
+                    // Checkt of je een token hebt of niet zo niet dan word je naar home page direct
+                    if (!localStorage.getItem("sessionToken")) {
+                        var toastinlog = toastCtrl.create({
+                            message: "Geen sessie gevonden, log opnieuw in.",
+                            duration: 2500,
+                            position: "top",
+                            showCloseButton: true,
+                            closeButtonText: "OK"
+                        });
+                        _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
+                        toastinlog.present();
+                    }
+                });
+            }
+            // Hij pakt alle rollen, usernames etc van de database
+            var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
+            headers.append("Accept", 'application/json');
+            headers.append('Content-Type', 'application/json');
+            var options = { headers: headers };
+            var data = {
+                email: localStorage.getItem('userEmail'),
+            };
+            this.http.post('http://gazoh.net/getgebruiker.php', data, options)
+                .subscribe(function (data) {
+                _this.dataUser = data;
+                _this.rol = _this.dataUser.rol;
+                _this.username = _this.dataUser.username;
+                _this.userId = _this.dataUser.id;
+                _this.profilepicture = _this.dataUser.profilepicture;
+                _this.events.publish("username", _this.username);
+                _this.events.publish("profilepicture", _this.profilepicture);
+            });
+        }
+        else if (this.network.type == 'none') {
+            this.datepicker = "vandaag";
+            var offlinealert = this.toastCtrl.create({
+                message: "Er is geen internet verbinding, opgeslagen artikelen worden ingeladen.",
+                duration: 2500,
+                position: "bottom"
+            });
+            offlinealert.present();
+            if (this.datepicker == "vandaag") {
+                this.storage.get("offlineDataToday").then(function (data) {
+                    _this.items = data;
+                    _this.artikelen = data;
+                    if (_this.items) {
+                        _this.items.sort(function (a, b) {
+                            return +new Date(b.datum) - +new Date(a.datum);
+                        });
+                    }
+                });
+            }
+            else if (this.datepicker == "gisteren") {
+                this.storage.get("offlineDataYesterday").then(function (data) {
+                    _this.items = data;
+                    _this.artikelen = data;
+                    if (_this.items) {
+                        _this.items.sort(function (a, b) {
+                            return +new Date(b.datum) - +new Date(a.datum);
+                        });
+                    }
+                });
+            }
+            else if (this.datepicker == "driedagengeleden") {
+                this.storage.get("offlineData3DaysAgo").then(function (data) {
+                    _this.items = data;
+                    _this.artikelen = data;
+                    if (_this.items) {
+                        _this.items.sort(function (a, b) {
+                            return +new Date(b.datum) - +new Date(a.datum);
+                        });
+                    }
+                });
+            }
+        }
+        if (localStorage.getItem("themeColor")) {
+            this.currentTheme = localStorage.getItem("themeColor");
+            console.log(this.currentTheme);
+        }
+    }
+    // ---------------------------------------------------------------------------------------------
+    // Hier eindigt de constructor
+    // ---------------------------------------------------------------------------------------------
+    //
+    FeedPage.prototype.onChange = function (SelectedValue) {
+        var _this = this;
+        SelectedValue = SelectedValue;
+        console.log(SelectedValue);
+        if (this.network.type != "none") {
+            if (this.datepicker == "vandaag") {
+                this.loadWithSpinner();
+                this.content.scrollToTop(0);
+            }
+            else if (this.datepicker == "gisteren") {
+                this.loadYesterday();
+                this.content.scrollToTop(0);
+            }
+            else if (this.datepicker == "driedagengeleden") {
+                this.load3DaysAgo();
+                this.content.scrollToTop(0);
+            } // else if (this.datepicker == "HetWeer") {
+            //     this.weerData();
+            // }
+        }
+        else if (this.network.type == "none") {
+            if (this.datepicker == "vandaag") {
+                this.storage.get("offlineDataToday").then(function (data) {
+                    _this.items = data;
+                    _this.artikelen = data;
+                    _this.content.scrollToTop(0);
+                    if (_this.items) {
+                        _this.items.sort(function (a, b) {
+                            return +new Date(b.datum) - +new Date(a.datum);
+                        });
+                    }
+                });
+            }
+            else if (this.datepicker == "gisteren") {
+                this.storage.get("offlineDataYesterday").then(function (data) {
+                    _this.items = data;
+                    _this.artikelen = data;
+                    _this.content.scrollToTop(0);
+                    if (_this.items) {
+                        _this.items.sort(function (a, b) {
+                            return +new Date(b.datum) - +new Date(a.datum);
+                        });
+                    }
+                });
+            }
+            else if (this.datepicker == "driedagengeleden") {
+                this.storage.get("offlineData3DaysAgo").then(function (data) {
+                    _this.items = data;
+                    _this.artikelen = data;
+                    _this.content.scrollToTop(0);
+                    if (_this.items) {
+                        _this.items.sort(function (a, b) {
+                            return +new Date(b.datum) - +new Date(a.datum);
+                        });
+                    }
+                });
+            }
+        }
+    };
+    // Alert of je de artikel wilt hiden
+    FeedPage.prototype.showConfirmHide = function (postId) {
+        var _this = this;
+        var confirm = this.alertCtrl.create({
+            title: 'Verbergen',
+            message: 'Weetje zeker dat je deze artikel wilt verbergen?',
+            buttons: [
+                {
+                    text: 'Niet Akkoord',
+                    handler: function () {
+                    }
+                },
+                {
+                    text: 'Akkoord',
+                    handler: function () {
+                        // Hide artikel
+                        console.log("Hide " + postId);
+                        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
+                        headers.append("Accept", 'application/json');
+                        headers.append('Content-Type', 'application/json');
+                        var options = { headers: headers };
+                        _this.http.post('http://gazoh.net/hidearticle.php', postId, options).subscribe(function (res) {
+                            if (res == "hidden") {
+                                if (_this.datepicker == "vandaag") {
+                                    _this.load();
+                                }
+                                else if (_this.datepicker == "gisteren") {
+                                    _this.loadYesterday();
+                                }
+                                else if (_this.datepicker == "driedagengeleden") {
+                                    _this.load3DaysAgo();
+                                }
+                                var toast = _this.toastCtrl.create({
+                                    message: "Artikel " + postId + " verborgen",
+                                    duration: 2500,
+                                    position: "top",
+                                    showCloseButton: true,
+                                    closeButtonText: "OK"
+                                });
+                                toast.present();
+                            }
+                        });
+                    }
+                }
+            ]
+        });
+        confirm.present();
+    };
+    FeedPage.prototype.ionViewWillEnter = function () {
+        var _this = this;
+        if (this.network.type != "none") {
+            if (this.datepicker == "vandaag") {
+                this.load();
+            }
+            else if (this.datepicker == "gisteren") {
+                this.loadYesterday();
+            }
+            else if (this.datepicker == "driedagengeleden") {
+                this.load3DaysAgo();
+            }
+        }
+        else if (this.network.type == "none") {
+            if (this.datepicker == "vandaag") {
+                this.storage.get("offlineDataToday").then(function (data) {
+                    _this.items = data;
+                    _this.artikelen = data;
+                    if (_this.items) {
+                        _this.items.sort(function (a, b) {
+                            return +new Date(b.datum) - +new Date(a.datum);
+                        });
+                    }
+                });
+            }
+            else if (this.datepicker == "gisteren") {
+                this.storage.get("offlineDataYesterday").then(function (data) {
+                    _this.items = data;
+                    _this.artikelen = data;
+                    if (_this.items) {
+                        _this.items.sort(function (a, b) {
+                            return +new Date(b.datum) - +new Date(a.datum);
+                        });
+                    }
+                });
+            }
+            else if (this.datepicker == "driedagengeleden") {
+                this.storage.get("offlineData3DaysAgo").then(function (data) {
+                    _this.items = data;
+                    _this.artikelen = data;
+                    if (_this.items) {
+                        _this.items.sort(function (a, b) {
+                            return +new Date(b.datum) - +new Date(a.datum);
+                        });
+                    }
+                });
+            }
+        }
+    };
+    // Custom Spinner loader
+    FeedPage.prototype.presentLoadingCustom = function () {
+        var loading = this.loadingCtrl.create({
+            spinner: 'hide',
+            content: "<div class=\"custom-spinner-container\"><img src=\"../assets/svg/spinner/tail-spin.svg\"><br> <p>Laden...</p>\n     </div>",
+            duration: 610
+        });
+        loading.present();
+    };
+    // Laad data pas zodra je bent ingelogt
+    FeedPage.prototype.loadData = function () {
+        localStorage.getItem(this.key);
+        if (this.key != null && this.key != undefined) {
+            this.items = JSON.parse(this.key);
+        }
+    };
+    //
+    FeedPage.prototype.htmlToPlaintext = function (text) {
+        return text ? String(text).replace(/<[^>]+>/gm, '') : '';
+    };
+    // Redirect to NieuwsPage
+    FeedPage.prototype.viewEntry = function (param) {
+        this.navCtrl.push('NieuwsPage', param);
+    };
+    // Doorverbinden naar de CommentsPage
+    FeedPage.prototype.viewComments = function (param) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__comments_comments__["a" /* CommentsPage */], param);
+    };
+    // Zoek functie
+    FeedPage.prototype.search = function (event) {
+        var serVal = event.target.value;
+        if (serVal && serVal.trim() != '') {
+            this.items = this.items.filter(function (item) {
+                return (item.title.toLowerCase().indexOf(serVal.toLowerCase()) > -1);
+            });
+            if (this.items.length < 1) {
+                this.items = this.artikelen.filter(function (item) {
+                    return (item.title.toLowerCase().indexOf(serVal.toLowerCase()) > -1);
+                });
+            }
+        }
+        else {
+            this.items = this.artikelen;
+        }
+    };
+    // Zodra je de searchbar canceled
+    FeedPage.prototype.resetChanges = function () {
+        if (this.network.type != "none") {
+            if (this.datepicker == "vandaag") {
+                this.load();
+                this.isSearchbaropened = false;
+            }
+            else if (this.datepicker == "gisteren") {
+                this.loadYesterday();
+                this.isSearchbaropened = false;
+            }
+            else if (this.datepicker == "driedagengeleden") {
+                this.load3DaysAgo();
+                this.isSearchbaropened = false;
+            }
+            else if (this.datepicker == "HetWeer") {
+                this.isSearchbaropened = false;
+            }
+        }
+        else {
+            this.items = this.artikelen;
+            this.isSearchbaropened = false;
+        }
+    };
+    // Zodra de pagina is geladen
+    FeedPage.prototype.ionViewDidLoad = function () {
+        this.menuCtrl.enable(true, 'myMenu');
+    };
+    // Segment Alle nieuws van Vandaag
+    FeedPage.prototype.load = function () {
+        var _this = this;
+        this.datepicker = "vandaag";
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        var options = { headers: headers };
+        var data = {
+            userId: localStorage.getItem('userId')
+        };
+        this.http
+            .post('http://gazoh.net/getdata2.php', data, options)
+            .subscribe(function (data) {
+            _this.items = data;
+            _this.artikelen = data;
+        }, function (error) {
+            var toast = _this.toastCtrl.create({
+                message: "Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",
+                duration: 3500,
+                position: "top"
+            });
+            toast.present();
+            console.log("Http error is: " + error);
+        });
+    };
+    FeedPage.prototype.loadWithSpinner = function () {
+        var _this = this;
+        this.datepicker = "vandaag";
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        var options = { headers: headers };
+        var data = {
+            userId: localStorage.getItem('userId')
+        };
+        this.http
+            .post('http://gazoh.net/getdata2.php', data, options)
+            .subscribe(function (data) {
+            _this.items = data;
+            _this.artikelen = data;
+            if (_this.items) {
+                _this.items.sort(function (a, b) {
+                    return +new Date(b.datum) - +new Date(a.datum);
+                });
+            }
+        }, function (error) {
+            var toast = _this.toastCtrl.create({
+                message: "Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",
+                duration: 3500,
+                position: "top"
+            });
+            toast.present();
+            console.log("Http error is: " + error);
+        });
+        this.presentLoadingCustom();
+    };
+    // Segment Alle nieuws van Gisteren
+    FeedPage.prototype.loadYesterday = function () {
+        var _this = this;
+        this.datepicker = "gisteren";
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        var options = { headers: headers };
+        var data = {
+            userId: localStorage.getItem('userId')
+        };
+        this.http
+            .post('http://gazoh.net/getyesterday.php', data, options)
+            .subscribe(function (data) {
+            _this.items = data;
+            _this.artikelen = data;
+            _this.items = data;
+            _this.artikelen = data;
+            if (_this.items) {
+                _this.items.sort(function (a, b) {
+                    return +new Date(b.datum) - +new Date(a.datum);
+                });
+            }
+        }, function (error) {
+            var toast = _this.toastCtrl.create({
+                message: "Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",
+                duration: 3500,
+                position: "top"
+            });
+            toast.present();
+            console.log("Http error is: " + error);
+        });
+        this.presentLoadingCustom();
+    };
+    // Segment Alle nieuws van Gisteren
+    FeedPage.prototype.load3DaysAgo = function () {
+        var _this = this;
+        this.datepicker = "driedagengeleden";
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        var options = { headers: headers };
+        var data = {
+            userId: localStorage.getItem('userId')
+        };
+        this.http
+            .post('http://gazoh.net/get3daysago.php', data, options)
+            .subscribe(function (data) {
+            _this.items = data;
+            _this.artikelen = data;
+            if (_this.items) {
+                _this.items.sort(function (a, b) {
+                    return +new Date(b.datum) - +new Date(a.datum);
+                });
+            }
+            else if (_this.artikelen) {
+                _this.artikelen.sort(function (a, b) {
+                    return +new Date(b.datum) - +new Date(a.datum);
+                });
+            }
+        }, function (error) {
+            var toast = _this.toastCtrl.create({
+                message: "Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",
+                duration: 3500,
+                position: "top"
+            });
+            toast.present();
+            console.log("Http error is: " + error);
+        });
+        this.presentLoadingCustom();
+    };
+    // De pull to refresh
+    FeedPage.prototype.doRefresh = function (refresher) {
+        var _this = this;
+        if (this.network.type != "none") {
+            if (this.datepicker == "vandaag") {
+                var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
+                headers.append("Accept", 'application/json');
+                headers.append('Content-Type', 'application/json');
+                var options = { headers: headers };
+                var data = {
+                    userId: localStorage.getItem('userId')
+                };
+                this.http
+                    .post('http://gazoh.net/getdata2.php', data, options)
+                    .subscribe(function (data) {
+                    _this.items = data;
+                    _this.artikelen = data;
+                    if (_this.items) {
+                        _this.items.sort(function (a, b) {
+                            return +new Date(b.datum) - +new Date(a.datum);
+                        });
+                    }
+                }, function (error) {
+                    var toast = _this.toastCtrl.create({
+                        message: "Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",
+                        duration: 3500,
+                        position: "top"
+                    });
+                    toast.present();
+                    console.log("Http error is: " + error);
+                });
+            }
+            else if (this.datepicker == "gisteren") {
+                this.http;
+                var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
+                headers.append("Accept", 'application/json');
+                headers.append('Content-Type', 'application/json');
+                var options = { headers: headers };
+                var data = {
+                    userId: localStorage.getItem('userId')
+                };
+                this.http
+                    .post('http://gazoh.net/getyesterday.php', data, options)
+                    .subscribe(function (data) {
+                    _this.items = data;
+                    _this.artikelen = data;
+                    if (_this.items) {
+                        _this.items.sort(function (a, b) {
+                            return +new Date(b.datum) - +new Date(a.datum);
+                        });
+                    }
+                }, function (error) {
+                    var toast = _this.toastCtrl.create({
+                        message: "Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",
+                        duration: 3500,
+                        position: "top"
+                    });
+                    toast.present();
+                    console.log("Http error is: " + error);
+                });
+            }
+            else if (this.datepicker == "driedagengeleden") {
+                var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
+                headers.append("Accept", 'application/json');
+                headers.append('Content-Type', 'application/json');
+                var options = { headers: headers };
+                var data = {
+                    userId: localStorage.getItem('userId')
+                };
+                this.http
+                    .post('http://gazoh.net/get3daysago.php', data, options)
+                    .subscribe(function (data) {
+                    _this.items = data;
+                    _this.artikelen = data;
+                    if (_this.items) {
+                        _this.items.sort(function (a, b) {
+                            return +new Date(b.datum) - +new Date(a.datum);
+                        });
+                    }
+                }, function (error) {
+                    var toast = _this.toastCtrl.create({
+                        message: "Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",
+                        duration: 3500,
+                        position: "top"
+                    });
+                    toast.present();
+                    console.log("Http error is: " + error);
+                });
+            }
+        }
+        setTimeout(function () {
+            console.log('Async operation has ended');
+            refresher.complete();
+        }, 2000);
+    };
+    FeedPage.prototype.setLike = function (articleId) {
+        var _this = this;
+        this.disabled = true;
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        var options = { headers: headers };
+        var data = {
+            articleId: articleId,
+            userId: this.userId
+        };
+        this.http.post('http://gazoh.net/setlike.php', data, options)
+            .subscribe(function (data) {
+            if (data == "liked") {
+                _this.disabled = false;
+                if (_this.datepicker == "vandaag") {
+                    _this.load();
+                }
+                else if (_this.datepicker == "gisteren") {
+                    _this.loadYesterday();
+                }
+                else if (_this.datepicker == "driedagengeleden") {
+                    _this.load3DaysAgo();
+                }
+                console.log(data);
+            }
+        });
+    };
+    FeedPage.prototype.shareInfo = function (articleTitle, articleImage, articleLink) {
+        this.socialSharing.share('Bekijk "' + articleTitle + '" via de Newsage app', "NewsAge", articleImage, articleLink);
+        //         then(() => {
+        //             alert("Sharing success");
+        //      Success!
+        //         }).catch(() => {
+        //      Error!
+        //             alert("Share failed");
+        //         });
+    };
+    //share voor feedpage
+    // share(){
+    //     this.socialSharing.shareWithOptions(options: {"Your Message", "image" , "link"})
+    //         .then(()=>{
+    //             console.log("WhatsApp share successful");
+    //         }).catch((err)=> {
+    //         console.log
+    //     });
+    //     this.socialSharing.shareViaWhatsApp("Your Message", "image" , "link")
+    //         .then(()=>{
+    //             console.log("WhatsApp share successful");
+    //         }).catch((err)=> {
+    //         console.log
+    //     });
+    //     this.socialSharing.shareViaFacebook("Hallo!", "Image", "Url")
+    //         .then(()=>{
+    //             console.log("Facebook share successful");
+    //         }).catch((err)=> {
+    //         console.log
+    //     });
+    // }
+    FeedPage.prototype.dislike = function (articleId, articleTitle) {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        var options = { headers: headers };
+        var data = {
+            articleId: articleId,
+            userId: this.userId
+        };
+        var alert = this.alertCtrl.create({
+            title: "Dislike",
+            message: "Weet je zeker dat je deze artikel wilt verwijderen uit je favorieten ?",
+            buttons: [
+                {
+                    text: 'Annuleer',
+                    handler: function () {
+                        return;
+                    }
+                },
+                {
+                    text: 'Verwijder',
+                    handler: function () {
+                        _this.http.post('http://gazoh.net/unlike.php', data, options)
+                            .subscribe(function (data) {
+                            if (data == "unliked") {
+                                var toast = _this.toastCtrl.create({
+                                    message: '"' + articleTitle + '"' + " is verwijderd uit je favorieten!",
+                                    duration: 2500,
+                                    position: "bottom"
+                                });
+                                toast.present();
+                                if (_this.datepicker == "vandaag") {
+                                    _this.load();
+                                }
+                                else if (_this.datepicker == "gisteren") {
+                                    _this.loadYesterday();
+                                }
+                                else if (_this.datepicker == "driedagengeleden") {
+                                    _this.load3DaysAgo();
+                                }
+                                console.log(data);
+                            }
+                        });
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    FeedPage.prototype.setOfflineDataToday = function () {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        var options = { headers: headers };
+        var data = {
+            userId: localStorage.getItem('userId')
+        };
+        this.http
+            .post('http://gazoh.net/getdata2.php', data, options)
+            .subscribe(function (data) {
+            console.log("Offline data set in storage: offlineDataToday");
+            _this.storage.set("offlineDataToday", data);
+        }, function (error) {
+            var toast = _this.toastCtrl.create({
+                message: "Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",
+                duration: 3500,
+                position: "top"
+            });
+            toast.present();
+            console.log("Http error is: " + error);
+        });
+    };
+    FeedPage.prototype.setOfflineDataYesterday = function () {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        var options = { headers: headers };
+        var data = {
+            userId: localStorage.getItem('userId')
+        };
+        this.http
+            .post('http://gazoh.net/getyesterday.php', data, options)
+            .subscribe(function (data) {
+            console.log("Offline data set in storage: offlineDataYesterday");
+            _this.storage.set("offlineDataYesterday", data);
+        }, function (error) {
+            var toast = _this.toastCtrl.create({
+                message: "Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",
+                duration: 3500,
+                position: "top"
+            });
+            toast.present();
+            console.log("Http error is: " + error);
+        });
+    };
+    FeedPage.prototype.setOfflineData3DaysAgo = function () {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        var options = { headers: headers };
+        var data = {
+            userId: localStorage.getItem('userId')
+        };
+        this.http
+            .post('http://gazoh.net/get3daysago.php', data, options)
+            .subscribe(function (data) {
+            console.log("Offline data set in storage: offlineData3DaysAgo");
+            _this.storage.set("offlineData3DaysAgo", data);
+        }, function (error) {
+            var toast = _this.toastCtrl.create({
+                message: "Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",
+                duration: 3500,
+                position: "top"
+            });
+            toast.present();
+            console.log("Http error is: " + error);
+        });
+    };
+    FeedPage.prototype.setHideArticle = function (postId) {
+        var _this = this;
+        console.log("Hide " + postId);
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        var options = { headers: headers };
+        this.http.post('http://gazoh.net/hidearticle.php', postId, options).subscribe(function (res) {
+            if (res == "hidden") {
+                var toast = _this.toastCtrl.create({
+                    message: "Artikel " + postId + " verborgen",
+                    duration: 2500,
+                    position: "top",
+                    showCloseButton: true,
+                    closeButtonText: "OK"
+                });
+                toast.present();
+            }
+        });
+    };
+    FeedPage.prototype.getOfflineDataToday = function () {
+        var _this = this;
+        this.datepicker = 'vandaag;';
+        this.storage.get('offlineDataVandaag').then(function (val) {
+            _this.items = val;
+            _this.artikelen = val;
+            if (_this.items) {
+                _this.items.sort(function (a, b) {
+                    return +new Date(b.datum) - +new Date(a.datum);
+                });
+            }
+            console.log('Data:' + val);
+            console.log('Offline data is imported.');
+        });
+    };
+    FeedPage.prototype.getOfflineDataYesterday = function () {
+        var _this = this;
+        this.datepicker = 'gisteren';
+        this.storage.get('offlineDataGisteren').then(function (val) {
+            _this.items = val;
+            _this.artikelen = val;
+            if (_this.items) {
+                _this.items.sort(function (a, b) {
+                    return +new Date(b.datum) - +new Date(a.datum);
+                });
+            }
+            console.log('Data:' + val);
+            console.log('Offline data is imported.');
+        });
+    };
+    FeedPage.prototype.getOfflineData3DaysAgo = function () {
+        var _this = this;
+        this.datepicker = 'driedagengeleden';
+        this.storage.get('offlineData3DagenGeleden').then(function (val) {
+            _this.items = val;
+            _this.artikelen = val;
+            if (_this.items) {
+                _this.items.sort(function (a, b) {
+                    return +new Date(b.datum) - +new Date(a.datum);
+                });
+            }
+            console.log('Data:' + val);
+            console.log('Offline data is imported.');
+        });
+    };
+    FeedPage.prototype.goLijstWeerPage = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_11__lijstweer_lijstweer__["a" /* LijstweerPage */]);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('searchbar'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* Searchbar */])
+    ], FeedPage.prototype, "searchbar", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Content */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Content */])
+    ], FeedPage.prototype, "content", void 0);
+    FeedPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-feed',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\feed\feed.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <button ion-button menuToggle *ngIf="!isSearchbaropened">\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title *ngIf="!isSearchbaropened" class="algemeenText">Algemeen</ion-title>\n\n        <!-- Searchbar  -->\n\n        <ion-searchbar #searchbar *ngIf="isSearchbaropened" [showCancelButton]="true" (ionCancel)="resetChanges()"\n\n                       (ionInput)="search($event)" placeholder="Waar zijn we naar op zoek?"\n\n                       class="slideInRight"></ion-searchbar>\n\n        <!-- Searchbar icon -->\n\n        <ion-buttons end\n\n                     *ngIf="this.datepicker == \'vandaag\' || this.datepicker == \'gisteren\' || this.datepicker == \'driedagengeleden\'">\n\n            <button ion-button icon-only (click)="isSearchbaropened=true">\n\n                <ion-icon name="search" *ngIf="!isSearchbaropened"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n        <ion-buttons end *ngIf="this.datepicker == \'HetWeer\'">\n\n            <button ion-button icon-only (click)="goLijstWeerPage()">\n\n                <ion-icon name="search"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n        <ion-buttons end *ngIf="!isSearchbaropened" class="moreFeed">\n\n            <ion-icon name="more"></ion-icon>\n\n            <ion-list class="listMore">\n\n                <ion-select #newSelect [(ngModel)]="datepicker" (ionChange)="onChange(datepicker)"\n\n                            [selectOptions]="selectOptions" cancelText="Annuleer" okText="Ok" class="SelectMore">\n\n                    <ion-option value="vandaag">Vandaag</ion-option>\n\n                    <ion-option value="gisteren">Gisteren</ion-option>\n\n                    <ion-option value="driedagengeleden">Drie dagen geleden</ion-option>\n\n                    <!--<ion-option value="HetWeer">Het weer</ion-option>-->\n\n                </ion-select>\n\n            </ion-list>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <!-- Swipe up refresher  -->\n\n    <ion-refresher (ionRefresh)="doRefresh($event)">\n\n        <ion-refresher-content pullingIcon="arrow-dropdown"\n\n                               pullingText="Sleep omlaag om te verversen"></ion-refresher-content>\n\n    </ion-refresher>\n\n    <!-- Grid -->\n\n    <ion-grid *ngIf="datepicker == \'vandaag\' || datepicker == \'gisteren\' || datepicker == \'driedagengeleden\'"\n\n              class="feedGrid">\n\n        <ion-col>\n\n            <ion-row>\n\n                <ion-card *ngFor="let item of items" col-md-6 class="ionCard">\n\n                    <!-- Images van nieuwsfeed -->\n\n                    <div class="ion-card-image-wrapper" (click)="viewEntry({ record: item })">\n\n                        <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">\n\n                        <img [src]="item.image" *ngIf="item.site == \'NOS.nl\'">\n\n                        <img [src]="item.image" *ngIf="item.site != \'NOS.nl\' || item.site != \'NU.nl\'">\n\n                    </div>\n\n                    <ion-card-content>\n\n                        <!-- Avatar -->\n\n                        <div id="AvatarFeed" (click)="viewEntry({ record: item })">\n\n                            <ion-avatar *ngIf="item.site == \'NOS\' && currentTheme == \'light-theme\'" class="avatar" item-start>\n\n                                <img src="../assets/svg/NOS_logo.svg" class="avatar-feedNOS"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'NOS\' && currentTheme == \'dark-theme\'" class="avatar" item-start>\n\n                                <img src="../assets/svg/NOS_logo_Wit.svg" class="avatar-feedNOS"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'De Telegraaf\' && currentTheme == \'light-theme\'" class="avatar" item-start>\n\n                                <img src="../assets/svg/Telegraaf.svg" class="avatar-feedTelegraaf"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'De Telegraaf\' && currentTheme == \'dark-theme\'" class="avatar" item-start>\n\n                                <img src="../assets/svg/Telegraaf_Wit.svg" class="avatar-feedTelegraaf"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'NU.nl\'" class="avatar" item-start>\n\n                                <img src="../assets/svg/nu.nl.svg" class="avatar-feed"/>\n\n                            </ion-avatar>\n\n                        </div>\n\n                        <!-- Uitgever -->\n\n                        <div id="uitgeverFeed" (click)="viewEntry({ record: item })">\n\n                            <div class="uitgeverFeed" *ngIf="item.site == \'De Telegraaf\' || item.site == \'NOS\'">{{item.site}}</div>\n\n                            <div class="uitgeverFeedNU" *ngIf="item.site == \'NU.nl\'">{{item.site}}</div>\n\n                            <!-- Title  -->\n\n                            <div id="title">\n\n                                <ion-card-title class="TitleFeed">\n\n                                    <strong>{{item.title}}</strong>\n\n                                </ion-card-title>\n\n                            </div>\n\n                            <!-- description  -->\n\n                            <div id="description">\n\n                                <p class="descriptionFeed">{{htmlToPlaintext(item.description) |\n\n                                    slice:0:120}}...</p>\n\n                            </div>\n\n                            <!-- Datum -->\n\n                            <div id="datumFeed" class="datumFeed">\n\n                                <span>{{item.datum}}</span>\n\n                            </div>\n\n                        </div>\n\n                        <!-- Social Buttons - Comments - likes - Share -->\n\n                        <div id="socialLikeComments" class="socialLikeComments">\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\' && rol == 1"\n\n                                    class="socialTelegraafShare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NOS\' && rol == 1"\n\n                                    class="socialNOSShare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\' && rol == 1"\n\n                                    class="socialNuShare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\'"\n\n                                    class="socialTelegraafShare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NOS\'" class="socialNOSShare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\'" class="socialNuShare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <button class="socialTelegraaf" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'De Telegraaf\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="darkHeartOutline"></ion-icon>\n\n                                <div>{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialNOS" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'NOS\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="darkHeartOutline"></ion-icon>\n\n                                <div>{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialNu" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'NU.nl\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="darkHeartOutline"></ion-icon>\n\n                                <div>{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialTelegraaf" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'De Telegraaf\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="darkHeartFull"></ion-icon>\n\n                                <div>{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialNOS" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'NOS\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="darkHeartFull"></ion-icon>\n\n                                <div>{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialNu" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'NU.nl\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="darkHeartFull"></ion-icon>\n\n                                <div>{{item.likes}}</div>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\'"\n\n                                    class="socialTelegraaf" (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatTelegraaf"></ion-icon>\n\n                                <div>{{item.comments}}</div>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NOS\'" class="socialNOS"\n\n                                    (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatNOS"></ion-icon>\n\n                                <div>{{item.comments}}</div>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\'" class="socialNu"\n\n                                    (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatNU"></ion-icon>\n\n                                <div>{{item.comments}}</div>\n\n                            </button>\n\n                        </div>\n\n                    </ion-card-content>\n\n                </ion-card>\n\n            </ion-row>\n\n        </ion-col>\n\n    </ion-grid>\n\n    <ion-grid *ngIf="datepicker == \'HetWeer\'">\n\n        <ion-col col-12>\n\n            <ion-row>\n\n                <ion-list>\n\n                    <ion-card class="weerCard">\n\n                        <div class="alignCenterWeer">\n\n                            <img *ngIf="dag1Weather12uur == \'light rain\'" src="../assets/imgs/Weer/lichtBewolkt.png"\n\n                                 alt="Zon">\n\n                            <img *ngIf="dag1Weather12uur == \'clear sky\'" src="../assets/imgs/Weer/clearSky.png"\n\n                                 alt="Zon">\n\n                            <img *ngIf="dag1Weather12uur == \'few clouds\'" src="../assets/imgs/Weer/lichtBewolkt.png"\n\n                                 alt="Bewolkt">\n\n                            <img *ngIf="dag1Weather12uur == \'broken clouds\'" src="../assets/imgs/Weer/lichtBewolkt.png"\n\n                                 alt="Bewolkt">\n\n                            <img *ngIf="dag1Weather12uur == \'scattered clouds\'"\n\n                                 src="../assets/imgs/Weer/zwaarBewolktMiddag.png" alt="Bewolkt">\n\n                            <img *ngIf="dag1Weather12uur == \'moderate rain\'"\n\n                                 src="../assets/imgs/Weer/zwaarBewolktMiddag.png" alt="Bewolkt">\n\n                        </div>\n\n                        <ion-card-content class="cardContentWeer">\n\n                            <!--Segmenten -->\n\n                            <ion-segment [(ngModel)]="weerSegment" color="darkAppKleur" class="weerSegmentZon">\n\n                                <ion-segment-button value="weerVandaag" id="weerVandaag" class="weatherLight">\n\n                                    <p class="segmentWeerVandaag">Vandaag</p>\n\n                                </ion-segment-button>\n\n                                <ion-segment-button value="weerWeek" id="weerWeek">\n\n                                    <p class="segmentWeerWeek">Week</p>\n\n                                </ion-segment-button>\n\n                            </ion-segment>\n\n                            <!-- Vandaag -->\n\n                            <div *ngIf="this.weerSegment == \'weerVandaag\'">\n\n                                <ion-row class="rowWeer">\n\n                                    <!-- 12:00-->\n\n                                    <button ion-item detail-none *ngIf="open" (click)="open=false">\n\n                                        <div class="buttonTijd">\n\n                                            <ion-icon item-left name="arrow-dropright"></ion-icon>\n\n                                            <span class="tijdWeer">{{this.dag1DatumTijd12uur}}</span>\n\n                                        </div>\n\n                                        <div class="gradenDiv">\n\n                                            <div class="graden">{{this.dag1NaarCelcius12uurMathRound}}° C</div>\n\n                                        </div>\n\n                                    </button>\n\n                                    <button ion-item detail-none *ngIf="!open" (click)="open=true">\n\n                                        <div class="buttonTijd">\n\n                                            <ion-icon item-left name="arrow-dropdown"></ion-icon>\n\n                                            <span class="tijdWeer">{{this.dag1DatumTijd12uur}}</span>\n\n                                        </div>\n\n                                        <div class="gradenDiv">\n\n                                            <div class="graden">{{this.dag1NaarCelcius12uurMathRound}}° C</div>\n\n                                        </div>\n\n                                    </button>\n\n                                    <!-- Uitklap -->\n\n                                    <div id="uitklap" class="uitklapMargin">\n\n                                        <ul *ngIf="!open" (click)="open=true" class="uitklapWeer">\n\n                                            <li class="spanClasses">Luchtvochtigheid</li>\n\n                                            <li class="spanClasses">Wind</li>\n\n                                            <li class="spanClasses">Weer</li>\n\n                                        </ul>\n\n                                        <ul *ngIf="!open" (click)="open=true" class="uitklapWeerAntwoorden">\n\n                                            <li>\n\n                                                <ion-badge class="badgeClasses">{{this.dag1Weather12uurHumidity}}%\n\n                                                </ion-badge>\n\n                                            </li>\n\n                                            <li>\n\n                                                <ion-badge class="badgeClasses">{{this.windNaarKm12uurDag1MathRound}}\n\n                                                    km/u\n\n                                                </ion-badge>\n\n                                            </li>\n\n                                            <li>\n\n\n\n                                                <ion-badge *ngIf="dag1Weather12uur == \'moderate rain\'"\n\n                                                           class="badgeClasses">Lichte regenbui\n\n                                                </ion-badge>\n\n                                                <ion-badge *ngIf="dag1Weather12uur == \'light rain\'"\n\n                                                           class="badgeClasses">Lichte regenbui\n\n                                                </ion-badge>\n\n                                                <ion-badge *ngIf="dag1Weather12uur == \'clear sky\'" class="badgeClasses">\n\n                                                    Heldere lucht\n\n                                                </ion-badge>\n\n                                                <ion-badge *ngIf="dag1Weather12uur == \'few clouds\'"\n\n                                                           class="badgeClasses">Gedeeltelijk <br><span\n\n                                                        class="bewolktSpan">bewolkt</span></ion-badge>\n\n                                                <ion-badge *ngIf="dag1Weather12uur == \'broken clouds\'"\n\n                                                           class="badgeClasses">Gedeeltelijk <br><span\n\n                                                        class="bewolktSpan">bewolkt</span></ion-badge>\n\n                                                <ion-badge *ngIf="dag1Weather12uur == \'scattered clouds\'"\n\n                                                           class="badgeClasses">Verspreide <br><span\n\n                                                        class="bewolktSpan">bewolking</span></ion-badge>\n\n                                            </li>\n\n                                        </ul>\n\n                                    </div>\n\n                                    <!-- 15:00-->\n\n                                    <button ion-item detail-none *ngIf="open2" (click)="open2=false">\n\n                                        <div class="buttonTijd">\n\n                                            <ion-icon item-left name="arrow-dropright"></ion-icon>\n\n                                            <span class="tijdWeer">{{this.dag1DatumTijd15uur}}</span>\n\n                                        </div>\n\n                                        <div class="gradenDiv">\n\n                                            <div class="graden">{{this.dag1NaarCelcius15uurMathRound}}° C</div>\n\n                                        </div>\n\n                                    </button>\n\n                                    <button ion-item detail-none *ngIf="!open2" (click)="open2=true">\n\n                                        <div class="buttonTijd">\n\n                                            <ion-icon item-left name="arrow-dropdown"></ion-icon>\n\n                                            <span class="tijdWeer">{{this.dag1DatumTijd15uur}}</span>\n\n                                        </div>\n\n                                        <div class="gradenDiv">\n\n                                            <div class="graden">{{this.dag1NaarCelcius15uurMathRound}}° C</div>\n\n                                        </div>\n\n                                    </button>\n\n                                    <!-- Uitklap -->\n\n                                    <div id="uitklap2" class="uitklapMargin">\n\n                                        <ul *ngIf="!open2" (click)="open2=true" class="uitklapWeer">\n\n                                            <li class="spanClasses">Luchtvochtigheid</li>\n\n                                            <li class="spanClasses">Wind</li>\n\n                                            <li class="spanClasses">Weer</li>\n\n                                        </ul>\n\n                                        <ul *ngIf="!open2" (click)="open2=true" class="uitklapWeerAntwoorden">\n\n                                            <li>\n\n                                                <ion-badge class="badgeClasses">{{this.dag1Weather15uurHumidity}}%\n\n                                                </ion-badge>\n\n                                            </li>\n\n                                            <li>\n\n                                                <ion-badge class="badgeClasses">{{this.windNaarKm15uurDag1MathRound}}\n\n                                                    km/u\n\n                                                </ion-badge>\n\n                                            </li>\n\n                                            <li>\n\n                                                <ion-badge *ngIf="dag1Weather15uur == \'moderate rain\'"\n\n                                                           class="badgeClasses">Lichte regenbui\n\n                                                </ion-badge>\n\n                                                <ion-badge *ngIf="dag1Weather15uur == \'light rain\'"\n\n                                                           class="badgeClasses">Lichte regenbui\n\n                                                </ion-badge>\n\n                                                <ion-badge *ngIf="dag1Weather15uur == \'clear sky\'" class="badgeClasses">\n\n                                                    Heldere lucht\n\n                                                </ion-badge>\n\n                                                <ion-badge *ngIf="dag1Weather15uur == \'few clouds\'"\n\n                                                           class="badgeClasses">Gedeeltelijk <br><span\n\n                                                        class="bewolktSpan">bewolkt</span></ion-badge>\n\n                                                <ion-badge *ngIf="dag1Weather15uur == \'broken clouds\'"\n\n                                                           class="badgeClasses">Gedeeltelijk <br><span\n\n                                                        class="bewolktSpan">bewolkt</span></ion-badge>\n\n                                                <ion-badge *ngIf="dag1Weather15uur == \'scattered clouds\'"\n\n                                                           class="badgeClasses">Verspreide <br><span\n\n                                                        class="bewolktSpan">bewolking</span></ion-badge>\n\n                                            </li>\n\n                                        </ul>\n\n                                    </div>\n\n                                    <!-- 18:00-->\n\n                                    <button ion-item detail-none *ngIf="open3" (click)="open3=false">\n\n                                        <div class="buttonTijd">\n\n                                            <ion-icon item-left name="arrow-dropright"></ion-icon>\n\n                                            <span class="tijdWeer">{{this.dag1DatumTijd18uur}}</span>\n\n                                        </div>\n\n                                        <div class="gradenDiv">\n\n                                            <div class="graden">{{this.dag1NaarCelcius18uurMathRound}}° C</div>\n\n                                        </div>\n\n                                    </button>\n\n                                    <button ion-item detail-none *ngIf="!open3" (click)="open3=true">\n\n                                        <div class="buttonTijd">\n\n                                            <ion-icon item-left name="arrow-dropdown"></ion-icon>\n\n                                            <span class="tijdWeer">{{this.dag1DatumTijd18uur}}</span>\n\n                                        </div>\n\n                                        <div class="gradenDiv">\n\n                                            <div class="graden">{{this.dag1NaarCelcius18uurMathRound}}° C</div>\n\n                                        </div>\n\n                                    </button>\n\n                                    <!-- Uitklap -->\n\n                                    <div id="uitklap3" class="uitklapMargin">\n\n                                        <ul *ngIf="!open3" (click)="open3=true" class="uitklapWeer">\n\n                                            <li class="spanClasses">Luchtvochtigheid</li>\n\n                                            <li class="spanClasses">Wind</li>\n\n                                            <li class="spanClasses">Weer</li>\n\n                                        </ul>\n\n                                        <ul *ngIf="!open3" (click)="open3=true" class="uitklapWeerAntwoorden">\n\n                                            <li>\n\n                                                <ion-badge class="badgeClasses">{{this.dag1Weather18uurHumidity}}%\n\n                                                </ion-badge>\n\n                                            </li>\n\n                                            <li>\n\n                                                <ion-badge class="badgeClasses">{{this.windNaarKm18uurDag1MathRound}}\n\n                                                    km/u\n\n                                                </ion-badge>\n\n                                            </li>\n\n                                            <li>\n\n                                                <ion-badge *ngIf="dag1Weather18uur == \'moderate rain\'"\n\n                                                           class="badgeClasses">Lichte regenbui\n\n                                                </ion-badge>\n\n                                                <ion-badge *ngIf="dag1Weather18uur == \'light rain\'"\n\n                                                           class="badgeClasses">Lichte regenbui\n\n                                                </ion-badge>\n\n                                                <ion-badge *ngIf="dag1Weather18uur == \'clear sky\'" class="badgeClasses">\n\n                                                    Heldere lucht\n\n                                                </ion-badge>\n\n                                                <ion-badge *ngIf="dag1Weather18uur == \'few clouds\'"\n\n                                                           class="badgeClasses">Gedeeltelijk <br><span\n\n                                                        class="bewolktSpan">bewolkt</span></ion-badge>\n\n                                                <ion-badge *ngIf="dag1Weather18uur == \'broken clouds\'"\n\n                                                           class="badgeClasses">Gedeeltelijk <br><span\n\n                                                        class="bewolktSpan">bewolkt</span></ion-badge>\n\n                                                <ion-badge *ngIf="dag1Weather18uur == \'scattered clouds\'"\n\n                                                           class="badgeClasses">Verspreide <br><span\n\n                                                        class="bewolktSpan">bewolking</span></ion-badge>\n\n                                            </li>\n\n                                        </ul>\n\n                                    </div>\n\n                                    <!-- 21:00-->\n\n                                    <button ion-item detail-none *ngIf="open4" (click)="open4=false">\n\n                                        <div class="buttonTijd">\n\n                                            <ion-icon item-left name="arrow-dropright"></ion-icon>\n\n                                            <span class="tijdWeer">{{this.dag1DatumTijd21uur}}</span>\n\n                                        </div>\n\n                                        <div class="gradenDiv">\n\n                                            <div class="graden">{{this.dag1NaarCelcius21uurMathRound}}° C</div>\n\n                                        </div>\n\n                                    </button>\n\n                                    <button ion-item detail-none *ngIf="!open4" (click)="open4=true">\n\n                                        <div class="buttonTijd">\n\n                                            <ion-icon item-left name="arrow-dropdown"></ion-icon>\n\n                                            <span class="tijdWeer">{{this.dag1DatumTijd21uur}}</span>\n\n                                        </div>\n\n                                        <div class="gradenDiv">\n\n                                            <div class="graden">{{this.dag1NaarCelcius21uurMathRound}}° C</div>\n\n                                        </div>\n\n                                    </button>\n\n                                    <!-- Uitklap -->\n\n                                    <div id="uitklap4" class="uitklapMargin">\n\n                                        <ul *ngIf="!open4" (click)="open4=true" class="uitklapWeer">\n\n                                            <li class="spanClasses">Luchtvochtigheid</li>\n\n                                            <li class="spanClasses">Wind</li>\n\n                                            <li class="spanClasses">Weer</li>\n\n                                        </ul>\n\n                                        <ul *ngIf="!open4" (click)="open4=true" class="uitklapWeerAntwoorden">\n\n                                            <li>\n\n                                                <ion-badge class="badgeClasses">{{this.dag1Weather21uurHumidity}}%\n\n                                                </ion-badge>\n\n                                            </li>\n\n                                            <li>\n\n                                                <ion-badge class="badgeClasses">{{this.windNaarKm21uurDag1MathRound}}\n\n                                                    km/u\n\n                                                </ion-badge>\n\n                                            </li>\n\n                                            <li>\n\n                                                <ion-badge *ngIf="dag1Weather21uur == \'light rain\'"\n\n                                                           class="badgeClasses">Lichte regenbui\n\n                                                </ion-badge>\n\n                                                <ion-badge *ngIf="dag1Weather21uur == \'clear sky\'" class="badgeClasses">\n\n                                                    Heldere lucht\n\n                                                </ion-badge>\n\n                                                <ion-badge *ngIf="dag1Weather21uur == \'moderate rain\'"\n\n                                                           class="badgeClasses">Lichte regenbui\n\n                                                </ion-badge>\n\n                                                <ion-badge *ngIf="dag1Weather21uur == \'few clouds\'"\n\n                                                           class="badgeClasses">Gedeeltelijk <br><span\n\n                                                        class="bewolktSpan">bewolkt</span></ion-badge>\n\n                                                <ion-badge *ngIf="dag1Weather21uur == \'broken clouds\'"\n\n                                                           class="badgeClasses">Gedeeltelijk <br><span\n\n                                                        class="bewolktSpan">bewolkt</span></ion-badge>\n\n                                                <ion-badge *ngIf="dag1Weather21uur == \'scattered clouds\'"\n\n                                                           class="badgeClasses">Verspreide <br><span\n\n                                                        class="bewolktSpan">bewolking</span></ion-badge>\n\n                                            </li>\n\n                                        </ul>\n\n                                    </div>\n\n                                </ion-row>\n\n                            </div>\n\n                            <!-- Hele Week -->\n\n                            <div *ngIf="this.weerSegment == \'weerWeek\'">\n\n                                <ion-row class="rowWeer">\n\n                                    <button ion-item detail-none *ngIf="open" (click)="open=false">\n\n                                        <ion-icon item-left name="arrow-dropright"></ion-icon>\n\n                                        Test\n\n                                    </button>\n\n                                    <button ion-item detail-none *ngIf="!open" (click)="open=true">\n\n                                        <ion-icon item-left name="arrow-dropdown"></ion-icon>\n\n                                        Test\n\n                                    </button>\n\n                                </ion-row>\n\n                            </div>\n\n                        </ion-card-content>\n\n                    </ion-card>\n\n                </ion-list>\n\n            </ion-row>\n\n        </ion-col>\n\n    </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\feed\feed.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* MenuController */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_3__ionic_native_network__["a" /* Network */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* Platform */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */],
+            __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__["a" /* ScreenOrientation */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_8__ionic_native_social_sharing__["a" /* SocialSharing */],
+            __WEBPACK_IMPORTED_MODULE_7__ionic_native_geolocation__["a" /* Geolocation */],
+            __WEBPACK_IMPORTED_MODULE_9__ionic_storage__["b" /* Storage */]])
+    ], FeedPage);
+    return FeedPage;
+}());
+
+//# sourceMappingURL=feed.js.map
+
+/***/ }),
+
+/***/ 67:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__register_register__ = __webpack_require__(324);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__feed_feed__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__ = __webpack_require__(141);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_keyboard__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_storage__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__tutorial_tutorial__ = __webpack_require__(142);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_settings_settings__ = __webpack_require__(78);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var HomePage = /** @class */ (function () {
+    function HomePage(navCtrl, loading, http, toastCtrl, menuCtrl, events, screenOrientation, platform, keyboard, storage, settings) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.loading = loading;
+        this.http = http;
+        this.toastCtrl = toastCtrl;
+        this.menuCtrl = menuCtrl;
+        this.events = events;
+        this.screenOrientation = screenOrientation;
+        this.platform = platform;
+        this.keyboard = keyboard;
+        this.storage = storage;
+        this.settings = settings;
+        this.token = Math.random().toString(36).substring(7);
+        this.rootPage = HomePage_1;
+        this.FeedPage = __WEBPACK_IMPORTED_MODULE_5__feed_feed__["a" /* FeedPage */];
+        // Zodra cordova is opgestart orientate je scherm naar potrait op HomePage
+        if (this.platform.is('cordova')) {
+            this.platform.ready().then(function () {
+                _this.screenOrientation.lock(_this.screenOrientation.ORIENTATIONS.PORTRAIT);
+                // Checked of je bent ingelogt of niet
+                if (localStorage.getItem("sessionToken")) {
+                    _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__feed_feed__["a" /* FeedPage */]);
+                }
+            });
+        }
+        // Keyboard niet laten scrollen
+        this.keyboard.disableScroll(true);
+        // Disable swiping
+        this.menuCtrl.enable(false, 'myMenu');
+        // -------------------------------------
+        // Get Active theme dark/light
+        // -------------------------------------
+        this.settings.getActiveTheme().subscribe(function (val) { return _this.selectedTheme = val; });
+    }
+    HomePage_1 = HomePage;
+    // ---------------------------------------------------------------------------------------------
+    // Hier eindigt de constructor
+    // ---------------------------------------------------------------------------------------------
+    //
+    // Push naar de register pagina
+    HomePage.prototype.goRegister = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__register_register__["a" /* RegisterPage */]);
+    };
+    // Checkt in database of je gegevens kloppen dan word je naar feedpagina gegooit
+    HomePage.prototype.signIn = function () {
+        var _this = this;
+        // Controleert of de velden wel zijn ingevuld
+        if (this.email == null || this.password == null) {
+            var toast = this.toastCtrl.create({
+                message: 'Niet alle velden zijn ingevuld!',
+                duration: 3000,
+                position: 'top'
+            });
+            toast.present();
+        }
+        else {
+            var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["c" /* HttpHeaders */]();
+            headers.append("Accept", 'application/json');
+            headers.append('Content-Type', 'application/json');
+            var options_1 = { headers: headers };
+            var data_1 = {
+                email: this.email,
+                password: this.password
+            };
+            var loader_1 = this.loading.create({
+                content: 'Aan het inloggen...',
+            });
+            loader_1.present().then(function () {
+                // Maakt verbinding met login.php en checkt of gegevens kloppen
+                _this.http.post('http://www.gazoh.net/getgebruiker.php', data_1, options_1)
+                    .subscribe(function (data) {
+                    _this.dataUser = data;
+                });
+                _this.http.post('http://www.gazoh.net/login.php', data_1, options_1)
+                    .subscribe(function (res) {
+                    console.log(res);
+                    loader_1.dismiss();
+                    if (res == "Succesfully logged in!") {
+                        // Localstorage Gebruikersdetails
+                        localStorage.setItem("userId", _this.dataUser.id);
+                        localStorage.setItem("userName", _this.dataUser.username);
+                        localStorage.setItem("userEmail", _this.dataUser.email);
+                        localStorage.setItem("userEmailVerified", _this.dataUser.emailVerified);
+                        localStorage.setItem("userRole", _this.dataUser.rol);
+                        localStorage.setItem("userCreationDate", _this.dataUser.creationdate);
+                        localStorage.setItem("sessionToken", _this.token);
+                        localStorage.setItem("profilePicture", _this.dataUser.profilepicture);
+                        localStorage.setItem("themeColor", _this.selectedTheme);
+                        console.log(_this.selectedTheme);
+                        if (localStorage.getItem("TutorialShown") != "true") {
+                            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_9__tutorial_tutorial__["a" /* TutorialPage */]);
+                        }
+                        else if (localStorage.getItem("TutorialShown") == "true") {
+                            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__feed_feed__["a" /* FeedPage */]);
+                        }
+                        // //Fire username event
+                        _this.events.publish("username", _this.dataUser.username);
+                        _this.events.publish("profilepicture", _this.dataUser.profilepicture);
+                    }
+                    else {
+                        var toast = _this.toastCtrl.create({
+                            message: "Uw gegevens zijn onjuist, probeer het nogmaals.",
+                            showCloseButton: true,
+                            closeButtonText: "OK",
+                            position: "top"
+                        });
+                        toast.present();
+                    }
+                });
+            });
+        }
+    };
+    HomePage = HomePage_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-home',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\home\home.html"*/'<ion-content>\n\n    <ion-grid style="height: 100%" class="gridPadding">\n\n        <ion-row justify-content-center align-items-center style="height: 100%">\n\n            <ion-col col-12>\n\n                <div class="ValidatieText">\n\n                    <h2 class="welkomLogo"></h2>\n\n                </div>\n\n                <div class="ValidatieLogin">\n\n                    <ion-item class="darkThemeLogin">\n\n                        <ion-label color="primary" stacked>Email</ion-label>\n\n                        <ion-input type="email" [(ngModel)]="email"></ion-input>\n\n                    </ion-item>\n\n                    <ion-item class="darkThemeLogin">\n\n                        <ion-label color="primary" stacked>Wachtwoord</ion-label>\n\n                        <ion-input type="password" [(ngModel)]="password"></ion-input>\n\n                    </ion-item>\n\n                    <br>\n\n                    <div class="Validatie2Login">\n\n                        <button ion-button class="loginButton" (click)="signIn()">Log-in</button>\n\n                        <p class="nogGeenAccount" (click)="goRegister()">Nog geen account? <b>Registreer</b></p>\n\n                    </div>\n\n                </div>\n\n            </ion-col>\n\n        </ion-row>\n\n    </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\home\home.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* MenuController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */],
+            __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__["a" /* ScreenOrientation */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* Platform */],
+            __WEBPACK_IMPORTED_MODULE_7__ionic_native_keyboard__["a" /* Keyboard */],
+            __WEBPACK_IMPORTED_MODULE_8__ionic_storage__["b" /* Storage */],
+            __WEBPACK_IMPORTED_MODULE_10__providers_settings_settings__["a" /* SettingsProvider */]])
+    ], HomePage);
+    return HomePage;
+    var HomePage_1;
+}());
+
+//# sourceMappingURL=home.js.map
+
+/***/ }),
+
+/***/ 705:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NieuwsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__ = __webpack_require__(337);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+/**
+ * Generated class for the NieuwsPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var NieuwsPage = /** @class */ (function () {
+    function NieuwsPage(navCtrl, navParams, inAppBrowser) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.inAppBrowser = inAppBrowser;
+        this.options = {
+            location: 'yes',
+            hidden: 'no',
+            clearcache: 'yes',
+            clearsessioncache: 'yes',
+            zoom: 'yes',
+            hardwareback: 'yes',
+            mediaPlaybackRequiresUserAction: 'no',
+            shouldPauseOnSuspend: 'no',
+            closebuttoncaption: 'Close',
+            disallowoverscroll: 'no',
+            toolbar: 'yes',
+            enableViewportScale: 'no',
+            allowInlineMediaPlayback: 'no',
+            presentationstyle: 'pagesheet',
+            fullscreen: 'yes',
+        };
+        if (this.navParams.get("record")) {
+            this.selectEntry(this.navParams.get("record"));
+            console.log(this.navParams.get("record"));
+        }
+        else {
+            this.navCtrl.setRoot("CategoryPage");
+        }
+    }
+    NieuwsPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad NieuwsPage');
+    };
+    NieuwsPage.prototype.selectEntry = function (item) {
+        this.title = item.title;
+        this.image = item.image;
+        this.description = item.description;
+        this.link = item.link;
+        this.site = item.site;
+        this.datum = item.datum;
+        this.id = item.id;
+    };
+    NieuwsPage.prototype.htmlToPlaintext = function (text) {
+        return text ? String(text).replace(/<[^>]+>/gm, '') : '';
+    };
+    NieuwsPage.prototype.openPagina = function (url) {
+        var Options = {
+            zoom: 'no',
+            location: 'yes',
+            toolbar: 'yes',
+            clearcache: 'yes',
+            clearsessioncache: 'yes',
+            disallowoverscroll: 'yes',
+            enableViewportScale: 'yes'
+        };
+        var browser = this.inAppBrowser.create(url, '_blank', Options);
+        browser.show();
+    };
+    NieuwsPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-nieuws',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\nieuws\nieuws.html"*/'<ion-header>\n\n  <meta charset="UTF-8">\n\n  <ion-navbar class="nieuwsNavTitle">{{this.title}}</ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  <ion-card class="nieuwsCard">\n\n    <img *ngIf="!this.image" src="../assets/imgs/noimage.jpg">\n\n    <img *ngIf="this.image" src="{{this.image}}" class="imageNieuws">\n\n    <ion-card-header class="headerText" text-wrap>\n\n      {{this.title}}\n\n      <p class="nieuwsDatum">{{this.datum}}</p>\n\n    </ion-card-header>\n\n    <ion-card-content class="nieuwsContent">\n\n      <p>{{htmlToPlaintext(this.description)}}</p>\n\n      <button (click)="openPagina(this.link)" ion-button round *ngIf="this.site == \'De Telegraaf\'" class="ColorTelegraaf">{{this.site}}</button>\n\n      <button (click)="openPagina(this.link)" ion-button round *ngIf="this.site == \'NOS\'" class="ColorNOS">{{this.site}}</button>\n\n      <button (click)="openPagina(this.link)" ion-button round *ngIf="this.site == \'NU.nl\'" class="ColorNU">{{this.site}}</button>\n\n    </ion-card-content>\n\n  </ion-card>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\nieuws\nieuws.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__["a" /* InAppBrowser */]])
+    ], NieuwsPage);
+    return NieuwsPage;
+}());
+
+//# sourceMappingURL=nieuws.js.map
+
+/***/ }),
+
+/***/ 723:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(388);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_home_home__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_keyboard__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_settings_settings__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__ = __webpack_require__(387);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_feed_feed__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_menu_menu__ = __webpack_require__(389);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_network__ = __webpack_require__(138);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+var MyApp = /** @class */ (function () {
+    // -------------------------------------
+    // constructor
+    // -------------------------------------
+    function MyApp(platform, statusBar, splashScreen, settings, modalCtrl, menuCtrl, events, alertCtrl, menuProvider, network, toastCtrl) {
+        var _this = this;
+        this.platform = platform;
+        this.splashScreen = splashScreen;
+        this.settings = settings;
+        this.modalCtrl = modalCtrl;
+        this.menuCtrl = menuCtrl;
+        this.events = events;
+        this.alertCtrl = alertCtrl;
+        this.menuProvider = menuProvider;
+        this.network = network;
+        this.toastCtrl = toastCtrl;
+        this.rootPage = __WEBPACK_IMPORTED_MODULE_3__pages_home_home__["a" /* HomePage */];
+        this.showSplash = true;
+        // -------------------------------------
+        // Get Active theme dark/light
+        // -------------------------------------
+        this.settings.getActiveTheme().subscribe(function (val) { return _this.selectedTheme = val; });
+        // -------------------------------------
+        // Wanneer de app geladen is, is dit de eerste wat hij doet.
+        // -------------------------------------
+        platform.ready().then(function () {
+            _this.splashScreen.hide();
+            // localStorage voor sessiontoken
+            if (localStorage.getItem("sessionToken")) {
+                _this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_7__pages_feed_feed__["a" /* FeedPage */]);
+            }
+            else if (!localStorage.getItem("sessionToken")) {
+                _this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_3__pages_home_home__["a" /* HomePage */]);
+                localStorage.clear();
+            }
+            _this.getSideMenuData();
+            // De statusbar kleur
+            statusBar.backgroundColorByHexString('#225C73');
+            // -------------------------------------
+            // Laat een alert zien zodra je twee keer op dismiss klikt of je de app wilt verlaten of niet
+            // -------------------------------------
+            _this.platform.registerBackButtonAction(function () {
+                if (_this.nav.length() == 1) {
+                    _this.confirmExitApp();
+                }
+                _this.nav.pop();
+            });
+            // Voor de menu om de userame en profiel foto te setten live
+            _this.events.subscribe("username", function (data) {
+                _this.username = data;
+            });
+            if (_this.network.type == "none") {
+                _this.profilepicture = localStorage.getItem('profilePicture');
+            }
+            _this.events.subscribe("profilepicture", function (foto) {
+                _this.profilepicture = foto;
+            });
+        });
+        // -------------------------------------
+        // Localstorage voor light en dark theme
+        // -------------------------------------
+        if (localStorage.getItem("themeColor") == "light-theme") {
+            this.settings.setActiveTheme("light-theme");
+        }
+        else if (localStorage.getItem("themeColor") == "dark-theme") {
+            this.settings.setActiveTheme("dark-theme");
+        }
+    }
+    MyApp.prototype.getSideMenuData = function () {
+        this.pages = this.menuProvider.getSideMenus();
+    };
+    // -------------------------------------
+    // OnInit is het zelfde als platform ready en constructor
+    // -------------------------------------
+    MyApp.prototype.ngOnInit = function () {
+        var _this = this;
+        setTimeout(function () { return _this.showSplash = false; }, 1800);
+    };
+    // Open menu
+    MyApp.prototype.openPage = function (page, index) {
+        // Reset the content nav to have just this page
+        // we wouldn't want the back button to show in this scenario
+        if (page.component) {
+            this.nav.setRoot(page.component);
+            this.menuCtrl.close();
+        }
+        else {
+            if (this.selectedMenu) {
+                this.selectedMenu = 0;
+            }
+            else {
+                this.selectedMenu = index;
+            }
+        }
+    };
+    // -------------------------------------
+    // De functie ervoor om de app te verlaten
+    // -------------------------------------
+    MyApp.prototype.confirmExitApp = function () {
+        var _this = this;
+        this.confirmAlert = this.alertCtrl.create({
+            message: "Wilt u de NewsAge app verlaten ?",
+            buttons: [
+                {
+                    text: 'Annuleer',
+                    handler: function () {
+                        _this.showedAlert = false;
+                        return;
+                    }
+                },
+                {
+                    text: 'Verlaat',
+                    handler: function () {
+                        _this.platform.exitApp();
+                    }
+                }
+            ]
+        });
+        this.confirmAlert.present();
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Nav */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Nav */])
+    ], MyApp.prototype, "nav", void 0);
+    MyApp = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\app\app.html"*/'<!-- SplashScreen -->\n\n<ion-grid style="height: 100%" class="gridPadding">\n\n  <ion-row justify-content-center align-items-center style="height: 100%" *ngIf="showSplash" class="splash">\n\n    <div class="spinner">\n\n      <div class="NewsAgeLogo">\n\n        <img class="NewsAge" src="../assets/imgs/NewsAgeLogo.png">\n\n      </div>\n\n      <div class="loader">\n\n        <img src="../assets/svg/spinner/tail-spinSplash.svg">\n\n      </div>\n\n    </div>\n\n  </ion-row>\n\n</ion-grid>\n\n<!--  -->\n\n<!-- Menu -->\n\n<ion-menu [class]="selectedTheme" [content]="content" [swipeEnabled]="false">\n\n    <ion-content id="contentAnimation">\n\n        <ion-list>\n\n            <ion-navbar class="menuNavbar">\n\n                <ion-grid class="gridMenu">\n\n                    <ion-col col-9 class="menuCol">\n\n                        <img src="{{this.profilepicture}}" class="avatar-menu"/>\n\n                        <p ngClass="usernameMenu">{{this.username}}</p>\n\n                    </ion-col>\n\n                </ion-grid>\n\n            </ion-navbar>\n\n            <ion-item ion-item *ngFor="let p of pages;  let i=index" (click)="openPage(p, i);">\n\n               <ion-icon slot="start" [name]="p.icon"></ion-icon>\n\n                <span ion-text class="menuTitle">\n\n                      {{p.title}}\n\n                      <span><ion-icon [name]="selectedMenu == i? \'arrow-dropdown\' : \'arrow-dropright\'" *ngIf="p.subPages" float-right></ion-icon></span>\n\n                </span>\n\n                <!--Child Pages  -->\n\n                <ion-list no-lines [hidden]="selectedMenu != i">\n\n                    <ion-item no-border *ngFor="let subPage of p.subPages;let i2=index" text-wrap\n\n                              (click)="openPage(subPage)">\n\n                         <ion-icon slot="start" [name]="subPage.icon"></ion-icon>\n\n                        <span ion-text color="color2">&nbsp;{{subPage.title}}</span>\n\n                    </ion-item>\n\n                </ion-list>\n\n            </ion-item>\n\n        </ion-list>\n\n    </ion-content>\n\n    <ion-footer class="footerMenu">\n\n        <ion-toolbar class="toolbarFooter">\n\n            <div class="versienummer"><span class="newsAgeFooter">©NewsAge</span> V7.1.0</div>\n\n        </ion-toolbar>\n\n    </ion-footer>\n\n</ion-menu>\n\n\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" [class]="selectedTheme" #content swipeBackEnabled="false"></ion-nav>\n\n'/*ion-inline-end:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\app\app.html"*/,
+            providers: [__WEBPACK_IMPORTED_MODULE_4__ionic_native_keyboard__["a" /* Keyboard */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Nav */]]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* Platform */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */],
+            __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__["a" /* SplashScreen */],
+            __WEBPACK_IMPORTED_MODULE_5__providers_settings_settings__["a" /* SettingsProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ModalController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* MenuController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_8__providers_menu_menu__["a" /* MenuProvider */],
+            __WEBPACK_IMPORTED_MODULE_9__ionic_native_network__["a" /* Network */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* ToastController */]])
+    ], MyApp);
+    return MyApp;
+}());
+
+//# sourceMappingURL=app.component.js.map
+
+/***/ }),
+
+/***/ 727:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FavorietenPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__favorieten__ = __webpack_require__(390);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var FavorietenPageModule = /** @class */ (function () {
+    function FavorietenPageModule() {
+    }
+    FavorietenPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__favorieten__["a" /* FavorietenPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__favorieten__["a" /* FavorietenPage */]),
+            ],
+        })
+    ], FavorietenPageModule);
+    return FavorietenPageModule;
+}());
+
+//# sourceMappingURL=favorieten.module.js.map
+
+/***/ }),
+
+/***/ 78:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SettingsProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__(417);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var SettingsProvider = /** @class */ (function () {
+    function SettingsProvider() {
+        this.theme = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__["BehaviorSubject"]('light-theme');
+    }
+    SettingsProvider.prototype.setActiveTheme = function (val) {
+        this.theme.next(val);
+    };
+    SettingsProvider.prototype.getActiveTheme = function () {
+        return this.theme.asObservable();
+    };
+    SettingsProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [])
+    ], SettingsProvider);
+    return SettingsProvider;
+}());
+
+//# sourceMappingURL=settings.js.map
+
+/***/ }),
+
+/***/ 88:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CommentsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__feed_feed__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_keyboard__ = __webpack_require__(140);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var CommentsPage = /** @class */ (function () {
+    function CommentsPage(navCtrl, navParams, http, alertCtrl, events, keyboard) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.alertCtrl = alertCtrl;
+        this.events = events;
+        this.keyboard = keyboard;
+        this.comments = [];
+        keyboard.disableScroll(true);
+        if (this.navParams.get("record")) {
+            this.selectEntry(this.navParams.get("record"));
+            this.getComments();
+        }
+        // Maak connectie met http voor username etc
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        var options = { headers: headers };
+        var data = {
+            email: localStorage.getItem('userEmail'),
+        };
+        this.http.post('http://gazoh.net/getgebruiker.php', data, options)
+            .subscribe(function (data) {
+            _this.dataUser = data;
+            _this.userId = _this.dataUser.id;
+            _this.username = _this.dataUser.username;
+            _this.userRol = _this.dataUser.rol;
+            _this.pictureprofile = _this.dataUser.profilepicture;
+        });
+    }
+    // -------------------------------------------------
+    // Hier eindigt de constructor
+    // -------------------------------------------------
+    CommentsPage.prototype.callFunction = function () {
+        this.content.scrollToBottom(200);
+    };
+    // Runs when the page is about to enter and become the active page.
+    CommentsPage.prototype.ionViewDidEnter = function () {
+        var _this = this;
+        setTimeout(function () { return _this.myInput.setFocus(); }, 200);
+    };
+    CommentsPage.prototype.ionViewDidLoad = function () {
+        var _this = this;
+        this.navBar.backButtonClick = function (e) {
+            _this.navCtrl.pop();
+        };
+    };
+    CommentsPage.prototype.selectEntry = function (item) {
+        this.articleId = item.id;
+    };
+    CommentsPage.prototype.getComments = function () {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        var options = { headers: headers };
+        var data = {
+            articleId: this.articleId
+        };
+        this.http.post('http://gazoh.net/getcomment.php', data, options)
+            .subscribe(function (data) {
+            _this.comments = data;
+            if (_this.comments) {
+                _this.comments.sort(function (a, b) {
+                    return +new Date(a.commentDate) - +new Date(b.commentDate);
+                });
+            }
+        });
+    };
+    CommentsPage.prototype.postComment = function () {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        var options = { headers: headers };
+        var data = {
+            articleId: this.articleId,
+            userId: this.userId,
+            comment: this.comment
+        };
+        this.http.post('http://gazoh.net/setcomment.php', data, options)
+            .subscribe(function (data) {
+            if (data == "comment published") {
+                console.log(data);
+                _this.getComments();
+                _this.content.scrollToBottom();
+            }
+            _this.comment = "";
+        });
+    };
+    CommentsPage.prototype.deleteComment = function (commentId) {
+        var _this = this;
+        this.confirmAlert = this.alertCtrl.create({
+            title: "Verwijder",
+            message: "Als je reactie verwijderd word kan het niet ongedaan gemaakt worden",
+            buttons: [
+                {
+                    text: 'Annuleer',
+                    handler: function () {
+                        console.log("Clicked cancel");
+                    }
+                },
+                {
+                    text: 'Verwijder',
+                    handler: function () {
+                        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
+                        headers.append("Accept", 'application/json');
+                        headers.append('Content-Type', 'application/json');
+                        var options = { headers: headers };
+                        var data = {
+                            articleId: _this.articleId,
+                            commentId: commentId,
+                        };
+                        _this.http.post('http://gazoh.net/deletecomment.php', data, options)
+                            .subscribe(function (data) {
+                            if (data == "comment deleted") {
+                                console.log(data);
+                                _this.getComments();
+                            }
+                        });
+                    }
+                }
+            ]
+        });
+        this.confirmAlert.present();
+    };
+    CommentsPage.prototype.returnFeed = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__feed_feed__["a" /* FeedPage */]);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('input'),
+        __metadata("design:type", Object)
+    ], CommentsPage.prototype, "myInput", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Content */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Content */])
+    ], CommentsPage.prototype, "content", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* Navbar */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* Navbar */])
+    ], CommentsPage.prototype, "navBar", void 0);
+    CommentsPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-comments',template:/*ion-inline-start:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\comments\comments.html"*/'<ion-header>\n\n    <ion-navbar #navbar>\n\n        <ion-title class="fakePadding">Comments</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-list *ngFor="let comment of comments; let last = last" class="commentSpacing">\n\n        <ion-item-sliding>\n\n            <ion-item>\n\n                {{last ? callFunction() : \'\'}}\n\n                <ion-avatar class="avatar" item-start>\n\n                    <img src="{{comment.profilepicture}}" class="avatar-profiel"/>\n\n                </ion-avatar>\n\n                <p class="commentUsername">{{comment.username}}<span class="commentDate">{{comment.commentDate}}</span></p>\n\n                <p><span class="breakText">{{comment.comment}}</span></p>\n\n            </ion-item>\n\n            <ion-item-options side="right">\n\n                <button ion-button color="secondary">\n\n                    <ion-icon name="create"></ion-icon>\n\n                    Bewerk\n\n                </button>\n\n                <button ion-button color="danger" item-right *ngIf="userId == comment.userCommentID || userRol == 1" (click)="deleteComment(comment.commentId)">\n\n                    <ion-icon name="trash"></ion-icon>\n\n                    Verwijder\n\n                </button>\n\n            </ion-item-options>\n\n        </ion-item-sliding>\n\n    </ion-list>\n\n</ion-content>\n\n    <ion-footer>\n\n            <ion-item class="commentsItem">\n\n                <ion-avatar class="avatar" item-start>\n\n                    <img src="{{pictureprofile}}" class="avatar-profiel"/>\n\n                </ion-avatar>\n\n                <ion-input placeholder="Reageer als {{this.username}}" [(ngModel)]="comment" id="inputMessage"\n\n                           #input></ion-input>\n\n                <button ion-button class="sendButton" id="sendButtonId" (click)="postComment()" item-end\n\n                        [disabled]="!comment">\n\n                    <ion-icon name="send"></ion-icon>\n\n                </button>\n\n            </ion-item>\n\n    </ion-footer>   '/*ion-inline-end:"C:\Users\Gazoh-PC\Desktop\Projecten\News-App\src\pages\comments\comments.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */],
+            __WEBPACK_IMPORTED_MODULE_4__ionic_native_keyboard__["a" /* Keyboard */]])
+    ], CommentsPage);
+    return CommentsPage;
+}());
+
+//# sourceMappingURL=comments.js.map
+
+/***/ })
+
+},[392]);
+//# sourceMappingURL=main.js.map
