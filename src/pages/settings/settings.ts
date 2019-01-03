@@ -164,7 +164,7 @@ export class SettingsPage {
     }
 
     goProfiel() {
-        this.navCtrl.setRoot(ProfielPage);
+        this.navCtrl.push(ProfielPage);
     }
     privacyBeleid(){
         this.navCtrl.push(PrivacybeleidPage);
