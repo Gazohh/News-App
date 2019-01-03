@@ -1,8 +1,15 @@
-<ion-header>
-    <ion-navbar #navbar>
+<ion-header no-border-bottom>
+    <ion-navbar>
+        <button ion-button menuToggle right class="fakeCenter">
+            <ion-icon name="menu"></ion-icon>
+        </button>
         <ion-title class="fakePadding">Comments</ion-title>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
     </ion-navbar>
 </ion-header>
+
 <ion-content>
     <ion-list *ngFor="let comment of comments; let last = last" class="commentSpacing">
         <ion-item-sliding>
