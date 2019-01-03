@@ -37,14 +37,63 @@ if (isset($data)) {
     $source = $request->sourceName;
 }
 
-$sql = "INSERT INTO sources (source, userId) VALUES ('$source', '$userId')";
-if(mysqli_query($con, $sql))
-{
-    $res = "source added";
-    json_encode($res);
+if ($source == "De Telegraaf") {
+    $sqlcheck = "SELECT EXISTS(SELECT * FROM sources WHERE userId = '$userId') AS 'check'";
+    $result = $con->query($sqlcheck);
+    if ($result->num_rows > 0) {
+        $value = mysqli_fetch_object($result);
+        if ($value->check == 1) {
+            $sqlupdate = "UPDATE sources SET TGF = 1 where userId='$userId'";
+            if ($con->query($sqlupdate)) {
+                $res = "subscribed";
+            }
+        }
+        else if ($value->check == 0) {
+            $sql = "INSERT INTO sources (TGF,userId) VALUES (1,'$userId');";
+            if ($con->query($sql)) {
+                $res = "subscribed";
+            }
+        }
+    }
+} else if ($source == "NU.nl") {
+    $sqlcheck = "SELECT EXISTS(SELECT * FROM sources WHERE userId = '$userId') AS 'check'";
+    $result = $con->query($sqlcheck);
+    if ($result->num_rows > 0) {
+        $value = mysqli_fetch_object($result);
+        if ($value->check == 1) {
+            $sqlupdate = "UPDATE sources SET NUNL = 1 where userId='$userId'";
+            if ($con->query($sqlupdate)) {
+                $res = "subscribed";
+            }
+        }
+        else if ($value->check == 0) {
+            $sql = "INSERT INTO sources (NUNL,userId) VALUES (1,'$userId');";
+            if ($con->query($sql)) {
+                $res = "subscribed";
+            }
+        }
+    }
 }
-else
-{
+else if ($source == "NOS") {
+    $sqlcheck = "SELECT EXISTS(SELECT * FROM sources WHERE userId = '$userId') AS 'check'";
+    $result = $con->query($sqlcheck);
+    if ($result->num_rows > 0) {
+        $value = mysqli_fetch_object($result);
+        if ($value->check == 1) {
+            $sqlupdate = "UPDATE sources SET NOS = 1 where userId='$userId'";
+            if ($con->query($sqlupdate)) {
+                $res = "subscribed";
+            }
+        }
+        else if ($value->check == 0) {
+            $sql = "INSERT INTO sources (NOS,userId) VALUES (1,'$userId');";
+            if ($con->query($sql)) {
+                $res = "subscribed";
+            }
+        }
+    }
+} else {
     $res = "error";
-    json_encode($res);
 }
+
+echo json_encode($res);

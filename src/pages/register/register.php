@@ -721,7 +721,15 @@ if ($con->query($sql) === TRUE) {
 }
 else if(mysqli_errno($con) == 1062)
 {
-    $response= "already in use";
+    $error = $con->error;
+    if(strpos($error, 'username') !== false)
+    {
+        $response = "username exists";
+    }
+    if(strpos($error, 'email') !== false)
+    {
+        $response = "email exists";
+    }
 }
 else
 {

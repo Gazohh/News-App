@@ -105,13 +105,27 @@ export class RegisterPage implements OnInit {
 
                             this.navCtrl.push(HomePage);
                         }
-                        else if(res == "already in use")
+                        else if(res == "username exists")
                         {
                             let alert = this.alertCtrl.create({
 
                                 title: "Registreren mislukt",
 
-                                subTitle: "Er bestaat al een gebruiker met het zelfde email of gebruikersnaam!",
+                                subTitle: "Er bestaat al een gebruiker met het zelfde gebruikersnaam!",
+
+                                buttons: ['OK']
+
+                            });
+
+                            alert.present();
+                        }
+                        else if(res == "email exists")
+                        {
+                            let alert = this.alertCtrl.create({
+
+                                title: "Registreren mislukt",
+
+                                subTitle: "Er bestaat al een gebruiker met het zelfde email adres!",
 
                                 buttons: ['OK']
 

@@ -34,15 +34,32 @@ if (isset($data)) {
     $request = json_decode($data);
 
     $userId = $request->userId;
+    $source = $request->sourceName;
 }
 
-$sourcedata = array();
-
-$sql = "SELECT * FROM sources WHERE userId='$userId'";
-$result = mysqli_query($con, $sql);
-
-while ($row = mysqli_fetch_assoc($result)) {
-    $sourcedata[] = $row;
+if($source == "De Telegraaf")
+{
+    $sql = "UPDATE sources SET TGF = 0 WHERE userId = '$userId'";
+    if($con->query($sql))
+    {
+        $res = "unsubscribed";
+    }
+}
+else if ($source == "NU.NL")
+{
+    $sql = "UPDATE sources SET NUNL = 0 WHERE userId = '$userId'";
+    if($con->query($sql))
+    {
+        $res = "unsubscribed";
+    }
+}
+else if($source == "NOS")
+{
+    $sql = "UPDATE sources SET NOS = 0 WHERE userId = '$userId'";
+    if($con->query($sql))
+    {
+        $res = "unsubscribed";
+    }
 }
 
-echo json_encode($sourcedata,JSON_UNESCAPED_UNICODE);
+echo json_encode($res);

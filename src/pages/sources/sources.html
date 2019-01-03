@@ -24,37 +24,37 @@
     <!--  -->
     <ion-slide>
       <ion-list>
-        <ion-item class="sourceItem">
+        <ion-item class="sourceItem" *ngIf="NOS == 1">
           <ion-avatar class="avatar" item-start>
             <img src="../assets/svg/NOS_logo.svg" *ngIf="currentTheme == 'light-theme'">
             <img src="../assets/svg/NOS_logo_Wit.svg" *ngIf="currentTheme == 'dark-theme'">
           </ion-avatar>
           <div class="sourceTekst"><b>NOS</b></div>
           <div class="sourceTekst">Nieuwsfeed</div>
-          <button ion-button outline item-end color="danger" class="DeleteClassesButton">
+          <button ion-button outline item-end color="danger" class="DeleteClassesButton" (click)="unsubscribeSource('NOS')">
             <ion-icon name="close" class="buttonIcon"></ion-icon>Verwijderen
           </button>
         </ion-item>
 
-        <ion-item class="sourceItem">
+        <ion-item class="sourceItem" *ngIf="TGF == 1">
           <ion-avatar class="avatar" item-start>
             <img src="../assets/svg/Telegraaf.svg" *ngIf="currentTheme == 'light-theme'">
             <img src="../assets/svg/Telegraaf_Wit.svg" *ngIf="currentTheme == 'dark-theme'">
           </ion-avatar>
           <div class="sourceTekst"><b>De Telegraaf</b></div>
           <div class="sourceTekst">Nieuwsfeed</div>
-          <button ion-button outline item-end color="danger" class="DeleteClassesButton">
+          <button ion-button outline item-end color="danger" class="DeleteClassesButton" (click)="unsubscribeSource('De Telegraaf')">
             <ion-icon name="close" class="buttonIcon"></ion-icon>Verwijderen
           </button>
         </ion-item>
 
-        <ion-item class="sourceItem">
+        <ion-item class="sourceItem" *ngIf="NUNL == 1">
           <ion-avatar class="avatar" item-start>
             <img src="../assets/svg/nu.nl.svg">
           </ion-avatar>
           <div class="sourceTekst"><b>NU.NL</b></div>
           <div class="sourceTekst">Nieuwsfeed</div>
-        <button ion-button outline item-end color="danger" class="DeleteClassesButton">
+          <button ion-button outline item-end color="danger" class="DeleteClassesButton" (click)="unsubscribeSource('NU.NL')">
             <ion-icon name="close" class="buttonIcon"></ion-icon>Verwijderen
           </button>
         </ion-item>
@@ -75,8 +75,49 @@
           </ion-avatar>
           <div class="sourceTekst"><b>De Volkskrant</b></div>
           <div class="sourceTekst">Nieuwsfeed</div>
-          <button ion-button outline item-end color="green" class="ImportClassesButton">
+          <button ion-button outline item-end color="green" class="ImportClassesButton" (click)="subscribeSource('De Volkskrant')">
             <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
+          </button>
+        </ion-item>
+
+        <ion-item class="sourceItem" *ngIf="NOS == 0">
+          <ion-avatar class="avatar" item-start>
+            <img src="../assets/svg/NOS_logo.svg" *ngIf="currentTheme == 'light-theme'">
+            <img src="../assets/svg/NOS_logo_Wit.svg" *ngIf="currentTheme == 'dark-theme'">
+          </ion-avatar>
+          <div class="sourceTekst"><b>NOS</b></div>
+          <div class="sourceTekst">Nieuwsfeed</div>
+          <button ion-button outline item-end color="green" class="ImportClassesButton" *ngIf="NOS == 0" (click)="subscribeSource('NOS')">
+            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
+          </button>
+        </ion-item>
+
+        <ion-item class="sourceItem" *ngIf="TGF == 0">
+          <ion-avatar class="avatar" item-start>
+            <img src="../assets/svg/Telegraaf.svg" *ngIf="currentTheme == 'light-theme'">
+            <img src="../assets/svg/Telegraaf_Wit.svg" *ngIf="currentTheme == 'dark-theme'">
+          </ion-avatar>
+          <div class="sourceTekst"><b>De Telegraaf</b></div>
+          <div class="sourceTekst">Nieuwsfeed</div>
+          <button ion-button outline item-end color="green" class="ImportClassesButton" *ngIf="TGF == 0" (click)="subscribeSource('De Telegraaf')">
+            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
+          </button>
+          <button ion-button outline item-end color="danger" class="DeleteClassesButton" *ngIf="TGF == 1">
+            <ion-icon name="close" class="buttonIcon"></ion-icon>Verwijderen
+          </button>
+        </ion-item>
+
+        <ion-item class="sourceItem" *ngIf="NUNL == 0">
+          <ion-avatar class="avatar" item-start>
+            <img src="../assets/svg/nu.nl.svg">
+          </ion-avatar>
+          <div class="sourceTekst"><b>NU.NL</b></div>
+          <div class="sourceTekst">Nieuwsfeed</div>
+          <button ion-button outline item-end color="green" class="ImportClassesButton" *ngIf="NUNL == 0" (click)="subscribeSource('NU.nl')">
+            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
+          </button>
+          <button ion-button outline item-end color="danger" class="DeleteClassesButton" *ngIf="NUNL == 1">
+            <ion-icon name="close" class="buttonIcon"></ion-icon>Verwijderen
           </button>
         </ion-item>
 
@@ -86,7 +127,7 @@
           </ion-avatar>
           <div class="sourceTekst"><b>Algemeen Dagblad</b></div>
           <div class="sourceTekst">Nieuwsfeed</div>
-        <button ion-button outline item-end color="green" class="ImportClassesButton">
+        <button ion-button outline item-end color="green" class="ImportClassesButton" (click)="subscribeSource('Algemeen Dagblad')">
             <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
           </button>
         </ion-item>
@@ -98,7 +139,7 @@
           </ion-avatar>
           <div class="sourceTekst"><b>RTL Nieuws</b></div>
           <div class="sourceTekst">Nieuwsfeed</div>
-        <button ion-button outline item-end color="green" class="ImportClassesButton">
+        <button ion-button outline item-end color="green" class="ImportClassesButton" (click)="subscribeSource('RTL Nieuws')">
             <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
           </button>
         </ion-item>
@@ -109,7 +150,7 @@
           </ion-avatar>
           <div class="sourceTekst"><b>De Gelderlander</b></div>
           <div class="sourceTekst">Nieuwsfeed</div>
-        <button ion-button outline item-end color="green" class="ImportClassesButton">
+        <button ion-button outline item-end color="green" class="ImportClassesButton" (click)="subscribeSource('De Gelderlander')">
             <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
           </button>
         </ion-item>
@@ -124,7 +165,7 @@
           </ion-avatar>
           <div class="sourceTekst"><b>Tweakers</b></div>
           <div class="sourceTekst">Tech</div>
-        <button ion-button outline item-end color="green" class="ImportClassesButton">
+        <button ion-button outline item-end color="green" class="ImportClassesButton" (click)="subscribeSource('Tweakers')">
             <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
           </button>
         </ion-item>
@@ -139,7 +180,7 @@
           </ion-avatar>
           <div class="sourceTekst"><b>Fifa</b></div>
           <div class="sourceTekst">Sport</div>
-          <button ion-button outline item-end color="green" class="ImportClassesButton">
+          <button ion-button outline item-end color="green" class="ImportClassesButton" (click)="subscribeSource('Fifa')">
             <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
           </button>
         </ion-item>
@@ -150,7 +191,7 @@
           </ion-avatar>
           <div class="sourceTekst"><b>Fox Sports Go</b></div>
           <div class="sourceTekst">Sport</div>
-        <button ion-button outline item-end color="green" class="ImportClassesButton">
+        <button ion-button outline item-end color="green" class="ImportClassesButton" (click)="subscribeSource('Fox Sports Go')">
             <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
           </button>
         </ion-item>
@@ -161,7 +202,7 @@
           </ion-avatar>
           <div class="sourceTekst"><b>Nu Sport</b></div>
           <div class="sourceTekst">Sport</div>
-        <button ion-button outline item-end color="green" class="ImportClassesButton">
+        <button ion-button outline item-end color="green" class="ImportClassesButton" (click)="subscribeSource('Nu Sport')">
             <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
           </button>
         </ion-item>
@@ -172,7 +213,7 @@
           </ion-avatar>
           <div class="sourceTekst"><b>RTL Z </b></div>
           <div class="sourceTekst">Sport</div>
-        <button ion-button outline item-end color="green" class="ImportClassesButton">
+        <button ion-button outline item-end color="green" class="ImportClassesButton" (click)="subscribeSource('RTL Z')">
             <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
           </button>
         </ion-item>
@@ -183,7 +224,7 @@
           </ion-avatar>
           <div class="sourceTekst"><b>Voetbalzone</b></div>
           <div class="sourceTekst">Sport</div>
-        <button ion-button outline item-end color="green" class="ImportClassesButton">
+        <button ion-button outline item-end color="green" class="ImportClassesButton" (click)="subscribeSource('Voetbalzone')">
             <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
           </button>
         </ion-item>

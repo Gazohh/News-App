@@ -303,7 +303,7 @@ export class FeedPage {
 
         if(localStorage.getItem("themeColor"))
         {
-            this.currentTheme = localStorage.getItem("themeColor")
+            this.currentTheme = localStorage.getItem("themeColor");
             console.log(this.currentTheme);
         }
     }
