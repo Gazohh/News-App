@@ -30,6 +30,10 @@
   font-family: 'Roboto-Regular';
 }
 
+.toolbar-title-md {
+  font-family: 'Roboto-Medium';
+}
+
 body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item > div.item-inner {
   border-bottom-color: transparent !important;
   box-shadow: none !important;
@@ -1078,7 +1082,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 }
 
 .uitgeverFeed {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   margin-bottom: -3px;
   font-family: 'Roboto-Bold' !important;
 }
