@@ -11,7 +11,7 @@
 }
 
 .dark-theme .darkThemeLogin {
-  background-color: #2f2f2f !important;
+  background-color: #1c1c1c !important;
 }
 
 .dark-theme .grid {
@@ -19,7 +19,7 @@
 }
 
 .dark-theme ion-content {
-  background-color: #212121 !important;
+  background-color: #1c1c1c !important;
 }
 
 .dark-theme .toolbar-title {
@@ -74,7 +74,11 @@
 }
 
 .dark-theme #contentAnimation > div.scroll-content > ion-list > ion-footer > ion-toolbar > div.toolbar-background.toolbar-background-md {
-  background-color: #2f2f2f !important;
+  background-color: #000 !important;
+}
+
+.dark-theme .toolbar-background {
+  background-color: #262626 !important;
 }
 
 .dark-theme .versienummer {
@@ -82,7 +86,7 @@
 }
 
 .dark-theme #contentAnimation > div.scroll-content {
-  background-color: #212121 !important;
+  background-color: #1c1c1c !important;
 }
 
 .dark-theme .segment-md-dark .segment-button {
@@ -95,7 +99,7 @@
 }
 
 .dark-theme .sourceTekst {
-  background-color: #212121 !important;
+  background-color: #1c1c1c !important;
 }
 
 .dark-theme .sourceItem {
@@ -128,7 +132,7 @@
 }
 
 .dark-theme .card-content-md {
-  background-color: #2f2f2f !important;
+  background-color: #262626;
   color: #FFF;
 }
 
@@ -137,7 +141,7 @@
 }
 
 .dark-theme .card-md p {
-  color: #FFFFFF;
+  color: #d4d4d4;
 }
 
 .dark-theme b,
@@ -146,17 +150,17 @@
 }
 
 .dark-theme .item-md {
-  background-color: #212121;
+  background-color: #1c1c1c;
   color: #FFF;
 }
 
 .dark-theme .headerText {
-  background-color: #212121 !important;
+  background-color: #1c1c1c !important;
   color: #FFF;
 }
 
 .dark-theme .nieuwsContent {
-  background-color: #212121 !important;
+  background-color: #1c1c1c !important;
 }
 
 .dark-theme .segment-md-dark .segment-button.segment-activated {
@@ -168,7 +172,7 @@
 }
 
 .dark-theme .card-md {
-  background: #2f2f2f !important;
+  background: #262626 !important;
 }
 
 .dark-theme .ImportClassesButton {
@@ -208,12 +212,47 @@
   color: #fff !important;
 }
 
+.dark-theme .socialTelegraafShare {
+  float: left;
+  color: #3f80f7 !important;
+}
+
+.dark-theme .darkChatTelegraaf {
+  color: #3f80f7 !important;
+}
+
+.dark-theme .socialNuShare {
+  float: left;
+  color: #0041b5 !important;
+}
+
+.dark-theme .darkChatNU {
+  color: #0041b5 !important;
+}
+
+.dark-theme .socialNOSShare {
+  float: left;
+  color: #ff3728 !important;
+}
+
+.dark-theme .darkChatNOS {
+  color: #ff3728 !important;
+}
+
+.dark-theme .darkHeartOutline {
+  color: #f73f3f !important;
+}
+
+.dark-theme .darkHeartFull {
+  color: #f73f3f !important;
+}
+
 .dark-theme .socialNOS {
   color: #fff !important;
 }
 
 .dark-theme .socialLikeComments {
-  background-color: #2f2f2f !important;
+  background-color: #262626 !important;
 }
 
 .dark-theme .badgeItem {
@@ -231,6 +270,34 @@
 
 .dark-theme .commentDate {
   color: #FFF !important;
+}
+
+.dark-theme .loginPagina {
+  background-color: #1c1c1c !important;
+  color: black;
+}
+
+.dark-theme .loginPagina h2 {
+  color: #fff;
+}
+
+.dark-theme .loginPagina .grid {
+  background-color: #1c1c1c !important;
+}
+
+.dark-theme .loginPagina .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+.dark-theme .loginPagina .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+  border-bottom-color: #2f2f2f !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.dark-theme .datumFeed {
+  color: #d4d4d4 !important;
+}
+
+.dark-theme .nieuwsDatum {
+  color: #d4d4d4 !important;
 }
 
 .ion-ios-add:before {
@@ -5758,19 +5825,19 @@ ion-footer {
 }
 
 ion-app.ios {
-  font-family: -apple-system, "Helvetica Neue", "Roboto", sans-serif;
+  font-family: "Roboto-Regular";
   font-size: 1.4rem;
   background-color: #fff;
 }
 
 ion-app.md {
-  font-family: "Roboto", "Helvetica Neue", sans-serif;
+  font-family: "Roboto-Regular";
   font-size: 1.4rem;
   background-color: #fff;
 }
 
 ion-app.wp {
-  font-family: "Segoe UI", "Noto Sans", sans-serif;
+  font-family: "Roboto-Regular";
   font-size: 1.4rem;
   background-color: #fff;
 }
@@ -33628,258 +33695,40 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
-.dark-theme .darkThemeLogin {
-  background-color: #2f2f2f !important;
-}
-
-.dark-theme .grid {
-  background-color: transparent !important;
-}
-
-.dark-theme ion-content {
-  background-color: #212121 !important;
-}
-
-.dark-theme .toolbar-title {
-  color: #ffffff !important;
-}
-
-.dark-theme .DarkLabel {
-  color: #fff;
-  border: none;
-}
-
-.dark-theme .dark-theme .darkItem {
-  background-color: #212121 !important;
-}
-
-.dark-theme .header .toolbar-background {
-  background-color: #29708c !important;
-}
-
-.dark-theme .ionTitle {
-  background-color: #212121 !important;
-}
-
-.dark-theme .label-md {
-  color: #FFFFFF !important;
-}
-
-.dark-theme .uitloggen {
-  background-color: #212121 !important;
-}
-
-.dark-theme .item-ios.item-block .item-inner {
-  border: none;
-}
-
-.dark-theme .menu {
-  background-color: #212121;
-}
-
-.dark-theme .adminUsers {
-  background-color: transparent !important;
-}
-
-.dark-theme .menuBuitenkant {
-  background-color: #212121;
-  color: #fff;
-}
-
-.dark-theme .menuScherm {
-  background-color: #212121 !important;
-  color: #fff;
-}
-
-.dark-theme #contentAnimation > div.scroll-content > ion-list > ion-footer > ion-toolbar > div.toolbar-background.toolbar-background-md {
-  background-color: #2f2f2f !important;
-}
-
-.dark-theme .versienummer {
-  color: #fff;
-}
-
-.dark-theme #contentAnimation > div.scroll-content {
-  background-color: #212121 !important;
-}
-
-.dark-theme .segment-md-dark .segment-button {
-  color: #FFF;
-}
-
-.dark-theme .segment-md-dark .segment-button.activated,
-.dark-theme .segment-md-dark .segment-button.segment-activated {
-  color: #FFF;
-}
-
-.dark-theme .sourceTekst {
-  background-color: #212121 !important;
-}
-
-.dark-theme .sourceItem {
-  background-color: #242424;
-}
-
-.dark-theme .sourceTitel {
-  background-color: #222222;
-  color: #fff;
-}
-
-.dark-theme .TitelSources {
-  color: #fff;
-}
-
-.dark-theme p {
-  color: #fff;
-}
-
-.dark-theme h4 {
-  color: #FFF;
-}
-
-.dark-theme h2 {
-  color: #FFF;
-}
-
-.dark-theme b {
-  color: #FFF;
-}
-
-.dark-theme .card-content-md {
-  background-color: #2f2f2f !important;
-  color: #FFF;
-}
-
-.dark-theme .BadgesFeed {
-  background: #2f2f2f !important;
-}
-
-.dark-theme .card-md p {
-  color: #FFFFFF;
-}
-
-.dark-theme b,
-.dark-theme strong {
-  color: #FFF;
-}
-
-.dark-theme .item-md {
-  background-color: #212121;
-  color: #FFF;
-}
-
-.dark-theme .headerText {
-  background-color: #212121 !important;
-  color: #FFF;
-}
-
-.dark-theme .nieuwsContent {
-  background-color: #212121 !important;
-}
-
-.dark-theme .segment-md-dark .segment-button.segment-activated {
-  border-color: #fff;
-}
-
-.dark-theme .segmentClass {
-  background-color: #242424;
-}
-
-.dark-theme .card-md {
-  background: transparent;
-}
-
-.dark-theme .ImportClassesButton {
-  background-color: #328a45;
-  color: #fff;
-}
-
-.dark-theme .DeleteClassesButton {
-  color: #fff;
-  background-color: #e93a3a;
-}
-
-.dark-theme .bar-button-clear-md-default,
-.dark-theme .bar-button-default-md,
-.dark-theme .bar-button-md-default {
-  background-color: #29708c;
-  color: white;
-}
-
-.dark-theme .iconInstellingen {
-  margin-right: 2rem !important;
-}
-
-.dark-theme .validatieText {
-  color: #fff;
-}
-
-.dark-theme .itemBadge {
-  background-color: #2f2f2f !important;
-}
-
-.dark-theme .socialNu {
-  color: #fff !important;
-}
-
-.dark-theme .socialTelegraaf {
-  color: #fff !important;
-}
-
-.dark-theme .socialNOS {
-  color: #fff !important;
-}
-
-.dark-theme .socialLikeComments {
-  background-color: #2f2f2f !important;
-}
-
-.dark-theme .badgeItem {
-  background-color: #2f2f2f !important;
-  color: #FFF;
-}
-
-.dark-theme .ion-page {
-  background-color: #212121 !important;
-}
-
 @font-face {
   font-family: 'Roboto-Regular';
-  src: url("../assets/fonts/Roboto-Regular.ttf") format("truetype");
-  font-weight: normal;
   font-style: normal;
+  font-weight: normal;
+  src: url("../assets/fonts/roboto-regular.ttf") format("truetype");
 }
 
 @font-face {
   font-family: 'Roboto-Thin';
-  src: url("../assets/fonts/Roboto-Thin.ttf") format("truetype");
-  font-weight: normal;
   font-style: normal;
+  font-weight: normal;
+  src: url("../assets/fonts/Roboto-Thin.ttf") format("truetype");
 }
 
 @font-face {
   font-family: 'Roboto-Bold';
-  src: url("../assets/fonts/Roboto-Bold.ttf") format("truetype");
-  font-weight: normal;
   font-style: normal;
-}
-
-@font-face {
-  font-family: 'Roboto-BoldCondensed';
-  src: url("../assets/fonts/Roboto-BoldCondensed.ttf") format("truetype");
   font-weight: normal;
-  font-style: normal;
+  src: url("../assets/fonts/roboto-bold.ttf") format("truetype");
 }
 
 @font-face {
   font-family: 'Roboto-Medium';
-  src: url("../assets/fonts/Roboto-Medium.ttf") format("truetype");
-  font-weight: normal;
   font-style: normal;
+  font-weight: normal;
+  src: url("../assets/fonts/roboto-medium.ttf") format("truetype");
 }
 
 * {
   font-family: 'Roboto-Regular';
+}
+
+.toolbar-title-md {
+  font-family: 'Roboto-Medium';
 }
 
 body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item > div.item-inner {
@@ -33910,8 +33759,16 @@ ion-slide.swiper-slide {
   background-color: #29708c !important;
 }
 
+.DarkLabel {
+  font-family: 'Roboto-Bold' !important;
+}
+
 .iconInstellingen {
   margin-right: 2rem !important;
+}
+
+.verificationContent {
+  background-color: #8c2929 !important;
 }
 
 .emailVerificationText {
@@ -33980,7 +33837,7 @@ body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item 
 
 .avatar {
   float: left !important;
-  margin-right: 15px !important;
+  margin-right: 10px !important;
 }
 
 .commentSpacing {
@@ -33997,7 +33854,7 @@ body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item 
 }
 
 .commentUsername {
-  font-weight: bold;
+  font-family: Roboto-Bold;
   color: #000 !important;
   margin-bottom: 5px !important;
 }
@@ -34009,8 +33866,9 @@ body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item 
 
 .commentDate {
   float: right;
-  font-size: x-small;
+  font-size: 1.2rem;
   color: #666;
+  font-family: Roboto-Medium;
 }
 
 .sendButton {
@@ -34266,6 +34124,12 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
 .gridPadding {
   padding-left: 0 !important;
   padding-right: 0 !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  overflow: hidden;
 }
 
 .loginButton {
@@ -34325,7 +34189,8 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
 
 .centerTitle {
   padding-left: 0;
-  padding-right: 48px;
+  padding-right: 42px;
+  font-family: 'Roboto-Bold' !important;
 }
 
 .Title {
@@ -34637,7 +34502,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label {
-  margin-bottom: 3px !important;
+  margin-bottom: 2px !important;
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > ion-list > ion-item {
@@ -34649,7 +34514,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list > ion-item:nth-child(1) > div.item-inner > div > ion-label {
-  margin-top: 26px !important;
+  margin-top: 15px !important;
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > ion-list > ion-item > div.item-inner > div > ion-label > ion-icon {
@@ -34661,16 +34526,33 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   line-height: 2.5 !important;
 }
 
+#contentAnimation > div.scroll-content > ion-list {
+  margin: 0px;
+}
+
 #contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div {
   margin-left: 15px !important;
 }
 
 .menuTitle {
-  margin-left: 20px !important;
+  margin-left: 25px !important;
+  font-family: 'Roboto-Bold';
+}
+
+.cardFavorieten {
+  padding: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100%;
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(2) > div.item-inner > div > ion-label > ion-list {
   margin: 0 !important;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list {
+  margin: 0 !important;
+  margin-top: 10px !important;
 }
 
 .activeHightlight {
@@ -34694,7 +34576,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 }
 
 .avatar-menu {
-  height: 80%;
+  height: 83%;
   border-radius: 50%;
   display: inline-block;
   display: block;
@@ -34719,6 +34601,15 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   margin-top: 3%;
   font-size: 1.8rem;
   font-weight: 500;
+  margin-bottom: 0px;
+}
+
+.menuNavbar {
+  padding: 0px;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(2) {
+  padding-top: 8px !important;
 }
 
 .usernameMenu::first-letter {
@@ -34731,10 +34622,6 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   color: #3ca7d1;
   margin-top: 10px;
   text-align: center;
-}
-
-.menuNavBar {
-  margin-bottom: 10px;
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-navbar > div.toolbar-background.toolbar-background-md {
@@ -34752,6 +34639,10 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 
 .list-md .item-block .item-inner {
   border-bottom: 0;
+}
+
+.newsAgeFooter {
+  font-family: 'Roboto-Bold' !important;
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-footer > ion-toolbar > div.toolbar-background.toolbar-background-md {
@@ -34807,12 +34698,6 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > 
   height: 0 !important;
 }
 
-body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > div.toolbar-content.toolbar-content-md > ion-title > div {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  font-family: 'Roboto-Bold' !important;
-}
-
 body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > ion-buttons:nth-child(5) > ion-select {
   padding: 0 !important;
 }
@@ -34854,9 +34739,14 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 }
 
 .uitgeverFeed {
-  margin-top: 1rem;
+  margin-top: 10px;
   margin-bottom: -3px;
-  font-weight: bold;
+  font-family: 'Roboto-Bold' !important;
+}
+
+.uitgeverFeedNU {
+  margin-top: 15px !important;
+  font-family: 'Roboto-Bold' !important;
 }
 
 .datumFeed {
@@ -34893,7 +34783,11 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 }
 
 #title > ion-card-title {
-  line-height: 1;
+  margin-top: 23px;
+  margin-bottom: 4px;
+  padding: 0px !important;
+  line-height: 0.9;
+  font-family: 'Roboto-Bold' !important;
 }
 
 .cardContentWeer {
@@ -34965,38 +34859,37 @@ page-feed img {
 }
 
 .socialTelegraaf {
-  color: #27509a !important;
   margin-left: 5px;
   float: right;
 }
 
 .socialTelegraafShare {
   float: left;
-  color: #27509a !important;
 }
 
 .ColorNU {
-  background-color: #020051 !important;
+  background-color: #0041b5 !important;
 }
 
 .ColorNU2 {
-  background-color: #020051 !important;
+  background-color: #0041b5 !important;
   margin-right: 2.0vh !important;
 }
 
 .socialNu {
-  color: #020051 !important;
+  color: #0041b5 !important;
   float: right;
 }
 
 .socialNuShare {
   float: left;
-  color: #020051 !important;
+  color: #0041b5 !important;
 }
 
 .socialLikeComments {
   float: right;
   width: 100%;
+  font-family: 'Roboto-Bold' !important;
 }
 
 .ColorNOS {
@@ -35028,8 +34921,9 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 }
 
 .headerText {
-  font-weight: bold;
+  font-family: 'Roboto-Bold' !important;
   font-size: 2rem;
+  padding-bottom: 5px !important;
 }
 
 .imageNieuws {
@@ -35093,6 +34987,10 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
   margin-left: 16px;
 }
 
+.BackButton.activated {
+  background-color: #29708c !important;
+}
+
 .button-md:hover:not(.disable-hover) {
   background-color: transparent !important;
   -webkit-box-shadow: none;
@@ -35104,9 +35002,13 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
 }
 
 .profielPadding {
-  padding-right: 13px;
+  padding: 0px;
+  padding-right: 14px;
   margin: 10px;
-  padding-left: 24px;
+}
+
+.wachtwoordWijzigenPadding {
+  padding-right: 18px;
 }
 
 .avatar-profiel {
@@ -35194,6 +35096,11 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
   animation-duration: 300ms;
 }
 
+body > ion-app > ng-component > ion-nav > page-admin > ion-header > ion-navbar > div.toolbar-content.toolbar-content-md > ion-title > div {
+  padding-right: 10px !important;
+  padding: 0px;
+}
+
 body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-content > ion-list > ion-item-group > ion-row > ion-searchbar {
   padding-top: 0;
   padding-left: 0;
@@ -35206,10 +35113,6 @@ body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-
 
 body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-content {
   padding: 0 !important;
-}
-
-.adminTitle {
-  margin-right: 48px !important;
 }
 
 .adminSearchIcon {
@@ -35263,15 +35166,12 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
   border: #f9944d;
 }
 
-.weerSegmentZon {
-  padding: 20px 60px 0;
+.badge-md {
+  background-color: #f9944d;
 }
 
-.segment-md-darkAppKleur .segment-button.segment-activated {
-  border-color: #ef6f53;
-  background-color: #ef6f53;
-  border: 1px solid #ef6f53;
-  opacity: 1;
+.weerSegmentZon {
+  padding: 20px 60px 0;
 }
 
 .segmentWeerWeek {
@@ -35283,7 +35183,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 }
 
 .card-md p {
-  margin-top: 4px;
+  padding-top: 4px;
   font-size: 2vh;
 }
 
@@ -35430,6 +35330,32 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
   text-align: center;
 }
 
+.privacyBeleid {
+  padding: 0px;
+  padding-right: 48px;
+}
+
+body > ion-app > ng-component > ion-nav > page-privacybeleid > ion-content > div.scroll-content {
+  margin-top: 56px !important;
+  padding-top: 5px !important;
+}
+
+.PrivacyBeleidP {
+  margin-top: 5px;
+}
+
+.goed {
+  border-bottom-color: #32db64;
+  -webkit-box-shadow: inset 0 -1px 0 0 #32db64;
+  box-shadow: inset 0 -1px 0 0 #32db64;
+}
+
+.slecht {
+  border-bottom-color: #f53d3d;
+  -webkit-box-shadow: inset 0 -1px 0 0 #f53d3d;
+  box-shadow: inset 0 -1px 0 0 #f53d3d;
+}
+
 page-about .toolbar-background {
   background: #fff;
   border-color: transparent;
@@ -35477,6 +35403,10 @@ page-admin body > ion-app > ng-component > ion-nav > page-admin > ion-header > i
   overflow: hidden;
 }
 
+page-comments .commentsItem {
+  position: initial !important;
+}
+
 .itemdescription {
   word-spacing: -1px !important;
   text-align: center;
@@ -35493,10 +35423,14 @@ hr {
   visibility: visible !important;
 }
 
-page-privacybeleid .voorwaardenLogo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+page-nieuws .platform-ios .nieuwsNavTitle.toolbar.toolbar-md {
+  padding-top: 17px !important;
+  height: 67px !important;
+}
+
+page-nieuws .platform-core .nieuwsNavTitle.toolbar.toolbar-md {
+  padding-top: 17px !important;
+  height: 67px !important;
 }
 
 page-privacybeleid .voorwaardenH1 {
@@ -35508,8 +35442,9 @@ page-privacybeleid .voorwaardenH1 {
 }
 
 page-privacybeleid .voorwaardenH3 {
-  text-align: center;
   color: #3ca7d1;
+  font-size: 2.2rem;
+  font-family: 'Roboto-Bold';
 }
 
 page-privacybeleid body > ion-app > ng-component > ion-nav > page-privacybeleid > ion-content > div.scroll-content {

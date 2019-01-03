@@ -55,9 +55,6 @@
     "info.protonet.imageresizer": {
       "PACKAGE_NAME": "com.newsage.na"
     },
-    "ionic-plugin-keyboard": {
-      "PACKAGE_NAME": "com.newsage.na"
-    },
     "cordova-plugin-geolocation": {
       "PACKAGE_NAME": "com.newsage.na"
     },

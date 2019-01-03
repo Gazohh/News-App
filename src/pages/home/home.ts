@@ -36,7 +36,6 @@ export class HomePage {
     FeedPage = FeedPage;
     data: string;
     selectedTheme: string;
-    setActiveTheme: string;
 
 
     constructor(
@@ -70,6 +69,9 @@ export class HomePage {
         // Disable swiping
         this.menuCtrl.enable(false, 'myMenu');
 
+        // -------------------------------------
+        // Get Active theme dark/light
+        // -------------------------------------
         this.settings.getActiveTheme().subscribe(val => this.selectedTheme = val);
     }
 
@@ -129,8 +131,7 @@ export class HomePage {
                             localStorage.setItem("sessionToken", this.token);
                             localStorage.setItem("profilePicture", this.dataUser.profilepicture);
                             localStorage.setItem("themeColor", this.selectedTheme);
-                            console.log(localStorage.getItem('TutorialShown'));
-
+                            console.log(this.selectedTheme);
 
                                 if (localStorage.getItem("TutorialShown") != "true") {
                                     this.navCtrl.setRoot(TutorialPage);

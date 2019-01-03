@@ -1,10 +1,13 @@
-<ion-header>
-  <ion-navbar #navbar >
-    <!-- <button ion-button left class="BackButton" (click)="returnFeed()">
-      <ion-icon name="arrow-back"></ion-icon>
-    </button> -->
-    <ion-title class="fakePadding">Comments</ion-title>
-  </ion-navbar>
+<ion-header no-border-bottom>
+    <ion-navbar>
+        <button ion-button menuToggle right class="fakeCenter">
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title class="fakePadding">Comments</ion-title>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+    </ion-navbar>
 </ion-header>
 <ion-content>
   <ion-list *ngFor="let comment of comments; let last = last" class="commentSpacing">
@@ -24,14 +27,16 @@
     </ion-item-sliding>
   </ion-list>
 </ion-content>
-<ion-footer>
-  <ion-item>
-    <ion-avatar class="avatar" item-start>
-      <img src="{{pictureprofile}}" class="avatar-profiel" />
-    </ion-avatar>
-       <ion-input placeholder="Reageer als {{this.username}}" class="textAreaInput" [(ngModel)]="comment" id="inputMessage" #input></ion-input>
-    <button ion-button class="sendButton" id="sendButtonId" (click)="postComment()" item-end [disabled]="!comment">
-      <ion-icon name="send"></ion-icon>
-    </button>
-  </ion-item>
-</ion-footer>
+    <ion-footer>
+            <ion-item class="commentsItem">
+                <ion-avatar class="avatar" item-start>
+                    <img src="{{pictureprofile}}" class="avatar-profiel"/>
+                </ion-avatar>
+                <ion-input placeholder="Reageer als {{this.username}}" [(ngModel)]="comment" id="inputMessage"
+                           #input></ion-input>
+                <button ion-button class="sendButton" id="sendButtonId" (click)="postComment()" item-end
+                        [disabled]="!comment">
+                    <ion-icon name="send"></ion-icon>
+                </button>
+            </ion-item>
+    </ion-footer>   

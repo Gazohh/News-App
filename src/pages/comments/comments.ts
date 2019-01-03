@@ -1,9 +1,11 @@
 import {Component, ViewChild} from '@angular/core';
-import {IonicPage, NavController, NavParams, Navbar, Events} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, Navbar, Events, Platform} from 'ionic-angular';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {AlertController} from 'ionic-angular';
 import {FeedPage} from "../feed/feed";
 import {Content} from 'ionic-angular';
+import { Keyboard } from '@ionic-native/keyboard';
+
 
 @IonicPage()
 @Component({
@@ -31,7 +33,14 @@ export class CommentsPage {
                 public navParams: NavParams,
                 public http: HttpClient,
                 public alertCtrl: AlertController,
-                public events: Events) {
+                public events: Events,
+                public keyboard: Keyboard,
+                private platform: Platform) {
+
+        this.platform.ready().then(() => {
+            keyboard.disableScroll(true);
+        });
+
         if (this.navParams.get("record")) {
             this.selectEntry(this.navParams.get("record"));
             this.getComments();
@@ -60,16 +69,14 @@ export class CommentsPage {
     // -------------------------------------------------
 
     callFunction() {
-        this.content.scrollToBottom(0)
+        this.content.scrollToBottom(200);
     }
 
 
 
     // Runs when the page is about to enter and become the active page.
     ionViewDidEnter() {
-        let dimensions = this.content.getContentDimensions();
-        this.content.scrollTo(0, dimensions.contentHeight + 100, 100);
-        setTimeout(() => this.myInput.setFocus(), 250);
+        setTimeout(() => this.myInput.setFocus(), 200);
     }
 
     ionViewDidLoad() {

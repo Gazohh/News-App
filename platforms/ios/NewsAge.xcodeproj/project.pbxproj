@@ -62,7 +62,6 @@
 		C9DC556E7BE74D0D939D8650 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 389F911B7B6F4C108A5B4E99 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4A526D70EC944B96B9AE7810 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28A3EB0E45744A0FA11FE6C5 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		66E6ED3A5E1C4D899984BC58 /* ImageResizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 31762340BBFA4A98BCF954CC /* ImageResizer.m */; };
-		C6E503CA1E6C413F99269F78 /* IonicKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9421E29404484285DD08D4 /* IonicKeyboard.m */; };
 		8933AA3BFCBC4D0A91426D51 /* CDVLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0EF8038E874ED28F721A4A /* CDVLocation.m */; };
 		3CB17AC83F974480BDC048BE /* SQLitePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = A102D91DD1214D1692B793F2 /* SQLitePlugin.m */; };
 		D8E1B9CDF2D64B2FBCCAA4C1 /* PSPDFThreadSafeMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 099DDA1A8366411CAA26D74B /* PSPDFThreadSafeMutableDictionary.m */; settings = {COMPILER_FLAGS = "-w"; }; };
@@ -194,8 +193,6 @@
 		28A3EB0E45744A0FA11FE6C5 /* MessageUI.framework */ = {isa = PBXFileReference; name = "MessageUI.framework"; path = "System/Library/Frameworks/MessageUI.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		31762340BBFA4A98BCF954CC /* ImageResizer.m */ = {isa = PBXFileReference; name = "ImageResizer.m"; path = "info.protonet.imageresizer/ImageResizer.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		7F5BE2081BA54C028A1E5422 /* ImageResizer.h */ = {isa = PBXFileReference; name = "ImageResizer.h"; path = "info.protonet.imageresizer/ImageResizer.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
-		3B9421E29404484285DD08D4 /* IonicKeyboard.m */ = {isa = PBXFileReference; name = "IonicKeyboard.m"; path = "ionic-plugin-keyboard/IonicKeyboard.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
-		F7D5CF9D0A234B60A0D5D460 /* IonicKeyboard.h */ = {isa = PBXFileReference; name = "IonicKeyboard.h"; path = "ionic-plugin-keyboard/IonicKeyboard.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		7E0EF8038E874ED28F721A4A /* CDVLocation.m */ = {isa = PBXFileReference; name = "CDVLocation.m"; path = "cordova-plugin-geolocation/CDVLocation.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		B5DC208B933D4D02A49A386E /* CDVLocation.h */ = {isa = PBXFileReference; name = "CDVLocation.h"; path = "cordova-plugin-geolocation/CDVLocation.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		A102D91DD1214D1692B793F2 /* SQLitePlugin.m */ = {isa = PBXFileReference; name = "SQLitePlugin.m"; path = "cordova-sqlite-storage/SQLitePlugin.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
@@ -403,8 +400,6 @@
 				A1927FB94472475F82B5C08C /* SocialSharing.h */,
 				31762340BBFA4A98BCF954CC /* ImageResizer.m */,
 				7F5BE2081BA54C028A1E5422 /* ImageResizer.h */,
-				3B9421E29404484285DD08D4 /* IonicKeyboard.m */,
-				F7D5CF9D0A234B60A0D5D460 /* IonicKeyboard.h */,
 				7E0EF8038E874ED28F721A4A /* CDVLocation.m */,
 				B5DC208B933D4D02A49A386E /* CDVLocation.h */,
 				A102D91DD1214D1692B793F2 /* SQLitePlugin.m */,
@@ -563,7 +558,6 @@
 				3903BB8FC6FB4D79A1D2CDA7 /* NSString+SSURLEncoding.m in Sources */,
 				89F0882752F94D87A9C99D83 /* SocialSharing.m in Sources */,
 				66E6ED3A5E1C4D899984BC58 /* ImageResizer.m in Sources */,
-				C6E503CA1E6C413F99269F78 /* IonicKeyboard.m in Sources */,
 				8933AA3BFCBC4D0A91426D51 /* CDVLocation.m in Sources */,
 				3CB17AC83F974480BDC048BE /* SQLitePlugin.m in Sources */,
 				D8E1B9CDF2D64B2FBCCAA4C1 /* PSPDFThreadSafeMutableDictionary.m in Sources */,

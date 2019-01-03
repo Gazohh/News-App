@@ -4,13 +4,6 @@ import {Platform} from 'ionic-angular';
 import {FeedPage} from "../feed/feed";
 import {Storage} from '@ionic/storage';
 
-/**
- * Generated class for the TutorialPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
     selector: 'page-tutorial',

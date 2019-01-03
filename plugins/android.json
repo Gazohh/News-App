@@ -7,6 +7,9 @@
     "files": {}
   },
   "installed_plugins": {
+    "com-sarriaroman-photoviewer": {
+      "PACKAGE_NAME": "com.newsage.na"
+    },
     "com.telerik.plugins.nativepagetransitions": {
       "PACKAGE_NAME": "com.newsage.na"
     },
@@ -59,9 +62,6 @@
       "PACKAGE_NAME": "com.newsage.na"
     },
     "info.protonet.imageresizer": {
-      "PACKAGE_NAME": "com.newsage.na"
-    },
-    "com-sarriaroman-photoviewer": {
       "PACKAGE_NAME": "com.newsage.na"
     }
   },

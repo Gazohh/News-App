@@ -342,15 +342,6 @@ module.exports = [
     ]
   },
   {
-    "id": "ionic-plugin-keyboard.keyboard",
-    "file": "plugins/ionic-plugin-keyboard/www/ios/keyboard.js",
-    "pluginId": "ionic-plugin-keyboard",
-    "clobbers": [
-      "cordova.plugins.Keyboard"
-    ],
-    "runs": true
-  },
-  {
     "id": "cordova-plugin-geolocation.Coordinates",
     "file": "plugins/cordova-plugin-geolocation/www/Coordinates.js",
     "pluginId": "cordova-plugin-geolocation",
@@ -419,7 +410,6 @@ module.exports.metadata =
   "es6-promise-plugin": "4.2.2",
   "cordova-plugin-x-socialsharing": "5.4.1",
   "info.protonet.imageresizer": "0.1.1",
-  "ionic-plugin-keyboard": "2.2.1",
   "cordova-plugin-geolocation": "4.0.1",
   "cordova-sqlite-storage": "2.5.0",
   "com-sarriaroman-photoviewer": "1.1.18"

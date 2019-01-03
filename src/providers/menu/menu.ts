@@ -28,11 +28,11 @@ export class MenuProvider {
     {
       title: 'Sources',
       component: SourcesPage,
-      icon: 'star'
+      icon: 'link'
     },
     {
         title: 'Categorieen',
-        icon: 'filing',
+        icon: 'apps',
         subPages: [{
             title: 'Sport',
             component: SportPage,
@@ -56,7 +56,7 @@ export class MenuProvider {
         }, {
             title: 'Entertainment',
             component: VermaakPage,
-            icon: 'contacts'
+            icon: 'people'
         }]
     },
     {
@@ -65,14 +65,9 @@ export class MenuProvider {
       icon: 'heart'
     },
     {
-      title: 'Notificaties',
-      component: SettingsPage,
-      icon: 'notifications'
-    },
-    {
       title: 'Tutorial',
       component: TutorialPage,
-      icon: 'map'
+      icon: 'book'
     },
     {
       title: 'Instellingen',

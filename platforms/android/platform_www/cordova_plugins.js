@@ -1,6 +1,14 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
   {
+    "id": "com-sarriaroman-photoviewer.PhotoViewer",
+    "file": "plugins/com-sarriaroman-photoviewer/www/PhotoViewer.js",
+    "pluginId": "com-sarriaroman-photoviewer",
+    "clobbers": [
+      "PhotoViewer"
+    ]
+  },
+  {
     "id": "com.telerik.plugins.nativepagetransitions.NativePageTransitions",
     "file": "plugins/com.telerik.plugins.nativepagetransitions/www/NativePageTransitions.js",
     "pluginId": "com.telerik.plugins.nativepagetransitions",
@@ -354,19 +362,12 @@ module.exports = [
     "clobbers": [
       "ImageResizer"
     ]
-  },
-  {
-    "id": "com-sarriaroman-photoviewer.PhotoViewer",
-    "file": "plugins/com-sarriaroman-photoviewer/www/PhotoViewer.js",
-    "pluginId": "com-sarriaroman-photoviewer",
-    "clobbers": [
-      "PhotoViewer"
-    ]
   }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
+  "com-sarriaroman-photoviewer": "1.1.18",
   "com.telerik.plugins.nativepagetransitions": "0.6.5",
   "cordova-plugin-camera": "4.0.3",
   "cordova-plugin-device": "2.0.2",
@@ -385,8 +386,7 @@ module.exports.metadata =
   "cordova-plugin-whitelist": "1.3.3",
   "cordova-plugin-x-socialsharing": "5.4.1",
   "cordova-sqlite-storage": "2.5.0",
-  "info.protonet.imageresizer": "0.1.1",
-  "com-sarriaroman-photoviewer": "1.1.18"
+  "info.protonet.imageresizer": "0.1.1"
 };
 // BOTTOM OF METADATA
 });

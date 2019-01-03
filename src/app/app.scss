@@ -1,40 +1,37 @@
 @font-face {
   font-family: 'Roboto-Regular';
-  src: url("../assets/fonts/Roboto-Regular.ttf") format('truetype');
-  font-weight: normal;
   font-style: normal;
+  font-weight: normal;
+  src: url("../assets/fonts/roboto-regular.ttf") format('truetype');
 }
 
 @font-face {
   font-family: 'Roboto-Thin';
-  src: url("../assets/fonts/Roboto-Thin.ttf") format('truetype');
-  font-weight: normal;
   font-style: normal;
+  font-weight: normal;
+  src: url("../assets/fonts/Roboto-Thin.ttf") format('truetype');
 }
 
 @font-face {
   font-family: 'Roboto-Bold';
-  src: url("../assets/fonts/Roboto-Bold.ttf") format('truetype');
-  font-weight: normal;
   font-style: normal;
-}
-
-@font-face {
-  font-family: 'Roboto-BoldCondensed';
-  src: url("../assets/fonts/Roboto-BoldCondensed.ttf") format('truetype');
   font-weight: normal;
-  font-style: normal;
+  src: url("../assets/fonts/roboto-bold.ttf") format('truetype');
 }
 
 @font-face {
   font-family: 'Roboto-Medium';
-  src: url("../assets/fonts/Roboto-Medium.ttf") format('truetype');
-  font-weight: normal;
   font-style: normal;
+  font-weight: normal;
+  src: url("../assets/fonts/roboto-medium.ttf") format('truetype');
 }
 
 * {
   font-family: 'Roboto-Regular';
+}
+
+.toolbar-title-md {
+  font-family: 'Roboto-Medium';
 }
 
 body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item > div.item-inner {
@@ -71,6 +68,10 @@ ion-slide.swiper-slide {
 // Iconen margin
 .iconInstellingen {
   margin-right: 2rem !important;
+}
+
+.verificationContent {
+  background-color: #8c2929 !important;
 }
 
 .emailVerificationText {
@@ -137,6 +138,11 @@ body > ion-app > ng-component > ion-nav > page-settings > ion-content > div.scro
 
 // ------------------------------------
 // Comments
+
+//.commentFooter {
+//  overflow-y: scroll;
+//}
+
 // Input border
 
 body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item > div.item-inner {
@@ -145,7 +151,7 @@ body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item 
 
 .avatar {
   float: left !important;
-  margin-right: 15px !important;
+  margin-right: 10px !important;
 }
 
 .commentSpacing {
@@ -162,7 +168,7 @@ body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item 
 }
 
 .commentUsername {
-  font-weight: bold;
+  font-family: Roboto-Bold;
   color: #000 !important;
   margin-bottom: 5px !important;
 }
@@ -174,8 +180,9 @@ body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item 
 
 .commentDate {
   float: right;
-  font-size: x-small;
+  font-size: 1.2rem;
   color: #666;
+  font-family: Roboto-Medium;
 }
 
 .sendButton {
@@ -403,7 +410,6 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
 .gridPadding {
   padding-left: 0 !important;
   padding-right: 0 !important;
-  background-image: url("../assets/imgs/login.png");
   background-repeat: no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -831,7 +837,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 // Algemeen Category
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list > ion-item:nth-child(1) > div.item-inner > div > ion-label {
-  margin-top: 26px !important;
+  margin-top: 15px !important;
 }
 
 // Icons submenu Category
@@ -856,7 +862,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 }
 
 .menuTitle {
-  margin-left: 20px !important;
+  margin-left: 25px !important;
   font-family: 'Roboto-Bold';
 }
 
@@ -900,7 +906,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 }
 
 .avatar-menu {
-  height: 80%;
+  height: 83%;
   border-radius: 50%;
   display: inline-block;
   display: block;
@@ -1077,13 +1083,13 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 }
 
 .uitgeverFeed {
-  margin-top: 1rem;
+  margin-top: 10px;
   margin-bottom: -3px;
   font-family: 'Roboto-Bold' !important;
 }
 
 .uitgeverFeedNU {
-  margin-top: 1.5rem !important;
+  margin-top: 15px !important;
   font-family: 'Roboto-Bold' !important;
 }
 
@@ -1121,7 +1127,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 }
 
 #title > ion-card-title {
-  margin-top: 21px;
+  margin-top: 23px;
   margin-bottom: 4px;
   padding: 0px !important;
   line-height: 0.9;
@@ -1197,33 +1203,31 @@ page-feed img {
 }
 
 .socialTelegraaf {
-  color: rgb(39, 80, 154) !important;
   margin-left: 5px;
   float: right;
 }
 
 .socialTelegraafShare {
   float: left;
-  color: rgb(39, 80, 154) !important;
 }
 
 .ColorNU {
-  background-color: rgb(2, 0, 81) !important;
+  background-color: #0041b5 !important;
 }
 
 .ColorNU2 {
-  background-color: rgb(2, 0, 81) !important;
+  background-color: #0041b5 !important;
   margin-right: 2.0vh !important;
 }
 
 .socialNu {
-  color: rgb(2, 0, 81) !important;
+  color: #0041b5 !important;
   float: right;
 }
 
 .socialNuShare {
   float: left;
-  color: rgb(2, 0, 81) !important;
+  color: #0041b5 !important;
 }
 
 .socialLikeComments {
@@ -1263,6 +1267,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 .headerText {
   font-family: 'Roboto-Bold' !important;
   font-size: 2rem;
+  padding-bottom: 5px !important;
 }
 
 // NieuwsPage
@@ -1357,9 +1362,9 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
 }
 
 .profielPadding {
-  padding-right: 13px;
+  padding: 0px;
+  padding-right: 14px;
   margin: 10px;
-  padding-left: 27px;
 }
 
 .wachtwoordWijzigenPadding {
@@ -1742,4 +1747,17 @@ body > ion-app > ng-component > ion-nav > page-privacybeleid > ion-content > div
 
 .PrivacyBeleidP {
   margin-top: 5px;
+}
+
+// Custom Validatie
+.goed {
+  border-bottom-color: #32db64;
+  -webkit-box-shadow: inset 0 -1px 0 0 #32db64;
+  box-shadow: inset 0 -1px 0 0 #32db64;
+}
+
+.slecht {
+  border-bottom-color: #f53d3d;
+  -webkit-box-shadow: inset 0 -1px 0 0 #f53d3d;
+  box-shadow: inset 0 -1px 0 0 #f53d3d;
 }
