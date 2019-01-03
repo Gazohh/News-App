@@ -156,6 +156,11 @@ body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item 
   margin-right: 7px !important;
 }
 
+.avatarComment {
+  float: left !important;
+  margin-right: 7px !important;
+}
+
 .avatarTelegraaf {
   width: 50px;
   height: 50px;
@@ -970,7 +975,6 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   -moz-background-size: cover;
   background-size: cover;
   height: 100%;
-  position: absolute;
   background-color: transparent !important;
 }
 
@@ -1390,7 +1394,19 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
   border-radius: 50%;
   top: 0;
   bottom: 0;
-  margin: 0 auto;
+  margin: 0 auto !important;
+  display: block;
+  height: 100%;
+  display: block;
+  width: 90px;
+}
+
+
+.avatar-profielComment {
+  border-radius: 50%;
+  top: 0;
+  bottom: 0;
+  margin: 0 auto !important;
   display: block;
   height: 100%;
   display: block;

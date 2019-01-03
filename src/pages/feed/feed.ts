@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
+import {DateTime, IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
 import {MenuController} from "ionic-angular";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Network} from "@ionic-native/network";
@@ -17,8 +17,6 @@ import {SocialSharing} from '@ionic-native/social-sharing';
 import {Storage} from '@ionic/storage';
 import 'rxjs/add/operator/map';
 import {LijstweerPage} from "../lijstweer/lijstweer";
-import {TutorialPage} from "../tutorial/tutorial";
-
 
 @IonicPage()
 @Component({
@@ -173,7 +171,6 @@ export class FeedPage {
         private socialSharing: SocialSharing,
         private geolocation: Geolocation,
         private storage: Storage) {
-
         // // setSegment op vandaag op het weer.
         // this.weerSegment = "weerVandaag";
 
@@ -269,36 +266,20 @@ export class FeedPage {
                 this.storage.get("offlineDataToday").then(data => {
                     this.items = data;
                     this.artikelen = data;
-                    if (this.items) {
-                        this.items.sort(function (a, b) {
-                            return +new Date(b.datum) - +new Date(a.datum);
-                        });
-                    }
                 })
             } else if (this.datepicker == "gisteren") {
                 this.storage.get("offlineDataYesterday").then(data => {
                     this.items = data;
                     this.artikelen = data;
-                    if (this.items) {
-                        this.items.sort(function (a, b) {
-                            return +new Date(b.datum) - +new Date(a.datum);
-                        });
-                    }
                 })
             } else if (this.datepicker == "driedagengeleden") {
                 this.storage.get("offlineData3DaysAgo").then(data => {
                     this.items = data;
                     this.artikelen = data;
-                    if (this.items) {
-                        this.items.sort(function (a, b) {
-                            return +new Date(b.datum) - +new Date(a.datum);
-                        });
-                    }
                 })
             }
         }
-        if(localStorage.getItem("themeColor"))
-        {
+        if (localStorage.getItem("themeColor")) {
             this.currentTheme = localStorage.getItem("themeColor");
             console.log(this.currentTheme);
         }
@@ -332,33 +313,18 @@ export class FeedPage {
                     this.items = data;
                     this.artikelen = data;
                     this.content.scrollToTop(0);
-                    if (this.items) {
-                        this.items.sort(function (a, b) {
-                            return +new Date(b.datum) - +new Date(a.datum);
-                        });
-                    }
                 })
             } else if (this.datepicker == "gisteren") {
                 this.storage.get("offlineDataYesterday").then(data => {
                     this.items = data;
                     this.artikelen = data;
                     this.content.scrollToTop(0);
-                    if (this.items) {
-                        this.items.sort(function (a, b) {
-                            return +new Date(b.datum) - +new Date(a.datum);
-                        });
-                    }
                 })
             } else if (this.datepicker == "driedagengeleden") {
                 this.storage.get("offlineData3DaysAgo").then(data => {
                     this.items = data;
                     this.artikelen = data;
                     this.content.scrollToTop(0);
-                    if (this.items) {
-                        this.items.sort(function (a, b) {
-                            return +new Date(b.datum) - +new Date(a.datum);
-                        });
-                    }
                 })
             }
         }
@@ -427,31 +393,16 @@ export class FeedPage {
                 this.storage.get("offlineDataToday").then(data => {
                     this.items = data;
                     this.artikelen = data;
-                    if (this.items) {
-                        this.items.sort(function (a, b) {
-                            return +new Date(b.datum) - +new Date(a.datum);
-                        });
-                    }
                 })
             } else if (this.datepicker == "gisteren") {
                 this.storage.get("offlineDataYesterday").then(data => {
                     this.items = data;
                     this.artikelen = data;
-                    if (this.items) {
-                        this.items.sort(function (a, b) {
-                            return +new Date(b.datum) - +new Date(a.datum);
-                        });
-                    }
                 })
             } else if (this.datepicker == "driedagengeleden") {
                 this.storage.get("offlineData3DaysAgo").then(data => {
                     this.items = data;
                     this.artikelen = data;
-                    if (this.items) {
-                        this.items.sort(function (a, b) {
-                            return +new Date(b.datum) - +new Date(a.datum);
-                        });
-                    }
                 })
             }
         }
@@ -551,6 +502,11 @@ export class FeedPage {
             .subscribe((data: any) => {
                     this.items = data;
                     this.artikelen = data;
+                    this.items.sort(function(a, b) {
+                        a = new Date(a.datum);
+                        b = new Date(b.datum);
+                        return a>b ? -1 : a<b ? 1 : 0;
+                    });
                 },
                 (error: any) => {
                     let toast = this.toastCtrl.create({
@@ -577,12 +533,6 @@ export class FeedPage {
             .subscribe((data: any) => {
                     this.items = data;
                     this.artikelen = data;
-                    if (this.items) {
-                        this.items.sort(function (a, b) {
-                            return +new Date(b.datum) - +new Date(a.datum);
-                        });
-
-                    }
                 },
                 (error: any) => {
                     let toast = this.toastCtrl.create({
@@ -613,11 +563,6 @@ export class FeedPage {
                     this.artikelen = data;
                     this.items = data;
                     this.artikelen = data;
-                    if (this.items) {
-                        this.items.sort(function (a, b) {
-                            return +new Date(b.datum) - +new Date(a.datum);
-                        });
-                    }
                 },
                 (error: any) => {
                     let toast = this.toastCtrl.create({
@@ -646,15 +591,6 @@ export class FeedPage {
             .subscribe((data: any) => {
                     this.items = data;
                     this.artikelen = data;
-                    if (this.items) {
-                        this.items.sort(function (a, b) {
-                            return +new Date(b.datum) - +new Date(a.datum);
-                        });
-                    } else if (this.artikelen) {
-                        this.artikelen.sort(function (a, b) {
-                            return +new Date(b.datum) - +new Date(a.datum);
-                        });
-                    }
                 },
                 (error: any) => {
                     let toast = this.toastCtrl.create({
@@ -685,11 +621,6 @@ export class FeedPage {
                     .subscribe((data: any) => {
                             this.items = data;
                             this.artikelen = data;
-                            if (this.items) {
-                                this.items.sort(function (a, b) {
-                                    return +new Date(b.datum) - +new Date(a.datum);
-                                });
-                            }
                         },
                         (error: any) => {
                             let toast = this.toastCtrl.create({
@@ -714,11 +645,6 @@ export class FeedPage {
                     .subscribe((data: any) => {
                             this.items = data;
                             this.artikelen = data;
-                            if (this.items) {
-                                this.items.sort(function (a, b) {
-                                    return +new Date(b.datum) - +new Date(a.datum);
-                                });
-                            }
                         },
                         (error: any) => {
                             let toast = this.toastCtrl.create({
@@ -742,11 +668,6 @@ export class FeedPage {
                     .subscribe((data: any) => {
                             this.items = data;
                             this.artikelen = data;
-                            if (this.items) {
-                                this.items.sort(function (a, b) {
-                                    return +new Date(b.datum) - +new Date(a.datum);
-                                });
-                            }
                         },
                         (error: any) => {
                             let toast = this.toastCtrl.create({
@@ -980,11 +901,6 @@ export class FeedPage {
         this.storage.get('offlineDataVandaag').then((val) => {
             this.items = val;
             this.artikelen = val;
-            if (this.items) {
-                this.items.sort(function (a, b) {
-                    return +new Date(b.datum) - +new Date(a.datum);
-                });
-            }
             console.log('Data:' + val);
             console.log('Offline data is imported.');
         });
@@ -995,11 +911,6 @@ export class FeedPage {
         this.storage.get('offlineDataGisteren').then((val) => {
             this.items = val;
             this.artikelen = val;
-            if (this.items) {
-                this.items.sort(function (a, b) {
-                    return +new Date(b.datum) - +new Date(a.datum);
-                });
-            }
             console.log('Data:' + val);
             console.log('Offline data is imported.');
         });
@@ -1010,11 +921,6 @@ export class FeedPage {
         this.storage.get('offlineData3DagenGeleden').then((val) => {
             this.items = val;
             this.artikelen = val;
-            if (this.items) {
-                this.items.sort(function (a, b) {
-                    return +new Date(b.datum) - +new Date(a.datum);
-                });
-            }
             console.log('Data:' + val);
             console.log('Offline data is imported.');
         });
