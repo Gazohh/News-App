@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NavController, LoadingController} from 'ionic-angular';
 import {RegisterPage} from "../register/register";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
@@ -13,6 +13,7 @@ import {Keyboard} from '@ionic-native/keyboard';
 import {Storage} from '@ionic/storage';
 import {TutorialPage} from "../tutorial/tutorial";
 import {SettingsProvider} from "../../providers/settings/settings";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 
 @Component({
@@ -20,7 +21,7 @@ import {SettingsProvider} from "../../providers/settings/settings";
     templateUrl: 'home.html'
 })
 
-export class HomePage {
+export class HomePage implements OnInit {
 
     // Variablen
     dataUser: any;
@@ -36,6 +37,7 @@ export class HomePage {
     FeedPage = FeedPage;
     data: string;
     selectedTheme: string;
+    form: FormGroup;
 
 
     constructor(
@@ -88,16 +90,9 @@ export class HomePage {
 
     // Checkt in database of je gegevens kloppen dan word je naar feedpagina gegooit
     signIn() {
-        // Controleert of de velden wel zijn ingevuld
-        if (this.email == null || this.password == null) {
-            let toast = this.toastCtrl.create({
-                message: 'Niet alle velden zijn ingevuld!',
-                duration: 3000,
-                position: 'top'
-            });
-            toast.present();
-        }
-        else {
+        if (this.form.invalid) {
+            this.validateAllFormFields(this.form); //{7}
+        } else {
             var headers = new HttpHeaders();
             headers.append("Accept", 'application/json');
             headers.append('Content-Type', 'application/json');
@@ -133,30 +128,38 @@ export class HomePage {
                             localStorage.setItem("themeColor", this.selectedTheme);
                             console.log(this.selectedTheme);
 
-                                if (localStorage.getItem("TutorialShown") != "true") {
-                                    this.navCtrl.setRoot(TutorialPage);
-                                }
-                                else if (localStorage.getItem("TutorialShown") == "true")
-                                {
-                                    this.navCtrl.setRoot(FeedPage);
-                                }
+                            if (localStorage.getItem("TutorialShown") != "true") {
+                                this.navCtrl.setRoot(TutorialPage);
+                            } else if (localStorage.getItem("TutorialShown") == "true") {
+                                this.navCtrl.setRoot(FeedPage);
+                            }
                             // //Fire username event
                             this.events.publish("username", this.dataUser.username);
                             this.events.publish("profilepicture", this.dataUser.profilepicture);
 
 
                         }
-                        else {
-                            let toast = this.toastCtrl.create({
-                                message: "Uw gegevens zijn onjuist, probeer het nogmaals.",
-                                showCloseButton: true,
-                                closeButtonText: "OK",
-                                position: "top"
-                            });
-                            toast.present();
-                        }
                     });
             });
         }
+    }
+
+    ngOnInit() {
+        this.form = new FormGroup({
+            password: new FormControl('', [Validators.required]),
+            email: new FormControl('', [Validators.required, Validators.email, Validators.pattern('^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$')])
+        })
+    }
+
+    // Push terug naar home button
+    validateAllFormFields(formGroup: FormGroup) {         //{1}
+        Object.keys(formGroup.controls).forEach(field => {  //{2}
+            const control = formGroup.get(field);             //{3}
+            if (control instanceof FormControl) {             //{4}
+                control.markAsTouched({onlySelf: true});
+            } else if (control instanceof FormGroup) {        //{5}
+                this.validateAllFormFields(control);            //{6}
+            }
+        });
     }
 }

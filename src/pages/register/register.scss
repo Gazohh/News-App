@@ -12,3 +12,23 @@
   border-radius: 0 !important;
   width: 50% !important;
 }
+
+body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div > form > div:nth-child(1) > ion-item {
+  background-color: transparent;
+}
+
+body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div > form > div:nth-child(2) > ion-item {
+  background-color: transparent;
+}
+
+body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div > form > div:nth-child(3) > ion-item {
+  background-color: transparent;
+}
+
+body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div > form > div:nth-child(5) > ion-item {
+  background-color: transparent;
+}
+
+.labelRegistreer {
+  color: #fff !important;
+}

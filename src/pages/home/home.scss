@@ -1,0 +1,52 @@
+.inlogGrid {
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  position: absolute;
+  overflow: hidden;
+  padding: 0px !important;
+  background-image: url("../assets/imgs/backgroundInlog.png") !important;
+}
+
+body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > form > div > div:nth-child(1) > ion-item {
+  background-color: transparent !important;
+}
+
+body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > form > div > div:nth-child(2) > ion-item {
+  background-color: transparent !important;
+}
+
+body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > form > div > div:nth-child(3) > ion-item {
+  background-color: transparent !important;
+}
+
+.wachtwoordLabel {
+  color: #fff !important;
+}
+
+.emailLabel {
+  color: #fff !important;
+}
+
+.loginButton {
+  background-color: #fff !important;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  border-radius: 1vh;
+  width: 100%;
+
+}
+
+.loginButtonText {
+  color: #3ca7d1 !important;
+  font-family: 'Roboto-Bold';
+  font-size: 1.4rem;
+}
+
+.registeerButton {
+  background-color: #fff !important;
+  font-size: 2rem;
+  border-radius: 1vh;
+  width: 100%;
+}

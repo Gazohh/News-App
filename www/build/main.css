@@ -33837,15 +33837,24 @@ body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item 
 
 .avatar {
   width: 50px;
-  height: 50px;
+  float: left !important;
+}
+
+.avatarTelegraaf {
+  margin-right: 5px;
+  float: left !important;
+}
+
+.avatarComment {
   float: left !important;
   margin-right: 7px !important;
 }
 
-.avatarTelegraaf {
+.avatarNOS {
+  margin-top: 5px;
   width: 50px;
-  height: 50px;
   float: left !important;
+  margin-right: 5px;
 }
 
 .commentSpacing {
@@ -33994,20 +34003,6 @@ body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item 
   margin-right: 16%;
 }
 
-.registerButton {
-  margin: 0 !important;
-  background-color: rgba(0, 0, 0, 0.4) !important;
-  border-radius: 0 !important;
-  width: 50% !important;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  text-transform: uppercase;
-}
-
-body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div > div > ion-title > div {
-  color: white;
-}
-
 body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content {
   background-color: #fff !important;
 }
@@ -34117,13 +34112,6 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   text-transform: uppercase;
 }
 
-.welkomText {
-  padding: 3vh;
-  margin-bottom: 0;
-  padding-bottom: 0;
-  font-weight: 800;
-}
-
 .loginText {
   padding-left: 3vh;
   margin-top: 5px;
@@ -34138,13 +34126,6 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   position: absolute;
   height: 100%;
   overflow: hidden;
-}
-
-.loginButton {
-  display: block;
-  width: 107%;
-  margin: 0 auto;
-  border-radius: 1vh;
 }
 
 .nogGeenAccount {
@@ -34180,10 +34161,19 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   color: #488aff;
 }
 
-.ValidatieText {
+.validatieText {
+  padding-left: 16px;
+  margin-top: 5px;
+  color: #fff;
+}
+
+.validatieImage {
   text-align: center;
   display: block;
   margin: 0 auto;
+  margin-bottom: 30px;
+  height: 75px;
+  width: 75px;
 }
 
 .gavederText {
@@ -34277,16 +34267,6 @@ fab-content-margin {
   border-radius: 10px;
 }
 
-body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid {
-  background: #ebeeef;
-  padding: 10px;
-}
-
-body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid {
-  background: #ebeeef;
-  padding: 10px;
-}
-
 .form-title::before {
   content: "";
   display: block;
@@ -34339,23 +34319,8 @@ ion-grid {
   justify-content: center;
 }
 
-body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid {
-  background: #ebeeef;
-  padding: 10px;
-}
-
 body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content {
   background-color: #ebeeef;
-}
-
-body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid {
-  background: #ebeeef;
-  padding: 10px;
-}
-
-body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid {
-  background: #ebeeef;
-  padding: 10px;
 }
 
 body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div.loginFoto > div > div {
@@ -34472,11 +34437,6 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   border-bottom-color: #f53d3d;
   -webkit-box-shadow: inset 0 -1px 0 0 #f53d3d;
   box-shadow: inset 0 -1px 0 0 #f53d3d;
-}
-
-.validatieText {
-  padding-left: 1.5rem !important;
-  padding-top: 0.5rem !important;
 }
 
 .bar-button-clear-ios-default,
@@ -34638,7 +34598,6 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   background-repeat: repeat;
   background-size: cover;
   height: 100%;
-  position: absolute;
   background-color: transparent !important;
 }
 
@@ -34723,44 +34682,32 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 }
 
 .avatar-feed {
-  border-radius: 200px 200px 200px 200px;
-  -moz-border-radius: 200px 200px 200px 200px;
-  -webkit-border-radius: 200px 200px 200px 200px;
-  border: 0 solid #000000;
   height: 100%;
   width: 40px;
+  margin: 0px !important;
 }
 
 .avatar-feedTelegraaf {
-  border-radius: 200px 200px 200px 200px;
-  -moz-border-radius: 200px 200px 200px 200px;
-  -webkit-border-radius: 200px 200px 200px 200px;
-  border: 0 solid #000000;
   height: 100%;
   width: 30px;
+  margin: 0px;
 }
 
 .avatar-feedNOS {
-  width: 40px;
-  margin-top: 13px !important;
   font-family: 'Roboto-Bold' !important;
 }
 
 .uitgeverFeed {
-  padding-top: 15px;
-  margin-bottom: -3px;
+  padding-top: 9px;
   font-family: 'Roboto-Bold' !important;
 }
 
 .uitgeverFeedNU {
-  padding-top: 15px;
-  margin-bottom: -3px;
+  padding-top: 17px;
   font-family: 'Roboto-Bold' !important;
 }
 
 .uitgeverFeedNOS {
-  padding-top: 9px;
-  margin-bottom: -3px;
   font-family: 'Roboto-Bold' !important;
 }
 
@@ -34790,19 +34737,37 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
   background: #fff;
 }
 
-#title > ion-card-title > strong {
-  margin: 9px 0 0 0 !important;
-  font-size: 1.8rem !important;
-  padding-bottom: 2px;
+.cardContentFeed {
+  padding: 20px !important;
+}
+
+.cardTitle {
+  margin-top: 20px;
+  margin-bottom: 4px;
+  padding: 0px !important;
   font-family: 'Roboto-Bold' !important;
+  font-size: 1.8rem !important;
+}
+
+.cardTitleNOS {
+  margin-bottom: 4px;
+  padding: 0px !important;
+  font-family: 'Roboto-Bold' !important;
+  font-size: 1.8rem !important;
 }
 
 #title > ion-card-title {
-  margin-top: 25px;
-  margin-bottom: 4px;
-  padding: 0px !important;
-  line-height: 0.9;
-  font-family: 'Roboto-Bold' !important;
+  padding: 0px;
+  line-height: 0.9 !important;
+  margin: 0;
+  margin-top: 20px;
+}
+
+#ionCardNOS {
+  padding: 0px;
+  line-height: 0.9 !important;
+  margin: 0;
+  margin-top: 40px !important;
 }
 
 .cardContentWeer {
@@ -35030,7 +34995,18 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
   border-radius: 50%;
   top: 0;
   bottom: 0;
-  margin: 0 auto;
+  margin: 0 auto !important;
+  display: block;
+  height: 100%;
+  display: block;
+  width: 90px;
+}
+
+.avatar-profielComment {
+  border-radius: 50%;
+  top: 0;
+  bottom: 0;
+  margin: 0 auto !important;
   display: block;
   height: 100%;
   display: block;
@@ -35199,7 +35175,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 
 .card-md p {
   padding-top: 4px;
-  font-size: 2vh;
+  font-size: 1.4rem;
 }
 
 .rowWeer {
@@ -35438,6 +35414,56 @@ hr {
   visibility: visible !important;
 }
 
+.inlogGrid {
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  overflow: hidden;
+  padding: 0px !important;
+  background-image: url("../assets/imgs/backgroundInlog.png") !important;
+}
+
+body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > form > div > div:nth-child(1) > ion-item {
+  background-color: transparent !important;
+}
+
+body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > form > div > div:nth-child(2) > ion-item {
+  background-color: transparent !important;
+}
+
+body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > form > div > div:nth-child(3) > ion-item {
+  background-color: transparent !important;
+}
+
+.wachtwoordLabel {
+  color: #fff !important;
+}
+
+.emailLabel {
+  color: #fff !important;
+}
+
+.loginButton {
+  background-color: #fff !important;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  border-radius: 1vh;
+  width: 100%;
+}
+
+.loginButtonText {
+  color: #3ca7d1 !important;
+  font-family: 'Roboto-Bold';
+  font-size: 1.4rem;
+}
+
+.registeerButton {
+  background-color: #fff !important;
+  font-size: 2rem;
+  border-radius: 1vh;
+  width: 100%;
+}
+
 page-nieuws .platform-ios .nieuwsNavTitle.toolbar.toolbar-md {
   padding-top: 17px !important;
   height: 67px !important;
@@ -35480,6 +35506,26 @@ page-privacybeleid body > ion-app > ng-component > ion-nav > page-privacybeleid 
   background-color: #00000066 !important;
   border-radius: 0 !important;
   width: 50% !important;
+}
+
+body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div > form > div:nth-child(1) > ion-item {
+  background-color: transparent;
+}
+
+body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div > form > div:nth-child(2) > ion-item {
+  background-color: transparent;
+}
+
+body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div > form > div:nth-child(3) > ion-item {
+  background-color: transparent;
+}
+
+body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div > form > div:nth-child(5) > ion-item {
+  background-color: transparent;
+}
+
+.labelRegistreer {
+  color: #fff !important;
 }
 
 page-tutorial .toolbar-background {

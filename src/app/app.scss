@@ -289,23 +289,6 @@ body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item 
   margin-right: 16%;
 }
 
-// Register Button (RegisterPage)
-
-.registerButton {
-  margin: 0 !important;
-  background-color: rgba(0, 0, 0, 0.4) !important;
-  border-radius: 0 !important;
-  width: 50% !important;
-  box-shadow: none;
-  text-transform: uppercase;
-}
-
-// Register Text
-
-body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div > div > ion-title > div {
-  color: white;
-}
-
 // ------------------------------------
 // HomePage
 
@@ -412,13 +395,6 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
 
 // Welkom text
 
-.welkomText {
-  padding: 3vh;
-  margin-bottom: 0;
-  padding-bottom: 0;
-  font-weight: 800;
-}
-
 .loginText {
   padding-left: 3vh;
   margin-top: 5px;
@@ -435,13 +411,6 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   position: absolute;
   height: 100%;
   overflow: hidden;
-}
-
-.loginButton {
-  display: block;
-  width: 107%;
-  margin: 0 auto;
-  border-radius: 1vh;
 }
 
 .nogGeenAccount {
@@ -477,10 +446,19 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   color: #488aff;
 }
 
-.ValidatieText {
+.validatieText {
+  padding-left: 16px;
+  margin-top: 5px;
+  color: #fff;
+}
+
+.validatieImage {
   text-align: center;
   display: block;
   margin: 0 auto;
+  margin-bottom: 30px;
+  height: 75px;
+  width: 75px;
 }
 
 .gavederText {
@@ -574,15 +552,6 @@ fab-content-margin {
   border-radius: 10px;
 }
 
-body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid {
-  background: #ebeeef;
-  padding: 10px;
-}
-
-body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid {
-  background: #ebeeef;
-  padding: 10px;
-}
 
 .form-title::before {
   content: "";
@@ -633,28 +602,11 @@ ion-grid {
   justify-content: center;
 }
 
-// Background color
-
-body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid {
-  background: #ebeeef;
-  padding: 10px;
-}
-
 // ------------------------------------
 // scroll-content
 
 body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content {
   background-color: #ebeeef;
-}
-
-body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid {
-  background: #ebeeef;
-  padding: 10px;
-}
-
-body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid {
-  background: #ebeeef;
-  padding: 10px;
 }
 
 // ------------------------------------
@@ -782,11 +734,6 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
   border-bottom-color: #f53d3d;
   -webkit-box-shadow: inset 0 -1px 0 0 #f53d3d;
   box-shadow: inset 0 -1px 0 0 #f53d3d;
-}
-
-.validatieText {
-  padding-left: 1.5rem !important;
-  padding-top: 0.5rem !important;
 }
 
 .bar-button-clear-ios-default,
