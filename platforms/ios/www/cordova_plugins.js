@@ -1,6 +1,14 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
   {
+    "id": "com-sarriaroman-photoviewer.PhotoViewer",
+    "file": "plugins/com-sarriaroman-photoviewer/www/PhotoViewer.js",
+    "pluginId": "com-sarriaroman-photoviewer",
+    "clobbers": [
+      "PhotoViewer"
+    ]
+  },
+  {
     "id": "com.telerik.plugins.nativepagetransitions.NativePageTransitions",
     "file": "plugins/com.telerik.plugins.nativepagetransitions/www/NativePageTransitions.js",
     "pluginId": "com.telerik.plugins.nativepagetransitions",
@@ -238,6 +246,38 @@ module.exports = [
     ]
   },
   {
+    "id": "cordova-plugin-geolocation.Coordinates",
+    "file": "plugins/cordova-plugin-geolocation/www/Coordinates.js",
+    "pluginId": "cordova-plugin-geolocation",
+    "clobbers": [
+      "Coordinates"
+    ]
+  },
+  {
+    "id": "cordova-plugin-geolocation.PositionError",
+    "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
+    "pluginId": "cordova-plugin-geolocation",
+    "clobbers": [
+      "PositionError"
+    ]
+  },
+  {
+    "id": "cordova-plugin-geolocation.Position",
+    "file": "plugins/cordova-plugin-geolocation/www/Position.js",
+    "pluginId": "cordova-plugin-geolocation",
+    "clobbers": [
+      "Position"
+    ]
+  },
+  {
+    "id": "cordova-plugin-geolocation.geolocation",
+    "file": "plugins/cordova-plugin-geolocation/www/geolocation.js",
+    "pluginId": "cordova-plugin-geolocation",
+    "clobbers": [
+      "navigator.geolocation"
+    ]
+  },
+  {
     "id": "cordova-plugin-headercolor.HeaderColor",
     "file": "plugins/cordova-plugin-headercolor/www/HeaderColor.js",
     "pluginId": "cordova-plugin-headercolor",
@@ -334,46 +374,6 @@ module.exports = [
     ]
   },
   {
-    "id": "info.protonet.imageresizer.ImageResizer",
-    "file": "plugins/info.protonet.imageresizer/www/image_resizer.js",
-    "pluginId": "info.protonet.imageresizer",
-    "clobbers": [
-      "ImageResizer"
-    ]
-  },
-  {
-    "id": "cordova-plugin-geolocation.Coordinates",
-    "file": "plugins/cordova-plugin-geolocation/www/Coordinates.js",
-    "pluginId": "cordova-plugin-geolocation",
-    "clobbers": [
-      "Coordinates"
-    ]
-  },
-  {
-    "id": "cordova-plugin-geolocation.PositionError",
-    "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
-    "pluginId": "cordova-plugin-geolocation",
-    "clobbers": [
-      "PositionError"
-    ]
-  },
-  {
-    "id": "cordova-plugin-geolocation.Position",
-    "file": "plugins/cordova-plugin-geolocation/www/Position.js",
-    "pluginId": "cordova-plugin-geolocation",
-    "clobbers": [
-      "Position"
-    ]
-  },
-  {
-    "id": "cordova-plugin-geolocation.geolocation",
-    "file": "plugins/cordova-plugin-geolocation/www/geolocation.js",
-    "pluginId": "cordova-plugin-geolocation",
-    "clobbers": [
-      "navigator.geolocation"
-    ]
-  },
-  {
     "id": "cordova-sqlite-storage.SQLitePlugin",
     "file": "plugins/cordova-sqlite-storage/www/SQLitePlugin.js",
     "pluginId": "cordova-sqlite-storage",
@@ -382,22 +382,24 @@ module.exports = [
     ]
   },
   {
-    "id": "com-sarriaroman-photoviewer.PhotoViewer",
-    "file": "plugins/com-sarriaroman-photoviewer/www/PhotoViewer.js",
-    "pluginId": "com-sarriaroman-photoviewer",
+    "id": "info.protonet.imageresizer.ImageResizer",
+    "file": "plugins/info.protonet.imageresizer/www/image_resizer.js",
+    "pluginId": "info.protonet.imageresizer",
     "clobbers": [
-      "PhotoViewer"
+      "ImageResizer"
     ]
   }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
+  "com-sarriaroman-photoviewer": "1.1.18",
   "com.telerik.plugins.nativepagetransitions": "0.6.5",
   "cordova-plugin-camera": "4.0.3",
   "cordova-plugin-device": "2.0.2",
   "cordova-plugin-file": "6.0.1",
   "cordova-plugin-file-transfer": "1.7.1",
+  "cordova-plugin-geolocation": "4.0.1",
   "cordova-plugin-headercolor": "1.0",
   "cordova-plugin-inappbrowser": "3.0.0",
   "cordova-plugin-ionic-keyboard": "2.1.2",
@@ -409,10 +411,8 @@ module.exports.metadata =
   "cordova-plugin-whitelist": "1.3.3",
   "es6-promise-plugin": "4.2.2",
   "cordova-plugin-x-socialsharing": "5.4.1",
-  "info.protonet.imageresizer": "0.1.1",
-  "cordova-plugin-geolocation": "4.0.1",
   "cordova-sqlite-storage": "2.5.0",
-  "com-sarriaroman-photoviewer": "1.1.18"
+  "info.protonet.imageresizer": "0.1.1"
 };
 // BOTTOM OF METADATA
 });

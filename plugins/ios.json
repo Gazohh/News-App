@@ -7,6 +7,9 @@
     "files": {}
   },
   "installed_plugins": {
+    "com-sarriaroman-photoviewer": {
+      "PACKAGE_NAME": "com.newsage.na"
+    },
     "com.telerik.plugins.nativepagetransitions": {
       "PACKAGE_NAME": "com.newsage.na"
     },
@@ -20,6 +23,9 @@
       "PACKAGE_NAME": "com.newsage.na"
     },
     "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.newsage.na"
+    },
+    "cordova-plugin-geolocation": {
       "PACKAGE_NAME": "com.newsage.na"
     },
     "cordova-plugin-headercolor": {
@@ -52,16 +58,10 @@
     "cordova-plugin-x-socialsharing": {
       "PACKAGE_NAME": "com.newsage.na"
     },
-    "info.protonet.imageresizer": {
-      "PACKAGE_NAME": "com.newsage.na"
-    },
-    "cordova-plugin-geolocation": {
-      "PACKAGE_NAME": "com.newsage.na"
-    },
     "cordova-sqlite-storage": {
       "PACKAGE_NAME": "com.newsage.na"
     },
-    "com-sarriaroman-photoviewer": {
+    "info.protonet.imageresizer": {
       "PACKAGE_NAME": "com.newsage.na"
     }
   },
