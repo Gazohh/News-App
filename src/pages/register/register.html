@@ -1,5 +1,6 @@
 <ion-content>
   <ion-grid style="height: 100%" class="inlogGrid">
+    <ion-navbar></ion-navbar>
     <ion-row justify-content-center align-items-center style="height: 100%">
       <ion-col col-12>
         <img class="validatieImage" src="../../assets/imgs/newsAgeZonderText.png"/>
@@ -12,8 +13,8 @@
               </ion-item>
             </div>
             <div *ngIf="form.get('username').touched && form.get('username').invalid" class="alert alert-danger" required>
-              <div class="validatieText" *ngIf="form.get('username').hasError('required')">Naam moet ingevuld zijn.</div>
-              <div class="validatieText" *ngIf="form.get('username').hasError('pattern')">Ongeldige naam.</div>
+              <div class="validatieText" *ngIf="form.get('username').hasError('required')">Naam moet ingevuld zijn</div>
+              <div class="validatieText" *ngIf="form.get('username').hasError('pattern')">Ongeldige naam</div>
             </div>
             <div class="form-group">
               <ion-item [ngClass]="{ 'ng-touched' : form.get('email').touched }">

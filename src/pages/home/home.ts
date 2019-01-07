@@ -34,7 +34,6 @@ export class HomePage implements OnInit {
     creationdate: any;
     token = Math.random().toString(36).substring(7);
     rootPage: any = HomePage;
-    FeedPage = FeedPage;
     data: string;
     selectedTheme: string;
     form: FormGroup;
@@ -137,6 +136,9 @@ export class HomePage implements OnInit {
                             this.events.publish("username", this.dataUser.username);
                             this.events.publish("profilepicture", this.dataUser.profilepicture);
 
+
+                        }
+                        else if(res == 'No matching password') {
 
                         }
                     });

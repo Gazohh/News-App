@@ -29,6 +29,13 @@ body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scro
   background-color: transparent;
 }
 
+body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div > form > div:nth-child(4) > ion-item {
+  background-color: transparent;
+}
+
+body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-navbar > div.toolbar-background.toolbar-background-md {
+  background-color: transparent !important;
+}
 .labelRegistreer {
   color: #fff !important;
 }

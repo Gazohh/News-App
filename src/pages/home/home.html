@@ -12,33 +12,24 @@
                                            [(ngModel)]="email"></ion-input>
                             </ion-item>
                         </div>
-                        <div *ngIf="form.get('email').touched && form.get('email').invalid" class="alert alert-danger"
-                             required>
-                            <div class="validatieText" *ngIf="form.get('email').hasError('required')">Email moet
-                                ingevuld zijn
-                            </div>
-                            <div class="validatieText" *ngIf="form.get('email').hasError('pattern')">Ongeldige Email!
-                            </div>
+                        <div *ngIf="form.get('email').touched && form.get('email').invalid" class="alert alert-danger" required>
+                            <div class="validatieText" *ngIf="form.get('email').hasError('required')">Email moet ingevuld zijn</div>
+                            <div class="validatieText" *ngIf="form.get('email').hasError('pattern')">Ongeldige Email!</div>
                         </div>
                         <div class="form-group">
                             <ion-item [ngClass]="{ 'ng-touched' : form.get('password').touched }">
                                 <ion-label floating class="wachtwoordLabel">Wachtwoord</ion-label>
-                                <ion-input type="password" formControlName="password" class="form-control"
-                                           [(ngModel)]="password"></ion-input>
+                                <ion-input type="password" formControlName="password" class="form-control" [(ngModel)]="password"></ion-input>
                             </ion-item>
                         </div>
                         <div class="alert alert-danger"
                              *ngIf="form.get('password').touched && form.get('password').invalid ">
-                            <div class="validatieText" *ngIf="form.get('password').hasError('required')">Wachtwoord moet
-                                ingevuld zijn
-                            </div>
+                            <div class="validatieText" *ngIf="form.get('password').hasError('required')">Wachtwoord moet ingevuld zijn</div>
                         </div>
                         <br>
                         <div class="Validatie2Login">
-                            <button ion-button round class="loginButton" (click)="signIn()"><span
-                                    class="loginButtonText">Log-in</span></button>
-                            <button ion-button round class="registeerButton" (click)="goRegister()"><span
-                                    class="loginButtonText">Registreer</span></button>
+                            <button ion-button round class="loginButton" (click)="signIn()"><span class="loginButtonText">Log-in</span></button>
+                            <button ion-button round class="registeerButton" (click)="goRegister()"><span class="loginButtonText">Registreer</span></button>
                         </div>
                     </div>
                 </form>
