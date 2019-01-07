@@ -1,33 +1,62 @@
 <ion-header no-border-bottom>
-  <ion-navbar>
-    <button ion-button menuToggle right class="fakeCenter">
-        <ion-icon name="menu"></ion-icon>
-    </button>
-      <ion-title>Tutorial</ion-title>
+    <ion-navbar>
+        <button ion-button menuToggle right class="fakeCenter">
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Tutorial</ion-title>
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
     </ion-navbar>
 </ion-header>
 <ion-content class="tutorial-page">
-  <ion-slides pager>
-    <ion-slide>
-      <ion-icon name="star"></ion-icon>
-      <h2>Kaas</h2>
-      <p>ewaja</p>
-    </ion-slide>
-    <ion-slide>
-      <ion-icon name="star"></ion-icon>
-      <h2>Kaas</h2>
-      <p>ewaja</p>
-    </ion-slide>
-    <ion-slide>
-      <img src="../../assets/imgs/NewsAgeLogo.png" class="slide-image"/>
-      <h2 class="slide-title">Bent u er klaar voor?</h2>
-      <button ion-button large clear icon-end color="primary" (click)="tutorialDone()">
-        Doorgaan!
-        <ion-icon name="arrow-forward"></ion-icon>
-      </button>
-    </ion-slide>
-  </ion-slides>
+
+    <ion-slides pager>
+        <ion-slide>
+            <h2 class="slide-title">Welkom bij NewsAge</h2>
+            <p>Welkom! In de tutorial vertellen wij kort even hoe u de app gebruikt.</p>
+        </ion-slide>
+        <ion-slide class="bronnenSlide">
+            <ion-icon name="star" class="tutorialIcon"></ion-icon>
+            <h2>Bronnen</h2>
+            <p>
+                In bronnen kunt u uw favoriete newspagina volgen(subscriben) dit doet u door
+                in het menu op Bronnen te klikken en dan naar links te swipen. Nu komt u op een pagina waar u allerlei
+                paginas
+                kan toevoegen. Vind uw newspagina die u leuk vind en voeg hem toe! Als u nu naar de start pagina gaat
+                ziet
+                u dat uw favoriete newspagina er tussen staat!
+            </p>
+        </ion-slide>
+        <ion-slide class="bronnenSlide">
+            <ion-icon name="share" class="tutorialIcon"></ion-icon>
+            <h2 class="slide-title">
+                Delen met uw vrienden!
+            </h2>
+            <p>
+                Met NewsAge is het heel gemakkelijk om een Artikel te liken of te delen met uw vrienden, dit
+                zodat zij ook dat ene nieuws artikel kunnen lezen.
+                Dit doet u door op het pijltje te klikken onder aan elke artikel.
+                Het liken van een artikel is ook simpel. Met 1 druk op het hartje kunt u het artikel liken.
+                Daarnaast kunt u als u een reactie wilt plaatsen op het nieuws artikel dit doen,
+                namelijk door heel eenvoudig op het tekstbalkje te klikken.
+            </p>
+        </ion-slide>
+        <ion-slide class="bronnenSlide">
+            <h2 class="slide-title">
+                Vragen?
+            </h2>
+            <p>
+                Als u verder nog vragen hebt over de app, kunt u ze mailen naar ons via: newsage2018@gmail.com
+                de FAQ worden dan in slides gedaan en zo word de tutorial bijgewerkt.
+            </p>
+        </ion-slide>
+        <ion-slide>
+            <h2 class="slide-title">Bent u er klaar voor?</h2>
+            <button ion-button large clear icon-end color="primary" (click)="tutorialDone()">
+                Doorgaan!
+                <ion-icon name="arrow-forward"></ion-icon>
+            </button>
+        </ion-slide>
+    </ion-slides>
 </ion-content>

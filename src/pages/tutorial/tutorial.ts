@@ -4,6 +4,13 @@ import {Platform} from 'ionic-angular';
 import {FeedPage} from "../feed/feed";
 import {Storage} from '@ionic/storage';
 
+/**
+ * Generated class for the TutorialPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+
 @IonicPage()
 @Component({
     selector: 'page-tutorial',
@@ -23,13 +30,18 @@ export class TutorialPage {
         },
         {
             title: "Hoe gebruik je NewsAge?",
-            description: "Het gebruik van NewsAge is eigenlijk als u \"the hang of it\" krijgt best simpel, U heeft een startpagina waar al het algemene nieuws op komt, " +
-                "daarnaast kunt u in de bronnen aanvinken op welke nieuwspagina u wilt subscriben, dit in 1 knop verder kunt u ook uw profiel aanpassen en kunt u artikelen liken, sharen en als u wilt een reactie plaatsen onder het artikel.",
-            image: "../../assets/imgs/NewsAgeLogo.png",
+            icon: 'star',
+            description: "Het gebruik van NewsAge is eigenlijk als u \"the hang of it\" krijgt best simpel, U heeft een " +
+                "startpagina waar al het algemene nieuws op komt, " +
+                "daarnaast kunt u in de bronnen aanvinken op welke nieuwspagina u wilt subscriben, dit in 1 knop verder " +
+                "kunt u ook uw profiel aanpassen en kunt u artikelen liken, sharen en als u wilt een reactie plaatsen " +
+                "onder het artikel."
+
         },
         {
             title: "Vragen?",
-            description: "Als u verder nog vragen hebt over de app, kunt u ze mailen naar ons via: newsage2018@gmail.com de FAQ worden dan in slides gedaan en zo word de tutorial bijgewerkt.",
+            description: "Als u verder nog vragen hebt over de app, kunt u ze mailen naar ons via: newsage2018@gmail.com " +
+                "de FAQ worden dan in slides gedaan en zo word de tutorial bijgewerkt.",
             image: "../../assets/imgs/NewsAgeLogo.png",
         }
     ];

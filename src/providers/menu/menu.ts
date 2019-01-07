@@ -26,7 +26,7 @@ export class MenuProvider {
       icon: 'home'
     },
     {
-      title: 'Sources',
+      title: 'Bronnen',
       component: SourcesPage,
       icon: 'link'
     },

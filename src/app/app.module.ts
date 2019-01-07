@@ -29,7 +29,6 @@ import {AutoPage} from "../pages/auto/auto";
 import {MisdaadPage} from "../pages/misdaad/misdaad";
 import {TechPage} from "../pages/tech/tech";
 import {AdminPage} from "../pages/admin/admin";
-import {AboutPage} from "../pages/about/about";
 import {CommentsPage} from "../pages/comments/comments";
 import {VermaakPage} from "../pages/vermaak/vermaak";
 import {WijzigwachtwoordPage} from "../pages/wijzigwachtwoord/wijzigwachtwoord";
@@ -55,7 +54,6 @@ import {TechPageModule} from "../pages/tech/tech.module";
 import {AdminPageModule} from "../pages/admin/admin.module";
 import {SourcesPageModule} from "../pages/sources/sources.module";
 import {ProfielPageModule} from "../pages/profiel/profiel.module";
-import {AboutPageModule} from "../pages/about/about.module";
 import {WijzigwachtwoordPageModule} from "../pages/wijzigwachtwoord/wijzigwachtwoord.module";
 import {CommentsPageModule} from "../pages/comments/comments.module";
 import {VermaakPageModule} from "../pages/vermaak/vermaak.module";
@@ -97,7 +95,6 @@ import {SocialSharing} from "@ionic-native/social-sharing";
         AdminPageModule,
         SourcesPageModule,
         ProfielPageModule,
-        AboutPageModule,
         CommentsPageModule,
         WijzigwachtwoordPageModule,
         VermaakPageModule,
@@ -116,7 +113,6 @@ import {SocialSharing} from "@ionic-native/social-sharing";
         AdminPage,
         SourcesPage,
         ProfielPage,
-        AboutPage,
         CommentsPage,
         WijzigwachtwoordPage,
         VermaakPage

@@ -7,7 +7,6 @@ import {AdminPage} from "../admin/admin";
 import {AlertController} from 'ionic-angular';
 import {ProfielPage} from "../profiel/profiel";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {AboutPage} from "../about/about";
 import { timer } from "rxjs/observable/timer";
 import {PrivacybeleidPage} from "../privacybeleid/privacybeleid";
 
@@ -200,9 +199,5 @@ export class SettingsPage {
         console.log('Probleem gerapporteerd ' + data);
     }
 
-    overOns()
-    {
-      this.navCtrl.push(AboutPage);
-    }
 
 }

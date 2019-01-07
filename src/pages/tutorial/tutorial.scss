@@ -7,11 +7,19 @@ page-tutorial {
 
   .slide-zoom {
     height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction:column;
   }
 
-  .slide-title {
-    margin-top: 2.8rem;
+  .kaas {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
+
 
   .slide-image {
     max-height: 50%;
@@ -19,8 +27,15 @@ page-tutorial {
     margin: 18px 0;
   }
 
+  .tutorialIcon {
+    font-size: 80px !important;
+  }
+h2{
+  margin-top: 7px !important;
+}
   b {
     font-weight: 500;
+    color: #000000;
   }
 
   p {
@@ -28,9 +43,6 @@ page-tutorial {
     font-size: 14px;
     line-height: 1.5;
     color: #60646B;
-
-    b {
-      color: #000000;
-    }
   }
+
 }
