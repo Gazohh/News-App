@@ -160,16 +160,31 @@ export class FeedPage {
                 this.storage.get("offlineDataToday").then(data => {
                     this.items = data;
                     this.artikelen = data;
+                    this.items.sort(function (a, b) {
+                        const dateA = new Date(a.datum.replace(' ', 'T'));
+                        const dateB = new Date(b.datum.replace(' ', 'T'));
+                        return dateB.getTime() - dateA.getTime();
+                    });
                 })
             } else if (this.datepicker == "gisteren") {
                 this.storage.get("offlineDataYesterday").then(data => {
                     this.items = data;
                     this.artikelen = data;
+                    this.items.sort(function (a, b) {
+                        const dateA = new Date(a.datum.replace(' ', 'T'));
+                        const dateB = new Date(b.datum.replace(' ', 'T'));
+                        return dateB.getTime() - dateA.getTime();
+                    });
                 })
             } else if (this.datepicker == "driedagengeleden") {
                 this.storage.get("offlineData3DaysAgo").then(data => {
                     this.items = data;
                     this.artikelen = data;
+                    this.items.sort(function (a, b) {
+                        const dateA = new Date(a.datum.replace(' ', 'T'));
+                        const dateB = new Date(b.datum.replace(' ', 'T'));
+                        return dateB.getTime() - dateA.getTime();
+                    });
                 })
             }
         }
@@ -205,18 +220,33 @@ export class FeedPage {
                     this.items = data;
                     this.artikelen = data;
                     this.content.scrollToTop(0);
+                    this.items.sort(function (a, b) {
+                        const dateA = new Date(a.datum.replace(' ', 'T'));
+                        const dateB = new Date(b.datum.replace(' ', 'T'));
+                        return dateB.getTime() - dateA.getTime();
+                    });
                 })
             } else if (this.datepicker == "gisteren") {
                 this.storage.get("offlineDataYesterday").then(data => {
                     this.items = data;
                     this.artikelen = data;
                     this.content.scrollToTop(0);
+                    this.items.sort(function (a, b) {
+                        const dateA = new Date(a.datum.replace(' ', 'T'));
+                        const dateB = new Date(b.datum.replace(' ', 'T'));
+                        return dateB.getTime() - dateA.getTime();
+                    });
                 })
             } else if (this.datepicker == "driedagengeleden") {
                 this.storage.get("offlineData3DaysAgo").then(data => {
                     this.items = data;
                     this.artikelen = data;
                     this.content.scrollToTop(0);
+                    this.items.sort(function (a, b) {
+                        const dateA = new Date(a.datum.replace(' ', 'T'));
+                        const dateB = new Date(b.datum.replace(' ', 'T'));
+                        return dateB.getTime() - dateA.getTime();
+                    });
                 })
             }
         }
@@ -285,16 +315,31 @@ export class FeedPage {
                 this.storage.get("offlineDataToday").then(data => {
                     this.items = data;
                     this.artikelen = data;
+                    this.items.sort(function (a, b) {
+                        const dateA = new Date(a.datum.replace(' ', 'T'));
+                        const dateB = new Date(b.datum.replace(' ', 'T'));
+                        return dateB.getTime() - dateA.getTime();
+                    });
                 })
             } else if (this.datepicker == "gisteren") {
                 this.storage.get("offlineDataYesterday").then(data => {
                     this.items = data;
                     this.artikelen = data;
+                    this.items.sort(function (a, b) {
+                        const dateA = new Date(a.datum.replace(' ', 'T'));
+                        const dateB = new Date(b.datum.replace(' ', 'T'));
+                        return dateB.getTime() - dateA.getTime();
+                    });
                 })
             } else if (this.datepicker == "driedagengeleden") {
                 this.storage.get("offlineData3DaysAgo").then(data => {
                     this.items = data;
                     this.artikelen = data;
+                    this.items.sort(function (a, b) {
+                        const dateA = new Date(a.datum.replace(' ', 'T'));
+                        const dateB = new Date(b.datum.replace(' ', 'T'));
+                        return dateB.getTime() - dateA.getTime();
+                    });
                 })
             }
         }
@@ -395,8 +440,8 @@ export class FeedPage {
                     this.items = data;
                     this.artikelen = data;
                     this.items.sort(function (a, b) {
-                        const dateA = new Date(a.datum);
-                        const dateB = new Date(b.datum);
+                        const dateA = new Date(a.datum.replace(' ', 'T'));
+                        const dateB = new Date(b.datum.replace(' ', 'T'));
                         return dateB.getTime() - dateA.getTime();
                     });
                 },
@@ -453,8 +498,11 @@ export class FeedPage {
             .subscribe((data: any) => {
                     this.items = data;
                     this.artikelen = data;
-                    this.items = data;
-                    this.artikelen = data;
+                    this.items.sort(function (a, b) {
+                        const dateA = new Date(a.datum.replace(' ', 'T'));
+                        const dateB = new Date(b.datum.replace(' ', 'T'));
+                        return dateB.getTime() - dateA.getTime();
+                    });
                 },
                 (error: any) => {
                     let toast = this.toastCtrl.create({
@@ -483,6 +531,11 @@ export class FeedPage {
             .subscribe((data: any) => {
                     this.items = data;
                     this.artikelen = data;
+                    this.items.sort(function (a, b) {
+                        const dateA = new Date(a.datum.replace(' ', 'T'));
+                        const dateB = new Date(b.datum.replace(' ', 'T'));
+                        return dateB.getTime() - dateA.getTime();
+                    });
                 },
                 (error: any) => {
                     let toast = this.toastCtrl.create({
@@ -513,6 +566,11 @@ export class FeedPage {
                     .subscribe((data: any) => {
                             this.items = data;
                             this.artikelen = data;
+                            this.items.sort(function (a, b) {
+                                const dateA = new Date(a.datum.replace(' ', 'T'));
+                                const dateB = new Date(b.datum.replace(' ', 'T'));
+                                return dateB.getTime() - dateA.getTime();
+                            });
                         },
                         (error: any) => {
                             let toast = this.toastCtrl.create({
@@ -537,6 +595,11 @@ export class FeedPage {
                     .subscribe((data: any) => {
                             this.items = data;
                             this.artikelen = data;
+                            this.items.sort(function (a, b) {
+                                const dateA = new Date(a.datum.replace(' ', 'T'));
+                                const dateB = new Date(b.datum.replace(' ', 'T'));
+                                return dateB.getTime() - dateA.getTime();
+                            });
                         },
                         (error: any) => {
                             let toast = this.toastCtrl.create({
@@ -560,6 +623,11 @@ export class FeedPage {
                     .subscribe((data: any) => {
                             this.items = data;
                             this.artikelen = data;
+                            this.items.sort(function (a, b) {
+                                const dateA = new Date(a.datum.replace(' ', 'T'));
+                                const dateB = new Date(b.datum.replace(' ', 'T'));
+                                return dateB.getTime() - dateA.getTime();
+                            });
                         },
                         (error: any) => {
                             let toast = this.toastCtrl.create({
