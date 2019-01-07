@@ -33727,6 +33727,10 @@ ion-navbar.toolbar {
   font-family: 'Roboto-Regular';
 }
 
+.md ion-nav > .ion-page > ion-content.statusbar-padding:first-child .scroll-content {
+  padding: 0px !important;
+}
+
 .toolbar-title-md {
   font-family: 'Roboto-Medium';
 }
@@ -35347,40 +35351,6 @@ body > ion-app > ng-component > ion-nav > page-privacybeleid > ion-content > div
   box-shadow: inset 0 -1px 0 0 #f53d3d;
 }
 
-page-about .toolbar-background {
-  background: #fff;
-  border-color: transparent;
-}
-
-page-about .slide-zoom {
-  height: 100%;
-}
-
-page-about .slide-title {
-  margin-top: 2.8rem;
-}
-
-page-about .slide-image {
-  max-height: 50%;
-  max-width: 60%;
-  margin: 18px 0;
-}
-
-page-about b {
-  font-weight: 500;
-}
-
-page-about p {
-  padding: 0 40px;
-  font-size: 14px;
-  line-height: 1.5;
-  color: #60646B;
-}
-
-page-about p b {
-  color: #000000;
-}
-
 page-admin .nieuwsNavTitle {
   color: white;
   font-weight: 500;
@@ -35524,6 +35494,14 @@ body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scro
   background-color: transparent;
 }
 
+body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div > form > div:nth-child(4) > ion-item {
+  background-color: transparent;
+}
+
+body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-navbar > div.toolbar-background.toolbar-background-md {
+  background-color: transparent !important;
+}
+
 .labelRegistreer {
   color: #fff !important;
 }
@@ -35535,10 +35513,36 @@ page-tutorial .toolbar-background {
 
 page-tutorial .slide-zoom {
   height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
-page-tutorial .slide-title {
-  margin-top: 2.8rem;
+page-tutorial .kaas {
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 page-tutorial .slide-image {
@@ -35547,8 +35551,17 @@ page-tutorial .slide-image {
   margin: 18px 0;
 }
 
+page-tutorial .tutorialIcon {
+  font-size: 80px !important;
+}
+
+page-tutorial h2 {
+  margin-top: 7px !important;
+}
+
 page-tutorial b {
   font-weight: 500;
+  color: #000000;
 }
 
 page-tutorial p {
@@ -35558,6 +35571,6 @@ page-tutorial p {
   color: #60646B;
 }
 
-page-tutorial p b {
-  color: #000000;
+page-wijzigwachtwoord .validatieText {
+  color: #000;
 }
