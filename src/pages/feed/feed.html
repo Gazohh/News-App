@@ -170,12 +170,6 @@
                     </ion-card-content>
                 </ion-card>
             </ion-row>
-            <ion-row *ngIf="items.length == 0">
-                <ion-card>
-                    <img src="../assets/imgs/noimage.jpg">
-                    <ion-card-header>Er zijn geen artikelen gevonden, voeg bronnen toe!</ion-card-header>
-                </ion-card>
-            </ion-row>
             <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
                 <ion-infinite-scroll-content
                         loadingSpinner="bubbles"

@@ -8,13 +8,13 @@
     <img *ngIf="this.image" src="{{this.image}}" class="imageNieuws">
     <ion-card-header class="headerText" text-wrap>
       {{this.title}}
-      <p class="nieuwsDatum">{{this.datum}}</p>
+      <!--<p class="nieuwsDatum">{{this.datum}}</p>-->
     </ion-card-header>
     <ion-card-content class="nieuwsContent">
       <p>{{htmlToPlaintext(this.description)}}</p>
-      <button (click)="openPagina(this.link)" ion-button round *ngIf="this.site == 'De Telegraaf'" class="ColorTelegraaf">{{this.site}}</button>
-      <button (click)="openPagina(this.link)" ion-button round *ngIf="this.site == 'NOS'" class="ColorNOS">{{this.site}}</button>
-      <button (click)="openPagina(this.link)" ion-button round *ngIf="this.site == 'NU.nl'" class="ColorNU">{{this.site}}</button>
+      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'De Telegraaf'" class="ColorTelegraaf">{{this.site}}</button>
+      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'NOS'" class="ColorNOS">{{this.site}}</button>
+      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'NU.nl'" class="ColorNU">{{this.site}}</button>
     </ion-card-content>
   </ion-card>
 </ion-content>
