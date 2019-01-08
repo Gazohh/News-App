@@ -56,6 +56,7 @@ export class FeedPage {
     public open4: boolean = true;
     public currentTheme: string;
     public TIMER_IN_MS = 100;
+    public slice = 5;
 
     constructor(
         public navCtrl: NavController,
@@ -101,9 +102,6 @@ export class FeedPage {
         this.screenOrientation.unlock();
 
         if (this.network.type != "none") {
-            this.setOfflineDataToday();
-            this.setOfflineDataYesterday();
-            this.setOfflineData3DaysAgo();
             this.datepicker = "vandaag";
             if (this.datepicker == "vandaag") {
                 this.load();
@@ -441,6 +439,8 @@ export class FeedPage {
             .subscribe((data: any) => {
                     this.items = data;
                     this.artikelen = data;
+                    console.log("Offline data set in storage: offlineDataToday");
+                    this.storage.set("offlineDataToday", data);
                     this.items.sort(function (a, b) {
                         const dateA = new Date(a.datum.replace(' ', 'T'));
                         const dateB = new Date(b.datum.replace(' ', 'T'));
@@ -500,6 +500,8 @@ export class FeedPage {
             .subscribe((data: any) => {
                     this.items = data;
                     this.artikelen = data;
+                    console.log("Offline data set in storage: offlineDataYesterday");
+                    this.storage.set("offlineDataYesterday", data);
                     this.items.sort(function (a, b) {
                         const dateA = new Date(a.datum.replace(' ', 'T'));
                         const dateB = new Date(b.datum.replace(' ', 'T'));
@@ -533,6 +535,8 @@ export class FeedPage {
             .subscribe((data: any) => {
                     this.items = data;
                     this.artikelen = data;
+                    console.log("Offline data set in storage: offlineData3DaysAgo");
+                    this.storage.set("offlineData3DaysAgo", data);
                     this.items.sort(function (a, b) {
                         const dateA = new Date(a.datum.replace(' ', 'T'));
                         const dateB = new Date(b.datum.replace(' ', 'T'));
@@ -556,90 +560,11 @@ export class FeedPage {
     doRefresh(refresher) {
         if (this.network.type != "none") {
             if (this.datepicker == "vandaag") {
-                const headers = new HttpHeaders();
-                headers.append("Accept", 'application/json');
-                headers.append('Content-Type', 'application/json');
-                const options = {headers: headers};
-                const data = {
-                    userId: localStorage.getItem('userId')
-                };
-                this.http
-                    .post('http://gazoh.net/getdatafinal.php', data, options)
-                    .subscribe((data: any) => {
-                            this.items = data;
-                            this.artikelen = data;
-                            this.items.sort(function (a, b) {
-                                const dateA = new Date(a.datum.replace(' ', 'T'));
-                                const dateB = new Date(b.datum.replace(' ', 'T'));
-                                return dateB.getTime() - dateA.getTime();
-                            });
-                        },
-                        (error: any) => {
-                            let toast = this.toastCtrl.create({
-                                message: "Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",
-                                duration: 3500,
-                                position: "top"
-                            });
-                            toast.present();
-                            console.log("Http error is: " + error);
-                        });
+                this.load();
             } else if (this.datepicker == "gisteren") {
-                this.http
-                const headers = new HttpHeaders();
-                headers.append("Accept", 'application/json');
-                headers.append('Content-Type', 'application/json');
-                const options = {headers: headers};
-                const data = {
-                    userId: localStorage.getItem('userId')
-                };
-                this.http
-                    .post('http://gazoh.net/getyesterday.php', data, options)
-                    .subscribe((data: any) => {
-                            this.items = data;
-                            this.artikelen = data;
-                            this.items.sort(function (a, b) {
-                                const dateA = new Date(a.datum.replace(' ', 'T'));
-                                const dateB = new Date(b.datum.replace(' ', 'T'));
-                                return dateB.getTime() - dateA.getTime();
-                            });
-                        },
-                        (error: any) => {
-                            let toast = this.toastCtrl.create({
-                                message: "Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",
-                                duration: 3500,
-                                position: "top"
-                            });
-                            toast.present();
-                            console.log("Http error is: " + error);
-                        });
+                this.loadYesterday();
             } else if (this.datepicker == "driedagengeleden") {
-                const headers = new HttpHeaders();
-                headers.append("Accept", 'application/json');
-                headers.append('Content-Type', 'application/json');
-                const options = {headers: headers};
-                const data = {
-                    userId: localStorage.getItem('userId')
-                };
-                this.http
-                    .post('http://gazoh.net/get3daysago.php', data, options)
-                    .subscribe((data: any) => {
-                            this.items = data;
-                            this.artikelen = data;
-                            this.items.sort(function (a, b) {
-                                const dateA = new Date(a.datum.replace(' ', 'T'));
-                                const dateB = new Date(b.datum.replace(' ', 'T'));
-                                return dateB.getTime() - dateA.getTime();
-                            });
-                        },
-                        (error: any) => {
-                            let toast = this.toastCtrl.create({
-                                message: "Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",
-                                duration: 3500,
-                                position: "top"
-                            });
-                            toast.present();
-                            console.log("Http error is: " + error);
-                        });
+                this.load3DaysAgo();
             }
 
         }
@@ -759,81 +684,6 @@ export class FeedPage {
         alert.present();
     }
 
-    setOfflineDataToday() {
-        const headers = new HttpHeaders();
-        headers.append("Accept", 'application/json');
-        headers.append('Content-Type', 'application/json');
-        const options = {headers: headers};
-        const data = {
-            userId: localStorage.getItem('userId')
-        };
-        this.http
-            .post('http://gazoh.net/getdatafinal.php', data, options)
-            .subscribe((data: any) => {
-                    console.log("Offline data set in storage: offlineDataToday");
-                    this.storage.set("offlineDataToday", data);
-                },
-                (error: any) => {
-                    let toast = this.toastCtrl.create({
-                        message: "Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",
-                        duration: 3500,
-                        position: "top"
-                    });
-                    toast.present();
-                    console.log("Http error is: " + error);
-                });
-    }
-
-    setOfflineDataYesterday() {
-        const headers = new HttpHeaders();
-        headers.append("Accept", 'application/json');
-        headers.append('Content-Type', 'application/json');
-        const options = {headers: headers};
-        const data = {
-            userId: localStorage.getItem('userId')
-        };
-        this.http
-            .post('http://gazoh.net/getyesterday.php', data, options)
-            .subscribe((data: any) => {
-                    console.log("Offline data set in storage: offlineDataYesterday");
-                    this.storage.set("offlineDataYesterday", data);
-                },
-                (error: any) => {
-                    let toast = this.toastCtrl.create({
-                        message: "Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",
-                        duration: 3500,
-                        position: "top"
-                    });
-                    toast.present();
-                    console.log("Http error is: " + error);
-                });
-    }
-
-    setOfflineData3DaysAgo() {
-        const headers = new HttpHeaders();
-        headers.append("Accept", 'application/json');
-        headers.append('Content-Type', 'application/json');
-        const options = {headers: headers};
-        const data = {
-            userId: localStorage.getItem('userId')
-        };
-        this.http
-            .post('http://gazoh.net/get3daysago.php', data, options)
-            .subscribe((data: any) => {
-                    console.log("Offline data set in storage: offlineData3DaysAgo");
-                    this.storage.set("offlineData3DaysAgo", data);
-                },
-                (error: any) => {
-                    let toast = this.toastCtrl.create({
-                        message: "Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",
-                        duration: 3500,
-                        position: "top"
-                    });
-                    toast.present();
-                    console.log("Http error is: " + error);
-                });
-    }
-
     setHideArticle(postId) {
         console.log("Hide " + postId);
         var headers = new HttpHeaders();
@@ -889,13 +739,10 @@ export class FeedPage {
     }
 
     doInfinite(infiniteScroll) {
-
         setTimeout(() => {
-            for (let i = 0; i <= 5; i++) {
-                this.items.push( this.items.length );
-            }
-            console.log('Async operation has ended');
+            this.slice += 5;
             infiniteScroll.complete();
-        }, 500);
+        }, 200);
+
     }
 }

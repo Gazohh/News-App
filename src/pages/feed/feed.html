@@ -43,7 +43,7 @@
     <ion-grid class="feedGrid">
         <ion-col>
             <ion-row>
-                <ion-card *ngFor="let item of items" col-md-6 class="ionCard">
+                <ion-card *ngFor="let item of (items ? items.slice(0,slice): [])" col-md-6 class="ionCard">
                     <!-- Images van nieuwsfeed -->
                     <div class="ion-card-image-wrapper" (click)="viewEntry({ record: item })">
                         <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">
@@ -170,9 +170,18 @@
                     </ion-card-content>
                 </ion-card>
             </ion-row>
+            <ion-row *ngIf="items.length == 0">
+                <ion-card>
+                    <img src="../assets/imgs/noimage.jpg">
+                    <ion-card-header>Er zijn geen artikelen gevonden, voeg bronnen toe!</ion-card-header>
+                </ion-card>
+            </ion-row>
+            <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+                <ion-infinite-scroll-content
+                        loadingSpinner="bubbles"
+                        loadingText="Meer artikelen inladen...">
+                </ion-infinite-scroll-content>
+            </ion-infinite-scroll>
         </ion-col>
     </ion-grid>
-    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
-        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data..."></ion-infinite-scroll-content>
-    </ion-infinite-scroll>
 </ion-content>
