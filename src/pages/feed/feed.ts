@@ -768,7 +768,7 @@ export class FeedPage {
             userId: localStorage.getItem('userId')
         };
         this.http
-            .post('http://gazoh.net/getdata2.php', data, options)
+            .post('http://gazoh.net/getdatafinal.php', data, options)
             .subscribe((data: any) => {
                     console.log("Offline data set in storage: offlineDataToday");
                     this.storage.set("offlineDataToday", data);

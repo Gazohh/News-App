@@ -86,6 +86,8 @@ ion-slide.swiper-slide {
   font-size: 1.8vh;
   padding-left: 20px;
   padding-right: 20px;
+  padding-top: 4px;
+  font-size: 1.3rem;
 }
 
 // Ion card
@@ -99,7 +101,7 @@ body > ion-app > ng-component > ion-nav > page-settings > ion-content > div.scro
 
 .alertIcon {
   float: left;
-  font-size: 4.4vh;
+  font-size: 3.4vh;
 }
 
 .verificationHeader {
@@ -1104,7 +1106,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
   padding: 0px;
   line-height: 0.9 !important;
   margin: 0;
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
 
@@ -1288,10 +1290,22 @@ body > ion-app > ng-component > ion-nav > page-nieuws > ion-header > ion-navbar 
 //
 .sourceTekst {
   font-family: 'Roboto-Regular';
+  font-family: 'Roboto-Regular';
+  font-size: 1.3rem;
+  color: #666;
+}
+
+.sourceTekstFeed {
+  font-family: 'Roboto-Bold';
 }
 
 .buttonIcon {
   padding-right: 8px;
+}
+
+.ImportClassesButton {
+  color: #32db64 !important;
+  border-color: #32db64 !important;
 }
 
 //
@@ -1308,8 +1322,8 @@ body > ion-app > ng-component > ion-nav > page-nieuws > ion-content > div.scroll
 
 .TitelSources {
   float: left;
-  font-weight: bold !important;
-  color: #9f9f9f;
+  color: #666;
+  font-family: Roboto-Bold;
 }
 
 // Titel Sources List MD  lABEL
@@ -1579,7 +1593,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 .card-md p {
   padding-top: 4px;
   font-size: 1.4rem;
-  color: #666 !important;
+  color: #666 ;
 }
 
 .rowWeer {

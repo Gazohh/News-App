@@ -70,7 +70,6 @@
                             </ion-avatar>
                             <div class="uitgeverFeed" *ngIf="item.site == 'De Telegraaf'">{{item.site}}</div>
                             <div class="uitgeverFeedNU" *ngIf="item.site == 'NU.nl'">{{item.site}}</div>
-                            <div class="uitgeverFeedNOS" *ngIf="item.site == 'NOS'">{{item.site}}</div>
                         </div>
                         <!-- Uitgever -->
                         <div id="uitgeverFeed" (click)="viewEntry({ record: item })">
