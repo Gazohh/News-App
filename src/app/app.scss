@@ -1034,7 +1034,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 .avatar-feedTelegraaf {
   height: 100%;
   width: 30px;
-  margin: 0px;
+  margin: 0px !important;
 }
 
 .avatar-feedNOS {
@@ -1058,7 +1058,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 .datumFeed {
   float: left;
   font-size: 1.2rem;
-  color: #BDBDBD;
+  color: #666;
   font-weight: 400;
   margin-top: 7px;
   margin-bottom: 8px;
@@ -1104,7 +1104,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
   padding: 0px;
   line-height: 0.9 !important;
   margin: 0;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 
@@ -1165,7 +1165,6 @@ page-feed img {
 
 .ion-card-image-wrapper {
   overflow: hidden !important;
-  background: url("../../assets/imgs/noimage.jpg");
   height: 145px;
   align-content: center;
 }
@@ -1287,6 +1286,9 @@ body > ion-app > ng-component > ion-nav > page-nieuws > ion-header > ion-navbar 
 //
 // Sources
 //
+.sourceTekst {
+  font-family: 'Roboto-Regular';
+}
 
 .buttonIcon {
   padding-right: 8px;
@@ -1498,11 +1500,11 @@ body > ion-app > ng-component > ion-nav > page-admin > ion-content > div.scroll-
 // Ion - ion-slides
 
 .deleteSlide {
-  background-color: #F40000;
+  background-color: #f53d3d;
 }
 
 .BewerkSlide {
-  background-color: #18F400;
+  background-color: #32db64;
 }
 
 .spanHide {
@@ -1577,6 +1579,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 .card-md p {
   padding-top: 4px;
   font-size: 1.4rem;
+  color: #666 !important;
 }
 
 .rowWeer {

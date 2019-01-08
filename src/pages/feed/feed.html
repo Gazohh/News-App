@@ -56,13 +56,13 @@
                             <ion-avatar *ngIf="item.site == 'NOS' && currentTheme == 'light-theme'" class="avatarNOS" item-start>
                                 <img src="../assets/svg/NOS_logo.svg" class="avatar-feed"/>
                             </ion-avatar>
-                            <ion-avatar *ngIf="item.site == 'NOS' && currentTheme == 'dark-theme'" class="avatar" item-start>
+                            <ion-avatar *ngIf="item.site == 'NOS' && currentTheme == 'dark-theme'" class="avatarNOS" item-start>
                                 <img src="../assets/svg/NOS_logo_Wit.svg" class="avatar-feedNOS"/>
                             </ion-avatar>
                             <ion-avatar *ngIf="item.site == 'De Telegraaf' && currentTheme == 'light-theme'" class="avatarTelegraaf" item-start>
                                 <img src="../assets/svg/Telegraaf.svg" class="avatar-feedTelegraaf"/>
                             </ion-avatar>
-                            <ion-avatar *ngIf="item.site == 'De Telegraaf' && currentTheme == 'dark-theme'" class="avatar" item-start>
+                            <ion-avatar *ngIf="item.site == 'De Telegraaf' && currentTheme == 'dark-theme'" class="avatarTelegraaf" item-start>
                                 <img src="../assets/svg/Telegraaf_Wit.svg" class="avatar-feedTelegraaf"/>
                             </ion-avatar>
                             <ion-avatar *ngIf="item.site == 'NU.nl'" class="avatar" item-start>
@@ -76,12 +76,8 @@
                         <div id="uitgeverFeed" (click)="viewEntry({ record: item })">
                             <!-- Title  -->
                             <div id="title">
-                                <ion-card-title *ngIf="item.site == 'De Telegraaf' || item.site == 'NU.nl'">
-                                    <strong class="cardTitle">{{item.title}}</strong>
-                                </ion-card-title>
-                                <ion-card-title *ngIf="item.site == 'NOS'" id="ionCardNOS">
-                                    <strong class="cardTitleNOS">{{item.title}}</strong>
-                                </ion-card-title>
+                                <ion-card-title *ngIf="item.site == 'De Telegraaf' || item.site == 'NU.nl'"><strong class="cardTitle">{{item.title}}</strong></ion-card-title>
+                                <ion-card-title *ngIf="item.site == 'NOS'" id="ionCardNOS"><strong class="cardTitleNOS">{{item.title}}</strong></ion-card-title>
                             </div>
                             <!-- description  -->
                             <div id="description">
@@ -177,4 +173,7 @@
             </ion-row>
         </ion-col>
     </ion-grid>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data..."></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 </ion-content>

@@ -64,6 +64,7 @@ import {PrivacybeleidPageModule} from "../pages/privacybeleid/privacybeleid.modu
 //
 import {MenuProvider} from '../providers/menu/menu';
 import {SocialSharing} from "@ionic-native/social-sharing";
+import { RestApiProvider } from '../providers/rest-api/rest-api';
 
 
 @NgModule({
@@ -134,7 +135,8 @@ import {SocialSharing} from "@ionic-native/social-sharing";
         MenuProvider,
         SocialSharing,
         Geolocation,
-        PhotoViewer
+        PhotoViewer,
+    RestApiProvider
 
     ]
 

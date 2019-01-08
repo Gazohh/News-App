@@ -55,6 +55,7 @@ export class FeedPage {
     public open3: boolean = true;
     public open4: boolean = true;
     public currentTheme: string;
+    public TIMER_IN_MS = 100;
 
     constructor(
         public navCtrl: NavController,
@@ -193,6 +194,7 @@ export class FeedPage {
             console.log(this.currentTheme);
         }
     }
+
     // ---------------------------------------------------------------------------------------------
     // Hier eindigt de constructor
     // ---------------------------------------------------------------------------------------------
@@ -641,7 +643,6 @@ export class FeedPage {
             }
 
         }
-
         setTimeout(() => {
             console.log('Async operation has ended');
             refresher.complete();
@@ -651,13 +652,9 @@ export class FeedPage {
     setLike(articleId) {
         this.disabled = true;
         const headers = new HttpHeaders();
-
         headers.append("Accept", 'application/json');
-
         headers.append('Content-Type', 'application/json');
-
         const options = {headers: headers};
-
         const data = {
             articleId: articleId,
             userId: this.userId
@@ -665,8 +662,9 @@ export class FeedPage {
 
         this.http.post('http://gazoh.net/setlike.php', data, options)
             .subscribe(data => {
-                if (data == "liked") {
+                if (data == "liked") setTimeout( () => {
                     this.disabled = false;
+                }, this.TIMER_IN_MS);{
                     if (this.datepicker == "vandaag") {
                         this.load();
                     } else if (this.datepicker == "gisteren") {
@@ -847,7 +845,7 @@ export class FeedPage {
                 let toast = this.toastCtrl.create({
                     message: "Artikel " + postId + " verborgen",
                     duration: 2500,
-                    position: "top",
+                    position: "bottom",
                     showCloseButton: true,
                     closeButtonText: "OK"
                 });
@@ -888,5 +886,16 @@ export class FeedPage {
 
     goLijstWeerPage() {
         this.navCtrl.push(LijstweerPage);
+    }
+
+    doInfinite(infiniteScroll) {
+
+        setTimeout(() => {
+            for (let i = 0; i <= 5; i++) {
+                this.items.push( this.items.length );
+            }
+            console.log('Async operation has ended');
+            infiniteScroll.complete();
+        }, 500);
     }
 }
