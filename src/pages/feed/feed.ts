@@ -437,7 +437,7 @@ export class FeedPage {
             userId: localStorage.getItem('userId')
         };
         this.http
-            .post('http://gazoh.net/getdata2.php', data, options)
+            .post('http://gazoh.net/getdatafinal.php', data, options)
             .subscribe((data: any) => {
                     this.items = data;
                     this.artikelen = data;
@@ -468,7 +468,7 @@ export class FeedPage {
             userId: localStorage.getItem('userId')
         };
         this.http
-            .post('http://gazoh.net/getdata2.php', data, options)
+            .post('http://gazoh.net/getdatafinal.php', data, options)
             .subscribe((data: any) => {
                     this.items = data;
                     this.artikelen = data;
@@ -564,7 +564,7 @@ export class FeedPage {
                     userId: localStorage.getItem('userId')
                 };
                 this.http
-                    .post('http://gazoh.net/getdata2.php', data, options)
+                    .post('http://gazoh.net/getdatafinal.php', data, options)
                     .subscribe((data: any) => {
                             this.items = data;
                             this.artikelen = data;
