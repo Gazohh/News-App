@@ -149,6 +149,7 @@ export class MyApp {
     // De functie ervoor om de app te verlaten
     // -------------------------------------
     confirmExitApp() {
+        this.platform.registerBackButtonAction(() => {
         this.confirmAlert = this.alertCtrl.create({
             message: "Wilt u de NewsAge app verlaten ?",
             buttons: [
@@ -168,6 +169,7 @@ export class MyApp {
             ]
         });
         this.confirmAlert.present();
+    });
     }
 
 
