@@ -50,14 +50,14 @@
                         <img [src]="item.image" *ngIf="item.site == 'NOS.nl'">
                         <img [src]="item.image" *ngIf="item.site != 'NOS.nl' || item.site != 'NU.nl'">
                     </div>
-                    <ion-card-content class="cardContentFeed">
+                    <ion-card-content class="cardContentFeed" (click)="viewEntry({ record: item })">
                         <!-- Avatar -->
                         <div id="AvatarFeed" (click)="viewEntry({ record: item })">
                             <ion-avatar *ngIf="item.site == 'NOS' && currentTheme == 'light-theme'" class="avatarNOS" item-start>
                                 <img src="../assets/svg/NOS_logo.svg" class="avatar-feed"/>
                             </ion-avatar>
                             <ion-avatar *ngIf="item.site == 'NOS' && currentTheme == 'dark-theme'" class="avatarNOS" item-start>
-                                <img src="../assets/svg/NOS_logo_Wit.svg" class="avatar-feedNOS"/>
+                                <img src="../assets/svg/NOS_logo_Wit.svg" class="avatar-feed"/>
                             </ion-avatar>
                             <ion-avatar *ngIf="item.site == 'De Telegraaf' && currentTheme == 'light-theme'" class="avatarTelegraaf" item-start>
                                 <img src="../assets/svg/Telegraaf.svg" class="avatar-feedTelegraaf"/>

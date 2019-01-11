@@ -128,7 +128,6 @@ export class FeedPage {
                     }
                 })
             }
-
             // Hij pakt alle rollen, usernames etc van de database
             const headers = new HttpHeaders();
             headers.append("Accept", 'application/json');
@@ -148,7 +147,6 @@ export class FeedPage {
                     this.events.publish("profilepicture", this.profilepicture);
                 });
         } else if (this.network.type == 'none') {
-            this.datepicker = "vandaag";
             let offlinealert = this.toastCtrl.create({
                 message: "Er is geen internet verbinding, opgeslagen artikelen worden ingeladen.",
                 duration: 2500,
@@ -449,7 +447,7 @@ export class FeedPage {
                 },
                 (error: any) => {
                     let toast = this.toastCtrl.create({
-                        message: "Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",
+                        message: "De pagina die u wilt bekijken kan niet worden weergegeven, bekijk uw internetverbinding",
                         duration: 3500,
                         position: "top"
                     });
@@ -704,15 +702,19 @@ export class FeedPage {
         });
     }
 
+    public test: any;
+
     getOfflineDataToday() {
         this.datepicker = 'vandaag;'
-        this.storage.get('offlineDataVandaag').then((val) => {
+        this.test = this.storage.get('offlineDataVandaag').then((val) => {
             this.items = val;
             this.artikelen = val;
             console.log('Data:' + val);
             console.log('Offline data is imported.');
         });
+        console.log(this.test);
     }
+
 
     getOfflineDataYesterday() {
         this.datepicker = 'gisteren';

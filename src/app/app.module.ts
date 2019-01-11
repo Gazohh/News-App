@@ -58,6 +58,7 @@ import {WijzigwachtwoordPageModule} from "../pages/wijzigwachtwoord/wijzigwachtw
 import {CommentsPageModule} from "../pages/comments/comments.module";
 import {VermaakPageModule} from "../pages/vermaak/vermaak.module";
 import {PrivacybeleidPageModule} from "../pages/privacybeleid/privacybeleid.module";
+import { CacheModule } from "ionic-cache";
 
 //
 // Providers
@@ -78,6 +79,7 @@ import { RestApiProvider } from '../providers/rest-api/rest-api';
             scrollAssist: false,
             autoFocusAssist: false
         }),
+        CacheModule.forRoot(),
         BrowserModule,
         HttpClientModule,
         ReactiveFormsModule,
