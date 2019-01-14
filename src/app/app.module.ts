@@ -16,6 +16,7 @@ import {Geolocation} from '@ionic-native/geolocation';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
 
 
+
 //
 // Pages
 //

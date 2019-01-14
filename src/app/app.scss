@@ -1308,7 +1308,9 @@ body > ion-app > ng-component > ion-nav > page-nieuws > ion-header > ion-navbar 
 
 .nieuwsDatum {
   color: #666 !important;
-  font-size: 1.2rem;
+  font-size: 1.2rem !important;
+  padding-bottom: 3px !important;
+  padding-top: 0px !important;
 }
 
 //

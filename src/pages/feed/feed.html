@@ -45,14 +45,14 @@
             <ion-row>
                 <ion-card *ngFor="let item of (items ? items.slice(0,slice): [])" col-md-6 class="ionCard">
                     <!-- Images van nieuwsfeed -->
-                    <div class="ion-card-image-wrapper" (click)="viewEntry({ record: item })">
+                    <div class="ion-card-image-wrapper" (tap)="viewEntry({ record: item })">
                         <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">
                         <img [src]="item.image" *ngIf="item.site == 'NOS.nl'">
                         <img [src]="item.image" *ngIf="item.site != 'NOS.nl' || item.site != 'NU.nl'">
                     </div>
                     <ion-card-content class="cardContentFeed" (click)="viewEntry({ record: item })">
                         <!-- Avatar -->
-                        <div id="AvatarFeed" (click)="viewEntry({ record: item })">
+                        <div id="AvatarFeed" (tap)="viewEntry({ record: item })">
                             <ion-avatar *ngIf="item.site == 'NOS' && currentTheme == 'light-theme'" class="avatarNOS" item-start>
                                 <img src="../assets/svg/NOS_logo.svg" class="avatar-feed"/>
                             </ion-avatar>
@@ -72,7 +72,7 @@
                             <div class="uitgeverFeedNU" *ngIf="item.site == 'NU.nl'">{{item.site}}</div>
                         </div>
                         <!-- Uitgever -->
-                        <div id="uitgeverFeed" (click)="viewEntry({ record: item })">
+                        <div id="uitgeverFeed" (tap)="viewEntry({ record: item })">
                             <!-- Title  -->
                             <div id="title">
                                 <ion-card-title *ngIf="item.site == 'De Telegraaf' || item.site == 'NU.nl'"><strong class="cardTitle">{{item.title}}</strong></ion-card-title>

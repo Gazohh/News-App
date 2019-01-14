@@ -8,7 +8,7 @@
     <img *ngIf="this.image" src="{{this.image}}" class="imageNieuws">
     <ion-card-header class="headerText" text-wrap>
       {{this.title}}
-      <!--<p class="nieuwsDatum">{{this.datum}}</p>-->
+      <p class="nieuwsDatum">{{this.datum}}</p>
     </ion-card-header>
     <ion-card-content class="nieuwsContent">
       <p>{{htmlToPlaintext(this.description)}}</p>

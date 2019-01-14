@@ -17,6 +17,8 @@ import {SocialSharing} from '@ionic-native/social-sharing';
 import {Storage} from '@ionic/storage';
 import 'rxjs/add/operator/map';
 import {LijstweerPage} from "../lijstweer/lijstweer";
+import {File} from '@ionic-native/file';
+import {FileTransfer, FileUploadOptions, FileTransferObject} from '@ionic-native/file-transfer';
 
 @IonicPage()
 @Component({
@@ -72,7 +74,9 @@ export class FeedPage {
         private alertCtrl: AlertController,
         private socialSharing: SocialSharing,
         private geolocation: Geolocation,
-        private storage: Storage) {
+        private storage: Storage,
+        private file: File,
+        private transfer: FileTransfer) {
 
         // Select Items
         this.selectOptions = {
@@ -444,6 +448,7 @@ export class FeedPage {
                         const dateB = new Date(b.datum.replace(' ', 'T'));
                         return dateB.getTime() - dateA.getTime();
                     });
+                    
                 },
                 (error: any) => {
                     let toast = this.toastCtrl.create({
@@ -585,9 +590,10 @@ export class FeedPage {
 
         this.http.post('http://gazoh.net/setlike.php', data, options)
             .subscribe(data => {
-                if (data == "liked") setTimeout( () => {
+                if (data == "liked") setTimeout(() => {
                     this.disabled = false;
-                }, this.TIMER_IN_MS);{
+                }, this.TIMER_IN_MS);
+                {
                     if (this.datepicker == "vandaag") {
                         this.load();
                     } else if (this.datepicker == "gisteren") {
@@ -745,6 +751,6 @@ export class FeedPage {
             this.slice += 5;
             infiniteScroll.complete();
         }, 200);
-
     }
+
 }
