@@ -14,6 +14,8 @@ import {EconomiePage} from "../pages/economie/economie";
 import {MenuProvider} from "../providers/menu/menu";
 import {timer} from "rxjs/observable/timer";
 import {Network} from "@ionic-native/network";
+import { Storage } from '@ionic/storage';
+
 
 
 @Component({
@@ -54,7 +56,8 @@ export class MyApp {
                 public alertCtrl: AlertController,
                 public menuProvider: MenuProvider,
                 public network: Network,
-                public toastCtrl: ToastController) {
+                public toastCtrl: ToastController,
+                public storage: Storage) {
         // -------------------------------------
         // Get Active theme dark/light
         // -------------------------------------
@@ -90,13 +93,22 @@ export class MyApp {
                 this.nav.pop();
             });
 
-            // Voor de menu om de userame en profiel foto te setten live
+            if(this.network.type == "none")
+            {
+                this.storage.get("profilepicture").then((foto) => {
+                    this.events.publish('profilepicture', foto);
+                })
+                this.storage.get("username").then((username) => {
+                    this.events.publish('username', username);
+                })
+                console.log("Profielfoto & username zijn nu offline ingeladen");
+            }
+
+            // Voor de menu om de username en profiel foto te setten live
             this.events.subscribe("username", (data) => {
                 this.username = data;
             });
-            if (this.network.type == "none") {
-                this.profilepicture = localStorage.getItem('profilePicture');
-            }
+
             this.events.subscribe("profilepicture", (foto) => {
                 this.profilepicture = foto;
             });

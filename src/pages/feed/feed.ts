@@ -17,6 +17,11 @@ import {SocialSharing} from '@ionic-native/social-sharing';
 import {Storage} from '@ionic/storage';
 import 'rxjs/add/operator/map';
 import {LijstweerPage} from "../lijstweer/lijstweer";
+import { ImgLoaderComponent } from 'ionic-image-loader';
+import { ImageLoaderConfig } from 'ionic-image-loader';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
+
 
 @IonicPage()
 @Component({
@@ -43,6 +48,7 @@ export class FeedPage {
     public username: string;
     public userId: string;
     public profilepicture: any;
+    public offlinepicture: any;
     public shouldScrollDown = true;
     public showScrollButton = false;
     public dataweer: any;
@@ -72,7 +78,10 @@ export class FeedPage {
         private alertCtrl: AlertController,
         private socialSharing: SocialSharing,
         private geolocation: Geolocation,
-        private storage: Storage) {
+        private storage: Storage,
+        private imageLoaderConfig: ImageLoaderConfig,
+        private transfer: FileTransfer,
+        private file: File) {
 
         // Select Items
         this.selectOptions = {
@@ -191,6 +200,7 @@ export class FeedPage {
             this.currentTheme = localStorage.getItem("themeColor");
             console.log(this.currentTheme);
         }
+        this.imageLoaderConfig.setMaximumCacheAge(7 * 24 * 60 * 60 * 1000); // 7 days
     }
 
     // ---------------------------------------------------------------------------------------------
@@ -253,6 +263,10 @@ export class FeedPage {
 
     }
 
+    onImageLoad(imgLoader: ImgLoaderComponent) {
+        // do something with the loader
+    }
+
     // Alert of je de artikel wilt hiden
     showConfirmHide(postId) {
         const confirm = this.alertCtrl.create({
@@ -311,6 +325,7 @@ export class FeedPage {
                 this.load3DaysAgo();
             }
         } else if (this.network.type == "none") {
+            // Get offline data
             if (this.datepicker == "vandaag") {
                 this.storage.get("offlineDataToday").then(data => {
                     this.items = data;
@@ -439,6 +454,7 @@ export class FeedPage {
             .subscribe((data: any) => {
                     this.items = data;
                     this.artikelen = data;
+
                     console.log("Offline data set in storage: offlineDataToday");
                     this.storage.set("offlineDataToday", data);
                     this.items.sort(function (a, b) {
@@ -496,7 +512,7 @@ export class FeedPage {
             userId: localStorage.getItem('userId')
         };
         this.http
-            .post('http://gazoh.net/getyesterday.php', data, options)
+            .post('http://gazoh.net/getdatayesterday.php', data, options)
             .subscribe((data: any) => {
                     this.items = data;
                     this.artikelen = data;
@@ -531,7 +547,7 @@ export class FeedPage {
             userId: localStorage.getItem('userId')
         };
         this.http
-            .post('http://gazoh.net/get3daysago.php', data, options)
+            .post('http://gazoh.net/getdata3daysago.php', data, options)
             .subscribe((data: any) => {
                     this.items = data;
                     this.artikelen = data;

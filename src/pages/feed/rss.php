@@ -34,7 +34,7 @@ echo '<ul>';
 for ($x = 0; $x < $limit; $x++) {
     $site = $feed[$x]['site'];
     $title = str_replace(' & ', ' &amp; ', $feed[$x]['title']);
-    $link = $feed[$x]['link'];
+    $link = file_get_contents($feed[$x]['link']);
     $description = str_replace('&nbsp;', ' ', $feed[$x]['desc']);
     $feed[$x]['date'] = date( "Y-m-d H:i:s", strtotime($feed[$x]['date']) + 60*60);
     $date = $feed[$x]['date'];

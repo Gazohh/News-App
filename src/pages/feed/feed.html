@@ -45,7 +45,7 @@
             <ion-row>
                 <ion-card *ngFor="let item of (items ? items.slice(0,slice): [])" col-md-6 class="ionCard">
                     <!-- Images van nieuwsfeed -->
-                    <div class="ion-card-image-wrapper" (click)="viewEntry({ record: item })">
+                    <div class="ion-card-image-wrapper" (tap)="viewEntry({ record: item })">
                         <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">
                         <img [src]="item.image" *ngIf="item.site == 'NOS.nl'">
                         <img [src]="item.image" *ngIf="item.site != 'NOS.nl' || item.site != 'NU.nl'">
@@ -173,7 +173,7 @@
             <ion-row *ngIf="items.length == 0">
                 <ion-card>
                     <img src="../assets/imgs/noimage.jpg">
-                    <ion-card-header>Er zijn geen artikelen gevonden, voeg bronnen toe!</ion-card-header>
+                    <ion-card-header style="text-align: center">Er zijn geen artikelen gevonden</ion-card-header>
                 </ion-card>
             </ion-row>
             <ion-infinite-scroll (ionInfinite)="doInfinite($event)">

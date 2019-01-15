@@ -126,7 +126,12 @@ export class HomePage implements OnInit {
                             localStorage.setItem("profilePicture", this.dataUser.profilepicture);
                             localStorage.setItem("themeColor", this.selectedTheme);
                             console.log(this.selectedTheme);
-
+                            this.storage.set('profilepicture', this.dataUser.profilepicture);
+                            this.storage.set('username', this.dataUser.username);
+                            this.storage.set('email', this.dataUser.email);
+                            this.storage.set('emailverified', this.dataUser.emailVerified);
+                            this.storage.set('rol', this.dataUser.rol);
+                            this.storage.set('creationdate', this.dataUser.creationdate);
                             if (localStorage.getItem("TutorialShown") != "true") {
                                 this.navCtrl.setRoot(TutorialPage);
                             } else if (localStorage.getItem("TutorialShown") == "true") {
@@ -135,8 +140,6 @@ export class HomePage implements OnInit {
                             // //Fire username event
                             this.events.publish("username", this.dataUser.username);
                             this.events.publish("profilepicture", this.dataUser.profilepicture);
-
-
                         }
                         else if(res == 'No matching password') {
 

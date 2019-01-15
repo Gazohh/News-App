@@ -10,6 +10,10 @@ import {Events} from 'ionic-angular';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {WijzigwachtwoordPage} from "../wijzigwachtwoord/wijzigwachtwoord";
 import {PhotoViewer} from '@ionic-native/photo-viewer';
+import { Storage } from '@ionic/storage';
+import { Network } from '@ionic-native/network';
+
+
 
 
 @IonicPage()
@@ -40,32 +44,64 @@ export class ProfielPage implements OnInit {
                 public actionSheetCtrl: ActionSheetController,
                 public http: HttpClient,
                 public events: Events,
-                public photoViewer: PhotoViewer) {
-        const headers = new HttpHeaders();
+                public photoViewer: PhotoViewer,
+                public storage: Storage,
+                public network: Network) {
+        if(this.network.type != "none")
+        {
+            const headers = new HttpHeaders();
 
-        headers.append("Accept", 'application/json');
+            headers.append("Accept", 'application/json');
 
-        headers.append('Content-Type', 'application/json');
+            headers.append('Content-Type', 'application/json');
 
-        const options = {headers: headers};
+            const options = {headers: headers};
 
-        const data = {
+            const data = {
 
-            email: localStorage.getItem('userEmail'),
+                email: localStorage.getItem('userEmail'),
 
-        };
-        this.http.post('http://gazoh.net/getgebruiker.php', data, options)
-            .subscribe(data => {
-                this.dataUser = data;
-                this.username = this.dataUser.username;
-                this.email = this.dataUser.email;
-                this.emailVerified = this.dataUser.emailVerified;
-                this.rol = this.dataUser.rol;
-                this.myphoto = this.dataUser.profilepicture;
-                this.creationdate = this.dataUser.creationdate
-            });
-        this.events.publish("username", this.username);
-        this.events.publish("profilepicture", this.myphoto);
+            };
+            this.http.post('http://gazoh.net/getgebruiker.php', data, options)
+                .subscribe(data => {
+                    this.dataUser = data;
+                    this.username = this.dataUser.username;
+                    this.email = this.dataUser.email;
+                    this.emailVerified = this.dataUser.emailVerified;
+                    this.rol = this.dataUser.rol;
+                    this.myphoto = this.dataUser.profilepicture;
+                    this.creationdate = this.dataUser.creationdate
+                });
+            this.events.publish("username", this.username);
+            this.events.publish("profilepicture", this.myphoto);
+        }
+        else if(this.network.type == "none")
+        {
+            // Get offline profilepicture
+            this.storage.get("profilepicture").then((foto) => {
+                this.myphoto = foto;
+            })
+            // Get offline username
+            this.storage.get("username").then((username) => {
+                this.username = username;
+            })
+            // Get offline email
+            this.storage.get("email").then((email) => {
+                this.email = email;
+            })
+            // Get offline email verified status
+            this.storage.get("emailverified").then((emailverified) => {
+                this.emailVerified = emailverified;
+            })
+            // Get offline user role
+            this.storage.get("rol").then((rol) => {
+                this.rol = rol;
+            })
+            // Get offline user creation date
+            this.storage.get("creationdate").then((creationdate) => {
+                this.creationdate = creationdate;
+            })
+        }
     }
 
     presentActionSheet() {
@@ -204,65 +240,90 @@ export class ProfielPage implements OnInit {
     }
 
     updateProfile() {
-        if (this.form.invalid) {
-            this.validateAllFormFields(this.form); //{7}
-        } else {
-            const headers = new HttpHeaders();
+        if(this.network.type == "none")
+        {
+            let alert = this.alertCtrl.create({
 
-            headers.append("Accept", 'application/json');
+                title: "Geen verbinding",
 
-            headers.append('Content-Type', 'application/json');
+                subTitle: "U heeft geen werkende internet verbinding, probeer het later opnieuw.",
 
-            const options = {headers: headers};
-
-
-            const data = {
-
-                id: this.id,
-
-                username: this.username,
-
-                email: this.email,
-
-                myphoto: this.myphoto
-
-            };
-            this.http.post('http://gazoh.net/updateProfiel.php', data, options)
-
-                .map(res => res)
-
-                .subscribe(res => {
-                    if (res == "Profile updated succesfully") {
-                        let alert = this.alertCtrl.create({
-
-                            title: "Profiel bijgewerkt",
-
-                            subTitle: "Uw profiel is met succesvol bijgewerkt",
-
-                            buttons: [{
-                                text: "OK", handler: data => {
-                                    this.navCtrl.setRoot(SettingsPage)
-                                }
-                            }],
-
-                        });
-
-                        alert.present();
-                    } else if (res == "No data set!") {
-                        let alert = this.alertCtrl.create({
-
-                            title: "Mislukt",
-
-                            subTitle: "Uw profiel kon niet worden bijgewerkt vanwege een fout aan onze kant!",
-
-                            buttons: ['OK']
-
-                        });
-
-                        alert.present();
+                buttons: [{
+                    text: "OK", handler: data => {
                     }
-                });
-            console.log("Dit is je foto:" + this.myphoto);
+                }],
+
+            });
+
+            alert.present();
+        }
+        else if(this.network.type != "none")
+        {
+            if (this.form.invalid) {
+                this.validateAllFormFields(this.form); //{7}
+            } else {
+                const headers = new HttpHeaders();
+
+                headers.append("Accept", 'application/json');
+
+                headers.append('Content-Type', 'application/json');
+
+                const options = {headers: headers};
+
+
+                const data = {
+
+                    id: this.id,
+
+                    username: this.username,
+
+                    email: this.email,
+
+                    myphoto: this.myphoto
+
+                };
+                this.http.post('http://gazoh.net/updateProfiel.php', data, options)
+
+                    .map(res => res)
+
+                    .subscribe(res => {
+                        if (res == "Profile updated succesfully") {
+                            let alert = this.alertCtrl.create({
+
+                                title: "Profiel bijgewerkt",
+
+                                subTitle: "Uw profiel is succesvol bijgewerkt",
+
+                                buttons: [{
+                                    text: "OK", handler: data => {
+                                        this.navCtrl.setRoot(SettingsPage)
+                                    }
+                                }],
+
+                            });
+
+                            alert.present();
+
+                            if(this.storage.set('profilepicture', this.myphoto))
+                            {
+                                console.log("Profiel foto is geset in Storage : " + this.myphoto);
+                            }
+
+                        } else if (res == "No data set!") {
+                            let alert = this.alertCtrl.create({
+
+                                title: "Mislukt",
+
+                                subTitle: "Uw profiel kon niet worden bijgewerkt, probeer het later opnieuw.",
+
+                                buttons: ['OK']
+
+                            });
+
+                            alert.present();
+                        }
+                    });
+            }
         }
     }
 
