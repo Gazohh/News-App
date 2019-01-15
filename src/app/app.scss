@@ -171,6 +171,10 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
   margin: 0px !important;
 }
 
+body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scroll-content > ion-slides > div > div.swiper-wrapper > ion-slide.swiper-slide.swiper-slide-active > div > ion-list > ion-item:nth-child(7) > div.item-inner > div > ion-label {
+  margin: 0px !important;
+}
+
 .avatarTelegraaf {
   margin-right: 5px;
   float: left !important;
@@ -1270,7 +1274,9 @@ page-feed img {
   border-color: #b9c044 !important;
 }
 
-
+.darkChatTweakers {
+color: #b9c044 !important;
+}
 
 .socialLikeComments {
   float: right;
@@ -1298,6 +1304,32 @@ page-feed img {
 .socialNOSShare {
   float: left;
   color: rgb(208, 37, 39) !important;
+}
+
+.KNVBshare {
+  float: left;
+  color: #f6903a !important;
+}
+
+.darkChatKnvb {
+  color: #f6903a !important;
+}
+
+.socialKNVBshare {
+  float: left;
+  color: #f6903a !important;
+}
+
+.socialKnvb{
+  color: #f6903a !important;
+  float: right;
+}
+
+.ColorTweakers {
+  background-color: #f6903a !important;
+  color: #fff;
+  top: 10px !important;
+  border-color: #f6903a !important;
 }
 
 body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > div > ion-card > ion-item.hideButton.item.item-block.item-md > div.item-inner > div > ion-label {
@@ -1398,7 +1430,7 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
 // Titel Sources List MD  lABEL
 
 body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scroll-content > ion-slides > div > div.swiper-wrapper > ion-slide.swiper-slide.swiper-slide-active > div > ion-list > ion-item:nth-child(1) > div.item-inner > div > ion-label {
-  margin-bottom: 0px !important;
+  margin: 18px 8px 13px 0px !important;
 }
 
 //
