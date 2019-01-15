@@ -50,7 +50,7 @@
                         <img [src]="item.image" *ngIf="item.site == 'NOS.nl'">
                         <img [src]="item.image" *ngIf="item.site != 'NOS.nl' || item.site != 'NU.nl'">
                     </div>
-                    <ion-card-content class="cardContentFeed" (click)="viewEntry({ record: item })">
+                    <ion-card-content class="cardContentFeed">
                         <!-- Avatar -->
                         <div id="AvatarFeed" (tap)="viewEntry({ record: item })">
                             <ion-avatar *ngIf="item.site == 'NOS' && currentTheme == 'light-theme'" class="avatarNOS" item-start>

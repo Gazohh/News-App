@@ -16,7 +16,6 @@ import {SettingsProvider} from "../../providers/settings/settings";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import { AlertController } from 'ionic-angular';
 
-
 @Component({
     selector: 'page-home',
     templateUrl: 'home.html'
@@ -116,13 +115,6 @@ export class HomePage implements OnInit {
                         console.log(res);
                         loader.dismiss();
                         if (res == "Succesfully logged in!") {
-
-                            let toast = this.toastCtrl.create({
-                                message: 'Succesvol ingelogd',
-                                duration: 2000,
-                                position: 'top'
-                            });
-                            toast.present();
 
                             // Localstorage Gebruikersdetails
                             localStorage.setItem("userId", this.dataUser.id);

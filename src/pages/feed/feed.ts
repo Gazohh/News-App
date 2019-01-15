@@ -17,8 +17,10 @@ import {SocialSharing} from '@ionic-native/social-sharing';
 import {Storage} from '@ionic/storage';
 import 'rxjs/add/operator/map';
 import {LijstweerPage} from "../lijstweer/lijstweer";
-import {File} from '@ionic-native/file';
 import {FileTransfer, FileUploadOptions, FileTransferObject} from '@ionic-native/file-transfer';
+import {File} from '@ionic-native/file';
+
+declare var cordova:any;
 
 @IonicPage()
 @Component({
@@ -59,6 +61,9 @@ export class FeedPage {
     public currentTheme: string;
     public TIMER_IN_MS = 100;
     public slice = 5;
+    public imagesOffline: any;
+    public imagesTitle: string;
+    storageDirectory: string = '';
 
     constructor(
         public navCtrl: NavController,
@@ -75,8 +80,8 @@ export class FeedPage {
         private socialSharing: SocialSharing,
         private geolocation: Geolocation,
         private storage: Storage,
-        private file: File,
-        private transfer: FileTransfer) {
+        private transfer: FileTransfer,
+        private file: File) {
 
         // Select Items
         this.selectOptions = {
@@ -132,6 +137,7 @@ export class FeedPage {
                     }
                 })
             }
+
             // Hij pakt alle rollen, usernames etc van de database
             const headers = new HttpHeaders();
             headers.append("Accept", 'application/json');
@@ -151,6 +157,7 @@ export class FeedPage {
                     this.events.publish("profilepicture", this.profilepicture);
                 });
         } else if (this.network.type == 'none') {
+            this.datepicker = "vandaag";
             let offlinealert = this.toastCtrl.create({
                 message: "Er is geen internet verbinding, opgeslagen artikelen worden ingeladen.",
                 duration: 2500,
@@ -252,7 +259,6 @@ export class FeedPage {
                 })
             }
         }
-
     }
 
     // Alert of je de artikel wilt hiden
@@ -264,13 +270,11 @@ export class FeedPage {
                 {
                     text: 'Niet Akkoord',
                     handler: () => {
-
                     }
                 },
                 {
                     text: 'Akkoord',
                     handler: () => {
-
                         // Hide artikel
                         console.log("Hide " + postId);
                         var headers = new HttpHeaders();
@@ -303,6 +307,7 @@ export class FeedPage {
         confirm.present();
     }
 
+    // Als netwerk online is of offline is
     ionViewWillEnter() {
         if (this.network.type != "none") {
             if (this.datepicker == "vandaag") {
@@ -313,6 +318,7 @@ export class FeedPage {
                 this.load3DaysAgo();
             }
         } else if (this.network.type == "none") {
+            // Get offline data
             if (this.datepicker == "vandaag") {
                 this.storage.get("offlineDataToday").then(data => {
                     this.items = data;
@@ -448,7 +454,18 @@ export class FeedPage {
                         const dateB = new Date(b.datum.replace(' ', 'T'));
                         return dateB.getTime() - dateA.getTime();
                     });
-                    
+
+                    for (var i = 0; i < this.items.length; i++) {
+                        const fileTransfer: FileTransferObject = this.transfer.create();
+                        this.imagesOffline = this.items[i].image;
+                        this.imagesTitle = this.items[i].title;
+                        const url = this.imagesOffline;
+                        fileTransfer.download(url, this.file.dataDirectory + `test${i}.jpg`).then((entry) => {
+                            console.log('download complete: ' + entry.toURL());
+                        }, (error) => {
+                            // handle error
+                        });
+                    }
                 },
                 (error: any) => {
                     let toast = this.toastCtrl.create({
@@ -608,37 +625,7 @@ export class FeedPage {
 
     shareInfo(articleTitle, articleImage, articleLink) {
         this.socialSharing.share('Bekijk "' + articleTitle + '" via de Newsage app', "NewsAge", articleImage, articleLink);
-        //         then(() => {
-        //             alert("Sharing success");
-        //      Success!
-        //         }).catch(() => {
-        //      Error!
-        //             alert("Share failed");
-        //         });
     }
-
-    //share voor feedpage
-    // share(){
-    //     this.socialSharing.shareWithOptions(options: {"Your Message", "image" , "link"})
-    //         .then(()=>{
-    //             console.log("WhatsApp share successful");
-    //         }).catch((err)=> {
-    //         console.log
-    //     });
-    //     this.socialSharing.shareViaWhatsApp("Your Message", "image" , "link")
-    //         .then(()=>{
-    //             console.log("WhatsApp share successful");
-    //         }).catch((err)=> {
-    //         console.log
-    //     });
-    //     this.socialSharing.shareViaFacebook("Hallo!", "Image", "Url")
-    //         .then(()=>{
-    //             console.log("Facebook share successful");
-    //         }).catch((err)=> {
-    //         console.log
-    //     });
-    // }
-
 
     dislike(articleId, articleTitle) {
         const headers = new HttpHeaders();
