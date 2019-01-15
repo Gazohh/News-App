@@ -5,7 +5,8 @@
 <ion-content>
   <ion-card class="nieuwsCard">
     <img *ngIf="!this.image" src="../assets/imgs/noimage.jpg">
-    <img *ngIf="this.image" src="{{this.image}}" class="imageNieuws">
+    <img *ngIf="this.image && this.site != 'Tweakers' " src="{{this.image}} " class="imageNieuws">
+    <img *ngIf="this.image == 'http://gazoh.net/tweakers.png' && this.site == 'Tweakers'" src="{{this.image}}" class="imageNieuwsTweakers">
     <ion-card-header class="headerText" text-wrap>
       {{this.title}}
       <p class="nieuwsDatum">{{this.datum}}</p>
@@ -15,6 +16,7 @@
       <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'De Telegraaf'" class="ColorTelegraaf">{{this.site}}</button>
       <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'NOS'" class="ColorNOS">{{this.site}}</button>
       <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'NU.nl'" class="ColorNU">{{this.site}}</button>
+      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'Tweakers'" class="ColorTweakers">{{this.site}}</button>
     </ion-card-content>
   </ion-card>
 </ion-content>

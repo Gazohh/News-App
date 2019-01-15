@@ -163,9 +163,23 @@ body > ion-app > ng-component > ion-nav > page-comments > ion-footer > ion-item 
   float: left !important;
 }
 
+.avatarTWKS {
+  height: 100% !important;
+}
+
+body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scroll-content > ion-slides > div > div.swiper-wrapper > ion-slide.swiper-slide.swiper-slide-active > div > ion-list > ion-item:nth-child(5) > div.item-inner > div > ion-label {
+  margin: 0px !important;
+}
+
 .avatarTelegraaf {
   margin-right: 5px;
   float: left !important;
+}
+
+.avatarTelegraafSources {
+  margin-right: 5px;
+  float: left !important;
+  margin: 8px 26px 8px 0 !important;
 }
 
 .avatarComment {
@@ -1053,6 +1067,12 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
   font-weight: 800;
 }
 
+.avatar-feedNU {
+  height: 50px !important;
+  margin: 0px !important;
+}
+
+
 .uitgeverFeed {
   padding-top: 9px;
   font-family: 'Roboto-Bold' !important;
@@ -1233,6 +1253,25 @@ page-feed img {
   color: #0041b5 !important;
 }
 
+.socialTweakersShare {
+  float: left;
+  color: #b9c044 !important;
+}
+
+.socialTweakers{
+  color: #b9c044 !important;
+  float: right;
+}
+
+.ColorTweakers {
+  background-color: #b9c044 !important;
+  color: #fff;
+  top: 10px !important;
+  border-color: #b9c044 !important;
+}
+
+
+
 .socialLikeComments {
   float: right;
   width: 100%;
@@ -1282,6 +1321,11 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 .imageNieuws {
   object-fit: cover;
   height: 300px;
+}
+
+.imageNieuwsTweakers {
+  object-fit: cover;
+  height: 200px;
 }
 
 body > ion-app > ng-component > ion-nav > page-nieuws > ion-header > ion-navbar > div.toolbar-content.toolbar-content-md {
@@ -1342,14 +1386,19 @@ body > ion-app > ng-component > ion-nav > page-nieuws > ion-header > ion-navbar 
 
 .TitelSources {
   float: left;
-  color: #666;
   font-family: Roboto-Bold;
+  font-size: 1.5rem !important;
+  font-weight: 800 !important;
+}
+
+body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scroll-content > ion-slides > div > div.swiper-wrapper > ion-slide.swiper-slide.swiper-slide-active > div > ion-list > ion-item:nth-child(2) > div.item-inner > div > ion-label {
+  margin: 0 !important;
 }
 
 // Titel Sources List MD  lABEL
 
 body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scroll-content > ion-slides > div > div.swiper-wrapper > ion-slide.swiper-slide.swiper-slide-active > div > ion-list > ion-item:nth-child(1) > div.item-inner > div > ion-label {
-  marin-bottom: 0;
+  margin-bottom: 0px !important;
 }
 
 //
@@ -1790,4 +1839,10 @@ body > ion-app > ng-component > ion-nav > page-privacybeleid > ion-content > div
   border-bottom-color: #f53d3d;
   -webkit-box-shadow: inset 0 -1px 0 0 #f53d3d;
   box-shadow: inset 0 -1px 0 0 #f53d3d;
+}
+
+@media only screen and (max-width: 320px) {
+  .fullHeight {
+    height: 100% !important;
+  }
 }

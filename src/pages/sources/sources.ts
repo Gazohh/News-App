@@ -59,17 +59,12 @@ export class SourcesPage {
       if(this.network.type != "none")
       {
           const headers = new HttpHeaders();
-
           headers.append("Accept", 'application/json');
-
           headers.append('Content-Type', 'application/json');
-
           const options = {headers: headers};
-
           const data = {
               userId: localStorage.getItem("userId"),
           };
-
           this.http.post('http://gazoh.net/getsources.php', data, options)
               .subscribe(data => {
                   this.sourceData = data;
