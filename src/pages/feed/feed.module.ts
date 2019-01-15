@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { FeedPage } from './feed';
-import { IonicImageLoader } from 'ionic-image-loader';
 
 
 @NgModule({
@@ -10,7 +9,7 @@ import { IonicImageLoader } from 'ionic-image-loader';
   ],
   imports: [
     IonicPageModule.forChild(FeedPage),
-      IonicImageLoader
+
   ],
 })
 export class FeedPageModule {}
