@@ -52,12 +52,12 @@
                     </div>
                     <ion-card-content class="cardContentFeed">
                         <!-- Avatar -->
-                        <div id="AvatarFeed" (click)="viewEntry({ record: item })">
+                        <div id="AvatarFeed" (tap)="viewEntry({ record: item })">
                             <ion-avatar *ngIf="item.site == 'NOS' && currentTheme == 'light-theme'" class="avatarNOS" item-start>
                                 <img src="../assets/svg/NOS_logo.svg" class="avatar-feed"/>
                             </ion-avatar>
                             <ion-avatar *ngIf="item.site == 'NOS' && currentTheme == 'dark-theme'" class="avatarNOS" item-start>
-                                <img src="../assets/svg/NOS_logo_Wit.svg" class="avatar-feedNOS"/>
+                                <img src="../assets/svg/NOS_logo_Wit.svg" class="avatar-feed"/>
                             </ion-avatar>
                             <ion-avatar *ngIf="item.site == 'De Telegraaf' && currentTheme == 'light-theme'" class="avatarTelegraaf" item-start>
                                 <img src="../assets/svg/Telegraaf.svg" class="avatar-feedTelegraaf"/>
@@ -72,7 +72,7 @@
                             <div class="uitgeverFeedNU" *ngIf="item.site == 'NU.nl'">{{item.site}}</div>
                         </div>
                         <!-- Uitgever -->
-                        <div id="uitgeverFeed" (click)="viewEntry({ record: item })">
+                        <div id="uitgeverFeed" (tap)="viewEntry({ record: item })">
                             <!-- Title  -->
                             <div id="title">
                                 <ion-card-title *ngIf="item.site == 'De Telegraaf' || item.site == 'NU.nl'"><strong class="cardTitle">{{item.title}}</strong></ion-card-title>
@@ -168,12 +168,6 @@
                             </button>
                         </div>
                     </ion-card-content>
-                </ion-card>
-            </ion-row>
-            <ion-row *ngIf="items.length == 0">
-                <ion-card>
-                    <img src="../assets/imgs/noimage.jpg">
-                    <ion-card-header style="text-align: center">Er zijn geen artikelen gevonden</ion-card-header>
                 </ion-card>
             </ion-row>
             <ion-infinite-scroll (ionInfinite)="doInfinite($event)">

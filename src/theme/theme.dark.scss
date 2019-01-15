@@ -168,7 +168,7 @@
   // Button voor de sources
   .ImportClassesButton {
     background-color: #328a45;
-    color: #fff;
+    color: #fff !important;
   }
 
   .DeleteClassesButton {
@@ -287,6 +287,10 @@
 
   .nieuwsDatum {
     color: #d4d4d4 !important;
+  }
+
+  body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-navbar > div.toolbar-background.toolbar-background-md {
+    background-color: transparent !important;
   }
 
 }

@@ -17,11 +17,9 @@ import {SocialSharing} from '@ionic-native/social-sharing';
 import {Storage} from '@ionic/storage';
 import 'rxjs/add/operator/map';
 import {LijstweerPage} from "../lijstweer/lijstweer";
-import { ImgLoaderComponent } from 'ionic-image-loader';
-import { ImageLoaderConfig } from 'ionic-image-loader';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
-
+declare var cordova:any;
 
 @IonicPage()
 @Component({
@@ -63,6 +61,9 @@ export class FeedPage {
     public currentTheme: string;
     public TIMER_IN_MS = 100;
     public slice = 5;
+    public imagesOffline: any;
+    public imagesTitle: string;
+    storageDirectory: string = '';
 
     constructor(
         public navCtrl: NavController,
@@ -79,7 +80,6 @@ export class FeedPage {
         private socialSharing: SocialSharing,
         private geolocation: Geolocation,
         private storage: Storage,
-        private imageLoaderConfig: ImageLoaderConfig,
         private transfer: FileTransfer,
         private file: File) {
 
@@ -200,7 +200,6 @@ export class FeedPage {
             this.currentTheme = localStorage.getItem("themeColor");
             console.log(this.currentTheme);
         }
-        this.imageLoaderConfig.setMaximumCacheAge(7 * 24 * 60 * 60 * 1000); // 7 days
     }
 
     // ---------------------------------------------------------------------------------------------
@@ -260,11 +259,6 @@ export class FeedPage {
                 })
             }
         }
-
-    }
-
-    onImageLoad(imgLoader: ImgLoaderComponent) {
-        // do something with the loader
     }
 
     // Alert of je de artikel wilt hiden
@@ -276,13 +270,11 @@ export class FeedPage {
                 {
                     text: 'Niet Akkoord',
                     handler: () => {
-
                     }
                 },
                 {
                     text: 'Akkoord',
                     handler: () => {
-
                         // Hide artikel
                         console.log("Hide " + postId);
                         var headers = new HttpHeaders();
@@ -315,6 +307,7 @@ export class FeedPage {
         confirm.present();
     }
 
+    // Als netwerk online is of offline is
     ionViewWillEnter() {
         if (this.network.type != "none") {
             if (this.datepicker == "vandaag") {
@@ -462,10 +455,22 @@ export class FeedPage {
                         const dateB = new Date(b.datum.replace(' ', 'T'));
                         return dateB.getTime() - dateA.getTime();
                     });
+
+                    for (var i = 0; i < this.items.length; i++) {
+                        const fileTransfer: FileTransferObject = this.transfer.create();
+                        this.imagesOffline = this.items[i].image;
+                        this.imagesTitle = this.items[i].title;
+                        const url = this.imagesOffline;
+                        fileTransfer.download(url, this.file.dataDirectory + `test${i}.jpg`).then((entry) => {
+                            console.log('download complete: ' + entry.toURL());
+                        }, (error) => {
+                            // handle error
+                        });
+                    }
                 },
                 (error: any) => {
                     let toast = this.toastCtrl.create({
-                        message: "Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",
+                        message: "De pagina die u wilt bekijken kan niet worden weergegeven, bekijk uw internetverbinding",
                         duration: 3500,
                         position: "top"
                     });
@@ -603,9 +608,10 @@ export class FeedPage {
 
         this.http.post('http://gazoh.net/setlike.php', data, options)
             .subscribe(data => {
-                if (data == "liked") setTimeout( () => {
+                if (data == "liked") setTimeout(() => {
                     this.disabled = false;
-                }, this.TIMER_IN_MS);{
+                }, this.TIMER_IN_MS);
+                {
                     if (this.datepicker == "vandaag") {
                         this.load();
                     } else if (this.datepicker == "gisteren") {
@@ -620,37 +626,7 @@ export class FeedPage {
 
     shareInfo(articleTitle, articleImage, articleLink) {
         this.socialSharing.share('Bekijk "' + articleTitle + '" via de Newsage app', "NewsAge", articleImage, articleLink);
-        //         then(() => {
-        //             alert("Sharing success");
-        //      Success!
-        //         }).catch(() => {
-        //      Error!
-        //             alert("Share failed");
-        //         });
     }
-
-    //share voor feedpage
-    // share(){
-    //     this.socialSharing.shareWithOptions(options: {"Your Message", "image" , "link"})
-    //         .then(()=>{
-    //             console.log("WhatsApp share successful");
-    //         }).catch((err)=> {
-    //         console.log
-    //     });
-    //     this.socialSharing.shareViaWhatsApp("Your Message", "image" , "link")
-    //         .then(()=>{
-    //             console.log("WhatsApp share successful");
-    //         }).catch((err)=> {
-    //         console.log
-    //     });
-    //     this.socialSharing.shareViaFacebook("Hallo!", "Image", "Url")
-    //         .then(()=>{
-    //             console.log("Facebook share successful");
-    //         }).catch((err)=> {
-    //         console.log
-    //     });
-    // }
-
 
     dislike(articleId, articleTitle) {
         const headers = new HttpHeaders();
@@ -720,15 +696,19 @@ export class FeedPage {
         });
     }
 
+    public test: any;
+
     getOfflineDataToday() {
         this.datepicker = 'vandaag;'
-        this.storage.get('offlineDataVandaag').then((val) => {
+        this.test = this.storage.get('offlineDataVandaag').then((val) => {
             this.items = val;
             this.artikelen = val;
             console.log('Data:' + val);
             console.log('Offline data is imported.');
         });
+        console.log(this.test);
     }
+
 
     getOfflineDataYesterday() {
         this.datepicker = 'gisteren';
@@ -759,6 +739,6 @@ export class FeedPage {
             this.slice += 5;
             infiniteScroll.complete();
         }, 200);
-
     }
+
 }

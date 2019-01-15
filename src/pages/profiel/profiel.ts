@@ -109,18 +109,6 @@ export class ProfielPage implements OnInit {
             title: 'Wat wilt u doen ?',
             buttons: [
                 {
-                    text: 'Profielfoto bekijken',
-                    role: 'Profielfoto bekijken',
-                    handler: () => {
-                        if (this.myphoto) {
-                            this.photoViewer.show(this.myphoto);
-                        } else if (!this.myphoto) {
-                            let alert = this.alertCtrl.create({title: "Geen data", message: "Geen foto!"})
-                            alert.present();
-                        }
-                    }
-                },
-                {
                     text: 'Maak foto',
                     role: 'Maak foto',
                     handler: () => {

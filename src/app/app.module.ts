@@ -14,7 +14,7 @@ import {FileTransfer} from '@ionic-native/file-transfer';
 import {Camera} from '@ionic-native/camera';
 import {Geolocation} from '@ionic-native/geolocation';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
-import { IonicImageLoader } from 'ionic-image-loader';
+
 
 
 
@@ -60,6 +60,7 @@ import {WijzigwachtwoordPageModule} from "../pages/wijzigwachtwoord/wijzigwachtw
 import {CommentsPageModule} from "../pages/comments/comments.module";
 import {VermaakPageModule} from "../pages/vermaak/vermaak.module";
 import {PrivacybeleidPageModule} from "../pages/privacybeleid/privacybeleid.module";
+import { CacheModule } from "ionic-cache";
 
 //
 // Providers
@@ -80,7 +81,6 @@ import { RestApiProvider } from '../providers/rest-api/rest-api';
             scrollAssist: false,
             autoFocusAssist: false
         }),
-        IonicImageLoader.forRoot(),
         BrowserModule,
         HttpClientModule,
         ReactiveFormsModule,

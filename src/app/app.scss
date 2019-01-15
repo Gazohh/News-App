@@ -67,6 +67,7 @@ ion-slide.swiper-slide {
 
 .DarkLabel {
   font-family: 'Roboto-Bold' !important;
+  font-weight: 800;
 }
 
 // Iconen margin
@@ -106,6 +107,7 @@ body > ion-app > ng-component > ion-nav > page-settings > ion-content > div.scro
 
 .verificationHeader {
   font-family: 'Roboto-Bold' !important;
+  font-weight: 800;
   font-size: 3vh;
   white-space: initial;
   word-wrap: break-word;
@@ -134,6 +136,7 @@ body > ion-app > ng-component > ion-nav > page-settings > ion-content > div.scro
 
 .verifyText {
   font-family: 'Roboto-Bold' !important;
+  font-weight: 800;
 }
 
 .containerVerification {
@@ -834,6 +837,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 .menuTitle {
   margin-left: 25px !important;
   font-family: 'Roboto-Bold';
+  font-weight: 800;
 }
 
 // Favorieten random margin door side
@@ -945,6 +949,11 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 
 .newsAgeFooter {
   font-family: 'Roboto-Bold' !important;
+  font-weight: 800;
+}
+
+.versionnummer {
+  font-weight: 800;
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-footer > ion-toolbar > div.toolbar-background.toolbar-background-md {
@@ -1041,20 +1050,24 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 
 .avatar-feedNOS {
   font-family: 'Roboto-Bold' !important;
+  font-weight: 800;
 }
 
 .uitgeverFeed {
   padding-top: 9px;
   font-family: 'Roboto-Bold' !important;
+  font-weight: 800;
 }
 
 .uitgeverFeedNU {
   padding-top: 17px;
   font-family: 'Roboto-Bold' !important;
+  font-weight: 800;
 }
 
 .uitgeverFeedNOS {
   font-family: 'Roboto-Bold' !important;
+  font-weight: 800;
 }
 
 .datumFeed {
@@ -1093,6 +1106,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
   padding: 0px !important;
   font-family: 'Roboto-Bold' !important;
   font-size: 1.8rem !important;
+  font-weight: 800;
 }
 
 .cardTitleNOS {
@@ -1100,6 +1114,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
   padding: 0px !important;
   font-family: 'Roboto-Bold' !important;
   font-size: 1.8rem !important;
+  font-weight: 800;
 }
 
 #title > ion-card-title {
@@ -1177,6 +1192,9 @@ page-feed img {
 
 .ColorTelegraaf {
   background-color: rgb(39, 80, 154) !important;
+  color: #fff;
+  top: 10px !important;
+  border-color: rgb(39, 80, 154) !important;
 }
 
 .ColorTelegraaf2 {
@@ -1195,6 +1213,9 @@ page-feed img {
 
 .ColorNU {
   background-color: #0041b5 !important;
+  color: #fff;
+  top: 10px !important;
+  border-color: #0041b5 !important;
 }
 
 .ColorNU2 {
@@ -1220,6 +1241,9 @@ page-feed img {
 
 .ColorNOS {
   background-color: rgb(208, 37, 39) !important;
+  color: #fff;
+  top: 10px !important;
+  border-color: rgb(208, 37, 39) !important;
 }
 
 .ColorNOS2 {
@@ -1248,8 +1272,9 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 
 .headerText {
   font-family: 'Roboto-Bold' !important;
-  font-size: 2rem;
+  font-size: 1.9rem;
   padding-bottom: 5px !important;
+  font-weight: 800;
 }
 
 // NieuwsPage
@@ -1282,7 +1307,10 @@ body > ion-app > ng-component > ion-nav > page-nieuws > ion-header > ion-navbar 
 }
 
 .nieuwsDatum {
-  color: #8f8e8e !important;
+  color: #666 !important;
+  font-size: 1.2rem !important;
+  padding-bottom: 3px !important;
+  padding-top: 0px !important;
 }
 
 //
@@ -1306,14 +1334,6 @@ body > ion-app > ng-component > ion-nav > page-nieuws > ion-header > ion-navbar 
 .ImportClassesButton {
   color: #32db64 !important;
   border-color: #32db64 !important;
-}
-
-//
-// Appbrowser button
-//
-
-body > ion-app > ng-component > ion-nav > page-nieuws > ion-content > div.scroll-content > ion-card > ion-card-content > button {
-  top: 10px !important;
 }
 
 //

@@ -14,7 +14,7 @@ import {Storage} from '@ionic/storage';
 import {TutorialPage} from "../tutorial/tutorial";
 import {SettingsProvider} from "../../providers/settings/settings";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-
+import { AlertController } from 'ionic-angular';
 
 @Component({
     selector: 'page-home',
@@ -50,7 +50,8 @@ export class HomePage implements OnInit {
         public platform: Platform,
         private keyboard: Keyboard,
         public storage: Storage,
-        private settings: SettingsProvider) {
+        private settings: SettingsProvider,
+        private alertCtrl: AlertController) {
 
         // Zodra cordova is opgestart orientate je scherm naar potrait op HomePage
         if (this.platform.is('cordova')) {
@@ -142,7 +143,19 @@ export class HomePage implements OnInit {
                             this.events.publish("profilepicture", this.dataUser.profilepicture);
                         }
                         else if(res == 'No matching password') {
-
+                            let alert = this.alertCtrl.create({
+                                title: 'Onjuiste Wachtwoord',
+                                subTitle: 'Het ingevoerde wachtwoord komt niet overeen. probeer het opnieuw\'',
+                                buttons: ['OK']
+                            });
+                            alert.present();
+                        }   else if(res == null) {
+                            let alert = this.alertCtrl.create({
+                                title: 'Onjuiste E-mail',
+                                subTitle: 'Het ingevoerde E-mailadres lijkt niet te behoren tot een account. Controleer uw E-mailadres en probeer het opnieuw\'',
+                                buttons: ['OK']
+                            });
+                            alert.present();
                         }
                     });
             });

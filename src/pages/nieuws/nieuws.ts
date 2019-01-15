@@ -84,4 +84,6 @@ export class NieuwsPage {
         const browser = this.inAppBrowser.create( url , '_blank', Options );
         browser.show();
     }
+
+
 }
