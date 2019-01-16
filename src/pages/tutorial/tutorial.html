@@ -17,22 +17,21 @@
 
             <img class="tutorialFoto1" src="../assets/imgs/tutorial1.png">
             <h2 class="slide-title">NewsAge</h2>
-            <p>Welkom, u bevind zich nu op de tutorial pagina. Hier vertellen wij kort wat je moet weten over de
-                app.</p>
+            <p>Welkom, u bevindt zich nu op de tutorial pagina. Hier vertellen wij kort wat je moet weten over de app.</p>
         </ion-slide>
         <ion-slide class="slider">
             <img class="tutorialFoto1" src="../assets/imgs/tutorial2.png">
             <h2 class="slide-title">Bronnen</h2>
             <p>
-                In bronnen kunt u uw favoriete nieuws volgen. Dit doet u door
-                in het menu op Bronnen te klikken. Op de volgende pagina kunt
-                u een paar bronnen toevoegen naar uw keuze.
+                Door in het menu op Bronnen te klikken vind je een overzicht van het laatste nieuws over alle onderwerpen die je wilt volgen.
+                Per categorie kunt u eenvoudig het meest recente nieuws lezen. Ook kunt u gepersonaliseerd de bronnen aanpassen en naar uw voorkeuren af te stemmen.
             </p>
         </ion-slide>
         <ion-slide class="sliderSources">
             <ion-item class="sourceItem">
                 <ion-avatar class="avatarTelegraafSources" item-start>
-                    <img src="../assets/svg/Telegraaf.svg">
+                    <img src="../assets/svg/Telegraaf.svg" *ngIf="selectedTheme == 'light-theme'">
+                    <img src="../assets/svg/Telegraaf_Wit.svg" *ngIf="selectedTheme == 'dark-theme'">
                 </ion-avatar>
                 <div><b class="sourceTekstFeed">De Telegraaf</b></div>
                 <div class="sourceTekst">Nieuwsfeed</div>
@@ -66,7 +65,8 @@
             </ion-item>
             <ion-item class="sourceItem">
                 <ion-avatar class="avatar" item-start>
-                    <img src="../assets/svg/NOS_logo.svg">
+                    <img src="../assets/svg/NOS_logo.svg" *ngIf="selectedTheme == 'light-theme'">
+                    <img src="../assets/svg/NOS_logo_Wit.svg" *ngIf="selectedTheme == 'dark-theme'">
                 </ion-avatar>
                 <div><b class="sourceTekstFeed">NOS</b></div>
                 <div class="sourceTekst">Nieuwsfeed</div>
@@ -122,7 +122,7 @@
                 Delen met uw vrienden!
             </h2>
             <p>
-                Deel gemakkelijk alle artikelen met je vrienden op elk social media platform!
+                Via elk social media platform deel je gemakkelijk alle artikelen link met jouw vrienden.
             </p>
         </ion-slide>
         <ion-slide class="slider">
@@ -131,7 +131,7 @@
                 Vragen?
             </h2>
             <p>
-                Als u verder nog vragen hebt over de app, kunt u ze mailen naar ons via: newsage2018@gmail.com
+                Hebt u nog vragen over de App, dan kunt u mailen naar newsage2018@gmail.com.
             </p>
         </ion-slide>
         <ion-slide class="sliderDoorgaan">

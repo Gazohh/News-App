@@ -550,6 +550,12 @@ export class FeedPage {
                     console.log(data);
                 }
             });
+
+        if(this.network.type == "none") {
+            this.disabled = true;
+        } else {
+            this.disabled = false;
+        }
     }
 
     shareInfo(articleTitle, articleImage, articleLink) {
