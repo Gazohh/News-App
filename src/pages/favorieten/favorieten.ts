@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {NavController, NavParams, ToastController} from 'ionic-angular';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {CommentsPage} from "../comments/comments";
+import {Storage} from '@ionic/storage';
+import {Network} from "@ionic-native/network";
 
 
 /**
@@ -36,11 +38,12 @@ export class FavorietenPage {
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
                 public http: HttpClient,
-                public toastCtrl: ToastController) {
+                public toastCtrl: ToastController,
+                public storage: Storage,
+                public network: Network) {
 
         // Theme
-        if(localStorage.getItem("themeColor"))
-        {
+        if (localStorage.getItem("themeColor")) {
             this.currentTheme = localStorage.getItem("themeColor")
             console.log(this.currentTheme);
         }
@@ -52,23 +55,32 @@ export class FavorietenPage {
     }
 
     getFavs() {
-        const headers = new HttpHeaders();
-        headers.append("Accept", 'application/json');
-        headers.append('Content-Type', 'application/json');
-        const options = {headers: headers};
-        const data = {
-            userId: localStorage.getItem('userId')
-        };
+        if (this.network.type != "none") {
+            const headers = new HttpHeaders();
+            headers.append("Accept", 'application/json');
+            headers.append('Content-Type', 'application/json');
+            const options = {headers: headers};
+            const data = {
+                userId: localStorage.getItem('userId')
+            };
 
-        this.http.post('http://www.gazoh.net/getliked.php', data, options).subscribe(res => {
-            this.likedarticles = res;
-            if (this.likedarticles) {
-                this.likedarticles.sort(function (a, b) {
-                    return +new Date(b.datum) - +new Date(a.datum);
-                });
-            }
-            console.log(res);
-        })
+            this.http.post('http://www.gazoh.net/getliked.php', data, options).subscribe(res => {
+                this.likedarticles = res;
+                this.storage.set("offlineFavorieten", res);
+                if (this.likedarticles) {
+                    this.likedarticles.sort(function (a, b) {
+                        return +new Date(b.datum) - +new Date(a.datum);
+                    });
+                }
+                console.log(res);
+            })
+        }
+        else if (this.network.type == "none") {
+            this.storage.get("offlineFavorieten").then((data) => {
+                this.likedarticles = data;
+                console.log("Favorites received from Storage: offlineFavorieten");
+            })
+        }
     }
 
     htmlToPlaintext(text) {
@@ -82,30 +94,51 @@ export class FavorietenPage {
 
     // Doorverbinden naar de CommentsPage
     viewComments(param: any): void {
-        this.navCtrl.push(CommentsPage, param);
+        if (this.network.type != "none") {
+            this.navCtrl.push(CommentsPage, param);
+        }
+        else if(this.network.type == "none")
+        {
+            let toast = this.toastCtrl.create({
+                message: "Actie kon niet worden uitgevoerd, geen internet verbinding gevonden.",
+                duration: 3500,
+                position: "bottom"
+            });
+            toast.present();
+        }
     }
 
     dislike(articleId, articleTitle) {
-        const headers = new HttpHeaders();
-        headers.append("Accept", 'application/json');
-        headers.append('Content-Type', 'application/json');
-        const options = {headers: headers};
-        const data = {
-            articleId: articleId,
-            userId: localStorage.getItem('userId')
-        };
-        this.http.post('http://gazoh.net/unlike.php', data, options)
-            .subscribe(data => {
-                if (data == "unliked") {
-                    this.getFavs();
-                    let toast = this.toastCtrl.create({
-                        message: articleTitle + " is verwijderd uit je favorieten!",
-                        duration: 2500,
-                        position: "bottom"
-                    });
-                    toast.present();
-                }
+        if (this.network.type != "none") {
+            const headers = new HttpHeaders();
+            headers.append("Accept", 'application/json');
+            headers.append('Content-Type', 'application/json');
+            const options = {headers: headers};
+            const data = {
+                articleId: articleId,
+                userId: localStorage.getItem('userId')
+            };
+            this.http.post('http://gazoh.net/unlike.php', data, options)
+                .subscribe(data => {
+                    if (data == "unliked") {
+                        this.getFavs();
+                        let toast = this.toastCtrl.create({
+                            message: articleTitle + " is verwijderd uit je favorieten!",
+                            duration: 2500,
+                            position: "bottom"
+                        });
+                        toast.present();
+                    }
+                });
+        }
+        else if (this.network.type == "none") {
+            let toast = this.toastCtrl.create({
+                message: "Actie kon niet worden uitgevoerd, geen internet verbinding gevonden.",
+                duration: 3500,
+                position: "bottom"
             });
+            toast.present();
+        }
     }
 
 }

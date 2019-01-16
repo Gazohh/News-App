@@ -17,9 +17,10 @@ import {SocialSharing} from '@ionic-native/social-sharing';
 import {Storage} from '@ionic/storage';
 import 'rxjs/add/operator/map';
 import {LijstweerPage} from "../lijstweer/lijstweer";
-import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
-import { File } from '@ionic-native/file';
-declare var cordova:any;
+import {FileTransfer, FileUploadOptions, FileTransferObject} from '@ionic-native/file-transfer';
+import {File} from '@ionic-native/file';
+
+declare var cordova: any;
 
 @IonicPage()
 @Component({
@@ -203,9 +204,9 @@ export class FeedPage {
             if (this.datepicker == "vandaag") {
                 this.getOfflineDataToday()
             } else if (this.datepicker == "gisteren") {
-               this.getOfflineDataYesterday()
+                this.getOfflineDataYesterday()
             } else if (this.datepicker == "driedagengeleden") {
-               this.getOfflineData3DaysAgo();
+                this.getOfflineData3DaysAgo();
             }
         }
     }
@@ -273,7 +274,7 @@ export class FeedPage {
             } else if (this.datepicker == "gisteren") {
                 this.getOfflineDataYesterday();
             } else if (this.datepicker == "driedagengeleden") {
-               this.getOfflineData3DaysAgo();
+                this.getOfflineData3DaysAgo();
             }
         }
     }
@@ -311,7 +312,17 @@ export class FeedPage {
 
     // Doorverbinden naar de CommentsPage
     viewComments(param: any): void {
-        this.navCtrl.push(CommentsPage, param);
+        if (this.network.type != "none") {
+            this.navCtrl.push(CommentsPage, param);
+        }
+        else if (this.network.type == "none") {
+            let toast = this.toastCtrl.create({
+                message: "Actie kon niet worden uitgevoerd, geen internet verbinding gevonden.",
+                duration: 3500,
+                position: "bottom"
+            });
+            toast.present();
+        }
     }
 
     // Zoek functie
@@ -355,8 +366,7 @@ export class FeedPage {
     // Zodra de pagina is geladen
     ionViewDidLoad() {
         this.menuCtrl.enable(true, 'myMenu');
-        if(this.network.type !="none")
-        {
+        if (this.network.type != "none") {
             this.setOfflineToday();
             this.setOfflineYesterday();
             this.setOffline3DaysAgo();
@@ -524,32 +534,42 @@ export class FeedPage {
     }
 
     setLike(articleId) {
-        this.disabled = true;
-        const headers = new HttpHeaders();
-        headers.append("Accept", 'application/json');
-        headers.append('Content-Type', 'application/json');
-        const options = {headers: headers};
-        const data = {
-            articleId: articleId,
-            userId: this.userId
-        };
+        if (this.network.type != "none") {
+            this.disabled = true;
+            const headers = new HttpHeaders();
+            headers.append("Accept", 'application/json');
+            headers.append('Content-Type', 'application/json');
+            const options = {headers: headers};
+            const data = {
+                articleId: articleId,
+                userId: this.userId
+            };
 
-        this.http.post('http://gazoh.net/setlike.php', data, options)
-            .subscribe(data => {
-                if (data == "liked") setTimeout(() => {
-                    this.disabled = false;
-                }, this.TIMER_IN_MS);
-                {
-                    if (this.datepicker == "vandaag") {
-                        this.load();
-                    } else if (this.datepicker == "gisteren") {
-                        this.loadYesterday();
-                    } else if (this.datepicker == "driedagengeleden") {
-                        this.load3DaysAgo();
+            this.http.post('http://gazoh.net/setlike.php', data, options)
+                .subscribe(data => {
+                    if (data == "liked") setTimeout(() => {
+                        this.disabled = false;
+                    }, this.TIMER_IN_MS);
+                    {
+                        if (this.datepicker == "vandaag") {
+                            this.load();
+                        } else if (this.datepicker == "gisteren") {
+                            this.loadYesterday();
+                        } else if (this.datepicker == "driedagengeleden") {
+                            this.load3DaysAgo();
+                        }
+                        console.log(data);
                     }
-                    console.log(data);
-                }
+                });
+        }
+        else if (this.network.type == "none") {
+            let toast = this.toastCtrl.create({
+                message: "Actie kon niet worden uitgevoerd, geen internet verbinding gevonden.",
+                duration: 3500,
+                position: "bottom"
             });
+            toast.present();
+        }
     }
 
     shareInfo(articleTitle, articleImage, articleLink) {
@@ -557,51 +577,62 @@ export class FeedPage {
     }
 
     dislike(articleId, articleTitle) {
-        const headers = new HttpHeaders();
-        headers.append("Accept", 'application/json');
-        headers.append('Content-Type', 'application/json');
-        const options = {headers: headers};
-        const data = {
-            articleId: articleId,
-            userId: this.userId
-        };
-        let alert = this.alertCtrl.create({
-            title: "Dislike",
-            message: "Weet je zeker dat je deze artikel wilt verwijderen uit je favorieten ?",
-            buttons: [
-                {
-                    text: 'Annuleer',
-                    handler: () => {
-                        return;
-                    }
-                },
-                {
-                    text: 'Verwijder',
-                    handler: () => {
-                        this.http.post('http://gazoh.net/unlike.php', data, options)
-                            .subscribe(data => {
-                                if (data == "unliked") {
-                                    let toast = this.toastCtrl.create({
-                                        message: '"' + articleTitle + '"' + " is verwijderd uit je favorieten!",
-                                        duration: 2500,
-                                        position: "bottom"
-                                    });
-                                    toast.present();
-                                    if (this.datepicker == "vandaag") {
-                                        this.load();
-                                    } else if (this.datepicker == "gisteren") {
-                                        this.loadYesterday();
-                                    } else if (this.datepicker == "driedagengeleden") {
-                                        this.load3DaysAgo();
+        if(this.network.type !="none")
+        {
+            const headers = new HttpHeaders();
+            headers.append("Accept", 'application/json');
+            headers.append('Content-Type', 'application/json');
+            const options = {headers: headers};
+            const data = {
+                articleId: articleId,
+                userId: this.userId
+            };
+            let alert = this.alertCtrl.create({
+                title: "Dislike",
+                message: "Weet je zeker dat je deze artikel wilt verwijderen uit je favorieten ?",
+                buttons: [
+                    {
+                        text: 'Annuleer',
+                        handler: () => {
+                            return;
+                        }
+                    },
+                    {
+                        text: 'Verwijder',
+                        handler: () => {
+                            this.http.post('http://gazoh.net/unlike.php', data, options)
+                                .subscribe(data => {
+                                    if (data == "unliked") {
+                                        let toast = this.toastCtrl.create({
+                                            message: '"' + articleTitle + '"' + " is verwijderd uit je favorieten!",
+                                            duration: 2500,
+                                            position: "bottom"
+                                        });
+                                        toast.present();
+                                        if (this.datepicker == "vandaag") {
+                                            this.load();
+                                        } else if (this.datepicker == "gisteren") {
+                                            this.loadYesterday();
+                                        } else if (this.datepicker == "driedagengeleden") {
+                                            this.load3DaysAgo();
+                                        }
+                                        console.log(data);
                                     }
-                                    console.log(data);
-                                }
-                            });
+                                });
+                        }
                     }
-                }
-            ]
-        });
-        alert.present();
+                ]
+            });
+            alert.present();
+        }
+        else if (this.network.type == "none") {
+            let toast = this.toastCtrl.create({
+                message: "Actie kon niet worden uitgevoerd, geen internet verbinding gevonden.",
+                duration: 3500,
+                position: "bottom"
+            });
+            toast.present();
+        }
     }
 
     setHideArticle(postId) {
@@ -674,10 +705,8 @@ export class FeedPage {
         }, 200);
     }
 
-    setOfflineToday()
-    {
-        if(this.network.type != "none")
-        {
+    setOfflineToday() {
+        if (this.network.type != "none") {
             const headers = new HttpHeaders();
             headers.append("Accept", 'application/json');
             headers.append('Content-Type', 'application/json');
@@ -704,8 +733,7 @@ export class FeedPage {
     }
 
     setOfflineYesterday() {
-        if(this.network.type != "none")
-        {
+        if (this.network.type != "none") {
             const headers = new HttpHeaders();
             headers.append("Accept", 'application/json');
             headers.append('Content-Type', 'application/json');
@@ -731,10 +759,8 @@ export class FeedPage {
         }
     }
 
-    setOffline3DaysAgo()
-    {
-        if(this.network.type != "none")
-        {
+    setOffline3DaysAgo() {
+        if (this.network.type != "none") {
             const headers = new HttpHeaders();
             headers.append("Accept", 'application/json');
             headers.append('Content-Type', 'application/json');
