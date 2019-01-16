@@ -21,7 +21,6 @@
     <p><span class="breakText">{{comment.comment}}</span></p>
   </ion-item>
     <ion-item-options side="right">
-      <button ion-button color="secondary"><ion-icon name="create"></ion-icon>Bewerk</button>
       <button ion-button color="danger" item-right *ngIf="userId == comment.userID || userRol == 1" (click)="deleteComment(comment.commentId)"><ion-icon name="trash"></ion-icon>Verwijder</button>
     </ion-item-options>
     </ion-item-sliding>

@@ -17,7 +17,6 @@ import { PhotoViewer } from '@ionic-native/photo-viewer';
 
 
 
-
 //
 // Pages
 //
