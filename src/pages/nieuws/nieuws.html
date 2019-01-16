@@ -4,7 +4,7 @@
 </ion-header>
 <ion-content>
   <ion-card class="nieuwsCard">
-    <img *ngIf="!this.image && network.type != 'none'" src="../assets/imgs/noimage.jpg">
+    <img *ngIf="!this.image && network.type != 'none' && this.site != 'Tweakers'" src="../assets/imgs/noimage.jpg">
     <img *ngIf="this.image && this.site != 'Tweakers' && network.type != 'none'" src="{{this.image}} " class="imageNieuws">
     <img *ngIf="this.site == 'Tweakers'" src="../assets/imgs/tweakers.png" class="imageNieuwsTweakers">
     <img *ngIf="this.site == 'NOS' && network.type == 'none'" src="../assets/imgs/NOS.png" class="imageNieuws">
