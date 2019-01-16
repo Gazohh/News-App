@@ -12,11 +12,12 @@
 <ion-content class="tutorial-page">
 
     <ion-slides pager>
-        <ion-slide>
+        <ion-slide class="slider">
+            <img src="../assets/imgs/tutorial1.png">
             <h2 class="slide-title">Welkom bij NewsAge</h2>
             <p>Welkom! In de tutorial vertellen wij kort even hoe u de app gebruikt.</p>
         </ion-slide>
-        <ion-slide class="bronnenSlide">
+        <ion-slide class="slider">
             <ion-icon name="star" class="tutorialIcon"></ion-icon>
             <h2>Bronnen</h2>
             <p>
@@ -28,7 +29,7 @@
                 u dat uw favoriete newspagina er tussen staat!
             </p>
         </ion-slide>
-        <ion-slide class="bronnenSlide">
+        <ion-slide class="slider">
             <ion-icon name="share" class="tutorialIcon"></ion-icon>
             <h2 class="slide-title">
                 Delen met uw vrienden!
@@ -42,7 +43,64 @@
                 namelijk door heel eenvoudig op het tekstbalkje te klikken.
             </p>
         </ion-slide>
-        <ion-slide class="bronnenSlide">
+
+
+        <ion-slide class="sliderSources">
+            <ion-item class="sourceItem">
+                <ion-avatar class="avatarTelegraafSources" item-start>
+                    <img src="../assets/svg/Telegraaf.svg">
+                </ion-avatar>
+                <div><b class="sourceTekstFeed">De Telegraaf</b></div>
+                <div class="sourceTekst">Nieuwsfeed</div>
+                <button ion-button outline item-end class="ImportClassesButton" (click)="subscribeSource('De Telegraaf')">
+                    <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
+                </button>
+            </ion-item>
+            <ion-item class="sourceItem" >
+                <ion-avatar class="avatar" item-start>
+                    <img class="avatar-feedNU" src="../assets/svg/nu.nl.svg">
+                </ion-avatar>
+                <div><b class="sourceTekstFeed">NU.nl</b></div>
+                <div class="sourceTekst">Nieuwsfeed</div>
+                <button ion-button outline item-end class="ImportClassesButton" (click)="subscribeSource('NU.nl')">
+                    <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
+                </button>
+            </ion-item>
+            <ion-item class="sourceItem">
+                <ion-avatar class="avatar" item-start>
+                    <img src="../assets/svg/NOS_logo.svg">
+                </ion-avatar>
+                <div><b class="sourceTekstFeed">NOS</b></div>
+                <div class="sourceTekst">Nieuwsfeed</div>
+                <button ion-button outline item-end class="ImportClassesButton" (click)="subscribeSource('NOS')">
+                    <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
+                </button>
+            </ion-item>
+            <ion-item class="sourceItem">
+                <ion-avatar class="avatar" item-start>
+                    <img class="avatarTWKS" src="../assets/svg/Tweakers.svg">
+                </ion-avatar>
+                <div><b class="sourceTekstFeed">Tweakers</b></div>
+                <div class="sourceTekst">Tech</div>
+                <button ion-button outline item-end class="ImportClassesButton" (click)="subscribeSource('Tweakers')">
+                    <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
+                </button>
+            </ion-item>
+            <ion-item class="sourceItem">
+                <ion-avatar class="avatar" item-start>
+                    <img src="../assets/svg/Knvb.svg">
+                </ion-avatar>
+                <div><b class="sourceTekstFeed">KNVB</b></div>
+                <div class="sourceTekst">Sport</div>
+                <button ion-button outline item-end class="ImportClassesButton" (click)="subscribeSource('KNVB')">
+                    <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
+                </button>
+            </ion-item>
+        </ion-slide>
+
+
+
+        <ion-slide class="slider">
             <h2 class="slide-title">
                 Vragen?
             </h2>

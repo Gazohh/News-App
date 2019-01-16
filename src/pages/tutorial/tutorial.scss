@@ -5,7 +5,7 @@ page-tutorial {
     border-color: transparent;
   }
 
-  .slide-zoom {
+  .slider {
     height: 100%;
     width: 100%;
     display: flex;
@@ -19,7 +19,6 @@ page-tutorial {
     align-items: center;
     justify-content: center;
   }
-
 
   .slide-image {
     max-height: 50%;
@@ -43,6 +42,12 @@ h2{
     font-size: 14px;
     line-height: 1.5;
     color: #60646B;
+  }
+
+  .sliderSources {
+      height: 100% !important;
+      width: 100% !important;
+      display: flex !important;
   }
 
 }
