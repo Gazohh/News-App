@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {InAppBrowser, InAppBrowserOptions} from '@ionic-native/in-app-browser';
+import {Network} from "@ionic-native/network";
+
 
 
 /**
@@ -43,7 +45,10 @@ export class NieuwsPage {
         fullscreen: 'yes',//Windows only
     };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private inAppBrowser: InAppBrowser) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private inAppBrowser: InAppBrowser,
+              public network: Network) {
     if (this.navParams.get("record")) {
       this.selectEntry(this.navParams.get("record"));
       console.log(this.navParams.get("record"));

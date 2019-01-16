@@ -169,41 +169,53 @@ export class SourcesPage {
 
     unsubscribeSource(source)
     {
-        const headers = new HttpHeaders();
+       if(this.network.type != "none")
+       {
+           const headers = new HttpHeaders();
 
-        headers.append("Accept", 'application/json');
+           headers.append("Accept", 'application/json');
 
-        headers.append('Content-Type', 'application/json');
+           headers.append('Content-Type', 'application/json');
 
-        const options = {headers: headers};
+           const options = {headers: headers};
 
-        const data = {
-            sourceName: source,
-            userId: localStorage.getItem("userId"),
-        };
+           const data = {
+               sourceName: source,
+               userId: localStorage.getItem("userId"),
+           };
 
-        this.http.post('http://gazoh.net/unsubscribesource.php', data, options)
-            .subscribe(data => {
-                if(data == "unsubscribed")
-                {
-                    this.getSource();
-                    let toast = this.toastCtrl.create({
-                        message: "" + source + " is verwijderd.",
-                        duration: 3500,
-                        position: "bottom"
-                    });
-                    toast.present();
-                }
-                else if (data == "error")
-                {
-                    let toast = this.toastCtrl.create({
-                        message: "Er is iets niet goed gegaan, probeer het later opnieuw.",
-                        duration: 3500,
-                        position: "bottom"
-                    });
-                    toast.present();
-                }
-            });
+           this.http.post('http://gazoh.net/unsubscribesource.php', data, options)
+               .subscribe(data => {
+                   if(data == "unsubscribed")
+                   {
+                       this.getSource();
+                       let toast = this.toastCtrl.create({
+                           message: "" + source + " is verwijderd.",
+                           duration: 3500,
+                           position: "bottom"
+                       });
+                       toast.present();
+                   }
+                   else if (data == "error")
+                   {
+                       let toast = this.toastCtrl.create({
+                           message: "Er is iets niet goed gegaan, probeer het later opnieuw.",
+                           duration: 3500,
+                           position: "bottom"
+                       });
+                       toast.present();
+                   }
+               });
+       }
+       else if (this.network.type == "none")
+       {
+           let toast = this.toastCtrl.create({
+               message: "Er is geen internet verbinding, probeer het later opnieuw.",
+               duration: 5000,
+               position: "bottom"
+           });
+           toast.present();
+       }
     }
 
   moveButton($event) {

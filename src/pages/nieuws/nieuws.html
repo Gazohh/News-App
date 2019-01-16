@@ -4,9 +4,13 @@
 </ion-header>
 <ion-content>
   <ion-card class="nieuwsCard">
-    <img *ngIf="!this.image" src="../assets/imgs/noimage.jpg">
-    <img *ngIf="this.image && this.site != 'Tweakers' " src="{{this.image}} " class="imageNieuws">
-    <img *ngIf="this.image == 'http://gazoh.net/tweakers.png' && this.site == 'Tweakers'" src="{{this.image}}" class="imageNieuwsTweakers">
+    <img *ngIf="!this.image && network.type != 'none'" src="../assets/imgs/noimage.jpg">
+    <img *ngIf="this.image && this.site != 'Tweakers' && network.type != 'none'" src="{{this.image}} " class="imageNieuws">
+    <img *ngIf="this.site == 'Tweakers'" src="../assets/imgs/tweakers.png" class="imageNieuwsTweakers">
+    <img *ngIf="this.site == 'NOS' && network.type == 'none'" src="../assets/imgs/NOS.png" class="imageNieuws">
+    <img *ngIf="this.site == 'NU.nl' && network.type == 'none'" src="../assets/imgs/NUNL.png" class="imageNieuws">
+    <img *ngIf="this.site == 'De Telegraaf' && network.type == 'none'" src="../assets/imgs/telegraaf.png" class="imageNieuws">
+    <img *ngIf="this.site == 'KNVB' && network.type == 'none'" src="../assets/imgs/knvb.png" class="imageNieuws">
     <ion-card-header class="headerText" text-wrap>
       {{this.title}}
       <p class="nieuwsDatum">{{this.datum}}</p>
