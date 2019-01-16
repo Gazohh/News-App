@@ -188,7 +188,7 @@ export class FeedPage {
         console.log(SelectedValue);
         if (this.network.type != "none") {
             if (this.datepicker == "vandaag") {
-                this.loadWithSpinner();
+                this.load();
                 this.content.scrollToTop(0);
             } else if (this.datepicker == "gisteren") {
                 this.loadYesterday();
@@ -201,38 +201,11 @@ export class FeedPage {
             // }
         } else if (this.network.type == "none") {
             if (this.datepicker == "vandaag") {
-                this.storage.get("offlineDataToday").then(data => {
-                    this.items = data;
-                    this.artikelen = data;
-                    this.content.scrollToTop(0);
-                    this.items.sort(function (a, b) {
-                        const dateA = new Date(a.datum.replace(' ', 'T'));
-                        const dateB = new Date(b.datum.replace(' ', 'T'));
-                        return dateB.getTime() - dateA.getTime();
-                    });
-                })
+                this.getOfflineDataToday()
             } else if (this.datepicker == "gisteren") {
-                this.storage.get("offlineDataYesterday").then(data => {
-                    this.items = data;
-                    this.artikelen = data;
-                    this.content.scrollToTop(0);
-                    this.items.sort(function (a, b) {
-                        const dateA = new Date(a.datum.replace(' ', 'T'));
-                        const dateB = new Date(b.datum.replace(' ', 'T'));
-                        return dateB.getTime() - dateA.getTime();
-                    });
-                })
+               this.getOfflineDataYesterday()
             } else if (this.datepicker == "driedagengeleden") {
-                this.storage.get("offlineData3DaysAgo").then(data => {
-                    this.items = data;
-                    this.artikelen = data;
-                    this.content.scrollToTop(0);
-                    this.items.sort(function (a, b) {
-                        const dateA = new Date(a.datum.replace(' ', 'T'));
-                        const dateB = new Date(b.datum.replace(' ', 'T'));
-                        return dateB.getTime() - dateA.getTime();
-                    });
-                })
+               this.getOfflineData3DaysAgo();
             }
         }
     }
@@ -296,35 +269,11 @@ export class FeedPage {
         } else if (this.network.type == "none") {
             // Get offline data
             if (this.datepicker == "vandaag") {
-                this.storage.get("offlineDataToday").then(data => {
-                    this.items = data;
-                    this.artikelen = data;
-                    this.items.sort(function (a, b) {
-                        const dateA = new Date(a.datum.replace(' ', 'T'));
-                        const dateB = new Date(b.datum.replace(' ', 'T'));
-                        return dateB.getTime() - dateA.getTime();
-                    });
-                })
+                this.getOfflineDataToday();
             } else if (this.datepicker == "gisteren") {
-                this.storage.get("offlineDataYesterday").then(data => {
-                    this.items = data;
-                    this.artikelen = data;
-                    this.items.sort(function (a, b) {
-                        const dateA = new Date(a.datum.replace(' ', 'T'));
-                        const dateB = new Date(b.datum.replace(' ', 'T'));
-                        return dateB.getTime() - dateA.getTime();
-                    });
-                })
+                this.getOfflineDataYesterday();
             } else if (this.datepicker == "driedagengeleden") {
-                this.storage.get("offlineData3DaysAgo").then(data => {
-                    this.items = data;
-                    this.artikelen = data;
-                    this.items.sort(function (a, b) {
-                        const dateA = new Date(a.datum.replace(' ', 'T'));
-                        const dateB = new Date(b.datum.replace(' ', 'T'));
-                        return dateB.getTime() - dateA.getTime();
-                    });
-                })
+               this.getOfflineData3DaysAgo();
             }
         }
     }
@@ -406,9 +355,12 @@ export class FeedPage {
     // Zodra de pagina is geladen
     ionViewDidLoad() {
         this.menuCtrl.enable(true, 'myMenu');
-        this.setOfflineToday();
-        this.setOfflineYesterday();
-        this.setOffline3DaysAgo();
+        if(this.network.type !="none")
+        {
+            this.setOfflineToday();
+            this.setOfflineYesterday();
+            this.setOffline3DaysAgo();
+        }
     }
 
     // Segment Alle nieuws van Vandaag
@@ -724,110 +676,88 @@ export class FeedPage {
 
     setOfflineToday()
     {
-        const headers = new HttpHeaders();
-        headers.append("Accept", 'application/json');
-        headers.append('Content-Type', 'application/json');
-        const options = {headers: headers};
-        const data = {
-            userId: localStorage.getItem('userId')
-        };
-        this.http
-            .post('http://gazoh.net/getdatafinal.php', data, options)
-            .subscribe((data: any) => {
-                    this.storage.set("offlineDataVandaag", data);
-                    console.log("Offline data set in storage: offlineDataVandaag");
-                    this.items.sort(function (a, b) {
-                        const dateA = new Date(a.datum.replace(' ', 'T'));
-                        const dateB = new Date(b.datum.replace(' ', 'T'));
-                        return dateB.getTime() - dateA.getTime();
-                    });
-
-                    for (var i = 0; i < this.items.length; i++) {
-                        const fileTransfer: FileTransferObject = this.transfer.create();
-                        this.imagesOffline = this.items[i].image;
-                        this.imagesTitle = this.items[i].title;
-                        const url = this.imagesOffline;
-                        fileTransfer.download(url, this.file.dataDirectory + `test${i}.jpg`).then((entry) => {
-                            console.log('download complete: ' + entry.toURL());
-                        }, (error) => {
-                            // handle error
+        if(this.network.type != "none")
+        {
+            const headers = new HttpHeaders();
+            headers.append("Accept", 'application/json');
+            headers.append('Content-Type', 'application/json');
+            const options = {headers: headers};
+            const data = {
+                userId: localStorage.getItem('userId')
+            };
+            this.http
+                .post('http://gazoh.net/getdatafinal.php', data, options)
+                .subscribe((data: any) => {
+                        this.storage.set("offlineDataVandaag", data);
+                        console.log("Offline data set in storage: offlineDataVandaag");
+                    },
+                    (error: any) => {
+                        let toast = this.toastCtrl.create({
+                            message: "De pagina die u wilt bekijken kan niet worden weergegeven, bekijk uw internetverbinding",
+                            duration: 3500,
+                            position: "top"
                         });
-                    }
-                },
-                (error: any) => {
-                    let toast = this.toastCtrl.create({
-                        message: "De pagina die u wilt bekijken kan niet worden weergegeven, bekijk uw internetverbinding",
-                        duration: 3500,
-                        position: "top"
+                        toast.present();
+                        console.log("Http error is: " + error);
                     });
-                    toast.present();
-                    console.log("Http error is: " + error);
-                });
+        }
     }
 
     setOfflineYesterday() {
-        const headers = new HttpHeaders();
-        headers.append("Accept", 'application/json');
-        headers.append('Content-Type', 'application/json');
-        const options = {headers: headers};
-        const data = {
-            userId: localStorage.getItem('userId')
-        };
-        this.http
-            .post('http://gazoh.net/getdatayesterday.php', data, options)
-            .subscribe((data: any) => {
-                    this.items = data;
-                    this.artikelen = data;
-                    this.storage.set("offlineDataGisteren", data);
-                    console.log("Offline data set in storage: offlineDataGisteren");
-                    this.items.sort(function (a, b) {
-                        const dateA = new Date(a.datum.replace(' ', 'T'));
-                        const dateB = new Date(b.datum.replace(' ', 'T'));
-                        return dateB.getTime() - dateA.getTime();
+        if(this.network.type != "none")
+        {
+            const headers = new HttpHeaders();
+            headers.append("Accept", 'application/json');
+            headers.append('Content-Type', 'application/json');
+            const options = {headers: headers};
+            const data = {
+                userId: localStorage.getItem('userId')
+            };
+            this.http
+                .post('http://gazoh.net/getdatayesterday.php', data, options)
+                .subscribe((data: any) => {
+                        this.storage.set("offlineDataGisteren", data);
+                        console.log("Offline data set in storage: offlineDataGisteren");
+                    },
+                    (error: any) => {
+                        let toast = this.toastCtrl.create({
+                            message: "Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",
+                            duration: 3500,
+                            position: "top"
+                        });
+                        toast.present();
+                        console.log("Http error is: " + error);
                     });
-                },
-                (error: any) => {
-                    let toast = this.toastCtrl.create({
-                        message: "Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",
-                        duration: 3500,
-                        position: "top"
-                    });
-                    toast.present();
-                    console.log("Http error is: " + error);
-                });
+        }
     }
 
     setOffline3DaysAgo()
     {
-        const headers = new HttpHeaders();
-        headers.append("Accept", 'application/json');
-        headers.append('Content-Type', 'application/json');
-        const options = {headers: headers};
-        const data = {
-            userId: localStorage.getItem('userId')
-        };
-        this.http
-            .post('http://gazoh.net/getdata3daysago.php', data, options)
-            .subscribe((data: any) => {
-                    this.items = data;
-                    this.artikelen = data;
-                    this.storage.set("offlineData3DagenGeleden", data);
-                    console.log("Offline data set in storage: offlineData3DagenGeleden");
-                    this.items.sort(function (a, b) {
-                        const dateA = new Date(a.datum.replace(' ', 'T'));
-                        const dateB = new Date(b.datum.replace(' ', 'T'));
-                        return dateB.getTime() - dateA.getTime();
+        if(this.network.type != "none")
+        {
+            const headers = new HttpHeaders();
+            headers.append("Accept", 'application/json');
+            headers.append('Content-Type', 'application/json');
+            const options = {headers: headers};
+            const data = {
+                userId: localStorage.getItem('userId')
+            };
+            this.http
+                .post('http://gazoh.net/getdata3daysago.php', data, options)
+                .subscribe((data: any) => {
+                        this.storage.set("offlineData3DagenGeleden", data);
+                        console.log("Offline data set in storage: offlineData3DagenGeleden");
+                    },
+                    (error: any) => {
+                        let toast = this.toastCtrl.create({
+                            message: "Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",
+                            duration: 3500,
+                            position: "top"
+                        });
+                        toast.present();
+                        console.log("Http error is: " + error);
                     });
-                },
-                (error: any) => {
-                    let toast = this.toastCtrl.create({
-                        message: "Artikelen konden niet worden ingeladen, probeer het nogmaals over 1 minuut.",
-                        duration: 3500,
-                        position: "top"
-                    });
-                    toast.present();
-                    console.log("Http error is: " + error);
-                });
+        }
     }
 
 }

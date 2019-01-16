@@ -52,8 +52,11 @@
                 </ion-avatar>
                 <div><b class="sourceTekstFeed">De Telegraaf</b></div>
                 <div class="sourceTekst">Nieuwsfeed</div>
-                <button ion-button outline item-end class="ImportClassesButton" (click)="subscribeSource('De Telegraaf')">
+                <button ion-button outline item-end class="ImportClassesButton" *ngIf="TGF == 0" (click)="subscribeSource('De Telegraaf')">
                     <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
+                </button>
+                <button ion-button outline item-end color="danger" class="DeleteClassesButton" *ngIf="TGF == 1" (click)="unsubscribeSource('De Telegraaf')">
+                    <ion-icon name="close" class="buttonIcon"></ion-icon>Verwijderen
                 </button>
             </ion-item>
             <ion-item class="sourceItem" >
@@ -62,8 +65,11 @@
                 </ion-avatar>
                 <div><b class="sourceTekstFeed">NU.nl</b></div>
                 <div class="sourceTekst">Nieuwsfeed</div>
-                <button ion-button outline item-end class="ImportClassesButton" (click)="subscribeSource('NU.nl')">
+                <button ion-button outline item-end class="ImportClassesButton" *ngIf="NUNL == 0" (click)="subscribeSource('NU.NL')">
                     <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
+                </button>
+                <button ion-button outline item-end color="danger" class="DeleteClassesButton" *ngIf="NUNL == 1" (click)="unsubscribeSource('NU.NL')">
+                    <ion-icon name="close" class="buttonIcon"></ion-icon>Verwijderen
                 </button>
             </ion-item>
             <ion-item class="sourceItem">
@@ -72,8 +78,11 @@
                 </ion-avatar>
                 <div><b class="sourceTekstFeed">NOS</b></div>
                 <div class="sourceTekst">Nieuwsfeed</div>
-                <button ion-button outline item-end class="ImportClassesButton" (click)="subscribeSource('NOS')">
+                <button ion-button outline item-end class="ImportClassesButton" *ngIf="NOS == 0" (click)="subscribeSource('NOS')">
                     <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
+                </button>
+                <button ion-button outline item-end color="danger" class="DeleteClassesButton" *ngIf="NOS == 1" (click)="unsubscribeSource('NOS')">
+                    <ion-icon name="close" class="buttonIcon"></ion-icon>Verwijderen
                 </button>
             </ion-item>
             <ion-item class="sourceItem">
@@ -82,18 +91,24 @@
                 </ion-avatar>
                 <div><b class="sourceTekstFeed">Tweakers</b></div>
                 <div class="sourceTekst">Tech</div>
-                <button ion-button outline item-end class="ImportClassesButton" (click)="subscribeSource('Tweakers')">
+                <button ion-button outline item-end class="ImportClassesButton" *ngIf="TWKS == 0" (click)="subscribeSource('Tweakers')">
                     <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
+                </button>
+                <button ion-button outline item-end color="danger" class="DeleteClassesButton" *ngIf="TWKS == 1" (click)="unsubscribeSource('Tweakers')">
+                    <ion-icon name="close" class="buttonIcon"></ion-icon>Verwijderen
                 </button>
             </ion-item>
             <ion-item class="sourceItem">
                 <ion-avatar class="avatar" item-start>
-                    <img src="../assets/svg/Knvb.svg">
+                    <img src="../assets/svg/knvb.svg">
                 </ion-avatar>
                 <div><b class="sourceTekstFeed">KNVB</b></div>
                 <div class="sourceTekst">Sport</div>
-                <button ion-button outline item-end class="ImportClassesButton" (click)="subscribeSource('KNVB')">
+                <button ion-button outline item-end class="ImportClassesButton" *ngIf="KNVB == 0" (click)="subscribeSource('KNVB')">
                     <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
+                </button>
+                <button ion-button outline item-end color="danger" class="DeleteClassesButton" *ngIf="KNVB == 1" (click)="unsubscribeSource('KNVB')">
+                    <ion-icon name="close" class="buttonIcon"></ion-icon>Verwijderen
                 </button>
             </ion-item>
         </ion-slide>
