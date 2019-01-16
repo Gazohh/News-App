@@ -14,7 +14,7 @@ import {FileTransfer} from '@ionic-native/file-transfer';
 import {Camera} from '@ionic-native/camera';
 import {Geolocation} from '@ionic-native/geolocation';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
-
+import { IonicImageLoader } from 'ionic-image-loader';
 
 
 
@@ -85,6 +85,7 @@ import { RestApiProvider } from '../providers/rest-api/rest-api';
         HttpClientModule,
         ReactiveFormsModule,
         IonicStorageModule.forRoot(),
+        IonicImageLoader.forRoot(),
         FavorietenPageModule,
         FeedPageModule,
         RegisterPageModule,

@@ -46,8 +46,11 @@
                 <ion-card *ngFor="let item of (items ? items.slice(0,slice): [])" col-md-6 class="ionCard">
                     <!-- Images van nieuwsfeed -->
                     <div class="ion-card-image-wrapper" (tap)="viewEntry({ record: item })">
-                        <img class="fullHeight" [src]="item.image" *ngIf="item.site != 'NOS.nl' || item.site != 'NU.nl'">
-                        <img class="fullHeight" [src]="item.image" *ngIf="item.site == 'NOS.nl'">
+                        <img class="fullHeight" [src]="item.image" *ngIf="item.site != 'NOS.nl' || item.site != 'NU.nl' && network.type != 'none'">
+                        <img class="fullHeight" src="../assets/imgs/NOS.png" *ngIf="item.site == 'NOS.nl' && network.type == 'none'">
+                        <img class="fullHeight" src="../assets/imgs/NUNL.png" *ngIf="item.site == 'NU.nl' && network.type == 'none'">
+                        <img class="fullHeight" src="../assets/imgs/telegraaf.png" *ngIf="item.site == 'De Telegraaf' && network.type == 'none'">
+                        <img class="fullHeight" [src]="item.image" *ngIf="item.site == 'NOS.nl' && network.type != 'none'">
                         <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">
                     </div>
                     <ion-card-content class="cardContentFeed">

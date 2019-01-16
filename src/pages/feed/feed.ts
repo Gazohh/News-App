@@ -17,8 +17,7 @@ import {SocialSharing} from '@ionic-native/social-sharing';
 import {Storage} from '@ionic/storage';
 import 'rxjs/add/operator/map';
 import {LijstweerPage} from "../lijstweer/lijstweer";
-import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
-import { File } from '@ionic-native/file';
+
 declare var cordova:any;
 
 @IonicPage()
@@ -79,9 +78,7 @@ export class FeedPage {
         private alertCtrl: AlertController,
         private socialSharing: SocialSharing,
         private geolocation: Geolocation,
-        private storage: Storage,
-        private transfer: FileTransfer,
-        private file: File) {
+        private storage: Storage) {
 
         // Select Items
         this.selectOptions = {
@@ -161,7 +158,7 @@ export class FeedPage {
             let offlinealert = this.toastCtrl.create({
                 message: "Er is geen internet verbinding, opgeslagen artikelen worden ingeladen.",
                 duration: 2500,
-                position: "bottom"
+                position: "top"
             });
             offlinealert.present();
             if (this.datepicker == "vandaag") {
@@ -385,18 +382,6 @@ export class FeedPage {
                         const dateB = new Date(b.datum.replace(' ', 'T'));
                         return dateB.getTime() - dateA.getTime();
                     });
-
-                    for (var i = 0; i < this.items.length; i++) {
-                        const fileTransfer: FileTransferObject = this.transfer.create();
-                        this.imagesOffline = this.items[i].image;
-                        this.imagesTitle = this.items[i].title;
-                        const url = this.imagesOffline;
-                        fileTransfer.download(url, this.file.dataDirectory + `test${i}.jpg`).then((entry) => {
-                            console.log('download complete: ' + entry.toURL());
-                        }, (error) => {
-                            // handle error
-                        });
-                    }
                 },
                 (error: any) => {
                     let toast = this.toastCtrl.create({
@@ -590,7 +575,7 @@ export class FeedPage {
                                     let toast = this.toastCtrl.create({
                                         message: '"' + articleTitle + '"' + " is verwijderd uit je favorieten!",
                                         duration: 2500,
-                                        position: "bottom"
+                                        position: "top"
                                     });
                                     toast.present();
                                     if (this.datepicker == "vandaag") {
@@ -621,7 +606,7 @@ export class FeedPage {
                 let toast = this.toastCtrl.create({
                     message: "Artikel " + postId + " verborgen",
                     duration: 2500,
-                    position: "bottom",
+                    position: "top",
                     showCloseButton: true,
                     closeButtonText: "OK"
                 });
