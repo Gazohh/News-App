@@ -33,7 +33,7 @@ export class SettingsPage {
     emailVerified: string;
     userEmail: string;
     token: string;
-    public TIMER_IN_MS = 21200;
+    public TIMER_IN_MS = 22000;
     public disabled;
     timerVar;
     timerVal = 20;
@@ -144,10 +144,6 @@ public test;
 
             if (x == 20) {
                 this.timerVar.unsubscribe()
-            }
-
-            if(x < 10) {
-                return '0' + x;
             }
         })
     }

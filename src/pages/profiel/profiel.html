@@ -23,7 +23,8 @@
           <div class="form-group">
             <ion-item [ngClass]="{ 'ng-touched' : form.get('username').touched }">>
               <ion-label floating>Gebruikersnaam</ion-label>
-              <ion-input type="text" placeholder="{{username}}" value="{{username}}" formControlName="username" class="form-control"></ion-input>
+              <ion-input *ngIf="selectedTheme == 'light-theme'" type="text" placeholder="{{username}}" value="{{username}}" formControlName="username" class="form-control"></ion-input>
+              <ion-input *ngIf="selectedTheme == 'dark-theme'" type="text" placeholder="{{username}}" value="{{username}}" formControlName="username" class="form-controldark"></ion-input>
             </ion-item>
           </div>
           <div *ngIf="form.get('username').touched && form.get('username').invalid" class="alert alert-danger" required>
@@ -35,7 +36,8 @@
           <div class="form-group">
             <ion-item [ngClass]="{ 'ng-touched' : form.get('email').touched }">
               <ion-label floating>E-mail</ion-label>
-              <ion-input type="email" placeholder="{{email}}" value="{{email}}" formControlName="email" class="form-control"></ion-input>
+              <ion-input *ngIf="selectedTheme == 'light-theme'" type="email" placeholder="{{email}}" value="{{email}}" formControlName="email" class="form-control"></ion-input>
+              <ion-input *ngIf="selectedTheme == 'dark-theme'" type="email" placeholder="{{email}}" value="{{email}}" formControlName="email" class="form-controldark"></ion-input>
             </ion-item>
           </div>
           <div *ngIf="form.get('email').touched && form.get('email').invalid" class="alert alert-danger" required>
@@ -44,7 +46,7 @@
           </div>
 
         </form>
-        <h6 class="wachtwoordWijzigen" (click)="wijzigWachtwoord()">Wijzig Wachtwoord</h6>
+        <!--<h6 class="wachtwoordWijzigen" (click)="wijzigWachtwoord()">Wijzig Wachtwoord</h6>-->
       </ion-col>
     </ion-grid>
   </ion-list>

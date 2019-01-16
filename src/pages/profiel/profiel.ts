@@ -10,10 +10,9 @@ import {Events} from 'ionic-angular';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {WijzigwachtwoordPage} from "../wijzigwachtwoord/wijzigwachtwoord";
 import {PhotoViewer} from '@ionic-native/photo-viewer';
-import { Storage } from '@ionic/storage';
-import { Network } from '@ionic-native/network';
-
-
+import {Storage} from '@ionic/storage';
+import {Network} from '@ionic-native/network';
+import {SettingsProvider} from "../../providers/settings/settings";
 
 
 @IonicPage()
@@ -36,6 +35,8 @@ export class ProfielPage implements OnInit {
     form: FormGroup;
     oldprofilepicture: any;
     myprofilepic: any = localStorage.getItem("profilePicture");
+    selectedTheme: string;
+    setActiveTheme: string;
 
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
@@ -46,9 +47,11 @@ export class ProfielPage implements OnInit {
                 public events: Events,
                 public photoViewer: PhotoViewer,
                 public storage: Storage,
-                public network: Network) {
-        if(this.network.type != "none")
-        {
+                public network: Network,
+                private settings: SettingsProvider) {
+        this.settings.getActiveTheme().subscribe(val => this.selectedTheme = val);
+
+        if (this.network.type != "none") {
             const headers = new HttpHeaders();
 
             headers.append("Accept", 'application/json');
@@ -74,9 +77,7 @@ export class ProfielPage implements OnInit {
                 });
             this.events.publish("username", this.username);
             this.events.publish("profilepicture", this.myphoto);
-        }
-        else if(this.network.type == "none")
-        {
+        } else if (this.network.type == "none") {
             // Get offline profilepicture
             this.storage.get("profilepicture").then((foto) => {
                 this.myphoto = foto;
@@ -106,7 +107,7 @@ export class ProfielPage implements OnInit {
 
     presentActionSheet() {
         let actionSheet = this.actionSheetCtrl.create({
-            title: 'Wat wilt u doen ?',
+            title: 'Kies',
             buttons: [
                 {
                     text: 'Maak foto',
@@ -228,8 +229,7 @@ export class ProfielPage implements OnInit {
     }
 
     updateProfile() {
-        if(this.network.type == "none")
-        {
+        if (this.network.type == "none") {
             let alert = this.alertCtrl.create({
 
                 title: "Geen verbinding",
@@ -244,9 +244,7 @@ export class ProfielPage implements OnInit {
             });
 
             alert.present();
-        }
-        else if(this.network.type != "none")
-        {
+        } else if (this.network.type != "none") {
             if (this.form.invalid) {
                 this.validateAllFormFields(this.form); //{7}
             } else {
@@ -292,8 +290,7 @@ export class ProfielPage implements OnInit {
 
                             alert.present();
 
-                            if(this.storage.set('profilepicture', this.myphoto))
-                            {
+                            if (this.storage.set('profilepicture', this.myphoto)) {
                                 console.log("Profiel foto is geset in Storage : " + this.myphoto);
                             }
 

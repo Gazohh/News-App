@@ -10,7 +10,18 @@ page-tutorial {
     width: 100%;
     display: flex;
     justify-content: center;
-    flex-direction:column;
+    flex-direction: column;
+  }
+
+  .sliderDoorgaan {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    display: flex !important;
+    align-content: center !important;
+    align-items: center !important;
   }
 
   .kaas {
@@ -29,9 +40,11 @@ page-tutorial {
   .tutorialIcon {
     font-size: 80px !important;
   }
-h2{
-  margin-top: 7px !important;
-}
+
+  h2 {
+    margin-top: 7px !important;
+  }
+
   b {
     font-weight: 500;
     color: #000000;
@@ -45,9 +58,32 @@ h2{
   }
 
   .sliderSources {
-      height: 100% !important;
-      width: 100% !important;
-      display: flex !important;
+    height: 100% !important;
+    width: 100% !important;
+    display: flex !important;
+  }
+
+  .tutorialFoto1 {
+    width: 230px !important;
+    height: 230px !important;
+    top: 50%;
+    left: 50%;
+    margin-top: -3em;
+  }
+
+  .slide-title {
+    padding: 0 40px;
+    font-weight: 800;
+    font-family: Roboto-Bold !important;
+  }
+
+  .skipButton {
+    margin-right: 10px !important;
+  }
+
+  .skipButtonText {
+    font-family: Roboto-Bold !important;
+    font-weight: 800 !important;
   }
 
 }

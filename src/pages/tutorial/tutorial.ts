@@ -5,13 +5,7 @@ import {Platform} from 'ionic-angular';
 import {FeedPage} from "../feed/feed";
 import {Storage} from '@ionic/storage';
 import { Network } from '@ionic-native/network';
-
-/**
- * Generated class for the TutorialPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {SettingsProvider} from "../../providers/settings/settings";
 
 @IonicPage()
 @Component({
@@ -25,6 +19,9 @@ export class TutorialPage {
     NUNL: boolean;
     KNVB: boolean;
     TWKS: boolean;
+    selectedTheme: string;
+    setActiveTheme: string;
+    theme = localStorage.getItem('themeColor');
 
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
@@ -32,7 +29,9 @@ export class TutorialPage {
                 public storage: Storage,
                 public toastCtrl: ToastController,
                 public http: HttpClient,
-                public network: Network) {
+                public network: Network,
+                private settings: SettingsProvider) {
+        this.settings.getActiveTheme().subscribe(val => this.selectedTheme = val);
     }
 
     slides = [

@@ -569,6 +569,12 @@ export class FeedPage {
                 position: "bottom"
             });
             toast.present();
+
+            if (this.network.type == "none") {
+                this.disabled = true;
+            } else {
+                this.disabled = false;
+            }
         }
     }
 
