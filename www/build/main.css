@@ -35538,6 +35538,16 @@ body > ion-app > ng-component > ion-nav > page-privacybeleid > ion-content > div
   border-color: #ff6f6f !important;
 }
 
+.ios .ion-navbar.toolbar {
+  padding-top: 18px !important;
+  padding-bottom: 9px !important;
+}
+
+.ios .nieuwsNavTitle {
+  padding-top: 18px !important;
+  padding-bottom: 9px !important;
+}
+
 page-admin .nieuwsNavTitle {
   color: white;
   font-weight: 500;
@@ -35634,14 +35644,9 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   color: white;
 }
 
-page-nieuws .platform-ios .headerText.toolbar.toolbar-md {
-  padding-top: 17px !important;
-  height: 67px !important;
-}
-
-page-nieuws .platform-core .headerText.toolbar.toolbar-md {
-  padding-top: 17px !important;
-  height: 67px !important;
+page-nieuws .platform-ios .ion-navbar.toolbar {
+  padding-top: 18px !important;
+  padding-bottom: 9px !important;
 }
 
 page-privacybeleid .voorwaardenH1 {
