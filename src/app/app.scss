@@ -788,13 +788,13 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 // Ion-item menu
 
 #contentAnimation > div.scroll-content > ion-list > ion-item {
-  padding-bottom: 10px !important;
+  padding-bottom: 15px !important;
 }
 
 // Hele category label
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) {
-  padding-bottom: 15px !important;
+  padding-bottom: 20px !important;
 }
 
 // Entertainment lABEL
@@ -806,7 +806,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 // startpagina label
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(2) > div.item-inner > div > ion-label {
-  margin-bottom: 6px !important;
+  margin-bottom: 15px !important;
 }
 
 //sources label
@@ -836,14 +836,30 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 // Algemeen Category
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list > ion-item:nth-child(1) > div.item-inner > div > ion-label {
-  margin-top: 15px !important;
+  margin-top: 20px !important;
 }
 
 // Icons submenu Category
 
 #contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > ion-list > ion-item > div.item-inner > div > ion-label > ion-icon {
-  margin-right: 33px !important;
+  margin-right: 33px;
   margin-left: 16px;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list > ion-item:nth-child(3) > div.item-inner > div > ion-label > ion-icon {
+  margin-right: 26px;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list > ion-item:nth-child(2) > div.item-inner > div > ion-label > ion-icon {
+  margin-right: 26px;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list > ion-item:nth-child(1) > div.item-inner > div > ion-label > ion-icon {
+  margin-right: 26px;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-icon {
+  font-size: 2.1rem;
 }
 
 [text-wrap] .label-md {
