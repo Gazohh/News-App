@@ -1919,3 +1919,15 @@ body > ion-app > ng-component > ion-nav > page-privacybeleid > ion-content > div
 .DeleteClassesButton {
   border-color: #ff6f6f !important;
 }
+
+.ios{
+  .ion-navbar.toolbar {
+    padding-top: 18px !important;
+    padding-bottom: 9px !important;
+  }
+
+  .nieuwsNavTitle {
+    padding-top: 18px !important;
+    padding-bottom: 9px !important;
+  }
+}
