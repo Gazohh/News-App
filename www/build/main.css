@@ -308,6 +308,15 @@
   color: #fff !important;
 }
 
+.dark-theme .swiper-pagination-bullet {
+  background: #fff !important;
+}
+
+.dark-theme .swiper-pagination-bullet-active {
+  background: #3ca7d1 !important;
+  opacity: 1;
+}
+
 .ion-ios-add:before {
   content: "\f102";
 }
@@ -34901,6 +34910,10 @@ page-feed img {
   float: left;
 }
 
+.likeTelegraaf {
+  color: #3f80f7 !important;
+}
+
 .ColorNU {
   background-color: #0041b5 !important;
   color: #fff;
@@ -34923,6 +34936,10 @@ page-feed img {
   color: #0041b5 !important;
 }
 
+.likeNu {
+  color: #0041b5 !important;
+}
+
 .socialTweakersShare {
   float: left;
   color: #b9c044 !important;
@@ -34938,6 +34955,10 @@ page-feed img {
   color: #fff;
   top: 10px !important;
   border-color: #b9c044 !important;
+}
+
+.likeTweakers {
+  color: #b9c044 !important;
 }
 
 .darkChatTweakers {
@@ -34972,6 +34993,10 @@ page-feed img {
   color: #d02527 !important;
 }
 
+.likeNOS {
+  color: #d02527 !important;
+}
+
 .KNVBshare {
   float: left;
   color: #f6903a !important;
@@ -34998,6 +35023,10 @@ page-feed img {
   border-color: #f6903a !important;
 }
 
+.likeKNVB {
+  color: #f6903a !important;
+}
+
 body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > div > ion-card > ion-item.hideButton.item.item-block.item-md > div.item-inner > div > ion-label {
   margin: 0;
 }
@@ -35017,7 +35046,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 .imageNieuws {
   -o-object-fit: cover;
   object-fit: cover;
-  height: 300px;
+  height: 200px;
 }
 
 .imageNieuwsTweakers {
@@ -35482,10 +35511,31 @@ body > ion-app > ng-component > ion-nav > page-privacybeleid > ion-content > div
   box-shadow: inset 0 -1px 0 0 #f53d3d;
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 319px) {
   .fullHeight {
     height: 100% !important;
   }
+}
+
+.swiper-pagination-bullet-active {
+  background: #3ca7d1 !important;
+  opacity: 1;
+}
+
+.ImportClassesButton:hover:not(.disable-hover) {
+  background-color: #328a45 !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.DeleteClassesButton:hover:not(.disable-hover) {
+  background-color: #e93a3a !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.DeleteClassesButton {
+  border-color: #ff6f6f !important;
 }
 
 page-admin .nieuwsNavTitle {
@@ -35584,12 +35634,12 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   color: white;
 }
 
-page-nieuws .platform-ios .nieuwsNavTitle.toolbar.toolbar-md {
+page-nieuws .platform-ios .headerText.toolbar.toolbar-md {
   padding-top: 17px !important;
   height: 67px !important;
 }
 
-page-nieuws .platform-core .nieuwsNavTitle.toolbar.toolbar-md {
+page-nieuws .platform-core .headerText.toolbar.toolbar-md {
   padding-top: 17px !important;
   height: 67px !important;
 }
@@ -35612,6 +35662,14 @@ page-privacybeleid body > ion-app > ng-component > ion-nav > page-privacybeleid 
   margin-top: 56px;
   padding-left: 18px;
   padding-right: 18px;
+}
+
+page-profiel .form-control {
+  color: #000 !important;
+}
+
+page-profiel .form-controldark {
+  color: #fff !important;
 }
 
 .registerButton {
@@ -35679,6 +35737,32 @@ page-tutorial .slider {
   flex-direction: column;
 }
 
+page-tutorial .sliderDoorgaan {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  display: flex !important;
+  -webkit-align-content: center !important;
+  -ms-flex-line-pack: center !important;
+  align-content: center !important;
+  -webkit-box-align: center !important;
+  -webkit-align-items: center !important;
+  -ms-flex-align: center !important;
+  align-items: center !important;
+}
+
 page-tutorial .kaas {
   height: 100%;
   display: -webkit-box;
@@ -35728,6 +35812,29 @@ page-tutorial .sliderSources {
   display: -webkit-flex !important;
   display: -ms-flexbox !important;
   display: flex !important;
+}
+
+page-tutorial .tutorialFoto1 {
+  width: 230px !important;
+  height: 230px !important;
+  top: 50%;
+  left: 50%;
+  margin-top: -3em;
+}
+
+page-tutorial .slide-title {
+  padding: 0 40px;
+  font-weight: 800;
+  font-family: Roboto-Bold !important;
+}
+
+page-tutorial .skipButton {
+  margin-right: 10px !important;
+}
+
+page-tutorial .skipButtonText {
+  font-family: Roboto-Bold !important;
+  font-weight: 800 !important;
 }
 
 page-wijzigwachtwoord .validatieText {
