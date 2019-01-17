@@ -739,6 +739,14 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > 
   display: none !important;
 }
 
+body > ion-app > ng-component > ion-nav > page-sport > ion-header > ion-navbar > ion-buttons.moreFeed.bar-buttons.bar-buttons-md > ion-list > ion-select > div.select-text {
+  display: none !important;
+}
+
+body > ion-app > ng-component > ion-nav > page-tech > ion-header > ion-navbar > ion-buttons.moreFeed.bar-buttons.bar-buttons-md > ion-list > ion-select > div.select-text {
+  display: none !important;
+}
+
 .searchButton {
   margin-right: 8px;
 }
@@ -1122,6 +1130,11 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 
 .cardContentFeed {
   padding: 20px !important;
+}
+
+.cardContentFeedTweakers {
+  padding: 20px !important;
+  padding-top: 0px !important;
 }
 
 .cardTitle {

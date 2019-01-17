@@ -37,7 +37,8 @@
 <ion-content>
     <!-- Swipe up refresher  -->
     <ion-refresher (ionRefresh)="doRefresh($event)">
-        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Sleep omlaag om te verversen"></ion-refresher-content>
+        <ion-refresher-content pullingIcon="arrow-dropdown"
+                               pullingText="Sleep omlaag om te verversen"></ion-refresher-content>
     </ion-refresher>
     <!-- Grid -->
     <ion-grid class="feedGrid">
@@ -46,199 +47,214 @@
                 <ion-card *ngFor="let item of (items ? items.slice(0,slice): [])" col-md-6 class="ionCard">
                     <!-- Images van nieuwsfeed -->
                     <div class="ion-card-image-wrapper" (tap)="viewEntry({ record: item })">
-                        <img class="fullHeight" src="../assets/imgs/NOS.png" *ngIf="item.site == 'NOS' && network.type == 'none'">
-                        <img class="fullHeight" src="../assets/imgs/NUNL.png" *ngIf="item.site == 'NU.nl' && network.type == 'none'">
+                        <img class="fullHeight" src="../assets/imgs/NOS.png"
+                             *ngIf="item.site == 'NOS' && network.type == 'none'">
+                        <img class="fullHeight" src="../assets/imgs/NUNL.png"
+                             *ngIf="item.site == 'NU.nl' && network.type == 'none'">
                         <img class="fullHeight" src="../assets/imgs/tweakers.png" *ngIf="item.site == 'Tweakers'">
-                        <img class="fullHeight" src="../assets/imgs/telegraaf.png" *ngIf="item.site == 'De Telegraaf' && network.type == 'none'">
-                        <img class="fullHeight" src="../assets/imgs/KNVB.png" *ngIf="item.site == 'KNVB' && network.type == 'none'">
-                        <img class="fullHeight" [src]="item.image" *ngIf="item.site == 'NOS' || item.site == 'De Telegraaf' || item.site == 'NU.nl' || item.site == 'KNVB' && network.type != 'none'">
+                        <img class="fullHeight" src="../assets/imgs/telegraaf.png"
+                             *ngIf="item.site == 'De Telegraaf' && network.type == 'none'">
+                        <img class="fullHeight" src="../assets/imgs/KNVB.png"
+                             *ngIf="item.site == 'KNVB' && network.type == 'none'">
+                        <img class="fullHeight" [src]="item.image"
+                             *ngIf="item.site == 'NOS' || item.site == 'De Telegraaf' || item.site == 'NU.nl' || item.site == 'KNVB' && network.type != 'none'">
                         <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">
                     </div>
                     <ion-card-content class="cardContentFeed">
-                        <!-- Avatar -->
-                        <div id="AvatarFeed" (tap)="viewEntry({ record: item })">
-                            <ion-avatar *ngIf="item.site == 'NOS' && currentTheme == 'light-theme'" class="avatarNOS" item-start>
-                                <img src="../assets/svg/NOS_logo.svg" class="avatar-feed"/>
-                            </ion-avatar>
-                            <ion-avatar *ngIf="item.site == 'NOS' && currentTheme == 'dark-theme'" class="avatarNOS" item-start>
-                                <img src="../assets/svg/NOS_logo_Wit.svg" class="avatar-feed"/>
-                            </ion-avatar>
-                            <ion-avatar *ngIf="item.site == 'De Telegraaf' && currentTheme == 'light-theme'" class="avatarTelegraaf" item-start>
-                                <img src="../assets/svg/Telegraaf.svg" class="avatar-feedTelegraaf"/>
-                            </ion-avatar>
-                            <ion-avatar *ngIf="item.site == 'De Telegraaf' && currentTheme == 'dark-theme'" class="avatarTelegraaf" item-start>
-                                <img src="../assets/svg/Telegraaf_Wit.svg" class="avatar-feedTelegraaf"/>
-                            </ion-avatar>
-                            <ion-avatar *ngIf="item.site == 'NU.nl'" class="avatar" item-start>
-                                <img src="../assets/svg/nu.nl.svg" class="avatar-feed"/>
-                            </ion-avatar>
-                            <ion-avatar *ngIf="item.site == 'Tweakers'" class="avatar" item-start>
-                                <img src="../assets/svg/Tweakers.svg" class="avatar-feed"/>
-                            </ion-avatar>
-                            <ion-avatar *ngIf="item.site == 'KNVB'" class="avatar" item-start>
-                                <img src="../assets/svg/knvb.svg" class="avatar-feed"/>
-                            </ion-avatar>
-                            <div class="uitgeverFeed" *ngIf="item.site == 'De Telegraaf'">{{item.site}}</div>
-                            <div class="uitgeverFeedNU" *ngIf="item.site == 'NU.nl'">{{item.site}}</div>
-                            <div class="uitgeverFeedNU" *ngIf="item.site == 'Tweakers'">{{item.site}}</div>
-                            <div class="uitgeverFeedNU" *ngIf="item.site == 'KNVB'">{{item.site}}</div>
-                        </div>
-                        <!-- Uitgever -->
-                        <div id="uitgeverFeed" (tap)="viewEntry({ record: item })">
-                            <!-- Title  -->
-                            <div id="title">
-                                <ion-card-title *ngIf="item.site == 'De Telegraaf' || item.site == 'NU.nl'"><strong class="cardTitle">{{item.title}}</strong></ion-card-title>
-                                <ion-card-title *ngIf="item.site == 'NOS'" id="ionCardNOS"><strong class="cardTitleNOS">{{item.title}}</strong></ion-card-title>
-                                <ion-card-title *ngIf="item.site == 'Tweakers'"><strong class="cardTitleNOS">{{item.title}}</strong></ion-card-title>
-                                <ion-card-title *ngIf="item.site == 'KNVB'"><strong class="cardTitleNOS">{{item.title}}</strong></ion-card-title>
+                            <!-- Avatar -->
+                            <div id="AvatarFeed" (tap)="viewEntry({ record: item })">
+                                <ion-avatar *ngIf="item.site == 'NOS' && currentTheme == 'light-theme'"
+                                            class="avatarNOS" item-start>
+                                    <img src="../assets/svg/NOS_logo.svg" class="avatar-feed"/>
+                                </ion-avatar>
+                                <ion-avatar *ngIf="item.site == 'NOS' && currentTheme == 'dark-theme'" class="avatarNOS"
+                                            item-start>
+                                    <img src="../assets/svg/NOS_logo_Wit.svg" class="avatar-feed"/>
+                                </ion-avatar>
+                                <ion-avatar *ngIf="item.site == 'De Telegraaf' && currentTheme == 'light-theme'"
+                                            class="avatarTelegraaf" item-start>
+                                    <img src="../assets/svg/Telegraaf.svg" class="avatar-feedTelegraaf"/>
+                                </ion-avatar>
+                                <ion-avatar *ngIf="item.site == 'De Telegraaf' && currentTheme == 'dark-theme'"
+                                            class="avatarTelegraaf" item-start>
+                                    <img src="../assets/svg/Telegraaf_Wit.svg" class="avatar-feedTelegraaf"/>
+                                </ion-avatar>
+                                <ion-avatar *ngIf="item.site == 'NU.nl'" class="avatar" item-start>
+                                    <img src="../assets/svg/nu.nl.svg" class="avatar-feed"/>
+                                </ion-avatar>
+                                <ion-avatar *ngIf="item.site == 'Tweakers'" class="avatar" item-start>
+                                    <img src="../assets/svg/Tweakers.svg" class="avatar-feed"/>
+                                </ion-avatar>
+                                <ion-avatar *ngIf="item.site == 'KNVB'" class="avatar" item-start>
+                                    <img src="../assets/svg/knvb.svg" class="avatar-feed"/>
+                                </ion-avatar>
+                                <div class="uitgeverFeed" *ngIf="item.site == 'De Telegraaf'">{{item.site}}</div>
+                                <div class="uitgeverFeedNU" *ngIf="item.site == 'NU.nl'">{{item.site}}</div>
+                                <div class="uitgeverFeedNU" *ngIf="item.site == 'Tweakers'">{{item.site}}</div>
+                                <div class="uitgeverFeedNU" *ngIf="item.site == 'KNVB'">{{item.site}}</div>
+                            </div>
+                            <!-- Uitgever -->
+                            <div id="uitgeverFeed" (tap)="viewEntry({ record: item })">
+                                <!-- Title  -->
+                                <div id="title">
+                                    <ion-card-title *ngIf="item.site == 'De Telegraaf' || item.site == 'NU.nl'"><strong
+                                            class="cardTitle">{{item.title}}</strong></ion-card-title>
+                                    <ion-card-title *ngIf="item.site == 'NOS'" id="ionCardNOS"><strong
+                                            class="cardTitleNOS">{{item.title}}</strong></ion-card-title>
+                                    <ion-card-title *ngIf="item.site == 'Tweakers'"><strong
+                                            class="cardTitleNOS">{{item.title}}</strong></ion-card-title>
+                                    <ion-card-title *ngIf="item.site == 'KNVB'"><strong
+                                            class="cardTitleNOS">{{item.title}}</strong></ion-card-title>
 
+                                </div>
+                                <!-- description  -->
+                                <div id="description">
+                                    <p class="descriptionFeed">{{htmlToPlaintext(item.description) |
+                                        slice:0:120}}...</p>
+                                </div>
+                                <!-- Datum -->
+                                <div id="datumFeed" class="datumFeed">
+                                    <span>{{item.datum}}</span>
+                                </div>
                             </div>
-                            <!-- description  -->
-                            <div id="description">
-                                <p class="descriptionFeed">{{htmlToPlaintext(item.description) |
-                                    slice:0:120}}...</p>
+                            <!-- Social Buttons - Comments - likes - Share -->
+                            <div id="socialLikeComments" class="socialLikeComments">
+                                <!---->
+                                <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf' && rol == 1"
+                                        class="socialTelegraafShare" (click)="showConfirmHide(item.id)">
+                                    <ion-icon name="trash"></ion-icon>
+                                </button>
+                                <button ion-button icon-start clear *ngIf="item.site == 'NOS' && rol == 1"
+                                        class="socialNOSShare" (click)="showConfirmHide(item.id)">
+                                    <ion-icon name="trash"></ion-icon>
+                                </button>
+                                <button ion-button icon-start clear *ngIf="item.site == 'NU.nl' && rol == 1"
+                                        class="socialNuShare" (click)="showConfirmHide(item.id)">
+                                    <ion-icon name="trash"></ion-icon>
+                                </button>
+                                <button ion-button icon-start clear *ngIf="item.site == 'Tweakers' && rol == 1"
+                                        class="socialTweakersShare" (click)="showConfirmHide(item.id)">
+                                    <ion-icon name="trash"></ion-icon>
+                                </button>
+                                <button ion-button icon-start clear *ngIf="item.site == 'KNVB' && rol == 1"
+                                        class="KNVBshare" (click)="showConfirmHide(item.id)">
+                                    <ion-icon name="trash"></ion-icon>
+                                </button>
+                                <!---->
+                                <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'"
+                                        class="socialTelegraafShare"
+                                        (click)="shareInfo(item.title, item.image, item.link)">
+                                    <ion-icon name="share-alt"></ion-icon>
+                                </button>
+                                <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOSShare"
+                                        (click)="shareInfo(item.title, item.image, item.link)">
+                                    <ion-icon name="share-alt"></ion-icon>
+                                </button>
+                                <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNuShare"
+                                        (click)="shareInfo(item.title, item.image, item.link)">
+                                    <ion-icon name="share-alt"></ion-icon>
+                                </button>
+                                <button ion-button icon-start clear *ngIf="item.site == 'Tweakers'"
+                                        class="socialTweakersShare"
+                                        (click)="shareInfo(item.title, item.image, item.link)">
+                                    <ion-icon name="share-alt"></ion-icon>
+                                </button>
+                                <button ion-button icon-start clear *ngIf="item.site == 'KNVB'" class="socialKNVBshare"
+                                        (click)="shareInfo(item.title, item.image, item.link)">
+                                    <ion-icon name="share-alt"></ion-icon>
+                                </button>
+                                <!---->
+                                <button class="socialTelegraaf" ion-button icon-start clear
+                                        *ngIf="item.site == 'De Telegraaf' && item.liked == 0" [disabled]="disabled"
+                                        (click)="setLike(item.id)">
+                                    <ion-icon name="heart-outline" class="likeTelegraaf"></ion-icon>
+                                    <div class="darkChatComment">{{item.likes}}</div>
+                                </button>
+                                <button class="socialNOS" ion-button icon-start clear
+                                        *ngIf="item.site == 'NOS' && item.liked == 0" [disabled]="disabled"
+                                        (click)="setLike(item.id)">
+                                    <ion-icon name="heart-outline" class="likeNOS"></ion-icon>
+                                    <div class="darkChatComment"> {{item.likes}}</div>
+                                </button>
+                                <button class="socialNu" ion-button icon-start clear
+                                        *ngIf="item.site == 'NU.nl' && item.liked == 0" [disabled]="disabled"
+                                        (click)="setLike(item.id)">
+                                    <ion-icon name="heart-outline" class="likeNu"></ion-icon>
+                                    <div class="darkChatComment">{{item.likes}}</div>
+                                </button>
+                                <button class="socialTweakers" ion-button icon-start clear
+                                        *ngIf="item.site == 'Tweakers' && item.liked == 0" [disabled]="disabled"
+                                        (click)="setLike(item.id)">
+                                    <ion-icon name="heart-outline" class="likeTweakers"></ion-icon>
+                                    <div class="darkChatComment">{{item.likes}}</div>
+                                </button>
+                                <button class="socialKnvb" ion-button icon-start clear
+                                        *ngIf="item.site == 'KNVB' && item.liked == 0" [disabled]="disabled"
+                                        (click)="setLike(item.id)">
+                                    <ion-icon name="heart-outline" class="likeKNVB"></ion-icon>
+                                    <div class="darkChatComment">{{item.likes}}</div>
+                                </button>
+                                <!---->
+                                <button class="socialTelegraaf" ion-button icon-start clear
+                                        *ngIf="item.site == 'De Telegraaf' && item.liked == 1"
+                                        (click)="dislike(item.id, item.title)">
+                                    <ion-icon name="heart" class="likeTelegraaf"></ion-icon>
+                                    <div class="darkChatComment">{{item.likes}}</div>
+                                </button>
+                                <button class="socialNOS" ion-button icon-start clear
+                                        *ngIf="item.site == 'NOS' && item.liked == 1"
+                                        (click)="dislike(item.id, item.title)">
+                                    <ion-icon name="heart" class="likeNOS"></ion-icon>
+                                    <div class="darkChatComment">{{item.likes}}</div>
+                                </button>
+                                <button class="socialNu" ion-button icon-start clear
+                                        *ngIf="item.site == 'NU.nl' && item.liked == 1"
+                                        (click)="dislike(item.id, item.title)">
+                                    <ion-icon name="heart" class="likeNu"></ion-icon>
+                                    <div class="darkChatComment">{{item.likes}}</div>
+                                </button>
+                                <button class="socialTweakers" ion-button icon-start clear
+                                        *ngIf="item.site == 'Tweakers' && item.liked == 1"
+                                        (click)="dislike(item.id, item.title)">
+                                    <ion-icon name="heart" class="likeTweakers"></ion-icon>
+                                    <div class="darkChatComment">{{item.likes}}</div>
+                                </button>
+                                <button class="socialKnvb" ion-button icon-start clear
+                                        *ngIf="item.site == 'KNVB' && item.liked == 1"
+                                        (click)="dislike(item.id, item.title)">
+                                    <ion-icon name="heart" class="likeKNVB"></ion-icon>
+                                    <div class="darkChatComment">{{item.likes}}</div>
+                                </button>
+                                <!---->
+                                <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'"
+                                        class="socialTelegraaf" (click)="viewComments({ record: item })">
+                                    <ion-icon name="chatbubbles" class="darkChatTelegraaf"></ion-icon>
+                                    <div class="darkChatComment">{{item.comments}}</div>
+                                </button>
+                                <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOS"
+                                        (click)="viewComments({ record: item })">
+                                    <ion-icon name="chatbubbles" class="darkChatNOS"></ion-icon>
+                                    <div class="darkChatComment">{{item.comments}}</div>
+                                </button>
+                                <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNu"
+                                        (click)="viewComments({ record: item })">
+                                    <ion-icon name="chatbubbles" class="darkChatNU"></ion-icon>
+                                    <div class="darkChatComment">{{item.comments}}</div>
+                                </button>
+                                <button ion-button icon-start clear *ngIf="item.site == 'Tweakers'"
+                                        class="socialTweakers"
+                                        (click)="viewComments({ record: item })">
+                                    <ion-icon name="chatbubbles" class="darkChatTweakers"></ion-icon>
+                                    <div class="darkChatComment">{{item.comments}}</div>
+                                </button>
+                                <button ion-button icon-start clear *ngIf="item.site == 'KNVB'" class="socialKnvb"
+                                        (click)="viewComments({ record: item })">
+                                    <ion-icon name="chatbubbles" class="darkChatKnvb"></ion-icon>
+                                    <div class="darkChatComment">{{item.comments}}</div>
+                                </button>
+                                <!---->
                             </div>
-                            <!-- Datum -->
-                            <div id="datumFeed" class="datumFeed">
-                                <span>{{item.datum}}</span>
-                            </div>
-                        </div>
-                        <!-- Social Buttons - Comments - likes - Share -->
-                        <div id="socialLikeComments" class="socialLikeComments">
-                            <!---->
-                            <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf' && rol == 1"
-                                    class="socialTelegraafShare" (click)="showConfirmHide(item.id)">
-                                <ion-icon name="trash"></ion-icon>
-                            </button>
-                            <button ion-button icon-start clear *ngIf="item.site == 'NOS' && rol == 1"
-                                    class="socialNOSShare" (click)="showConfirmHide(item.id)">
-                                <ion-icon name="trash"></ion-icon>
-                            </button>
-                            <button ion-button icon-start clear *ngIf="item.site == 'NU.nl' && rol == 1"
-                                    class="socialNuShare" (click)="showConfirmHide(item.id)">
-                                <ion-icon name="trash"></ion-icon>
-                            </button>
-                            <button ion-button icon-start clear *ngIf="item.site == 'Tweakers' && rol == 1"
-                                    class="socialTweakersShare" (click)="showConfirmHide(item.id)">
-                                <ion-icon name="trash"></ion-icon>
-                            </button>
-                            <button ion-button icon-start clear *ngIf="item.site == 'KNVB' && rol == 1"
-                                    class="KNVBshare" (click)="showConfirmHide(item.id)">
-                                <ion-icon name="trash"></ion-icon>
-                            </button>
-                            <!---->
-                            <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'"
-                                    class="socialTelegraafShare"
-                                    (click)="shareInfo(item.title, item.image, item.link)">
-                                <ion-icon name="share-alt"></ion-icon>
-                            </button>
-                            <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOSShare"
-                                    (click)="shareInfo(item.title, item.image, item.link)">
-                                <ion-icon name="share-alt"></ion-icon>
-                            </button>
-                            <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNuShare"
-                                    (click)="shareInfo(item.title, item.image, item.link)">
-                                <ion-icon name="share-alt"></ion-icon>
-                            </button>
-                            <button ion-button icon-start clear *ngIf="item.site == 'Tweakers'" class="socialTweakersShare"
-                                    (click)="shareInfo(item.title, item.image, item.link)">
-                                <ion-icon name="share-alt"></ion-icon>
-                            </button>
-                            <button ion-button icon-start clear *ngIf="item.site == 'KNVB'" class="socialKNVBshare"
-                                    (click)="shareInfo(item.title, item.image, item.link)">
-                                <ion-icon name="share-alt"></ion-icon>
-                            </button>
-                            <!---->
-                            <button class="socialTelegraaf" ion-button icon-start clear
-                                    *ngIf="item.site == 'De Telegraaf' && item.liked == 0" [disabled]="disabled"
-                                    (click)="setLike(item.id)">
-                                <ion-icon name="heart-outline" class="likeTelegraaf"></ion-icon>
-                                <div class="darkChatComment">{{item.likes}}</div>
-                            </button>
-                            <button class="socialNOS" ion-button icon-start clear
-                                    *ngIf="item.site == 'NOS' && item.liked == 0" [disabled]="disabled"
-                                    (click)="setLike(item.id)">
-                                <ion-icon name="heart-outline" class="likeNOS"></ion-icon>
-                                <div class="darkChatComment"> {{item.likes}}</div>
-                            </button>
-                            <button class="socialNu" ion-button icon-start clear
-                                    *ngIf="item.site == 'NU.nl' && item.liked == 0" [disabled]="disabled"
-                                    (click)="setLike(item.id)">
-                                <ion-icon name="heart-outline" class="likeNu"></ion-icon>
-                                <div class="darkChatComment">{{item.likes}}</div>
-                            </button>
-                            <button class="socialTweakers" ion-button icon-start clear
-                                    *ngIf="item.site == 'Tweakers' && item.liked == 0" [disabled]="disabled"
-                                    (click)="setLike(item.id)">
-                                <ion-icon name="heart-outline" class="likeTweakers"></ion-icon>
-                                <div class="darkChatComment">{{item.likes}}</div>
-                            </button>
-                            <button class="socialKnvb" ion-button icon-start clear
-                                    *ngIf="item.site == 'KNVB' && item.liked == 0" [disabled]="disabled"
-                                    (click)="setLike(item.id)">
-                                <ion-icon name="heart-outline" class="likeKNVB"></ion-icon>
-                                <div class="darkChatComment">{{item.likes}}</div>
-                            </button>
-                            <!---->
-                            <button class="socialTelegraaf" ion-button icon-start clear
-                                    *ngIf="item.site == 'De Telegraaf' && item.liked == 1"
-                                    (click)="dislike(item.id, item.title)">
-                                <ion-icon name="heart" class="likeTelegraaf"></ion-icon>
-                                <div class="darkChatComment">{{item.likes}}</div>
-                            </button>
-                            <button class="socialNOS" ion-button icon-start clear
-                                    *ngIf="item.site == 'NOS' && item.liked == 1"
-                                    (click)="dislike(item.id, item.title)">
-                                <ion-icon name="heart" class="likeNOS"></ion-icon>
-                                <div class="darkChatComment">{{item.likes}}</div>
-                            </button>
-                            <button class="socialNu" ion-button icon-start clear
-                                    *ngIf="item.site == 'NU.nl' && item.liked == 1"
-                                    (click)="dislike(item.id, item.title)">
-                                <ion-icon name="heart" class="likeNu"></ion-icon>
-                                <div class="darkChatComment">{{item.likes}}</div>
-                            </button>
-                            <button class="socialTweakers" ion-button icon-start clear
-                                    *ngIf="item.site == 'Tweakers' && item.liked == 1"
-                                    (click)="dislike(item.id, item.title)">
-                                <ion-icon name="heart" class="likeTweakers"></ion-icon>
-                                <div class="darkChatComment">{{item.likes}}</div>
-                            </button>
-                            <button class="socialKnvb" ion-button icon-start clear
-                                    *ngIf="item.site == 'KNVB' && item.liked == 1"
-                                    (click)="dislike(item.id, item.title)">
-                                <ion-icon name="heart" class="likeKNVB"></ion-icon>
-                                <div class="darkChatComment">{{item.likes}}</div>
-                            </button>
-                            <!---->
-                            <button ion-button icon-start clear *ngIf="item.site == 'De Telegraaf'"
-                                    class="socialTelegraaf" (click)="viewComments({ record: item })">
-                                <ion-icon name="chatbubbles" class="darkChatTelegraaf"></ion-icon>
-                                <div class="darkChatComment">{{item.comments}}</div>
-                            </button>
-                            <button ion-button icon-start clear *ngIf="item.site == 'NOS'" class="socialNOS"
-                                    (click)="viewComments({ record: item })">
-                                <ion-icon name="chatbubbles" class="darkChatNOS"></ion-icon>
-                                <div class="darkChatComment">{{item.comments}}</div>
-                            </button>
-                            <button ion-button icon-start clear *ngIf="item.site == 'NU.nl'" class="socialNu"
-                                    (click)="viewComments({ record: item })">
-                                <ion-icon name="chatbubbles" class="darkChatNU"></ion-icon>
-                                <div class="darkChatComment">{{item.comments}}</div>
-                            </button>
-                            <button ion-button icon-start clear *ngIf="item.site == 'Tweakers'" class="socialTweakers"
-                                    (click)="viewComments({ record: item })">
-                                <ion-icon name="chatbubbles" class="darkChatTweakers"></ion-icon>
-                                <div class="darkChatComment">{{item.comments}}</div>
-                            </button>
-                            <button ion-button icon-start clear *ngIf="item.site == 'KNVB'" class="socialKnvb"
-                                    (click)="viewComments({ record: item })">
-                                <ion-icon name="chatbubbles" class="darkChatKnvb"></ion-icon>
-                                <div class="darkChatComment">{{item.comments}}</div>
-                            </button>
-                            <!---->
-                        </div>
-                    </ion-card-content>
+                        </ion-card-content>
                 </ion-card>
             </ion-row>
             <ion-infinite-scroll (ionInfinite)="doInfinite($event)">

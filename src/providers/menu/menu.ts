@@ -43,11 +43,6 @@ export class MenuProvider {
                         title: 'Technologie',
                         component: TechPage,
                         icon: 'desktop'
-                    },
-                    {
-                        title: 'Entertainment',
-                        component: VermaakPage,
-                        icon: 'people'
                     }
                 ]
             },
