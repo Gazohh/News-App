@@ -3,12 +3,10 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>Tutorial</ion-title>
-        <ion-buttons class="skipButton" end>
-            <button ion-button icon-only (click)="tutorialDone()">
-                <span class="skipButtonText">SKIP</span>
-            </button>
-        </ion-buttons>
+        <ion-title>Voorbereiding</ion-title>
+        <button class="fakeCenter" ion-button menuToggle end>
+            <ion-icon name="menu"></ion-icon>
+        </button>
     </ion-navbar>
 </ion-header>
 <ion-content class="tutorial-page">
@@ -17,14 +15,14 @@
 
             <img class="tutorialFoto1" src="../assets/imgs/tutorial1.png">
             <h2 class="slide-title">NewsAge</h2>
-            <p>Welkom, u bevindt zich nu op de tutorial pagina. Hier vertellen wij kort wat je moet weten over de app.</p>
+            <p>Welkom, je bevindt zich nu op de tutorial pagina. Hier vertellen wij kort wat je moet weten over de app.</p>
         </ion-slide>
         <ion-slide class="slider">
             <img class="tutorialFoto1" src="../assets/imgs/tutorial2.png">
             <h2 class="slide-title">Bronnen</h2>
             <p>
                 Door in het menu op Bronnen te klikken vind je een overzicht van het laatste nieuws over alle onderwerpen die je wilt volgen.
-                Per categorie kunt u eenvoudig het meest recente nieuws lezen. Ook kunt u gepersonaliseerd de bronnen aanpassen en naar uw voorkeuren af te stemmen.
+                Per categorie kun je eenvoudig het meest recente nieuws lezen. Je kunt ook gepersonaliseerd de bronnen aanpassen en naar je voorkeuren af te stemmen.
             </p>
         </ion-slide>
         <ion-slide class="sliderSources">
@@ -119,7 +117,7 @@
         <ion-slide class="slider">
             <img class="tutorialFoto1" src="../assets/imgs/tutorial3.png">
             <h2 class="slide-title">
-                Delen met uw vrienden!
+                Delen met je vrienden!
             </h2>
             <p>
                 Via elk social media platform deel je gemakkelijk alle artikelen link met jouw vrienden.
@@ -131,14 +129,13 @@
                 Vragen?
             </h2>
             <p>
-                Hebt u nog vragen over de App, dan kunt u mailen naar newsage2018@gmail.com.
+                Hebt je nog vragen over de App, dan kan je mailen naar newsage2018@gmail.com.
             </p>
         </ion-slide>
         <ion-slide class="sliderDoorgaan">
-            <h2 class="slide-title">Bent u er klaar voor?</h2>
-            <button ion-button large clear icon-end color="primary" (click)="tutorialDone()">
-                Doorgaan!
-                <ion-icon name="arrow-forward"></ion-icon>
+            <h2 class="slide-title">Ben je er klaar voor?</h2>
+            <button ion-button large clear icon-end color="lightAppKleur" (click)="tutorialDone()" class="bounce">
+                Laten we starten!
             </button>
         </ion-slide>
     </ion-slides>

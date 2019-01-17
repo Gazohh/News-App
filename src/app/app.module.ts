@@ -27,12 +27,12 @@ import {ProfielPage} from "../pages/profiel/profiel";
 import {SportPage} from "../pages/sport/sport";
 import {EconomiePage} from "../pages/economie/economie";
 import {AutoPage} from "../pages/auto/auto";
-import {MisdaadPage} from "../pages/misdaad/misdaad";
 import {TechPage} from "../pages/tech/tech";
 import {AdminPage} from "../pages/admin/admin";
 import {CommentsPage} from "../pages/comments/comments";
 import {VermaakPage} from "../pages/vermaak/vermaak";
 import {WijzigwachtwoordPage} from "../pages/wijzigwachtwoord/wijzigwachtwoord";
+import {LifestylePage} from "../pages/lifestyle/lifestyle";
 
 
 //
@@ -50,7 +50,6 @@ import {SettingsPageModule} from "../pages/settings/settings.module";
 import {SportPageModule} from "../pages/sport/sport.module";
 import {EconomiePageModule} from "../pages/economie/economie.module";
 import {AutoPageModule} from "../pages/auto/auto.module";
-import {MisdaadPageModule} from "../pages/misdaad/misdaad.module";
 import {TechPageModule} from "../pages/tech/tech.module";
 import {AdminPageModule} from "../pages/admin/admin.module";
 import {SourcesPageModule} from "../pages/sources/sources.module";
@@ -59,14 +58,13 @@ import {WijzigwachtwoordPageModule} from "../pages/wijzigwachtwoord/wijzigwachtw
 import {CommentsPageModule} from "../pages/comments/comments.module";
 import {VermaakPageModule} from "../pages/vermaak/vermaak.module";
 import {PrivacybeleidPageModule} from "../pages/privacybeleid/privacybeleid.module";
-import { CacheModule } from "ionic-cache";
+import {LifestylePageModule} from "../pages/lifestyle/lifestyle.module";
 
 //
 // Providers
 //
 import {MenuProvider} from '../providers/menu/menu';
 import {SocialSharing} from "@ionic-native/social-sharing";
-import { RestApiProvider } from '../providers/rest-api/rest-api';
 
 
 @NgModule({
@@ -93,7 +91,6 @@ import { RestApiProvider } from '../providers/rest-api/rest-api';
         SportPageModule,
         EconomiePageModule,
         AutoPageModule,
-        MisdaadPageModule,
         TechPageModule,
         AdminPageModule,
         SourcesPageModule,
@@ -101,7 +98,8 @@ import { RestApiProvider } from '../providers/rest-api/rest-api';
         CommentsPageModule,
         WijzigwachtwoordPageModule,
         VermaakPageModule,
-        PrivacybeleidPageModule
+        PrivacybeleidPageModule,
+        LifestylePageModule
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -111,14 +109,14 @@ import { RestApiProvider } from '../providers/rest-api/rest-api';
         SportPage,
         EconomiePage,
         AutoPage,
-        MisdaadPage,
         TechPage,
         AdminPage,
         SourcesPage,
         ProfielPage,
         CommentsPage,
         WijzigwachtwoordPage,
-        VermaakPage
+        VermaakPage,
+        LifestylePage
     ],
     providers: [
         StatusBar,
@@ -138,8 +136,6 @@ import { RestApiProvider } from '../providers/rest-api/rest-api';
         SocialSharing,
         Geolocation,
         PhotoViewer,
-    RestApiProvider
-
     ]
 
 })

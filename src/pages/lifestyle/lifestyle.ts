@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the MisdaadPage page.
+ * Generated class for the LifestylePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,16 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-misdaad',
-  templateUrl: 'misdaad.html',
+  selector: 'page-lifestyle',
+  templateUrl: 'lifestyle.html',
 })
-export class MisdaadPage {
+export class LifestylePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MisdaadPage');
+    console.log('ionViewDidLoad LifestylePage');
   }
 
 }

@@ -842,8 +842,8 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 // Icons submenu Category
 
 #contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > ion-list > ion-item > div.item-inner > div > ion-label > ion-icon {
-  margin-right: 11px !important;
-  margin-left: 22px !important;
+  margin-right: 33px !important;
+  margin-left: 16px;
 }
 
 [text-wrap] .label-md {
@@ -861,9 +861,13 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 }
 
 .menuTitle {
-  margin-left: 25px !important;
-  font-family: 'Roboto-Bold';
-  font-weight: 800;
+  margin-left: 30px;
+  font-family: 'Roboto-Regular' !important;
+}
+
+// Categorien
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > span {
+    margin-left: 35px !important;
 }
 
 // Favorieten random margin door side
@@ -888,6 +892,10 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 }
 
 // IOS menu random 20px aan de top
+
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > span > span > ion-icon {
+padding-top: 4px;
+}
 
 #contentAnimation > div.scroll-content {
   padding: 0 !important;
@@ -1942,3 +1950,4 @@ body > ion-app > ng-component > ion-nav > page-privacybeleid > ion-content > div
   padding-top: 18px !important;
   padding-bottom: 9px !important;
 }
+

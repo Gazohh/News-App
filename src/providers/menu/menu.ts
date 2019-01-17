@@ -3,7 +3,6 @@ import {Injectable} from '@angular/core';
 import {FeedPage} from "../../pages/feed/feed";
 import {SportPage} from "../../pages/sport/sport";
 import {EconomiePage} from "../../pages/economie/economie";
-import {MisdaadPage} from "../../pages/misdaad/misdaad";
 import {TechPage} from "../../pages/tech/tech";
 import {AutoPage} from "../../pages/auto/auto";
 import {SettingsPage} from "../../pages/settings/settings";
@@ -11,6 +10,7 @@ import {TutorialPage} from "../../pages/tutorial/tutorial";
 import {FavorietenPage} from "../../pages/favorieten/favorieten";
 import {VermaakPage} from "../../pages/vermaak/vermaak";
 import {SourcesPage} from "../../pages/sources/sources";
+import {LifestylePage} from "../../pages/lifestyle/lifestyle";
 
 @Injectable()
 export class MenuProvider {
@@ -28,7 +28,7 @@ export class MenuProvider {
             {
                 title: 'Bronnen',
                 component: SourcesPage,
-                icon: 'link'
+                icon: 'brush'
             },
             {
                 title: 'Categorieen',
@@ -43,6 +43,16 @@ export class MenuProvider {
                         title: 'Technologie',
                         component: TechPage,
                         icon: 'desktop'
+                    },
+                    {
+                        title: 'Financieel',
+                        component: EconomiePage,
+                        icon: 'cash'
+                    },
+                    {
+                        title: 'Lifestyle',
+                        component: LifestylePage,
+                        icon: 'woman'
                     }
                 ]
             },
