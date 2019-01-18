@@ -1986,3 +1986,7 @@ body > ion-app > ng-component > ion-nav > page-privacybeleid > ion-content > div
   margin-top: 20px;
 }
 
+.swiper-slide {
+  overflow-y: scroll;
+  display: block;
+}
