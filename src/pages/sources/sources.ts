@@ -29,6 +29,9 @@ export class SourcesPage {
   NUNL: boolean;
   KNVB: boolean;
   TWKS: boolean;
+  NUNLFIN: boolean;
+  LBL: boolean;
+  BTYL: boolean;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -73,17 +76,26 @@ export class SourcesPage {
                   this.NUNL = this.sourceData[0].NUNL;
                   this.KNVB = this.sourceData[0].KNVB;
                   this.TWKS = this.sourceData[0].TWKS;
+                  this.NUNLFIN = this.sourceData[0].NUNLFIN;
+                  this.LBL = this.sourceData[0].LBL;
+                  this.BTYL = this.sourceData[0].BTYL;
                   this.storage.set('NOS', this.sourceData[0].NOS);
                   this.storage.set('TGF', this.sourceData[0].TGF);
                   this.storage.set('NUNL', this.sourceData[0].NUNL);
                   this.storage.set('KNVB', this.sourceData[0].KNVB);
                   this.storage.set('TWKS', this.sourceData[0].TWKS);
+                  this.storage.set('NUNLFIN', this.sourceData[0].NUNLFIN);
+                  this.storage.set('LBL', this.sourceData[0].LBL);
+                  this.storage.set('BTYL', this.sourceData[0].BTYL);
                   console.log(this.sourceData);
                   console.log("NOS: " + this.NOS);
                   console.log("Telegraaf : " +this.TGF);
                   console.log("NU.NL: " + this.NUNL);
                   console.log("KNVB: " + this.KNVB);
                   console.log("Tweakers: " + this.TWKS);
+                  console.log("NU.nl Financieel: " + this.NUNLFIN);
+                  console.log("Libelle: " + this.LBL);
+                  console.log("Beautylab: " + this.BTYL);
               });
       }
       else if(this.network.type == "none")
@@ -113,6 +125,21 @@ export class SourcesPage {
           {
               this.TWKS = TWKS;
           })
+          // Get NU.nl Financieel Status from Storage
+          this.storage.get('NUNLFIN').then((NUNLFIN) =>
+          {
+              this.NUNLFIN = NUNLFIN;
+          })
+          // Get Libelle Status from Storage
+          this.storage.get('LBL').then((LBL) =>
+          {
+              this.LBL = LBL;
+          })
+          // Get Beautylab Status from Storage
+          this.storage.get('BTYL').then((BTYL) =>
+          {
+              this.BTYL = BTYL;
+          })
       }
   }
 
@@ -141,7 +168,7 @@ export class SourcesPage {
                       let toast = this.toastCtrl.create({
                           message: "" + source + " is toegevoegd.",
                           duration: 3500,
-                          position: "bottom"
+                         position: "bottom"
                       });
                       toast.present();
                   }
@@ -150,7 +177,7 @@ export class SourcesPage {
                       let toast = this.toastCtrl.create({
                           message: "Er is iets niet goed gegaan, probeer het later opnieuw.",
                           duration: 3500,
-                          position: "bottom"
+                         position: "bottom"
                       });
                       toast.present();
                   }
@@ -161,7 +188,7 @@ export class SourcesPage {
           let toast = this.toastCtrl.create({
               message: "Er is geen internet verbinding, probeer het later opnieuw.",
               duration: 5000,
-              position: "bottom"
+             position: "bottom"
           });
           toast.present();
       }
@@ -192,7 +219,7 @@ export class SourcesPage {
                        let toast = this.toastCtrl.create({
                            message: "" + source + " is verwijderd.",
                            duration: 3500,
-                           position: "bottom"
+                          position: "bottom"
                        });
                        toast.present();
                    }
@@ -201,7 +228,7 @@ export class SourcesPage {
                        let toast = this.toastCtrl.create({
                            message: "Er is iets niet goed gegaan, probeer het later opnieuw.",
                            duration: 3500,
-                           position: "bottom"
+                          position: "bottom"
                        });
                        toast.present();
                    }
@@ -212,7 +239,7 @@ export class SourcesPage {
            let toast = this.toastCtrl.create({
                message: "Er is geen internet verbinding, probeer het later opnieuw.",
                duration: 5000,
-               position: "bottom"
+              position: "bottom"
            });
            toast.present();
        }

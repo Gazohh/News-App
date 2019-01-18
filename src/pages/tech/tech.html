@@ -21,7 +21,7 @@
             </button>
         </ion-buttons>
         <ion-buttons end *ngIf="!isSearchbaropened" class="moreFeed">
-            <ion-icon name="more"></ion-icon>
+            <ion-icon class="calenderIcon" name="calendar"></ion-icon>
             <ion-list class="listMore">
                 <ion-select #newSelect [(ngModel)]="datepicker" (ionChange)="onChange(datepicker)"
                             [selectOptions]="selectOptions" cancelText="Annuleer" okText="Ok" class="SelectMore">

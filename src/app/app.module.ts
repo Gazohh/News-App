@@ -26,7 +26,6 @@ import {SourcesPage} from "../pages/sources/sources";
 import {ProfielPage} from "../pages/profiel/profiel";
 import {SportPage} from "../pages/sport/sport";
 import {EconomiePage} from "../pages/economie/economie";
-import {AutoPage} from "../pages/auto/auto";
 import {TechPage} from "../pages/tech/tech";
 import {AdminPage} from "../pages/admin/admin";
 import {CommentsPage} from "../pages/comments/comments";
@@ -49,7 +48,6 @@ import {TutorialPageModule} from "../pages/tutorial/tutorial.module";
 import {SettingsPageModule} from "../pages/settings/settings.module";
 import {SportPageModule} from "../pages/sport/sport.module";
 import {EconomiePageModule} from "../pages/economie/economie.module";
-import {AutoPageModule} from "../pages/auto/auto.module";
 import {TechPageModule} from "../pages/tech/tech.module";
 import {AdminPageModule} from "../pages/admin/admin.module";
 import {SourcesPageModule} from "../pages/sources/sources.module";
@@ -90,7 +88,6 @@ import {SocialSharing} from "@ionic-native/social-sharing";
         SettingsPageModule,
         SportPageModule,
         EconomiePageModule,
-        AutoPageModule,
         TechPageModule,
         AdminPageModule,
         SourcesPageModule,
@@ -108,7 +105,6 @@ import {SocialSharing} from "@ionic-native/social-sharing";
         SettingsPage,
         SportPage,
         EconomiePage,
-        AutoPage,
         TechPage,
         AdminPage,
         SourcesPage,

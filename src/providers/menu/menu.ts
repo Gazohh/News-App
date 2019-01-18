@@ -4,13 +4,13 @@ import {FeedPage} from "../../pages/feed/feed";
 import {SportPage} from "../../pages/sport/sport";
 import {EconomiePage} from "../../pages/economie/economie";
 import {TechPage} from "../../pages/tech/tech";
-import {AutoPage} from "../../pages/auto/auto";
 import {SettingsPage} from "../../pages/settings/settings";
 import {TutorialPage} from "../../pages/tutorial/tutorial";
 import {FavorietenPage} from "../../pages/favorieten/favorieten";
 import {VermaakPage} from "../../pages/vermaak/vermaak";
 import {SourcesPage} from "../../pages/sources/sources";
 import {LifestylePage} from "../../pages/lifestyle/lifestyle";
+import {HomePage} from "../../pages/home/home";
 
 @Injectable()
 export class MenuProvider {
@@ -70,6 +70,11 @@ export class MenuProvider {
                 title: 'Instellingen',
                 component: SettingsPage,
                 icon: 'settings'
+            },
+            {
+                title: 'Uitloggen',
+                component: HomePage,
+                icon: 'log-out'
             }
         ]
     }

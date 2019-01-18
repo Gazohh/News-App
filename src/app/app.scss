@@ -220,7 +220,7 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
 .commentDate {
   float: right;
   font-size: 1.2rem;
-  color: #666;
+  color: #c5c5c5;;
   font-family: Roboto-Medium;
 }
 
@@ -742,6 +742,14 @@ body > ion-app > ng-component > ion-nav > page-tech > ion-header > ion-navbar > 
   display: none !important;
 }
 
+body > ion-app > ng-component > ion-nav > page-economie > ion-header > ion-navbar > ion-buttons.moreFeed.bar-buttons.bar-buttons-md > ion-list > ion-select > div.select-text {
+  display: none !important;
+}
+
+body > ion-app > ng-component > ion-nav > page-lifestyle > ion-header > ion-navbar > ion-buttons.moreFeed.bar-buttons.bar-buttons-md > ion-list > ion-select > div.select-text {
+  display: none !important;
+}
+
 .searchButton {
   margin-right: 8px;
 }
@@ -783,13 +791,13 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 // Ion-item menu
 
 #contentAnimation > div.scroll-content > ion-list > ion-item {
-  padding-bottom: 15px !important;
+  padding-bottom: 11px !important;
 }
 
 // Hele category label
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) {
-  padding-bottom: 20px !important;
+  padding-bottom: 15px !important;
 }
 
 // Entertainment lABEL
@@ -1124,7 +1132,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 .datumFeed {
   float: left;
   font-size: 1.2rem;
-  color: #666;
+  color: #c5c5c5;;
   font-weight: 400;
   margin-top: 7px;
   margin-bottom: 8px;
@@ -1455,7 +1463,7 @@ body > ion-app > ng-component > ion-nav > page-nieuws > ion-header > ion-navbar 
 }
 
 .nieuwsDatum {
-  color: #666 !important;
+  color: #c5c5c5 !important;
   font-size: 1.2rem !important;
   padding-bottom: 3px !important;
   padding-top: 0px !important;
@@ -1468,7 +1476,7 @@ body > ion-app > ng-component > ion-nav > page-nieuws > ion-header > ion-navbar 
   font-family: 'Roboto-Regular';
   font-family: 'Roboto-Regular';
   font-size: 1.3rem;
-  color: #666;
+  color: #c5c5c5;;
 }
 
 .sourceTekstFeed {
@@ -1494,6 +1502,11 @@ body > ion-app > ng-component > ion-nav > page-nieuws > ion-header > ion-navbar 
   font-size: 1.5rem !important;
   font-weight: 800 !important;
 }
+
+.sourceTitelHidden{
+  display: none !important;
+}
+
 
 body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scroll-content > ion-slides > div > div.swiper-wrapper > ion-slide.swiper-slide.swiper-slide-active > div > ion-list > ion-item:nth-child(2) > div.item-inner > div > ion-label {
   margin: 0 !important;
@@ -1766,7 +1779,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 .card-md p {
   padding-top: 4px;
   font-size: 1.4rem;
-  color: #666 ;
+  color: #c5c5c5; ;
 }
 
 .rowWeer {
@@ -1986,3 +1999,17 @@ body > ion-app > ng-component > ion-nav > page-privacybeleid > ion-content > div
   margin-top: 20px;
 }
 
+.swiper-slide {
+  overflow-y: scroll;
+  display: block;
+}
+
+.calenderIcon {
+  font-size: 1em !important;
+}
+
+.ionCard {
+  padding: 0px !important;
+  width: 100% !important;
+  margin: 0 0 10px;
+}

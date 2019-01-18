@@ -17,11 +17,11 @@ w<ion-header>
     </ion-card-header>
     <ion-card-content class="nieuwsContent">
       <p>{{htmlToPlaintext(this.description)}}</p>
-      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'De Telegraaf'" class="ColorDarkAppNieuws">{{this.site}}</button>
-      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'NOS'" class="ColorDarkAppNieuws">{{this.site}}</button>
-      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'NU.nl'" class="ColorDarkAppNieuws">{{this.site}}</button>
-      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'Tweakers'" class="ColorDarkAppNieuws">{{this.site}}</button>
-      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'KNVB'" class="ColorDarkAppNieuws">{{this.site}}</button>
+      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'De Telegraaf'" class="ColorDarkAppNieuws">Lees verder op {{this.site}}</button>
+      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'NOS'" class="ColorDarkAppNieuws">Lees verder op {{this.site}}</button>
+      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'NU.nl'" class="ColorDarkAppNieuws">Lees verder op {{this.site}}</button>
+      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'Tweakers'" class="ColorDarkAppNieuws">Lees verder op {{this.site}}</button>
+      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'KNVB'" class="ColorDarkAppNieuws">Lees verder op {{this.site}}</button>
       <!-- Social Buttons - Comments - likes - Share -->
       <div id="socialLikeComments" class="socialLikeCommentsNieuws">
         <button ion-button icon-start clear *ngIf="this.site == 'De Telegraaf'"
