@@ -162,7 +162,7 @@ export class FeedPage {
             let offlinealert = this.toastCtrl.create({
                 message: "Er is geen internet verbinding, opgeslagen artikelen worden ingeladen.",
                 duration: 2500,
-                position: "bottom"
+               position: "top"
             });
             if (this.datepicker == "vandaag") {
                 offlinealert.present();
@@ -319,7 +319,7 @@ export class FeedPage {
             let toast = this.toastCtrl.create({
                 message: "Actie kon niet worden uitgevoerd, geen internet verbinding gevonden.",
                 duration: 3500,
-                position: "bottom"
+               position: "top"
             });
             toast.present();
         }
@@ -554,7 +554,7 @@ export class FeedPage {
             let toast = this.toastCtrl.create({
                 message: "Actie kon niet worden uitgevoerd, geen internet verbinding gevonden.",
                 duration: 3500,
-                position: "bottom"
+                position: "top"
             });
             toast.present();
 
@@ -600,7 +600,7 @@ export class FeedPage {
                                         let toast = this.toastCtrl.create({
                                             message: '"' + articleTitle + '"' + " is verwijderd uit je favorieten!",
                                             duration: 2500,
-                                            position: "bottom"
+                                            position: "top"
                                         });
                                         toast.present();
                                         if (this.datepicker == "vandaag") {
@@ -623,7 +623,7 @@ export class FeedPage {
             let toast = this.toastCtrl.create({
                 message: "Actie kon niet worden uitgevoerd, geen internet verbinding gevonden.",
                 duration: 3500,
-                position: "bottom"
+                position: "top"
             });
             toast.present();
         }
@@ -640,7 +640,7 @@ export class FeedPage {
                 let toast = this.toastCtrl.create({
                     message: "Artikel " + postId + " verborgen",
                     duration: 2500,
-                    position: "bottom",
+                    position: "top",
                     showCloseButton: true,
                     closeButtonText: "OK"
                 });

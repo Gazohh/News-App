@@ -4,7 +4,6 @@ import {FeedPage} from "../../pages/feed/feed";
 import {SportPage} from "../../pages/sport/sport";
 import {EconomiePage} from "../../pages/economie/economie";
 import {TechPage} from "../../pages/tech/tech";
-import {AutoPage} from "../../pages/auto/auto";
 import {SettingsPage} from "../../pages/settings/settings";
 import {TutorialPage} from "../../pages/tutorial/tutorial";
 import {FavorietenPage} from "../../pages/favorieten/favorieten";

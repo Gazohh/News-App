@@ -21,7 +21,7 @@
       </button>
     </ion-buttons>
     <ion-buttons end *ngIf="!isSearchbaropened" class="moreFeed">
-      <ion-icon name="more"></ion-icon>
+      <ion-icon class="calenderIcon" name="calendar"></ion-icon>
       <ion-list class="listMore">
         <ion-select #newSelect [(ngModel)]="datepicker" (ionChange)="onChange(datepicker)"
                     [selectOptions]="selectOptions" cancelText="Annuleer" okText="Ok" class="SelectMore">
@@ -47,17 +47,12 @@
         <ion-card *ngFor="let item of (items ? items.slice(0,slice): [])" col-md-6 class="ionCard">
           <!-- Images van nieuwsfeed -->
           <div class="ion-card-image-wrapper" (tap)="viewEntry({ record: item })">
-            <img class="fullHeight" src="../assets/imgs/NOS.png"
-                 *ngIf="item.site == 'NOS' && network.type == 'none'">
-            <img class="fullHeight" src="../assets/imgs/NUNL.png"
-                 *ngIf="item.site == 'NU.nl' && network.type == 'none'">
+            <img class="fullHeight" src="../assets/imgs/NOS.png" *ngIf="item.site == 'NOS' && network.type == 'none'">
+            <img class="fullHeight" src="../assets/imgs/NUNL.png" *ngIf="item.site == 'NU.nl' && network.type == 'none'">
             <img class="fullHeight" src="../assets/imgs/tweakers.png" *ngIf="item.site == 'Tweakers'">
-            <img class="fullHeight" src="../assets/imgs/telegraaf.png"
-                 *ngIf="item.site == 'De Telegraaf' && network.type == 'none'">
-            <img class="fullHeight" src="../assets/imgs/KNVB.png"
-                 *ngIf="item.site == 'KNVB' && network.type == 'none'">
-            <img class="fullHeight" [src]="item.image"
-                 *ngIf="item.site == 'NOS' || item.site == 'De Telegraaf' || item.site == 'NU.nl' || item.site == 'KNVB' && network.type != 'none'">
+            <img class="fullHeight" src="../assets/imgs/telegraaf.png" *ngIf="item.site == 'De Telegraaf' && network.type == 'none'">
+            <img class="fullHeight" src="../assets/imgs/KNVB.png" *ngIf="item.site == 'KNVB' && network.type == 'none'">
+            <img class="fullHeight" [src]="item.image" *ngIf="item.site == 'NOS' || item.site == 'De Telegraaf' || item.site == 'NU.nl' || item.site == 'KNVB' && network.type != 'none'">
             <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">
           </div>
           <ion-card-content class="cardContentFeed">

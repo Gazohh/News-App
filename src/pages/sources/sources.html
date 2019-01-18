@@ -88,9 +88,9 @@
                 </ion-item>
                 <ion-item class="sourceItem" *ngIf="NUNLFIN == 1">
                     <ion-avatar class="avatar" item-start>
-                        <img class="avatarTWKS" src="../assets/svg/Tweakers.svg">
+                        <img class="avatar-feedNU" src="../assets/svg/nu.nl.svg">
                     </ion-avatar>
-                    <div><b class="sourceTekstFeed">NU.nl Financieel</b></div>
+                    <div><b class="sourceTekstFeed">NU.nl</b></div>
                     <div class="sourceTekst">Financieel</div>
                     <button ion-button outline item-end color="danger" class="DeleteClassesButton"
                             (click)="unsubscribeSource('NU.nl Financieel')">
@@ -100,7 +100,7 @@
                 </ion-item>
                 <ion-item class="sourceItem" *ngIf="BTYL == 1">
                     <ion-avatar class="avatar" item-start>
-                        <img class="avatarTWKS" src="../assets/svg/Tweakers.svg">
+                        <img src="../assets/svg/Beautylab.svg">
                     </ion-avatar>
                     <div><b class="sourceTekstFeed">Beautylab</b></div>
                     <div class="sourceTekst">Lifestyle</div>
@@ -112,7 +112,8 @@
                 </ion-item>
                 <ion-item class="sourceItem" *ngIf="LBL == 1">
                     <ion-avatar class="avatar" item-start>
-                        <img class="avatarTWKS" src="../assets/svg/Tweakers.svg">
+                        <img src="../assets/svg/libelle.svg" *ngIf="currentTheme == 'light-theme'">
+                        <img src="../assets/svg/libelle_wit.svg" *ngIf="currentTheme == 'dark-theme'">
                     </ion-avatar>
                     <div><b class="sourceTekstFeed">Libelle</b></div>
                     <div class="sourceTekst">Lifestyle</div>
@@ -170,9 +171,10 @@
                         Toevoegen
                     </button>
                 </ion-item>
-                <ion-item class="sourceTitel">
+                <ion-item class="sourceTitel"  *ngIf="TWKS == 0">
                     <h4 class="TitelSources">Tech</h4>
                 </ion-item>
+                <ion-item class="sourceTitelHidden" *ngIf="TWKS == 1"></ion-item>
                 <ion-item class="sourceItem" *ngIf="TWKS == 0">
                     <ion-avatar class="avatar" item-start>
                         <img class="avatarTWKS" src="../assets/svg/Tweakers.svg">
@@ -185,9 +187,10 @@
                         Toevoegen
                     </button>
                 </ion-item>
-                <ion-item class="sourceTitel">
+                <ion-item class="sourceTitel" *ngIf="KNVB == 0">
                     <h4 class="TitelSources">Sport</h4>
                 </ion-item>
+                <ion-item class="sourceTitelHidden" *ngIf="KNVB == 1"></ion-item>
                 <ion-item class="sourceItem" *ngIf="KNVB == 0">
                     <ion-avatar class="avatar" item-start>
                         <img src="../assets/svg/knvb.svg">
@@ -200,14 +203,15 @@
                         Toevoegen
                     </button>
                 </ion-item>
-                <ion-item class="sourceTitel">
+                <ion-item class="sourceTitel" *ngIf="NUNLFIN == 0">
                     <h4 class="TitelSources">Financieel</h4>
                 </ion-item>
+                <ion-item class="sourceTitelHidden" *ngIf="NUNLFIN == 1"></ion-item>
                 <ion-item class="sourceItem" *ngIf="NUNLFIN == 0">
                     <ion-avatar class="avatar" item-start>
-                        <img src="../assets/svg/nu.nl.svg">
+                        <img class="avatar-feedNU" src="../assets/svg/nu.nl.svg">
                     </ion-avatar>
-                    <div><b class="sourceTekstFeed">NU.nl Financieel</b></div>
+                    <div><b class="sourceTekstFeed">NU.nl</b></div>
                     <div class="sourceTekst">Financieel</div>
                     <button ion-button outline item-end class="ImportClassesButton" *ngIf="NUNLFIN == 0"
                             (click)="subscribeSource('NU.nl Financieel')">
@@ -215,12 +219,13 @@
                         Toevoegen
                     </button>
                 </ion-item>
-                <ion-item class="sourceTitel">
+                <ion-item class="sourceTitel" *ngIf="BTYL == 0 && LBL == 0">
                     <h4 class="TitelSources">Lifestyle</h4>
                 </ion-item>
+                <ion-item class="sourceTitelHidden" *ngIf="BTYL == 1 && LBL == 1"></ion-item>
                 <ion-item class="sourceItem" *ngIf="BTYL == 0">
                     <ion-avatar class="avatar" item-start>
-                        <img src="../assets/svg/nu.nl.svg">
+                        <img src="../assets/svg/Beautylab.svg">
                     </ion-avatar>
                     <div><b class="sourceTekstFeed">Beautylab</b></div>
                     <div class="sourceTekst">Lifestyle</div>
@@ -232,7 +237,8 @@
                 </ion-item>
                 <ion-item class="sourceItem" *ngIf="LBL == 0">
                     <ion-avatar class="avatar" item-start>
-                        <img src="../assets/svg/nu.nl.svg">
+                        <img src="../assets/svg/libelle.svg" *ngIf="currentTheme == 'light-theme'">
+                        <img src="../assets/svg/libelle_wit.svg" *ngIf="currentTheme == 'dark-theme'">
                     </ion-avatar>
                     <div><b class="sourceTekstFeed">Libelle</b></div>
                     <div class="sourceTekst">Lifestyle</div>

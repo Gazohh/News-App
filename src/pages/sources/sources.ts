@@ -168,7 +168,7 @@ export class SourcesPage {
                       let toast = this.toastCtrl.create({
                           message: "" + source + " is toegevoegd.",
                           duration: 3500,
-                          position: "bottom"
+                         position: "bottom"
                       });
                       toast.present();
                   }
@@ -177,7 +177,7 @@ export class SourcesPage {
                       let toast = this.toastCtrl.create({
                           message: "Er is iets niet goed gegaan, probeer het later opnieuw.",
                           duration: 3500,
-                          position: "bottom"
+                         position: "bottom"
                       });
                       toast.present();
                   }
@@ -188,7 +188,7 @@ export class SourcesPage {
           let toast = this.toastCtrl.create({
               message: "Er is geen internet verbinding, probeer het later opnieuw.",
               duration: 5000,
-              position: "bottom"
+             position: "bottom"
           });
           toast.present();
       }
@@ -219,7 +219,7 @@ export class SourcesPage {
                        let toast = this.toastCtrl.create({
                            message: "" + source + " is verwijderd.",
                            duration: 3500,
-                           position: "bottom"
+                          position: "bottom"
                        });
                        toast.present();
                    }
@@ -228,7 +228,7 @@ export class SourcesPage {
                        let toast = this.toastCtrl.create({
                            message: "Er is iets niet goed gegaan, probeer het later opnieuw.",
                            duration: 3500,
-                           position: "bottom"
+                          position: "bottom"
                        });
                        toast.present();
                    }
@@ -239,7 +239,7 @@ export class SourcesPage {
            let toast = this.toastCtrl.create({
                message: "Er is geen internet verbinding, probeer het later opnieuw.",
                duration: 5000,
-               position: "bottom"
+              position: "bottom"
            });
            toast.present();
        }
