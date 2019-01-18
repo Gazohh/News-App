@@ -86,6 +86,42 @@
                         Verwijderen
                     </button>
                 </ion-item>
+                <ion-item class="sourceItem" *ngIf="NUNLFIN == 1">
+                    <ion-avatar class="avatar" item-start>
+                        <img class="avatarTWKS" src="../assets/svg/Tweakers.svg">
+                    </ion-avatar>
+                    <div><b class="sourceTekstFeed">NU.nl Financieel</b></div>
+                    <div class="sourceTekst">Financieel</div>
+                    <button ion-button outline item-end color="danger" class="DeleteClassesButton"
+                            (click)="unsubscribeSource('NU.nl Financieel')">
+                        <ion-icon name="close" class="buttonIcon"></ion-icon>
+                        Verwijderen
+                    </button>
+                </ion-item>
+                <ion-item class="sourceItem" *ngIf="BTYL == 1">
+                    <ion-avatar class="avatar" item-start>
+                        <img class="avatarTWKS" src="../assets/svg/Tweakers.svg">
+                    </ion-avatar>
+                    <div><b class="sourceTekstFeed">Beautylab</b></div>
+                    <div class="sourceTekst">Lifestyle</div>
+                    <button ion-button outline item-end color="danger" class="DeleteClassesButton"
+                            (click)="unsubscribeSource('Beautylab')">
+                        <ion-icon name="close" class="buttonIcon"></ion-icon>
+                        Verwijderen
+                    </button>
+                </ion-item>
+                <ion-item class="sourceItem" *ngIf="LBL == 1">
+                    <ion-avatar class="avatar" item-start>
+                        <img class="avatarTWKS" src="../assets/svg/Tweakers.svg">
+                    </ion-avatar>
+                    <div><b class="sourceTekstFeed">Libelle</b></div>
+                    <div class="sourceTekst">Lifestyle</div>
+                    <button ion-button outline item-end color="danger" class="DeleteClassesButton"
+                            (click)="unsubscribeSource('Libelle')">
+                        <ion-icon name="close" class="buttonIcon"></ion-icon>
+                        Verwijderen
+                    </button>
+                </ion-item>
             </ion-list>
         </ion-slide>
         <ion-slide>

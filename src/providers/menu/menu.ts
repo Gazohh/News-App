@@ -11,6 +11,7 @@ import {FavorietenPage} from "../../pages/favorieten/favorieten";
 import {VermaakPage} from "../../pages/vermaak/vermaak";
 import {SourcesPage} from "../../pages/sources/sources";
 import {LifestylePage} from "../../pages/lifestyle/lifestyle";
+import {HomePage} from "../../pages/home/home";
 
 @Injectable()
 export class MenuProvider {
@@ -70,6 +71,11 @@ export class MenuProvider {
                 title: 'Instellingen',
                 component: SettingsPage,
                 icon: 'settings'
+            },
+            {
+                title: 'Uitloggen',
+                component: HomePage,
+                icon: 'log-out'
             }
         ]
     }
