@@ -318,5 +318,21 @@
     background-color: #1c1c1c !important;
   }
 
-
+  .refresher-refreshing .spinner-ios line, .refresher-refreshing .spinner-ios-small line, .refresher-refreshing .spinner-crescent circle{
+    stroke: #FFF !important;
+  }
+  .spinner-md-crescent circle{
+    stroke: #fff !important;
+  }
+  .refresher-pulling-icon, .refresher-refreshing-icon{
+    color: #FFF !important;
+  }
+  .pullDown{
+    color: #Fff;
+    stroke: white;
+    $refresher-text-color: #FFF !important;
+  }
+  .scroll-refresher .ionic-refresher-content.ionic-refresher-with-text{
+    color: #fff;
+  }
 }
