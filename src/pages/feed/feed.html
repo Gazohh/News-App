@@ -52,12 +52,16 @@
                         <img class="fullHeight" src="../assets/imgs/NUNL.png"
                              *ngIf="item.site == 'NU.nl' && network.type == 'none'">
                         <img class="fullHeight" src="../assets/imgs/tweakers.png" *ngIf="item.site == 'Tweakers'">
+                        <img class="fullHeight" src="../assets/imgs/beautylab.png" *ngIf="item.site == 'Beautylab'">
+                        <img class="fullHeight" src="../assets/imgs/libelle.png" *ngIf="item.site == 'Libelle'">
+                        <img class="fullHeight" src="../assets/imgs/volkskrant.png" *ngIf="item.site == 'Volkskrant'">
+                        <img class="fullHeight" src="../assets/imgs/volkskrant.png" *ngIf="item.site == 'Volkskrant Economie'">
                         <img class="fullHeight" src="../assets/imgs/telegraaf.png"
                              *ngIf="item.site == 'De Telegraaf' && network.type == 'none'">
                         <img class="fullHeight" src="../assets/imgs/KNVB.png"
                              *ngIf="item.site == 'KNVB' && network.type == 'none'">
                         <img class="fullHeight" [src]="item.image"
-                             *ngIf="item.site == 'NOS' || item.site == 'De Telegraaf' || item.site == 'NU.nl' || item.site == 'KNVB' && network.type != 'none'">
+                             *ngIf="item.site == 'NOS' || item.site == 'De Telegraaf' || item.site == 'NU.nl' || item.site == 'KNVB' || item.site == 'NU.nl Economie' && network.type != 'none'">
                         <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">
                     </div>
                     <ion-card-content class="cardContentFeed">

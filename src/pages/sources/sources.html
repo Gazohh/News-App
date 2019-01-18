@@ -157,7 +157,7 @@
                 <!-- Alle Sources die je kunt importen -->
                 <!--  -->
                 <ion-item class="sourceTitel">
-                    <h4 class="TitelSources">Algemeen</h4>
+                    <h4 class="TitelSources" *ngIf="NOS != 1 || VLKK != 1 || TGF != 1 || NUNL != 1">Algemeen</h4>
                 </ion-item>
                 <ion-item class="sourceItem" *ngIf="NOS == 0">
                     <ion-avatar class="avatar" item-start>
@@ -210,7 +210,7 @@
                         Toevoegen
                     </button>
                 </ion-item>
-                <ion-item class="sourceTitel"  *ngIf="TWKS == 0">
+                <ion-item class="sourceTitel"  *ngIf="TWKS != 1">
                     <h4 class="TitelSources">Tech</h4>
                 </ion-item>
                 <ion-item class="sourceTitelHidden" *ngIf="TWKS == 1"></ion-item>
@@ -226,7 +226,7 @@
                         Toevoegen
                     </button>
                 </ion-item>
-                <ion-item class="sourceTitel" *ngIf="KNVB == 0">
+                <ion-item class="sourceTitel" *ngIf="KNVB != 1">
                     <h4 class="TitelSources">Sport</h4>
                 </ion-item>
                 <ion-item class="sourceTitelHidden" *ngIf="KNVB == 1"></ion-item>
@@ -242,7 +242,7 @@
                         Toevoegen
                     </button>
                 </ion-item>
-                <ion-item class="sourceTitel" *ngIf="NUNLFIN == 0">
+                <ion-item class="sourceTitel" *ngIf="NUNLFIN != 1 || VLKKE != 1">
                     <h4 class="TitelSources">Financieel</h4>
                 </ion-item>
                 <ion-item class="sourceTitelHidden" *ngIf="NUNLFIN == 1"></ion-item>
@@ -271,7 +271,7 @@
                         Toevoegen
                     </button>
                 </ion-item>
-                <ion-item class="sourceTitel" *ngIf="BTYL == 0 && LBL == 0">
+                <ion-item class="sourceTitel" *ngIf="BTYL != 1 || LBL != 1">
                     <h4 class="TitelSources">Lifestyle</h4>
                 </ion-item>
                 <ion-item class="sourceTitelHidden" *ngIf="BTYL == 1 && LBL == 1"></ion-item>

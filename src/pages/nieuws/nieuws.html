@@ -7,6 +7,10 @@ w<ion-header>
     <img *ngIf="!this.image && network.type != 'none' && this.site != 'Tweakers'" src="../assets/imgs/noimage.jpg">
     <img *ngIf="this.image && this.site != 'Tweakers' && network.type != 'none'" src="{{this.image}} " class="imageNieuws">
     <img *ngIf="this.site == 'Tweakers'" src="../assets/imgs/tweakers.png" class="imageNieuwsTweakers">
+    <img *ngIf="this.site == 'Beautylab'" src="../assets/imgs/beautylab.png" class="imageNieuwsTweakers">
+    <img *ngIf="this.site == 'Libelle'" src="../assets/imgs/libelle.png" class="imageNieuwsTweakers">
+    <img *ngIf="this.site == 'Volkskrant'" src="../assets/imgs/volkskrant.png" class="imageNieuwsTweakers">
+    <img *ngIf="this.site == 'Volkskrant Economie'" src="../assets/imgs/volkskrant.png" class="imageNieuwsTweakers">
     <img *ngIf="this.site == 'NOS' && network.type == 'none'" src="../assets/imgs/NOS.png" class="imageNieuws">
     <img *ngIf="this.site == 'NU.nl' && network.type == 'none'" src="../assets/imgs/NUNL.png" class="imageNieuws">
     <img *ngIf="this.site == 'De Telegraaf' && network.type == 'none'" src="../assets/imgs/telegraaf.png" class="imageNieuws">
