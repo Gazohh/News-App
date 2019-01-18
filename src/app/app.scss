@@ -59,16 +59,11 @@ ion-slide.swiper-slide {
 }
 
 .header .toolbar-background {
-  background-color: #29708c !important;
+  background-color: #3ca7d1 !important;
 }
 
 // ------------------------------------
 // Settings Pagina
-
-.DarkLabel {
-  font-family: 'Roboto-Bold' !important;
-  font-weight: 800;
-}
 
 // Iconen margin
 .iconInstellingen {
@@ -462,7 +457,7 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   font-size: 3rem;
   display: block;
   margin: 0 auto;
-  color: #29708c;
+  color: #3ca7d1;
 }
 
 .WelkomText2 {
@@ -1258,6 +1253,13 @@ page-feed img {
   border-color: rgb(39, 80, 154) !important;
 }
 
+.ColorDarkAppNieuws {
+  background-color: #29708c !important;
+  color: #fff;
+  top: 10px !important;
+  border-color: #29708c !important;
+}
+
 .ColorTelegraaf2 {
   background-color: rgb(39, 80, 154) !important;
   margin-right: 2.0vh !important;
@@ -1389,6 +1391,19 @@ color: #b9c044 !important;
   color: #f6903a !important;
 }
 
+.ColorDarkApp {
+  color: #29708c;
+}
+
+.ColorDarkAppShare {
+  float: left;
+  color: #29708c;
+}
+
+.ColorDarkAppTextDarkTheme {
+  color: #29708c;
+}
+
 body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > div > ion-card > ion-item.hideButton.item.item-block.item-md > div.item-inner > div > ion-label {
   margin: 0;
 }
@@ -1504,7 +1519,7 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
 }
 
 .BackButton.activated {
-  background-color: #29708c !important;
+  background-color: #3ca7d1 !important;
 }
 
 .button-md:hover:not(.disable-hover) {
@@ -1965,5 +1980,9 @@ body > ion-app > ng-component > ion-nav > page-privacybeleid > ion-content > div
 .platform-ios .nieuwsNavTitle{
   padding-top: 18px !important;
   padding-bottom: 9px !important;
+}
+
+.socialLikeCommentsNieuws {
+  margin-top: 20px;
 }
 
