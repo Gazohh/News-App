@@ -172,7 +172,7 @@
 }
 
 .dark-theme .card-md {
-  background: #222222 !important;
+  background-color: #222222;
 }
 
 .dark-theme .ImportClassesButton {
@@ -255,6 +255,10 @@
   background-color: #222222 !important;
 }
 
+.dark-theme .socialLikeCommentsNieuws {
+  background-color: #1c1c1c !important;
+}
+
 .dark-theme .badgeItem {
   background-color: #2f2f2f !important;
   color: #FFF;
@@ -319,6 +323,10 @@
 
 .dark-theme .ColorDarkAppTextDarkTheme {
   color: #fff !important;
+}
+
+.dark-theme .nieuwsCard {
+  background-color: #1c1c1c !important;
 }
 
 .ion-ios-add:before {
@@ -33927,7 +33935,7 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
 .commentDate {
   float: right;
   font-size: 1.2rem;
-  color: #666;
+  color: #c5c5c5;
   font-family: Roboto-Medium;
 }
 
@@ -34466,6 +34474,14 @@ body > ion-app > ng-component > ion-nav > page-tech > ion-header > ion-navbar > 
   display: none !important;
 }
 
+body > ion-app > ng-component > ion-nav > page-economie > ion-header > ion-navbar > ion-buttons.moreFeed.bar-buttons.bar-buttons-md > ion-list > ion-select > div.select-text {
+  display: none !important;
+}
+
+body > ion-app > ng-component > ion-nav > page-lifestyle > ion-header > ion-navbar > ion-buttons.moreFeed.bar-buttons.bar-buttons-md > ion-list > ion-select > div.select-text {
+  display: none !important;
+}
+
 .searchButton {
   margin-right: 8px;
 }
@@ -34501,11 +34517,11 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-item {
-  padding-bottom: 15px !important;
+  padding-bottom: 11px !important;
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) {
-  padding-bottom: 20px !important;
+  padding-bottom: 15px !important;
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list > ion-item:nth-child(6) > div.item-inner > div > ion-label {
@@ -34803,7 +34819,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 .datumFeed {
   float: left;
   font-size: 1.2rem;
-  color: #666;
+  color: #c5c5c5;
   font-weight: 400;
   margin-top: 7px;
   margin-bottom: 8px;
@@ -34929,6 +34945,13 @@ page-feed img {
   color: #fff;
   top: 10px !important;
   border-color: #27509a !important;
+}
+
+.ColorDarkAppNieuws {
+  background-color: #29708c !important;
+  color: #fff;
+  top: 10px !important;
+  border-color: #29708c !important;
 }
 
 .ColorTelegraaf2 {
@@ -35082,6 +35105,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 .descriptionFeed {
   margin: 0 0 -2px !important;
   font-family: 'Roboto-Regular' !important;
+  color: #666 !important;
 }
 
 .headerText {
@@ -35127,7 +35151,7 @@ body > ion-app > ng-component > ion-nav > page-nieuws > ion-header > ion-navbar 
 }
 
 .nieuwsDatum {
-  color: #666 !important;
+  color: #c5c5c5 !important;
   font-size: 1.2rem !important;
   padding-bottom: 3px !important;
   padding-top: 0px !important;
@@ -35135,9 +35159,8 @@ body > ion-app > ng-component > ion-nav > page-nieuws > ion-header > ion-navbar 
 
 .sourceTekst {
   font-family: 'Roboto-Regular';
-  font-family: 'Roboto-Regular';
   font-size: 1.3rem;
-  color: #666;
+  color: #c5c5c5;
 }
 
 .sourceTekstFeed {
@@ -35146,6 +35169,15 @@ body > ion-app > ng-component > ion-nav > page-nieuws > ion-header > ion-navbar 
 
 .buttonIcon {
   padding-right: 8px;
+}
+
+.loguutIcon {
+  margin-left: 30px;
+  font-family: 'Roboto-Regular' !important;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(9) > div.item-inner > div > ion-label > span.logoutIcon > ion-icon {
+  font-size: 1.3em;
 }
 
 .ImportClassesButton {
@@ -35158,6 +35190,10 @@ body > ion-app > ng-component > ion-nav > page-nieuws > ion-header > ion-navbar 
   font-family: Roboto-Bold;
   font-size: 1.5rem !important;
   font-weight: 800 !important;
+}
+
+.sourceTitelHidden {
+  display: none !important;
 }
 
 body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scroll-content > ion-slides > div > div.swiper-wrapper > ion-slide.swiper-slide.swiper-slide-active > div > ion-list > ion-item:nth-child(2) > div.item-inner > div > ion-label {
@@ -35387,7 +35423,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 .card-md p {
   padding-top: 4px;
   font-size: 1.4rem;
-  color: #666;
+  color: #c5c5c5;
 }
 
 .rowWeer {
@@ -35596,6 +35632,25 @@ body > ion-app > ng-component > ion-nav > page-privacybeleid > ion-content > div
   padding-bottom: 9px !important;
 }
 
+.socialLikeCommentsNieuws {
+  margin-top: 20px;
+}
+
+.swiper-slide {
+  overflow-y: scroll;
+  display: block;
+}
+
+.calenderIcon {
+  font-size: 1em !important;
+}
+
+.ionCard {
+  padding: 0px !important;
+  width: 100% !important;
+  margin: 0 0 10px;
+}
+
 page-admin .nieuwsNavTitle {
   color: white;
   font-weight: 500;
@@ -35620,6 +35675,11 @@ page-favorieten .favorietenCol {
 page-favorieten .cardFavorieten {
   margin: 10px !important;
   padding: 0px !important;
+}
+
+body > ion-app > ion-alert > div > div:nth-child(3) > div {
+  border-top: none !important;
+  border-bottom: none !important;
 }
 
 .itemdescription {
@@ -35765,6 +35825,10 @@ body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scro
 
 .labelRegistreer {
   color: #fff !important;
+}
+
+page-settings .item-md.item-block .item-inner {
+  border-bottom: none !important;
 }
 
 page-tutorial .toolbar-background {
