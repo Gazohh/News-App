@@ -1,150 +1,212 @@
 <ion-header no-border-bottom>
-  <ion-navbar>
-    <button ion-button menuToggle right class="fakeCenter">
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Sources</ion-title>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-  </ion-navbar>
-  <ion-segment color="darkAppKleur" [(ngModel)]="page">
-    <ion-segment-button value="0" (click)="selectedTab(0)">
-      Geabboneerd
-    </ion-segment-button>
-    <ion-segment-button value="1" (click)="selectedTab(1)">
-      Suggesties
-    </ion-segment-button>
-  </ion-segment>
+    <ion-navbar>
+        <button ion-button menuToggle right class="fakeCenter">
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Sources</ion-title>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+    </ion-navbar>
+    <ion-segment color="darkAppKleur" [(ngModel)]="page">
+        <ion-segment-button value="0" (click)="selectedTab(0)">
+            Geabboneerd
+        </ion-segment-button>
+        <ion-segment-button value="1" (click)="selectedTab(1)">
+            Suggesties
+        </ion-segment-button>
+    </ion-segment>
 </ion-header>
-<ion-content >
-  <ion-slides #slider (ionSlideWillChange)="moveButton($event)" >
-    <!--  -->
-    <!-- Alle Sources die zijn geimport -->
-    <!--  -->
-    <ion-slide>
-      <ion-list>
-        <ion-item class="sourceItem" *ngIf="TGF == 1">
-          <ion-avatar class="avatarTelegraafSources" item-start>
-            <img src="../assets/svg/Telegraaf.svg" *ngIf="currentTheme == 'light-theme'">
-            <img src="../assets/svg/Telegraaf_Wit.svg" *ngIf="currentTheme == 'dark-theme'">
-          </ion-avatar>
-          <div><b class="sourceTekstFeed">De Telegraaf</b></div>
-          <div class="sourceTekst">Nieuwsfeed</div>
-          <button ion-button outline item-end color="danger" class="DeleteClassesButton"  (click)="unsubscribeSource('De Telegraaf')">
-            <ion-icon name="close" class="buttonIcon"></ion-icon>Verwijderen
-          </button>
-        </ion-item>
-        <ion-item class="sourceItem" *ngIf="NUNL == 1">
-          <ion-avatar class="avatar" item-start>
-            <img class="avatar-feedNU" src="../assets/svg/nu.nl.svg">
-          </ion-avatar>
-          <div><b class="sourceTekstFeed">NU.nl</b></div>
-          <div class="sourceTekst">Nieuwsfeed</div>
-          <button ion-button outline item-end color="danger" class="DeleteClassesButton"  (click)="unsubscribeSource('NU.NL')">
-            <ion-icon name="close" class="buttonIcon"></ion-icon>Verwijderen
-          </button>
-        </ion-item>
-        <ion-item class="sourceItem" *ngIf="NOS == 1">
-          <ion-avatar class="avatar" item-start>
-            <img src="../assets/svg/NOS_logo.svg" *ngIf="currentTheme == 'light-theme'">
-            <img src="../assets/svg/NOS_logo_Wit.svg" *ngIf="currentTheme == 'dark-theme'">
-          </ion-avatar>
-          <div><b class="sourceTekstFeed">NOS</b></div>
-          <div class="sourceTekst">Nieuwsfeed</div>
-          <button ion-button outline item-end color="danger" class="DeleteClassesButton" (click)="unsubscribeSource('NOS')">
-            <ion-icon name="close" class="buttonIcon"></ion-icon>Verwijderen
-          </button>
-        </ion-item>
-        <ion-item class="sourceItem" *ngIf="KNVB == 1">
-          <ion-avatar class="avatar" item-start>
-            <img src="../assets/svg/knvb.svg">
-          </ion-avatar>
-          <div><b class="sourceTekstFeed">KNVB</b></div>
-          <div class="sourceTekst">Sport</div>
-          <button ion-button outline item-end color="danger" class="DeleteClassesButton" (click)="unsubscribeSource('KNVB')">
-            <ion-icon name="close" class="buttonIcon"></ion-icon>Verwijderen
-          </button>
-        </ion-item>
-        <ion-item class="sourceItem" *ngIf="TWKS == 1">
-          <ion-avatar class="avatar" item-start>
-            <img class="avatarTWKS" src="../assets/svg/Tweakers.svg">
-          </ion-avatar>
-          <div><b class="sourceTekstFeed">Tweakers</b></div>
-          <div class="sourceTekst">Tech</div>
-          <button ion-button outline item-end color="danger" class="DeleteClassesButton" (click)="unsubscribeSource('Tweakers')">
-            <ion-icon name="close" class="buttonIcon"></ion-icon>Verwijderen
-          </button>
-        </ion-item>
-      </ion-list>
-    </ion-slide>
-    <ion-slide>
-      <ion-list>
+<ion-content>
+    <ion-slides #slider (ionSlideWillChange)="moveButton($event)">
         <!--  -->
-        <!-- Alle Sources die je kunt importen -->
+        <!-- Alle Sources die zijn geimport -->
         <!--  -->
-        <ion-item class="sourceTitel">
-          <h4 class="TitelSources">Nieuwsfeed</h4>
-        </ion-item>
-        <ion-item class="sourceItem" *ngIf="TGF == 0">
-          <ion-avatar class="avatarTelegraafSources" item-start>
-            <img src="../assets/svg/Telegraaf.svg" *ngIf="currentTheme == 'light-theme'">
-            <img src="../assets/svg/Telegraaf_Wit.svg" *ngIf="currentTheme == 'dark-theme'">
-          </ion-avatar>
-          <div><b class="sourceTekstFeed">De Telegraaf</b></div>
-          <div class="sourceTekst">Nieuwsfeed</div>
-          <button ion-button outline item-end class="ImportClassesButton" *ngIf="TGF == 0" (click)="subscribeSource('De Telegraaf')">
-            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
-          </button>
-        </ion-item>
-        <ion-item class="sourceItem" *ngIf="NUNL == 0">
-          <ion-avatar class="avatar" item-start>
-            <img class="avatar-feedNU" src="../assets/svg/nu.nl.svg">
-          </ion-avatar>
-          <div><b class="sourceTekstFeed">NU.nl</b></div>
-          <div class="sourceTekst">Nieuwsfeed</div>
-          <button ion-button outline item-end class="ImportClassesButton" *ngIf="NUNL == 0" (click)="subscribeSource('NU.NL')">
-            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
-          </button>
-        </ion-item>
-        <ion-item class="sourceItem" *ngIf="NOS == 0">
-          <ion-avatar class="avatar" item-start>
-            <img src="../assets/svg/NOS_logo.svg" *ngIf="currentTheme == 'light-theme'">
-            <img src="../assets/svg/NOS_logo_Wit.svg" *ngIf="currentTheme == 'dark-theme'">
-          </ion-avatar>
-          <div><b class="sourceTekstFeed">NOS</b></div>
-          <div class="sourceTekst">Nieuwsfeed</div>
-          <button ion-button outline item-end class="ImportClassesButton" *ngIf="NOS == 0" (click)="subscribeSource('NOS')">
-            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
-          </button>
-        </ion-item>
-        <ion-item class="sourceTitel">
-          <h4 class="TitelSources">Tech</h4>
-        </ion-item>
-        <ion-item class="sourceItem" *ngIf="TWKS == 0">
-          <ion-avatar class="avatar" item-start>
-            <img class="avatarTWKS" src="../assets/svg/Tweakers.svg">
-          </ion-avatar>
-          <div><b class="sourceTekstFeed">Tweakers</b></div>
-          <div class="sourceTekst">Tech</div>
-          <button ion-button outline item-end class="ImportClassesButton" *ngIf="TWKS == 0" (click)="subscribeSource('Tweakers')">
-            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
-          </button>
-        </ion-item>
-        <ion-item class="sourceTitel">
-          <h4 class="TitelSources">Sport</h4>
-        </ion-item>
-        <ion-item class="sourceItem" *ngIf="KNVB == 0">
-          <ion-avatar class="avatar" item-start>
-            <img src="../assets/svg/knvb.svg">
-          </ion-avatar>
-          <div><b class="sourceTekstFeed">KNVB</b></div>
-          <div class="sourceTekst">Sport</div>
-          <button ion-button outline item-end class="ImportClassesButton" *ngIf="KNVB == 0" (click)="subscribeSource('KNVB')">
-            <ion-icon name="checkmark" class="buttonIcon"></ion-icon>Toevoegen
-          </button>
-        </ion-item>
-      </ion-list>
-    </ion-slide>
-  </ion-slides>
+        <ion-slide>
+            <ion-list>
+                <ion-item class="sourceItem" *ngIf="NOS == 1">
+                    <ion-avatar class="avatar" item-start>
+                        <img src="../assets/svg/NOS_logo.svg" *ngIf="currentTheme == 'light-theme'">
+                        <img src="../assets/svg/NOS_logo_Wit.svg" *ngIf="currentTheme == 'dark-theme'">
+                    </ion-avatar>
+                    <div><b class="sourceTekstFeed">NOS</b></div>
+                    <div class="sourceTekst">Algemeen</div>
+                    <button ion-button outline item-end color="danger" class="DeleteClassesButton"
+                            (click)="unsubscribeSource('NOS')">
+                        <ion-icon name="close" class="buttonIcon"></ion-icon>
+                        Verwijderen
+                    </button>
+                </ion-item>
+                <ion-item class="sourceItem" *ngIf="TGF == 1">
+                    <ion-avatar class="avatarTelegraafSources" item-start>
+                        <img src="../assets/svg/Telegraaf.svg" *ngIf="currentTheme == 'light-theme'">
+                        <img src="../assets/svg/Telegraaf_Wit.svg" *ngIf="currentTheme == 'dark-theme'">
+                    </ion-avatar>
+                    <div><b class="sourceTekstFeed">De Telegraaf</b></div>
+                    <div class="sourceTekst">Algemeen</div>
+                    <button ion-button outline item-end color="danger" class="DeleteClassesButton"
+                            (click)="unsubscribeSource('De Telegraaf')">
+                        <ion-icon name="close" class="buttonIcon"></ion-icon>
+                        Verwijderen
+                    </button>
+                </ion-item>
+                <ion-item class="sourceItem" *ngIf="NUNL == 1">
+                    <ion-avatar class="avatar" item-start>
+                        <img class="avatar-feedNU" src="../assets/svg/nu.nl.svg">
+                    </ion-avatar>
+                    <div><b class="sourceTekstFeed">NU.nl</b></div>
+                    <div class="sourceTekst">Algemeen</div>
+                    <button ion-button outline item-end color="danger" class="DeleteClassesButton"
+                            (click)="unsubscribeSource('NU.NL')">
+                        <ion-icon name="close" class="buttonIcon"></ion-icon>
+                        Verwijderen
+                    </button>
+                </ion-item>
+                <ion-item class="sourceItem" *ngIf="KNVB == 1">
+                    <ion-avatar class="avatar" item-start>
+                        <img src="../assets/svg/knvb.svg">
+                    </ion-avatar>
+                    <div><b class="sourceTekstFeed">KNVB</b></div>
+                    <div class="sourceTekst">Sport</div>
+                    <button ion-button outline item-end color="danger" class="DeleteClassesButton"
+                            (click)="unsubscribeSource('KNVB')">
+                        <ion-icon name="close" class="buttonIcon"></ion-icon>
+                        Verwijderen
+                    </button>
+                </ion-item>
+                <ion-item class="sourceItem" *ngIf="TWKS == 1">
+                    <ion-avatar class="avatar" item-start>
+                        <img class="avatarTWKS" src="../assets/svg/Tweakers.svg">
+                    </ion-avatar>
+                    <div><b class="sourceTekstFeed">Tweakers</b></div>
+                    <div class="sourceTekst">Tech</div>
+                    <button ion-button outline item-end color="danger" class="DeleteClassesButton"
+                            (click)="unsubscribeSource('Tweakers')">
+                        <ion-icon name="close" class="buttonIcon"></ion-icon>
+                        Verwijderen
+                    </button>
+                </ion-item>
+            </ion-list>
+        </ion-slide>
+        <ion-slide>
+            <ion-list>
+                <!--  -->
+                <!-- Alle Sources die je kunt importen -->
+                <!--  -->
+                <ion-item class="sourceTitel">
+                    <h4 class="TitelSources">Algemeen</h4>
+                </ion-item>
+                <ion-item class="sourceItem" *ngIf="NOS == 0">
+                    <ion-avatar class="avatar" item-start>
+                        <img src="../assets/svg/NOS_logo.svg" *ngIf="currentTheme == 'light-theme'">
+                        <img src="../assets/svg/NOS_logo_Wit.svg" *ngIf="currentTheme == 'dark-theme'">
+                    </ion-avatar>
+                    <div><b class="sourceTekstFeed">NOS</b></div>
+                    <div class="sourceTekst">Algemeen</div>
+                    <button ion-button outline item-end class="ImportClassesButton" *ngIf="NOS == 0"
+                            (click)="subscribeSource('NOS')">
+                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>
+                        Toevoegen
+                    </button>
+                </ion-item>
+                <ion-item class="sourceItem" *ngIf="TGF == 0">
+                    <ion-avatar class="avatarTelegraafSources" item-start>
+                        <img src="../assets/svg/Telegraaf.svg" *ngIf="currentTheme == 'light-theme'">
+                        <img src="../assets/svg/Telegraaf_Wit.svg" *ngIf="currentTheme == 'dark-theme'">
+                    </ion-avatar>
+                    <div><b class="sourceTekstFeed">De Telegraaf</b></div>
+                    <div class="sourceTekst">Algemeen</div>
+                    <button ion-button outline item-end class="ImportClassesButton" *ngIf="TGF == 0"
+                            (click)="subscribeSource('De Telegraaf')">
+                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>
+                        Toevoegen
+                    </button>
+                </ion-item>
+                <ion-item class="sourceItem" *ngIf="NUNL == 0">
+                    <ion-avatar class="avatar" item-start>
+                        <img class="avatar-feedNU" src="../assets/svg/nu.nl.svg">
+                    </ion-avatar>
+                    <div><b class="sourceTekstFeed">NU.nl</b></div>
+                    <div class="sourceTekst">Algemeen</div>
+                    <button ion-button outline item-end class="ImportClassesButton" *ngIf="NUNL == 0"
+                            (click)="subscribeSource('NU.NL')">
+                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>
+                        Toevoegen
+                    </button>
+                </ion-item>
+                <ion-item class="sourceTitel">
+                    <h4 class="TitelSources">Tech</h4>
+                </ion-item>
+                <ion-item class="sourceItem" *ngIf="TWKS == 0">
+                    <ion-avatar class="avatar" item-start>
+                        <img class="avatarTWKS" src="../assets/svg/Tweakers.svg">
+                    </ion-avatar>
+                    <div><b class="sourceTekstFeed">Tweakers</b></div>
+                    <div class="sourceTekst">Tech</div>
+                    <button ion-button outline item-end class="ImportClassesButton" *ngIf="TWKS == 0"
+                            (click)="subscribeSource('Tweakers')">
+                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>
+                        Toevoegen
+                    </button>
+                </ion-item>
+                <ion-item class="sourceTitel">
+                    <h4 class="TitelSources">Sport</h4>
+                </ion-item>
+                <ion-item class="sourceItem" *ngIf="KNVB == 0">
+                    <ion-avatar class="avatar" item-start>
+                        <img src="../assets/svg/knvb.svg">
+                    </ion-avatar>
+                    <div><b class="sourceTekstFeed">KNVB</b></div>
+                    <div class="sourceTekst">Sport</div>
+                    <button ion-button outline item-end class="ImportClassesButton" *ngIf="KNVB == 0"
+                            (click)="subscribeSource('KNVB')">
+                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>
+                        Toevoegen
+                    </button>
+                </ion-item>
+                <ion-item class="sourceTitel">
+                    <h4 class="TitelSources">Financieel</h4>
+                </ion-item>
+                <ion-item class="sourceItem" *ngIf="NUNLFIN == 0">
+                    <ion-avatar class="avatar" item-start>
+                        <img src="../assets/svg/nu.nl.svg">
+                    </ion-avatar>
+                    <div><b class="sourceTekstFeed">NU.nl Financieel</b></div>
+                    <div class="sourceTekst">Financieel</div>
+                    <button ion-button outline item-end class="ImportClassesButton" *ngIf="NUNLFIN == 0"
+                            (click)="subscribeSource('NU.nl Financieel')">
+                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>
+                        Toevoegen
+                    </button>
+                </ion-item>
+                <ion-item class="sourceTitel">
+                    <h4 class="TitelSources">Lifestyle</h4>
+                </ion-item>
+                <ion-item class="sourceItem" *ngIf="BTYL == 0">
+                    <ion-avatar class="avatar" item-start>
+                        <img src="../assets/svg/nu.nl.svg">
+                    </ion-avatar>
+                    <div><b class="sourceTekstFeed">Beautylab</b></div>
+                    <div class="sourceTekst">Lifestyle</div>
+                    <button ion-button outline item-end class="ImportClassesButton" *ngIf="BTYL == 0"
+                            (click)="subscribeSource('Beautylab')">
+                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>
+                        Toevoegen
+                    </button>
+                </ion-item>
+                <ion-item class="sourceItem" *ngIf="LBL == 0">
+                    <ion-avatar class="avatar" item-start>
+                        <img src="../assets/svg/nu.nl.svg">
+                    </ion-avatar>
+                    <div><b class="sourceTekstFeed">Libelle</b></div>
+                    <div class="sourceTekst">Lifestyle</div>
+                    <button ion-button outline item-end class="ImportClassesButton" *ngIf="LBL == 0"
+                            (click)="subscribeSource('Libelle')">
+                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>
+                        Toevoegen
+                    </button>
+                </ion-item>
+            </ion-list>
+        </ion-slide>
+    </ion-slides>
 </ion-content>

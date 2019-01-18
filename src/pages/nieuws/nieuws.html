@@ -17,11 +17,11 @@
     </ion-card-header>
     <ion-card-content class="nieuwsContent">
       <p>{{htmlToPlaintext(this.description)}}</p>
-      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'De Telegraaf'" class="ColorTelegraaf">{{this.site}}</button>
-      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'NOS'" class="ColorNOS">{{this.site}}</button>
-      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'NU.nl'" class="ColorNU">{{this.site}}</button>
-      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'Tweakers'" class="ColorTweakers">{{this.site}}</button>
-      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'KNVB'" class="ColorKnvb">{{this.site}}</button>
+      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'De Telegraaf'" class="ColorTelegraaf">Lees verder op {{this.site}}</button>
+      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'NOS'" class="ColorNOS">Lees verder op {{this.site}}</button>
+      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'NU.nl'" class="ColorNU">Lees verder op {{this.site}}</button>
+      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'Tweakers'" class="ColorTweakers">Lees verder op {{this.site}}</button>
+      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'KNVB'" class="ColorKnvb">Lees verder op {{this.site}}</button>
     </ion-card-content>
   </ion-card>
 </ion-content>

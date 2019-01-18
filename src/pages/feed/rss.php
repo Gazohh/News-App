@@ -6,11 +6,15 @@ $urlArray = array(
     array('name' => 'NOS', 'url' => 'http://feeds.nos.nl/nosnieuwsalgemeen'),
     array('name' => 'NU.nl', 'url' => 'https://www.nu.nl/rss/Algemeen'),
     array('name' => 'De Telegraaf', 'url' => 'https://www.telegraaf.nl/nieuws/rss'),
+    array('name' => 'Volkskrant', 'url' => 'https://www.volkskrant.nl/voorpagina/rss.xml'),
+    array('name' => 'KNVB', 'url' => 'https://www.knvb.nl/knvb_node/rss/nieuws'),
+    array('name' => 'Tweakers', 'url' => 'http://feeds.feedburner.com/tweakers/nieuws'),
+    array('name' => 'Libelle', 'url' => 'https://www.libelle.nl/feed/'),
 );
 
 foreach ($urlArray as $url) {
     $rss->load($url['url']);
-
+    $i = $rss->getElementsByTagNameNS('https://www.volkskrant.nl/voorpagina/rss.xml','thumbnail');
     foreach ($rss->getElementsByTagName('item') as $node) {
         $item = array(
             'site' => $url['name'],
@@ -55,7 +59,11 @@ foreach ($data as $row) {
     {
         $sql1 = "UPDATE article SET description = REPLACE(description, '&nbsp;', ' ') WHERE description LIKE '%&nbsp;%'";
         $sql2 = "UPDATE article SET description = REPLACE(description, '&amp;', '&') WHERE description LIKE '%&amp;%'";
+        $sql3 = "DELETE FROM article WHERE datum ='0000-00-00 00:00:00'";
+        $sql4 = "UPDATE article SET image = 'http://gazoh.net/tweakers.png' WHERE site = 'Tweakers'";
         mysqli_query($connect, $sql1);
         mysqli_query($connect, $sql2);
+        mysqli_query($connect, $sql3);
+        mysqli_query($connect, $sql4);
     }
 }
