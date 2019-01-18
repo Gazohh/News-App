@@ -1,5 +1,5 @@
 import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
+import {Component, Injectable, ViewChild} from '@angular/core';
 import {FeedPage} from "../../pages/feed/feed";
 import {SportPage} from "../../pages/sport/sport";
 import {EconomiePage} from "../../pages/economie/economie";
@@ -11,9 +11,12 @@ import {VermaakPage} from "../../pages/vermaak/vermaak";
 import {SourcesPage} from "../../pages/sources/sources";
 import {LifestylePage} from "../../pages/lifestyle/lifestyle";
 import {HomePage} from "../../pages/home/home";
+import {Nav} from 'ionic-angular';
+
 
 @Injectable()
 export class MenuProvider {
+    @ViewChild(Nav) nav: Nav;
 
     constructor(public http: HttpClient) {
 
@@ -70,13 +73,20 @@ export class MenuProvider {
                 title: 'Instellingen',
                 component: SettingsPage,
                 icon: 'settings'
-            },
-            {
-                title: 'Uitloggen',
-                component: HomePage,
-                icon: 'log-out'
             }
         ]
+    }
+
+    uitloggen() {
+        localStorage.removeItem('userId');
+        localStorage.removeItem('userName');
+        localStorage.removeItem('userEmail');
+        localStorage.removeItem('userEmailVerified');
+        localStorage.removeItem('userRole');
+        localStorage.removeItem('userCreationDate');
+        localStorage.removeItem('sessionToken');
+        localStorage.removeItem('profilePicture');
+
     }
 
 }

@@ -1,163 +1,5 @@
 webpackJsonp([1],{
 
-/***/ 129:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(18);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-/**
- * Generated class for the AdminPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var AdminPage = /** @class */ (function () {
-    function AdminPage(navCtrl, navParams, http, events, toastCtrl, alertCtrl) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.http = http;
-        this.events = events;
-        this.toastCtrl = toastCtrl;
-        this.alertCtrl = alertCtrl;
-        this.isSearchbaropened = false;
-        this.key = "items";
-        this.items = 0;
-        // Theme
-        if (localStorage.getItem("themeColor")) {
-            this.currentTheme = localStorage.getItem("themeColor");
-            console.log(this.currentTheme);
-        }
-    }
-    AdminPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad AdminPage');
-    };
-    AdminPage.prototype.selectGebruikers = function () {
-        var _this = this;
-        this.checklist = "gebruikers";
-        this.http
-            .get('http://gazoh.net/getuser.php')
-            .subscribe(function (data) {
-            _this.gebruikerslijst = data;
-        }, function (error) {
-            console.dir(error);
-        });
-    };
-    AdminPage.prototype.ionViewWillEnter = function () {
-        this.checklist = "artikelen";
-        this.selectArtikelen();
-    };
-    AdminPage.prototype.selectArtikelen = function () {
-        var _this = this;
-        this.checklist = "artikelen";
-        this.http
-            .get('http://gazoh.net/getverborgen.php')
-            .subscribe(function (data) {
-            _this.artikelenlijst = data;
-        }, function (error) {
-            console.dir(error);
-        });
-    };
-    AdminPage.prototype.htmlToPlaintext = function (text) {
-        return text ? String(text).replace(/<[^>]+>/gm, '') : '';
-    };
-    AdminPage.prototype.viewEntry = function (param) {
-        this.navCtrl.push('NieuwsPage', param);
-    };
-    AdminPage.prototype.resetChanges = function () {
-        var _this = this;
-        this.http
-            .get('http://gazoh.net/getdata.php')
-            .subscribe(function (data) {
-            _this.items = data;
-        }, function (error) {
-            console.dir(error);
-        });
-        this.isSearchbaropened = false;
-    };
-    AdminPage.prototype.search = function (event) {
-        var serVal = event.target.value;
-        if (serVal && serVal.trim() != '') {
-            this.items = this.items.filter(function (item) {
-                return (item.title.toLowerCase().indexOf(serVal.toLowerCase()) > -1);
-            });
-        }
-    };
-    // Alert of je de artikel wilt laten zien
-    AdminPage.prototype.showConfirmHide = function (postId) {
-        var _this = this;
-        var confirm = this.alertCtrl.create({
-            title: 'Publiceren',
-            message: 'Weetje zeker dat je deze artikel wilt publiceren?',
-            buttons: [
-                {
-                    text: 'Niet Akkoord',
-                    handler: function () {
-                    }
-                },
-                {
-                    text: 'Akkoord',
-                    handler: function () {
-                        // Show artikel
-                        console.log("Show " + postId);
-                        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
-                        headers.append("Accept", 'application/json');
-                        headers.append('Content-Type', 'application/json');
-                        var options = { headers: headers };
-                        var data = {
-                            articleId: postId
-                        };
-                        _this.http.post('http://www.gazoh.net/showarticle.php', data, options).subscribe(function (res) {
-                            if (res == 'showed') {
-                                _this.selectArtikelen();
-                                var toast = _this.toastCtrl.create({
-                                    message: "Artikel " + postId + " gepubliceerd",
-                                    duration: 2500,
-                                    position: "bottom"
-                                });
-                                toast.present();
-                            }
-                        });
-                    }
-                }
-            ]
-        });
-        confirm.present();
-    };
-    AdminPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-admin',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\admin\admin.html"*/'<ion-header no-border-bottom>\n\n    <ion-navbar>\n\n        <ion-title *ngIf="!isSearchbaropened" class="adminTitle">Admin</ion-title>\n\n        <!-- Searchbar  -->\n\n        <ion-searchbar #searchbar *ngIf="isSearchbaropened" [showCancelButton]="true" (ionCancel)="resetChanges()"\n\n                       (ionInput)="search($event)" placeholder="Waar zijn we naar op zoek?"\n\n                       class="slideInRight"></ion-searchbar>\n\n        <!-- Searchbar icon -->\n\n        <ion-buttons end *ngIf="checklist == \'artikelen\'">\n\n            <button ion-button icon-only (click)="isSearchbaropened=true">\n\n                <ion-icon name="search" *ngIf="!isSearchbaropened"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n        <ion-buttons end *ngIf="checklist == \'gebruikers\'">\n\n            <button ion-button icon-only (click)="isSearchbaropened=true">\n\n                <ion-icon name="search"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n    <ion-segment [(ngModel)]="checklist" color="primary">\n\n        <ion-segment-button value="artikelen" (click)="selectArtikelen()">\n\n            Verborgen\n\n        </ion-segment-button>\n\n        <ion-segment-button value="gebruikers" (click)="selectGebruikers()">\n\n            Gebruikers\n\n        </ion-segment-button>\n\n    </ion-segment>\n\n</ion-header>\n\n<ion-content padding>\n\n    <div *ngIf="checklist == \'artikelen\'">\n\n        <ion-card *ngFor="let item of artikelenlijst" col-md-6 class="ionCard">\n\n            <!-- Images van nieuwsfeed -->\n\n            <div class="ion-card-image-wrapper" (click)="viewEntry({ record: item })">\n\n                <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">\n\n                <img [src]="item.image" *ngIf="item.site == \'NOS.nl\'">\n\n                <img [src]="item.image" *ngIf="item.site != \'NOS.nl\' || item.site != \'NU.nl\'">\n\n            </div>\n\n            <ion-card-content class="cardContentFeed">\n\n                <!-- Avatar -->\n\n                <div id="AvatarFeed" (click)="viewEntry({ record: item })">\n\n                    <ion-avatar *ngIf="item.site == \'NOS\' && currentTheme == \'light-theme\'" class="avatarNOS" item-start>\n\n                        <img src="../assets/svg/NOS_logo.svg" class="avatar-feedNOS"/>\n\n                    </ion-avatar>\n\n                    <ion-avatar *ngIf="item.site == \'NOS\' && currentTheme == \'dark-theme\'" class="avatarNOS" item-start>\n\n                        <img src="../assets/svg/NOS_logo_Wit.svg" class="avatar-feedNOS"/>\n\n                    </ion-avatar>\n\n                    <ion-avatar *ngIf="item.site == \'De Telegraaf\' && currentTheme == \'light-theme\'" class="avatarTelegraaf" item-start>\n\n                        <img src="../assets/svg/Telegraaf.svg" class="avatar-feedTelegraaf"/>\n\n                    </ion-avatar>\n\n                    <ion-avatar *ngIf="item.site == \'De Telegraaf\' && currentTheme == \'dark-theme\'" class="avatarTelegraaf" item-start>\n\n                        <img src="../assets/svg/Telegraaf_Wit.svg" class="avatar-feedTelegraaf"/>\n\n                    </ion-avatar>\n\n                    <ion-avatar *ngIf="item.site == \'NU.nl\'" class="avatar" item-start>\n\n                        <img src="../assets/svg/nu.nl.svg" class="avatar-feed"/>\n\n                    </ion-avatar>\n\n                    <div class="uitgeverFeed" *ngIf="item.site == \'De Telegraaf\'">{{item.site}}</div>\n\n                    <div class="uitgeverFeedNU" *ngIf="item.site == \'NU.nl\'">{{item.site}}</div>\n\n                    <div class="uitgeverFeedNOS" *ngIf="item.site == \'NOS\'"></div>\n\n                </div>\n\n                <!-- Uitgever -->\n\n                <div id="uitgeverFeed" (click)="viewEntry({ record: item })">\n\n                    <!-- Title  -->\n\n                    <div id="title">\n\n                        <ion-card-title *ngIf="item.site == \'De Telegraaf\' || item.site == \'NU.nl\'"><strong\n\n                                class="cardTitle">{{item.title}}</strong></ion-card-title>\n\n                        <ion-card-title *ngIf="item.site == \'NOS\'" id="ionCardNOS"><strong\n\n                                class="cardTitleNOS">{{item.title}}</strong></ion-card-title>\n\n                    </div>\n\n                    <!-- description  -->\n\n                    <div id="description">\n\n                        <p class="descriptionFeed">{{htmlToPlaintext(item.description) |\n\n                            slice:0:120}}...</p>\n\n                    </div>\n\n                    <!-- Datum -->\n\n                    <div id="datumFeed" class="datumFeed">\n\n                        <span>{{item.datum}}</span>\n\n                    </div>\n\n                </div>\n\n                <!-- Social Buttons - Comments - Unhide-->\n\n                <div id="socialLikeComments" class="socialLikeComments">\n\n                    <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\'"\n\n                            class="socialTelegraafShare" (click)="showConfirmHide(item.id)">\n\n                        <ion-icon name="eye"></ion-icon>\n\n                    </button>\n\n                    <button ion-button icon-start clear *ngIf="item.site == \'NOS\'"\n\n                            class="socialNOSShare" (click)="showConfirmHide(item.id)">\n\n                        <ion-icon name="eye"></ion-icon>\n\n                    </button>\n\n                    <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\'"\n\n                            class="socialNuShare" (click)="showConfirmHide(item.id)">\n\n                        <ion-icon name="eye"></ion-icon>\n\n                    </button>\n\n                    <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\'"\n\n                            class="socialTelegraaf" (click)="viewComments({ record: item })">\n\n                        <ion-icon name="chatbubbles" class="darkChatTelegraaf"></ion-icon>\n\n                        <div>{{item.comments}}</div>\n\n                    </button>\n\n                    <button ion-button icon-start clear *ngIf="item.site == \'NOS\'" class="socialNOS"\n\n                            (click)="viewComments({ record: item })">\n\n                        <ion-icon name="chatbubbles" class="darkChatNOS"></ion-icon>\n\n                        <div>{{item.comments}}</div>\n\n                    </button>\n\n                    <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\'" class="socialNu"\n\n                            (click)="viewComments({ record: item })">\n\n                        <ion-icon name="chatbubbles" class="darkChatNU"></ion-icon>\n\n                        <div>{{item.comments}}</div>\n\n                    </button>\n\n                </div>\n\n            </ion-card-content>\n\n        </ion-card>\n\n    </div>\n\n    <ion-list *ngFor="let user of gebruikerslijst">\n\n        <ion-item-sliding #item>\n\n            <ion-item class="adminUsers">\n\n                <ion-avatar class="avatar" item-start>\n\n                    <img src="{{user.profilepicture}}" class="avatar-profiel"/>\n\n                </ion-avatar>\n\n                <h3>ID: <strong>{{user.id}}</strong></h3>\n\n                <h3>Email <strong>{{user.email}}</strong></h3>\n\n            </ion-item>\n\n            <ion-item-options side="right">\n\n                <button ion-button (click)="unread(item)" class="deleteSlide">\n\n                    <span class="spanHide">Bewe</span>\n\n                    <ion-icon name="trash" class="iconAdmin"></ion-icon>\n\n                </button>\n\n                <button ion-button (click)="unread(item)" class="BewerkSlide">\n\n                    <span class="spanHide">Dele</span>\n\n                    <ion-icon name="create" class="iconAdmin"></ion-icon>\n\n                </button>\n\n            </ion-item-options>\n\n        </ion-item-sliding>\n\n    </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\admin\admin.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
-    ], AdminPage);
-    return AdminPage;
-}());
-
-//# sourceMappingURL=admin.js.map
-
-/***/ }),
-
 /***/ 135:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -165,11 +7,11 @@ var AdminPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TutorialPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__feed_feed__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__feed_feed__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_network__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_settings_settings__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_settings_settings__ = __webpack_require__(55);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -383,13 +225,13 @@ var TutorialPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EconomiePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_network__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__comments_comments__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__comments_comments__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_geolocation__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_social_sharing__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_geolocation__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_social_sharing__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_storage__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_map__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_map__);
@@ -1151,7 +993,7 @@ var EconomiePage = /** @class */ (function () {
     ], EconomiePage.prototype, "content", void 0);
     EconomiePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-economie',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\economie\economie.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <button ion-button menuToggle *ngIf="!isSearchbaropened">\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title *ngIf="!isSearchbaropened" class="algemeenText">Financieel</ion-title>\n\n        <!-- Searchbar  -->\n\n        <ion-searchbar #searchbar *ngIf="isSearchbaropened" [showCancelButton]="true" (ionCancel)="resetChanges()"\n\n                       (ionInput)="search($event)" placeholder="Waar zijn we naar op zoek?"\n\n                       class="slideInRight"></ion-searchbar>\n\n        <!-- Searchbar icon -->\n\n        <ion-buttons end\n\n                     *ngIf="this.datepicker == \'vandaag\' || this.datepicker == \'gisteren\' || this.datepicker == \'driedagengeleden\'">\n\n            <button ion-button icon-only (click)="isSearchbaropened=true">\n\n                <ion-icon name="search" *ngIf="!isSearchbaropened"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n        <ion-buttons end *ngIf="this.datepicker == \'HetWeer\'">\n\n            <button ion-button icon-only (click)="goLijstWeerPage()">\n\n                <ion-icon name="search"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n        <ion-buttons end *ngIf="!isSearchbaropened" class="moreFeed">\n\n            <ion-icon name="more"></ion-icon>\n\n            <ion-list class="listMore">\n\n                <ion-select #newSelect [(ngModel)]="datepicker" (ionChange)="onChange(datepicker)"\n\n                            [selectOptions]="selectOptions" cancelText="Annuleer" okText="Ok" class="SelectMore">\n\n                    <ion-option value="vandaag">Vandaag</ion-option>\n\n                    <ion-option value="gisteren">Gisteren</ion-option>\n\n                    <ion-option value="driedagengeleden">Drie dagen geleden</ion-option>\n\n                    <!--<ion-option value="HetWeer">Het weer</ion-option>-->\n\n                </ion-select>\n\n            </ion-list>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <!-- Swipe up refresher  -->\n\n    <ion-refresher (ionRefresh)="doRefresh($event)">\n\n        <ion-refresher-content pullingIcon="arrow-dropdown"\n\n                               pullingText="Sleep omlaag om te verversen"></ion-refresher-content>\n\n    </ion-refresher>\n\n    <!-- Grid -->\n\n    <ion-grid class="feedGrid">\n\n        <ion-col>\n\n            <ion-row>\n\n                <ion-card *ngFor="let item of (items ? items.slice(0,slice): [])" col-md-6 class="ionCard">\n\n                    <!-- Images van nieuwsfeed -->\n\n                    <div class="ion-card-image-wrapper" (tap)="viewEntry({ record: item })">\n\n                        <img class="fullHeight" src="../assets/imgs/NOS.png"\n\n                             *ngIf="item.site == \'NOS\' && network.type == \'none\'">\n\n                        <img class="fullHeight" src="../assets/imgs/NUNL.png"\n\n                             *ngIf="item.site == \'NU.nl\' && network.type == \'none\'">\n\n                        <img class="fullHeight" src="../assets/imgs/tweakers.png" *ngIf="item.site == \'Tweakers\'">\n\n                        <img class="fullHeight" src="../assets/imgs/telegraaf.png"\n\n                             *ngIf="item.site == \'De Telegraaf\' && network.type == \'none\'">\n\n                        <img class="fullHeight" src="../assets/imgs/KNVB.png"\n\n                             *ngIf="item.site == \'KNVB\' && network.type == \'none\'">\n\n                        <img class="fullHeight" [src]="item.image"\n\n                             *ngIf="item.site == \'NOS\' || item.site == \'De Telegraaf\' || item.site == \'NU.nl\' || item.site == \'KNVB\' || item.site == \'NU.nl Economie\' && network.type != \'none\'">\n\n                        <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">\n\n                    </div>\n\n                    <ion-card-content class="cardContentFeed">\n\n                        <!-- Avatar -->\n\n                        <div id="AvatarFeed" (tap)="viewEntry({ record: item })">\n\n                            <ion-avatar *ngIf="item.site == \'NOS\' && currentTheme == \'light-theme\'"\n\n                                        class="avatarNOS" item-start>\n\n                                <img src="../assets/svg/NOS_logo.svg" class="avatar-feed"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'NOS\' && currentTheme == \'dark-theme\'" class="avatarNOS"\n\n                                        item-start>\n\n                                <img src="../assets/svg/NOS_logo_Wit.svg" class="avatar-feed"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'De Telegraaf\' && currentTheme == \'light-theme\'"\n\n                                        class="avatarTelegraaf" item-start>\n\n                                <img src="../assets/svg/Telegraaf.svg" class="avatar-feedTelegraaf"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'De Telegraaf\' && currentTheme == \'dark-theme\'"\n\n                                        class="avatarTelegraaf" item-start>\n\n                                <img src="../assets/svg/Telegraaf_Wit.svg" class="avatar-feedTelegraaf"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'NU.nl\'" class="avatar" item-start>\n\n                                <img src="../assets/svg/nu.nl.svg" class="avatar-feed"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'Tweakers\'" class="avatar" item-start>\n\n                                <img src="../assets/svg/Tweakers.svg" class="avatar-feed"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'KNVB\'" class="avatar" item-start>\n\n                                <img src="../assets/svg/knvb.svg" class="avatar-feed"/>\n\n                            </ion-avatar>\n\n                            <div class="uitgeverFeed" *ngIf="item.site == \'De Telegraaf\'">{{item.site}}</div>\n\n                            <div class="uitgeverFeedNU" *ngIf="item.site == \'NU.nl\'">{{item.site}}</div>\n\n                            <div class="uitgeverFeedNU" *ngIf="item.site == \'Tweakers\'">{{item.site}}</div>\n\n                            <div class="uitgeverFeedNU" *ngIf="item.site == \'KNVB\'">{{item.site}}</div>\n\n                        </div>\n\n                        <!-- Uitgever -->\n\n                        <div id="uitgeverFeed" (tap)="viewEntry({ record: item })">\n\n                            <!-- Title  -->\n\n                            <div id="title">\n\n                                <ion-card-title *ngIf="item.site == \'De Telegraaf\' || item.site == \'NU.nl\'"><strong\n\n                                        class="cardTitle">{{item.title}}</strong></ion-card-title>\n\n                                <ion-card-title *ngIf="item.site == \'NOS\'" id="ionCardNOS"><strong\n\n                                        class="cardTitleNOS">{{item.title}}</strong></ion-card-title>\n\n                                <ion-card-title *ngIf="item.site == \'Tweakers\'"><strong\n\n                                        class="cardTitleNOS">{{item.title}}</strong></ion-card-title>\n\n                                <ion-card-title *ngIf="item.site == \'KNVB\'"><strong\n\n                                        class="cardTitleNOS">{{item.title}}</strong></ion-card-title>\n\n\n\n                            </div>\n\n                            <!-- description  -->\n\n                            <div id="description">\n\n                                <p class="descriptionFeed">{{htmlToPlaintext(item.description) |\n\n                                    slice:0:120}}...</p>\n\n                            </div>\n\n                            <!-- Datum -->\n\n                            <div id="datumFeed" class="datumFeed">\n\n                                <span>{{item.datum}}</span>\n\n                            </div>\n\n                        </div>\n\n                        <!-- Social Buttons - Comments - likes - Share -->\n\n                        <div id="socialLikeComments" class="socialLikeComments">\n\n                            <!---->\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\' && rol == 1"\n\n                                    class="socialTelegraafShare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NOS\' && rol == 1"\n\n                                    class="socialNOSShare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\' && rol == 1"\n\n                                    class="socialNuShare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'Tweakers\' && rol == 1"\n\n                                    class="socialTweakersShare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'KNVB\' && rol == 1"\n\n                                    class="KNVBshare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <!---->\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\'"\n\n                                    class="socialTelegraafShare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NOS\'" class="socialNOSShare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\'" class="socialNuShare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'Tweakers\'"\n\n                                    class="socialTweakersShare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'KNVB\'" class="socialKNVBshare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <!---->\n\n                            <button class="socialTelegraaf" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'De Telegraaf\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="likeTelegraaf"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialNOS" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'NOS\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="likeNOS"></ion-icon>\n\n                                <div class="darkChatComment"> {{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialNu" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'NU.nl\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="likeNu"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialTweakers" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'Tweakers\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="likeTweakers"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialKnvb" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'KNVB\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="likeKNVB"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <!---->\n\n                            <button class="socialTelegraaf" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'De Telegraaf\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="likeTelegraaf"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialNOS" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'NOS\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="likeNOS"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialNu" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'NU.nl\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="likeNu"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialTweakers" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'Tweakers\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="likeTweakers"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialKnvb" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'KNVB\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="likeKNVB"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <!---->\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\'"\n\n                                    class="socialTelegraaf" (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatTelegraaf"></ion-icon>\n\n                                <div class="darkChatComment">{{item.comments}}</div>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NOS\'" class="socialNOS"\n\n                                    (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatNOS"></ion-icon>\n\n                                <div class="darkChatComment">{{item.comments}}</div>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\'" class="socialNu"\n\n                                    (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatNU"></ion-icon>\n\n                                <div class="darkChatComment">{{item.comments}}</div>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'Tweakers\'"\n\n                                    class="socialTweakers"\n\n                                    (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatTweakers"></ion-icon>\n\n                                <div class="darkChatComment">{{item.comments}}</div>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'KNVB\'" class="socialKnvb"\n\n                                    (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatKnvb"></ion-icon>\n\n                                <div class="darkChatComment">{{item.comments}}</div>\n\n                            </button>\n\n                            <!---->\n\n                        </div>\n\n                    </ion-card-content>\n\n                </ion-card>\n\n            </ion-row>\n\n            <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n\n                <ion-infinite-scroll-content\n\n                        loadingSpinner="bubbles"\n\n                        loadingText="Meer artikelen inladen...">\n\n                </ion-infinite-scroll-content>\n\n            </ion-infinite-scroll>\n\n        </ion-col>\n\n    </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\economie\economie.html"*/,
+            selector: 'page-economie',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\economie\economie.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <button ion-button menuToggle *ngIf="!isSearchbaropened">\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title *ngIf="!isSearchbaropened" class="algemeenText">Financieel</ion-title>\n\n        <!-- Searchbar  -->\n\n        <ion-searchbar #searchbar *ngIf="isSearchbaropened" [showCancelButton]="true" (ionCancel)="resetChanges()"\n\n                       (ionInput)="search($event)" placeholder="Waar zijn we naar op zoek?"\n\n                       class="slideInRight"></ion-searchbar>\n\n        <!-- Searchbar icon -->\n\n        <ion-buttons end\n\n                     *ngIf="this.datepicker == \'vandaag\' || this.datepicker == \'gisteren\' || this.datepicker == \'driedagengeleden\'">\n\n            <button ion-button icon-only (click)="isSearchbaropened=true">\n\n                <ion-icon name="search" *ngIf="!isSearchbaropened"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n        <ion-buttons end *ngIf="this.datepicker == \'HetWeer\'">\n\n            <button ion-button icon-only (click)="goLijstWeerPage()">\n\n                <ion-icon name="search"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n        <ion-buttons end *ngIf="!isSearchbaropened" class="moreFeed">\n\n            <ion-icon class="calenderIcon" name="calendar"></ion-icon>\n\n            <ion-list class="listMore">\n\n                <ion-select #newSelect [(ngModel)]="datepicker" (ionChange)="onChange(datepicker)"\n\n                            [selectOptions]="selectOptions" cancelText="Annuleer" okText="Ok" class="SelectMore">\n\n                    <ion-option value="vandaag">Vandaag</ion-option>\n\n                    <ion-option value="gisteren">Gisteren</ion-option>\n\n                    <ion-option value="driedagengeleden">Drie dagen geleden</ion-option>\n\n                    <!--<ion-option value="HetWeer">Het weer</ion-option>-->\n\n                </ion-select>\n\n            </ion-list>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <!-- Swipe up refresher  -->\n\n    <ion-refresher (ionRefresh)="doRefresh($event)">\n\n        <ion-refresher-content pullingIcon="arrow-dropdown"\n\n                               pullingText="Sleep omlaag om te verversen"></ion-refresher-content>\n\n    </ion-refresher>\n\n    <!-- Grid -->\n\n    <ion-grid class="feedGrid">\n\n        <ion-col>\n\n            <ion-row>\n\n                <ion-card *ngFor="let item of (items ? items.slice(0,slice): [])" col-md-6 class="ionCard">\n\n                    <!-- Images van nieuwsfeed -->\n\n                    <div class="ion-card-image-wrapper" (tap)="viewEntry({ record: item })">\n\n                        <img class="fullHeight" src="../assets/imgs/NOS.png"\n\n                             *ngIf="item.site == \'NOS\' && network.type == \'none\'">\n\n                        <img class="fullHeight" src="../assets/imgs/NUNL.png"\n\n                             *ngIf="item.site == \'NU.nl\' && network.type == \'none\'">\n\n                        <img class="fullHeight" src="../assets/imgs/tweakers.png" *ngIf="item.site == \'Tweakers\'">\n\n                        <img class="fullHeight" src="../assets/imgs/telegraaf.png"\n\n                             *ngIf="item.site == \'De Telegraaf\' && network.type == \'none\'">\n\n                        <img class="fullHeight" src="../assets/imgs/KNVB.png"\n\n                             *ngIf="item.site == \'KNVB\' && network.type == \'none\'">\n\n                        <img class="fullHeight" [src]="item.image"\n\n                             *ngIf="item.site == \'NOS\' || item.site == \'De Telegraaf\' || item.site == \'NU.nl\' || item.site == \'KNVB\' || item.site == \'NU.nl Economie\' && network.type != \'none\'">\n\n                        <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">\n\n                    </div>\n\n                    <ion-card-content class="cardContentFeed">\n\n                        <!-- Avatar -->\n\n                        <div id="AvatarFeed" (tap)="viewEntry({ record: item })">\n\n                            <ion-avatar *ngIf="item.site == \'NOS\' && currentTheme == \'light-theme\'"\n\n                                        class="avatarNOS" item-start>\n\n                                <img src="../assets/svg/NOS_logo.svg" class="avatar-feed"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'NOS\' && currentTheme == \'dark-theme\'" class="avatarNOS"\n\n                                        item-start>\n\n                                <img src="../assets/svg/NOS_logo_Wit.svg" class="avatar-feed"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'De Telegraaf\' && currentTheme == \'light-theme\'"\n\n                                        class="avatarTelegraaf" item-start>\n\n                                <img src="../assets/svg/Telegraaf.svg" class="avatar-feedTelegraaf"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'De Telegraaf\' && currentTheme == \'dark-theme\'"\n\n                                        class="avatarTelegraaf" item-start>\n\n                                <img src="../assets/svg/Telegraaf_Wit.svg" class="avatar-feedTelegraaf"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'NU.nl\'" class="avatar" item-start>\n\n                                <img src="../assets/svg/nu.nl.svg" class="avatar-feed"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'Tweakers\'" class="avatar" item-start>\n\n                                <img src="../assets/svg/Tweakers.svg" class="avatar-feed"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'KNVB\'" class="avatar" item-start>\n\n                                <img src="../assets/svg/knvb.svg" class="avatar-feed"/>\n\n                            </ion-avatar>\n\n                            <div class="uitgeverFeed" *ngIf="item.site == \'De Telegraaf\'">{{item.site}}</div>\n\n                            <div class="uitgeverFeedNU" *ngIf="item.site == \'NU.nl\'">{{item.site}}</div>\n\n                            <div class="uitgeverFeedNU" *ngIf="item.site == \'Tweakers\'">{{item.site}}</div>\n\n                            <div class="uitgeverFeedNU" *ngIf="item.site == \'KNVB\'">{{item.site}}</div>\n\n                        </div>\n\n                        <!-- Uitgever -->\n\n                        <div id="uitgeverFeed" (tap)="viewEntry({ record: item })">\n\n                            <!-- Title  -->\n\n                            <div id="title">\n\n                                <ion-card-title *ngIf="item.site == \'De Telegraaf\' || item.site == \'NU.nl\'"><strong\n\n                                        class="cardTitle">{{item.title}}</strong></ion-card-title>\n\n                                <ion-card-title *ngIf="item.site == \'NOS\'" id="ionCardNOS"><strong\n\n                                        class="cardTitleNOS">{{item.title}}</strong></ion-card-title>\n\n                                <ion-card-title *ngIf="item.site == \'Tweakers\'"><strong\n\n                                        class="cardTitleNOS">{{item.title}}</strong></ion-card-title>\n\n                                <ion-card-title *ngIf="item.site == \'KNVB\'"><strong\n\n                                        class="cardTitleNOS">{{item.title}}</strong></ion-card-title>\n\n\n\n                            </div>\n\n                            <!-- description  -->\n\n                            <div id="description">\n\n                                <p class="descriptionFeed">{{htmlToPlaintext(item.description) |\n\n                                    slice:0:120}}...</p>\n\n                            </div>\n\n                            <!-- Datum -->\n\n                            <div id="datumFeed" class="datumFeed">\n\n                                <span>{{item.datum}}</span>\n\n                            </div>\n\n                        </div>\n\n                        <!-- Social Buttons - Comments - likes - Share -->\n\n                        <div id="socialLikeComments" class="socialLikeComments">\n\n                            <!---->\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\' && rol == 1"\n\n                                    class="socialTelegraafShare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NOS\' && rol == 1"\n\n                                    class="socialNOSShare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\' && rol == 1"\n\n                                    class="socialNuShare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'Tweakers\' && rol == 1"\n\n                                    class="socialTweakersShare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'KNVB\' && rol == 1"\n\n                                    class="KNVBshare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <!---->\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\'"\n\n                                    class="socialTelegraafShare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NOS\'" class="socialNOSShare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\'" class="socialNuShare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'Tweakers\'"\n\n                                    class="socialTweakersShare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'KNVB\'" class="socialKNVBshare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <!---->\n\n                            <button class="socialTelegraaf" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'De Telegraaf\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="likeTelegraaf"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialNOS" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'NOS\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="likeNOS"></ion-icon>\n\n                                <div class="darkChatComment"> {{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialNu" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'NU.nl\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="likeNu"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialTweakers" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'Tweakers\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="likeTweakers"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialKnvb" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'KNVB\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="likeKNVB"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <!---->\n\n                            <button class="socialTelegraaf" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'De Telegraaf\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="likeTelegraaf"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialNOS" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'NOS\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="likeNOS"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialNu" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'NU.nl\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="likeNu"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialTweakers" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'Tweakers\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="likeTweakers"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialKnvb" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'KNVB\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="likeKNVB"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <!---->\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\'"\n\n                                    class="socialTelegraaf" (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatTelegraaf"></ion-icon>\n\n                                <div class="darkChatComment">{{item.comments}}</div>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NOS\'" class="socialNOS"\n\n                                    (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatNOS"></ion-icon>\n\n                                <div class="darkChatComment">{{item.comments}}</div>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\'" class="socialNu"\n\n                                    (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatNU"></ion-icon>\n\n                                <div class="darkChatComment">{{item.comments}}</div>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'Tweakers\'"\n\n                                    class="socialTweakers"\n\n                                    (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatTweakers"></ion-icon>\n\n                                <div class="darkChatComment">{{item.comments}}</div>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'KNVB\'" class="socialKnvb"\n\n                                    (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatKnvb"></ion-icon>\n\n                                <div class="darkChatComment">{{item.comments}}</div>\n\n                            </button>\n\n                            <!---->\n\n                        </div>\n\n                    </ion-card-content>\n\n                </ion-card>\n\n            </ion-row>\n\n            <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n\n                <ion-infinite-scroll-content\n\n                        loadingSpinner="bubbles"\n\n                        loadingText="Meer artikelen inladen...">\n\n                </ion-infinite-scroll-content>\n\n            </ion-infinite-scroll>\n\n        </ion-col>\n\n    </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\economie\economie.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
@@ -1184,13 +1026,13 @@ var EconomiePage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LifestylePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_network__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__comments_comments__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__comments_comments__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_geolocation__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_social_sharing__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_geolocation__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_social_sharing__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_storage__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_map__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_map__);
@@ -1952,7 +1794,7 @@ var LifestylePage = /** @class */ (function () {
     ], LifestylePage.prototype, "content", void 0);
     LifestylePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-lifestyle',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\lifestyle\lifestyle.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle *ngIf="!isSearchbaropened">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title *ngIf="!isSearchbaropened" class="algemeenText">Lifestyle</ion-title>\n\n    <!-- Searchbar  -->\n\n    <ion-searchbar #searchbar *ngIf="isSearchbaropened" [showCancelButton]="true" (ionCancel)="resetChanges()"\n\n                   (ionInput)="search($event)" placeholder="Waar zijn we naar op zoek?"\n\n                   class="slideInRight"></ion-searchbar>\n\n    <!-- Searchbar icon -->\n\n    <ion-buttons end\n\n                 *ngIf="this.datepicker == \'vandaag\' || this.datepicker == \'gisteren\' || this.datepicker == \'driedagengeleden\'">\n\n      <button ion-button icon-only (click)="isSearchbaropened=true">\n\n        <ion-icon name="search" *ngIf="!isSearchbaropened"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-buttons end *ngIf="this.datepicker == \'HetWeer\'">\n\n      <button ion-button icon-only (click)="goLijstWeerPage()">\n\n        <ion-icon name="search"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-buttons end *ngIf="!isSearchbaropened" class="moreFeed">\n\n      <ion-icon name="more"></ion-icon>\n\n      <ion-list class="listMore">\n\n        <ion-select #newSelect [(ngModel)]="datepicker" (ionChange)="onChange(datepicker)"\n\n                    [selectOptions]="selectOptions" cancelText="Annuleer" okText="Ok" class="SelectMore">\n\n          <ion-option value="vandaag">Vandaag</ion-option>\n\n          <ion-option value="gisteren">Gisteren</ion-option>\n\n          <ion-option value="driedagengeleden">Drie dagen geleden</ion-option>\n\n          <!--<ion-option value="HetWeer">Het weer</ion-option>-->\n\n        </ion-select>\n\n      </ion-list>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  <!-- Swipe up refresher  -->\n\n  <ion-refresher (ionRefresh)="doRefresh($event)">\n\n    <ion-refresher-content pullingIcon="arrow-dropdown"\n\n                           pullingText="Sleep omlaag om te verversen"></ion-refresher-content>\n\n  </ion-refresher>\n\n  <!-- Grid -->\n\n  <ion-grid class="feedGrid">\n\n    <ion-col>\n\n      <ion-row>\n\n        <ion-card *ngFor="let item of (items ? items.slice(0,slice): [])" col-md-6 class="ionCard">\n\n          <!-- Images van nieuwsfeed -->\n\n          <div class="ion-card-image-wrapper" (tap)="viewEntry({ record: item })">\n\n            <img class="fullHeight" src="../assets/imgs/NOS.png"\n\n                 *ngIf="item.site == \'NOS\' && network.type == \'none\'">\n\n            <img class="fullHeight" src="../assets/imgs/NUNL.png"\n\n                 *ngIf="item.site == \'NU.nl\' && network.type == \'none\'">\n\n            <img class="fullHeight" src="../assets/imgs/tweakers.png" *ngIf="item.site == \'Tweakers\'">\n\n            <img class="fullHeight" src="../assets/imgs/telegraaf.png"\n\n                 *ngIf="item.site == \'De Telegraaf\' && network.type == \'none\'">\n\n            <img class="fullHeight" src="../assets/imgs/KNVB.png"\n\n                 *ngIf="item.site == \'KNVB\' && network.type == \'none\'">\n\n            <img class="fullHeight" [src]="item.image"\n\n                 *ngIf="item.site == \'NOS\' || item.site == \'De Telegraaf\' || item.site == \'NU.nl\' || item.site == \'KNVB\' && network.type != \'none\'">\n\n            <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">\n\n          </div>\n\n          <ion-card-content class="cardContentFeed">\n\n            <!-- Avatar -->\n\n            <div id="AvatarFeed" (tap)="viewEntry({ record: item })">\n\n              <ion-avatar *ngIf="item.site == \'NOS\' && currentTheme == \'light-theme\'"\n\n                          class="avatarNOS" item-start>\n\n                <img src="../assets/svg/NOS_logo.svg" class="avatar-feed"/>\n\n              </ion-avatar>\n\n              <ion-avatar *ngIf="item.site == \'NOS\' && currentTheme == \'dark-theme\'" class="avatarNOS"\n\n                          item-start>\n\n                <img src="../assets/svg/NOS_logo_Wit.svg" class="avatar-feed"/>\n\n              </ion-avatar>\n\n              <ion-avatar *ngIf="item.site == \'De Telegraaf\' && currentTheme == \'light-theme\'"\n\n                          class="avatarTelegraaf" item-start>\n\n                <img src="../assets/svg/Telegraaf.svg" class="avatar-feedTelegraaf"/>\n\n              </ion-avatar>\n\n              <ion-avatar *ngIf="item.site == \'De Telegraaf\' && currentTheme == \'dark-theme\'"\n\n                          class="avatarTelegraaf" item-start>\n\n                <img src="../assets/svg/Telegraaf_Wit.svg" class="avatar-feedTelegraaf"/>\n\n              </ion-avatar>\n\n              <ion-avatar *ngIf="item.site == \'NU.nl\'" class="avatar" item-start>\n\n                <img src="../assets/svg/nu.nl.svg" class="avatar-feed"/>\n\n              </ion-avatar>\n\n              <ion-avatar *ngIf="item.site == \'Tweakers\'" class="avatar" item-start>\n\n                <img src="../assets/svg/Tweakers.svg" class="avatar-feed"/>\n\n              </ion-avatar>\n\n              <ion-avatar *ngIf="item.site == \'KNVB\'" class="avatar" item-start>\n\n                <img src="../assets/svg/knvb.svg" class="avatar-feed"/>\n\n              </ion-avatar>\n\n              <div class="uitgeverFeed" *ngIf="item.site == \'De Telegraaf\'">{{item.site}}</div>\n\n              <div class="uitgeverFeedNU" *ngIf="item.site == \'NU.nl\'">{{item.site}}</div>\n\n              <div class="uitgeverFeedNU" *ngIf="item.site == \'Tweakers\'">{{item.site}}</div>\n\n              <div class="uitgeverFeedNU" *ngIf="item.site == \'KNVB\'">{{item.site}}</div>\n\n            </div>\n\n            <!-- Uitgever -->\n\n            <div id="uitgeverFeed" (tap)="viewEntry({ record: item })">\n\n              <!-- Title  -->\n\n              <div id="title">\n\n                <ion-card-title *ngIf="item.site == \'De Telegraaf\' || item.site == \'NU.nl\'"><strong\n\n                        class="cardTitle">{{item.title}}</strong></ion-card-title>\n\n                <ion-card-title *ngIf="item.site == \'NOS\'" id="ionCardNOS"><strong\n\n                        class="cardTitleNOS">{{item.title}}</strong></ion-card-title>\n\n                <ion-card-title *ngIf="item.site == \'Tweakers\'"><strong\n\n                        class="cardTitleNOS">{{item.title}}</strong></ion-card-title>\n\n                <ion-card-title *ngIf="item.site == \'KNVB\'"><strong\n\n                        class="cardTitleNOS">{{item.title}}</strong></ion-card-title>\n\n\n\n              </div>\n\n              <!-- description  -->\n\n              <div id="description">\n\n                <p class="descriptionFeed">{{htmlToPlaintext(item.description) |\n\n                  slice:0:120}}...</p>\n\n              </div>\n\n              <!-- Datum -->\n\n              <div id="datumFeed" class="datumFeed">\n\n                <span>{{item.datum}}</span>\n\n              </div>\n\n            </div>\n\n            <!-- Social Buttons - Comments - likes - Share -->\n\n            <div id="socialLikeComments" class="socialLikeComments">\n\n              <!---->\n\n              <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\' && rol == 1"\n\n                      class="socialTelegraafShare" (click)="showConfirmHide(item.id)">\n\n                <ion-icon name="trash"></ion-icon>\n\n              </button>\n\n              <button ion-button icon-start clear *ngIf="item.site == \'NOS\' && rol == 1"\n\n                      class="socialNOSShare" (click)="showConfirmHide(item.id)">\n\n                <ion-icon name="trash"></ion-icon>\n\n              </button>\n\n              <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\' && rol == 1"\n\n                      class="socialNuShare" (click)="showConfirmHide(item.id)">\n\n                <ion-icon name="trash"></ion-icon>\n\n              </button>\n\n              <button ion-button icon-start clear *ngIf="item.site == \'Tweakers\' && rol == 1"\n\n                      class="socialTweakersShare" (click)="showConfirmHide(item.id)">\n\n                <ion-icon name="trash"></ion-icon>\n\n              </button>\n\n              <button ion-button icon-start clear *ngIf="item.site == \'KNVB\' && rol == 1"\n\n                      class="KNVBshare" (click)="showConfirmHide(item.id)">\n\n                <ion-icon name="trash"></ion-icon>\n\n              </button>\n\n              <!---->\n\n              <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\'"\n\n                      class="socialTelegraafShare"\n\n                      (click)="shareInfo(item.title, item.image, item.link)">\n\n                <ion-icon name="share-alt"></ion-icon>\n\n              </button>\n\n              <button ion-button icon-start clear *ngIf="item.site == \'NOS\'" class="socialNOSShare"\n\n                      (click)="shareInfo(item.title, item.image, item.link)">\n\n                <ion-icon name="share-alt"></ion-icon>\n\n              </button>\n\n              <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\'" class="socialNuShare"\n\n                      (click)="shareInfo(item.title, item.image, item.link)">\n\n                <ion-icon name="share-alt"></ion-icon>\n\n              </button>\n\n              <button ion-button icon-start clear *ngIf="item.site == \'Tweakers\'"\n\n                      class="socialTweakersShare"\n\n                      (click)="shareInfo(item.title, item.image, item.link)">\n\n                <ion-icon name="share-alt"></ion-icon>\n\n              </button>\n\n              <button ion-button icon-start clear *ngIf="item.site == \'KNVB\'" class="socialKNVBshare"\n\n                      (click)="shareInfo(item.title, item.image, item.link)">\n\n                <ion-icon name="share-alt"></ion-icon>\n\n              </button>\n\n              <!---->\n\n              <button class="socialTelegraaf" ion-button icon-start clear\n\n                      *ngIf="item.site == \'De Telegraaf\' && item.liked == 0" [disabled]="disabled"\n\n                      (click)="setLike(item.id)">\n\n                <ion-icon name="heart-outline" class="likeTelegraaf"></ion-icon>\n\n                <div class="darkChatComment">{{item.likes}}</div>\n\n              </button>\n\n              <button class="socialNOS" ion-button icon-start clear\n\n                      *ngIf="item.site == \'NOS\' && item.liked == 0" [disabled]="disabled"\n\n                      (click)="setLike(item.id)">\n\n                <ion-icon name="heart-outline" class="likeNOS"></ion-icon>\n\n                <div class="darkChatComment"> {{item.likes}}</div>\n\n              </button>\n\n              <button class="socialNu" ion-button icon-start clear\n\n                      *ngIf="item.site == \'NU.nl\' && item.liked == 0" [disabled]="disabled"\n\n                      (click)="setLike(item.id)">\n\n                <ion-icon name="heart-outline" class="likeNu"></ion-icon>\n\n                <div class="darkChatComment">{{item.likes}}</div>\n\n              </button>\n\n              <button class="socialTweakers" ion-button icon-start clear\n\n                      *ngIf="item.site == \'Tweakers\' && item.liked == 0" [disabled]="disabled"\n\n                      (click)="setLike(item.id)">\n\n                <ion-icon name="heart-outline" class="likeTweakers"></ion-icon>\n\n                <div class="darkChatComment">{{item.likes}}</div>\n\n              </button>\n\n              <button class="socialKnvb" ion-button icon-start clear\n\n                      *ngIf="item.site == \'KNVB\' && item.liked == 0" [disabled]="disabled"\n\n                      (click)="setLike(item.id)">\n\n                <ion-icon name="heart-outline" class="likeKNVB"></ion-icon>\n\n                <div class="darkChatComment">{{item.likes}}</div>\n\n              </button>\n\n              <!---->\n\n              <button class="socialTelegraaf" ion-button icon-start clear\n\n                      *ngIf="item.site == \'De Telegraaf\' && item.liked == 1"\n\n                      (click)="dislike(item.id, item.title)">\n\n                <ion-icon name="heart" class="likeTelegraaf"></ion-icon>\n\n                <div class="darkChatComment">{{item.likes}}</div>\n\n              </button>\n\n              <button class="socialNOS" ion-button icon-start clear\n\n                      *ngIf="item.site == \'NOS\' && item.liked == 1"\n\n                      (click)="dislike(item.id, item.title)">\n\n                <ion-icon name="heart" class="likeNOS"></ion-icon>\n\n                <div class="darkChatComment">{{item.likes}}</div>\n\n              </button>\n\n              <button class="socialNu" ion-button icon-start clear\n\n                      *ngIf="item.site == \'NU.nl\' && item.liked == 1"\n\n                      (click)="dislike(item.id, item.title)">\n\n                <ion-icon name="heart" class="likeNu"></ion-icon>\n\n                <div class="darkChatComment">{{item.likes}}</div>\n\n              </button>\n\n              <button class="socialTweakers" ion-button icon-start clear\n\n                      *ngIf="item.site == \'Tweakers\' && item.liked == 1"\n\n                      (click)="dislike(item.id, item.title)">\n\n                <ion-icon name="heart" class="likeTweakers"></ion-icon>\n\n                <div class="darkChatComment">{{item.likes}}</div>\n\n              </button>\n\n              <button class="socialKnvb" ion-button icon-start clear\n\n                      *ngIf="item.site == \'KNVB\' && item.liked == 1"\n\n                      (click)="dislike(item.id, item.title)">\n\n                <ion-icon name="heart" class="likeKNVB"></ion-icon>\n\n                <div class="darkChatComment">{{item.likes}}</div>\n\n              </button>\n\n              <!---->\n\n              <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\'"\n\n                      class="socialTelegraaf" (click)="viewComments({ record: item })">\n\n                <ion-icon name="chatbubbles" class="darkChatTelegraaf"></ion-icon>\n\n                <div class="darkChatComment">{{item.comments}}</div>\n\n              </button>\n\n              <button ion-button icon-start clear *ngIf="item.site == \'NOS\'" class="socialNOS"\n\n                      (click)="viewComments({ record: item })">\n\n                <ion-icon name="chatbubbles" class="darkChatNOS"></ion-icon>\n\n                <div class="darkChatComment">{{item.comments}}</div>\n\n              </button>\n\n              <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\'" class="socialNu"\n\n                      (click)="viewComments({ record: item })">\n\n                <ion-icon name="chatbubbles" class="darkChatNU"></ion-icon>\n\n                <div class="darkChatComment">{{item.comments}}</div>\n\n              </button>\n\n              <button ion-button icon-start clear *ngIf="item.site == \'Tweakers\'"\n\n                      class="socialTweakers"\n\n                      (click)="viewComments({ record: item })">\n\n                <ion-icon name="chatbubbles" class="darkChatTweakers"></ion-icon>\n\n                <div class="darkChatComment">{{item.comments}}</div>\n\n              </button>\n\n              <button ion-button icon-start clear *ngIf="item.site == \'KNVB\'" class="socialKnvb"\n\n                      (click)="viewComments({ record: item })">\n\n                <ion-icon name="chatbubbles" class="darkChatKnvb"></ion-icon>\n\n                <div class="darkChatComment">{{item.comments}}</div>\n\n              </button>\n\n              <!---->\n\n            </div>\n\n          </ion-card-content>\n\n        </ion-card>\n\n      </ion-row>\n\n      <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n\n        <ion-infinite-scroll-content\n\n                loadingSpinner="bubbles"\n\n                loadingText="Meer artikelen inladen...">\n\n        </ion-infinite-scroll-content>\n\n      </ion-infinite-scroll>\n\n    </ion-col>\n\n  </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\lifestyle\lifestyle.html"*/,
+            selector: 'page-lifestyle',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\lifestyle\lifestyle.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle *ngIf="!isSearchbaropened">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title *ngIf="!isSearchbaropened" class="algemeenText">Lifestyle</ion-title>\n\n    <!-- Searchbar  -->\n\n    <ion-searchbar #searchbar *ngIf="isSearchbaropened" [showCancelButton]="true" (ionCancel)="resetChanges()"\n\n                   (ionInput)="search($event)" placeholder="Waar zijn we naar op zoek?"\n\n                   class="slideInRight"></ion-searchbar>\n\n    <!-- Searchbar icon -->\n\n    <ion-buttons end\n\n                 *ngIf="this.datepicker == \'vandaag\' || this.datepicker == \'gisteren\' || this.datepicker == \'driedagengeleden\'">\n\n      <button ion-button icon-only (click)="isSearchbaropened=true">\n\n        <ion-icon name="search" *ngIf="!isSearchbaropened"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-buttons end *ngIf="this.datepicker == \'HetWeer\'">\n\n      <button ion-button icon-only (click)="goLijstWeerPage()">\n\n        <ion-icon name="search"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-buttons end *ngIf="!isSearchbaropened" class="moreFeed">\n\n      <ion-icon class="calenderIcon" name="calendar"></ion-icon>\n\n      <ion-list class="listMore">\n\n        <ion-select #newSelect [(ngModel)]="datepicker" (ionChange)="onChange(datepicker)"\n\n                    [selectOptions]="selectOptions" cancelText="Annuleer" okText="Ok" class="SelectMore">\n\n          <ion-option value="vandaag">Vandaag</ion-option>\n\n          <ion-option value="gisteren">Gisteren</ion-option>\n\n          <ion-option value="driedagengeleden">Drie dagen geleden</ion-option>\n\n          <!--<ion-option value="HetWeer">Het weer</ion-option>-->\n\n        </ion-select>\n\n      </ion-list>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  <!-- Swipe up refresher  -->\n\n  <ion-refresher (ionRefresh)="doRefresh($event)">\n\n    <ion-refresher-content pullingIcon="arrow-dropdown"\n\n                           pullingText="Sleep omlaag om te verversen"></ion-refresher-content>\n\n  </ion-refresher>\n\n  <!-- Grid -->\n\n  <ion-grid class="feedGrid">\n\n    <ion-col>\n\n      <ion-row>\n\n        <ion-card *ngFor="let item of (items ? items.slice(0,slice): [])" col-md-6 class="ionCard">\n\n          <!-- Images van nieuwsfeed -->\n\n          <div class="ion-card-image-wrapper" (tap)="viewEntry({ record: item })">\n\n            <img class="fullHeight" src="../assets/imgs/NOS.png" *ngIf="item.site == \'NOS\' && network.type == \'none\'">\n\n            <img class="fullHeight" src="../assets/imgs/NUNL.png" *ngIf="item.site == \'NU.nl\' && network.type == \'none\'">\n\n            <img class="fullHeight" src="../assets/imgs/tweakers.png" *ngIf="item.site == \'Tweakers\'">\n\n            <img class="fullHeight" src="../assets/imgs/telegraaf.png" *ngIf="item.site == \'De Telegraaf\' && network.type == \'none\'">\n\n            <img class="fullHeight" src="../assets/imgs/KNVB.png" *ngIf="item.site == \'KNVB\' && network.type == \'none\'">\n\n            <img class="fullHeight" [src]="item.image" *ngIf="item.site == \'NOS\' || item.site == \'De Telegraaf\' || item.site == \'NU.nl\' || item.site == \'KNVB\' && network.type != \'none\'">\n\n            <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">\n\n          </div>\n\n          <ion-card-content class="cardContentFeed">\n\n            <!-- Avatar -->\n\n            <div id="AvatarFeed" (tap)="viewEntry({ record: item })">\n\n              <ion-avatar *ngIf="item.site == \'NOS\' && currentTheme == \'light-theme\'"\n\n                          class="avatarNOS" item-start>\n\n                <img src="../assets/svg/NOS_logo.svg" class="avatar-feed"/>\n\n              </ion-avatar>\n\n              <ion-avatar *ngIf="item.site == \'NOS\' && currentTheme == \'dark-theme\'" class="avatarNOS"\n\n                          item-start>\n\n                <img src="../assets/svg/NOS_logo_Wit.svg" class="avatar-feed"/>\n\n              </ion-avatar>\n\n              <ion-avatar *ngIf="item.site == \'De Telegraaf\' && currentTheme == \'light-theme\'"\n\n                          class="avatarTelegraaf" item-start>\n\n                <img src="../assets/svg/Telegraaf.svg" class="avatar-feedTelegraaf"/>\n\n              </ion-avatar>\n\n              <ion-avatar *ngIf="item.site == \'De Telegraaf\' && currentTheme == \'dark-theme\'"\n\n                          class="avatarTelegraaf" item-start>\n\n                <img src="../assets/svg/Telegraaf_Wit.svg" class="avatar-feedTelegraaf"/>\n\n              </ion-avatar>\n\n              <ion-avatar *ngIf="item.site == \'NU.nl\'" class="avatar" item-start>\n\n                <img src="../assets/svg/nu.nl.svg" class="avatar-feed"/>\n\n              </ion-avatar>\n\n              <ion-avatar *ngIf="item.site == \'Tweakers\'" class="avatar" item-start>\n\n                <img src="../assets/svg/Tweakers.svg" class="avatar-feed"/>\n\n              </ion-avatar>\n\n              <ion-avatar *ngIf="item.site == \'KNVB\'" class="avatar" item-start>\n\n                <img src="../assets/svg/knvb.svg" class="avatar-feed"/>\n\n              </ion-avatar>\n\n              <div class="uitgeverFeed" *ngIf="item.site == \'De Telegraaf\'">{{item.site}}</div>\n\n              <div class="uitgeverFeedNU" *ngIf="item.site == \'NU.nl\'">{{item.site}}</div>\n\n              <div class="uitgeverFeedNU" *ngIf="item.site == \'Tweakers\'">{{item.site}}</div>\n\n              <div class="uitgeverFeedNU" *ngIf="item.site == \'KNVB\'">{{item.site}}</div>\n\n            </div>\n\n            <!-- Uitgever -->\n\n            <div id="uitgeverFeed" (tap)="viewEntry({ record: item })">\n\n              <!-- Title  -->\n\n              <div id="title">\n\n                <ion-card-title *ngIf="item.site == \'De Telegraaf\' || item.site == \'NU.nl\'"><strong\n\n                        class="cardTitle">{{item.title}}</strong></ion-card-title>\n\n                <ion-card-title *ngIf="item.site == \'NOS\'" id="ionCardNOS"><strong\n\n                        class="cardTitleNOS">{{item.title}}</strong></ion-card-title>\n\n                <ion-card-title *ngIf="item.site == \'Tweakers\'"><strong\n\n                        class="cardTitleNOS">{{item.title}}</strong></ion-card-title>\n\n                <ion-card-title *ngIf="item.site == \'KNVB\'"><strong\n\n                        class="cardTitleNOS">{{item.title}}</strong></ion-card-title>\n\n\n\n              </div>\n\n              <!-- description  -->\n\n              <div id="description">\n\n                <p class="descriptionFeed">{{htmlToPlaintext(item.description) |\n\n                  slice:0:120}}...</p>\n\n              </div>\n\n              <!-- Datum -->\n\n              <div id="datumFeed" class="datumFeed">\n\n                <span>{{item.datum}}</span>\n\n              </div>\n\n            </div>\n\n            <!-- Social Buttons - Comments - likes - Share -->\n\n            <div id="socialLikeComments" class="socialLikeComments">\n\n              <!---->\n\n              <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\' && rol == 1"\n\n                      class="socialTelegraafShare" (click)="showConfirmHide(item.id)">\n\n                <ion-icon name="trash"></ion-icon>\n\n              </button>\n\n              <button ion-button icon-start clear *ngIf="item.site == \'NOS\' && rol == 1"\n\n                      class="socialNOSShare" (click)="showConfirmHide(item.id)">\n\n                <ion-icon name="trash"></ion-icon>\n\n              </button>\n\n              <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\' && rol == 1"\n\n                      class="socialNuShare" (click)="showConfirmHide(item.id)">\n\n                <ion-icon name="trash"></ion-icon>\n\n              </button>\n\n              <button ion-button icon-start clear *ngIf="item.site == \'Tweakers\' && rol == 1"\n\n                      class="socialTweakersShare" (click)="showConfirmHide(item.id)">\n\n                <ion-icon name="trash"></ion-icon>\n\n              </button>\n\n              <button ion-button icon-start clear *ngIf="item.site == \'KNVB\' && rol == 1"\n\n                      class="KNVBshare" (click)="showConfirmHide(item.id)">\n\n                <ion-icon name="trash"></ion-icon>\n\n              </button>\n\n              <!---->\n\n              <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\'"\n\n                      class="socialTelegraafShare"\n\n                      (click)="shareInfo(item.title, item.image, item.link)">\n\n                <ion-icon name="share-alt"></ion-icon>\n\n              </button>\n\n              <button ion-button icon-start clear *ngIf="item.site == \'NOS\'" class="socialNOSShare"\n\n                      (click)="shareInfo(item.title, item.image, item.link)">\n\n                <ion-icon name="share-alt"></ion-icon>\n\n              </button>\n\n              <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\'" class="socialNuShare"\n\n                      (click)="shareInfo(item.title, item.image, item.link)">\n\n                <ion-icon name="share-alt"></ion-icon>\n\n              </button>\n\n              <button ion-button icon-start clear *ngIf="item.site == \'Tweakers\'"\n\n                      class="socialTweakersShare"\n\n                      (click)="shareInfo(item.title, item.image, item.link)">\n\n                <ion-icon name="share-alt"></ion-icon>\n\n              </button>\n\n              <button ion-button icon-start clear *ngIf="item.site == \'KNVB\'" class="socialKNVBshare"\n\n                      (click)="shareInfo(item.title, item.image, item.link)">\n\n                <ion-icon name="share-alt"></ion-icon>\n\n              </button>\n\n              <!---->\n\n              <button class="socialTelegraaf" ion-button icon-start clear\n\n                      *ngIf="item.site == \'De Telegraaf\' && item.liked == 0" [disabled]="disabled"\n\n                      (click)="setLike(item.id)">\n\n                <ion-icon name="heart-outline" class="likeTelegraaf"></ion-icon>\n\n                <div class="darkChatComment">{{item.likes}}</div>\n\n              </button>\n\n              <button class="socialNOS" ion-button icon-start clear\n\n                      *ngIf="item.site == \'NOS\' && item.liked == 0" [disabled]="disabled"\n\n                      (click)="setLike(item.id)">\n\n                <ion-icon name="heart-outline" class="likeNOS"></ion-icon>\n\n                <div class="darkChatComment"> {{item.likes}}</div>\n\n              </button>\n\n              <button class="socialNu" ion-button icon-start clear\n\n                      *ngIf="item.site == \'NU.nl\' && item.liked == 0" [disabled]="disabled"\n\n                      (click)="setLike(item.id)">\n\n                <ion-icon name="heart-outline" class="likeNu"></ion-icon>\n\n                <div class="darkChatComment">{{item.likes}}</div>\n\n              </button>\n\n              <button class="socialTweakers" ion-button icon-start clear\n\n                      *ngIf="item.site == \'Tweakers\' && item.liked == 0" [disabled]="disabled"\n\n                      (click)="setLike(item.id)">\n\n                <ion-icon name="heart-outline" class="likeTweakers"></ion-icon>\n\n                <div class="darkChatComment">{{item.likes}}</div>\n\n              </button>\n\n              <button class="socialKnvb" ion-button icon-start clear\n\n                      *ngIf="item.site == \'KNVB\' && item.liked == 0" [disabled]="disabled"\n\n                      (click)="setLike(item.id)">\n\n                <ion-icon name="heart-outline" class="likeKNVB"></ion-icon>\n\n                <div class="darkChatComment">{{item.likes}}</div>\n\n              </button>\n\n              <!---->\n\n              <button class="socialTelegraaf" ion-button icon-start clear\n\n                      *ngIf="item.site == \'De Telegraaf\' && item.liked == 1"\n\n                      (click)="dislike(item.id, item.title)">\n\n                <ion-icon name="heart" class="likeTelegraaf"></ion-icon>\n\n                <div class="darkChatComment">{{item.likes}}</div>\n\n              </button>\n\n              <button class="socialNOS" ion-button icon-start clear\n\n                      *ngIf="item.site == \'NOS\' && item.liked == 1"\n\n                      (click)="dislike(item.id, item.title)">\n\n                <ion-icon name="heart" class="likeNOS"></ion-icon>\n\n                <div class="darkChatComment">{{item.likes}}</div>\n\n              </button>\n\n              <button class="socialNu" ion-button icon-start clear\n\n                      *ngIf="item.site == \'NU.nl\' && item.liked == 1"\n\n                      (click)="dislike(item.id, item.title)">\n\n                <ion-icon name="heart" class="likeNu"></ion-icon>\n\n                <div class="darkChatComment">{{item.likes}}</div>\n\n              </button>\n\n              <button class="socialTweakers" ion-button icon-start clear\n\n                      *ngIf="item.site == \'Tweakers\' && item.liked == 1"\n\n                      (click)="dislike(item.id, item.title)">\n\n                <ion-icon name="heart" class="likeTweakers"></ion-icon>\n\n                <div class="darkChatComment">{{item.likes}}</div>\n\n              </button>\n\n              <button class="socialKnvb" ion-button icon-start clear\n\n                      *ngIf="item.site == \'KNVB\' && item.liked == 1"\n\n                      (click)="dislike(item.id, item.title)">\n\n                <ion-icon name="heart" class="likeKNVB"></ion-icon>\n\n                <div class="darkChatComment">{{item.likes}}</div>\n\n              </button>\n\n              <!---->\n\n              <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\'"\n\n                      class="socialTelegraaf" (click)="viewComments({ record: item })">\n\n                <ion-icon name="chatbubbles" class="darkChatTelegraaf"></ion-icon>\n\n                <div class="darkChatComment">{{item.comments}}</div>\n\n              </button>\n\n              <button ion-button icon-start clear *ngIf="item.site == \'NOS\'" class="socialNOS"\n\n                      (click)="viewComments({ record: item })">\n\n                <ion-icon name="chatbubbles" class="darkChatNOS"></ion-icon>\n\n                <div class="darkChatComment">{{item.comments}}</div>\n\n              </button>\n\n              <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\'" class="socialNu"\n\n                      (click)="viewComments({ record: item })">\n\n                <ion-icon name="chatbubbles" class="darkChatNU"></ion-icon>\n\n                <div class="darkChatComment">{{item.comments}}</div>\n\n              </button>\n\n              <button ion-button icon-start clear *ngIf="item.site == \'Tweakers\'"\n\n                      class="socialTweakers"\n\n                      (click)="viewComments({ record: item })">\n\n                <ion-icon name="chatbubbles" class="darkChatTweakers"></ion-icon>\n\n                <div class="darkChatComment">{{item.comments}}</div>\n\n              </button>\n\n              <button ion-button icon-start clear *ngIf="item.site == \'KNVB\'" class="socialKnvb"\n\n                      (click)="viewComments({ record: item })">\n\n                <ion-icon name="chatbubbles" class="darkChatKnvb"></ion-icon>\n\n                <div class="darkChatComment">{{item.comments}}</div>\n\n              </button>\n\n              <!---->\n\n            </div>\n\n          </ion-card-content>\n\n        </ion-card>\n\n      </ion-row>\n\n      <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n\n        <ion-infinite-scroll-content\n\n                loadingSpinner="bubbles"\n\n                loadingText="Meer artikelen inladen...">\n\n        </ion-infinite-scroll-content>\n\n      </ion-infinite-scroll>\n\n    </ion-col>\n\n  </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\lifestyle\lifestyle.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
@@ -1982,18 +1824,10 @@ var LifestylePage = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfielPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__settings_settings__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__ = __webpack_require__(339);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__wijzigwachtwoord_wijzigwachtwoord__ = __webpack_require__(150);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_photo_viewer__ = __webpack_require__(340);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_storage__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_network__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_settings_settings__ = __webpack_require__(54);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(17);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2008,302 +1842,139 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-
-
-
-
-
-
-var ProfielPage = /** @class */ (function () {
-    function ProfielPage(navCtrl, navParams, alertCtrl, camera, actionSheetCtrl, http, events, photoViewer, storage, network, settings) {
-        var _this = this;
+/**
+ * Generated class for the AdminPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var AdminPage = /** @class */ (function () {
+    function AdminPage(navCtrl, navParams, http, events, toastCtrl, alertCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.alertCtrl = alertCtrl;
-        this.camera = camera;
-        this.actionSheetCtrl = actionSheetCtrl;
         this.http = http;
         this.events = events;
-        this.photoViewer = photoViewer;
-        this.storage = storage;
-        this.network = network;
-        this.settings = settings;
-        this.id = localStorage.getItem("userId");
-        this.myprofilepic = localStorage.getItem("profilePicture");
-        this.settings.getActiveTheme().subscribe(function (val) { return _this.selectedTheme = val; });
-        if (this.network.type != "none") {
-            var headers = new __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["c" /* HttpHeaders */]();
-            headers.append("Accept", 'application/json');
-            headers.append('Content-Type', 'application/json');
-            var options = { headers: headers };
-            var data = {
-                email: localStorage.getItem('userEmail'),
-            };
-            this.http.post('http://gazoh.net/getgebruiker.php', data, options)
-                .subscribe(function (data) {
-                _this.dataUser = data;
-                _this.username = _this.dataUser.username;
-                _this.email = _this.dataUser.email;
-                _this.emailVerified = _this.dataUser.emailVerified;
-                _this.rol = _this.dataUser.rol;
-                _this.myphoto = _this.dataUser.profilepicture;
-                _this.creationdate = _this.dataUser.creationdate;
-            });
-            this.events.publish("username", this.username);
-            this.events.publish("profilepicture", this.myphoto);
-        }
-        else if (this.network.type == "none") {
-            // Get offline profilepicture
-            this.storage.get("profilepicture").then(function (foto) {
-                _this.myphoto = foto;
-            });
-            // Get offline username
-            this.storage.get("username").then(function (username) {
-                _this.username = username;
-            });
-            // Get offline email
-            this.storage.get("email").then(function (email) {
-                _this.email = email;
-            });
-            // Get offline email verified status
-            this.storage.get("emailverified").then(function (emailverified) {
-                _this.emailVerified = emailverified;
-            });
-            // Get offline user role
-            this.storage.get("rol").then(function (rol) {
-                _this.rol = rol;
-            });
-            // Get offline user creation date
-            this.storage.get("creationdate").then(function (creationdate) {
-                _this.creationdate = creationdate;
-            });
+        this.toastCtrl = toastCtrl;
+        this.alertCtrl = alertCtrl;
+        this.isSearchbaropened = false;
+        this.key = "items";
+        this.items = 0;
+        // Theme
+        if (localStorage.getItem("themeColor")) {
+            this.currentTheme = localStorage.getItem("themeColor");
+            console.log(this.currentTheme);
         }
     }
-    ProfielPage.prototype.presentActionSheet = function () {
+    AdminPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad AdminPage');
+    };
+    AdminPage.prototype.selectGebruikers = function () {
         var _this = this;
-        var actionSheet = this.actionSheetCtrl.create({
-            title: 'Kies',
+        this.checklist = "gebruikers";
+        this.http
+            .get('http://gazoh.net/getuser.php')
+            .subscribe(function (data) {
+            _this.gebruikerslijst = data;
+        }, function (error) {
+            console.dir(error);
+        });
+    };
+    AdminPage.prototype.ionViewWillEnter = function () {
+        this.checklist = "artikelen";
+        this.selectArtikelen();
+    };
+    AdminPage.prototype.selectArtikelen = function () {
+        var _this = this;
+        this.checklist = "artikelen";
+        this.http
+            .get('http://gazoh.net/getverborgen.php')
+            .subscribe(function (data) {
+            _this.artikelenlijst = data;
+        }, function (error) {
+            console.dir(error);
+        });
+    };
+    AdminPage.prototype.htmlToPlaintext = function (text) {
+        return text ? String(text).replace(/<[^>]+>/gm, '') : '';
+    };
+    AdminPage.prototype.viewEntry = function (param) {
+        this.navCtrl.push('NieuwsPage', param);
+    };
+    AdminPage.prototype.resetChanges = function () {
+        var _this = this;
+        this.http
+            .get('http://gazoh.net/getdata.php')
+            .subscribe(function (data) {
+            _this.items = data;
+        }, function (error) {
+            console.dir(error);
+        });
+        this.isSearchbaropened = false;
+    };
+    AdminPage.prototype.search = function (event) {
+        var serVal = event.target.value;
+        if (serVal && serVal.trim() != '') {
+            this.items = this.items.filter(function (item) {
+                return (item.title.toLowerCase().indexOf(serVal.toLowerCase()) > -1);
+            });
+        }
+    };
+    // Alert of je de artikel wilt laten zien
+    AdminPage.prototype.showConfirmHide = function (postId) {
+        var _this = this;
+        var confirm = this.alertCtrl.create({
+            title: 'Publiceren',
+            message: 'Weetje zeker dat je deze artikel wilt publiceren?',
             buttons: [
                 {
-                    text: 'Maak foto',
-                    role: 'Maak foto',
+                    text: 'Niet Akkoord',
                     handler: function () {
-                        _this.takePhoto();
                     }
                 },
                 {
-                    text: 'Kies uit galerij',
+                    text: 'Akkoord',
                     handler: function () {
-                        _this.cropImage();
-                    }
-                },
-                {
-                    text: 'Annuleren',
-                    role: 'cancel',
-                    handler: function () {
-                        console.log('Cancel clicked');
+                        // Show artikel
+                        console.log("Show " + postId);
+                        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
+                        headers.append("Accept", 'application/json');
+                        headers.append('Content-Type', 'application/json');
+                        var options = { headers: headers };
+                        var data = {
+                            articleId: postId
+                        };
+                        _this.http.post('http://www.gazoh.net/showarticle.php', data, options).subscribe(function (res) {
+                            if (res == 'showed') {
+                                _this.selectArtikelen();
+                                var toast = _this.toastCtrl.create({
+                                    message: "Artikel " + postId + " gepubliceerd",
+                                    duration: 2500,
+                                    position: "bottom"
+                                });
+                                toast.present();
+                            }
+                        });
                     }
                 }
             ]
         });
-        actionSheet.present();
+        confirm.present();
     };
-    ProfielPage.prototype.takePhoto = function () {
-        var _this = this;
-        var options = {
-            quality: 70,
-            allowEdit: true,
-            targetWidth: 300,
-            targetHeight: 300,
-            destinationType: this.camera.DestinationType.DATA_URL,
-            encodingType: this.camera.EncodingType.JPEG,
-            mediaType: this.camera.MediaType.PICTURE
-        };
-        this.camera.getPicture(options).then(function (imageData) {
-            // imageData is either a base64 encoded string or a file URI
-            // If it's base64:
-            _this.myphoto = 'data:image/jpeg;base64,' + imageData;
-        }, function (err) {
-            // Handle error
-        });
-    };
-    ProfielPage.prototype.onArticlePictureCreated = function (base64String) {
-        this.myphoto = 'data:image/jpeg;base64,' + base64String;
-        this.myprofilepic = 'data:image/jpeg;base64,' + base64String;
-        localStorage.setItem("profilePicture", this.myphoto);
-    };
-    // getImage() {
-    //     const options: CameraOptions = {
-    //         quality: 70,
-    //         destinationType: this.camera.DestinationType.DATA_URL,
-    //         sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
-    //         saveToPhotoAlbum:false
-    //     }
-    //
-    //     this.camera.getPicture(options).then((imageData) => {
-    //         // imageData is either a base64 encoded string or a file URI
-    //         // If it's base64:
-    //         this.myphoto = 'data:image/jpeg;base64,' + imageData;
-    //     }, (err) => {
-    //         // Handle error
-    //     });
-    // }
-    ProfielPage.prototype.cropImage = function () {
-        var _this = this;
-        var options = {
-            quality: 70,
-            destinationType: this.camera.DestinationType.DATA_URL,
-            sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
-            saveToPhotoAlbum: false,
-            allowEdit: true,
-            targetWidth: 300,
-            targetHeight: 300
-        };
-        this.camera.getPicture(options).then(function (imageData) {
-            // imageData is either a base64 encoded string or a file URI
-            // If it's base64:
-            _this.myphoto = 'data:image/jpeg;base64,' + imageData;
-            _this.myprofilepic = 'data:image/jpeg;base64,' + imageData;
-            localStorage.setItem("profilePicture", _this.myphoto);
-        }, function (err) {
-            // Handle error
-        });
-    };
-    ProfielPage.prototype.wijzigWachtwoord = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__wijzigwachtwoord_wijzigwachtwoord__["a" /* WijzigwachtwoordPage */]);
-    };
-    ProfielPage.prototype.goBack = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_1__settings_settings__["a" /* SettingsPage */]);
-    };
-    // Validatie
-    ProfielPage.prototype.ngOnInit = function () {
-        this.form = new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["b" /* FormGroup */]({
-            username: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* Validators */].pattern('[a-zA-Z][a-zA-z ]+')]),
-            email: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* Validators */].email, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* Validators */].pattern('^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$')])
-        });
-    };
-    // Zodra alles leeg is dan werkt de checkmark functie niet meer
-    ProfielPage.prototype.validateAllFormFields = function (formGroup) {
-        var _this = this;
-        Object.keys(formGroup.controls).forEach(function (field) {
-            var control = formGroup.get(field); //{3}
-            if (control instanceof __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormControl */]) {
-                control.markAsTouched({ onlySelf: true });
-            }
-            else if (control instanceof __WEBPACK_IMPORTED_MODULE_5__angular_forms__["b" /* FormGroup */]) {
-                _this.validateAllFormFields(control); //{6}
-            }
-        });
-    };
-    ProfielPage.prototype.updateProfile = function () {
-        var _this = this;
-        if (this.network.type == "none") {
-            var alert_1 = this.alertCtrl.create({
-                title: "Geen verbinding",
-                subTitle: "U heeft geen werkende internet verbinding, probeer het later opnieuw.",
-                buttons: [{
-                        text: "OK", handler: function (data) {
-                        }
-                    }],
-            });
-            alert_1.present();
-        }
-        else if (this.network.type != "none") {
-            if (this.form.invalid) {
-                this.validateAllFormFields(this.form); //{7}
-            }
-            else {
-                var headers = new __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["c" /* HttpHeaders */]();
-                headers.append("Accept", 'application/json');
-                headers.append('Content-Type', 'application/json');
-                var options = { headers: headers };
-                var data = {
-                    id: this.id,
-                    username: this.username,
-                    email: this.email,
-                    myphoto: this.myphoto
-                };
-                this.http.post('http://gazoh.net/updateProfiel.php', data, options)
-                    .map(function (res) { return res; })
-                    .subscribe(function (res) {
-                    if (res == "Profile updated succesfully") {
-                        var alert_2 = _this.alertCtrl.create({
-                            title: "Profiel bijgewerkt",
-                            subTitle: "Uw profiel is succesvol bijgewerkt",
-                            buttons: [{
-                                    text: "OK", handler: function (data) {
-                                        _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_1__settings_settings__["a" /* SettingsPage */]);
-                                    }
-                                }],
-                        });
-                        alert_2.present();
-                        if (_this.storage.set('profilepicture', _this.myphoto)) {
-                            console.log("Profiel foto is geset in Storage : " + _this.myphoto);
-                        }
-                    }
-                    else if (res == "No data set!") {
-                        var alert_3 = _this.alertCtrl.create({
-                            title: "Mislukt",
-                            subTitle: "Uw profiel kon niet worden bijgewerkt, probeer het later opnieuw.",
-                            buttons: ['OK']
-                        });
-                        alert_3.present();
-                    }
-                });
-            }
-        }
-    };
-    ProfielPage.prototype.returnSettings = function () {
-        var _this = this;
-        var headers = new __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["c" /* HttpHeaders */]();
-        headers.append("Accept", 'application/json');
-        headers.append('Content-Type', 'application/json');
-        var options = { headers: headers };
-        var data = {
-            email: localStorage.getItem('userEmail'),
-        };
-        this.http.post('http://gazoh.net/getgebruiker.php', data, options)
-            .subscribe(function (data) {
-            _this.dataUser = data;
-            _this.username = _this.dataUser.username;
-            _this.oldprofilepicture = _this.dataUser.profilepicture;
-            _this.events.publish("username", _this.username);
-            _this.events.publish("profilepicture", _this.oldprofilepicture);
-        });
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_1__settings_settings__["a" /* SettingsPage */]);
-    };
-    ProfielPage.prototype.ionViewDidLoad = function () {
-        var _this = this;
-        this.navBar.backButtonClick = function (e) {
-            _this.returnSettings();
-        };
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_0_ionic_angular__["o" /* Navbar */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["o" /* Navbar */])
-    ], ProfielPage.prototype, "navBar", void 0);
-    ProfielPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-profiel',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\profiel\profiel.html"*/'<ion-header>\n\n  <ion-navbar #navbar>\n\n    <ion-title class="profielPadding">Profiel</ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="updateProfile()">\n\n        <ion-icon name="checkmark"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  <ion-list>\n\n    <ion-grid class="gridMenu">\n\n      <ion-col col-12 class="menuCol">\n\n        <div class="alignCenter">\n\n          <img src="{{myphoto}}" class="avatar-profiel" (click)="presentActionSheet()" />\n\n          <div class="fotoWijzigen">\n\n            <h5 class="fotoWijzigenProfiel" (click)="presentActionSheet()">Foto Wijzigen</h5>\n\n          </div>\n\n        </div>\n\n\n\n        <form novalidate [formGroup]="form">\n\n          <div class="form-group">\n\n            <ion-item [ngClass]="{ \'ng-touched\' : form.get(\'username\').touched }">>\n\n              <ion-label floating>Gebruikersnaam</ion-label>\n\n              <ion-input *ngIf="selectedTheme == \'light-theme\'" type="text" placeholder="{{username}}" value="{{username}}" formControlName="username" class="form-control"></ion-input>\n\n              <ion-input *ngIf="selectedTheme == \'dark-theme\'" type="text" placeholder="{{username}}" value="{{username}}" formControlName="username" class="form-controldark"></ion-input>\n\n            </ion-item>\n\n          </div>\n\n          <div *ngIf="form.get(\'username\').touched && form.get(\'username\').invalid" class="alert alert-danger" required>\n\n            <div class="validatieText" *ngIf="form.get(\'username\').hasError(\'required\')">Naam moet ingevuld zijn.</div>\n\n            <div class="validatieText" *ngIf="form.get(\'username\').hasError(\'pattern\')">Ongeldige naam.</div>\n\n            <div class="validatieText" *ngIf="form.get(\'username\').hasError(\'minLength\')">De minimale lengte zijn 3 letters.</div>\n\n          </div>\n\n\n\n          <div class="form-group">\n\n            <ion-item [ngClass]="{ \'ng-touched\' : form.get(\'email\').touched }">\n\n              <ion-label floating>E-mail</ion-label>\n\n              <ion-input *ngIf="selectedTheme == \'light-theme\'" type="email" placeholder="{{email}}" value="{{email}}" formControlName="email" class="form-control"></ion-input>\n\n              <ion-input *ngIf="selectedTheme == \'dark-theme\'" type="email" placeholder="{{email}}" value="{{email}}" formControlName="email" class="form-controldark"></ion-input>\n\n            </ion-item>\n\n          </div>\n\n          <div *ngIf="form.get(\'email\').touched && form.get(\'email\').invalid" class="alert alert-danger" required>\n\n            <div class="validatieText" *ngIf="form.get(\'email\').hasError(\'required\')">Email moet ingevuld zijn</div>\n\n            <div class="validatieText" *ngIf="form.get(\'email\').hasError(\'pattern\')">Ongeldige Email!</div>\n\n          </div>\n\n\n\n        </form>\n\n        <!--<h6 class="wachtwoordWijzigen" (click)="wijzigWachtwoord()">Wijzig Wachtwoord</h6>-->\n\n      </ion-col>\n\n    </ion-grid>\n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\profiel\profiel.html"*/,
+    AdminPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-admin',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\admin\admin.html"*/'<ion-header no-border-bottom>\n\n    <ion-navbar>\n\n        <ion-title *ngIf="!isSearchbaropened" class="adminTitle">Admin</ion-title>\n\n        <!-- Searchbar  -->\n\n        <ion-searchbar #searchbar *ngIf="isSearchbaropened" [showCancelButton]="true" (ionCancel)="resetChanges()"\n\n                       (ionInput)="search($event)" placeholder="Waar zijn we naar op zoek?"\n\n                       class="slideInRight"></ion-searchbar>\n\n        <!-- Searchbar icon -->\n\n        <ion-buttons end *ngIf="checklist == \'artikelen\'">\n\n            <button ion-button icon-only (click)="isSearchbaropened=true">\n\n                <ion-icon name="search" *ngIf="!isSearchbaropened"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n        <ion-buttons end *ngIf="checklist == \'gebruikers\'">\n\n            <button ion-button icon-only (click)="isSearchbaropened=true">\n\n                <ion-icon name="search"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n    <ion-segment [(ngModel)]="checklist" color="primary">\n\n        <ion-segment-button value="artikelen" (click)="selectArtikelen()">\n\n            Verborgen\n\n        </ion-segment-button>\n\n        <ion-segment-button value="gebruikers" (click)="selectGebruikers()">\n\n            Gebruikers\n\n        </ion-segment-button>\n\n    </ion-segment>\n\n</ion-header>\n\n<ion-content padding>\n\n    <div *ngIf="checklist == \'artikelen\'">\n\n        <ion-card *ngFor="let item of artikelenlijst" col-md-6 class="ionCard">\n\n            <!-- Images van nieuwsfeed -->\n\n            <div class="ion-card-image-wrapper" (click)="viewEntry({ record: item })">\n\n                <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">\n\n                <img [src]="item.image" *ngIf="item.site == \'NOS.nl\'">\n\n                <img [src]="item.image" *ngIf="item.site != \'NOS.nl\' || item.site != \'NU.nl\'">\n\n            </div>\n\n            <ion-card-content class="cardContentFeed">\n\n                <!-- Avatar -->\n\n                <div id="AvatarFeed" (click)="viewEntry({ record: item })">\n\n                    <ion-avatar *ngIf="item.site == \'NOS\' && currentTheme == \'light-theme\'" class="avatarNOS" item-start>\n\n                        <img src="../assets/svg/NOS_logo.svg" class="avatar-feedNOS"/>\n\n                    </ion-avatar>\n\n                    <ion-avatar *ngIf="item.site == \'NOS\' && currentTheme == \'dark-theme\'" class="avatarNOS" item-start>\n\n                        <img src="../assets/svg/NOS_logo_Wit.svg" class="avatar-feedNOS"/>\n\n                    </ion-avatar>\n\n                    <ion-avatar *ngIf="item.site == \'De Telegraaf\' && currentTheme == \'light-theme\'" class="avatarTelegraaf" item-start>\n\n                        <img src="../assets/svg/Telegraaf.svg" class="avatar-feedTelegraaf"/>\n\n                    </ion-avatar>\n\n                    <ion-avatar *ngIf="item.site == \'De Telegraaf\' && currentTheme == \'dark-theme\'" class="avatarTelegraaf" item-start>\n\n                        <img src="../assets/svg/Telegraaf_Wit.svg" class="avatar-feedTelegraaf"/>\n\n                    </ion-avatar>\n\n                    <ion-avatar *ngIf="item.site == \'NU.nl\'" class="avatar" item-start>\n\n                        <img src="../assets/svg/nu.nl.svg" class="avatar-feed"/>\n\n                    </ion-avatar>\n\n                    <div class="uitgeverFeed" *ngIf="item.site == \'De Telegraaf\'">{{item.site}}</div>\n\n                    <div class="uitgeverFeedNU" *ngIf="item.site == \'NU.nl\'">{{item.site}}</div>\n\n                    <div class="uitgeverFeedNOS" *ngIf="item.site == \'NOS\'"></div>\n\n                </div>\n\n                <!-- Uitgever -->\n\n                <div id="uitgeverFeed" (click)="viewEntry({ record: item })">\n\n                    <!-- Title  -->\n\n                    <div id="title">\n\n                        <ion-card-title *ngIf="item.site == \'De Telegraaf\' || item.site == \'NU.nl\'"><strong\n\n                                class="cardTitle">{{item.title}}</strong></ion-card-title>\n\n                        <ion-card-title *ngIf="item.site == \'NOS\'" id="ionCardNOS"><strong\n\n                                class="cardTitleNOS">{{item.title}}</strong></ion-card-title>\n\n                    </div>\n\n                    <!-- description  -->\n\n                    <div id="description">\n\n                        <p class="descriptionFeed">{{htmlToPlaintext(item.description) |\n\n                            slice:0:120}}...</p>\n\n                    </div>\n\n                    <!-- Datum -->\n\n                    <div id="datumFeed" class="datumFeed">\n\n                        <span>{{item.datum}}</span>\n\n                    </div>\n\n                </div>\n\n                <!-- Social Buttons - Comments - Unhide-->\n\n                <div id="socialLikeComments" class="socialLikeComments">\n\n                    <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\'"\n\n                            class="socialTelegraafShare" (click)="showConfirmHide(item.id)">\n\n                        <ion-icon name="eye"></ion-icon>\n\n                    </button>\n\n                    <button ion-button icon-start clear *ngIf="item.site == \'NOS\'"\n\n                            class="socialNOSShare" (click)="showConfirmHide(item.id)">\n\n                        <ion-icon name="eye"></ion-icon>\n\n                    </button>\n\n                    <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\'"\n\n                            class="socialNuShare" (click)="showConfirmHide(item.id)">\n\n                        <ion-icon name="eye"></ion-icon>\n\n                    </button>\n\n                    <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\'"\n\n                            class="socialTelegraaf" (click)="viewComments({ record: item })">\n\n                        <ion-icon name="chatbubbles" class="darkChatTelegraaf"></ion-icon>\n\n                        <div>{{item.comments}}</div>\n\n                    </button>\n\n                    <button ion-button icon-start clear *ngIf="item.site == \'NOS\'" class="socialNOS"\n\n                            (click)="viewComments({ record: item })">\n\n                        <ion-icon name="chatbubbles" class="darkChatNOS"></ion-icon>\n\n                        <div>{{item.comments}}</div>\n\n                    </button>\n\n                    <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\'" class="socialNu"\n\n                            (click)="viewComments({ record: item })">\n\n                        <ion-icon name="chatbubbles" class="darkChatNU"></ion-icon>\n\n                        <div>{{item.comments}}</div>\n\n                    </button>\n\n                </div>\n\n            </ion-card-content>\n\n        </ion-card>\n\n    </div>\n\n    <ion-list *ngFor="let user of gebruikerslijst">\n\n        <ion-item-sliding #item>\n\n            <ion-item class="adminUsers">\n\n                <ion-avatar class="avatar" item-start>\n\n                    <img src="{{user.profilepicture}}" class="avatar-profiel"/>\n\n                </ion-avatar>\n\n                <h3>ID: <strong>{{user.id}}</strong></h3>\n\n                <h3>Email <strong>{{user.email}}</strong></h3>\n\n            </ion-item>\n\n            <ion-item-options side="right">\n\n                <button ion-button (click)="unread(item)" class="deleteSlide">\n\n                    <span class="spanHide">Bewe</span>\n\n                    <ion-icon name="trash" class="iconAdmin"></ion-icon>\n\n                </button>\n\n                <button ion-button (click)="unread(item)" class="BewerkSlide">\n\n                    <span class="spanHide">Dele</span>\n\n                    <ion-icon name="create" class="iconAdmin"></ion-icon>\n\n                </button>\n\n            </ion-item-options>\n\n        </ion-item-sliding>\n\n    </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\admin\admin.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0_ionic_angular__["m" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["n" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */],
-            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["a" /* ActionSheetController */],
-            __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["a" /* HttpClient */],
-            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["d" /* Events */],
-            __WEBPACK_IMPORTED_MODULE_7__ionic_native_photo_viewer__["a" /* PhotoViewer */],
-            __WEBPACK_IMPORTED_MODULE_8__ionic_storage__["b" /* Storage */],
-            __WEBPACK_IMPORTED_MODULE_9__ionic_native_network__["a" /* Network */],
-            __WEBPACK_IMPORTED_MODULE_10__providers_settings_settings__["a" /* SettingsProvider */]])
-    ], ProfielPage);
-    return ProfielPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
+    ], AdminPage);
+    return AdminPage;
 }());
 
-//# sourceMappingURL=profiel.js.map
+//# sourceMappingURL=admin.js.map
 
 /***/ }),
 
@@ -2315,7 +1986,7 @@ var ProfielPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(17);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2422,7 +2093,7 @@ var WijzigwachtwoordPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SourcesPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_network__ = __webpack_require__(25);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -2480,6 +2151,8 @@ var SourcesPage = /** @class */ (function () {
                 .subscribe(function (data) {
                 _this.sourceData = data;
                 _this.NOS = _this.sourceData[0].NOS;
+                _this.VLKK = _this.sourceData[0].VLKK;
+                _this.VLKKE = _this.sourceData[0].VLKKE;
                 _this.TGF = _this.sourceData[0].TGF;
                 _this.NUNL = _this.sourceData[0].NUNL;
                 _this.KNVB = _this.sourceData[0].KNVB;
@@ -2488,6 +2161,8 @@ var SourcesPage = /** @class */ (function () {
                 _this.LBL = _this.sourceData[0].LBL;
                 _this.BTYL = _this.sourceData[0].BTYL;
                 _this.storage.set('NOS', _this.sourceData[0].NOS);
+                _this.storage.set('VLKK', _this.sourceData[0].VLKK);
+                _this.storage.set('VLKKE', _this.sourceData[0].VLKKE);
                 _this.storage.set('TGF', _this.sourceData[0].TGF);
                 _this.storage.set('NUNL', _this.sourceData[0].NUNL);
                 _this.storage.set('KNVB', _this.sourceData[0].KNVB);
@@ -2497,11 +2172,13 @@ var SourcesPage = /** @class */ (function () {
                 _this.storage.set('BTYL', _this.sourceData[0].BTYL);
                 console.log(_this.sourceData);
                 console.log("NOS: " + _this.NOS);
+                console.log("Volkskrant: " + _this.VLKK);
                 console.log("Telegraaf : " + _this.TGF);
                 console.log("NU.NL: " + _this.NUNL);
                 console.log("KNVB: " + _this.KNVB);
                 console.log("Tweakers: " + _this.TWKS);
                 console.log("NU.nl Financieel: " + _this.NUNLFIN);
+                console.log("Volkskrant Economie: " + _this.VLKKE);
                 console.log("Libelle: " + _this.LBL);
                 console.log("Beautylab: " + _this.BTYL);
             });
@@ -2510,6 +2187,10 @@ var SourcesPage = /** @class */ (function () {
             // Get NOS Status from Storage
             this.storage.get('NOS').then(function (NOS) {
                 _this.NOS = NOS;
+            });
+            // Get Volkskrant Status from Storage
+            this.storage.get('VLKK').then(function (VLKK) {
+                _this.VLKK = VLKK;
             });
             // Get Telegraaf Status from Storage
             this.storage.get('TGF').then(function (TGF) {
@@ -2538,6 +2219,10 @@ var SourcesPage = /** @class */ (function () {
             // Get Beautylab Status from Storage
             this.storage.get('BTYL').then(function (BTYL) {
                 _this.BTYL = BTYL;
+            });
+            // Get Volkskrant Economie Status from Storage
+            this.storage.get('VLKKE').then(function (VLKKE) {
+                _this.VLKKE = VLKKE;
             });
         }
     };
@@ -2632,7 +2317,7 @@ var SourcesPage = /** @class */ (function () {
     ], SourcesPage.prototype, "slider", void 0);
     SourcesPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-sources',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\sources\sources.html"*/'<ion-header no-border-bottom>\n\n    <ion-navbar>\n\n        <button ion-button menuToggle right class="fakeCenter">\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title>Sources</ion-title>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n    </ion-navbar>\n\n    <ion-segment color="darkAppKleur" [(ngModel)]="page">\n\n        <ion-segment-button value="0" (click)="selectedTab(0)">\n\n            Geabboneerd\n\n        </ion-segment-button>\n\n        <ion-segment-button value="1" (click)="selectedTab(1)">\n\n            Suggesties\n\n        </ion-segment-button>\n\n    </ion-segment>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-slides #slider (ionSlideWillChange)="moveButton($event)">\n\n        <!--  -->\n\n        <!-- Alle Sources die zijn geimport -->\n\n        <!--  -->\n\n        <ion-slide>\n\n            <ion-list>\n\n                <ion-item class="sourceItem" *ngIf="NOS == 1">\n\n                    <ion-avatar class="avatar" item-start>\n\n                        <img src="../assets/svg/NOS_logo.svg" *ngIf="currentTheme == \'light-theme\'">\n\n                        <img src="../assets/svg/NOS_logo_Wit.svg" *ngIf="currentTheme == \'dark-theme\'">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">NOS</b></div>\n\n                    <div class="sourceTekst">Algemeen</div>\n\n                    <button ion-button outline item-end color="danger" class="DeleteClassesButton"\n\n                            (click)="unsubscribeSource(\'NOS\')">\n\n                        <ion-icon name="close" class="buttonIcon"></ion-icon>\n\n                        Verwijderen\n\n                    </button>\n\n                </ion-item>\n\n                <ion-item class="sourceItem" *ngIf="TGF == 1">\n\n                    <ion-avatar class="avatarTelegraafSources" item-start>\n\n                        <img src="../assets/svg/Telegraaf.svg" *ngIf="currentTheme == \'light-theme\'">\n\n                        <img src="../assets/svg/Telegraaf_Wit.svg" *ngIf="currentTheme == \'dark-theme\'">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">De Telegraaf</b></div>\n\n                    <div class="sourceTekst">Algemeen</div>\n\n                    <button ion-button outline item-end color="danger" class="DeleteClassesButton"\n\n                            (click)="unsubscribeSource(\'De Telegraaf\')">\n\n                        <ion-icon name="close" class="buttonIcon"></ion-icon>\n\n                        Verwijderen\n\n                    </button>\n\n                </ion-item>\n\n                <ion-item class="sourceItem" *ngIf="NUNL == 1">\n\n                    <ion-avatar class="avatar" item-start>\n\n                        <img class="avatar-feedNU" src="../assets/svg/nu.nl.svg">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">NU.nl</b></div>\n\n                    <div class="sourceTekst">Algemeen</div>\n\n                    <button ion-button outline item-end color="danger" class="DeleteClassesButton"\n\n                            (click)="unsubscribeSource(\'NU.NL\')">\n\n                        <ion-icon name="close" class="buttonIcon"></ion-icon>\n\n                        Verwijderen\n\n                    </button>\n\n                </ion-item>\n\n                <ion-item class="sourceItem" *ngIf="KNVB == 1">\n\n                    <ion-avatar class="avatar" item-start>\n\n                        <img src="../assets/svg/knvb.svg">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">KNVB</b></div>\n\n                    <div class="sourceTekst">Sport</div>\n\n                    <button ion-button outline item-end color="danger" class="DeleteClassesButton"\n\n                            (click)="unsubscribeSource(\'KNVB\')">\n\n                        <ion-icon name="close" class="buttonIcon"></ion-icon>\n\n                        Verwijderen\n\n                    </button>\n\n                </ion-item>\n\n                <ion-item class="sourceItem" *ngIf="TWKS == 1">\n\n                    <ion-avatar class="avatar" item-start>\n\n                        <img class="avatarTWKS" src="../assets/svg/Tweakers.svg">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">Tweakers</b></div>\n\n                    <div class="sourceTekst">Tech</div>\n\n                    <button ion-button outline item-end color="danger" class="DeleteClassesButton"\n\n                            (click)="unsubscribeSource(\'Tweakers\')">\n\n                        <ion-icon name="close" class="buttonIcon"></ion-icon>\n\n                        Verwijderen\n\n                    </button>\n\n                </ion-item>\n\n            </ion-list>\n\n        </ion-slide>\n\n        <ion-slide>\n\n            <ion-list>\n\n                <!--  -->\n\n                <!-- Alle Sources die je kunt importen -->\n\n                <!--  -->\n\n                <ion-item class="sourceTitel">\n\n                    <h4 class="TitelSources">Algemeen</h4>\n\n                </ion-item>\n\n                <ion-item class="sourceItem" *ngIf="NOS == 0">\n\n                    <ion-avatar class="avatar" item-start>\n\n                        <img src="../assets/svg/NOS_logo.svg" *ngIf="currentTheme == \'light-theme\'">\n\n                        <img src="../assets/svg/NOS_logo_Wit.svg" *ngIf="currentTheme == \'dark-theme\'">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">NOS</b></div>\n\n                    <div class="sourceTekst">Algemeen</div>\n\n                    <button ion-button outline item-end class="ImportClassesButton" *ngIf="NOS == 0"\n\n                            (click)="subscribeSource(\'NOS\')">\n\n                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>\n\n                        Toevoegen\n\n                    </button>\n\n                </ion-item>\n\n                <ion-item class="sourceItem" *ngIf="TGF == 0">\n\n                    <ion-avatar class="avatarTelegraafSources" item-start>\n\n                        <img src="../assets/svg/Telegraaf.svg" *ngIf="currentTheme == \'light-theme\'">\n\n                        <img src="../assets/svg/Telegraaf_Wit.svg" *ngIf="currentTheme == \'dark-theme\'">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">De Telegraaf</b></div>\n\n                    <div class="sourceTekst">Algemeen</div>\n\n                    <button ion-button outline item-end class="ImportClassesButton" *ngIf="TGF == 0"\n\n                            (click)="subscribeSource(\'De Telegraaf\')">\n\n                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>\n\n                        Toevoegen\n\n                    </button>\n\n                </ion-item>\n\n                <ion-item class="sourceItem" *ngIf="NUNL == 0">\n\n                    <ion-avatar class="avatar" item-start>\n\n                        <img class="avatar-feedNU" src="../assets/svg/nu.nl.svg">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">NU.nl</b></div>\n\n                    <div class="sourceTekst">Algemeen</div>\n\n                    <button ion-button outline item-end class="ImportClassesButton" *ngIf="NUNL == 0"\n\n                            (click)="subscribeSource(\'NU.NL\')">\n\n                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>\n\n                        Toevoegen\n\n                    </button>\n\n                </ion-item>\n\n                <ion-item class="sourceTitel">\n\n                    <h4 class="TitelSources">Tech</h4>\n\n                </ion-item>\n\n                <ion-item class="sourceItem" *ngIf="TWKS == 0">\n\n                    <ion-avatar class="avatar" item-start>\n\n                        <img class="avatarTWKS" src="../assets/svg/Tweakers.svg">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">Tweakers</b></div>\n\n                    <div class="sourceTekst">Tech</div>\n\n                    <button ion-button outline item-end class="ImportClassesButton" *ngIf="TWKS == 0"\n\n                            (click)="subscribeSource(\'Tweakers\')">\n\n                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>\n\n                        Toevoegen\n\n                    </button>\n\n                </ion-item>\n\n                <ion-item class="sourceTitel">\n\n                    <h4 class="TitelSources">Sport</h4>\n\n                </ion-item>\n\n                <ion-item class="sourceItem" *ngIf="KNVB == 0">\n\n                    <ion-avatar class="avatar" item-start>\n\n                        <img src="../assets/svg/knvb.svg">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">KNVB</b></div>\n\n                    <div class="sourceTekst">Sport</div>\n\n                    <button ion-button outline item-end class="ImportClassesButton" *ngIf="KNVB == 0"\n\n                            (click)="subscribeSource(\'KNVB\')">\n\n                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>\n\n                        Toevoegen\n\n                    </button>\n\n                </ion-item>\n\n                <ion-item class="sourceTitel">\n\n                    <h4 class="TitelSources">Financieel</h4>\n\n                </ion-item>\n\n                <ion-item class="sourceItem" *ngIf="NUNLFIN == 0">\n\n                    <ion-avatar class="avatar" item-start>\n\n                        <img src="../assets/svg/nu.nl.svg">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">NU.nl Financieel</b></div>\n\n                    <div class="sourceTekst">Financieel</div>\n\n                    <button ion-button outline item-end class="ImportClassesButton" *ngIf="NUNLFIN == 0"\n\n                            (click)="subscribeSource(\'NU.nl Financieel\')">\n\n                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>\n\n                        Toevoegen\n\n                    </button>\n\n                </ion-item>\n\n                <ion-item class="sourceTitel">\n\n                    <h4 class="TitelSources">Lifestyle</h4>\n\n                </ion-item>\n\n                <ion-item class="sourceItem" *ngIf="BTYL == 0">\n\n                    <ion-avatar class="avatar" item-start>\n\n                        <img src="../assets/svg/nu.nl.svg">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">Beautylab</b></div>\n\n                    <div class="sourceTekst">Lifestyle</div>\n\n                    <button ion-button outline item-end class="ImportClassesButton" *ngIf="BTYL == 0"\n\n                            (click)="subscribeSource(\'Beautylab\')">\n\n                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>\n\n                        Toevoegen\n\n                    </button>\n\n                </ion-item>\n\n                <ion-item class="sourceItem" *ngIf="LBL == 0">\n\n                    <ion-avatar class="avatar" item-start>\n\n                        <img src="../assets/svg/nu.nl.svg">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">Libelle</b></div>\n\n                    <div class="sourceTekst">Lifestyle</div>\n\n                    <button ion-button outline item-end class="ImportClassesButton" *ngIf="LBL == 0"\n\n                            (click)="subscribeSource(\'Libelle\')">\n\n                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>\n\n                        Toevoegen\n\n                    </button>\n\n                </ion-item>\n\n            </ion-list>\n\n        </ion-slide>\n\n    </ion-slides>\n\n</ion-content>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\sources\sources.html"*/,
+            selector: 'page-sources',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\sources\sources.html"*/'<ion-header no-border-bottom>\n\n    <ion-navbar>\n\n        <button ion-button menuToggle right class="fakeCenter">\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title>Bronnen</ion-title>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n    </ion-navbar>\n\n    <ion-segment color="darkAppKleur" [(ngModel)]="page">\n\n        <ion-segment-button value="0" (click)="selectedTab(0)">\n\n            Geabboneerd\n\n        </ion-segment-button>\n\n        <ion-segment-button value="1" (click)="selectedTab(1)">\n\n            Suggesties\n\n        </ion-segment-button>\n\n    </ion-segment>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-slides #slider (ionSlideWillChange)="moveButton($event)">\n\n        <!--  -->\n\n        <!-- Alle Sources die zijn geimport -->\n\n        <!--  -->\n\n        <ion-slide>\n\n            <ion-list>\n\n                <ion-item class="sourceItem" *ngIf="NOS == 1">\n\n                    <ion-avatar class="avatar" item-start>\n\n                        <img src="../assets/svg/NOS_logo.svg" *ngIf="currentTheme == \'light-theme\'">\n\n                        <img src="../assets/svg/NOS_logo_Wit.svg" *ngIf="currentTheme == \'dark-theme\'">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">NOS</b></div>\n\n                    <div class="sourceTekst">Algemeen</div>\n\n                    <button ion-button outline item-end color="danger" class="DeleteClassesButton" *ngIf="NOS == 1"\n\n                            (click)="unsubscribeSource(\'NOS\')">\n\n                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>\n\n                        Verwijderen\n\n                    </button>\n\n                </ion-item>\n\n                <ion-item class="sourceItem" *ngIf="VLKK == 1">\n\n                    <ion-avatar class="avatar" item-start>\n\n                        <img src="../assets/svg/Volkskrant.svg" *ngIf="currentTheme == \'light-theme\'">\n\n                        <img src="../assets/svg/Volkskrant.svg" *ngIf="currentTheme == \'dark-theme\'">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">Volkskrant</b></div>\n\n                    <div class="sourceTekst">Algemeen</div>\n\n                    <button ion-button outline item-end color="danger" class="DeleteClassesButton" *ngIf="VLKK == 1"\n\n                            (click)="unsubscribeSource(\'Volkskrant\')">\n\n                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>\n\n                        Verwijderen\n\n                    </button>\n\n                </ion-item>\n\n                <ion-item class="sourceItem" *ngIf="TGF == 1">\n\n                    <ion-avatar class="avatarTelegraafSources" item-start>\n\n                        <img src="../assets/svg/Telegraaf.svg" *ngIf="currentTheme == \'light-theme\'">\n\n                        <img src="../assets/svg/Telegraaf_Wit.svg" *ngIf="currentTheme == \'dark-theme\'">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">De Telegraaf</b></div>\n\n                    <div class="sourceTekst">Algemeen</div>\n\n                    <button ion-button outline item-end color="danger" class="DeleteClassesButton" *ngIf="TGF == 1"\n\n                            (click)="unsubscribeSource(\'De Telegraaf\')">\n\n                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>\n\n                        Verwijderen\n\n                    </button>\n\n                </ion-item>\n\n                <ion-item class="sourceItem" *ngIf="NUNL == 1">\n\n                    <ion-avatar class="avatar" item-start>\n\n                        <img class="avatar-feedNU" src="../assets/svg/nu.nl.svg">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">NU.nl</b></div>\n\n                    <div class="sourceTekst">Algemeen</div>\n\n                    <button ion-button outline item-end color="danger" class="DeleteClassesButton" *ngIf="NUNL == 1"\n\n                            (click)="unsubscribeSource(\'NU.NL\')">\n\n                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>\n\n                        Verwijderen\n\n                    </button>\n\n                </ion-item>\n\n                <ion-item class="sourceItem" *ngIf="TWKS == 1">\n\n                    <ion-avatar class="avatar" item-start>\n\n                        <img class="avatarTWKS" src="../assets/svg/Tweakers.svg">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">Tweakers</b></div>\n\n                    <div class="sourceTekst">Tech</div>\n\n                    <button ion-button outline item-end color="danger" class="DeleteClassesButton" *ngIf="TWKS == 1"\n\n                            (click)="unsubscribeSource(\'Tweakers\')">\n\n                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>\n\n                        Verwijderen\n\n                    </button>\n\n                </ion-item>\n\n                <ion-item class="sourceItem" *ngIf="KNVB == 1">\n\n                    <ion-avatar class="avatar" item-start>\n\n                        <img src="../assets/svg/knvb.svg">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">KNVB</b></div>\n\n                    <div class="sourceTekst">Sport</div>\n\n                    <button ion-button outline item-end color="danger" class="DeleteClassesButton" *ngIf="KNVB == 1"\n\n                            (click)="unsubscribeSource(\'KNVB\')">\n\n                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>\n\n                        Verwijderen\n\n                    </button>\n\n                </ion-item>\n\n                <ion-item class="sourceItem" *ngIf="NUNLFIN == 1">\n\n                    <ion-avatar class="avatar" item-start>\n\n                        <img class="avatar-feedNU" src="../assets/svg/nu.nl.svg">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">NU.nl Economie</b></div>\n\n                    <div class="sourceTekst">Financieel</div>\n\n                    <button ion-button outline item-end color="danger" class="DeleteClassesButton" *ngIf="NUNLFIN == 1"\n\n                            (click)="unsubscribeSource(\'NU.nl Financieel\')">\n\n                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>\n\n                        Verwijderen\n\n                    </button>\n\n                </ion-item>\n\n                <ion-item class="sourceItem" *ngIf="VLKKE == 1">\n\n                    <ion-avatar class="avatar" item-start>\n\n                        <img src="../assets/svg/Volkskrant.svg" *ngIf="currentTheme == \'light-theme\'">\n\n                        <img src="../assets/svg/Volkskrant.svg" *ngIf="currentTheme == \'dark-theme\'">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">Volkskrant Economie</b></div>\n\n                    <div class="sourceTekst">Financieel</div>\n\n                    <button ion-button outline item-end color="danger" class="DeleteClassesButton" *ngIf="VLKKE == 1"\n\n                            (click)="unsubscribeSource(\'Volkskrant Economie\')">\n\n                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>\n\n                        Verwijderen\n\n                    </button>\n\n                </ion-item>\n\n                <ion-item class="sourceItem" *ngIf="BTYL == 1">\n\n                    <ion-avatar class="avatar" item-start>\n\n                        <img src="../assets/svg/Beautylab.svg">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">Beautylab</b></div>\n\n                    <div class="sourceTekst">Lifestyle</div>\n\n                    <button ion-button outline item-end color="danger" class="DeleteClassesButton" *ngIf="BTYL == 1"\n\n                            (click)="unsubscribeSource(\'Beautylab\')">\n\n                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>\n\n                        Verwijderen\n\n                    </button>\n\n                </ion-item>\n\n                <ion-item class="sourceItem" *ngIf="LBL == 1">\n\n                    <ion-avatar class="avatar" item-start>\n\n                        <img src="../assets/svg/libelle.svg" *ngIf="currentTheme == \'light-theme\'">\n\n                        <img src="../assets/svg/libelle_wit.svg" *ngIf="currentTheme == \'dark-theme\'">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">Libelle</b></div>\n\n                    <div class="sourceTekst">Lifestyle</div>\n\n                    <button ion-button outline item-end color="danger" class="DeleteClassesButton" *ngIf="LBL == 1"\n\n                            (click)="unsubscribeSource(\'Libelle\')">\n\n                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>\n\n                        Verwijderen\n\n                    </button>\n\n                </ion-item>\n\n            </ion-list>\n\n        </ion-slide>\n\n        <ion-slide>\n\n            <ion-list>\n\n                <!--  -->\n\n                <!-- Alle Sources die je kunt importen -->\n\n                <!--  -->\n\n                <ion-item class="sourceTitel">\n\n                    <h4 class="TitelSources">Algemeen</h4>\n\n                </ion-item>\n\n                <ion-item class="sourceItem" *ngIf="NOS == 0">\n\n                    <ion-avatar class="avatar" item-start>\n\n                        <img src="../assets/svg/NOS_logo.svg" *ngIf="currentTheme == \'light-theme\'">\n\n                        <img src="../assets/svg/NOS_logo_Wit.svg" *ngIf="currentTheme == \'dark-theme\'">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">NOS</b></div>\n\n                    <div class="sourceTekst">Algemeen</div>\n\n                    <button ion-button outline item-end class="ImportClassesButton" *ngIf="NOS == 0"\n\n                            (click)="subscribeSource(\'NOS\')">\n\n                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>\n\n                        Toevoegen\n\n                    </button>\n\n                </ion-item>\n\n                <ion-item class="sourceItem" *ngIf="VLKK == 0">\n\n                    <ion-avatar class="avatar" item-start>\n\n                        <img src="../assets/svg/Volkskrant.svg" *ngIf="currentTheme == \'light-theme\'">\n\n                        <img src="../assets/svg/Volkskrant.svg" *ngIf="currentTheme == \'dark-theme\'">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">Volkskrant</b></div>\n\n                    <div class="sourceTekst">Algemeen</div>\n\n                    <button ion-button outline item-end class="ImportClassesButton" *ngIf="VLKK == 0"\n\n                            (click)="subscribeSource(\'Volkskrant\')">\n\n                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>\n\n                        Toevoegen\n\n                    </button>\n\n                </ion-item>\n\n                <ion-item class="sourceItem" *ngIf="TGF == 0">\n\n                    <ion-avatar class="avatarTelegraafSources" item-start>\n\n                        <img src="../assets/svg/Telegraaf.svg" *ngIf="currentTheme == \'light-theme\'">\n\n                        <img src="../assets/svg/Telegraaf_Wit.svg" *ngIf="currentTheme == \'dark-theme\'">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">De Telegraaf</b></div>\n\n                    <div class="sourceTekst">Algemeen</div>\n\n                    <button ion-button outline item-end class="ImportClassesButton" *ngIf="TGF == 0"\n\n                            (click)="subscribeSource(\'De Telegraaf\')">\n\n                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>\n\n                        Toevoegen\n\n                    </button>\n\n                </ion-item>\n\n                <ion-item class="sourceItem" *ngIf="NUNL == 0">\n\n                    <ion-avatar class="avatar" item-start>\n\n                        <img class="avatar-feedNU" src="../assets/svg/nu.nl.svg">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">NU.nl</b></div>\n\n                    <div class="sourceTekst">Algemeen</div>\n\n                    <button ion-button outline item-end class="ImportClassesButton" *ngIf="NUNL == 0"\n\n                            (click)="subscribeSource(\'NU.NL\')">\n\n                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>\n\n                        Toevoegen\n\n                    </button>\n\n                </ion-item>\n\n                <ion-item class="sourceTitel"  *ngIf="TWKS == 0">\n\n                    <h4 class="TitelSources">Tech</h4>\n\n                </ion-item>\n\n                <ion-item class="sourceTitelHidden" *ngIf="TWKS == 1"></ion-item>\n\n                <ion-item class="sourceItem" *ngIf="TWKS == 0">\n\n                    <ion-avatar class="avatar" item-start>\n\n                        <img class="avatarTWKS" src="../assets/svg/Tweakers.svg">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">Tweakers</b></div>\n\n                    <div class="sourceTekst">Tech</div>\n\n                    <button ion-button outline item-end class="ImportClassesButton" *ngIf="TWKS == 0"\n\n                            (click)="subscribeSource(\'Tweakers\')">\n\n                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>\n\n                        Toevoegen\n\n                    </button>\n\n                </ion-item>\n\n                <ion-item class="sourceTitel" *ngIf="KNVB == 0">\n\n                    <h4 class="TitelSources">Sport</h4>\n\n                </ion-item>\n\n                <ion-item class="sourceTitelHidden" *ngIf="KNVB == 1"></ion-item>\n\n                <ion-item class="sourceItem" *ngIf="KNVB == 0">\n\n                    <ion-avatar class="avatar" item-start>\n\n                        <img src="../assets/svg/knvb.svg">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">KNVB</b></div>\n\n                    <div class="sourceTekst">Sport</div>\n\n                    <button ion-button outline item-end class="ImportClassesButton" *ngIf="KNVB == 0"\n\n                            (click)="subscribeSource(\'KNVB\')">\n\n                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>\n\n                        Toevoegen\n\n                    </button>\n\n                </ion-item>\n\n                <ion-item class="sourceTitel" *ngIf="NUNLFIN == 0">\n\n                    <h4 class="TitelSources">Financieel</h4>\n\n                </ion-item>\n\n                <ion-item class="sourceTitelHidden" *ngIf="NUNLFIN == 1"></ion-item>\n\n                <ion-item class="sourceItem" *ngIf="NUNLFIN == 0">\n\n                    <ion-avatar class="avatar" item-start>\n\n                        <img class="avatar-feedNU" src="../assets/svg/nu.nl.svg">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">NU.nl Economie</b></div>\n\n                    <div class="sourceTekst">Financieel</div>\n\n                    <button ion-button outline item-end class="ImportClassesButton" *ngIf="NUNLFIN == 0"\n\n                            (click)="subscribeSource(\'NU.nl Financieel\')">\n\n                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>\n\n                        Toevoegen\n\n                    </button>\n\n                </ion-item>\n\n                <ion-item class="sourceItem" *ngIf="VLKKE == 0">\n\n                    <ion-avatar class="avatar" item-start>\n\n                        <img src="../assets/svg/Volkskrant.svg" *ngIf="currentTheme == \'light-theme\'">\n\n                        <img src="../assets/svg/Volkskrant.svg" *ngIf="currentTheme == \'dark-theme\'">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">Volkskrant Economie</b></div>\n\n                    <div class="sourceTekst">Financieel</div>\n\n                    <button ion-button outline item-end class="ImportClassesButton" *ngIf="VLKKE == 0"\n\n                            (click)="subscribeSource(\'Volkskrant Economie\')">\n\n                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>\n\n                        Toevoegen\n\n                    </button>\n\n                </ion-item>\n\n                <ion-item class="sourceTitel" *ngIf="BTYL == 0 && LBL == 0">\n\n                    <h4 class="TitelSources">Lifestyle</h4>\n\n                </ion-item>\n\n                <ion-item class="sourceTitelHidden" *ngIf="BTYL == 1 && LBL == 1"></ion-item>\n\n                <ion-item class="sourceItem" *ngIf="BTYL == 0">\n\n                    <ion-avatar class="avatar" item-start>\n\n                        <img src="../assets/svg/Beautylab.svg">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">Beautylab</b></div>\n\n                    <div class="sourceTekst">Lifestyle</div>\n\n                    <button ion-button outline item-end class="ImportClassesButton" *ngIf="BTYL == 0"\n\n                            (click)="subscribeSource(\'Beautylab\')">\n\n                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>\n\n                        Toevoegen\n\n                    </button>\n\n                </ion-item>\n\n                <ion-item class="sourceItem" *ngIf="LBL == 0">\n\n                    <ion-avatar class="avatar" item-start>\n\n                        <img src="../assets/svg/libelle.svg" *ngIf="currentTheme == \'light-theme\'">\n\n                        <img src="../assets/svg/libelle_wit.svg" *ngIf="currentTheme == \'dark-theme\'">\n\n                    </ion-avatar>\n\n                    <div><b class="sourceTekstFeed">Libelle</b></div>\n\n                    <div class="sourceTekst">Lifestyle</div>\n\n                    <button ion-button outline item-end class="ImportClassesButton" *ngIf="LBL == 0"\n\n                            (click)="subscribeSource(\'Libelle\')">\n\n                        <ion-icon name="checkmark" class="buttonIcon"></ion-icon>\n\n                        Toevoegen\n\n                    </button>\n\n                </ion-item>\n\n            </ion-list>\n\n        </ion-slide>\n\n    </ion-slides>\n\n</ion-content>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\sources\sources.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
@@ -2655,13 +2340,13 @@ var SourcesPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SportPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_network__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__comments_comments__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__comments_comments__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_geolocation__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_social_sharing__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_geolocation__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_social_sharing__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_storage__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_map__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_map__);
@@ -3423,7 +3108,7 @@ var SportPage = /** @class */ (function () {
     ], SportPage.prototype, "content", void 0);
     SportPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-sport',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\sport\sport.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <button ion-button menuToggle *ngIf="!isSearchbaropened">\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title *ngIf="!isSearchbaropened" class="algemeenText">Sport</ion-title>\n\n        <!-- Searchbar  -->\n\n        <ion-searchbar #searchbar *ngIf="isSearchbaropened" [showCancelButton]="true" (ionCancel)="resetChanges()"\n\n                       (ionInput)="search($event)" placeholder="Waar zijn we naar op zoek?"\n\n                       class="slideInRight"></ion-searchbar>\n\n        <!-- Searchbar icon -->\n\n        <ion-buttons end\n\n                     *ngIf="this.datepicker == \'vandaag\' || this.datepicker == \'gisteren\' || this.datepicker == \'driedagengeleden\'">\n\n            <button ion-button icon-only (click)="isSearchbaropened=true">\n\n                <ion-icon name="search" *ngIf="!isSearchbaropened"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n        <ion-buttons end *ngIf="this.datepicker == \'HetWeer\'">\n\n            <button ion-button icon-only (click)="goLijstWeerPage()">\n\n                <ion-icon name="search"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n        <ion-buttons end *ngIf="!isSearchbaropened" class="moreFeed">\n\n            <ion-icon name="more"></ion-icon>\n\n            <ion-list class="listMore">\n\n                <ion-select #newSelect [(ngModel)]="datepicker" (ionChange)="onChange(datepicker)"\n\n                            [selectOptions]="selectOptions" cancelText="Annuleer" okText="Ok" class="SelectMore">\n\n                    <ion-option value="vandaag">Vandaag</ion-option>\n\n                    <ion-option value="gisteren">Gisteren</ion-option>\n\n                    <ion-option value="driedagengeleden">Drie dagen geleden</ion-option>\n\n                    <!--<ion-option value="HetWeer">Het weer</ion-option>-->\n\n                </ion-select>\n\n            </ion-list>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <!-- Swipe up refresher  -->\n\n    <ion-refresher (ionRefresh)="doRefresh($event)">\n\n        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Sleep omlaag om te verversen"></ion-refresher-content>\n\n    </ion-refresher>\n\n    <!-- Grid -->\n\n    <ion-grid class="feedGrid">\n\n        <ion-col>\n\n            <ion-row>\n\n                <ion-card *ngFor="let item of (items ? items.slice(0,slice): [])" col-md-6 class="ionCard">\n\n                    <!-- Images van nieuwsfeed -->\n\n                    <div class="ion-card-image-wrapper" (tap)="viewEntry({ record: item })">\n\n                        <img class="fullHeight" src="../assets/imgs/NOS.png" *ngIf="item.site == \'NOS\' && network.type == \'none\'">\n\n                        <img class="fullHeight" src="../assets/imgs/NUNL.png" *ngIf="item.site == \'NU.nl\' && network.type == \'none\'">\n\n                        <img class="fullHeight" src="../assets/imgs/tweakers.png" *ngIf="item.site == \'Tweakers\'">\n\n                        <img class="fullHeight" src="../assets/imgs/telegraaf.png" *ngIf="item.site == \'De Telegraaf\' && network.type == \'none\'">\n\n                        <img class="fullHeight" src="../assets/imgs/KNVB.png" *ngIf="item.site == \'KNVB\' && network.type == \'none\'">\n\n                        <img class="fullHeight" [src]="item.image" *ngIf="item.site == \'NOS\' || item.site == \'De Telegraaf\' || item.site == \'NU.nl\' || item.site == \'KNVB\' && network.type != \'none\'">\n\n                        <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">\n\n                    </div>\n\n                    <ion-card-content class="cardContentFeed">\n\n                        <!-- Avatar -->\n\n                        <div id="AvatarFeed" (tap)="viewEntry({ record: item })">\n\n                            <ion-avatar *ngIf="item.site == \'NOS\' && currentTheme == \'light-theme\'" class="avatarNOS" item-start>\n\n                                <img src="../assets/svg/NOS_logo.svg" class="avatar-feed"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'NOS\' && currentTheme == \'dark-theme\'" class="avatarNOS" item-start>\n\n                                <img src="../assets/svg/NOS_logo_Wit.svg" class="avatar-feed"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'De Telegraaf\' && currentTheme == \'light-theme\'" class="avatarTelegraaf" item-start>\n\n                                <img src="../assets/svg/Telegraaf.svg" class="avatar-feedTelegraaf"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'De Telegraaf\' && currentTheme == \'dark-theme\'" class="avatarTelegraaf" item-start>\n\n                                <img src="../assets/svg/Telegraaf_Wit.svg" class="avatar-feedTelegraaf"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'NU.nl\'" class="avatar" item-start>\n\n                                <img src="../assets/svg/nu.nl.svg" class="avatar-feed"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'Tweakers\'" class="avatar" item-start>\n\n                                <img src="../assets/svg/Tweakers.svg" class="avatar-feed"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'KNVB\'" class="avatar" item-start>\n\n                                <img src="../assets/svg/knvb.svg" class="avatar-feed"/>\n\n                            </ion-avatar>\n\n                            <div class="uitgeverFeed" *ngIf="item.site == \'De Telegraaf\'">{{item.site}}</div>\n\n                            <div class="uitgeverFeedNU" *ngIf="item.site == \'NU.nl\'">{{item.site}}</div>\n\n                            <div class="uitgeverFeedNU" *ngIf="item.site == \'Tweakers\'">{{item.site}}</div>\n\n                            <div class="uitgeverFeedNU" *ngIf="item.site == \'KNVB\'">{{item.site}}</div>\n\n                        </div>\n\n                        <!-- Uitgever -->\n\n                        <div id="uitgeverFeed" (tap)="viewEntry({ record: item })">\n\n                            <!-- Title  -->\n\n                            <div id="title">\n\n                                <ion-card-title *ngIf="item.site == \'De Telegraaf\' || item.site == \'NU.nl\'"><strong class="cardTitle">{{item.title}}</strong></ion-card-title>\n\n                                <ion-card-title *ngIf="item.site == \'NOS\'" id="ionCardNOS"><strong class="cardTitleNOS">{{item.title}}</strong></ion-card-title>\n\n                                <ion-card-title *ngIf="item.site == \'Tweakers\'"><strong class="cardTitleNOS">{{item.title}}</strong></ion-card-title>\n\n                                <ion-card-title *ngIf="item.site == \'KNVB\'"><strong class="cardTitleNOS">{{item.title}}</strong></ion-card-title>\n\n\n\n                            </div>\n\n                            <!-- description  -->\n\n                            <div id="description">\n\n                                <p class="descriptionFeed">{{htmlToPlaintext(item.description) |\n\n                                    slice:0:120}}...</p>\n\n                            </div>\n\n                            <!-- Datum -->\n\n                            <div id="datumFeed" class="datumFeed">\n\n                                <span>{{item.datum}}</span>\n\n                            </div>\n\n                        </div>\n\n                        <!-- Social Buttons - Comments - likes - Share -->\n\n                        <div id="socialLikeComments" class="socialLikeComments">\n\n                            <!---->\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\' && rol == 1"\n\n                                    class="socialTelegraafShare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NOS\' && rol == 1"\n\n                                    class="socialNOSShare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\' && rol == 1"\n\n                                    class="socialNuShare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'Tweakers\' && rol == 1"\n\n                                    class="socialTweakersShare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'KNVB\' && rol == 1"\n\n                                    class="KNVBshare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <!---->\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\'"\n\n                                    class="socialTelegraafShare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NOS\'" class="socialNOSShare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\'" class="socialNuShare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'Tweakers\'" class="socialTweakersShare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'KNVB\'" class="socialKNVBshare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <!---->\n\n                            <button class="socialTelegraaf" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'De Telegraaf\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="likeTelegraaf"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialNOS" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'NOS\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="likeNOS"></ion-icon>\n\n                                <div class="darkChatComment"> {{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialNu" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'NU.nl\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="likeNu"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialTweakers" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'Tweakers\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="likeTweakers"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialKnvb" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'KNVB\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="likeKNVB"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <!---->\n\n                            <button class="socialTelegraaf" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'De Telegraaf\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="likeTelegraaf"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialNOS" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'NOS\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="likeNOS"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialNu" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'NU.nl\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="likeNu"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialTweakers" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'Tweakers\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="likeTweakers"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialKnvb" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'KNVB\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="likeKNVB"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <!---->\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\'"\n\n                                    class="socialTelegraaf" (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatTelegraaf"></ion-icon>\n\n                                <div class="darkChatComment">{{item.comments}}</div>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NOS\'" class="socialNOS"\n\n                                    (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatNOS"></ion-icon>\n\n                                <div class="darkChatComment">{{item.comments}}</div>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\'" class="socialNu"\n\n                                    (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatNU"></ion-icon>\n\n                                <div class="darkChatComment">{{item.comments}}</div>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'Tweakers\'" class="socialTweakers"\n\n                                    (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatTweakers"></ion-icon>\n\n                                <div class="darkChatComment">{{item.comments}}</div>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'KNVB\'" class="socialKnvb"\n\n                                    (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatKnvb"></ion-icon>\n\n                                <div class="darkChatComment">{{item.comments}}</div>\n\n                            </button>\n\n                            <!---->\n\n                        </div>\n\n                    </ion-card-content>\n\n                </ion-card>\n\n            </ion-row>\n\n            <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n\n                <ion-infinite-scroll-content\n\n                        loadingSpinner="bubbles"\n\n                        loadingText="Meer artikelen inladen...">\n\n                </ion-infinite-scroll-content>\n\n            </ion-infinite-scroll>\n\n        </ion-col>\n\n    </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\sport\sport.html"*/,
+            selector: 'page-sport',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\sport\sport.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <button ion-button menuToggle *ngIf="!isSearchbaropened">\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title *ngIf="!isSearchbaropened" class="algemeenText">Sport</ion-title>\n\n        <!-- Searchbar  -->\n\n        <ion-searchbar #searchbar *ngIf="isSearchbaropened" [showCancelButton]="true" (ionCancel)="resetChanges()"\n\n                       (ionInput)="search($event)" placeholder="Waar zijn we naar op zoek?"\n\n                       class="slideInRight"></ion-searchbar>\n\n        <!-- Searchbar icon -->\n\n        <ion-buttons end\n\n                     *ngIf="this.datepicker == \'vandaag\' || this.datepicker == \'gisteren\' || this.datepicker == \'driedagengeleden\'">\n\n            <button ion-button icon-only (click)="isSearchbaropened=true">\n\n                <ion-icon name="search" *ngIf="!isSearchbaropened"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n        <ion-buttons end *ngIf="this.datepicker == \'HetWeer\'">\n\n            <button ion-button icon-only (click)="goLijstWeerPage()">\n\n                <ion-icon name="search"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n        <ion-buttons end *ngIf="!isSearchbaropened" class="moreFeed">\n\n            <ion-icon class="calenderIcon" name="calendar"></ion-icon>\n\n            <ion-list class="listMore">\n\n                <ion-select #newSelect [(ngModel)]="datepicker" (ionChange)="onChange(datepicker)"\n\n                            [selectOptions]="selectOptions" cancelText="Annuleer" okText="Ok" class="SelectMore">\n\n                    <ion-option value="vandaag">Vandaag</ion-option>\n\n                    <ion-option value="gisteren">Gisteren</ion-option>\n\n                    <ion-option value="driedagengeleden">Drie dagen geleden</ion-option>\n\n                    <!--<ion-option value="HetWeer">Het weer</ion-option>-->\n\n                </ion-select>\n\n            </ion-list>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <!-- Swipe up refresher  -->\n\n    <ion-refresher (ionRefresh)="doRefresh($event)">\n\n        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Sleep omlaag om te verversen"></ion-refresher-content>\n\n    </ion-refresher>\n\n    <!-- Grid -->\n\n    <ion-grid class="feedGrid">\n\n        <ion-col>\n\n            <ion-row>\n\n                <ion-card *ngFor="let item of (items ? items.slice(0,slice): [])" col-md-6 class="ionCard">\n\n                    <!-- Images van nieuwsfeed -->\n\n                    <div class="ion-card-image-wrapper" (tap)="viewEntry({ record: item })">\n\n                        <img class="fullHeight" src="../assets/imgs/NOS.png" *ngIf="item.site == \'NOS\' && network.type == \'none\'">\n\n                        <img class="fullHeight" src="../assets/imgs/NUNL.png" *ngIf="item.site == \'NU.nl\' && network.type == \'none\'">\n\n                        <img class="fullHeight" src="../assets/imgs/tweakers.png" *ngIf="item.site == \'Tweakers\'">\n\n                        <img class="fullHeight" src="../assets/imgs/telegraaf.png" *ngIf="item.site == \'De Telegraaf\' && network.type == \'none\'">\n\n                        <img class="fullHeight" src="../assets/imgs/KNVB.png" *ngIf="item.site == \'KNVB\' && network.type == \'none\'">\n\n                        <img class="fullHeight" [src]="item.image" *ngIf="item.site == \'NOS\' || item.site == \'De Telegraaf\' || item.site == \'NU.nl\' || item.site == \'KNVB\' && network.type != \'none\'">\n\n                        <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">\n\n                    </div>\n\n                    <ion-card-content class="cardContentFeed">\n\n                        <!-- Avatar -->\n\n                        <div id="AvatarFeed" (tap)="viewEntry({ record: item })">\n\n                            <ion-avatar *ngIf="item.site == \'NOS\' && currentTheme == \'light-theme\'" class="avatarNOS" item-start>\n\n                                <img src="../assets/svg/NOS_logo.svg" class="avatar-feed"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'NOS\' && currentTheme == \'dark-theme\'" class="avatarNOS" item-start>\n\n                                <img src="../assets/svg/NOS_logo_Wit.svg" class="avatar-feed"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'De Telegraaf\' && currentTheme == \'light-theme\'" class="avatarTelegraaf" item-start>\n\n                                <img src="../assets/svg/Telegraaf.svg" class="avatar-feedTelegraaf"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'De Telegraaf\' && currentTheme == \'dark-theme\'" class="avatarTelegraaf" item-start>\n\n                                <img src="../assets/svg/Telegraaf_Wit.svg" class="avatar-feedTelegraaf"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'NU.nl\'" class="avatar" item-start>\n\n                                <img src="../assets/svg/nu.nl.svg" class="avatar-feed"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'Tweakers\'" class="avatar" item-start>\n\n                                <img src="../assets/svg/Tweakers.svg" class="avatar-feed"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'KNVB\'" class="avatar" item-start>\n\n                                <img src="../assets/svg/knvb.svg" class="avatar-feed"/>\n\n                            </ion-avatar>\n\n                            <div class="uitgeverFeed" *ngIf="item.site == \'De Telegraaf\'">{{item.site}}</div>\n\n                            <div class="uitgeverFeedNU" *ngIf="item.site == \'NU.nl\'">{{item.site}}</div>\n\n                            <div class="uitgeverFeedNU" *ngIf="item.site == \'Tweakers\'">{{item.site}}</div>\n\n                            <div class="uitgeverFeedNU" *ngIf="item.site == \'KNVB\'">{{item.site}}</div>\n\n                        </div>\n\n                        <!-- Uitgever -->\n\n                        <div id="uitgeverFeed" (tap)="viewEntry({ record: item })">\n\n                            <!-- Title  -->\n\n                            <div id="title">\n\n                                <ion-card-title *ngIf="item.site == \'De Telegraaf\' || item.site == \'NU.nl\'"><strong class="cardTitle">{{item.title}}</strong></ion-card-title>\n\n                                <ion-card-title *ngIf="item.site == \'NOS\'" id="ionCardNOS"><strong class="cardTitleNOS">{{item.title}}</strong></ion-card-title>\n\n                                <ion-card-title *ngIf="item.site == \'Tweakers\'"><strong class="cardTitleNOS">{{item.title}}</strong></ion-card-title>\n\n                                <ion-card-title *ngIf="item.site == \'KNVB\'"><strong class="cardTitleNOS">{{item.title}}</strong></ion-card-title>\n\n\n\n                            </div>\n\n                            <!-- description  -->\n\n                            <div id="description">\n\n                                <p class="descriptionFeed">{{htmlToPlaintext(item.description) |\n\n                                    slice:0:120}}...</p>\n\n                            </div>\n\n                            <!-- Datum -->\n\n                            <div id="datumFeed" class="datumFeed">\n\n                                <span>{{item.datum}}</span>\n\n                            </div>\n\n                        </div>\n\n                        <!-- Social Buttons - Comments - likes - Share -->\n\n                        <div id="socialLikeComments" class="socialLikeComments">\n\n                            <!---->\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\' && rol == 1"\n\n                                    class="socialTelegraafShare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NOS\' && rol == 1"\n\n                                    class="socialNOSShare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\' && rol == 1"\n\n                                    class="socialNuShare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'Tweakers\' && rol == 1"\n\n                                    class="socialTweakersShare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'KNVB\' && rol == 1"\n\n                                    class="KNVBshare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <!---->\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\'"\n\n                                    class="socialTelegraafShare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NOS\'" class="socialNOSShare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\'" class="socialNuShare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'Tweakers\'" class="socialTweakersShare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'KNVB\'" class="socialKNVBshare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <!---->\n\n                            <button class="socialTelegraaf" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'De Telegraaf\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="likeTelegraaf"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialNOS" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'NOS\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="likeNOS"></ion-icon>\n\n                                <div class="darkChatComment"> {{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialNu" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'NU.nl\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="likeNu"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialTweakers" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'Tweakers\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="likeTweakers"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialKnvb" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'KNVB\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="likeKNVB"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <!---->\n\n                            <button class="socialTelegraaf" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'De Telegraaf\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="likeTelegraaf"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialNOS" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'NOS\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="likeNOS"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialNu" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'NU.nl\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="likeNu"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialTweakers" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'Tweakers\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="likeTweakers"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialKnvb" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'KNVB\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="likeKNVB"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <!---->\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\'"\n\n                                    class="socialTelegraaf" (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatTelegraaf"></ion-icon>\n\n                                <div class="darkChatComment">{{item.comments}}</div>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NOS\'" class="socialNOS"\n\n                                    (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatNOS"></ion-icon>\n\n                                <div class="darkChatComment">{{item.comments}}</div>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\'" class="socialNu"\n\n                                    (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatNU"></ion-icon>\n\n                                <div class="darkChatComment">{{item.comments}}</div>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'Tweakers\'" class="socialTweakers"\n\n                                    (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatTweakers"></ion-icon>\n\n                                <div class="darkChatComment">{{item.comments}}</div>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'KNVB\'" class="socialKnvb"\n\n                                    (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatKnvb"></ion-icon>\n\n                                <div class="darkChatComment">{{item.comments}}</div>\n\n                            </button>\n\n                            <!---->\n\n                        </div>\n\n                    </ion-card-content>\n\n                </ion-card>\n\n            </ion-row>\n\n            <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n\n                <ion-infinite-scroll-content\n\n                        loadingSpinner="bubbles"\n\n                        loadingText="Meer artikelen inladen...">\n\n                </ion-infinite-scroll-content>\n\n            </ion-infinite-scroll>\n\n        </ion-col>\n\n    </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\sport\sport.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
@@ -3456,13 +3141,13 @@ var SportPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TechPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_network__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__comments_comments__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__comments_comments__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_geolocation__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_social_sharing__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_geolocation__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_social_sharing__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_storage__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_map__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_map__);
@@ -4225,7 +3910,7 @@ var TechPage = /** @class */ (function () {
     ], TechPage.prototype, "content", void 0);
     TechPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-tech',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\tech\tech.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <button ion-button menuToggle *ngIf="!isSearchbaropened">\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title *ngIf="!isSearchbaropened" class="algemeenText">Tech</ion-title>\n\n        <!-- Searchbar  -->\n\n        <ion-searchbar #searchbar *ngIf="isSearchbaropened" [showCancelButton]="true" (ionCancel)="resetChanges()"\n\n                       (ionInput)="search($event)" placeholder="Waar zijn we naar op zoek?"\n\n                       class="slideInRight"></ion-searchbar>\n\n        <!-- Searchbar icon -->\n\n        <ion-buttons end\n\n                     *ngIf="this.datepicker == \'vandaag\' || this.datepicker == \'gisteren\' || this.datepicker == \'driedagengeleden\'">\n\n            <button ion-button icon-only (click)="isSearchbaropened=true">\n\n                <ion-icon name="search" *ngIf="!isSearchbaropened"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n        <ion-buttons end *ngIf="this.datepicker == \'HetWeer\'">\n\n            <button ion-button icon-only (click)="goLijstWeerPage()">\n\n                <ion-icon name="search"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n        <ion-buttons end *ngIf="!isSearchbaropened" class="moreFeed">\n\n            <ion-icon name="more"></ion-icon>\n\n            <ion-list class="listMore">\n\n                <ion-select #newSelect [(ngModel)]="datepicker" (ionChange)="onChange(datepicker)"\n\n                            [selectOptions]="selectOptions" cancelText="Annuleer" okText="Ok" class="SelectMore">\n\n                    <ion-option value="vandaag">Vandaag</ion-option>\n\n                    <ion-option value="gisteren">Gisteren</ion-option>\n\n                    <ion-option value="driedagengeleden">Drie dagen geleden</ion-option>\n\n                    <!--<ion-option value="HetWeer">Het weer</ion-option>-->\n\n                </ion-select>\n\n            </ion-list>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <!-- Swipe up refresher  -->\n\n    <ion-refresher (ionRefresh)="doRefresh($event)">\n\n        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Sleep omlaag om te verversen"></ion-refresher-content>\n\n    </ion-refresher>\n\n    <!-- Grid -->\n\n    <ion-grid class="feedGrid">\n\n        <ion-col>\n\n            <ion-row>\n\n                <ion-card *ngFor="let item of (items ? items.slice(0,slice): [])" col-md-6 class="ionCard">\n\n                    <!-- Images van nieuwsfeed -->\n\n                    <div class="ion-card-image-wrapper" (tap)="viewEntry({ record: item })">\n\n                        <img class="fullHeight" src="../assets/imgs/NOS.png" *ngIf="item.site == \'NOS\' && network.type == \'none\'">\n\n                        <img class="fullHeight" src="../assets/imgs/NUNL.png" *ngIf="item.site == \'NU.nl\' && network.type == \'none\'">\n\n                        <img class="fullHeight" src="../assets/imgs/tweakers.png" *ngIf="item.site == \'Tweakers\'">\n\n                        <img class="fullHeight" src="../assets/imgs/telegraaf.png" *ngIf="item.site == \'De Telegraaf\' && network.type == \'none\'">\n\n                        <img class="fullHeight" src="../assets/imgs/KNVB.png" *ngIf="item.site == \'KNVB\' && network.type == \'none\'">\n\n                        <img class="fullHeight" [src]="item.image" *ngIf="item.site == \'NOS\' || item.site == \'De Telegraaf\' || item.site == \'NU.nl\' || item.site == \'KNVB\' && network.type != \'none\'">\n\n                        <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">\n\n                    </div>\n\n                    <ion-card-content class="cardContentFeed">\n\n                        <!-- Avatar -->\n\n                        <div id="AvatarFeed" (tap)="viewEntry({ record: item })">\n\n                            <ion-avatar *ngIf="item.site == \'NOS\' && currentTheme == \'light-theme\'" class="avatarNOS" item-start>\n\n                                <img src="../assets/svg/NOS_logo.svg" class="avatar-feed"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'NOS\' && currentTheme == \'dark-theme\'" class="avatarNOS" item-start>\n\n                                <img src="../assets/svg/NOS_logo_Wit.svg" class="avatar-feed"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'De Telegraaf\' && currentTheme == \'light-theme\'" class="avatarTelegraaf" item-start>\n\n                                <img src="../assets/svg/Telegraaf.svg" class="avatar-feedTelegraaf"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'De Telegraaf\' && currentTheme == \'dark-theme\'" class="avatarTelegraaf" item-start>\n\n                                <img src="../assets/svg/Telegraaf_Wit.svg" class="avatar-feedTelegraaf"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'NU.nl\'" class="avatar" item-start>\n\n                                <img src="../assets/svg/nu.nl.svg" class="avatar-feed"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'Tweakers\'" class="avatar" item-start>\n\n                                <img src="../assets/svg/Tweakers.svg" class="avatar-feed"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'KNVB\'" class="avatar" item-start>\n\n                                <img src="../assets/svg/knvb.svg" class="avatar-feed"/>\n\n                            </ion-avatar>\n\n                            <div class="uitgeverFeed" *ngIf="item.site == \'De Telegraaf\'">{{item.site}}</div>\n\n                            <div class="uitgeverFeedNU" *ngIf="item.site == \'NU.nl\'">{{item.site}}</div>\n\n                            <div class="uitgeverFeedNU" *ngIf="item.site == \'Tweakers\'">{{item.site}}</div>\n\n                            <div class="uitgeverFeedNU" *ngIf="item.site == \'KNVB\'">{{item.site}}</div>\n\n                        </div>\n\n                        <!-- Uitgever -->\n\n                        <div id="uitgeverFeed" (tap)="viewEntry({ record: item })">\n\n                            <!-- Title  -->\n\n                            <div id="title">\n\n                                <ion-card-title *ngIf="item.site == \'De Telegraaf\' || item.site == \'NU.nl\'"><strong class="cardTitle">{{item.title}}</strong></ion-card-title>\n\n                                <ion-card-title *ngIf="item.site == \'NOS\'" id="ionCardNOS"><strong class="cardTitleNOS">{{item.title}}</strong></ion-card-title>\n\n                                <ion-card-title *ngIf="item.site == \'Tweakers\'"><strong class="cardTitleNOS">{{item.title}}</strong></ion-card-title>\n\n                                <ion-card-title *ngIf="item.site == \'KNVB\'"><strong class="cardTitleNOS">{{item.title}}</strong></ion-card-title>\n\n\n\n                            </div>\n\n                            <!-- description  -->\n\n                            <div id="description">\n\n                                <p class="descriptionFeed">{{htmlToPlaintext(item.description) |\n\n                                    slice:0:120}}...</p>\n\n                            </div>\n\n                            <!-- Datum -->\n\n                            <div id="datumFeed" class="datumFeed">\n\n                                <span>{{item.datum}}</span>\n\n                            </div>\n\n                        </div>\n\n                        <!-- Social Buttons - Comments - likes - Share -->\n\n                        <div id="socialLikeComments" class="socialLikeComments">\n\n                            <!---->\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\' && rol == 1"\n\n                                    class="socialTelegraafShare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NOS\' && rol == 1"\n\n                                    class="socialNOSShare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\' && rol == 1"\n\n                                    class="socialNuShare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'Tweakers\' && rol == 1"\n\n                                    class="socialTweakersShare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'KNVB\' && rol == 1"\n\n                                    class="KNVBshare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <!---->\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\'"\n\n                                    class="socialTelegraafShare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NOS\'" class="socialNOSShare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\'" class="socialNuShare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'Tweakers\'" class="socialTweakersShare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'KNVB\'" class="socialKNVBshare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <!---->\n\n                            <button class="socialTelegraaf" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'De Telegraaf\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="likeTelegraaf"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialNOS" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'NOS\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="likeNOS"></ion-icon>\n\n                                <div class="darkChatComment"> {{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialNu" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'NU.nl\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="likeNu"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialTweakers" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'Tweakers\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="likeTweakers"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialKnvb" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'KNVB\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="likeKNVB"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <!---->\n\n                            <button class="socialTelegraaf" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'De Telegraaf\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="likeTelegraaf"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialNOS" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'NOS\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="likeNOS"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialNu" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'NU.nl\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="likeNu"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialTweakers" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'Tweakers\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="likeTweakers"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialKnvb" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'KNVB\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="likeKNVB"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <!---->\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\'"\n\n                                    class="socialTelegraaf" (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatTelegraaf"></ion-icon>\n\n                                <div class="darkChatComment">{{item.comments}}</div>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NOS\'" class="socialNOS"\n\n                                    (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatNOS"></ion-icon>\n\n                                <div class="darkChatComment">{{item.comments}}</div>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\'" class="socialNu"\n\n                                    (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatNU"></ion-icon>\n\n                                <div class="darkChatComment">{{item.comments}}</div>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'Tweakers\'" class="socialTweakers"\n\n                                    (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatTweakers"></ion-icon>\n\n                                <div class="darkChatComment">{{item.comments}}</div>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'KNVB\'" class="socialKnvb"\n\n                                    (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatKnvb"></ion-icon>\n\n                                <div class="darkChatComment">{{item.comments}}</div>\n\n                            </button>\n\n                            <!---->\n\n                        </div>\n\n                    </ion-card-content>\n\n                </ion-card>\n\n            </ion-row>\n\n            <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n\n                <ion-infinite-scroll-content\n\n                        loadingSpinner="bubbles"\n\n                        loadingText="Meer artikelen inladen...">\n\n                </ion-infinite-scroll-content>\n\n            </ion-infinite-scroll>\n\n        </ion-col>\n\n    </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\tech\tech.html"*/,
+            selector: 'page-tech',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\tech\tech.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <button ion-button menuToggle *ngIf="!isSearchbaropened">\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title *ngIf="!isSearchbaropened" class="algemeenText">Tech</ion-title>\n\n        <!-- Searchbar  -->\n\n        <ion-searchbar #searchbar *ngIf="isSearchbaropened" [showCancelButton]="true" (ionCancel)="resetChanges()"\n\n                       (ionInput)="search($event)" placeholder="Waar zijn we naar op zoek?"\n\n                       class="slideInRight"></ion-searchbar>\n\n        <!-- Searchbar icon -->\n\n        <ion-buttons end\n\n                     *ngIf="this.datepicker == \'vandaag\' || this.datepicker == \'gisteren\' || this.datepicker == \'driedagengeleden\'">\n\n            <button ion-button icon-only (click)="isSearchbaropened=true">\n\n                <ion-icon name="search" *ngIf="!isSearchbaropened"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n        <ion-buttons end *ngIf="this.datepicker == \'HetWeer\'">\n\n            <button ion-button icon-only (click)="goLijstWeerPage()">\n\n                <ion-icon name="search"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n        <ion-buttons end *ngIf="!isSearchbaropened" class="moreFeed">\n\n            <ion-icon class="calenderIcon" name="calendar"></ion-icon>\n\n            <ion-list class="listMore">\n\n                <ion-select #newSelect [(ngModel)]="datepicker" (ionChange)="onChange(datepicker)"\n\n                            [selectOptions]="selectOptions" cancelText="Annuleer" okText="Ok" class="SelectMore">\n\n                    <ion-option value="vandaag">Vandaag</ion-option>\n\n                    <ion-option value="gisteren">Gisteren</ion-option>\n\n                    <ion-option value="driedagengeleden">Drie dagen geleden</ion-option>\n\n                    <!--<ion-option value="HetWeer">Het weer</ion-option>-->\n\n                </ion-select>\n\n            </ion-list>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <!-- Swipe up refresher  -->\n\n    <ion-refresher (ionRefresh)="doRefresh($event)">\n\n        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Sleep omlaag om te verversen"></ion-refresher-content>\n\n    </ion-refresher>\n\n    <!-- Grid -->\n\n    <ion-grid class="feedGrid">\n\n        <ion-col>\n\n            <ion-row>\n\n                <ion-card *ngFor="let item of (items ? items.slice(0,slice): [])" col-md-6 class="ionCard">\n\n                    <!-- Images van nieuwsfeed -->\n\n                    <div class="ion-card-image-wrapper" (tap)="viewEntry({ record: item })">\n\n                        <img class="fullHeight" src="../assets/imgs/NOS.png" *ngIf="item.site == \'NOS\' && network.type == \'none\'">\n\n                        <img class="fullHeight" src="../assets/imgs/NUNL.png" *ngIf="item.site == \'NU.nl\' && network.type == \'none\'">\n\n                        <img class="fullHeight" src="../assets/imgs/tweakers.png" *ngIf="item.site == \'Tweakers\'">\n\n                        <img class="fullHeight" src="../assets/imgs/telegraaf.png" *ngIf="item.site == \'De Telegraaf\' && network.type == \'none\'">\n\n                        <img class="fullHeight" src="../assets/imgs/KNVB.png" *ngIf="item.site == \'KNVB\' && network.type == \'none\'">\n\n                        <img class="fullHeight" [src]="item.image" *ngIf="item.site == \'NOS\' || item.site == \'De Telegraaf\' || item.site == \'NU.nl\' || item.site == \'KNVB\' && network.type != \'none\'">\n\n                        <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">\n\n                    </div>\n\n                    <ion-card-content class="cardContentFeed">\n\n                        <!-- Avatar -->\n\n                        <div id="AvatarFeed" (tap)="viewEntry({ record: item })">\n\n                            <ion-avatar *ngIf="item.site == \'NOS\' && currentTheme == \'light-theme\'" class="avatarNOS" item-start>\n\n                                <img src="../assets/svg/NOS_logo.svg" class="avatar-feed"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'NOS\' && currentTheme == \'dark-theme\'" class="avatarNOS" item-start>\n\n                                <img src="../assets/svg/NOS_logo_Wit.svg" class="avatar-feed"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'De Telegraaf\' && currentTheme == \'light-theme\'" class="avatarTelegraaf" item-start>\n\n                                <img src="../assets/svg/Telegraaf.svg" class="avatar-feedTelegraaf"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'De Telegraaf\' && currentTheme == \'dark-theme\'" class="avatarTelegraaf" item-start>\n\n                                <img src="../assets/svg/Telegraaf_Wit.svg" class="avatar-feedTelegraaf"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'NU.nl\'" class="avatar" item-start>\n\n                                <img src="../assets/svg/nu.nl.svg" class="avatar-feed"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'Tweakers\'" class="avatar" item-start>\n\n                                <img src="../assets/svg/Tweakers.svg" class="avatar-feed"/>\n\n                            </ion-avatar>\n\n                            <ion-avatar *ngIf="item.site == \'KNVB\'" class="avatar" item-start>\n\n                                <img src="../assets/svg/knvb.svg" class="avatar-feed"/>\n\n                            </ion-avatar>\n\n                            <div class="uitgeverFeed" *ngIf="item.site == \'De Telegraaf\'">{{item.site}}</div>\n\n                            <div class="uitgeverFeedNU" *ngIf="item.site == \'NU.nl\'">{{item.site}}</div>\n\n                            <div class="uitgeverFeedNU" *ngIf="item.site == \'Tweakers\'">{{item.site}}</div>\n\n                            <div class="uitgeverFeedNU" *ngIf="item.site == \'KNVB\'">{{item.site}}</div>\n\n                        </div>\n\n                        <!-- Uitgever -->\n\n                        <div id="uitgeverFeed" (tap)="viewEntry({ record: item })">\n\n                            <!-- Title  -->\n\n                            <div id="title">\n\n                                <ion-card-title *ngIf="item.site == \'De Telegraaf\' || item.site == \'NU.nl\'"><strong class="cardTitle">{{item.title}}</strong></ion-card-title>\n\n                                <ion-card-title *ngIf="item.site == \'NOS\'" id="ionCardNOS"><strong class="cardTitleNOS">{{item.title}}</strong></ion-card-title>\n\n                                <ion-card-title *ngIf="item.site == \'Tweakers\'"><strong class="cardTitleNOS">{{item.title}}</strong></ion-card-title>\n\n                                <ion-card-title *ngIf="item.site == \'KNVB\'"><strong class="cardTitleNOS">{{item.title}}</strong></ion-card-title>\n\n\n\n                            </div>\n\n                            <!-- description  -->\n\n                            <div id="description">\n\n                                <p class="descriptionFeed">{{htmlToPlaintext(item.description) |\n\n                                    slice:0:120}}...</p>\n\n                            </div>\n\n                            <!-- Datum -->\n\n                            <div id="datumFeed" class="datumFeed">\n\n                                <span>{{item.datum}}</span>\n\n                            </div>\n\n                        </div>\n\n                        <!-- Social Buttons - Comments - likes - Share -->\n\n                        <div id="socialLikeComments" class="socialLikeComments">\n\n                            <!---->\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\' && rol == 1"\n\n                                    class="socialTelegraafShare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NOS\' && rol == 1"\n\n                                    class="socialNOSShare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\' && rol == 1"\n\n                                    class="socialNuShare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'Tweakers\' && rol == 1"\n\n                                    class="socialTweakersShare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'KNVB\' && rol == 1"\n\n                                    class="KNVBshare" (click)="showConfirmHide(item.id)">\n\n                                <ion-icon name="trash"></ion-icon>\n\n                            </button>\n\n                            <!---->\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\'"\n\n                                    class="socialTelegraafShare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NOS\'" class="socialNOSShare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\'" class="socialNuShare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'Tweakers\'" class="socialTweakersShare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'KNVB\'" class="socialKNVBshare"\n\n                                    (click)="shareInfo(item.title, item.image, item.link)">\n\n                                <ion-icon name="share-alt"></ion-icon>\n\n                            </button>\n\n                            <!---->\n\n                            <button class="socialTelegraaf" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'De Telegraaf\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="likeTelegraaf"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialNOS" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'NOS\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="likeNOS"></ion-icon>\n\n                                <div class="darkChatComment"> {{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialNu" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'NU.nl\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="likeNu"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialTweakers" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'Tweakers\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="likeTweakers"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialKnvb" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'KNVB\' && item.liked == 0" [disabled]="disabled"\n\n                                    (click)="setLike(item.id)">\n\n                                <ion-icon name="heart-outline" class="likeKNVB"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <!---->\n\n                            <button class="socialTelegraaf" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'De Telegraaf\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="likeTelegraaf"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialNOS" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'NOS\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="likeNOS"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialNu" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'NU.nl\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="likeNu"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialTweakers" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'Tweakers\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="likeTweakers"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <button class="socialKnvb" ion-button icon-start clear\n\n                                    *ngIf="item.site == \'KNVB\' && item.liked == 1"\n\n                                    (click)="dislike(item.id, item.title)">\n\n                                <ion-icon name="heart" class="likeKNVB"></ion-icon>\n\n                                <div class="darkChatComment">{{item.likes}}</div>\n\n                            </button>\n\n                            <!---->\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\'"\n\n                                    class="socialTelegraaf" (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatTelegraaf"></ion-icon>\n\n                                <div class="darkChatComment">{{item.comments}}</div>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NOS\'" class="socialNOS"\n\n                                    (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatNOS"></ion-icon>\n\n                                <div class="darkChatComment">{{item.comments}}</div>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\'" class="socialNu"\n\n                                    (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatNU"></ion-icon>\n\n                                <div class="darkChatComment">{{item.comments}}</div>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'Tweakers\'" class="socialTweakers"\n\n                                    (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatTweakers"></ion-icon>\n\n                                <div class="darkChatComment">{{item.comments}}</div>\n\n                            </button>\n\n                            <button ion-button icon-start clear *ngIf="item.site == \'KNVB\'" class="socialKnvb"\n\n                                    (click)="viewComments({ record: item })">\n\n                                <ion-icon name="chatbubbles" class="darkChatKnvb"></ion-icon>\n\n                                <div class="darkChatComment">{{item.comments}}</div>\n\n                            </button>\n\n                            <!---->\n\n                        </div>\n\n                    </ion-card-content>\n\n                </ion-card>\n\n            </ion-row>\n\n            <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n\n                <ion-infinite-scroll-content\n\n                        loadingSpinner="bubbles"\n\n                        loadingText="Meer artikelen inladen...">\n\n                </ion-infinite-scroll-content>\n\n            </ion-infinite-scroll>\n\n        </ion-col>\n\n    </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\tech\tech.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
@@ -4273,59 +3958,56 @@ webpackEmptyAsyncContext.id = 185;
 
 var map = {
 	"../pages/admin/admin.module": [
-		230
-	],
-	"../pages/auto/auto.module": [
-		233
+		346
 	],
 	"../pages/comments/comments.module": [
-		235
+		230
 	],
 	"../pages/economie/economie.module": [
-		332
+		329
 	],
 	"../pages/feed/feed.module": [
-		333
+		330
 	],
 	"../pages/lifestyle/lifestyle.module": [
-		334
+		333
 	],
 	"../pages/lijstweer/lijstweer.module": [
-		725,
+		723,
 		0
 	],
 	"../pages/nieuws/nieuws.module": [
-		335
+		331
 	],
 	"../pages/privacybeleid/privacybeleid.module": [
-		350
+		334
 	],
 	"../pages/profiel/profiel.module": [
-		337
+		338
 	],
 	"../pages/register/register.module": [
-		341
+		339
 	],
 	"../pages/settings/settings.module": [
-		342
+		340
 	],
 	"../pages/sources/sources.module": [
-		343
+		341
 	],
 	"../pages/sport/sport.module": [
-		344
+		342
 	],
 	"../pages/tech/tech.module": [
-		345
+		343
 	],
 	"../pages/tutorial/tutorial.module": [
-		346
+		344
 	],
 	"../pages/vermaak/vermaak.module": [
 		347
 	],
 	"../pages/wijzigwachtwoord/wijzigwachtwoord.module": [
-		349
+		345
 	]
 };
 function webpackAsyncContext(req) {
@@ -4349,131 +4031,10 @@ module.exports = webpackAsyncContext;
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminPageModule", function() { return AdminPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin__ = __webpack_require__(129);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-var AdminPageModule = /** @class */ (function () {
-    function AdminPageModule() {
-    }
-    AdminPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__admin__["a" /* AdminPage */],
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__admin__["a" /* AdminPage */]),
-            ],
-        })
-    ], AdminPageModule);
-    return AdminPageModule;
-}());
-
-//# sourceMappingURL=admin.module.js.map
-
-/***/ }),
-
-/***/ 233:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AutoPageModule", function() { return AutoPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__auto__ = __webpack_require__(234);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-var AutoPageModule = /** @class */ (function () {
-    function AutoPageModule() {
-    }
-    AutoPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__auto__["a" /* AutoPage */],
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__auto__["a" /* AutoPage */]),
-            ],
-        })
-    ], AutoPageModule);
-    return AutoPageModule;
-}());
-
-//# sourceMappingURL=auto.module.js.map
-
-/***/ }),
-
-/***/ 234:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AutoPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Generated class for the AutoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var AutoPage = /** @class */ (function () {
-    function AutoPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    AutoPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad AutoPage');
-    };
-    AutoPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-auto',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\auto\auto.html"*/'<ion-header no-border-bottom>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle right class="fakeCenter">\n\n        <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n      <ion-title>Auto\'s</ion-title>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n    </ion-navbar>\n\n</ion-header>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\auto\auto.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */]])
-    ], AutoPage);
-    return AutoPage;
-}());
-
-//# sourceMappingURL=auto.js.map
-
-/***/ }),
-
-/***/ 235:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CommentsPageModule", function() { return CommentsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__comments__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__comments__ = __webpack_require__(36);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4503,15 +4064,15 @@ var CommentsPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 239:
+/***/ 236:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(22);
@@ -4640,7 +4201,7 @@ var RegisterPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 332:
+/***/ 329:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4678,7 +4239,7 @@ var EconomiePageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 333:
+/***/ 330:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4686,7 +4247,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FeedPageModule", function() { return FeedPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__feed__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__feed__ = __webpack_require__(54);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4716,7 +4277,45 @@ var FeedPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 334:
+/***/ 331:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NieuwsPageModule", function() { return NieuwsPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nieuws__ = __webpack_require__(702);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var NieuwsPageModule = /** @class */ (function () {
+    function NieuwsPageModule() {
+    }
+    NieuwsPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__nieuws__["a" /* NieuwsPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__nieuws__["a" /* NieuwsPage */]),
+            ],
+        })
+    ], NieuwsPageModule);
+    return NieuwsPageModule;
+}());
+
+//# sourceMappingURL=nieuws.module.js.map
+
+/***/ }),
+
+/***/ 333:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4754,83 +4353,45 @@ var LifestylePageModule = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 334:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PrivacybeleidPageModule", function() { return PrivacybeleidPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__privacybeleid__ = __webpack_require__(335);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var PrivacybeleidPageModule = /** @class */ (function () {
+    function PrivacybeleidPageModule() {
+    }
+    PrivacybeleidPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__privacybeleid__["a" /* PrivacybeleidPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__privacybeleid__["a" /* PrivacybeleidPage */]),
+            ],
+        })
+    ], PrivacybeleidPageModule);
+    return PrivacybeleidPageModule;
+}());
+
+//# sourceMappingURL=privacybeleid.module.js.map
+
+/***/ }),
+
 /***/ 335:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NieuwsPageModule", function() { return NieuwsPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nieuws__ = __webpack_require__(704);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-var NieuwsPageModule = /** @class */ (function () {
-    function NieuwsPageModule() {
-    }
-    NieuwsPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__nieuws__["a" /* NieuwsPage */],
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__nieuws__["a" /* NieuwsPage */]),
-            ],
-        })
-    ], NieuwsPageModule);
-    return NieuwsPageModule;
-}());
-
-//# sourceMappingURL=nieuws.module.js.map
-
-/***/ }),
-
-/***/ 337:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfielPageModule", function() { return ProfielPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profiel__ = __webpack_require__(149);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-var ProfielPageModule = /** @class */ (function () {
-    function ProfielPageModule() {
-    }
-    ProfielPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__profiel__["a" /* ProfielPage */],
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__profiel__["a" /* ProfielPage */]),
-            ],
-        })
-    ], ProfielPageModule);
-    return ProfielPageModule;
-}());
-
-//# sourceMappingURL=profiel.module.js.map
-
-/***/ }),
-
-/***/ 338:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4880,7 +4441,45 @@ var PrivacybeleidPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 341:
+/***/ 338:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfielPageModule", function() { return ProfielPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profiel__ = __webpack_require__(97);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var ProfielPageModule = /** @class */ (function () {
+    function ProfielPageModule() {
+    }
+    ProfielPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__profiel__["a" /* ProfielPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__profiel__["a" /* ProfielPage */]),
+            ],
+        })
+    ], ProfielPageModule);
+    return ProfielPageModule;
+}());
+
+//# sourceMappingURL=profiel.module.js.map
+
+/***/ }),
+
+/***/ 339:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4888,7 +4487,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterPageModule", function() { return RegisterPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__register__ = __webpack_require__(239);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__register__ = __webpack_require__(236);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4918,7 +4517,7 @@ var RegisterPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 342:
+/***/ 340:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4956,7 +4555,7 @@ var SettingsPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 343:
+/***/ 341:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4994,7 +4593,7 @@ var SourcesPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 344:
+/***/ 342:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5032,7 +4631,7 @@ var SportPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 345:
+/***/ 343:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5070,7 +4669,7 @@ var TechPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 346:
+/***/ 344:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5105,6 +4704,82 @@ var TutorialPageModule = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=tutorial.module.js.map
+
+/***/ }),
+
+/***/ 345:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WijzigwachtwoordPageModule", function() { return WijzigwachtwoordPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__wijzigwachtwoord__ = __webpack_require__(150);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var WijzigwachtwoordPageModule = /** @class */ (function () {
+    function WijzigwachtwoordPageModule() {
+    }
+    WijzigwachtwoordPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__wijzigwachtwoord__["a" /* WijzigwachtwoordPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__wijzigwachtwoord__["a" /* WijzigwachtwoordPage */]),
+            ],
+        })
+    ], WijzigwachtwoordPageModule);
+    return WijzigwachtwoordPageModule;
+}());
+
+//# sourceMappingURL=wijzigwachtwoord.module.js.map
+
+/***/ }),
+
+/***/ 346:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminPageModule", function() { return AdminPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin__ = __webpack_require__(149);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var AdminPageModule = /** @class */ (function () {
+    function AdminPageModule() {
+    }
+    AdminPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__admin__["a" /* AdminPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__admin__["a" /* AdminPage */]),
+            ],
+        })
+    ], AdminPageModule);
+    return AdminPageModule;
+}());
+
+//# sourceMappingURL=admin.module.js.map
 
 /***/ }),
 
@@ -5191,99 +4866,214 @@ var VermaakPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 349:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WijzigwachtwoordPageModule", function() { return WijzigwachtwoordPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__wijzigwachtwoord__ = __webpack_require__(150);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-var WijzigwachtwoordPageModule = /** @class */ (function () {
-    function WijzigwachtwoordPageModule() {
-    }
-    WijzigwachtwoordPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__wijzigwachtwoord__["a" /* WijzigwachtwoordPage */],
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__wijzigwachtwoord__["a" /* WijzigwachtwoordPage */]),
-            ],
-        })
-    ], WijzigwachtwoordPageModule);
-    return WijzigwachtwoordPageModule;
-}());
-
-//# sourceMappingURL=wijzigwachtwoord.module.js.map
-
-/***/ }),
-
-/***/ 350:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PrivacybeleidPageModule", function() { return PrivacybeleidPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__privacybeleid__ = __webpack_require__(338);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-var PrivacybeleidPageModule = /** @class */ (function () {
-    function PrivacybeleidPageModule() {
-    }
-    PrivacybeleidPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__privacybeleid__["a" /* PrivacybeleidPage */],
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__privacybeleid__["a" /* PrivacybeleidPage */]),
-            ],
-        })
-    ], PrivacybeleidPageModule);
-    return PrivacybeleidPageModule;
-}());
-
-//# sourceMappingURL=privacybeleid.module.js.map
-
-/***/ }),
-
 /***/ 36:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CommentsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__feed_feed__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_keyboard__ = __webpack_require__(134);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var CommentsPage = /** @class */ (function () {
+    function CommentsPage(navCtrl, navParams, http, alertCtrl, events, keyboard, platform) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.alertCtrl = alertCtrl;
+        this.events = events;
+        this.keyboard = keyboard;
+        this.platform = platform;
+        this.comments = [];
+        this.platform.ready().then(function () {
+            keyboard.disableScroll(true);
+        });
+        if (this.navParams.get("record")) {
+            this.selectEntry(this.navParams.get("record"));
+            this.getComments();
+        }
+        // Maak connectie met http voor username etc
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        var options = { headers: headers };
+        var data = {
+            email: localStorage.getItem('userEmail'),
+        };
+        this.http.post('http://gazoh.net/getgebruiker.php', data, options)
+            .subscribe(function (data) {
+            _this.dataUser = data;
+            _this.userId = _this.dataUser.id;
+            _this.username = _this.dataUser.username;
+            _this.userRol = _this.dataUser.rol;
+            _this.pictureprofile = _this.dataUser.profilepicture;
+        });
+    }
+    // -------------------------------------------------
+    // Hier eindigt de constructor
+    // -------------------------------------------------
+    CommentsPage.prototype.callFunction = function () {
+        this.content.scrollToBottom(200);
+    };
+    // Runs when the page is about to enter and become the active page.
+    CommentsPage.prototype.ionViewDidEnter = function () {
+        var _this = this;
+        setTimeout(function () { return _this.myInput.setFocus(); }, 200);
+    };
+    CommentsPage.prototype.ionViewDidLoad = function () {
+        var _this = this;
+        this.navBar.backButtonClick = function (e) {
+            _this.navCtrl.pop();
+        };
+    };
+    CommentsPage.prototype.selectEntry = function (item) {
+        this.articleId = item.id;
+    };
+    CommentsPage.prototype.getComments = function () {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        var options = { headers: headers };
+        var data = {
+            articleId: this.articleId
+        };
+        this.http.post('http://gazoh.net/getcomment.php', data, options)
+            .subscribe(function (data) {
+            _this.comments = data;
+            if (_this.comments) {
+                _this.comments.sort(function (a, b) {
+                    return +new Date(a.commentDate) - +new Date(b.commentDate);
+                });
+            }
+        });
+    };
+    CommentsPage.prototype.postComment = function () {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        var options = { headers: headers };
+        var data = {
+            articleId: this.articleId,
+            userId: this.userId,
+            comment: this.comment
+        };
+        this.http.post('http://gazoh.net/setcomment.php', data, options)
+            .subscribe(function (data) {
+            if (data == "comment published") {
+                console.log(data);
+                _this.getComments();
+                _this.content.scrollToBottom();
+            }
+            _this.comment = "";
+        });
+    };
+    CommentsPage.prototype.deleteComment = function (commentId) {
+        var _this = this;
+        this.confirmAlert = this.alertCtrl.create({
+            title: "Verwijder",
+            message: "Als je reactie verwijderd word kan het niet ongedaan gemaakt worden",
+            buttons: [
+                {
+                    text: 'Annuleer',
+                    handler: function () {
+                        console.log("Clicked cancel");
+                    }
+                },
+                {
+                    text: 'Verwijder',
+                    handler: function () {
+                        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
+                        headers.append("Accept", 'application/json');
+                        headers.append('Content-Type', 'application/json');
+                        var options = { headers: headers };
+                        var data = {
+                            articleId: _this.articleId,
+                            commentId: commentId,
+                        };
+                        _this.http.post('http://gazoh.net/deletecomment.php', data, options)
+                            .subscribe(function (data) {
+                            if (data == "comment deleted") {
+                                console.log(data);
+                                _this.getComments();
+                            }
+                        });
+                    }
+                }
+            ]
+        });
+        this.confirmAlert.present();
+    };
+    CommentsPage.prototype.returnFeed = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__feed_feed__["a" /* FeedPage */]);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('input'),
+        __metadata("design:type", Object)
+    ], CommentsPage.prototype, "myInput", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Content */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Content */])
+    ], CommentsPage.prototype, "content", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* Navbar */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* Navbar */])
+    ], CommentsPage.prototype, "navBar", void 0);
+    CommentsPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-comments',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\comments\comments.html"*/'<ion-header no-border-bottom>\n\n    <ion-navbar>\n\n        <button ion-button menuToggle right class="fakeCenter">\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title class="fakePadding">Comments</ion-title>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-list *ngFor="let comment of comments; let last = last" class="commentSpacing">\n\n        <ion-item-sliding>\n\n            <ion-item>\n\n                {{last ? callFunction() : \'\'}}\n\n                <ion-avatar class="avatar" item-start>\n\n                    <img src="{{comment.profilepicture}}" class="avatar-profiel"/>\n\n                </ion-avatar>\n\n                <p class="commentUsername">{{comment.username}}<span class="commentDate">{{comment.commentDate}}</span>\n\n                </p>\n\n                <p><span class="breakText">{{comment.comment}}</span></p>\n\n            </ion-item>\n\n            <ion-item-options side="right">\n\n                <button ion-button color="danger" item-right *ngIf="userId == comment.userID || userRol == 1"\n\n                        (click)="deleteComment(comment.commentId)">\n\n                    <ion-icon name="trash"></ion-icon>\n\n                    Verwijder\n\n                </button>\n\n            </ion-item-options>\n\n        </ion-item-sliding>\n\n    </ion-list>\n\n</ion-content>\n\n<ion-footer>\n\n    <ion-item class="commentsItem">\n\n        <ion-avatar class="avatarComment" item-start>\n\n            <img src="{{pictureprofile}}" class="avatar-profielComment"/>\n\n        </ion-avatar>\n\n        <ion-input placeholder="Reageer als {{this.username}}" [(ngModel)]="comment" id="inputMessage"\n\n                   #input></ion-input>\n\n        <button ion-button class="sendButton" id="sendButtonId" (click)="postComment()" item-end\n\n                [disabled]="!comment">\n\n            <ion-icon name="send"></ion-icon>\n\n        </button>\n\n    </ion-item>\n\n</ion-footer>'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\comments\comments.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */],
+            __WEBPACK_IMPORTED_MODULE_4__ionic_native_keyboard__["a" /* Keyboard */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* Platform */]])
+    ], CommentsPage);
+    return CommentsPage;
+}());
+
+//# sourceMappingURL=comments.js.map
+
+/***/ }),
+
+/***/ 37:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__register_register__ = __webpack_require__(239);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__register_register__ = __webpack_require__(236);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__feed_feed__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__feed_feed__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_keyboard__ = __webpack_require__(134);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_storage__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__tutorial_tutorial__ = __webpack_require__(135);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_settings_settings__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_settings_settings__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_forms__ = __webpack_require__(22);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5476,22 +5266,23 @@ var HomePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 392:
+/***/ 390:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MenuProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_feed_feed__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_feed_feed__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_sport_sport__ = __webpack_require__(152);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_economie_economie__ = __webpack_require__(147);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_tech_tech__ = __webpack_require__(153);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_settings_settings__ = __webpack_require__(78);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_tutorial_tutorial__ = __webpack_require__(135);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_favorieten_favorieten__ = __webpack_require__(393);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_favorieten_favorieten__ = __webpack_require__(391);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_sources_sources__ = __webpack_require__(151);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_lifestyle_lifestyle__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_ionic_angular__ = __webpack_require__(2);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5501,6 +5292,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -5570,6 +5362,20 @@ var MenuProvider = /** @class */ (function () {
             }
         ];
     };
+    MenuProvider.prototype.uitloggen = function () {
+        localStorage.removeItem('userId');
+        localStorage.removeItem('userName');
+        localStorage.removeItem('userEmail');
+        localStorage.removeItem('userEmailVerified');
+        localStorage.removeItem('userRole');
+        localStorage.removeItem('userCreationDate');
+        localStorage.removeItem('sessionToken');
+        localStorage.removeItem('profilePicture');
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_11_ionic_angular__["l" /* Nav */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_11_ionic_angular__["l" /* Nav */])
+    ], MenuProvider.prototype, "nav", void 0);
     MenuProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
@@ -5581,15 +5387,15 @@ var MenuProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 393:
+/***/ 391:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FavorietenPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__comments_comments__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__comments_comments__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_network__ = __webpack_require__(25);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -5730,13 +5536,13 @@ var FavorietenPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 394:
+/***/ 392:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(395);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(399);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(393);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(397);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -5744,63 +5550,61 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 399:
+/***/ 397:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(390);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(391);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(722);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_settings_settings__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(388);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(389);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(720);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_settings_settings__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_network__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_in_app_browser__ = __webpack_require__(336);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_in_app_browser__ = __webpack_require__(332);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_screen_orientation__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_header_color__ = __webpack_require__(723);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_header_color__ = __webpack_require__(721);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_file__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_file_transfer__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_camera__ = __webpack_require__(339);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_geolocation__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_photo_viewer__ = __webpack_require__(340);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_home_home__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_camera__ = __webpack_require__(336);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_geolocation__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_photo_viewer__ = __webpack_require__(337);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_home_home__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_settings_settings__ = __webpack_require__(78);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_sources_sources__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_profiel_profiel__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_profiel_profiel__ = __webpack_require__(97);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_sport_sport__ = __webpack_require__(152);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_economie_economie__ = __webpack_require__(147);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_auto_auto__ = __webpack_require__(234);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_tech_tech__ = __webpack_require__(153);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_admin_admin__ = __webpack_require__(129);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_comments_comments__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_vermaak_vermaak__ = __webpack_require__(348);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_wijzigwachtwoord_wijzigwachtwoord__ = __webpack_require__(150);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_lifestyle_lifestyle__ = __webpack_require__(148);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_nieuws_nieuws_module__ = __webpack_require__(335);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__angular_common_http__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__angular_forms__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__ionic_storage__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__pages_favorieten_favorieten_module__ = __webpack_require__(724);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__pages_feed_feed_module__ = __webpack_require__(333);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__pages_register_register_module__ = __webpack_require__(341);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__pages_tutorial_tutorial_module__ = __webpack_require__(346);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__pages_settings_settings_module__ = __webpack_require__(342);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__pages_sport_sport_module__ = __webpack_require__(344);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__pages_economie_economie_module__ = __webpack_require__(332);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__pages_auto_auto_module__ = __webpack_require__(233);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__pages_tech_tech_module__ = __webpack_require__(345);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__pages_admin_admin_module__ = __webpack_require__(230);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__pages_sources_sources_module__ = __webpack_require__(343);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__pages_profiel_profiel_module__ = __webpack_require__(337);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__pages_wijzigwachtwoord_wijzigwachtwoord_module__ = __webpack_require__(349);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__pages_comments_comments_module__ = __webpack_require__(235);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__pages_vermaak_vermaak_module__ = __webpack_require__(347);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__pages_privacybeleid_privacybeleid_module__ = __webpack_require__(350);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__pages_lifestyle_lifestyle_module__ = __webpack_require__(334);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__providers_menu_menu__ = __webpack_require__(392);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__ionic_native_social_sharing__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_tech_tech__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_admin_admin__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_comments_comments__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_vermaak_vermaak__ = __webpack_require__(348);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_wijzigwachtwoord_wijzigwachtwoord__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_lifestyle_lifestyle__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_nieuws_nieuws_module__ = __webpack_require__(331);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__angular_common_http__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__angular_forms__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__ionic_storage__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_favorieten_favorieten_module__ = __webpack_require__(722);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__pages_feed_feed_module__ = __webpack_require__(330);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__pages_register_register_module__ = __webpack_require__(339);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__pages_tutorial_tutorial_module__ = __webpack_require__(344);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__pages_settings_settings_module__ = __webpack_require__(340);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__pages_sport_sport_module__ = __webpack_require__(342);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__pages_economie_economie_module__ = __webpack_require__(329);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__pages_tech_tech_module__ = __webpack_require__(343);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__pages_admin_admin_module__ = __webpack_require__(346);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__pages_sources_sources_module__ = __webpack_require__(341);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__pages_profiel_profiel_module__ = __webpack_require__(338);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__pages_wijzigwachtwoord_wijzigwachtwoord_module__ = __webpack_require__(345);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__pages_comments_comments_module__ = __webpack_require__(230);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__pages_vermaak_vermaak_module__ = __webpack_require__(347);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__pages_privacybeleid_privacybeleid_module__ = __webpack_require__(334);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__pages_lifestyle_lifestyle_module__ = __webpack_require__(333);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__providers_menu_menu__ = __webpack_require__(390);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__ionic_native_social_sharing__ = __webpack_require__(50);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5838,11 +5642,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
 //
 // Modules
 //
-
 
 
 
@@ -5884,14 +5686,12 @@ var AppModule = /** @class */ (function () {
                     autoFocusAssist: false
                 }, {
                     links: [
-                        { loadChildren: '../pages/admin/admin.module#AdminPageModule', name: 'AdminPage', segment: 'admin', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/auto/auto.module#AutoPageModule', name: 'AutoPage', segment: 'auto', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/comments/comments.module#CommentsPageModule', name: 'CommentsPage', segment: 'comments', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/economie/economie.module#EconomiePageModule', name: 'EconomiePage', segment: 'economie', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/feed/feed.module#FeedPageModule', name: 'FeedPage', segment: 'feed', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/lifestyle/lifestyle.module#LifestylePageModule', name: 'LifestylePage', segment: 'lifestyle', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/lijstweer/lijstweer.module#LijstweerPageModule', name: 'LijstweerPage', segment: 'lijstweer', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/nieuws/nieuws.module#NieuwsPageModule', name: 'NieuwsPage', segment: 'nieuws', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/lifestyle/lifestyle.module#LifestylePageModule', name: 'LifestylePage', segment: 'lifestyle', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/privacybeleid/privacybeleid.module#PrivacybeleidPageModule', name: 'PrivacybeleidPage', segment: 'privacybeleid', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/profiel/profiel.module#ProfielPageModule', name: 'ProfielPage', segment: 'profiel', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
@@ -5899,33 +5699,33 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/sport/sport.module#SportPageModule', name: 'SportPage', segment: 'sport', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tech/tech.module#TechPageModule', name: 'TechPage', segment: 'tech', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tutorial/tutorial.module#TutorialPageModule', name: 'TutorialPage', segment: 'tutorial', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/vermaak/vermaak.module#VermaakPageModule', name: 'VermaakPage', segment: 'vermaak', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/wijzigwachtwoord/wijzigwachtwoord.module#WijzigwachtwoordPageModule', name: 'WijzigwachtwoordPage', segment: 'wijzigwachtwoord', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/privacybeleid/privacybeleid.module#PrivacybeleidPageModule', name: 'PrivacybeleidPage', segment: 'privacybeleid', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/admin/admin.module#AdminPageModule', name: 'AdminPage', segment: 'admin', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/lijstweer/lijstweer.module#LijstweerPageModule', name: 'LijstweerPage', segment: 'lijstweer', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/vermaak/vermaak.module#VermaakPageModule', name: 'VermaakPage', segment: 'vermaak', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_30__angular_common_http__["b" /* HttpClientModule */],
-                __WEBPACK_IMPORTED_MODULE_31__angular_forms__["f" /* ReactiveFormsModule */],
-                __WEBPACK_IMPORTED_MODULE_32__ionic_storage__["a" /* IonicStorageModule */].forRoot(),
-                __WEBPACK_IMPORTED_MODULE_33__pages_favorieten_favorieten_module__["a" /* FavorietenPageModule */],
-                __WEBPACK_IMPORTED_MODULE_34__pages_feed_feed_module__["FeedPageModule"],
-                __WEBPACK_IMPORTED_MODULE_35__pages_register_register_module__["RegisterPageModule"],
-                __WEBPACK_IMPORTED_MODULE_29__pages_nieuws_nieuws_module__["NieuwsPageModule"],
-                __WEBPACK_IMPORTED_MODULE_36__pages_tutorial_tutorial_module__["TutorialPageModule"],
-                __WEBPACK_IMPORTED_MODULE_37__pages_settings_settings_module__["SettingsPageModule"],
-                __WEBPACK_IMPORTED_MODULE_38__pages_sport_sport_module__["SportPageModule"],
-                __WEBPACK_IMPORTED_MODULE_39__pages_economie_economie_module__["EconomiePageModule"],
-                __WEBPACK_IMPORTED_MODULE_40__pages_auto_auto_module__["AutoPageModule"],
-                __WEBPACK_IMPORTED_MODULE_41__pages_tech_tech_module__["TechPageModule"],
-                __WEBPACK_IMPORTED_MODULE_42__pages_admin_admin_module__["AdminPageModule"],
-                __WEBPACK_IMPORTED_MODULE_43__pages_sources_sources_module__["SourcesPageModule"],
-                __WEBPACK_IMPORTED_MODULE_44__pages_profiel_profiel_module__["ProfielPageModule"],
-                __WEBPACK_IMPORTED_MODULE_46__pages_comments_comments_module__["CommentsPageModule"],
-                __WEBPACK_IMPORTED_MODULE_45__pages_wijzigwachtwoord_wijzigwachtwoord_module__["WijzigwachtwoordPageModule"],
-                __WEBPACK_IMPORTED_MODULE_47__pages_vermaak_vermaak_module__["VermaakPageModule"],
-                __WEBPACK_IMPORTED_MODULE_48__pages_privacybeleid_privacybeleid_module__["PrivacybeleidPageModule"],
-                __WEBPACK_IMPORTED_MODULE_49__pages_lifestyle_lifestyle_module__["LifestylePageModule"]
+                __WEBPACK_IMPORTED_MODULE_29__angular_common_http__["b" /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_30__angular_forms__["f" /* ReactiveFormsModule */],
+                __WEBPACK_IMPORTED_MODULE_31__ionic_storage__["a" /* IonicStorageModule */].forRoot(),
+                __WEBPACK_IMPORTED_MODULE_32__pages_favorieten_favorieten_module__["a" /* FavorietenPageModule */],
+                __WEBPACK_IMPORTED_MODULE_33__pages_feed_feed_module__["FeedPageModule"],
+                __WEBPACK_IMPORTED_MODULE_34__pages_register_register_module__["RegisterPageModule"],
+                __WEBPACK_IMPORTED_MODULE_28__pages_nieuws_nieuws_module__["NieuwsPageModule"],
+                __WEBPACK_IMPORTED_MODULE_35__pages_tutorial_tutorial_module__["TutorialPageModule"],
+                __WEBPACK_IMPORTED_MODULE_36__pages_settings_settings_module__["SettingsPageModule"],
+                __WEBPACK_IMPORTED_MODULE_37__pages_sport_sport_module__["SportPageModule"],
+                __WEBPACK_IMPORTED_MODULE_38__pages_economie_economie_module__["EconomiePageModule"],
+                __WEBPACK_IMPORTED_MODULE_39__pages_tech_tech_module__["TechPageModule"],
+                __WEBPACK_IMPORTED_MODULE_40__pages_admin_admin_module__["AdminPageModule"],
+                __WEBPACK_IMPORTED_MODULE_41__pages_sources_sources_module__["SourcesPageModule"],
+                __WEBPACK_IMPORTED_MODULE_42__pages_profiel_profiel_module__["ProfielPageModule"],
+                __WEBPACK_IMPORTED_MODULE_44__pages_comments_comments_module__["CommentsPageModule"],
+                __WEBPACK_IMPORTED_MODULE_43__pages_wijzigwachtwoord_wijzigwachtwoord_module__["WijzigwachtwoordPageModule"],
+                __WEBPACK_IMPORTED_MODULE_45__pages_vermaak_vermaak_module__["VermaakPageModule"],
+                __WEBPACK_IMPORTED_MODULE_46__pages_privacybeleid_privacybeleid_module__["PrivacybeleidPageModule"],
+                __WEBPACK_IMPORTED_MODULE_47__pages_lifestyle_lifestyle_module__["LifestylePageModule"]
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicApp */]],
             entryComponents: [
@@ -5934,20 +5734,19 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_17__pages_settings_settings__["a" /* SettingsPage */],
                 __WEBPACK_IMPORTED_MODULE_20__pages_sport_sport__["a" /* SportPage */],
                 __WEBPACK_IMPORTED_MODULE_21__pages_economie_economie__["a" /* EconomiePage */],
-                __WEBPACK_IMPORTED_MODULE_22__pages_auto_auto__["a" /* AutoPage */],
-                __WEBPACK_IMPORTED_MODULE_23__pages_tech_tech__["a" /* TechPage */],
-                __WEBPACK_IMPORTED_MODULE_24__pages_admin_admin__["a" /* AdminPage */],
+                __WEBPACK_IMPORTED_MODULE_22__pages_tech_tech__["a" /* TechPage */],
+                __WEBPACK_IMPORTED_MODULE_23__pages_admin_admin__["a" /* AdminPage */],
                 __WEBPACK_IMPORTED_MODULE_18__pages_sources_sources__["a" /* SourcesPage */],
                 __WEBPACK_IMPORTED_MODULE_19__pages_profiel_profiel__["a" /* ProfielPage */],
-                __WEBPACK_IMPORTED_MODULE_25__pages_comments_comments__["a" /* CommentsPage */],
-                __WEBPACK_IMPORTED_MODULE_27__pages_wijzigwachtwoord_wijzigwachtwoord__["a" /* WijzigwachtwoordPage */],
-                __WEBPACK_IMPORTED_MODULE_26__pages_vermaak_vermaak__["a" /* VermaakPage */],
-                __WEBPACK_IMPORTED_MODULE_28__pages_lifestyle_lifestyle__["a" /* LifestylePage */]
+                __WEBPACK_IMPORTED_MODULE_24__pages_comments_comments__["a" /* CommentsPage */],
+                __WEBPACK_IMPORTED_MODULE_26__pages_wijzigwachtwoord_wijzigwachtwoord__["a" /* WijzigwachtwoordPage */],
+                __WEBPACK_IMPORTED_MODULE_25__pages_vermaak_vermaak__["a" /* VermaakPage */],
+                __WEBPACK_IMPORTED_MODULE_27__pages_lifestyle_lifestyle__["a" /* LifestylePage */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */],
                 __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
-                __WEBPACK_IMPORTED_MODULE_30__angular_common_http__["b" /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_29__angular_common_http__["b" /* HttpClientModule */],
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* IonicErrorHandler */] },
                 __WEBPACK_IMPORTED_MODULE_6__providers_settings_settings__["a" /* SettingsProvider */],
                 __WEBPACK_IMPORTED_MODULE_7__ionic_native_network__["a" /* Network */],
@@ -5958,8 +5757,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_13__ionic_native_camera__["a" /* Camera */],
                 __WEBPACK_IMPORTED_MODULE_11__ionic_native_file__["a" /* File */],
                 __WEBPACK_IMPORTED_MODULE_12__ionic_native_file_transfer__["a" /* FileTransfer */],
-                __WEBPACK_IMPORTED_MODULE_50__providers_menu_menu__["a" /* MenuProvider */],
-                __WEBPACK_IMPORTED_MODULE_51__ionic_native_social_sharing__["a" /* SocialSharing */],
+                __WEBPACK_IMPORTED_MODULE_48__providers_menu_menu__["a" /* MenuProvider */],
+                __WEBPACK_IMPORTED_MODULE_49__ionic_native_social_sharing__["a" /* SocialSharing */],
                 __WEBPACK_IMPORTED_MODULE_14__ionic_native_geolocation__["a" /* Geolocation */],
                 __WEBPACK_IMPORTED_MODULE_15__ionic_native_photo_viewer__["a" /* PhotoViewer */],
             ]
@@ -5972,211 +5771,20 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 43:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CommentsPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__feed_feed__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_keyboard__ = __webpack_require__(134);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-var CommentsPage = /** @class */ (function () {
-    function CommentsPage(navCtrl, navParams, http, alertCtrl, events, keyboard, platform) {
-        var _this = this;
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.http = http;
-        this.alertCtrl = alertCtrl;
-        this.events = events;
-        this.keyboard = keyboard;
-        this.platform = platform;
-        this.comments = [];
-        this.platform.ready().then(function () {
-            keyboard.disableScroll(true);
-        });
-        if (this.navParams.get("record")) {
-            this.selectEntry(this.navParams.get("record"));
-            this.getComments();
-        }
-        // Maak connectie met http voor username etc
-        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
-        headers.append("Accept", 'application/json');
-        headers.append('Content-Type', 'application/json');
-        var options = { headers: headers };
-        var data = {
-            email: localStorage.getItem('userEmail'),
-        };
-        this.http.post('http://gazoh.net/getgebruiker.php', data, options)
-            .subscribe(function (data) {
-            _this.dataUser = data;
-            _this.userId = _this.dataUser.id;
-            _this.username = _this.dataUser.username;
-            _this.userRol = _this.dataUser.rol;
-            _this.pictureprofile = _this.dataUser.profilepicture;
-        });
-    }
-    // -------------------------------------------------
-    // Hier eindigt de constructor
-    // -------------------------------------------------
-    CommentsPage.prototype.callFunction = function () {
-        this.content.scrollToBottom(200);
-    };
-    // Runs when the page is about to enter and become the active page.
-    CommentsPage.prototype.ionViewDidEnter = function () {
-        var _this = this;
-        setTimeout(function () { return _this.myInput.setFocus(); }, 200);
-    };
-    CommentsPage.prototype.ionViewDidLoad = function () {
-        var _this = this;
-        this.navBar.backButtonClick = function (e) {
-            _this.navCtrl.pop();
-        };
-    };
-    CommentsPage.prototype.selectEntry = function (item) {
-        this.articleId = item.id;
-    };
-    CommentsPage.prototype.getComments = function () {
-        var _this = this;
-        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
-        headers.append("Accept", 'application/json');
-        headers.append('Content-Type', 'application/json');
-        var options = { headers: headers };
-        var data = {
-            articleId: this.articleId
-        };
-        this.http.post('http://gazoh.net/getcomment.php', data, options)
-            .subscribe(function (data) {
-            _this.comments = data;
-            if (_this.comments) {
-                _this.comments.sort(function (a, b) {
-                    return +new Date(a.commentDate) - +new Date(b.commentDate);
-                });
-            }
-        });
-    };
-    CommentsPage.prototype.postComment = function () {
-        var _this = this;
-        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
-        headers.append("Accept", 'application/json');
-        headers.append('Content-Type', 'application/json');
-        var options = { headers: headers };
-        var data = {
-            articleId: this.articleId,
-            userId: this.userId,
-            comment: this.comment
-        };
-        this.http.post('http://gazoh.net/setcomment.php', data, options)
-            .subscribe(function (data) {
-            if (data == "comment published") {
-                console.log(data);
-                _this.getComments();
-                _this.content.scrollToBottom();
-            }
-            _this.comment = "";
-        });
-    };
-    CommentsPage.prototype.deleteComment = function (commentId) {
-        var _this = this;
-        this.confirmAlert = this.alertCtrl.create({
-            title: "Verwijder",
-            message: "Als je reactie verwijderd word kan het niet ongedaan gemaakt worden",
-            buttons: [
-                {
-                    text: 'Annuleer',
-                    handler: function () {
-                        console.log("Clicked cancel");
-                    }
-                },
-                {
-                    text: 'Verwijder',
-                    handler: function () {
-                        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
-                        headers.append("Accept", 'application/json');
-                        headers.append('Content-Type', 'application/json');
-                        var options = { headers: headers };
-                        var data = {
-                            articleId: _this.articleId,
-                            commentId: commentId,
-                        };
-                        _this.http.post('http://gazoh.net/deletecomment.php', data, options)
-                            .subscribe(function (data) {
-                            if (data == "comment deleted") {
-                                console.log(data);
-                                _this.getComments();
-                            }
-                        });
-                    }
-                }
-            ]
-        });
-        this.confirmAlert.present();
-    };
-    CommentsPage.prototype.returnFeed = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__feed_feed__["a" /* FeedPage */]);
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('input'),
-        __metadata("design:type", Object)
-    ], CommentsPage.prototype, "myInput", void 0);
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Content */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Content */])
-    ], CommentsPage.prototype, "content", void 0);
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* Navbar */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* Navbar */])
-    ], CommentsPage.prototype, "navBar", void 0);
-    CommentsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-comments',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\comments\comments.html"*/'<ion-header no-border-bottom>\n\n    <ion-navbar>\n\n        <button ion-button menuToggle right class="fakeCenter">\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title class="fakePadding">Comments</ion-title>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  <ion-list *ngFor="let comment of comments; let last = last" class="commentSpacing">\n\n  <ion-item-sliding>\n\n  <ion-item>\n\n    {{last ? callFunction() : \'\'}}\n\n    <ion-avatar class="avatar" item-start>\n\n      <img src="{{comment.profilepicture}}" class="avatar-profiel"/>\n\n    </ion-avatar>\n\n    <p class="commentUsername">{{comment.username}}<span class="commentDate">{{comment.commentDate}}</span></p>\n\n    <p><span class="breakText">{{comment.comment}}</span></p>\n\n  </ion-item>\n\n    <ion-item-options side="right">\n\n      <button ion-button color="danger" item-right *ngIf="userId == comment.userID || userRol == 1" (click)="deleteComment(comment.commentId)"><ion-icon name="trash"></ion-icon>Verwijder</button>\n\n    </ion-item-options>\n\n    </ion-item-sliding>\n\n  </ion-list>\n\n</ion-content>\n\n<ion-footer>\n\n    <ion-item class="commentsItem">\n\n        <ion-avatar class="avatarComment" item-start>\n\n            <img src="{{pictureprofile}}" class="avatar-profielComment"/>\n\n        </ion-avatar>\n\n        <ion-input placeholder="Reageer als {{this.username}}" [(ngModel)]="comment" id="inputMessage"\n\n                   #input></ion-input>\n\n        <button ion-button class="sendButton" id="sendButtonId" (click)="postComment()" item-end\n\n                [disabled]="!comment">\n\n            <ion-icon name="send"></ion-icon>\n\n        </button>\n\n    </ion-item>\n\n</ion-footer>'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\comments\comments.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */],
-            __WEBPACK_IMPORTED_MODULE_4__ionic_native_keyboard__["a" /* Keyboard */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* Platform */]])
-    ], CommentsPage);
-    return CommentsPage;
-}());
-
-//# sourceMappingURL=comments.js.map
-
-/***/ }),
-
-/***/ 53:
+/***/ 54:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FeedPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_network__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__comments_comments__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__comments_comments__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_geolocation__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_social_sharing__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_geolocation__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_social_sharing__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_storage__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_map__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_map__);
@@ -6318,7 +5926,7 @@ var FeedPage = /** @class */ (function () {
             var offlinealert = this.toastCtrl.create({
                 message: "Er is geen internet verbinding, opgeslagen artikelen worden ingeladen.",
                 duration: 2500,
-                position: "bottom"
+                position: "top"
             });
             if (this.datepicker == "vandaag") {
                 offlinealert.present();
@@ -6478,7 +6086,7 @@ var FeedPage = /** @class */ (function () {
             var toast = this.toastCtrl.create({
                 message: "Actie kon niet worden uitgevoerd, geen internet verbinding gevonden.",
                 duration: 3500,
-                position: "bottom"
+                position: "top"
             });
             toast.present();
         }
@@ -6711,7 +6319,7 @@ var FeedPage = /** @class */ (function () {
             var toast = this.toastCtrl.create({
                 message: "Actie kon niet worden uitgevoerd, geen internet verbinding gevonden.",
                 duration: 3500,
-                position: "bottom"
+                position: "top"
             });
             toast.present();
             if (this.network.type == "none") {
@@ -6755,7 +6363,7 @@ var FeedPage = /** @class */ (function () {
                                     var toast = _this.toastCtrl.create({
                                         message: '"' + articleTitle + '"' + " is verwijderd uit je favorieten!",
                                         duration: 2500,
-                                        position: "bottom"
+                                        position: "top"
                                     });
                                     toast.present();
                                     if (_this.datepicker == "vandaag") {
@@ -6780,7 +6388,7 @@ var FeedPage = /** @class */ (function () {
             var toast = this.toastCtrl.create({
                 message: "Actie kon niet worden uitgevoerd, geen internet verbinding gevonden.",
                 duration: 3500,
-                position: "bottom"
+                position: "top"
             });
             toast.present();
         }
@@ -6797,7 +6405,7 @@ var FeedPage = /** @class */ (function () {
                 var toast = _this.toastCtrl.create({
                     message: "Artikel " + postId + " verborgen",
                     duration: 2500,
-                    position: "bottom",
+                    position: "top",
                     showCloseButton: true,
                     closeButtonText: "OK"
                 });
@@ -6939,7 +6547,7 @@ var FeedPage = /** @class */ (function () {
     ], FeedPage.prototype, "content", void 0);
     FeedPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-feed',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\feed\feed.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <button ion-button menuToggle *ngIf="!isSearchbaropened">\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title *ngIf="!isSearchbaropened" class="algemeenText">Algemeen</ion-title>\n\n        <!-- Searchbar  -->\n\n        <ion-searchbar #searchbar *ngIf="isSearchbaropened" [showCancelButton]="true" (ionCancel)="resetChanges()"\n\n                       (ionInput)="search($event)" placeholder="Waar zijn we naar op zoek?"\n\n                       class="slideInRight"></ion-searchbar>\n\n        <!-- Searchbar icon -->\n\n        <ion-buttons end\n\n                     *ngIf="this.datepicker == \'vandaag\' || this.datepicker == \'gisteren\' || this.datepicker == \'driedagengeleden\'">\n\n            <button ion-button icon-only (click)="isSearchbaropened=true">\n\n                <ion-icon name="search" *ngIf="!isSearchbaropened"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n        <ion-buttons end *ngIf="this.datepicker == \'HetWeer\'">\n\n            <button ion-button icon-only (click)="goLijstWeerPage()">\n\n                <ion-icon name="search"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n        <ion-buttons end *ngIf="!isSearchbaropened" class="moreFeed">\n\n            <ion-icon name="more"></ion-icon>\n\n            <ion-list class="listMore">\n\n                <ion-select #newSelect [(ngModel)]="datepicker" (ionChange)="onChange(datepicker)"\n\n                            [selectOptions]="selectOptions" cancelText="Annuleer" okText="Ok" class="SelectMore">\n\n                    <ion-option value="vandaag">Vandaag</ion-option>\n\n                    <ion-option value="gisteren">Gisteren</ion-option>\n\n                    <ion-option value="driedagengeleden">Drie dagen geleden</ion-option>\n\n                    <!--<ion-option value="HetWeer">Het weer</ion-option>-->\n\n                </ion-select>\n\n            </ion-list>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <!-- Swipe up refresher  -->\n\n    <ion-refresher (ionRefresh)="doRefresh($event)">\n\n        <ion-refresher-content pullingIcon="arrow-dropdown"\n\n                               pullingText="Sleep omlaag om te verversen"></ion-refresher-content>\n\n    </ion-refresher>\n\n    <!-- Grid -->\n\n    <ion-grid class="feedGrid">\n\n        <ion-col>\n\n            <ion-row>\n\n                <ion-card *ngFor="let item of (items ? items.slice(0,slice): [])" col-md-6 class="ionCard">\n\n                    <!-- Images van nieuwsfeed -->\n\n                    <div class="ion-card-image-wrapper" (tap)="viewEntry({ record: item })">\n\n                        <img class="fullHeight" src="../assets/imgs/NOS.png"\n\n                             *ngIf="item.site == \'NOS\' && network.type == \'none\'">\n\n                        <img class="fullHeight" src="../assets/imgs/NUNL.png"\n\n                             *ngIf="item.site == \'NU.nl\' && network.type == \'none\'">\n\n                        <img class="fullHeight" src="../assets/imgs/tweakers.png" *ngIf="item.site == \'Tweakers\'">\n\n                        <img class="fullHeight" src="../assets/imgs/telegraaf.png"\n\n                             *ngIf="item.site == \'De Telegraaf\' && network.type == \'none\'">\n\n                        <img class="fullHeight" src="../assets/imgs/KNVB.png"\n\n                             *ngIf="item.site == \'KNVB\' && network.type == \'none\'">\n\n                        <img class="fullHeight" [src]="item.image"\n\n                             *ngIf="item.site == \'NOS\' || item.site == \'De Telegraaf\' || item.site == \'NU.nl\' || item.site == \'KNVB\' && network.type != \'none\'">\n\n                        <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">\n\n                    </div>\n\n                    <ion-card-content class="cardContentFeed">\n\n                            <!-- Avatar -->\n\n                            <div id="AvatarFeed" (tap)="viewEntry({ record: item })">\n\n                                <ion-avatar *ngIf="item.site == \'NOS\' && currentTheme == \'light-theme\'"\n\n                                            class="avatarNOS" item-start>\n\n                                    <img src="../assets/svg/NOS_logo.svg" class="avatar-feed"/>\n\n                                </ion-avatar>\n\n                                <ion-avatar *ngIf="item.site == \'NOS\' && currentTheme == \'dark-theme\'" class="avatarNOS"\n\n                                            item-start>\n\n                                    <img src="../assets/svg/NOS_logo_Wit.svg" class="avatar-feed"/>\n\n                                </ion-avatar>\n\n                                <ion-avatar *ngIf="item.site == \'De Telegraaf\' && currentTheme == \'light-theme\'"\n\n                                            class="avatarTelegraaf" item-start>\n\n                                    <img src="../assets/svg/Telegraaf.svg" class="avatar-feedTelegraaf"/>\n\n                                </ion-avatar>\n\n                                <ion-avatar *ngIf="item.site == \'De Telegraaf\' && currentTheme == \'dark-theme\'"\n\n                                            class="avatarTelegraaf" item-start>\n\n                                    <img src="../assets/svg/Telegraaf_Wit.svg" class="avatar-feedTelegraaf"/>\n\n                                </ion-avatar>\n\n                                <ion-avatar *ngIf="item.site == \'NU.nl\'" class="avatar" item-start>\n\n                                    <img src="../assets/svg/nu.nl.svg" class="avatar-feed"/>\n\n                                </ion-avatar>\n\n                                <ion-avatar *ngIf="item.site == \'Tweakers\'" class="avatar" item-start>\n\n                                    <img src="../assets/svg/Tweakers.svg" class="avatar-feed"/>\n\n                                </ion-avatar>\n\n                                <ion-avatar *ngIf="item.site == \'KNVB\'" class="avatar" item-start>\n\n                                    <img src="../assets/svg/knvb.svg" class="avatar-feed"/>\n\n                                </ion-avatar>\n\n                                <div class="uitgeverFeed" *ngIf="item.site == \'De Telegraaf\'">{{item.site}}</div>\n\n                                <div class="uitgeverFeedNU" *ngIf="item.site == \'NU.nl\'">{{item.site}}</div>\n\n                                <div class="uitgeverFeedNU" *ngIf="item.site == \'Tweakers\'">{{item.site}}</div>\n\n                                <div class="uitgeverFeedNU" *ngIf="item.site == \'KNVB\'">{{item.site}}</div>\n\n                            </div>\n\n                            <!-- Uitgever -->\n\n                            <div id="uitgeverFeed" (tap)="viewEntry({ record: item })">\n\n                                <!-- Title  -->\n\n                                <div id="title">\n\n                                    <ion-card-title *ngIf="item.site == \'De Telegraaf\' || item.site == \'NU.nl\'"><strong\n\n                                            class="cardTitle">{{item.title}}</strong></ion-card-title>\n\n                                    <ion-card-title *ngIf="item.site == \'NOS\'" id="ionCardNOS"><strong\n\n                                            class="cardTitleNOS">{{item.title}}</strong></ion-card-title>\n\n                                    <ion-card-title *ngIf="item.site == \'Tweakers\'"><strong\n\n                                            class="cardTitleNOS">{{item.title}}</strong></ion-card-title>\n\n                                    <ion-card-title *ngIf="item.site == \'KNVB\'"><strong\n\n                                            class="cardTitleNOS">{{item.title}}</strong></ion-card-title>\n\n\n\n                                </div>\n\n                                <!-- description  -->\n\n                                <div id="description">\n\n                                    <p class="descriptionFeed">{{htmlToPlaintext(item.description) |\n\n                                        slice:0:120}}...</p>\n\n                                </div>\n\n                                <!-- Datum -->\n\n                                <div id="datumFeed" class="datumFeed">\n\n                                    <span>{{item.datum}}</span>\n\n                                </div>\n\n                            </div>\n\n                            <!-- Social Buttons - Comments - likes - Share -->\n\n                            <div id="socialLikeComments" class="socialLikeComments">\n\n                                <!---->\n\n                                <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\' && rol == 1"\n\n                                        class="ColorDarkAppShare" (click)="showConfirmHide(item.id)">\n\n                                    <ion-icon name="trash"></ion-icon>\n\n                                </button>\n\n                                <button ion-button icon-start clear *ngIf="item.site == \'NOS\' && rol == 1"\n\n                                        class="ColorDarkAppShare" (click)="showConfirmHide(item.id)">\n\n                                    <ion-icon name="trash"></ion-icon>\n\n                                </button>\n\n                                <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\' && rol == 1"\n\n                                        class="ColorDarkAppShare" (click)="showConfirmHide(item.id)">\n\n                                    <ion-icon name="trash"></ion-icon>\n\n                                </button>\n\n                                <button ion-button icon-start clear *ngIf="item.site == \'Tweakers\' && rol == 1"\n\n                                        class="ColorDarkAppShare" (click)="showConfirmHide(item.id)">\n\n                                    <ion-icon name="trash"></ion-icon>\n\n                                </button>\n\n                                <button ion-button icon-start clear *ngIf="item.site == \'KNVB\' && rol == 1"\n\n                                        class="ColorDarkAppShare" (click)="showConfirmHide(item.id)">\n\n                                    <ion-icon name="trash"></ion-icon>\n\n                                </button>\n\n                                <!---->\n\n                                <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\'"\n\n                                        class="ColorDarkAppShare"\n\n                                        (click)="shareInfo(item.title, item.image, item.link)">\n\n                                    <ion-icon name="share-alt"></ion-icon>\n\n                                </button>\n\n                                <button ion-button icon-start clear *ngIf="item.site == \'NOS\'" class="ColorDarkAppShare"\n\n                                        (click)="shareInfo(item.title, item.image, item.link)">\n\n                                    <ion-icon name="share-alt"></ion-icon>\n\n                                </button>\n\n                                <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\'" class="ColorDarkAppShare"\n\n                                        (click)="shareInfo(item.title, item.image, item.link)">\n\n                                    <ion-icon name="share-alt"></ion-icon>\n\n                                </button>\n\n                                <button ion-button icon-start clear *ngIf="item.site == \'Tweakers\'"\n\n                                        class="ColorDarkAppShare"\n\n                                        (click)="shareInfo(item.title, item.image, item.link)">\n\n                                    <ion-icon name="share-alt"></ion-icon>\n\n                                </button>\n\n                                <button ion-button icon-start clear *ngIf="item.site == \'KNVB\'" class="ColorDarkAppShare"\n\n                                        (click)="shareInfo(item.title, item.image, item.link)">\n\n                                    <ion-icon name="share-alt"></ion-icon>\n\n                                </button>\n\n                                <!---->\n\n                                <button class="socialTelegraaf" ion-button icon-start clear\n\n                                        *ngIf="item.site == \'De Telegraaf\' && item.liked == 0" [disabled]="disabled"\n\n                                        (click)="setLike(item.id)">\n\n                                    <ion-icon name="heart-outline" class="ColorDarkApp"></ion-icon>\n\n                                    <div class="ColorDarkAppTextDarkTheme">{{item.likes}}</div>\n\n                                </button>\n\n                                <button class="socialNOS" ion-button icon-start clear\n\n                                        *ngIf="item.site == \'NOS\' && item.liked == 0" [disabled]="disabled"\n\n                                        (click)="setLike(item.id)">\n\n                                    <ion-icon name="heart-outline" class="ColorDarkApp"></ion-icon>\n\n                                    <div class="ColorDarkAppTextDarkTheme"> {{item.likes}}</div>\n\n                                </button>\n\n                                <button class="socialNu" ion-button icon-start clear\n\n                                        *ngIf="item.site == \'NU.nl\' && item.liked == 0" [disabled]="disabled"\n\n                                        (click)="setLike(item.id)">\n\n                                    <ion-icon name="heart-outline" class="ColorDarkApp"></ion-icon>\n\n                                    <div class="ColorDarkAppTextDarkTheme">{{item.likes}}</div>\n\n                                </button>\n\n                                <button class="socialTweakers" ion-button icon-start clear\n\n                                        *ngIf="item.site == \'Tweakers\' && item.liked == 0" [disabled]="disabled"\n\n                                        (click)="setLike(item.id)">\n\n                                    <ion-icon name="heart-outline" class="ColorDarkApp"></ion-icon>\n\n                                    <div class="ColorDarkAppTextDarkTheme">{{item.likes}}</div>\n\n                                </button>\n\n                                <button class="socialKnvb" ion-button icon-start clear\n\n                                        *ngIf="item.site == \'KNVB\' && item.liked == 0" [disabled]="disabled"\n\n                                        (click)="setLike(item.id)">\n\n                                    <ion-icon name="heart-outline" class="ColorDarkApp"></ion-icon>\n\n                                    <div class="ColorDarkAppTextDarkTheme">{{item.likes}}</div>\n\n                                </button>\n\n                                <!---->\n\n                                <button class="socialTelegraaf" ion-button icon-start clear\n\n                                        *ngIf="item.site == \'De Telegraaf\' && item.liked == 1"\n\n                                        (click)="dislike(item.id, item.title)">\n\n                                    <ion-icon name="heart" class="ColorDarkApp"></ion-icon>\n\n                                    <div class="ColorDarkAppTextDarkTheme">{{item.likes}}</div>\n\n                                </button>\n\n                                <button class="socialNOS" ion-button icon-start clear\n\n                                        *ngIf="item.site == \'NOS\' && item.liked == 1"\n\n                                        (click)="dislike(item.id, item.title)">\n\n                                    <ion-icon name="heart" class="ColorDarkApp"></ion-icon>\n\n                                    <div class="ColorDarkAppTextDarkTheme">{{item.likes}}</div>\n\n                                </button>\n\n                                <button class="socialNu" ion-button icon-start clear\n\n                                        *ngIf="item.site == \'NU.nl\' && item.liked == 1"\n\n                                        (click)="dislike(item.id, item.title)">\n\n                                    <ion-icon name="heart" class="ColorDarkApp"></ion-icon>\n\n                                    <div class="ColorDarkAppTextDarkTheme">{{item.likes}}</div>\n\n                                </button>\n\n                                <button class="socialTweakers" ion-button icon-start clear\n\n                                        *ngIf="item.site == \'Tweakers\' && item.liked == 1"\n\n                                        (click)="dislike(item.id, item.title)">\n\n                                    <ion-icon name="heart" class="ColorDarkApp"></ion-icon>\n\n                                    <div class="ColorDarkAppTextDarkTheme">{{item.likes}}</div>\n\n                                </button>\n\n                                <button class="socialKnvb" ion-button icon-start clear\n\n                                        *ngIf="item.site == \'KNVB\' && item.liked == 1"\n\n                                        (click)="dislike(item.id, item.title)">\n\n                                    <ion-icon name="heart" class="ColorDarkApp"></ion-icon>\n\n                                    <div class="ColorDarkAppTextDarkTheme">{{item.likes}}</div>\n\n                                </button>\n\n                                <!---->\n\n                                <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\'"\n\n                                        class="socialTelegraaf" (click)="viewComments({ record: item })">\n\n                                    <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>\n\n                                    <div class="ColorDarkAppTextDarkTheme">{{item.comments}}</div>\n\n                                </button>\n\n                                <button ion-button icon-start clear *ngIf="item.site == \'NOS\'" class="socialNOS"\n\n                                        (click)="viewComments({ record: item })">\n\n                                    <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>\n\n                                    <div class="ColorDarkAppTextDarkTheme">{{item.comments}}</div>\n\n                                </button>\n\n                                <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\'" class="socialNu"\n\n                                        (click)="viewComments({ record: item })">\n\n                                    <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>\n\n                                    <div class="ColorDarkAppTextDarkTheme">{{item.comments}}</div>\n\n                                </button>\n\n                                <button ion-button icon-start clear *ngIf="item.site == \'Tweakers\'"\n\n                                        class="socialTweakers"\n\n                                        (click)="viewComments({ record: item })">\n\n                                    <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>\n\n                                    <div class="ColorDarkAppTextDarkTheme">{{item.comments}}</div>\n\n                                </button>\n\n                                <button ion-button icon-start clear *ngIf="item.site == \'KNVB\'" class="socialKnvb"\n\n                                        (click)="viewComments({ record: item })">\n\n                                    <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>\n\n                                    <div class="ColorDarkAppTextDarkTheme">{{item.comments}}</div>\n\n                                </button>\n\n                                <!---->\n\n                            </div>\n\n                        </ion-card-content>\n\n                </ion-card>\n\n            </ion-row>\n\n            <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n\n                <ion-infinite-scroll-content\n\n                        loadingSpinner="bubbles"\n\n                        loadingText="Meer artikelen inladen...">\n\n                </ion-infinite-scroll-content>\n\n            </ion-infinite-scroll>\n\n        </ion-col>\n\n    </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\feed\feed.html"*/,
+            selector: 'page-feed',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\feed\feed.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <button ion-button menuToggle *ngIf="!isSearchbaropened">\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title *ngIf="!isSearchbaropened" class="algemeenText">Algemeen</ion-title>\n\n        <!-- Searchbar  -->\n\n        <ion-searchbar #searchbar *ngIf="isSearchbaropened" [showCancelButton]="true" (ionCancel)="resetChanges()"\n\n                       (ionInput)="search($event)" placeholder="Waar zijn we naar op zoek?"\n\n                       class="slideInRight"></ion-searchbar>\n\n        <!-- Searchbar icon -->\n\n        <ion-buttons end\n\n                     *ngIf="this.datepicker == \'vandaag\' || this.datepicker == \'gisteren\' || this.datepicker == \'driedagengeleden\'">\n\n            <button ion-button icon-only (click)="isSearchbaropened=true">\n\n                <ion-icon name="search" *ngIf="!isSearchbaropened"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n        <ion-buttons end *ngIf="this.datepicker == \'HetWeer\'">\n\n            <button ion-button icon-only (click)="goLijstWeerPage()">\n\n                <ion-icon name="search"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n        <ion-buttons end *ngIf="!isSearchbaropened" class="moreFeed">\n\n            <ion-icon class="calenderIcon" name="calendar"></ion-icon>\n\n            <ion-list class="listMore">\n\n                <ion-select #newSelect [(ngModel)]="datepicker" (ionChange)="onChange(datepicker)"\n\n                            [selectOptions]="selectOptions" cancelText="Annuleer" okText="Ok" class="SelectMore">\n\n                    <ion-option value="vandaag">Vandaag</ion-option>\n\n                    <ion-option value="gisteren">Gisteren</ion-option>\n\n                    <ion-option value="driedagengeleden">Drie dagen geleden</ion-option>\n\n                    <!--<ion-option value="HetWeer">Het weer</ion-option>-->\n\n                </ion-select>\n\n            </ion-list>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <!-- Swipe up refresher  -->\n\n    <ion-refresher (ionRefresh)="doRefresh($event)">\n\n        <ion-refresher-content pullingIcon="arrow-dropdown"\n\n                               pullingText="Sleep omlaag om te verversen"></ion-refresher-content>\n\n    </ion-refresher>\n\n    <!-- Grid -->\n\n    <ion-grid class="feedGrid">\n\n        <ion-col>\n\n            <ion-row>\n\n                <ion-card *ngFor="let item of (items ? items.slice(0,slice): [])" col-md-6 class="ionCard">\n\n                    <!-- Images van nieuwsfeed -->\n\n                    <div class="ion-card-image-wrapper" (tap)="viewEntry({ record: item })">\n\n                        <img class="fullHeight" src="../assets/imgs/NOS.png"\n\n                             *ngIf="item.site == \'NOS\' && network.type == \'none\'">\n\n                        <img class="fullHeight" src="../assets/imgs/NUNL.png"\n\n                             *ngIf="item.site == \'NU.nl\' && network.type == \'none\'">\n\n                        <img class="fullHeight" src="../assets/imgs/tweakers.png" *ngIf="item.site == \'Tweakers\'">\n\n                        <img class="fullHeight" src="../assets/imgs/telegraaf.png"\n\n                             *ngIf="item.site == \'De Telegraaf\' && network.type == \'none\'">\n\n                        <img class="fullHeight" src="../assets/imgs/KNVB.png"\n\n                             *ngIf="item.site == \'KNVB\' && network.type == \'none\'">\n\n                        <img class="fullHeight" [src]="item.image"\n\n                             *ngIf="item.site == \'NOS\' || item.site == \'De Telegraaf\' || item.site == \'NU.nl\' || item.site == \'KNVB\' && network.type != \'none\'">\n\n                        <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">\n\n                    </div>\n\n                    <ion-card-content class="cardContentFeed">\n\n                            <!-- Avatar -->\n\n                            <div id="AvatarFeed" (tap)="viewEntry({ record: item })">\n\n                                <ion-avatar *ngIf="item.site == \'NOS\' && currentTheme == \'light-theme\'"\n\n                                            class="avatarNOS" item-start>\n\n                                    <img src="../assets/svg/NOS_logo.svg" class="avatar-feed"/>\n\n                                </ion-avatar>\n\n                                <ion-avatar *ngIf="item.site == \'NOS\' && currentTheme == \'dark-theme\'" class="avatarNOS"\n\n                                            item-start>\n\n                                    <img src="../assets/svg/NOS_logo_Wit.svg" class="avatar-feed"/>\n\n                                </ion-avatar>\n\n                                <ion-avatar *ngIf="item.site == \'De Telegraaf\' && currentTheme == \'light-theme\'"\n\n                                            class="avatarTelegraaf" item-start>\n\n                                    <img src="../assets/svg/Telegraaf.svg" class="avatar-feedTelegraaf"/>\n\n                                </ion-avatar>\n\n                                <ion-avatar *ngIf="item.site == \'De Telegraaf\' && currentTheme == \'dark-theme\'"\n\n                                            class="avatarTelegraaf" item-start>\n\n                                    <img src="../assets/svg/Telegraaf_Wit.svg" class="avatar-feedTelegraaf"/>\n\n                                </ion-avatar>\n\n                                <ion-avatar *ngIf="item.site == \'NU.nl\'" class="avatar" item-start>\n\n                                    <img src="../assets/svg/nu.nl.svg" class="avatar-feed"/>\n\n                                </ion-avatar>\n\n                                <ion-avatar *ngIf="item.site == \'Tweakers\'" class="avatar" item-start>\n\n                                    <img src="../assets/svg/Tweakers.svg" class="avatar-feed"/>\n\n                                </ion-avatar>\n\n                                <ion-avatar *ngIf="item.site == \'KNVB\'" class="avatar" item-start>\n\n                                    <img src="../assets/svg/knvb.svg" class="avatar-feed"/>\n\n                                </ion-avatar>\n\n                                <div class="uitgeverFeed" *ngIf="item.site == \'De Telegraaf\'">{{item.site}}</div>\n\n                                <div class="uitgeverFeedNU" *ngIf="item.site == \'NU.nl\'">{{item.site}}</div>\n\n                                <div class="uitgeverFeedNU" *ngIf="item.site == \'Tweakers\'">{{item.site}}</div>\n\n                                <div class="uitgeverFeedNU" *ngIf="item.site == \'KNVB\'">{{item.site}}</div>\n\n                            </div>\n\n                            <!-- Uitgever -->\n\n                            <div id="uitgeverFeed" (tap)="viewEntry({ record: item })">\n\n                                <!-- Title  -->\n\n                                <div id="title">\n\n                                    <ion-card-title *ngIf="item.site == \'De Telegraaf\' || item.site == \'NU.nl\'"><strong\n\n                                            class="cardTitle">{{item.title}}</strong></ion-card-title>\n\n                                    <ion-card-title *ngIf="item.site == \'NOS\'" id="ionCardNOS"><strong\n\n                                            class="cardTitleNOS">{{item.title}}</strong></ion-card-title>\n\n                                    <ion-card-title *ngIf="item.site == \'Tweakers\'"><strong\n\n                                            class="cardTitleNOS">{{item.title}}</strong></ion-card-title>\n\n                                    <ion-card-title *ngIf="item.site == \'KNVB\'"><strong\n\n                                            class="cardTitleNOS">{{item.title}}</strong></ion-card-title>\n\n\n\n                                </div>\n\n                                <!-- description  -->\n\n                                <div id="description">\n\n                                    <p class="descriptionFeed">{{htmlToPlaintext(item.description) |\n\n                                        slice:0:120}}...</p>\n\n                                </div>\n\n                                <!-- Datum -->\n\n                                <div id="datumFeed" class="datumFeed">\n\n                                    <span>{{item.datum}}</span>\n\n                                </div>\n\n                            </div>\n\n                            <!-- Social Buttons - Comments - likes - Share -->\n\n                            <div id="socialLikeComments" class="socialLikeComments">\n\n                                <!---->\n\n                                <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\' && rol == 1"\n\n                                        class="ColorDarkAppShare" (click)="showConfirmHide(item.id)">\n\n                                    <ion-icon name="trash"></ion-icon>\n\n                                </button>\n\n                                <button ion-button icon-start clear *ngIf="item.site == \'NOS\' && rol == 1"\n\n                                        class="ColorDarkAppShare" (click)="showConfirmHide(item.id)">\n\n                                    <ion-icon name="trash"></ion-icon>\n\n                                </button>\n\n                                <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\' && rol == 1"\n\n                                        class="ColorDarkAppShare" (click)="showConfirmHide(item.id)">\n\n                                    <ion-icon name="trash"></ion-icon>\n\n                                </button>\n\n                                <button ion-button icon-start clear *ngIf="item.site == \'Tweakers\' && rol == 1"\n\n                                        class="ColorDarkAppShare" (click)="showConfirmHide(item.id)">\n\n                                    <ion-icon name="trash"></ion-icon>\n\n                                </button>\n\n                                <button ion-button icon-start clear *ngIf="item.site == \'KNVB\' && rol == 1"\n\n                                        class="ColorDarkAppShare" (click)="showConfirmHide(item.id)">\n\n                                    <ion-icon name="trash"></ion-icon>\n\n                                </button>\n\n                                <!---->\n\n                                <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\'"\n\n                                        class="ColorDarkAppShare"\n\n                                        (click)="shareInfo(item.title, item.image, item.link)">\n\n                                    <ion-icon name="share-alt"></ion-icon>\n\n                                </button>\n\n                                <button ion-button icon-start clear *ngIf="item.site == \'NOS\'" class="ColorDarkAppShare"\n\n                                        (click)="shareInfo(item.title, item.image, item.link)">\n\n                                    <ion-icon name="share-alt"></ion-icon>\n\n                                </button>\n\n                                <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\'" class="ColorDarkAppShare"\n\n                                        (click)="shareInfo(item.title, item.image, item.link)">\n\n                                    <ion-icon name="share-alt"></ion-icon>\n\n                                </button>\n\n                                <button ion-button icon-start clear *ngIf="item.site == \'Tweakers\'"\n\n                                        class="ColorDarkAppShare"\n\n                                        (click)="shareInfo(item.title, item.image, item.link)">\n\n                                    <ion-icon name="share-alt"></ion-icon>\n\n                                </button>\n\n                                <button ion-button icon-start clear *ngIf="item.site == \'KNVB\'" class="ColorDarkAppShare"\n\n                                        (click)="shareInfo(item.title, item.image, item.link)">\n\n                                    <ion-icon name="share-alt"></ion-icon>\n\n                                </button>\n\n                                <!---->\n\n                                <button class="socialTelegraaf" ion-button icon-start clear\n\n                                        *ngIf="item.site == \'De Telegraaf\' && item.liked == 0" [disabled]="disabled"\n\n                                        (click)="setLike(item.id)">\n\n                                    <ion-icon name="heart-outline" class="ColorDarkApp"></ion-icon>\n\n                                    <div class="ColorDarkAppTextDarkTheme">{{item.likes}}</div>\n\n                                </button>\n\n                                <button class="socialNOS" ion-button icon-start clear\n\n                                        *ngIf="item.site == \'NOS\' && item.liked == 0" [disabled]="disabled"\n\n                                        (click)="setLike(item.id)">\n\n                                    <ion-icon name="heart-outline" class="ColorDarkApp"></ion-icon>\n\n                                    <div class="ColorDarkAppTextDarkTheme"> {{item.likes}}</div>\n\n                                </button>\n\n                                <button class="socialNu" ion-button icon-start clear\n\n                                        *ngIf="item.site == \'NU.nl\' && item.liked == 0" [disabled]="disabled"\n\n                                        (click)="setLike(item.id)">\n\n                                    <ion-icon name="heart-outline" class="ColorDarkApp"></ion-icon>\n\n                                    <div class="ColorDarkAppTextDarkTheme">{{item.likes}}</div>\n\n                                </button>\n\n                                <button class="socialTweakers" ion-button icon-start clear\n\n                                        *ngIf="item.site == \'Tweakers\' && item.liked == 0" [disabled]="disabled"\n\n                                        (click)="setLike(item.id)">\n\n                                    <ion-icon name="heart-outline" class="ColorDarkApp"></ion-icon>\n\n                                    <div class="ColorDarkAppTextDarkTheme">{{item.likes}}</div>\n\n                                </button>\n\n                                <button class="socialKnvb" ion-button icon-start clear\n\n                                        *ngIf="item.site == \'KNVB\' && item.liked == 0" [disabled]="disabled"\n\n                                        (click)="setLike(item.id)">\n\n                                    <ion-icon name="heart-outline" class="ColorDarkApp"></ion-icon>\n\n                                    <div class="ColorDarkAppTextDarkTheme">{{item.likes}}</div>\n\n                                </button>\n\n                                <!---->\n\n                                <button class="socialTelegraaf" ion-button icon-start clear\n\n                                        *ngIf="item.site == \'De Telegraaf\' && item.liked == 1"\n\n                                        (click)="dislike(item.id, item.title)">\n\n                                    <ion-icon name="heart" class="ColorDarkApp"></ion-icon>\n\n                                    <div class="ColorDarkAppTextDarkTheme">{{item.likes}}</div>\n\n                                </button>\n\n                                <button class="socialNOS" ion-button icon-start clear\n\n                                        *ngIf="item.site == \'NOS\' && item.liked == 1"\n\n                                        (click)="dislike(item.id, item.title)">\n\n                                    <ion-icon name="heart" class="ColorDarkApp"></ion-icon>\n\n                                    <div class="ColorDarkAppTextDarkTheme">{{item.likes}}</div>\n\n                                </button>\n\n                                <button class="socialNu" ion-button icon-start clear\n\n                                        *ngIf="item.site == \'NU.nl\' && item.liked == 1"\n\n                                        (click)="dislike(item.id, item.title)">\n\n                                    <ion-icon name="heart" class="ColorDarkApp"></ion-icon>\n\n                                    <div class="ColorDarkAppTextDarkTheme">{{item.likes}}</div>\n\n                                </button>\n\n                                <button class="socialTweakers" ion-button icon-start clear\n\n                                        *ngIf="item.site == \'Tweakers\' && item.liked == 1"\n\n                                        (click)="dislike(item.id, item.title)">\n\n                                    <ion-icon name="heart" class="ColorDarkApp"></ion-icon>\n\n                                    <div class="ColorDarkAppTextDarkTheme">{{item.likes}}</div>\n\n                                </button>\n\n                                <button class="socialKnvb" ion-button icon-start clear\n\n                                        *ngIf="item.site == \'KNVB\' && item.liked == 1"\n\n                                        (click)="dislike(item.id, item.title)">\n\n                                    <ion-icon name="heart" class="ColorDarkApp"></ion-icon>\n\n                                    <div class="ColorDarkAppTextDarkTheme">{{item.likes}}</div>\n\n                                </button>\n\n                                <!---->\n\n                                <button ion-button icon-start clear *ngIf="item.site == \'De Telegraaf\'"\n\n                                        class="socialTelegraaf" (click)="viewComments({ record: item })">\n\n                                    <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>\n\n                                    <div class="ColorDarkAppTextDarkTheme">{{item.comments}}</div>\n\n                                </button>\n\n                                <button ion-button icon-start clear *ngIf="item.site == \'NOS\'" class="socialNOS"\n\n                                        (click)="viewComments({ record: item })">\n\n                                    <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>\n\n                                    <div class="ColorDarkAppTextDarkTheme">{{item.comments}}</div>\n\n                                </button>\n\n                                <button ion-button icon-start clear *ngIf="item.site == \'NU.nl\'" class="socialNu"\n\n                                        (click)="viewComments({ record: item })">\n\n                                    <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>\n\n                                    <div class="ColorDarkAppTextDarkTheme">{{item.comments}}</div>\n\n                                </button>\n\n                                <button ion-button icon-start clear *ngIf="item.site == \'Tweakers\'"\n\n                                        class="socialTweakers"\n\n                                        (click)="viewComments({ record: item })">\n\n                                    <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>\n\n                                    <div class="ColorDarkAppTextDarkTheme">{{item.comments}}</div>\n\n                                </button>\n\n                                <button ion-button icon-start clear *ngIf="item.site == \'KNVB\'" class="socialKnvb"\n\n                                        (click)="viewComments({ record: item })">\n\n                                    <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>\n\n                                    <div class="ColorDarkAppTextDarkTheme">{{item.comments}}</div>\n\n                                </button>\n\n                                <!---->\n\n                            </div>\n\n                        </ion-card-content>\n\n                </ion-card>\n\n            </ion-row>\n\n            <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n\n                <ion-infinite-scroll-content\n\n                        loadingSpinner="bubbles"\n\n                        loadingText="Meer artikelen inladen...">\n\n                </ion-infinite-scroll-content>\n\n            </ion-infinite-scroll>\n\n        </ion-col>\n\n    </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\feed\feed.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
@@ -6965,13 +6573,13 @@ var FeedPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 54:
+/***/ 55:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SettingsProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__(241);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__(238);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7075,15 +6683,18 @@ var LijstweerPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 704:
+/***/ 702:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NieuwsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__ = __webpack_require__(336);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__ = __webpack_require__(332);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_network__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_social_sharing__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__comments_comments__ = __webpack_require__(36);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7097,6 +6708,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
+
 /**
  * Generated class for the NieuwsPage page.
  *
@@ -7104,11 +6719,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var NieuwsPage = /** @class */ (function () {
-    function NieuwsPage(navCtrl, navParams, inAppBrowser, network) {
+    function NieuwsPage(navCtrl, navParams, inAppBrowser, network, socialSharing, http, toastCtrl, alertCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.inAppBrowser = inAppBrowser;
         this.network = network;
+        this.socialSharing = socialSharing;
+        this.http = http;
+        this.toastCtrl = toastCtrl;
+        this.alertCtrl = alertCtrl;
+        this.disabled = false;
+        this.TIMER_IN_MS = 100;
         this.options = {
             location: 'yes',
             hidden: 'no',
@@ -7145,6 +6766,9 @@ var NieuwsPage = /** @class */ (function () {
         this.site = item.site;
         this.datum = item.datum;
         this.id = item.id;
+        this.liked = item.liked;
+        this.comments = item.comments;
+        this.likes = item.liked;
     };
     NieuwsPage.prototype.htmlToPlaintext = function (text) {
         return text ? String(text).replace(/<[^>]+>/gm, '') : '';
@@ -7162,14 +6786,119 @@ var NieuwsPage = /** @class */ (function () {
         var browser = this.inAppBrowser.create(url, '_blank', Options);
         browser.show();
     };
+    NieuwsPage.prototype.shareInfo = function (articleTitle, articleImage, articleLink) {
+        this.socialSharing.share('Bekijk "' + articleTitle + '" via de Newsage app', "NewsAge", articleImage, articleLink);
+    };
+    NieuwsPage.prototype.dislike = function (articleId, articleTitle) {
+        var _this = this;
+        if (this.network.type != "none") {
+            var headers = new __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["c" /* HttpHeaders */]();
+            headers.append("Accept", 'application/json');
+            headers.append('Content-Type', 'application/json');
+            var options_1 = { headers: headers };
+            var data_1 = {
+                articleId: articleId,
+                userId: this.userId
+            };
+            var alert_1 = this.alertCtrl.create({
+                title: "Dislike",
+                message: "Weet je zeker dat je deze artikel wilt verwijderen uit je favorieten ?",
+                buttons: [
+                    {
+                        text: 'Annuleer',
+                        handler: function () {
+                            return;
+                        }
+                    },
+                    {
+                        text: 'Verwijder',
+                        handler: function () {
+                            _this.http.post('http://gazoh.net/unlike.php', data_1, options_1)
+                                .subscribe(function (data) {
+                                if (data == "unliked") {
+                                    var toast = _this.toastCtrl.create({
+                                        message: '"' + articleTitle + '"' + " is verwijderd uit je favorieten!",
+                                        duration: 2500,
+                                        position: "bottom"
+                                    });
+                                    toast.present();
+                                }
+                            });
+                        }
+                    }
+                ]
+            });
+            alert_1.present();
+        }
+        else if (this.network.type == "none") {
+            var toast = this.toastCtrl.create({
+                message: "Actie kon niet worden uitgevoerd, geen internet verbinding gevonden.",
+                duration: 3500,
+                position: "bottom"
+            });
+            toast.present();
+        }
+    };
+    NieuwsPage.prototype.viewComments = function (param) {
+        if (this.network.type != "none") {
+            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__comments_comments__["a" /* CommentsPage */], param);
+        }
+        else if (this.network.type == "none") {
+            var toast = this.toastCtrl.create({
+                message: "Actie kon niet worden uitgevoerd, geen internet verbinding gevonden.",
+                duration: 3500,
+                position: "bottom"
+            });
+            toast.present();
+        }
+    };
+    NieuwsPage.prototype.setLike = function (articleId) {
+        var _this = this;
+        if (this.network.type != "none") {
+            this.disabled = true;
+            var headers = new __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["c" /* HttpHeaders */]();
+            headers.append("Accept", 'application/json');
+            headers.append('Content-Type', 'application/json');
+            var options = { headers: headers };
+            var data = {
+                articleId: articleId,
+                userId: this.userId
+            };
+            this.http.post('http://gazoh.net/setlike.php', data, options)
+                .subscribe(function (data) {
+                if (data == "liked")
+                    setTimeout(function () {
+                        _this.disabled = false;
+                    }, _this.TIMER_IN_MS);
+            });
+        }
+        else if (this.network.type == "none") {
+            var toast = this.toastCtrl.create({
+                message: "Actie kon niet worden uitgevoerd, geen internet verbinding gevonden.",
+                duration: 3500,
+                position: "bottom"
+            });
+            toast.present();
+            if (this.network.type == "none") {
+                this.disabled = true;
+            }
+            else {
+                this.disabled = false;
+            }
+        }
+    };
     NieuwsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-nieuws',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\nieuws\nieuws.html"*/'<ion-header>\n\n  <meta charset="UTF-8">\n\n  <ion-navbar class="nieuwsNavTitle">{{this.title}}</ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  <ion-card class="nieuwsCard">\n\n    <img *ngIf="!this.image && network.type != \'none\' && this.site != \'Tweakers\'" src="../assets/imgs/noimage.jpg">\n\n    <img *ngIf="this.image && this.site != \'Tweakers\' && network.type != \'none\'" src="{{this.image}} " class="imageNieuws">\n\n    <img *ngIf="this.site == \'Tweakers\'" src="../assets/imgs/tweakers.png" class="imageNieuwsTweakers">\n\n    <img *ngIf="this.site == \'NOS\' && network.type == \'none\'" src="../assets/imgs/NOS.png" class="imageNieuws">\n\n    <img *ngIf="this.site == \'NU.nl\' && network.type == \'none\'" src="../assets/imgs/NUNL.png" class="imageNieuws">\n\n    <img *ngIf="this.site == \'De Telegraaf\' && network.type == \'none\'" src="../assets/imgs/telegraaf.png" class="imageNieuws">\n\n    <img *ngIf="this.site == \'KNVB\' && network.type == \'none\'" src="../assets/imgs/KNVB.png" class="imageNieuws">\n\n    <ion-card-header class="headerText" text-wrap>\n\n      {{this.title}}\n\n      <p class="nieuwsDatum">{{this.datum}}</p>\n\n    </ion-card-header>\n\n    <ion-card-content class="nieuwsContent">\n\n      <p>{{htmlToPlaintext(this.description)}}</p>\n\n      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == \'De Telegraaf\'" class="ColorTelegraaf">Lees verder op {{this.site}}</button>\n\n      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == \'NOS\'" class="ColorNOS">Lees verder op {{this.site}}</button>\n\n      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == \'NU.nl\'" class="ColorNU">Lees verder op {{this.site}}</button>\n\n      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == \'Tweakers\'" class="ColorTweakers">Lees verder op {{this.site}}</button>\n\n      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == \'KNVB\'" class="ColorKnvb">Lees verder op {{this.site}}</button>\n\n    </ion-card-content>\n\n  </ion-card>\n\n</ion-content>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\nieuws\nieuws.html"*/,
+            selector: 'page-nieuws',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\nieuws\nieuws.html"*/'w<ion-header>\n\n  <meta charset="UTF-8">\n\n  <ion-navbar class="nieuwsNavTitle">{{this.title}}</ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  <ion-card class="nieuwsCard">\n\n    <img *ngIf="!this.image && network.type != \'none\' && this.site != \'Tweakers\'" src="../assets/imgs/noimage.jpg">\n\n    <img *ngIf="this.image && this.site != \'Tweakers\' && network.type != \'none\'" src="{{this.image}} " class="imageNieuws">\n\n    <img *ngIf="this.site == \'Tweakers\'" src="../assets/imgs/tweakers.png" class="imageNieuwsTweakers">\n\n    <img *ngIf="this.site == \'NOS\' && network.type == \'none\'" src="../assets/imgs/NOS.png" class="imageNieuws">\n\n    <img *ngIf="this.site == \'NU.nl\' && network.type == \'none\'" src="../assets/imgs/NUNL.png" class="imageNieuws">\n\n    <img *ngIf="this.site == \'De Telegraaf\' && network.type == \'none\'" src="../assets/imgs/telegraaf.png" class="imageNieuws">\n\n    <img *ngIf="this.site == \'KNVB\' && network.type == \'none\'" src="../assets/imgs/KNVB.png" class="imageNieuws">\n\n    <ion-card-header class="headerText" text-wrap>\n\n      {{this.title}}\n\n      <p class="nieuwsDatum">{{this.datum}}</p>\n\n    </ion-card-header>\n\n    <ion-card-content class="nieuwsContent">\n\n      <p>{{htmlToPlaintext(this.description)}}</p>\n\n      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == \'De Telegraaf\'" class="ColorDarkAppNieuws">Lees verder op {{this.site}}</button>\n\n      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == \'NOS\'" class="ColorDarkAppNieuws">Lees verder op {{this.site}}</button>\n\n      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == \'NU.nl\'" class="ColorDarkAppNieuws">Lees verder op {{this.site}}</button>\n\n      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == \'Tweakers\'" class="ColorDarkAppNieuws">Lees verder op {{this.site}}</button>\n\n      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == \'KNVB\'" class="ColorDarkAppNieuws">Lees verder op {{this.site}}</button>\n\n      <!-- Social Buttons - Comments - likes - Share -->\n\n      <div id="socialLikeComments" class="socialLikeCommentsNieuws">\n\n        <button ion-button icon-start clear *ngIf="this.site == \'De Telegraaf\'"\n\n                class="ColorDarkAppShare"\n\n                (click)="shareInfo(this.title, this.image, this.link)">\n\n          <ion-icon name="share-alt"></ion-icon>\n\n        </button>\n\n        <button ion-button icon-start clear *ngIf="this.site == \'NOS\'" class="ColorDarkAppShare"\n\n                (click)="shareInfo(this.title, this.image, this.link)">\n\n          <ion-icon name="share-alt"></ion-icon>\n\n        </button>\n\n        <button ion-button icon-start clear *ngIf="this.site == \'NU.nl\'" class="ColorDarkAppShare"\n\n                (click)="shareInfo(this.title, this.image, this.link)">\n\n          <ion-icon name="share-alt"></ion-icon>\n\n        </button>\n\n        <button ion-button icon-start clear *ngIf="this.site == \'Tweakers\'"\n\n                class="ColorDarkAppShare"\n\n                (click)="shareInfo(this.title, this.image, this.link)">\n\n          <ion-icon name="share-alt"></ion-icon>\n\n        </button>\n\n        <button ion-button icon-start clear *ngIf="this.site == \'KNVB\'" class="ColorDarkAppShare"\n\n                (click)="shareInfo(this.title, this.image, this.link)">\n\n          <ion-icon name="share-alt"></ion-icon>\n\n        </button>\n\n        <!---->\n\n        <button class="socialTelegraaf" ion-button icon-start clear\n\n                *ngIf="this.site == \'De Telegraaf\' && this.liked == 0" [disabled]="disabled"\n\n                (click)="setLike(this.id)">\n\n          <ion-icon name="heart-outline" class="ColorDarkApp"></ion-icon>\n\n          <div class="ColorDarkAppTextDarkTheme">{{this.likes}}</div>\n\n        </button>\n\n        <button class="socialNOS" ion-button icon-start clear\n\n                *ngIf="this.site == \'NOS\' && this.liked == 0" [disabled]="disabled"\n\n                (click)="setLike(this.id)">\n\n          <ion-icon name="heart-outline" class="ColorDarkApp"></ion-icon>\n\n          <div class="ColorDarkAppTextDarkTheme"> {{this.likes}}</div>\n\n        </button>\n\n        <button class="socialNu" ion-button icon-start clear\n\n                *ngIf="this.site == \'NU.nl\' && this.liked == 0" [disabled]="disabled"\n\n                (click)="setLike(this.id)">\n\n          <ion-icon name="heart-outline" class="ColorDarkApp"></ion-icon>\n\n          <div class="ColorDarkAppTextDarkTheme">{{this.likes}}</div>\n\n        </button>\n\n        <button class="socialTweakers" ion-button icon-start clear\n\n                *ngIf="this.site == \'Tweakers\' && this.liked == 0" [disabled]="disabled"\n\n                (click)="setLike(this.id)">\n\n          <ion-icon name="heart-outline" class="ColorDarkApp"></ion-icon>\n\n          <div class="ColorDarkAppTextDarkTheme">{{this.likes}}</div>\n\n        </button>\n\n        <button class="socialKnvb" ion-button icon-start clear\n\n                *ngIf="this.site == \'KNVB\' && this.liked == 0" [disabled]="disabled"\n\n                (click)="setLike(this.id)">\n\n          <ion-icon name="heart-outline" class="ColorDarkApp"></ion-icon>\n\n          <div class="ColorDarkAppTextDarkTheme">{{this.likes}}</div>\n\n        </button>\n\n        <!---->\n\n        <button class="socialTelegraaf" ion-button icon-start clear\n\n                *ngIf="this.site == \'De Telegraaf\' && this.liked == 1"\n\n                (click)="dislike(this.id, this.title)">\n\n          <ion-icon name="heart" class="ColorDarkApp"></ion-icon>\n\n          <div class="ColorDarkAppTextDarkTheme">{{this.likes}}</div>\n\n        </button>\n\n        <button class="socialNOS" ion-button icon-start clear\n\n                *ngIf="this.site == \'NOS\' && this.liked == 1"\n\n                (click)="dislike(this.id, this.title)">\n\n          <ion-icon name="heart" class="ColorDarkApp"></ion-icon>\n\n          <div class="ColorDarkAppTextDarkTheme">{{this.likes}}</div>\n\n        </button>\n\n        <button class="socialNu" ion-button icon-start clear\n\n                *ngIf="this.site == \'NU.nl\' && this.liked == 1"\n\n                (click)="dislike(this.id, this.title)">\n\n          <ion-icon name="heart" class="ColorDarkApp"></ion-icon>\n\n          <div class="ColorDarkAppTextDarkTheme">{{this.likes}}</div>\n\n        </button>\n\n        <button class="socialTweakers" ion-button icon-start clear\n\n                *ngIf="this.site == \'Tweakers\' && this.liked == 1"\n\n                (click)="dislike(this.id, this.title)">\n\n          <ion-icon name="heart" class="ColorDarkApp"></ion-icon>\n\n          <div class="ColorDarkAppTextDarkTheme">{{this.likes}}</div>\n\n        </button>\n\n        <button class="socialKnvb" ion-button icon-start clear\n\n                *ngIf="this.site == \'KNVB\' && this.liked == 1"\n\n                (click)="dislike(this.id, this.title)">\n\n          <ion-icon name="heart" class="ColorDarkApp"></ion-icon>\n\n          <div class="ColorDarkAppTextDarkTheme">{{this.likes}}</div>\n\n        </button>\n\n        <!---->\n\n        <button ion-button icon-start clear *ngIf="this.site == \'De Telegraaf\'"\n\n                class="socialTelegraaf" (click)="viewComments({ record: this.id })">\n\n          <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>\n\n          <div class="ColorDarkAppTextDarkTheme">{{this.comments}}</div>\n\n        </button>\n\n        <button ion-button icon-start clear *ngIf="this.site == \'NOS\'" class="socialNOS"\n\n                (click)="viewComments({ record: this.id })">\n\n          <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>\n\n          <div class="ColorDarkAppTextDarkTheme">{{this.comments}}</div>\n\n        </button>\n\n        <button ion-button icon-start clear *ngIf="this.site == \'NU.nl\'" class="socialNu"\n\n                (click)="viewComments({ record: this.id })">\n\n          <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>\n\n          <div class="ColorDarkAppTextDarkTheme">{{this.comments}}</div>\n\n        </button>\n\n        <button ion-button icon-start clear *ngIf="this.site == \'Tweakers\'"\n\n                class="socialTweakers"\n\n                (click)="viewComments({ record: this.id })">\n\n          <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>\n\n          <div class="ColorDarkAppTextDarkTheme">{{this.comments}}</div>\n\n        </button>\n\n        <button ion-button icon-start clear *ngIf="this.site == \'KNVB\'" class="socialKnvb"\n\n                (click)="viewComments({ record: this.id })">\n\n          <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>\n\n          <div class="ColorDarkAppTextDarkTheme">{{this.comments}}</div>\n\n        </button>\n\n        <!---->\n\n      </div>\n\n    </ion-card-content>\n\n  </ion-card>\n\n</ion-content>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\nieuws\nieuws.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__["a" /* InAppBrowser */],
-            __WEBPACK_IMPORTED_MODULE_3__ionic_native_network__["a" /* Network */]])
+            __WEBPACK_IMPORTED_MODULE_3__ionic_native_network__["a" /* Network */],
+            __WEBPACK_IMPORTED_MODULE_5__ionic_native_social_sharing__["a" /* SocialSharing */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
     ], NieuwsPage);
     return NieuwsPage;
 }());
@@ -7178,22 +6907,23 @@ var NieuwsPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 722:
+/***/ 720:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(391);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_home_home__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(389);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_home_home__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_keyboard__ = __webpack_require__(134);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_settings_settings__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__ = __webpack_require__(390);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_feed_feed__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_menu_menu__ = __webpack_require__(392);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_settings_settings__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__ = __webpack_require__(388);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_feed_feed__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_menu_menu__ = __webpack_require__(390);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_network__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_storage__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_profiel_profiel__ = __webpack_require__(97);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7203,6 +6933,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -7343,12 +7074,31 @@ var MyApp = /** @class */ (function () {
             _this.confirmAlert.present();
         });
     };
+    MyApp.prototype.Uitloggen = function () {
+        localStorage.removeItem('userId');
+        localStorage.removeItem('userName');
+        localStorage.removeItem('userEmail');
+        localStorage.removeItem('userEmailVerified');
+        localStorage.removeItem('userRole');
+        localStorage.removeItem('userCreationDate');
+        localStorage.removeItem('sessionToken');
+        localStorage.removeItem('profilePicture');
+        this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_3__pages_home_home__["a" /* HomePage */]);
+    };
+    MyApp.prototype.goProfielFoto = function () {
+        var _this = this;
+        this.nav.push(__WEBPACK_IMPORTED_MODULE_11__pages_profiel_profiel__["a" /* ProfielPage */]);
+        this.storage.get("profilepicture").then(function (foto) {
+            _this.events.publish('profilepicture', foto);
+        });
+        this.menuCtrl.close();
+    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Nav */]),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\app\app.html"*/'<!-- SplashScreen -->\n\n<ion-grid style="height: 100%" class="gridPadding">\n\n  <ion-row justify-content-center align-items-center style="height: 100%" *ngIf="showSplash" class="splash">\n\n    <div class="spinner">\n\n      <div class="NewsAgeLogo">\n\n        <img class="NewsAge" src="../assets/imgs/NewsAgeLogo.png">\n\n      </div>\n\n      <div class="loader">\n\n        <img src="../assets/svg/spinner/tail-spinSplash.svg">\n\n      </div>\n\n    </div>\n\n  </ion-row>\n\n</ion-grid>\n\n<!--  -->\n\n<!-- Menu -->\n\n<ion-menu [class]="selectedTheme" [content]="content" [swipeEnabled]="false">\n\n    <ion-content id="contentAnimation">\n\n        <ion-list>\n\n            <ion-navbar class="menuNavbar">\n\n                <ion-grid class="gridMenu">\n\n                    <ion-col col-9 class="menuCol">\n\n                        <img src="{{this.profilepicture}}" class="avatar-menu"/>\n\n                        <p ngClass="usernameMenu">{{this.username}}</p>\n\n                    </ion-col>\n\n                </ion-grid>\n\n            </ion-navbar>\n\n            <ion-item ion-item *ngFor="let p of pages;  let i=index" (click)="openPage(p, i);">\n\n               <ion-icon slot="start" [name]="p.icon"></ion-icon>\n\n                <span ion-text class="menuTitle">\n\n                      {{p.title}}\n\n                      <span><ion-icon [name]="selectedMenu == i? \'arrow-dropdown\' : \'arrow-dropright\'" *ngIf="p.subPages" float-right></ion-icon></span>\n\n                </span>\n\n                <!--Child Pages  -->\n\n                <ion-list no-lines [hidden]="selectedMenu != i">\n\n                    <ion-item no-border *ngFor="let subPage of p.subPages;let i2=index" text-wrap\n\n                              (click)="openPage(subPage)">\n\n                         <ion-icon slot="start" [name]="subPage.icon"></ion-icon>\n\n                        <span ion-text color="color2">&nbsp;{{subPage.title}}</span>\n\n                    </ion-item>\n\n                </ion-list>\n\n            </ion-item>\n\n        </ion-list>\n\n    </ion-content>\n\n    <ion-footer class="footerMenu">\n\n        <ion-toolbar class="toolbarFooter">\n\n            <div class="versienummer"><span class="newsAgeFooter">©NewsAge </span><span class="versionnummer">v</span>8.1.3</div>\n\n        </ion-toolbar>\n\n    </ion-footer>\n\n</ion-menu>\n\n\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" [class]="selectedTheme" #content swipeBackEnabled="false"></ion-nav>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\app\app.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\app\app.html"*/'<!-- SplashScreen -->\n\n<ion-grid style="height: 100%" class="gridPadding">\n\n  <ion-row justify-content-center align-items-center style="height: 100%" *ngIf="showSplash" class="splash">\n\n    <div class="spinner">\n\n      <div class="NewsAgeLogo">\n\n        <img class="NewsAge" src="../assets/imgs/NewsAgeLogo.png">\n\n      </div>\n\n      <div class="loader">\n\n        <img src="../assets/svg/spinner/tail-spinSplash.svg">\n\n      </div>\n\n    </div>\n\n  </ion-row>\n\n</ion-grid>\n\n<!--  -->\n\n<!-- Menu -->\n\n<ion-menu [class]="selectedTheme" [content]="content" [swipeEnabled]="false">\n\n    <ion-content id="contentAnimation">\n\n        <ion-list>\n\n            <ion-navbar class="menuNavbar">\n\n                <ion-grid class="gridMenu">\n\n                    <ion-col col-9 class="menuCol">\n\n                        <img (click)="goProfielFoto()" src="{{this.profilepicture}}" class="avatar-menu"/>\n\n                        <p ngClass="usernameMenu">{{this.username}}</p>\n\n                    </ion-col>\n\n                </ion-grid>\n\n            </ion-navbar>\n\n            <ion-item ion-item *ngFor="let p of pages;  let i=index" (click)="openPage(p, i);">\n\n               <ion-icon slot="start" [name]="p.icon"></ion-icon>\n\n                <span ion-text class="menuTitle">\n\n                      {{p.title}}\n\n                      <span><ion-icon [name]="selectedMenu == i? \'arrow-dropdown\' : \'arrow-dropright\'" *ngIf="p.subPages" float-right></ion-icon></span>\n\n                </span>\n\n                <!--Child Pages  -->\n\n                <ion-list no-lines [hidden]="selectedMenu != i">\n\n                    <ion-item no-border *ngFor="let subPage of p.subPages;let i2=index" text-wrap\n\n                              (click)="openPage(subPage)">\n\n                         <ion-icon slot="start" [name]="subPage.icon"></ion-icon>\n\n                        <span ion-text color="color2">&nbsp;{{subPage.title}}</span>\n\n                    </ion-item>\n\n                </ion-list>\n\n            </ion-item>\n\n            <ion-item (click)="Uitloggen()" menuClose>\n\n                <ion-icon name="log-out"></ion-icon>\n\n                <span class="loguutIcon">Uitloggen</span>\n\n            </ion-item>\n\n        </ion-list>\n\n    </ion-content>\n\n    <ion-footer class="footerMenu">\n\n        <ion-toolbar class="toolbarFooter">\n\n            <div class="versienummer"><span class="newsAgeFooter">©NewsAge </span><span class="versionnummer">v</span>8.1.3</div>\n\n        </ion-toolbar>\n\n    </ion-footer>\n\n</ion-menu>\n\n\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" [class]="selectedTheme" #content swipeBackEnabled="false"></ion-nav>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\app\app.html"*/,
             providers: [__WEBPACK_IMPORTED_MODULE_4__ionic_native_keyboard__["a" /* Keyboard */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Nav */]]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* Platform */],
@@ -7371,14 +7121,14 @@ var MyApp = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 724:
+/***/ 722:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FavorietenPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__favorieten__ = __webpack_require__(393);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__favorieten__ = __webpack_require__(391);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7415,13 +7165,13 @@ var FavorietenPageModule = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SettingsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_settings_settings__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__admin_admin__ = __webpack_require__(129);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__profiel_profiel__ = __webpack_require__(149);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common_http__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__privacybeleid_privacybeleid__ = __webpack_require__(338);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs__ = __webpack_require__(241);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_settings_settings__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__admin_admin__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__profiel_profiel__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common_http__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__privacybeleid_privacybeleid__ = __webpack_require__(335);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs__ = __webpack_require__(238);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_rxjs__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7625,7 +7375,336 @@ var SettingsPage = /** @class */ (function () {
 
 //# sourceMappingURL=settings.js.map
 
+/***/ }),
+
+/***/ 97:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfielPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__settings_settings__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__ = __webpack_require__(336);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__wijzigwachtwoord_wijzigwachtwoord__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_photo_viewer__ = __webpack_require__(337);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_storage__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_network__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_settings_settings__ = __webpack_require__(55);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+var ProfielPage = /** @class */ (function () {
+    function ProfielPage(navCtrl, navParams, alertCtrl, camera, actionSheetCtrl, http, events, photoViewer, storage, network, settings) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.alertCtrl = alertCtrl;
+        this.camera = camera;
+        this.actionSheetCtrl = actionSheetCtrl;
+        this.http = http;
+        this.events = events;
+        this.photoViewer = photoViewer;
+        this.storage = storage;
+        this.network = network;
+        this.settings = settings;
+        this.id = localStorage.getItem("userId");
+        this.myprofilepic = localStorage.getItem("profilePicture");
+        this.settings.getActiveTheme().subscribe(function (val) { return _this.selectedTheme = val; });
+        if (this.network.type != "none") {
+            var headers = new __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["c" /* HttpHeaders */]();
+            headers.append("Accept", 'application/json');
+            headers.append('Content-Type', 'application/json');
+            var options = { headers: headers };
+            var data = {
+                email: localStorage.getItem('userEmail'),
+            };
+            this.http.post('http://gazoh.net/getgebruiker.php', data, options)
+                .subscribe(function (data) {
+                _this.dataUser = data;
+                _this.username = _this.dataUser.username;
+                _this.email = _this.dataUser.email;
+                _this.emailVerified = _this.dataUser.emailVerified;
+                _this.rol = _this.dataUser.rol;
+                _this.myphoto = _this.dataUser.profilepicture;
+                _this.creationdate = _this.dataUser.creationdate;
+            });
+        }
+        else if (this.network.type == "none") {
+            // Get offline profilepicture
+            this.storage.get("profilepicture").then(function (foto) {
+                _this.myphoto = foto;
+            });
+            // Get offline username
+            this.storage.get("username").then(function (username) {
+                _this.username = username;
+            });
+            // Get offline email
+            this.storage.get("email").then(function (email) {
+                _this.email = email;
+            });
+            // Get offline email verified status
+            this.storage.get("emailverified").then(function (emailverified) {
+                _this.emailVerified = emailverified;
+            });
+            // Get offline user role
+            this.storage.get("rol").then(function (rol) {
+                _this.rol = rol;
+            });
+            // Get offline user creation date
+            this.storage.get("creationdate").then(function (creationdate) {
+                _this.creationdate = creationdate;
+            });
+        }
+    }
+    ProfielPage.prototype.presentActionSheet = function () {
+        var _this = this;
+        var actionSheet = this.actionSheetCtrl.create({
+            title: 'Kies',
+            buttons: [
+                {
+                    text: 'Maak foto',
+                    role: 'Maak foto',
+                    handler: function () {
+                        _this.takePhoto();
+                    }
+                },
+                {
+                    text: 'Kies uit galerij',
+                    handler: function () {
+                        _this.cropImage();
+                    }
+                },
+                {
+                    text: 'Annuleren',
+                    role: 'cancel',
+                    handler: function () {
+                        console.log('Cancel clicked');
+                    }
+                }
+            ]
+        });
+        actionSheet.present();
+    };
+    ProfielPage.prototype.takePhoto = function () {
+        var _this = this;
+        var options = {
+            quality: 70,
+            allowEdit: true,
+            targetWidth: 300,
+            targetHeight: 300,
+            destinationType: this.camera.DestinationType.DATA_URL,
+            encodingType: this.camera.EncodingType.JPEG,
+            mediaType: this.camera.MediaType.PICTURE
+        };
+        this.camera.getPicture(options).then(function (imageData) {
+            // imageData is either a base64 encoded string or a file URI
+            // If it's base64:
+            _this.myphoto = 'data:image/jpeg;base64,' + imageData;
+        }, function (err) {
+            // Handle error
+        });
+    };
+    ProfielPage.prototype.onArticlePictureCreated = function (base64String) {
+        this.myphoto = 'data:image/jpeg;base64,' + base64String;
+        this.myprofilepic = 'data:image/jpeg;base64,' + base64String;
+        localStorage.setItem("profilePicture", this.myphoto);
+    };
+    // getImage() {
+    //     const options: CameraOptions = {
+    //         quality: 70,
+    //         destinationType: this.camera.DestinationType.DATA_URL,
+    //         sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+    //         saveToPhotoAlbum:false
+    //     }
+    //
+    //     this.camera.getPicture(options).then((imageData) => {
+    //         // imageData is either a base64 encoded string or a file URI
+    //         // If it's base64:
+    //         this.myphoto = 'data:image/jpeg;base64,' + imageData;
+    //     }, (err) => {
+    //         // Handle error
+    //     });
+    // }
+    ProfielPage.prototype.cropImage = function () {
+        var _this = this;
+        var options = {
+            quality: 70,
+            destinationType: this.camera.DestinationType.DATA_URL,
+            sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+            saveToPhotoAlbum: false,
+            allowEdit: true,
+            targetWidth: 300,
+            targetHeight: 300
+        };
+        this.camera.getPicture(options).then(function (imageData) {
+            // imageData is either a base64 encoded string or a file URI
+            // If it's base64:
+            _this.myphoto = 'data:image/jpeg;base64,' + imageData;
+            _this.myprofilepic = 'data:image/jpeg;base64,' + imageData;
+            localStorage.setItem("profilePicture", _this.myphoto);
+        }, function (err) {
+            // Handle error
+        });
+    };
+    ProfielPage.prototype.wijzigWachtwoord = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__wijzigwachtwoord_wijzigwachtwoord__["a" /* WijzigwachtwoordPage */]);
+    };
+    ProfielPage.prototype.goBack = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_1__settings_settings__["a" /* SettingsPage */]);
+    };
+    // Validatie
+    ProfielPage.prototype.ngOnInit = function () {
+        this.form = new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["b" /* FormGroup */]({
+            username: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* Validators */].pattern('[a-zA-Z][a-zA-z ]+')]),
+            email: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* Validators */].email, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* Validators */].pattern('^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$')])
+        });
+    };
+    // Zodra alles leeg is dan werkt de checkmark functie niet meer
+    ProfielPage.prototype.validateAllFormFields = function (formGroup) {
+        var _this = this;
+        Object.keys(formGroup.controls).forEach(function (field) {
+            var control = formGroup.get(field); //{3}
+            if (control instanceof __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormControl */]) {
+                control.markAsTouched({ onlySelf: true });
+            }
+            else if (control instanceof __WEBPACK_IMPORTED_MODULE_5__angular_forms__["b" /* FormGroup */]) {
+                _this.validateAllFormFields(control); //{6}
+            }
+        });
+    };
+    ProfielPage.prototype.updateProfile = function () {
+        var _this = this;
+        if (this.network.type == "none") {
+            var alert_1 = this.alertCtrl.create({
+                title: "Geen verbinding",
+                subTitle: "U heeft geen werkende internet verbinding, probeer het later opnieuw.",
+                buttons: [{
+                        text: "OK", handler: function (data) {
+                        }
+                    }],
+            });
+            alert_1.present();
+        }
+        else if (this.network.type != "none") {
+            if (this.form.invalid) {
+                this.validateAllFormFields(this.form); //{7}
+            }
+            else {
+                var headers = new __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["c" /* HttpHeaders */]();
+                headers.append("Accept", 'application/json');
+                headers.append('Content-Type', 'application/json');
+                var options = { headers: headers };
+                var data = {
+                    id: this.id,
+                    username: this.username,
+                    email: this.email,
+                    myphoto: this.myphoto
+                };
+                this.http.post('http://gazoh.net/updateProfiel.php', data, options)
+                    .map(function (res) { return res; })
+                    .subscribe(function (res) {
+                    if (res == "Profile updated succesfully") {
+                        var alert_2 = _this.alertCtrl.create({
+                            title: "Profiel bijgewerkt",
+                            subTitle: "Uw profiel is succesvol bijgewerkt",
+                            buttons: [{
+                                    text: "OK", handler: function (data) {
+                                        _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_1__settings_settings__["a" /* SettingsPage */]);
+                                    }
+                                }],
+                        });
+                        alert_2.present();
+                        _this.events.publish("username", _this.username);
+                        _this.events.publish("profilepicture", _this.myphoto);
+                        if (_this.storage.set('profilepicture', _this.myphoto)) {
+                            console.log("Profiel foto is geset in Storage : " + _this.myphoto);
+                        }
+                    }
+                    else if (res == "No data set!") {
+                        var alert_3 = _this.alertCtrl.create({
+                            title: "Mislukt",
+                            subTitle: "Uw profiel kon niet worden bijgewerkt, probeer het later opnieuw.",
+                            buttons: ['OK']
+                        });
+                        alert_3.present();
+                    }
+                });
+            }
+        }
+    };
+    ProfielPage.prototype.returnSettings = function () {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["c" /* HttpHeaders */]();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        var options = { headers: headers };
+        var data = {
+            email: localStorage.getItem('userEmail'),
+        };
+        this.http.post('http://gazoh.net/getgebruiker.php', data, options)
+            .subscribe(function (data) {
+            _this.dataUser = data;
+            _this.username = _this.dataUser.username;
+            _this.oldprofilepicture = _this.dataUser.profilepicture;
+            _this.events.publish("username", _this.username);
+            _this.events.publish("profilepicture", _this.oldprofilepicture);
+        });
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_1__settings_settings__["a" /* SettingsPage */]);
+    };
+    ProfielPage.prototype.ionViewDidLoad = function () {
+        var _this = this;
+        this.navBar.backButtonClick = function (e) {
+            _this.returnSettings();
+        };
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_0_ionic_angular__["o" /* Navbar */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["o" /* Navbar */])
+    ], ProfielPage.prototype, "navBar", void 0);
+    ProfielPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
+            selector: 'page-profiel',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\profiel\profiel.html"*/'<ion-header>\n\n  <ion-navbar #navbar>\n\n    <ion-title class="profielPadding">Profiel</ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="updateProfile()">\n\n        <ion-icon name="checkmark"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  <ion-list>\n\n    <ion-grid class="gridMenu">\n\n      <ion-col col-12 class="menuCol">\n\n        <div class="alignCenter">\n\n          <img src="{{myphoto}}" class="avatar-profiel" (click)="presentActionSheet()" />\n\n          <div class="fotoWijzigen">\n\n            <h5 class="fotoWijzigenProfiel" (click)="presentActionSheet()">Foto Wijzigen</h5>\n\n          </div>\n\n        </div>\n\n\n\n        <form novalidate [formGroup]="form">\n\n          <div class="form-group">\n\n            <ion-item [ngClass]="{ \'ng-touched\' : form.get(\'username\').touched }">>\n\n              <ion-label floating>Gebruikersnaam</ion-label>\n\n              <ion-input *ngIf="selectedTheme == \'light-theme\'" type="text" placeholder="{{username}}" value="{{username}}" formControlName="username" class="form-control"></ion-input>\n\n              <ion-input *ngIf="selectedTheme == \'dark-theme\'" type="text" placeholder="{{username}}" value="{{username}}" formControlName="username" class="form-controldark"></ion-input>\n\n            </ion-item>\n\n          </div>\n\n          <div *ngIf="form.get(\'username\').touched && form.get(\'username\').invalid" class="alert alert-danger" required>\n\n            <div class="validatieText" *ngIf="form.get(\'username\').hasError(\'required\')">Naam moet ingevuld zijn.</div>\n\n            <div class="validatieText" *ngIf="form.get(\'username\').hasError(\'pattern\')">Ongeldige naam.</div>\n\n            <div class="validatieText" *ngIf="form.get(\'username\').hasError(\'minLength\')">De minimale lengte zijn 3 letters.</div>\n\n          </div>\n\n\n\n          <div class="form-group">\n\n            <ion-item [ngClass]="{ \'ng-touched\' : form.get(\'email\').touched }">\n\n              <ion-label floating>E-mail</ion-label>\n\n              <ion-input *ngIf="selectedTheme == \'light-theme\'" type="email" placeholder="{{email}}" value="{{email}}" formControlName="email" class="form-control"></ion-input>\n\n              <ion-input *ngIf="selectedTheme == \'dark-theme\'" type="email" placeholder="{{email}}" value="{{email}}" formControlName="email" class="form-controldark"></ion-input>\n\n            </ion-item>\n\n          </div>\n\n          <div *ngIf="form.get(\'email\').touched && form.get(\'email\').invalid" class="alert alert-danger" required>\n\n            <div class="validatieText" *ngIf="form.get(\'email\').hasError(\'required\')">Email moet ingevuld zijn</div>\n\n            <div class="validatieText" *ngIf="form.get(\'email\').hasError(\'pattern\')">Ongeldige Email!</div>\n\n          </div>\n\n\n\n        </form>\n\n        <!--<h6 class="wachtwoordWijzigen" (click)="wijzigWachtwoord()">Wijzig Wachtwoord</h6>-->\n\n      </ion-col>\n\n    </ion-grid>\n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\profiel\profiel.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0_ionic_angular__["m" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["n" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["b" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */],
+            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["a" /* ActionSheetController */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["d" /* Events */],
+            __WEBPACK_IMPORTED_MODULE_7__ionic_native_photo_viewer__["a" /* PhotoViewer */],
+            __WEBPACK_IMPORTED_MODULE_8__ionic_storage__["b" /* Storage */],
+            __WEBPACK_IMPORTED_MODULE_9__ionic_native_network__["a" /* Network */],
+            __WEBPACK_IMPORTED_MODULE_10__providers_settings_settings__["a" /* SettingsProvider */]])
+    ], ProfielPage);
+    return ProfielPage;
+}());
+
+//# sourceMappingURL=profiel.js.map
+
 /***/ })
 
-},[394]);
+},[392]);
 //# sourceMappingURL=main.js.map

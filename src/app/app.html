@@ -19,7 +19,7 @@
             <ion-navbar class="menuNavbar">
                 <ion-grid class="gridMenu">
                     <ion-col col-9 class="menuCol">
-                        <img src="{{this.profilepicture}}" class="avatar-menu"/>
+                        <img (click)="goProfielFoto()" src="{{this.profilepicture}}" class="avatar-menu"/>
                         <p ngClass="usernameMenu">{{this.username}}</p>
                     </ion-col>
                 </ion-grid>
@@ -38,6 +38,10 @@
                         <span ion-text color="color2">&nbsp;{{subPage.title}}</span>
                     </ion-item>
                 </ion-list>
+            </ion-item>
+            <ion-item (click)="Uitloggen()" menuClose>
+                <ion-icon name="log-out"></ion-icon>
+                <span class="loguutIcon">Uitloggen</span>
             </ion-item>
         </ion-list>
     </ion-content>
