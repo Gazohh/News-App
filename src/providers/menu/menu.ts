@@ -29,6 +29,11 @@ export class MenuProvider {
             icon: 'home'
         },
             {
+                title: 'Favorieten',
+                component: FavorietenPage,
+                icon: 'heart'
+            },
+            {
                 title: 'Bronnen',
                 component: SourcesPage,
                 icon: 'brush'
@@ -58,11 +63,6 @@ export class MenuProvider {
                         icon: 'woman'
                     }
                 ]
-            },
-            {
-                title: 'Favorieten',
-                component: FavorietenPage,
-                icon: 'heart'
             },
             {
                 title: 'Tutorial',
