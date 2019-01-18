@@ -18,6 +18,7 @@ import { Storage } from '@ionic/storage';
 
 
 
+
 @Component({
     templateUrl: 'app.html',
     providers: [Keyboard, Nav]
@@ -184,5 +185,15 @@ export class MyApp {
     });
     }
 
-
+    Uitloggen() {
+        localStorage.removeItem('userId');
+        localStorage.removeItem('userName');
+        localStorage.removeItem('userEmail');
+        localStorage.removeItem('userEmailVerified');
+        localStorage.removeItem('userRole');
+        localStorage.removeItem('userCreationDate');
+        localStorage.removeItem('sessionToken');
+        localStorage.removeItem('profilePicture');
+        this.nav.setRoot(HomePage);
+    }
 }
