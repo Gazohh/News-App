@@ -78,7 +78,7 @@
 }
 
 .dark-theme .toolbar-background {
-  background-color: #262626 !important;
+  background-color: #222222 !important;
 }
 
 .dark-theme .versienummer {
@@ -132,7 +132,7 @@
 }
 
 .dark-theme .card-content-md {
-  background-color: #262626;
+  background-color: #222222;
   color: #FFF;
 }
 
@@ -172,7 +172,7 @@
 }
 
 .dark-theme .card-md {
-  background: #262626 !important;
+  background: #222222 !important;
 }
 
 .dark-theme .ImportClassesButton {
@@ -252,7 +252,7 @@
 }
 
 .dark-theme .socialLikeComments {
-  background-color: #262626 !important;
+  background-color: #222222 !important;
 }
 
 .dark-theme .badgeItem {
@@ -315,6 +315,10 @@
 .dark-theme .swiper-pagination-bullet-active {
   background: #3ca7d1 !important;
   opacity: 1;
+}
+
+.dark-theme .ColorDarkAppTextDarkTheme {
+  color: #fff !important;
 }
 
 .ion-ios-add:before {
@@ -33777,12 +33781,7 @@ ion-slide.swiper-slide {
 }
 
 .header .toolbar-background {
-  background-color: #29708c !important;
-}
-
-.DarkLabel {
-  font-family: 'Roboto-Bold' !important;
-  font-weight: 800;
+  background-color: #3ca7d1 !important;
 }
 
 .iconInstellingen {
@@ -34194,7 +34193,7 @@ body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-c
   font-size: 3rem;
   display: block;
   margin: 0 auto;
-  color: #29708c;
+  color: #3ca7d1;
 }
 
 .WelkomText2 {
@@ -34459,6 +34458,14 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > 
   display: none !important;
 }
 
+body > ion-app > ng-component > ion-nav > page-sport > ion-header > ion-navbar > ion-buttons.moreFeed.bar-buttons.bar-buttons-md > ion-list > ion-select > div.select-text {
+  display: none !important;
+}
+
+body > ion-app > ng-component > ion-nav > page-tech > ion-header > ion-navbar > ion-buttons.moreFeed.bar-buttons.bar-buttons-md > ion-list > ion-select > div.select-text {
+  display: none !important;
+}
+
 .searchButton {
   margin-right: 8px;
 }
@@ -34494,11 +34501,11 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-item {
-  padding-bottom: 10px !important;
+  padding-bottom: 15px !important;
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) {
-  padding-bottom: 15px !important;
+  padding-bottom: 20px !important;
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list > ion-item:nth-child(6) > div.item-inner > div > ion-label {
@@ -34506,7 +34513,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(2) > div.item-inner > div > ion-label {
-  margin-bottom: 6px !important;
+  margin-bottom: 15px !important;
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(3) > div.item-inner > div > ion-label {
@@ -34526,12 +34533,28 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list > ion-item:nth-child(1) > div.item-inner > div > ion-label {
-  margin-top: 15px !important;
+  margin-top: 20px !important;
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > ion-list > ion-item > div.item-inner > div > ion-label > ion-icon {
-  margin-right: 11px !important;
-  margin-left: 22px !important;
+  margin-right: 33px;
+  margin-left: 16px;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list > ion-item:nth-child(3) > div.item-inner > div > ion-label > ion-icon {
+  margin-right: 26px;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list > ion-item:nth-child(2) > div.item-inner > div > ion-label > ion-icon {
+  margin-right: 26px;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list > ion-item:nth-child(1) > div.item-inner > div > ion-label > ion-icon {
+  margin-right: 26px;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-icon {
+  font-size: 2.1rem;
 }
 
 [text-wrap] .label-md {
@@ -34547,9 +34570,12 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 }
 
 .menuTitle {
-  margin-left: 25px !important;
-  font-family: 'Roboto-Bold';
-  font-weight: 800;
+  margin-left: 30px;
+  font-family: 'Roboto-Regular' !important;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > span {
+  margin-left: 35px !important;
 }
 
 .cardFavorieten {
@@ -34570,6 +34596,10 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 
 .activeHightlight {
   background-color: red !important;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > span > span > ion-icon {
+  padding-top: 4px;
 }
 
 #contentAnimation > div.scroll-content {
@@ -34800,6 +34830,11 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
   padding: 20px !important;
 }
 
+.cardContentFeedTweakers {
+  padding: 20px !important;
+  padding-top: 0px !important;
+}
+
 .cardTitle {
   margin-top: 20px;
   margin-bottom: 4px;
@@ -35027,6 +35062,19 @@ page-feed img {
   color: #f6903a !important;
 }
 
+.ColorDarkApp {
+  color: #29708c;
+}
+
+.ColorDarkAppShare {
+  float: left;
+  color: #29708c;
+}
+
+.ColorDarkAppTextDarkTheme {
+  color: #29708c;
+}
+
 body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > div > ion-card > ion-item.hideButton.item.item-block.item-md > div.item-inner > div > ion-label {
   margin: 0;
 }
@@ -35131,7 +35179,7 @@ body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scrol
 }
 
 .BackButton.activated {
-  background-color: #29708c !important;
+  background-color: #3ca7d1 !important;
 }
 
 .button-md:hover:not(.disable-hover) {
@@ -35538,12 +35586,12 @@ body > ion-app > ng-component > ion-nav > page-privacybeleid > ion-content > div
   border-color: #ff6f6f !important;
 }
 
-.ios .ion-navbar.toolbar {
+.platform-ios .ion-navbar.toolbar {
   padding-top: 18px !important;
   padding-bottom: 9px !important;
 }
 
-.ios .nieuwsNavTitle {
+.platform-ios .nieuwsNavTitle {
   padding-top: 18px !important;
   padding-bottom: 9px !important;
 }

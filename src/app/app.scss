@@ -1253,6 +1253,13 @@ page-feed img {
   border-color: rgb(39, 80, 154) !important;
 }
 
+.ColorDarkAppNieuws {
+  background-color: #29708c !important;
+  color: #fff;
+  top: 10px !important;
+  border-color: #29708c !important;
+}
+
 .ColorTelegraaf2 {
   background-color: rgb(39, 80, 154) !important;
   margin-right: 2.0vh !important;
@@ -1973,5 +1980,9 @@ body > ion-app > ng-component > ion-nav > page-privacybeleid > ion-content > div
 .platform-ios .nieuwsNavTitle{
   padding-top: 18px !important;
   padding-bottom: 9px !important;
+}
+
+.socialLikeCommentsNieuws {
+  margin-top: 20px;
 }
 
