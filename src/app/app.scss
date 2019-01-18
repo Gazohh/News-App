@@ -1419,6 +1419,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 .descriptionFeed {
   margin: 0 0 -2px !important;
   font-family: 'Roboto-Regular' !important;
+  color: #666 !important;
 }
 
 .headerText {
@@ -1473,7 +1474,6 @@ body > ion-app > ng-component > ion-nav > page-nieuws > ion-header > ion-navbar 
 // Sources
 //
 .sourceTekst {
-  font-family: 'Roboto-Regular';
   font-family: 'Roboto-Regular';
   font-size: 1.3rem;
   color: #c5c5c5;;

@@ -75,8 +75,6 @@ export class ProfielPage implements OnInit {
                     this.myphoto = this.dataUser.profilepicture;
                     this.creationdate = this.dataUser.creationdate
                 });
-            this.events.publish("username", this.username);
-            this.events.publish("profilepicture", this.myphoto);
         } else if (this.network.type == "none") {
             // Get offline profilepicture
             this.storage.get("profilepicture").then((foto) => {
@@ -285,11 +283,10 @@ export class ProfielPage implements OnInit {
                                         this.navCtrl.setRoot(SettingsPage)
                                     }
                                 }],
-
                             });
-
                             alert.present();
-
+                            this.events.publish("username", this.username);
+                            this.events.publish("profilepicture", this.myphoto);
                             if (this.storage.set('profilepicture', this.myphoto)) {
                                 console.log("Profiel foto is geset in Storage : " + this.myphoto);
                             }

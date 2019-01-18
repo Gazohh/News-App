@@ -19,7 +19,7 @@
             <ion-navbar class="menuNavbar">
                 <ion-grid class="gridMenu">
                     <ion-col col-9 class="menuCol">
-                        <img src="{{this.profilepicture}}" class="avatar-menu"/>
+                        <img (click)="goProfielFoto()" src="{{this.profilepicture}}" class="avatar-menu"/>
                         <p ngClass="usernameMenu">{{this.username}}</p>
                     </ion-col>
                 </ion-grid>

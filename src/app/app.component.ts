@@ -15,6 +15,8 @@ import {MenuProvider} from "../providers/menu/menu";
 import {timer} from "rxjs/observable/timer";
 import {Network} from "@ionic-native/network";
 import { Storage } from '@ionic/storage';
+import {ProfielPage} from "../pages/profiel/profiel";
+
 
 
 
@@ -98,10 +100,10 @@ export class MyApp {
             {
                 this.storage.get("profilepicture").then((foto) => {
                     this.events.publish('profilepicture', foto);
-                })
+                });
                 this.storage.get("username").then((username) => {
                     this.events.publish('username', username);
-                })
+                });
                 console.log("Profielfoto & username zijn nu offline ingeladen");
             }
 
@@ -195,5 +197,15 @@ export class MyApp {
         localStorage.removeItem('sessionToken');
         localStorage.removeItem('profilePicture');
         this.nav.setRoot(HomePage);
+    }
+
+    goProfielFoto() {
+        this.nav.push(ProfielPage);
+
+        this.storage.get("profilepicture").then((foto) => {
+            this.events.publish('profilepicture', foto);
+        });
+
+        this.menuCtrl.close();
     }
 }
