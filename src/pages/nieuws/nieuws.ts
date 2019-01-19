@@ -8,15 +8,6 @@ import {ToastController} from 'ionic-angular';
 import {CommentsPage} from "../comments/comments";
 
 
-
-
-/**
- * Generated class for the NieuwsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
     selector: 'page-nieuws',
