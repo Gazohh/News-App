@@ -66,6 +66,7 @@ export class FeedPage {
     public imagesTitle: string;
     storageDirectory: string = '';
     public noimage: any;
+    public tweakers: any;
 
     constructor(
         public navCtrl: NavController,

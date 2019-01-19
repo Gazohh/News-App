@@ -35705,6 +35705,10 @@ body > ion-app > ng-component > ion-nav > page-nieuws > ion-content > div.scroll
   margin: 0 0 10px;
 }
 
+.hideNoImage {
+  display: none !important;
+}
+
 page-admin .nieuwsNavTitle {
   color: white;
   font-weight: 500;
