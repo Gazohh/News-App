@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sat Jan 19 22:40:56 CET 2019
+#Sat Jan 19 23:23:34 CET 2019
 2.path=www/assets/svg/spinner/tail-spinSplash.svg
 14.set=ASSET
 107.baseType=DIRECTORY
