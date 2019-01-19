@@ -40,7 +40,7 @@
                 <ion-item class="sourceItem" *ngIf="VLKK == 1">
                     <ion-avatar class="avatar" item-start>
                         <img src="../assets/svg/Volkskrant.svg" *ngIf="currentTheme == 'light-theme'">
-                        <img src="../assets/svg/Volkskrant.svg" *ngIf="currentTheme == 'dark-theme'">
+                        <img src="../assets/svg/Volkskrant_wit.svg" *ngIf="currentTheme == 'dark-theme'">
                     </ion-avatar>
                     <div><b class="sourceTekstFeed">Volkskrant</b></div>
                     <div class="sourceTekst">Algemeen</div>
@@ -103,8 +103,8 @@
                     <ion-avatar class="avatar" item-start>
                         <img class="avatar-feedNU" src="../assets/svg/nu.nl.svg">
                     </ion-avatar>
-                    <div><b class="sourceTekstFeed">NU.nl Economie</b></div>
-                    <div class="sourceTekst">Financieel</div>
+                    <div><b class="sourceTekstFeed">NU.nl</b></div>
+                    <div class="sourceTekst">Economie</div>
                     <button ion-button outline item-end color="danger" class="DeleteClassesButton" *ngIf="NUNLFIN == 1"
                             (click)="unsubscribeSource('NU.nl Financieel')">
                         <ion-icon name="checkmark" class="buttonIcon"></ion-icon>
@@ -114,10 +114,10 @@
                 <ion-item class="sourceItem" *ngIf="VLKKE == 1">
                     <ion-avatar class="avatar" item-start>
                         <img src="../assets/svg/Volkskrant.svg" *ngIf="currentTheme == 'light-theme'">
-                        <img src="../assets/svg/Volkskrant.svg" *ngIf="currentTheme == 'dark-theme'">
+                        <img src="../assets/svg/Volkskrant_wit.svg" *ngIf="currentTheme == 'dark-theme'">
                     </ion-avatar>
-                    <div><b class="sourceTekstFeed">Volkskrant Economie</b></div>
-                    <div class="sourceTekst">Financieel</div>
+                    <div><b class="sourceTekstFeed">Volkskrant</b></div>
+                    <div class="sourceTekst">Economie</div>
                     <button ion-button outline item-end color="danger" class="DeleteClassesButton" *ngIf="VLKKE == 1"
                             (click)="unsubscribeSource('Volkskrant Economie')">
                         <ion-icon name="checkmark" class="buttonIcon"></ion-icon>
@@ -156,8 +156,8 @@
                 <!--  -->
                 <!-- Alle Sources die je kunt importen -->
                 <!--  -->
-                <ion-item class="sourceTitel">
-                    <h4 class="TitelSources" *ngIf="NOS != 1 || VLKK != 1 || TGF != 1 || NUNL != 1">Algemeen</h4>
+                <ion-item class="sourceTitel" *ngIf="NOS != 1 || VLKK != 1 || TGF != 1 || NUNL != 1">
+                    <h4 class="TitelSources">Algemeen</h4>
                 </ion-item>
                 <ion-item class="sourceItem" *ngIf="NOS == 0">
                     <ion-avatar class="avatar" item-start>
@@ -175,7 +175,7 @@
                 <ion-item class="sourceItem" *ngIf="VLKK == 0">
                     <ion-avatar class="avatar" item-start>
                         <img src="../assets/svg/Volkskrant.svg" *ngIf="currentTheme == 'light-theme'">
-                        <img src="../assets/svg/Volkskrant.svg" *ngIf="currentTheme == 'dark-theme'">
+                        <img src="../assets/svg/Volkskrant_wit.svg" *ngIf="currentTheme == 'dark-theme'">
                     </ion-avatar>
                     <div><b class="sourceTekstFeed">Volkskrant</b></div>
                     <div class="sourceTekst">Algemeen</div>
@@ -250,8 +250,8 @@
                     <ion-avatar class="avatar" item-start>
                         <img class="avatar-feedNU" src="../assets/svg/nu.nl.svg">
                     </ion-avatar>
-                    <div><b class="sourceTekstFeed">NU.nl Economie</b></div>
-                    <div class="sourceTekst">Financieel</div>
+                    <div><b class="sourceTekstFeed">NU.nl</b></div>
+                    <div class="sourceTekst">Economie</div>
                     <button ion-button outline item-end class="ImportClassesButton" *ngIf="NUNLFIN == 0"
                             (click)="subscribeSource('NU.nl Financieel')">
                         <ion-icon name="checkmark" class="buttonIcon"></ion-icon>
@@ -261,10 +261,10 @@
                 <ion-item class="sourceItem" *ngIf="VLKKE == 0">
                     <ion-avatar class="avatar" item-start>
                         <img src="../assets/svg/Volkskrant.svg" *ngIf="currentTheme == 'light-theme'">
-                        <img src="../assets/svg/Volkskrant.svg" *ngIf="currentTheme == 'dark-theme'">
+                        <img src="../assets/svg/Volkskrant_wit.svg" *ngIf="currentTheme == 'dark-theme'">
                     </ion-avatar>
-                    <div><b class="sourceTekstFeed">Volkskrant Economie</b></div>
-                    <div class="sourceTekst">Financieel</div>
+                    <div><b class="sourceTekstFeed">Volkskrant</b></div>
+                    <div class="sourceTekst">Economie</div>
                     <button ion-button outline item-end class="ImportClassesButton" *ngIf="VLKKE == 0"
                             (click)="subscribeSource('Volkskrant Economie')">
                         <ion-icon name="checkmark" class="buttonIcon"></ion-icon>

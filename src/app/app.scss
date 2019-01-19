@@ -795,14 +795,13 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(6) {
-  margin-top: 19.4px !important;;
+  margin-top: 15.4px !important;;
 }
 
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(5) > div.item-inner > div > ion-label > span > span > ion-icon {
+  padding-top: 5px !important;
+}
 // Hele category label
-
-#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) {
-  padding-bottom: 19.4px !important;
-}
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(5) {
   padding-bottom: 0px !important;
@@ -1147,6 +1146,12 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
   font-weight: 800;
 }
 
+.uitgeverFeedBeautylab {
+  padding-top: 27px;
+  font-family: 'Roboto-Bold' !important;
+  font-weight: 800;
+}
+
 .uitgeverFeedNU {
   padding-top: 17px;
   font-family: 'Roboto-Bold' !important;
@@ -1154,6 +1159,12 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 }
 
 .uitgeverFeedNOS {
+  font-family: 'Roboto-Bold' !important;
+  font-weight: 800;
+}
+
+.uitgeverFeedLibelle {
+  padding-top: 15px;
   font-family: 'Roboto-Bold' !important;
   font-weight: 800;
 }
@@ -1203,6 +1214,14 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 }
 
 .cardTitleNOS {
+  margin-bottom: 4px;
+  padding: 0px !important;
+  font-family: 'Roboto-Bold' !important;
+  font-size: 1.8rem !important;
+  font-weight: 800;
+}
+
+.cardTitleBeautylab {
   margin-bottom: 4px;
   padding: 0px !important;
   font-family: 'Roboto-Bold' !important;
@@ -2032,6 +2051,10 @@ body > ion-app > ng-component > ion-nav > page-privacybeleid > ion-content > div
 .platform-ios .nieuwsNavTitle{
   padding-top: 18px !important;
   padding-bottom: 9px !important;
+}
+
+body > ion-app > ng-component > ion-nav > page-nieuws > ion-content > div.scroll-content > ion-card > ion-card-content > p {
+color: #666 !important;
 }
 
 .socialLikeCommentsNieuws {

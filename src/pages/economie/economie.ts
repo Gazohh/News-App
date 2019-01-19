@@ -65,6 +65,7 @@ export class EconomiePage {
     public imagesOffline: any;
     public imagesTitle: string;
     storageDirectory: string = '';
+    public noimage: any;
 
     constructor(
         public navCtrl: NavController,
