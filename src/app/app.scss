@@ -791,13 +791,45 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 // Ion-item menu
 
 #contentAnimation > div.scroll-content > ion-list > ion-item {
-  padding-bottom: 11px !important;
+  padding-bottom: 19.4px !important;
 }
 
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(6) {
+  margin-top: 15.4px !important;;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(5) > div.item-inner > div > ion-label > span > span > ion-icon {
+  padding-top: 5px !important;
+}
 // Hele category label
 
-#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) {
-  padding-bottom: 15px !important;
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(5) {
+  padding-bottom: 0px !important;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(5) > div.item-inner > div > ion-label > ion-list > ion-item:nth-child(1) > div.item-inner > div {
+  margin-top: 17px !important;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(5) > div.item-inner > div > ion-label > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label {
+  margin-bottom: 0px;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(5) > div.item-inner > div > ion-label > ion-list > ion-item:nth-child(2) > div.item-inner > div > ion-label > ion-icon {
+  margin-right: 30px;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(5) > div.item-inner > div > ion-label > ion-list > ion-item:nth-child(3) > div.item-inner > div > ion-label > ion-icon {
+  margin-right: 31px;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(5) > div.item-inner > div > ion-label > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > ion-icon {
+  font-size: 1.5em;
+  margin-right: 35px;
+  margin-left: 19px;
+}
+#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(5) > div.item-inner > div > ion-label > ion-list {
+  margin: 0px !important;
 }
 
 // Entertainment lABEL
@@ -808,10 +840,6 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 
 // startpagina label
 
-#contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(2) > div.item-inner > div > ion-label {
-  margin-bottom: 15px !important;
-}
-
 //sources label
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(3) > div.item-inner > div > ion-label {
@@ -821,7 +849,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 // Category label
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label {
-  margin-bottom: 2px !important;
+  margin: 13px 8px 4px 0;
 }
 
 // subtitle ion-item
@@ -886,7 +914,7 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
 
 // Categorien
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(4) > div.item-inner > div > ion-label > span {
-    margin-left: 35px !important;
+    margin-left: 28px !important;
 }
 
 // Favorieten random margin door side
@@ -967,7 +995,7 @@ padding-top: 4px;
 }
 
 #contentAnimation > div.scroll-content > ion-list > ion-item:nth-child(2) {
-  padding-top: 8px !important;
+  padding-top: 11px !important;
 }
 
 .usernameMenu::first-letter {
@@ -1118,6 +1146,12 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
   font-weight: 800;
 }
 
+.uitgeverFeedBeautylab {
+  padding-top: 27px;
+  font-family: 'Roboto-Bold' !important;
+  font-weight: 800;
+}
+
 .uitgeverFeedNU {
   padding-top: 17px;
   font-family: 'Roboto-Bold' !important;
@@ -1125,6 +1159,12 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 }
 
 .uitgeverFeedNOS {
+  font-family: 'Roboto-Bold' !important;
+  font-weight: 800;
+}
+
+.uitgeverFeedLibelle {
+  padding-top: 15px;
   font-family: 'Roboto-Bold' !important;
   font-weight: 800;
 }
@@ -1174,6 +1214,14 @@ body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-c
 }
 
 .cardTitleNOS {
+  margin-bottom: 4px;
+  padding: 0px !important;
+  font-family: 'Roboto-Bold' !important;
+  font-size: 1.8rem !important;
+  font-weight: 800;
+}
+
+.cardTitleBeautylab {
   margin-bottom: 4px;
   padding: 0px !important;
   font-family: 'Roboto-Bold' !important;
@@ -2005,6 +2053,10 @@ body > ion-app > ng-component > ion-nav > page-privacybeleid > ion-content > div
   padding-bottom: 9px !important;
 }
 
+body > ion-app > ng-component > ion-nav > page-nieuws > ion-content > div.scroll-content > ion-card > ion-card-content > p {
+color: #666 !important;
+}
+
 .socialLikeCommentsNieuws {
   margin-top: 20px;
 }
@@ -2022,4 +2074,8 @@ body > ion-app > ng-component > ion-nav > page-privacybeleid > ion-content > div
   padding: 0px !important;
   width: 100% !important;
   margin: 0 0 10px;
+}
+
+.hideNoImage {
+  display: none !important;
 }
