@@ -180,54 +180,6 @@ w<ion-header>
           <ion-icon name="heart" class="ColorDarkApp"></ion-icon>
           <div class="ColorDarkAppTextDarkTheme">{{this.likes}}</div>
         </button>
-        <!---->
-        <button ion-button icon-start clear *ngIf="this.site == 'De Telegraaf'"
-                class="socialTelegraaf" (click)="viewComments({ record: this.id })">
-          <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>
-          <div class="ColorDarkAppTextDarkTheme">{{this.comments}}</div>
-        </button>
-        <button ion-button icon-start clear *ngIf="this.site == 'NOS'" class="socialNOS"
-                (click)="viewComments({ record: this.id })">
-          <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>
-          <div class="ColorDarkAppTextDarkTheme">{{this.comments}}</div>
-        </button>
-        <button ion-button icon-start clear *ngIf="this.site == 'NU.nl'" class="socialNu"
-                (click)="viewComments({ record: this.id })">
-          <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>
-          <div class="ColorDarkAppTextDarkTheme">{{this.comments}}</div>
-        </button>
-        <button ion-button icon-start clear *ngIf="this.site == 'Tweakers'"
-                class="socialTweakers"
-                (click)="viewComments({ record: this.id })">
-          <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>
-          <div class="ColorDarkAppTextDarkTheme">{{this.comments}}</div>
-        </button>
-        <button ion-button icon-start clear *ngIf="this.site == 'KNVB'" class="socialKnvb"
-                (click)="viewComments({ record: this.id })">
-          <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>
-          <div class="ColorDarkAppTextDarkTheme">{{this.comments}}</div>
-        </button>
-        <button ion-button icon-start clear *ngIf="this.site == 'Volkskrant'" class="socialKnvb"
-                (click)="viewComments({ record: this.id })">
-          <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>
-          <div class="ColorDarkAppTextDarkTheme">{{this.comments}}</div>
-        </button>
-        <button ion-button icon-start clear *ngIf="this.site == 'VLKKE'" class="socialKnvb"
-                (click)="viewComments({ record: this.id })">
-          <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>
-          <div class="ColorDarkAppTextDarkTheme">{{this.comments}}</div>
-        </button>
-        <button ion-button icon-start clear *ngIf="this.site == 'BTYL'" class="socialKnvb"
-                (click)="viewComments({ record: this.id })">
-          <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>
-          <div class="ColorDarkAppTextDarkTheme">{{this.comments}}</div>
-        </button>
-        <button ion-button icon-start clear *ngIf="this.site == 'LBL'" class="socialKnvb"
-                (click)="viewComments({ record: this.id })">
-          <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>
-          <div class="ColorDarkAppTextDarkTheme">{{this.comments}}</div>
-        </button>
-        <!---->
       </div>
     </ion-card-content>
   </ion-card>

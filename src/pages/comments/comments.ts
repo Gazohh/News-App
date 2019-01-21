@@ -42,6 +42,7 @@ export class CommentsPage {
         });
 
         if (this.navParams.get("record")) {
+            console.log("Artikel id is : " + this.navParams.get("record"));
             this.selectEntry(this.navParams.get("record"));
             this.getComments();
         }

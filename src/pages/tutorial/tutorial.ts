@@ -15,10 +15,15 @@ import {SettingsProvider} from "../../providers/settings/settings";
 export class TutorialPage {
     sourceData: any;
     NOS: boolean;
+    VLKK: boolean;
     TGF: boolean;
     NUNL: boolean;
     KNVB: boolean;
     TWKS: boolean;
+    NUNLFIN: boolean;
+    LBL: boolean;
+    BTYL: boolean;
+    VLKKE: boolean;
     selectedTheme: string;
     setActiveTheme: string;
     theme = localStorage.getItem('themeColor');
@@ -69,10 +74,8 @@ export class TutorialPage {
         this.navCtrl.setRoot(FeedPage);
     }
 
-    getSource()
-    {
-        if(this.network.type != "none")
-        {
+    getSource() {
+        if (this.network.type != "none") {
             const headers = new HttpHeaders();
             headers.append("Accept", 'application/json');
             headers.append('Content-Type', 'application/json');
@@ -84,49 +87,78 @@ export class TutorialPage {
                 .subscribe(data => {
                     this.sourceData = data;
                     this.NOS = this.sourceData[0].NOS;
+                    this.VLKK = this.sourceData[0].VLKK;
+                    this.VLKKE = this.sourceData[0].VLKKE;
                     this.TGF = this.sourceData[0].TGF;
                     this.NUNL = this.sourceData[0].NUNL;
                     this.KNVB = this.sourceData[0].KNVB;
                     this.TWKS = this.sourceData[0].TWKS;
+                    this.NUNLFIN = this.sourceData[0].NUNLFIN;
+                    this.LBL = this.sourceData[0].LBL;
+                    this.BTYL = this.sourceData[0].BTYL;
                     this.storage.set('NOS', this.sourceData[0].NOS);
+                    this.storage.set('VLKK', this.sourceData[0].VLKK);
+                    this.storage.set('VLKKE', this.sourceData[0].VLKKE);
                     this.storage.set('TGF', this.sourceData[0].TGF);
                     this.storage.set('NUNL', this.sourceData[0].NUNL);
                     this.storage.set('KNVB', this.sourceData[0].KNVB);
                     this.storage.set('TWKS', this.sourceData[0].TWKS);
+                    this.storage.set('NUNLFIN', this.sourceData[0].NUNLFIN);
+                    this.storage.set('LBL', this.sourceData[0].LBL);
+                    this.storage.set('BTYL', this.sourceData[0].BTYL);
                     console.log(this.sourceData);
                     console.log("NOS: " + this.NOS);
-                    console.log("Telegraaf : " +this.TGF);
+                    console.log("Volkskrant: " + this.VLKK);
+                    console.log("Telegraaf : " + this.TGF);
                     console.log("NU.NL: " + this.NUNL);
                     console.log("KNVB: " + this.KNVB);
                     console.log("Tweakers: " + this.TWKS);
+                    console.log("NU.nl Financieel: " + this.NUNLFIN);
+                    console.log("Volkskrant Economie: " + this.VLKKE);
+                    console.log("Libelle: " + this.LBL);
+                    console.log("Beautylab: " + this.BTYL);
                 });
         }
-        else if(this.network.type == "none")
-        {
+        else if (this.network.type == "none") {
             // Get NOS Status from Storage
-            this.storage.get('NOS').then((NOS) =>
-            {
+            this.storage.get('NOS').then((NOS) => {
                 this.NOS = NOS;
             })
+            // Get Volkskrant Status from Storage
+            this.storage.get('VLKK').then((VLKK) => {
+                this.VLKK = VLKK;
+            })
             // Get Telegraaf Status from Storage
-            this.storage.get('TGF').then((TGF) =>
-            {
+            this.storage.get('TGF').then((TGF) => {
                 this.TGF = TGF;
             })
             // Get NU.NL Status from Storage
-            this.storage.get('NUNL').then((NUNL) =>
-            {
+            this.storage.get('NUNL').then((NUNL) => {
                 this.NUNL = NUNL;
             })
             // Get KNVB Status from Storage
-            this.storage.get('KNVB').then((KNVB) =>
-            {
+            this.storage.get('KNVB').then((KNVB) => {
                 this.KNVB = KNVB;
             })
             // Get Tweakers Status from Storage
-            this.storage.get('TWKS').then((TWKS) =>
-            {
+            this.storage.get('TWKS').then((TWKS) => {
                 this.TWKS = TWKS;
+            })
+            // Get NU.nl Financieel Status from Storage
+            this.storage.get('NUNLFIN').then((NUNLFIN) => {
+                this.NUNLFIN = NUNLFIN;
+            })
+            // Get Libelle Status from Storage
+            this.storage.get('LBL').then((LBL) => {
+                this.LBL = LBL;
+            })
+            // Get Beautylab Status from Storage
+            this.storage.get('BTYL').then((BTYL) => {
+                this.BTYL = BTYL;
+            })
+            // Get Volkskrant Economie Status from Storage
+            this.storage.get('VLKKE').then((VLKKE) => {
+                this.VLKKE = VLKKE;
             })
         }
     }
