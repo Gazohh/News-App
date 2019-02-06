@@ -27,9 +27,9 @@ w<ion-header>
       <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'Tweakers'" class="ColorDarkAppNieuws">Lees verder op {{this.site}}</button>
       <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'KNVB'" class="ColorDarkAppNieuws">Lees verder op {{this.site}}</button>
       <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'Volkskrant'" class="ColorDarkAppNieuws">Lees verder op {{this.site}}</button>
-      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'VLKKE'" class="ColorDarkAppNieuws">Lees verder op {{this.site}}</button>
-      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'BTYL'" class="ColorDarkAppNieuws">Lees verder op {{this.site}}</button>
-      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'LBL'" class="ColorDarkAppNieuws">Lees verder op {{this.site}}</button>
+      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'Volkskrant Economie'" class="ColorDarkAppNieuws">Lees verder op {{this.site}}</button>
+      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'Beautylab'" class="ColorDarkAppNieuws">Lees verder op {{this.site}}</button>
+      <button (click)="openPagina(this.link)" ion-button full outline *ngIf="this.site == 'Libelle'" class="ColorDarkAppNieuws">Lees verder op {{this.site}}</button>
       <!-- Social Buttons - Comments - likes - Share -->
       <div id="socialLikeComments" class="socialLikeCommentsNieuws">
         <button ion-button icon-start clear *ngIf="this.site == 'De Telegraaf'"
@@ -58,15 +58,15 @@ w<ion-header>
                 (click)="shareInfo(this.title, this.image, this.link)">
           <ion-icon name="share-alt"></ion-icon>
         </button>
-        <button ion-button icon-start clear *ngIf="this.site == 'VLKKE'" class="ColorDarkAppShare"
+        <button ion-button icon-start clear *ngIf="this.site == 'Volkskrant Economie'" class="ColorDarkAppShare"
                 (click)="shareInfo(this.title, this.image, this.link)">
           <ion-icon name="share-alt"></ion-icon>
         </button>
-        <button ion-button icon-start clear *ngIf="this.site == 'BTYL'" class="ColorDarkAppShare"
+        <button ion-button icon-start clear *ngIf="this.site == 'Beautylab'" class="ColorDarkAppShare"
                 (click)="shareInfo(this.title, this.image, this.link)">
           <ion-icon name="share-alt"></ion-icon>
         </button>
-        <button ion-button icon-start clear *ngIf="this.site == 'LBL'" class="ColorDarkAppShare"
+        <button ion-button icon-start clear *ngIf="this.site == 'Libelle'" class="ColorDarkAppShare"
                 (click)="shareInfo(this.title, this.image, this.link)">
           <ion-icon name="share-alt"></ion-icon>
         </button>
@@ -108,19 +108,19 @@ w<ion-header>
           <div class="ColorDarkAppTextDarkTheme">{{this.likes}}</div>
         </button>
         <button class="socialKnvb" ion-button icon-start clear
-                *ngIf="this.site == 'VLKKE' && this.liked == 0" [disabled]="disabled"
+                *ngIf="this.site == 'Volkskrant Economie' && this.liked == 0" [disabled]="disabled"
                 (click)="setLike(this.id)">
           <ion-icon name="heart-outline" class="ColorDarkApp"></ion-icon>
           <div class="ColorDarkAppTextDarkTheme">{{this.likes}}</div>
         </button>
         <button class="socialKnvb" ion-button icon-start clear
-                *ngIf="this.site == 'BTYL' && this.liked == 0" [disabled]="disabled"
+                *ngIf="this.site == 'Beautylab' && this.liked == 0" [disabled]="disabled"
                 (click)="setLike(this.id)">
           <ion-icon name="heart-outline" class="ColorDarkApp"></ion-icon>
           <div class="ColorDarkAppTextDarkTheme">{{this.likes}}</div>
         </button>
         <button class="socialKnvb" ion-button icon-start clear
-                *ngIf="this.site == 'LBL' && this.liked == 0" [disabled]="disabled"
+                *ngIf="this.site == 'Libelle' && this.liked == 0" [disabled]="disabled"
                 (click)="setLike(this.id)">
           <ion-icon name="heart-outline" class="ColorDarkApp"></ion-icon>
           <div class="ColorDarkAppTextDarkTheme">{{this.likes}}</div>
@@ -163,71 +163,23 @@ w<ion-header>
           <div class="ColorDarkAppTextDarkTheme">{{this.likes}}</div>
         </button>
         <button class="socialKnvb" ion-button icon-start clear
-                *ngIf="this.site == 'VLKKE' && this.liked == 1"
+                *ngIf="this.site == 'Volkskrant Economie' && this.liked == 1"
                 (click)="dislike(this.id, this.title)">
           <ion-icon name="heart" class="ColorDarkApp"></ion-icon>
           <div class="ColorDarkAppTextDarkTheme">{{this.likes}}</div>
         </button>
         <button class="socialKnvb" ion-button icon-start clear
-                *ngIf="this.site == 'BTYL' && this.liked == 1"
+                *ngIf="this.site == 'Beautylab' && this.liked == 1"
                 (click)="dislike(this.id, this.title)">
           <ion-icon name="heart" class="ColorDarkApp"></ion-icon>
           <div class="ColorDarkAppTextDarkTheme">{{this.likes}}</div>
         </button>
         <button class="socialKnvb" ion-button icon-start clear
-                *ngIf="this.site == 'LBL' && this.liked == 1"
+                *ngIf="this.site == 'Libelle' && this.liked == 1"
                 (click)="dislike(this.id, this.title)">
           <ion-icon name="heart" class="ColorDarkApp"></ion-icon>
           <div class="ColorDarkAppTextDarkTheme">{{this.likes}}</div>
         </button>
-        <!---->
-        <button ion-button icon-start clear *ngIf="this.site == 'De Telegraaf'"
-                class="socialTelegraaf" (click)="viewComments({ record: this.id })">
-          <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>
-          <div class="ColorDarkAppTextDarkTheme">{{this.comments}}</div>
-        </button>
-        <button ion-button icon-start clear *ngIf="this.site == 'NOS'" class="socialNOS"
-                (click)="viewComments({ record: this.id })">
-          <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>
-          <div class="ColorDarkAppTextDarkTheme">{{this.comments}}</div>
-        </button>
-        <button ion-button icon-start clear *ngIf="this.site == 'NU.nl'" class="socialNu"
-                (click)="viewComments({ record: this.id })">
-          <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>
-          <div class="ColorDarkAppTextDarkTheme">{{this.comments}}</div>
-        </button>
-        <button ion-button icon-start clear *ngIf="this.site == 'Tweakers'"
-                class="socialTweakers"
-                (click)="viewComments({ record: this.id })">
-          <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>
-          <div class="ColorDarkAppTextDarkTheme">{{this.comments}}</div>
-        </button>
-        <button ion-button icon-start clear *ngIf="this.site == 'KNVB'" class="socialKnvb"
-                (click)="viewComments({ record: this.id })">
-          <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>
-          <div class="ColorDarkAppTextDarkTheme">{{this.comments}}</div>
-        </button>
-        <button ion-button icon-start clear *ngIf="this.site == 'Volkskrant'" class="socialKnvb"
-                (click)="viewComments({ record: this.id })">
-          <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>
-          <div class="ColorDarkAppTextDarkTheme">{{this.comments}}</div>
-        </button>
-        <button ion-button icon-start clear *ngIf="this.site == 'VLKKE'" class="socialKnvb"
-                (click)="viewComments({ record: this.id })">
-          <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>
-          <div class="ColorDarkAppTextDarkTheme">{{this.comments}}</div>
-        </button>
-        <button ion-button icon-start clear *ngIf="this.site == 'BTYL'" class="socialKnvb"
-                (click)="viewComments({ record: this.id })">
-          <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>
-          <div class="ColorDarkAppTextDarkTheme">{{this.comments}}</div>
-        </button>
-        <button ion-button icon-start clear *ngIf="this.site == 'LBL'" class="socialKnvb"
-                (click)="viewComments({ record: this.id })">
-          <ion-icon name="chatbubbles" class="ColorDarkApp"></ion-icon>
-          <div class="ColorDarkAppTextDarkTheme">{{this.comments}}</div>
-        </button>
-        <!---->
       </div>
     </ion-card-content>
   </ion-card>

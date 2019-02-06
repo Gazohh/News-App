@@ -84,7 +84,7 @@ export class MyApp {
             this.getSideMenuData();
 
             // De statusbar kleur
-            statusBar.backgroundColorByHexString('#225C73');
+            statusBar.backgroundColorByHexString('#0078a0');
 
             // -------------------------------------
             // Laat een alert zien zodra je twee keer op dismiss klikt of je de app wilt verlaten of niet

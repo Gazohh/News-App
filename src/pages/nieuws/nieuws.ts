@@ -15,6 +15,8 @@ import {CommentsPage} from "../comments/comments";
 })
 export class NieuwsPage {
     browser: InAppBrowser;
+    item:any;
+    response:any;
     title: string;
     description: string;
     link: string;
@@ -26,8 +28,8 @@ export class NieuwsPage {
     liked: any;
     comments: any;
     likes: any;
+    userId: any = localStorage.getItem("userId");
     public disabled: boolean = false;
-    public userId: string;
     public TIMER_IN_MS = 100;
 
     options: InAppBrowserOptions = {
@@ -68,7 +70,26 @@ export class NieuwsPage {
         console.log('ionViewDidLoad NieuwsPage');
     }
 
+    ionViewWillEnter()
+    {
+        const headers = new HttpHeaders();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        const options = {headers: headers};
+        const data = {
+            articleId: this.id,
+            userId: this.userId
+        };
+        this.http.post('http://gazoh.net/getarticle.php', data, options).subscribe(data => {
+            this.item = data;
+            this.likes = this.item[0].likes;
+            this.comments = this.item[0].comments;
+            this.liked = this.item[0].liked;
+        });
+    }
+
     selectEntry(item: any): void {
+        this.item = item;
         this.title = item.title;
         this.image = item.image;
         this.description = item.description;
@@ -103,6 +124,45 @@ export class NieuwsPage {
         this.socialSharing.share('Bekijk "' + articleTitle + '" via de Newsage app', "NewsAge", articleImage, articleLink);
     }
 
+    getArticle(articleId,databack)
+    {
+        const headers = new HttpHeaders();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        const options = {headers: headers};
+        const data = {
+            articleId: articleId,
+            userId: this.userId
+        };
+        if(databack == "reload")
+        {
+            this.http.post('http://gazoh.net/getarticle.php', data, options).subscribe(data => {
+                this.item = data;
+                this.likes = this.item[0].likes;
+                this.comments = this.item[0].comments;
+                this.liked = this.item[0].liked;
+            });
+        }
+        if(databack == "liked")
+        {
+            this.http.post('http://gazoh.net/getarticle.php', data, options).subscribe(data => {
+                this.item = data;
+                this.likes = this.item[0].likes;
+                this.comments = this.item[0].comments;
+                this.liked = this.item[0].liked;
+            });
+        }
+        else if (databack == "unliked")
+        {
+            this.http.post('http://gazoh.net/getarticle.php', data, options).subscribe(data => {
+                this.item = data;
+                this.likes = this.item[0].likes;
+                this.comments = this.item[0].comments;
+                this.liked = this.item[0].liked;
+            });
+        }
+    }
+
     dislike(articleId, articleTitle) {
         if(this.network.type !="none")
         {
@@ -129,7 +189,9 @@ export class NieuwsPage {
                         handler: () => {
                             this.http.post('http://gazoh.net/unlike.php', data, options)
                                 .subscribe(data => {
+                                    this.response = data;
                                     if (data == "unliked") {
+                                        this.getArticle(articleId,data);
                                         let toast = this.toastCtrl.create({
                                             message: '"' + articleTitle + '"' + " is verwijderd uit je favorieten!",
                                             duration: 2500,
@@ -156,6 +218,7 @@ export class NieuwsPage {
 
     viewComments(param: any): void {
         if (this.network.type != "none") {
+            console.log(param);
             this.navCtrl.push(CommentsPage, param);
         }
         else if (this.network.type == "none") {
@@ -179,10 +242,12 @@ export class NieuwsPage {
                 articleId: articleId,
                 userId: this.userId
             };
+            console.log("Dit is je data: " + data);
 
             this.http.post('http://gazoh.net/setlike.php', data, options)
                 .subscribe(data => {
                     if (data == "liked") setTimeout(() => {
+                        this.getArticle(articleId,data);
                         this.disabled = false;
                     }, this.TIMER_IN_MS);
                 });
